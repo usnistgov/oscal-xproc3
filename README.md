@@ -1,3 +1,117 @@
+# OSCAL-XProc3 - OSCAL on an XProc3 platform
+
+## 'FAIR' principles
+
+**F**indable, **A**ccessible, **I**nteroperable and **R**eusable - see the [FAIR Software](fair-software.md) page adopted from NIST boilerplate.
+
+TODO: Register this software in MIDAS and any other public listings or search portals
+
+# Software description
+
+This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language](oscal), using W3C-standard [XProc 3.0](xproc) technology.
+
+This may include either OSCAL applications, or applications built to be used in OSCAL development. Each project is kept in its own folder, next to the `lib` and `bin` folders (if present). In that folder, the project will have its own README.md. While projects may rely on shared libraries, each one is considered to be discrete and independent unless otherwise noted.
+
+[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by a development community. [XProc 1.0](xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](xslt3), XProc 3.0 represents a significant advance over XProc 1.0:
+
+- More streamlined and easier to learn and use
+- Capable of processing and delivering any data notation, not only XML, including both JSON and plain-text-based formats (e.g. CSV, TSV etc.)
+
+Both of these are important for OSCAL, which comes as both XML and JSON and whose users vary from the highly technical, to the bare beginner (in XML, OSCAL or both).
+
+Projects currently planned for deployment include:
+
+  - `schema-field-test` OSCAL validation validation test harness - does an OSCAL schema test what you think it tests?
+  - `batch-validate` validate OSCAL in batches against schemas or schema emulators
+  - `data-convert` - convert OSCAL XML into JSON and OSCAL JSON into XML
+  - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
+
+TODO: update this list
+
+Applications in this repository may occasionally have general use outside OSCAL; users who find any of its capabilities should be generalized and published separately please [create a Github Issue](repo-issues).
+
+### OSCAL developers
+
+OSCAL developers may wish to use software on this site as a 'black box', without interest in its internals except insofar as they may be subject to assessment (not reverse engineering).
+
+After following the installation instructions to download and test the core libraries, choose the application you are interested in, and start there.
+
+### XML/XSLT/XProc developers
+
+Software developers using and learning XProc 3.0 and the XDM stack (XML/XSLT/XQuery) may wish to open the box and see how the internals work.
+
+Again, after installation and testing, you can start anywhere -- you have already started.
+
+## Installation instructions
+
+## Running the software
+
+Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
+
+> ./xp3.sh LAUNCH.xpl
+
+Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl`.
+
+TODO: indicate which pipeline to use first
+
+# Contact information
+
+This project is being maintained by Wendell Piez, w e n d e l l (dot) p i e z (at) n i s t (dot) g o v) of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
+
+Please [create a Github Issue](repo-issues) or [join an OSCAL forum]() to pursue discussion on this repository. In support of this project, email to the principal investigator is also welcome.
+
+# Related Material
+
+OSCAL and associated repositories
+oscal-cli
+
+XProc 3.0
+
+# How to cite
+
+# Included software and licenses
+
+
+
+
+[repo-issues]: https://github.com/usnistgov/oscal-xproc3/issues
+[metaschema]: https://pages.nist.gov/metaschema
+[metaschema-repo]: https://github.com/usnistgov/metaschema
+[metaschema-java]: https://github.com/usnistgov/metaschema-java
+[metaschema-xslt]: https://github.com/usnistgov/metaschema-xslt
+[oscal]: https://pages.nist.gov/OSCAL
+[oscal-repo]: https://github.com/usnistgov/OSCAL
+[oscal-xslt]: https://github.com/usnistgov/oscal-xslt
+[oscal-cli]: https://github.com/usnistgov/oscal-cli
+[xslt3-functions]: https://github.com/usnistgov/xslt3-functions
+
+[xproc]: https://xproc.org/
+[xproc-spec]: https://xproc.org/
+[xproc1]: https://xproc.org/
+[xproc1-site]: https://archive.xproc.org/
+
+---
+
+## TODO
+
+- [ ] Software or Data description
+   - [ ] Statements of purpose and maturity
+   - [ ] Description of the repository contents
+   - [ ] Technical installation instructions, including operating system or software dependencies
+- [ ] Contact information
+  - [ ] PI name, NIST OU, Division, and Group names
+   - [ ] Contact email address at NIST
+   - [ ] Details of mailing lists, chatrooms, and discussion forums, where applicable
+- [ ] Related Material
+   - [ ] - URL for associated project on the NIST website or other Department of Commerce page, if available
+   - [ ] - References to user guides if stored outside of GitHub
+[ ] 1. Directions on appropriate citation with example text
+[ ] 1. References to any included non-public domain software modules, and additional license language if needed, *e.g.* [BSD][li-bsd], [GPL][li-gpl], or [MIT][li-mit]
+
+
+---
+BOILERPLATE FOLLOWS
+
 # NIST Open-Source Software Repository Template
 
 Use of GitHub by NIST employees for government work is subject to
@@ -150,3 +264,6 @@ Please reach out with questions and comments.
 [nist-s-1801-02]: https://inet.nist.gov/adlp/directives/review-data-intended-publication
 [nist-open]: https://www.nist.gov/open/license#software
 [wk-rdm]: https://en.wikipedia.org/wiki/README
+
+
+

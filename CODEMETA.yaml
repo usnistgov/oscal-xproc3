@@ -30,10 +30,10 @@
 ---
 categories:
   # - ai-ml
-  # - performance-and-workflow
-  - scientific-software
+  - performance-and-workflow
+  # - scientific-software
   # - simulation
-  # - tools
+  - tools
   # - visualization
 
 themes:
@@ -128,7 +128,7 @@ themes:
   #     - Precision medicine
   #     - Regenerative medicine
   #
-  # - Information Technology
+  - Information Technology
   #     - Artificial intelligence
   #     - Biometrics
   #     - Cloud computing and virtualization
@@ -142,16 +142,16 @@ themes:
   #         - Cryptography
   #         - Cybersecurity Education and Workforce Development
   #         - Risk management
-  #     - Data and informatics
+      - Data and informatics
   #         - Human language technology
-  #         - Information retrieval
+          - Information retrieval
   #         - Natural language processing
   #     - Data entry
   #     - Federal information standards (FIPS)
   #     - Health IT
   #     - Identity and access management
   #     - Internet of Things (IoT)
-  #     - Interoperability testing
+      - Interoperability testing
   #     - Mobile
   #     - Networking
   #         - Mobile and Wireless Networking
@@ -163,10 +163,10 @@ themes:
   #         - Protocol Design and Standardization
   #         - Software-defined and virtual networks
   #     - Privacy
-  #     - Software research
-  #         - Software assurance
+      - Software research
+          - Software assurance
   #         - Software performance
-  #         - Software testing
+          - Software testing
   #     - Usability and human factors
   #         - Accessibility
   #     - Video analytics
@@ -300,14 +300,14 @@ themes:
   #     - Resilient materials
   #     - Windstorm impact reduction
   #
-  # - Standards
+  - Standards
   #     - Accreditation
   #     - Calibration Services
-  #     - Conformity assessment
-  #     - Documentary standards
+      - Conformity assessment
+      - Documentary standards
   #     - Frameworks
-  #     - Reference data
-  #     - Reference instruments
+      - Reference data
+      - Reference instruments
   #     - Reference materials
   #     - Standards education
   #

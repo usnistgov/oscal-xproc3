@@ -1,0 +1,10 @@
+# IDE project file
+*.xpr
+
+# contents of lib
+lib/*
+
+# XSpec test results
+
+**/xspec/*-result.html
+**/*xspec*-result.html
