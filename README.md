@@ -90,7 +90,7 @@ Optionally, Windows users can use a 'batch file' command interface, with drag-an
 Install the libraries by running the script:
 
 ```
-> ./morgana-setup.sh
+> ./setup.sh
 ```
 
 ## Does it work?
