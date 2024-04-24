@@ -1,0 +1,15 @@
+<p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0">
+       
+   <!-- Purpose: provide an example of a no-op XProc 3.0 pipeline -->
+   
+	<p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration' : true() }" />
+   
+   <p:input port="source">
+      <p:inline>
+         <CONGRATULATIONS>Yes, it is possible to name a pipeline 'help'.</CONGRATULATIONS>
+      </p:inline>
+   </p:input>
+	
+	<p:identity/>
+
+</p:declare-step>
