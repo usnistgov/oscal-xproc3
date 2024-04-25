@@ -2,9 +2,9 @@
 
 [OSCAL](oscal) on an [XProc 3.0](xproc) platform
 
-TODO: see schema-field-tests/readme.md TODO
-
 TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
+
+TODO: CI/CD setup - Schematron; XSpec
 
 ## Software description
 
@@ -184,6 +184,11 @@ Such pipelines can be run with no arguments and no prior knowledge of their inpu
 Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented. Indeed, the only function of a 'self-contained' ALL-CAPS pipeline may be to apply subpipelines (steps defined in imported XProcs) to hard-wired inputs, producing hard-wired outputs.
 
 (NB: this convention does not apply in any submodules to this repository.)
+
+
+## Testing
+
+ Testing is a central focus of this initiative. See [TESTING.md](TESTING.md).
 
 ## Contact information
 

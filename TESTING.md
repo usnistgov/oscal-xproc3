@@ -38,3 +38,8 @@ Currently we run no tests under CI/CD but this is also due to change.
 
 Candidate tests include the smoke test just named, but also XSpec tests.
 
+Additional ideas:
+
+- Schematron the XSpecs for style/usage
+  - confirm that @name and @type correspond to the file name   
+
