@@ -7,14 +7,13 @@ TODO: see schema-field-tests/readme.md TODO
 TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
 
 TODO: Register this software in MIDAS and any other public listings or search portals
-TODO: Anything else to make the project more FAIR
-
+TODO: Anything else to make the project more [FAIR](fair-software.md)
 
 ## Software description
 
-*Process OSCAL (XML and JSON) on a platform-independent, open-source XML platform.*
+*Process OSCAL (XML and JSON) easily on a platform-independent, open-source XML platform.*
 
-This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language](oscal), using W3C-standard [XProc 3.0](xproc) technology.
+This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language](oscal), using community-standard [XProc 3.0](xproc) technology.
 
 This may include either OSCAL applications, or applications built to be used in OSCAL development. See below and project (folder) readme files for more details.
 
@@ -26,28 +25,6 @@ The `lib` folder contents are excluded from git, and used to save third-party li
 
 Each project is kept in its own folder, next to the `lib` folder. In that folder, the project will have its own README.md. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
 
-### Background and project goals
-
-This project aims to make XML-based processing using commodity (open-source) tools more broadly available to users and developers of OSCAL.
-
-The many subordinate goals include:
-
-  - Supporting OSCAL activities such as schema testing and development
-  - Supporting XProc 3.0 and related initiatives  
-
-[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost universally platform-dependent.
-
-This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked.
-
-As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, and scalability.
-
-[XProc 1.0](xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](xslt3), XProc 3.0 represents a significant advance over XProc 1.0:
-
-- More streamlined and easier to learn and use
-- Capable of processing and delivering any data notation, not only XML, including both JSON and plain-text-based formats (e.g. CSV, TSV etc.)
-
-Both of these are important for OSCAL, which comes as both XML and JSON and whose users vary from the highly technical, to the bare beginner (in XML, OSCAL or both).
-
 ### Currently planned projects
 
 Projects currently planned for deployment in this repository include:
@@ -58,14 +35,39 @@ Projects currently planned for deployment in this repository include:
   - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
 
 TODO: update this list
+READERS: [anything to add?](issues)
 
 Applications in this repository may occasionally have general use outside OSCAL; users who find any of its capabilities should be generalized and published separately please [create a Github Issue](repo-issues).
+
+### Background and project goals
+
+This project aims to make XML-based processing using commodity (open-source) tools more broadly available to users and developers of OSCAL.
+
+The many subordinate goals include:
+
+  - Supporting OSCAL activities such as schema testing and development
+  - Supporting XProc 3.0 and related standards and initiatives  
+
+#### XProc 3.0
+
+[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost inevitably platform-dependent, if only because a single link with a dependency makes a dependency for the chain.
+
+This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked.
+
+As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, and scalability than prior solutions to the problem of pipeline orchestration.
+
+[XProc 1.0](xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](xslt3), XProc 3.0 represents a significant advance over XProc 1.0:
+
+- More streamlined and easier to learn and use
+- Capable of processing and delivering any data notation, not only XML, including both JSON and plain-text-based formats (e.g. CSV, TSV etc.)
+
+Both of these are important for OSCAL, which comes as both XML and JSON and whose users vary from the highly technical, to the bare beginner (in data formats, in OSCAL or both).
 
 ### FAIR principles
 
 This project is developed with an interest in FAIR principles -- **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. See the [FAIR Software](fair-software.md) page for a writeup.
 
-At the same time, it is intended as a model for study. Any lapses from FAIRness are also therefore instructive. [Channels for discussion](issues) are open.
+At the same time, the work here is intended to provide a model for study. Any lapses from FAIRness are also therefore instructive. [Channels for discussion](issues) are open.
 
 TODO: Register this software in MIDAS and any other public listings or search portals
 
@@ -73,9 +75,9 @@ TODO: Anything else to make the project more FAIR
 
 ## Software maturity
 
-The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed in other contexts and proven its usefulness there. Yet work here also includes work on job configuration (XProc itself) and on testing, which is to say on tools to determine reliability and (by implication) maturity. These may be experimental, not mature.
+The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed and tested in other contexts. Yet work here also includes work on job configuration (XProc itself) and on testing, which is to say on tools to determine correctness and reliability, therefore (by implication) maturity. These may be experimental, not mature.
 
-At the same time, the development model for individual initiatives and the site as a whole is an incremental one. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so.
+At the same time, both individual initiatives and the site as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so.
 
 Assume the worst, hope for the best, and test.
 
@@ -101,8 +103,6 @@ Again, after installation and testing, you can start anywhere -- you have alread
 
 Developed on Windows and tested with WSL and Git bash.
 
-Optionally, Windows users can use a 'batch file' command interface, with drag-and-drop functionality in the GUI. (Go ahead, try dragging an icon for an XPL file onto the icon for `xp3.bat`. For extra fun, change its icon under File/Properties.) 
-
 Install the libraries by running the script:
 
 ```
@@ -125,33 +125,28 @@ TODO - tip for anyone with no Java?
 To test your Morgana setup and installation, try the [Smoke test application](smoketest):
 
 ```
-> ./xp3.sh smoketest/POWERUP.xpl
+> ./xp3.sh smoketest/POWER-UP.xpl
 ```
 
 or (Windows users)
 
 
 ```
-> .\xp3 smoketest\POWERUP.xpl
+> .\xp3 smoketest\POWER-UP.xpl
 ```
 
 Again you should see fine-looking results, this time in XML.
 
-*FEAR NOT THE ANGLE BRACKET!*
+*FEAR NOT THE ANGLE BRACKET*
 
 ## Running the software
 
-If Morgana is installed with Saxon-HE you should be good to go running any pipeline.
+If Morgana is installed with Saxon-HE you should be good to go running any pipeline. See project readme documents for details on each project.
 
-For their data soruces, pipelines can either read from the Internet (when connected and authorized), from the local file system (more commonly) or from inputs provided at runtime using ports.
+- [Schema Field Tests](schema-field-tests/readme.md)
 
-Likewise, when run they can either write outputs (into the local file system), or expose results on output ports, or both.
+TODO: keep this list up to date
 
-In this repository (not its submodules) we follow a convention that an XProc with no exposed ports (neither output ports to bind, and no input ports to provide for) is named with ALL CAPITALS. Such pipelines can be run with no arguments and no prior knowledge of their inputs and outputs, since these are all contained in the XProc itself. They are also deterministic, in the sense that hard-wiring them also makes it easy to see, under simple inspection, where they read and write. Such a pipeline will ordinarily result in outputs to STDOUT (if only status messages) unless configured otherwise at runtime -- but they may and commonly will *also write to the file system*.
-
-A well-designed pipeline will alert its user as to these activities, effects and state changes, using comments in the code, runtime messaging, and logs as appropriate.
-
-Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented.
 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
@@ -159,7 +154,31 @@ Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.b
 
 Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl`.
 
-TODO: indicate which pipeline to use first
+### Drag and drop
+
+Optionally, Windows users can use a 'batch file' command interface, with drag-and-drop functionality in the GUI.
+
+In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a `*.xpr` whose name is in ALL-CAPS - explanation below.)
+
+For extra fun, change the 'bat' file's icon under File/Properties.
+
+TODO: Test and harden ./xp3.sh so it too offers this functionality on \*nix or Mac platforms
+
+### Repository naming convention for XProc - `ALL-CAPS.xpr` files
+
+For their data sources, XProc pipelines can either read from the Internet (when connected and authorized), from the local file system under user permissions (more commonly), or from inputs provided at runtime using their ports.
+
+Likewise, when run they can either write outputs (into the local file system), or expose results on output ports, or both.
+
+A well-designed pipeline will alert its user as to these activities, effects and state changes, using comments in the code, runtime messaging, and logs as appropriate.
+
+In this repository (not its submodules) we follow a convention that an XProc with *no exposed ports* (no output ports to bind, and no input ports to provide for) is named with ALL CAPITALS. For example, the [smoke-testing pipeline smoketest/POWER-UP.xpl](smoketest/POWER-UP.xpl).
+
+Such pipelines can be run with no arguments and no prior knowledge of their inputs and outputs, since these are all contained in the XProc itself. They are also deterministic, in the sense that hard-wiring them also makes it easy to see, under simple inspection, where they read and write - 'least power' (AC-6) for the user. Such a pipeline will ordinarily result in outputs to STDOUT (if only status messages) unless configured otherwise at runtime -- but they may and commonly will *also write to the file system*.
+
+Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented. Indeed, the only function of the 'self-contained' ALL-CAPS pipelines may be only to apply subpipelines (steps defined in imported XProcs) to hard-wired inputs, producing hard-wired outputs.
+
+(NB: this convention does not apply in any submodules to this repository.)
 
 ## Contact information
 
@@ -174,6 +193,7 @@ Please [create a Github Issue](repo-issues) or [join an OSCAL forum]() to pursue
 - [OSCAL web site](oscal)
 - [OSCAL model reference site](oscal-reference)
 - [OSCAL Github code repository](oscal-repo)
+- [OSCAL XSLT code repository](oscal-xslt) - has code that will be useful here
 
 More sites and repositories are devoted to OSCAL and OSCAL tools, but these are the references to start with.
 
@@ -188,7 +208,7 @@ Again these are only a foothold and starting place -
 
 Piez, Wendell (2024), OSCAL-XProc3, US National Institute of Standards and Technology (NIST), https://github.com/usnistgov/oscal-xslt3.
 
-TODO: secure a DOI (register in MIDAS)
+TODO: secure a DOI by registering the project in MIDAS, and update accordingly
 
 ## Included software and licenses
 
@@ -203,7 +223,7 @@ Both require Java, as detailed on their support pages.
 
 See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for more.
 
-XProc 3.0 aims to be platform- and application-independent, so one use of this project could be to test and assess portability across environments supporting XProc. 
+XProc 3.0 aims to be platform- and application-independent, so one use of this project will be to test and assess portability across environments supporting XProc. 
 
 [repo-issues]: https://github.com/usnistgov/oscal-xproc3/issues
 [metaschema]: https://pages.nist.gov/metaschema
