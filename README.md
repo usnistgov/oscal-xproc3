@@ -6,9 +6,6 @@ TODO: see schema-field-tests/readme.md TODO
 
 TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
 
-TODO: Register this software in MIDAS and any other public listings or search portals
-TODO: Anything else to make the project more [FAIR](fair-software.md)
-
 ## Software description
 
 *Process OSCAL (XML and JSON) easily on a platform-independent, open-source XML platform.*
@@ -82,6 +79,14 @@ At the same time, both individual initiatives and the site as a whole follow an 
 Assume the worst, hope for the best, and test.
 
 Cloning the site is very much encouraged, as is participation in testing and development activities.
+
+### `TODO` convention
+
+Documentation on this site starting with this file uses a conventional marker in plain text, `TODO`, to take passing note of tasks remaining undone or incomplete.
+
+Project contributors can see them as either indicators that someone is paying attention (maybe to the wrong thing), or prompts for contributions.
+
+Assuming 'TODO' items are addressed and these markers disappear, the git history for edited files will reflect this.
 
 ## Where to start
 
@@ -176,7 +181,7 @@ In this repository (not its submodules) we follow a convention that an XProc wit
 
 Such pipelines can be run with no arguments and no prior knowledge of their inputs and outputs, since these are all contained in the XProc itself. They are also deterministic, in the sense that hard-wiring them also makes it easy to see, under simple inspection, where they read and write - 'least power' (AC-6) for the user. Such a pipeline will ordinarily result in outputs to STDOUT (if only status messages) unless configured otherwise at runtime -- but they may and commonly will *also write to the file system*.
 
-Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented. Indeed, the only function of the 'self-contained' ALL-CAPS pipelines may be only to apply subpipelines (steps defined in imported XProcs) to hard-wired inputs, producing hard-wired outputs.
+Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented. Indeed, the only function of a 'self-contained' ALL-CAPS pipeline may be to apply subpipelines (steps defined in imported XProcs) to hard-wired inputs, producing hard-wired outputs.
 
 (NB: this convention does not apply in any submodules to this repository.)
 
@@ -224,6 +229,11 @@ Both require Java, as detailed on their support pages.
 See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for more.
 
 XProc 3.0 aims to be platform- and application-independent, so one use of this project will be to test and assess portability across environments supporting XProc. 
+
+
+## Acknowledgements
+
+With the authors of Morgana and Saxon, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces and Apache FOP; and all developers of XML, XSLT, and XQuery especially open-source.
 
 [repo-issues]: https://github.com/usnistgov/oscal-xproc3/issues
 [metaschema]: https://pages.nist.gov/metaschema
