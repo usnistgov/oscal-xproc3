@@ -2,21 +2,23 @@
 
 [OSCAL](oscal) on an [XProc 3.0](xproc) platform
 
-This project is developed with an interest in FAIR principles -- **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. See the [FAIR Software](fair-software.md) page for guiding principles.
+TODO: see schema-field-tests/readme.md TODO
 
 TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
 
 TODO: Register this software in MIDAS and any other public listings or search portals
-
 TODO: Anything else to make the project more FAIR
+
 
 ## Software description
 
-Miscellaneous software for processing OSCAL, on a platform-independent, open-source XML platform.
+*Process OSCAL (XML and JSON) on a platform-independent, open-source XML platform.*
 
 This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language](oscal), using W3C-standard [XProc 3.0](xproc) technology.
 
 This may include either OSCAL applications, or applications built to be used in OSCAL development. See below and project (folder) readme files for more details.
+
+If this software is as easy and performant as we hope, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
 
 ### Organization
 
@@ -28,12 +30,16 @@ Each project is kept in its own folder, next to the `lib` folder. In that folder
 
 This project aims to make XML-based processing using commodity (open-source) tools more broadly available to users and developers of OSCAL.
 
-Many many subordinate goals include:
+The many subordinate goals include:
 
-  - Supporting OSCAL activities such as schema development
+  - Supporting OSCAL activities such as schema testing and development
   - Supporting XProc 3.0 and related initiatives  
 
-[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The application space it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - is most commonly addressed using painful methods including carefully engineered and customized build utilities (including Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks) and proprietary solutions -- almost universally platform-dependent. As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, scalability and power.
+[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost universally platform-dependent.
+
+This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked.
+
+As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, and scalability.
 
 [XProc 1.0](xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](xslt3), XProc 3.0 represents a significant advance over XProc 1.0:
 
@@ -46,7 +52,7 @@ Both of these are important for OSCAL, which comes as both XML and JSON and whos
 
 Projects currently planned for deployment in this repository include:
 
-  - `schema-field-test` OSCAL validation validation test harness - does an OSCAL schema test what you think it tests?
+  - `schema-field-test` OSCAL validation validation test harness - does an OSCAL schema test what you think it tests (try it and see)
   - `batch-validate` validate OSCAL in batches against schemas or schema emulators
   - `data-convert` - convert OSCAL XML into JSON and OSCAL JSON into XML
   - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
@@ -54,6 +60,16 @@ Projects currently planned for deployment in this repository include:
 TODO: update this list
 
 Applications in this repository may occasionally have general use outside OSCAL; users who find any of its capabilities should be generalized and published separately please [create a Github Issue](repo-issues).
+
+### FAIR principles
+
+This project is developed with an interest in FAIR principles -- **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. See the [FAIR Software](fair-software.md) page for a writeup.
+
+At the same time, it is intended as a model for study. Any lapses from FAIRness are also therefore instructive. [Channels for discussion](issues) are open.
+
+TODO: Register this software in MIDAS and any other public listings or search portals
+
+TODO: Anything else to make the project more FAIR
 
 ## Software maturity
 

@@ -6,7 +6,11 @@
    
    <p:input port="source">
       <p:inline>
-         <CONGRATULATIONS>Yes, it is possible to name a pipeline 'help'.</CONGRATULATIONS>
+         <CONGRATULATIONS>
+         <LINE>Yes, it is possible to name a pipeline 'help'.</LINE>
+         <LINE>An Xproc 3.0 instance is an XML document with a root element named 'declare-step' in namespace "http://www.w3.org/ns/xproc", with @version="3.0"</LINE>
+         <LINE><a href="https://xproc.org">XProc</a> is a declarative language for the design, development, execution and maintenance of data processing pipelines.</LINE>
+         </CONGRATULATIONS>
       </p:inline>
    </p:input>
 	
