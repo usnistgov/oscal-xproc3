@@ -50,13 +50,13 @@ The many subordinate goals include:
 
 #### XProc 3.0
 
-[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost inevitably platform-dependent, if only because a single link with a dependency makes a dependency for the chain.
+[XProc 3.0](xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost inevitably platform-dependent, if only because a single link with a dependency brings that dependency to the entire chain.
 
-This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked.
+This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked or (worse) obstructed and left unexplored.
 
 As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, and scalability than prior solutions to the problem of pipeline orchestration.
 
-[XProc 1.0](xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](xslt3), XProc 3.0 represents a significant advance over XProc 1.0:
+[XProc 1.0](xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](xslt3), [XProc 3.0](xproc3-specs) (finalized 2022) represents a significant advance over XProc 1.0, being
 
 - More streamlined and easier to learn and use
 - Capable of processing and delivering any data notation, not only XML, including both JSON and plain-text-based formats (e.g. CSV, TSV etc.)
@@ -97,7 +97,7 @@ Software developers using and learning XProc 3.0 and the XDM stack (XML/XSLT/XQu
 
 Again, after installation and testing, you can start anywhere -- you have already started.
 
-## Installation instructions
+### Installation instructions
 
 *Platform requirements*: Java, plus a `bash` shell.
 
@@ -109,7 +109,7 @@ Install the libraries by running the script:
 > ./setup.sh
 ```
 
-## Does it work?
+### Does it work?
 
 To test your Java installation from the command line:
 
@@ -160,9 +160,9 @@ Optionally, Windows users can use a 'batch file' command interface, with drag-an
 
 In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a `*.xpr` whose name is in ALL-CAPS - explanation below.)
 
-For extra fun, change the 'bat' file's icon under File/Properties.
+Gild the lily by creating a Windows shortcut to the 'bat' file and changing its icon under File/Properties. This link can be placed on your desktop or in another folder, ready to run pipelines.
 
-TODO: Test and harden ./xp3.sh so it too offers this functionality on \*nix or Mac platforms
+TODO: Develop and test ./xp3.sh so it too offers this functionality on \*nix or Mac platforms
 
 ### Repository naming convention for XProc - `ALL-CAPS.xpr` files
 
@@ -216,8 +216,8 @@ The code in this repository is all declarative, and depends on lower-level proce
 
 Currently these dependencies are:
 
-- Morgana XProc III SE, by Achim Berndzen
-- Saxon 12.3, from Saxonica
+- [Morgana XProc IIIse](morgana), by Achim Berndzen and &lt;xml-project />
+- [Saxon 12.3](saxon12), from Saxonica
 
 Both require Java, as detailed on their support pages.
 
@@ -241,6 +241,9 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 [xproc-specs]: https://xproc.org/specifications.html
 [xproc1]: https://xproc.org/
 [xproc1-site]: https://archive.xproc.org/
+
+[morgana]: https://www.xml-project.com/morganaxproc-iiise.html
+[saxon12]: https://www.saxonica.com/documentation12/documentation.xml
 
 ---
 
