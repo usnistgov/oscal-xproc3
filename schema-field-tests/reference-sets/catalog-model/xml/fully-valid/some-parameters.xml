@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../../../../author/CSS/oscal.css"?>
+<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="596ce6ec-f976-4576-9434-dc0f930e5a99">
+   <metadata>
+      <title>Okay catalog</title>
+      <published>2024-02-28T17:29:01.5804435-05:00</published>
+      <last-modified>2024-02-28T18:04:13.1451502-05:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.2</oscal-version>
+      <role id="author">
+         <title>OSCAL Development Team</title>
+      </role>
+   </metadata>
+   <param id="token" depends-on="token" class="token">
+      <prop name="token"
+            value="string"
+            uuid="f95dfb6f-483a-4714-8d44-766ae7372fbe"
+            ns="protocol:uri"
+            class="token">
+         <remarks>
+            <p>Paragraphs and (block-level) markup contents.</p>
+         </remarks>
+      </prop>
+      <link href="uri-reference" media-type="string" rel="token">
+         <text>Text and (inline) markup</text>
+      </link>
+      <label>Text and (inline) markup</label>
+      <usage>
+         <p>Paragraphs and (block-level) markup contents.</p>
+      </usage>
+      <constraint>
+         <description>
+            <p>Paragraphs and (block-level) markup contents.</p>
+         </description>
+         <test>
+            <expression>string</expression>
+            <remarks>
+               <p>Paragraphs and (block-level) markup contents.</p>
+            </remarks>
+         </test>
+      </constraint>
+      <guideline>
+         <p>Paragraphs and (block-level) markup contents.</p>
+      </guideline>
+      <value>string</value>
+      <!-- <select/> -->
+      <remarks>
+         <p>Paragraphs and (block-level) markup contents.</p>
+      </remarks>
+   </param>
+   <control id="token" class="token">
+      <title>Text and (inline) markup</title>
+      <part name="token" id="token" ns="protocol:uri" class="token">
+         <title>Text and (inline) markup</title>
+      </part>
+      <control id="token" class="token">
+         <title>Text and (inline) markup</title>
+         <part name="statement">
+            <p>Text with references to parameters .... </p>
+         </part>
+      </control>
+   </control>
+</catalog>

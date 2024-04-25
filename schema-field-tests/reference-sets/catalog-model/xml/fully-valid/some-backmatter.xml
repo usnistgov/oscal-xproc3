@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../../../../author/CSS/oscal.css"?>
+<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="9480c3bb-3445-48f2-b054-f4aa8708930c">
+   <metadata>
+      <title>Okay catalog</title>
+      <published>2024-02-28T17:29:01.5804435-05:00</published>
+      <last-modified>2024-02-28T17:29:01.5804435-05:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.2</oscal-version>
+      <role id="author">
+         <title>OSCAL Development Team</title>
+      </role>
+   </metadata>
+   <control id="token" class="token">
+      <title>Text and (inline) markup</title>
+      <part name="token" id="token" ns="protocol:uri" class="token">
+         <title>Text and (inline) markup</title>
+      </part>
+      <control id="token" class="token">
+         <title>Text and (inline) markup</title>
+      </control>
+   </control>
+   <group id="token" class="token">
+      <title>Text and (inline) markup</title>
+      
+      <group id="token" class="token">
+         <title>Text and (inline) markup</title>
+         <!-- <control id="token"/> -->
+      </group>
+      <!-- <control id="token"/> -->
+   </group>
+   <back-matter>
+      <resource uuid="fe31d78d-5921-421c-83f4-ef751897516f">
+         <title>Text and (inline) markup</title>
+         <description>
+            <p>Paragraphs and (block-level) markup contents.</p>
+         </description>
+         <prop name="token"
+               value="string"
+               uuid="f95dfb6f-483a-4714-8d44-766ae7372fbe"
+               ns="protocol:uri"
+               class="token">
+            <remarks>
+               <p>Paragraphs and (block-level) markup contents.</p>
+            </remarks>
+         </prop>
+         <document-id scheme="protocol:uri">string</document-id>
+         <citation>
+            <text>Text and (inline) markup</text>
+         </citation>
+         <rlink href="uri-reference" media-type="string">
+            <hash algorithm="string">string</hash>
+         </rlink>
+         <base64 media-type="string" filename="uri-reference">base64Binary</base64>
+         <remarks>
+            <p>Paragraphs and (block-level) markup contents.</p>
+         </remarks>
+      </resource>
+   </back-matter>
+</catalog>

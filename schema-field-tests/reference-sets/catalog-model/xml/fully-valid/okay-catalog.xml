@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="../../../../author/CSS/oscal.css"?>
+<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="f7cf3b1c-6e01-493e-b85e-e5a0fde17628">
+   <metadata>
+      <title>Okay catalog</title>
+      <published>2024-02-28T17:29:01.5804435-05:00</published>
+      <last-modified>2024-02-28T18:03:44.7287756-05:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.2</oscal-version>
+      <role id="author">
+         <title>OSCAL Development Team</title>
+      </role>
+   </metadata>
+   <control id="C1">
+      <title>First Control</title>
+      <part name="statement" id="C1-statement">
+         <title>Text for the first control.</title>
+      </part>
+      <control id="C1_1" class="enhancement">
+         <title>C1 Enhancement</title>
+         <part name="statement">
+            <p>Text for enhancement.</p>
+         </part>
+      </control>
+   </control>
+   <group id="GroupA" class="token">
+      <title>Group A Controls</title>
+         <part name="overview" id="GroupA-overview">
+            <title>Text for the first control.</title>
+         </part>
+      <control id="A1-c1" class="enhancement">
+         <title>Control A-1</title>
+         <part name="statement">
+            <p>Text for control.</p>
+         </part>
+      </control>
+      <control id="A1-c2" class="enhancement">
+         <title>Control A-2</title>
+         <part name="statement">
+            <p>Text for control.</p>
+         </part>
+      </control>
+      <control id="A1-c3" class="enhancement">
+         <title>Control A-3</title>
+         <part name="statement">
+            <p>Text for control.</p>
+         </part>
+      </control>
+   </group>
+   <back-matter>
+      <resource uuid="fe31d78d-5921-421c-83f4-ef751897516f">
+         <title>Resource fe31d78d</title>
+         <description>
+            <p>Some description of the resource</p>
+         </description>
+         <citation>
+            <text>A formal citation</text>
+         </citation>
+      </resource>
+   </back-matter>
+</catalog>
