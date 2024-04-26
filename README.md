@@ -53,7 +53,7 @@ This has hindered the propagation of XML-based technology despite its demonstrat
 
 As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, and scalability than prior solutions to the problem of pipeline orchestration.
 
-[XProc 1.0][xproc1] was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0][xslt3], [XProc 3.0][xproc3-specs] (finalized 2022) represents a significant advance over XProc 1.0, being
+[XProc 1.0][xproc1] was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0][xslt3], [XProc 3.0][xproc-specs] (finalized 2022) represents a significant advance over XProc 1.0, being
 
 - More streamlined and easier to learn and use
 - Capable of processing and delivering any data notation, not only XML, including both JSON and plain-text-based formats (e.g. CSV, TSV etc.)
@@ -78,7 +78,7 @@ At the same time, both individual initiatives and the site as a whole follow an 
 
 Assume the worst, hope for the best, and test.
 
-Cloning the site is very much encouraged, as is participation in testing and development activities.
+Cloning the repository is very much encouraged, as is participation in testing and development activities.
 
 ### `TODO` convention
 
@@ -157,15 +157,15 @@ Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.b
 
 > ./xp3.sh LAUNCH.xpl
 
-Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl`.
+Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there is no actual pipeline of that name).
 
 ### Drag and drop
 
 Optionally, Windows users can use a 'batch file' command interface, with drag-and-drop functionality in the GUI.
 
-In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a `*.xpr` whose name is in ALL-CAPS - explanation below.)
+In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals as in 'ALL-CAPS.xpl') -- explanation below.)
 
-Gild the lily by creating a Windows shortcut to the 'bat' file and changing its icon under File/Properties. This link can be placed on your desktop or in another folder, ready to run pipelines.
+Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
 
 TODO: Develop and test ./xp3.sh so it too offers this functionality on \*nix or Mac platforms
 
@@ -260,6 +260,7 @@ This README was composed using the [NIST Open Source Repository template as of A
 [oscal-cli]: https://github.com/usnistgov/oscal-cli
 [xslt3-functions]: https://github.com/usnistgov/xslt3-functions
 
+[xslt]: https://www.w3.org/TR/xslt-30/
 [xproc]: https://xproc.org/
 [xproc-specs]: https://xproc.org/specifications.html
 [xproc1]: https://xproc.org/
