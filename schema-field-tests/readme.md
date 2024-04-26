@@ -84,6 +84,9 @@ Use the pipeline, Luke! The pipeline `PROVE-XSD-VALIDATIONS.xpl` runs an XSD fie
 
 The pipeline `PROVE-JSON-VALIDATIONS.xpl` runs a JSON Schema field test on each of the documents named in it.
 
+TODO: work JSON testing up next, reusing code from `common`
+TODO: XSpec XSLTS in `common`
+
 ### Inspect and assess the test samples
 
 Test samples are all stored in the folder `reference-sets/`.
@@ -147,10 +150,12 @@ Note that this is not an intrinsic state of an instance, but a *relation* betwee
 
 As it bears on certain distinguishable operations, 'validation state' might also be distinguished:
 
-- legibility - syntax okay and ordered enough for a lossless conversion
-- intelligibility - datatypes are lexically correct and everything casts into types as defined
-- completeness - all model-based rules are followed and no required data fields or structures are missing
-- harmonization - constraints are all followed - these can be arbitrary, e.g. enumerated-value (datatype) or cross-referencing constraints
+- **legibility** - syntax okay and ordered enough for a lossless conversion
+- **intelligibility** - (presumes legibility) datatypes are lexically correct and everything casts into types as defined
+- **completeness** - (presumes legibility) all model-based rules are followed and no required data fields or structures are missing
+  - "valid" conventionally (above) is a combination of intelligible and complete
+- **harmonization** - (often entails 'valid' i.e. completeness + intelligibility) constraints are all followed - these can be arbitrary, e.g. enumerated-value (datatype) or cross-referencing constraints
+  - "disordered" or "variant" instances may be valid, but they are not harmonized - while variant instances may be harmonized with other variant instances.
 
 Especially the last category overlaps with system-level, not trans-systemic constraints, including best practices and other rules not fully formalized or enforced.
 
@@ -177,4 +182,5 @@ TODO: UPDATE THIS FILE, addressing all TODO
 started 20240424
 
 ---
+
 
