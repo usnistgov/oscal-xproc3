@@ -103,11 +103,12 @@ TODO: XSpec the core bits of logic here to externalize things a bit better.
 
 #### Converting samples
 
-The XProc pipeline [`reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl`](reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl) can be used to convert XML files named in the pipeline into JSON equivalents. But it only works on schema-valid instances, dropping data or producing bad outputs from invalid instances.
+The XProc pipeline [`reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl`](reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl) can be used to convert XML files named in the pipeline into JSON equivalents. But it cannot be guaranteed to work on instances that are not schema-valid. 
 
-Whether it can convert a given invalid instance depends on [the type of error or lapse -- see below](#what-are-we-testing).
+Whether it can convert a given invalid instance depends on [the type of error or lapse -- see below](#what-are-we-testing). For example, data that is unexpected is typically dropped. But even if expected (required) data points are missing, what is present can typically be converted. So a defective XML instance (not valid because has something missing) converts cleanly into a similarly defective JSON instance.
 
 Invalid instances that cannot be correctly converted must be aligned by hand, for now, but see [the catalog-model reference set readme.md](reference-sets/catalog-model/readme.md) for more on this topic.
+
 ## What are we testing?
 
 A schema must be tested in a validating processor (depending on the kind of schema), but they can also be decoupled by "mixing and matching" schemas in standard syntaxes with engines that implement them.
