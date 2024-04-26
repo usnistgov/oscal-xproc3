@@ -1,0 +1,73 @@
+
+ { "catalog" : 
+  { "uuid" : "9480c3bb-3445-48f2-b054-f4aa8708930c",
+   "metadata" : 
+   { "title" : "Okay catalog",
+    "published" : "2024-02-28T17:29:01.5804435-05:00",
+    "last-modified" : "2024-02-28T17:29:01.5804435-05:00",
+    "version" : "0.1",
+    "oscal-version" : "1.2",
+    "roles" : 
+    [ 
+     { "id" : "author",
+      "title" : "OSCAL Development Team" } ] },
+   "controls" : 
+   [ 
+    { "id" : "token",
+     "class" : "token",
+     "title" : "Text and (inline) markup",
+     "parts" : 
+     [ 
+      { "id" : "token",
+       "name" : "token",
+       "ns" : "protocol:uri",
+       "class" : "token",
+       "title" : "Text and (inline) markup" } ],
+     "controls" : 
+     [ 
+      { "id" : "token",
+       "class" : "token",
+       "title" : "Text and (inline) markup" } ] } ],
+   "groups" : 
+   [ 
+    { "id" : "token",
+     "class" : "token",
+     "title" : "Text and (inline) markup",
+     "groups" : 
+     [ 
+      { "id" : "token",
+       "class" : "token",
+       "title" : "Text and (inline) markup" } ] } ],
+   "back-matter" : 
+   { "resources" : 
+    [ 
+     { "uuid" : "fe31d78d-5921-421c-83f4-ef751897516f",
+      "title" : "Text and (inline) markup",
+      "description" : "Paragraphs and (block-level) markup contents.",
+      "props" : 
+      [ 
+       { "name" : "token",
+        "uuid" : "f95dfb6f-483a-4714-8d44-766ae7372fbe",
+        "ns" : "protocol:uri",
+        "value" : "string",
+        "class" : "token",
+        "remarks" : "Paragraphs and (block-level) markup contents." } ],
+      "document-ids" : 
+      [ 
+       { "scheme" : "protocol:uri",
+        "identifier" : "string" } ],
+      "citation" : 
+      { "text" : "Text and (inline) markup" },
+      "rlinks" : 
+      [ 
+       { "href" : "uri-reference",
+        "media-type" : "string",
+        "hashes" : 
+        [ 
+         { "algorithm" : "string",
+          "value" : "string" } ] } ],
+      "base64" : 
+      { "filename" : "uri-reference",
+       "media-type" : "string",
+       "value" : "base64Binary" },
+      "remarks" : "Paragraphs and (block-level) markup contents." } ] } } }

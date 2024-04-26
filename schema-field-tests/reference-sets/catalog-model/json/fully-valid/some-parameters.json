@@ -1,0 +1,68 @@
+
+ { "catalog" : 
+  { "uuid" : "596ce6ec-f976-4576-9434-dc0f930e5a99",
+   "metadata" : 
+   { "title" : "Okay catalog",
+    "published" : "2024-02-28T17:29:01.5804435-05:00",
+    "last-modified" : "2024-02-28T18:04:13.1451502-05:00",
+    "version" : "0.1",
+    "oscal-version" : "1.2",
+    "roles" : 
+    [ 
+     { "id" : "author",
+      "title" : "OSCAL Development Team" } ] },
+   "params" : 
+   [ 
+    { "id" : "token",
+     "class" : "token",
+     "depends-on" : "token",
+     "props" : 
+     [ 
+      { "name" : "token",
+       "uuid" : "f95dfb6f-483a-4714-8d44-766ae7372fbe",
+       "ns" : "protocol:uri",
+       "value" : "string",
+       "class" : "token",
+       "remarks" : "Paragraphs and (block-level) markup contents." } ],
+     "links" : 
+     [ 
+      { "href" : "uri-reference",
+       "rel" : "token",
+       "media-type" : "string",
+       "text" : "Text and (inline) markup" } ],
+     "label" : "Text and (inline) markup",
+     "usage" : "Paragraphs and (block-level) markup contents.",
+     "constraints" : 
+     [ 
+      { "description" : "Paragraphs and (block-level) markup contents.",
+       "tests" : 
+       [ 
+        { "expression" : "string",
+         "remarks" : "Paragraphs and (block-level) markup contents." } ] } ],
+     "guidelines" : 
+     [ 
+      { "prose" : "Paragraphs and (block-level) markup contents." } ],
+     "values" : 
+     [ "string" ],
+     "remarks" : "Paragraphs and (block-level) markup contents." } ],
+   "controls" : 
+   [ 
+    { "id" : "token",
+     "class" : "token",
+     "title" : "Text and (inline) markup",
+     "parts" : 
+     [ 
+      { "id" : "token",
+       "name" : "token",
+       "ns" : "protocol:uri",
+       "class" : "token",
+       "title" : "Text and (inline) markup" } ],
+     "controls" : 
+     [ 
+      { "id" : "token",
+       "class" : "token",
+       "title" : "Text and (inline) markup",
+       "parts" : 
+       [ 
+        { "name" : "statement",
+         "prose" : "Text with references to parameters .... " } ] } ] } ] } }

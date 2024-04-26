@@ -56,16 +56,16 @@
    <p:wrap-sequence name="wrapup" wrapper="ALL-REPORTS"/>
    
    <p:xslt name="assessment" message="[PROVE-XSD-VALIDATIONS] Assessing ...">
-      <p:with-input port="stylesheet" href="src/common/validation-screener.xsl"/>
+      <p:with-input port="stylesheet" href="src/validation-screener.xsl"/>
    </p:xslt>
    
    <p:xslt name="summary" message="[PROVE-XSD-VALIDATIONS] Summarizing ...">
-      <p:with-input port="stylesheet" href="src/common/validation-summarizer.xsl"/>
+      <p:with-input port="stylesheet" href="src/validation-summarizer.xsl"/>
    </p:xslt>
    
    <p:xslt name="plaintext">
       <!-- emits a text brick, no elements -->
-      <p:with-input port="stylesheet" href="src/common/summary-plaintext.xsl"/>
+      <p:with-input port="stylesheet" href="src/summary-plaintext.xsl"/>
    </p:xslt>
    
    <p:cast-content-type content-type="text/plain"/>
