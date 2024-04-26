@@ -239,6 +239,15 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 
 With the authors of Morgana and Saxon, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially open-source. Only an open, welcoming and supportive community could prove capable of such a collective achievement.
 
+---
+
+This README was composed using the [NIST Open Source Repository template as of April 24, 2024](https://github.com/usnistgov/opensource-repo/blob/095af7e/README.md).
+
+---
+
+
+<!-- links -->
+
 [repo-issues]: https://github.com/usnistgov/oscal-xproc3/issues
 [metaschema]: https://pages.nist.gov/metaschema
 [metaschema-repo]: https://github.com/usnistgov/metaschema
@@ -258,11 +267,4 @@ With the authors of Morgana and Saxon, the many contributors to the XProc and XM
 
 [morgana]: https://www.xml-project.com/morganaxproc-iiise.html
 [saxon12]: https://www.saxonica.com/documentation12/documentation.xml
-
----
-
-This README was composed using the [NIST Open Source Repository template as of April 24, 2024](https://github.com/usnistgov/opensource-repo/blob/095af7e/README.md).
-
----
-
 
