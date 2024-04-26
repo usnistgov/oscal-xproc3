@@ -1,6 +1,6 @@
 # OSCAL-XProc3
 
-[OSCAL](#oscal) on an [XProc 3.0](#xproc) platform
+[OSCAL][oscal] on an [XProc 3.0][xproc] platform
 
 TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
 
@@ -10,7 +10,7 @@ TODO: CI/CD setup - Schematron; XSpec
 
 *Process OSCAL (XML and JSON) easily on a platform-independent, open-source XML platform.*
 
-This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language](#oscal), using community-standard [XProc 3.0](#xproc) technology.
+This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language][oscal], using community-standard [XProc 3.0][xproc] technology.
 
 This may include either OSCAL applications, or applications built to be used in OSCAL development. See below and project (folder) readme files for more details.
 
@@ -32,9 +32,9 @@ Projects currently planned for deployment in this repository include:
   - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
 
 TODO: update this list
-READERS: [anything to add?](#repo-issues)
+READERS: [anything to add?][repo-issues]
 
-Applications in this repository may occasionally have general use outside OSCAL; users who find any of its capabilities should be generalized and published separately please [create a Github Issue](#repo-issues).
+Applications in this repository may occasionally have general use outside OSCAL; users who find any of its capabilities should be generalized and published separately please [create a Github Issue][repo-issues].
 
 ### Background and project goals
 
@@ -47,13 +47,13 @@ The many subordinate goals include:
 
 #### XProc 3.0
 
-[XProc 3.0](#xproc) is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost inevitably platform-dependent, if only because a single link with a dependency brings that dependency to the entire chain.
+[XProc 3.0][xproc] is an XDM-based (XML Data Model) information processing and pipelining stack published and supported by its development community. The problems it addresses - the configuration, management and execution of complex, composable information processing *pipelines* - are in the center of any XML system, yet they are commonly dealt with - or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions -- almost inevitably platform-dependent, if only because a single link with a dependency brings that dependency to the entire chain.
 
 This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked or (worse) obstructed and left unexplored.
 
 As a standard supporting a common semantics across implementations -- itself proof-tested by a history of earlier work -- XProc 3.0 promises greater adaptability, accessibility, and scalability than prior solutions to the problem of pipeline orchestration.
 
-[XProc 1.0](#xproc1) was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0](#xslt3), [XProc 3.0](#xproc3-specs) (finalized 2022) represents a significant advance over XProc 1.0, being
+[XProc 1.0][xproc1] was published as a [W3C Recommendation](http://www.w3.org/2005/10/Process-20051014/tr.html#rec-publication) in 2010. In addition to integrating the latest XSLT and XQuery technologies such as [XSLT 3.0][xslt3], [XProc 3.0][xproc3-specs] (finalized 2022) represents a significant advance over XProc 1.0, being
 
 - More streamlined and easier to learn and use
 - Capable of processing and delivering any data notation, not only XML, including both JSON and plain-text-based formats (e.g. CSV, TSV etc.)
@@ -64,7 +64,7 @@ Both of these are important for OSCAL, which comes as both XML and JSON and whos
 
 This project is developed with an interest in FAIR principles -- **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. See the [FAIR Software](./fair-software.md) page for a writeup.
 
-At the same time, the work here is intended to provide a model for study. Any lapses from FAIRness are also therefore instructive. [Channels for discussion](#repo-issues) are open.
+At the same time, the work here is intended to provide a model for study. Any lapses from FAIRness are also therefore instructive. [Channels for discussion][repo-issues] are open.
 
 TODO: Register this software in MIDAS and any other public listings or search portals
 
@@ -194,16 +194,16 @@ Other XProc pipelines represent either subpipelines, or specialized processing w
 
 This project is being maintained by Wendell Piez, w e n d e l l (dot) p i e z (at) n i s t (dot) g o v) of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
 
-Please [create a Github Issue](#repo-issues) or [join an OSCAL forum]() to pursue discussion on this repository. In support of this project, email to the principal investigator is also welcome.
+Please [create a Github Issue][repo-issues] or [join an OSCAL forum]() to pursue discussion on this repository. In support of this project, email to the principal investigator is also welcome.
 
 ## Related Material
 
 ### **OSCAL**, the Open Controls and Assessment Language
 
-- [OSCAL web site](#oscal)
-- [OSCAL model reference site](#oscal-reference)
-- [OSCAL Github code repository](#oscal-repo)
-- [OSCAL XSLT code repository](#oscal-xslt) - has code that will be useful here
+- [OSCAL web site][oscal]
+- [OSCAL model reference site][oscal-reference]
+- [OSCAL Github code repository][oscal-repo]
+- [OSCAL XSLT code repository][oscal-xslt] - has code that will be useful here
 
 More sites and repositories are devoted to OSCAL and OSCAL tools, but these are the references to start with.
 
@@ -211,8 +211,8 @@ More sites and repositories are devoted to OSCAL and OSCAL tools, but these are 
 
 Again these are only a foothold and starting place -
 
-- [XProc community page](#xproc)
-- [XProc 3.0 specifications](#xproc-specs)
+- [XProc community page][xproc]
+- [XProc 3.0 specifications][xproc-specs]
 
 ## How to cite
 
@@ -226,8 +226,8 @@ The code in this repository is all declarative, and depends on lower-level proce
 
 Currently these dependencies are:
 
-- [Morgana XProc IIIse](#morgana), by Achim Berndzen and &lt;xml-project />
-- [Saxon 12.3](#saxon12), from Saxonica
+- [Morgana XProc IIIse][morgana], by Achim Berndzen and &lt;xml-project />
+- [Saxon 12.3][saxon12], from Saxonica
 
 Both require Java, as detailed on their support pages.
 
