@@ -2,7 +2,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:cx="http://xmlcalabash.com/ns/extensions"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xslt"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:GRAB-OSCAL-CLI"
    name="GRAB-OSCAL-CLI">
 

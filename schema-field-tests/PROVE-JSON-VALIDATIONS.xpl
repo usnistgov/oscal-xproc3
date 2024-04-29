@@ -2,7 +2,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:cx="http://xmlcalabash.com/ns/extensions"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xslt"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:PROVE-JSON-VALIDATIONS"
    name="PROVE-JSON-VALIDATIONS">
 
@@ -16,13 +16,12 @@
       <p:document href="reference-sets/catalog-model/json/fully-valid/some-backmatter.json"/>
       <p:document href="reference-sets/catalog-model/json/fully-valid/some-parameters.json"/>
       
-      <p:document href="reference-sets/catalog-model/json/schema-invalid/not-okay-catalog.json"/>
+      <p:document href="reference-sets/catalog-model/json/schema-invalid/control-group-mixing.json"/>
       <p:document href="reference-sets/catalog-model/json/schema-invalid/broken-date.json"/>
    </p:input>
    
    <p:output port="result"  serialization="map{'indent' : true()}"/>
    
-      
    <p:variable name="schema-path" select="'lib/oscal-schemas/oscal_catalog_schema.json'"/>
    
    <p:for-each>

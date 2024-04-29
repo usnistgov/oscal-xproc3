@@ -2,9 +2,9 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:cx="http://xmlcalabash.com/ns/extensions"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xslt"
-   type="ox:XSD-VALIDATION-PROOFS"
-   name="XSD-VALIDATION-PROOFS"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   type="ox:PROVE-XSD-VALIDATIONS"
+   name="PROVE-XSD-VALIDATIONS"
    >
 
   <!-- Purpose: An XProc 3 pipeline providing batch validation of XML inputs against an XSD -->
@@ -19,7 +19,7 @@
       <p:document href="reference-sets/catalog-model/xml/fully-valid/some-parameters.xml"/>
       
       <p:document href="reference-sets/catalog-model/xml/schema-invalid/broken-date.xml"/>
-      <p:document href="reference-sets/catalog-model/xml/schema-invalid/not-okay-catalog.xml"/>
+      <p:document href="reference-sets/catalog-model/xml/schema-invalid/control-group-mixing.xml"/>
    </p:input>
    
    <p:output port="result"  serialization="map{'indent' : true()}"/>
