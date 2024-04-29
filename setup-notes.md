@@ -18,7 +18,7 @@ Morgana can be downloaded from  https://sourceforge.net/projects/morganaxproc-ii
 Download Saxon at https://www.saxonica.com/download/SaxonHE12-3J.zip (or adjust for version)
 
   - Unzip and copy `saxon-he-12.3.jar` into the new `MorganaXProc-IIIse-{version}/MorganaXProc-IIIse_lib`
-  - Discard the rest as unneeded
+  - Discard the rest if unwanted - keeping the zip file intact for the license information etc.
 
 ## Adjust your paths
 

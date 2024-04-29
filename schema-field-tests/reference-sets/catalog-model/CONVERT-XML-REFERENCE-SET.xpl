@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../testing/xspec-assurance.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:cx="http://xmlcalabash.com/ns/extensions"
@@ -13,7 +14,7 @@
       <p:document href="xml/fully-valid/some-parameters.xml"/>
       
       <p:document href="xml/schema-invalid/broken-date.xml"/>
-      <p:document href="xml/schema-invalid/not-okay-catalog.xml"/>
+      <p:document href="xml/schema-invalid/control-group-mixing.xml"/>
    </p:input>
    
    <p:for-each>

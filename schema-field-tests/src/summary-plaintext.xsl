@@ -11,9 +11,13 @@
    
    <xsl:template match="/*">
       <xsl:apply-templates/>
-      <xsl:text>&#xA;</xsl:text>
-      <xsl:apply-templates select="descendant::finding" mode="decoration"/>
       <xsl:text>&#xA;{ (1 to 12) ! ':::::' }</xsl:text>
+   </xsl:template>
+
+   <xsl:template match="summary" priority="10">
+      <xsl:text>&#xA;</xsl:text>
+      <xsl:apply-templates select="../child::finding" mode="decoration"/>
+      <xsl:next-match/>   
    </xsl:template>
    
    <xsl:template mode="decoration" match="finding[@status='confirmed']">good</xsl:template>

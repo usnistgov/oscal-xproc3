@@ -164,6 +164,19 @@ Especially the last category overlaps with system-level, not trans-systemic cons
 
 TODO: UPDATE THIS FILE, addressing all TODO
 
+- check-pipelines.xpl pipeline to apply Schematron to pipelines
+  - it can also apply XSpec, why not?
+  - add xslt3-functions repo for XSpec support  
+- call this from a top-level pipeline for ci/cd
+- 
+- Schematron over the pipelines?
+  - Use of @message
+    - Recommend on any p:load or p:store
+    - format
+  - /define-step/@type, @name
+- XProc to apply the Schematron
+- Put this under CI/CD
+
 - Update all utilities and runtimes
     - PROVE-XSD-VALIDATIONS.xpl
     - PROVE-JSON-VALIDATIONS.xpl
