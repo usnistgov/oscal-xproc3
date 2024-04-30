@@ -170,11 +170,6 @@ In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp
 Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
 
 TODO: Develop and test ./xp3.sh so it too offers this functionality on \*nix or Mac platforms
-
-<details><summary>Extra - icon distro</summary>
-
-Check out the files [dutchoven.ico](./dutchoven.ico) or [dutchoven.svg](./dutchoven.svg), either suitable for use as a desktop icon (system permitting) for your XProc 3 shortcut - Windows .ico file made from SVG source by https://redketchup.io/icon-converter
-</details>
   
 ### Repository naming convention for XProc - `ALL-CAPS.xpr` files
 
