@@ -9,29 +9,40 @@
 
    <!-- *Not* for checking XProc correctness - to do that, run it -->
 
+<!-- Don't rely on comments that are likely to go out of date. Rely instead on code.
+   
+   
+     Among the house rules tested here:
+     
+     There must be a namespace 'http://csrc.nist.gov/ns/oscal-xproc3' prefixed 'ox'
+     
+     The name of the step, /*/@name, matches the base name of the file.
+     The type of the step, /*/@type also matches the base name except is prefixed 'ox' for the repo namespace.
+     The stated XProc version must be 3.0
+   
+     No PIs are permitted.
 
+     @message
+       Should be prepended with the step name, in brackets e.g. message="[STEP-NAME] message ..."
+       A variable may be also used to start the message, which offers a workaround.
+       Should appear on any p:load or p:store step (others tbd)
+     
+     Resources
+       the Schematron looks for resources at the end of @href (with no variable callouts), reporting failures
+   -->
 
    <sch:ns prefix="ox" uri="http://csrc.nist.gov/ns/oscal-xproc3"/>
    <sch:ns prefix="p" uri="http://www.w3.org/ns/xproc"/>
    <sch:ns prefix="c" uri="http://www.w3.org/ns/xproc-step"/>
-   <!--<sch:ns prefix="ox" uri="http://csrc.nist.gov/ns/oscal-xproc3"/>-->
    
    <sch:let name="filename" value="(/*/base-uri() => tokenize('/'))[last()]"/>
    <sch:let name="basename" value="replace($filename, '\..*$', '')"/>
    <sch:let name="tag" value="'[' || $basename || ']'"/>
    
-   <!-- we could go through namespace ceremonials for the XProc step type name
-        instead of just reading off @type -->
    <sch:let name="type-prefix" value="substring-before(/*/@type, ':')"/>
    <sch:let name="type-uri" value="/*/namespace-uri-for-prefix($type-prefix, .)"/>
-   <!--<xsl:variable name="type-proxy" as="element()">
-      <xsl:element name="{/*/@type}" namespace="{ $type-uri }"/>
-   </xsl:variable>
-   <sch:let name="nominal-type" value="local-name($type-proxy)"/>-->
 
-   <!-- instead we trust the semantics of the language to ensure the
-        namespace-ness of everything, and simply read it off -->
-   <sch:let name="nominal-type" value="/*/@type/tokenize(., ':')[last()]"/>
+   <sch:let name="typename-given" value="/*/@type/tokenize(., ':')[last()]"/>
    
    <xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -39,10 +50,10 @@
    
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:assert sqf:fix="sqf-make30" test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-type" test="$nominal-type = $basename">Unexpected declared type <sch:value-of select="$nominal-type"/> for the file named <sch:value-of select="$filename"/></sch:assert>
-         <sch:assert test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'" sqf:fix="sqf-repair-step-type">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
-         <sch:assert test="@name = $basename" sqf:fix="sqf-repair-step-name">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
+         <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="$typename-given = $basename">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-name" test="@name = $basename">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>
       
       <sch:rule context="processing-instruction()">
@@ -50,7 +61,8 @@
       </sch:rule>
 
       <sch:rule context="*[exists(@message)]">
-         <sch:assert test="starts-with(@message,$tag) or $ox:leads-with-variable-reference(@message)" sqf:fix="sqf-prepend-message-tag">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
+         <sch:assert sqf:fix="sqf-prepend-message-tag"
+            test="starts-with(@message,$tag) or $ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
          <sqf:fix id="sqf-prepend-message-tag">
             <sqf:description>
                <sqf:title>Prepend the message with '<sch:value-of select="$tag"/>'</sqf:title>
@@ -62,7 +74,7 @@
 
    <sch:pattern>
      <sch:rule context="p:load | p:store">
-        <sch:assert test="matches(@message,'\S')" role="warning" sqf:fix="sqf-add-message">XProc <sch:name/> should emit a message</sch:assert>
+        <sch:assert sqf:fix="sqf-add-message" test="matches(@message,'\S')" role="warning">XProc <sch:name/> should emit a message</sch:assert>
         <sqf:fix id="sqf-add-message">
            <sqf:description>
               <sqf:title>Add a message</sqf:title>
@@ -81,7 +93,7 @@
    </sch:pattern>
    
    <sqf:fixes>
-      <sqf:fix id="sqf-make30">
+      <sqf:fix id="sqf-make-version-3">
          <sqf:description>
             <sqf:title>Assign version 3.0</sqf:title>
          </sqf:description>
