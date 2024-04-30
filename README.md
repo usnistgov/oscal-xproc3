@@ -96,6 +96,8 @@ OSCAL developers may wish to use software on this site as a 'black box', without
 
 After following the installation instructions to download and test the core libraries, choose the application you are interested in, and start there.
 
+- [OSCAL Schema Field Testing](./schema-field-tests/) - assessing the adequacy and correctness of schemas against their definitions
+
 ### XML/XSLT/XProc developers
 
 Software developers using and learning XProc 3.0 and the XDM stack (XML/XSLT/XQuery) may wish to open the box and see how the internals work.
