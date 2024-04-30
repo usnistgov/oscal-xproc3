@@ -2,10 +2,6 @@
 
 [OSCAL][oscal] on an [XProc 3.0][xproc] platform
 
-TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
-
-TODO: CI/CD setup - Schematron; XSpec
-
 ## Software description
 
 *Process OSCAL (XML and JSON) easily on a platform-independent, open-source XML platform.*

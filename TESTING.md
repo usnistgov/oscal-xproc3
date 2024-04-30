@@ -1,5 +1,10 @@
 # TESTING oscal-xproc3
 
+TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
+
+TODO: CI/CD setup - Schematron; XSpec
+
+
 ## Libraries
 
 The underlying processors, [Morgana XProc IIIse](https://www.xml-project.com/morganaxproc-iiise.html) and [Saxon](), are tested by their developers and user communities, as well as by this project.
