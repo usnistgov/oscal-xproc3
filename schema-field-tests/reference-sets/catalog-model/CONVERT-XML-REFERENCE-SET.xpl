@@ -25,7 +25,7 @@
          <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
       </p:xslt>
       
-      <p:store href="{$json-file}" message="Writing JSON file {$json-file} --"/>      
+      <p:store href="{$json-file}" message="[CONVERT-XML-REFERENCE-SET] Writing JSON file {$json-file} --"/>      
    </p:for-each>
    
 </p:declare-step>

@@ -14,30 +14,31 @@
       
    -->
    
-
-   <!--<p:variable name="download-path" select="'https://repo1.maven.org/maven2/gov/nist/secauto/oscal/tools/oscal-cli/cli-core/1.0.1'"/>-->
-   <p:variable name="download-path" select="'.'"/>
+   <p:variable name="download-path" select="'https://repo1.maven.org/maven2/gov/nist/secauto/oscal/tools/oscal-cli/cli-core/1.0.1'"/>
+   <!--<p:variable name="download-path" select="'.'"/>-->
    <p:variable name="archive-basename"  select="'cli-core-1.0.1-oscal-cli'"/>
    
    <p:variable name="zip-name"  select="$archive-basename || '.zip'"/>
    <p:variable name="whither" select="('lib/' || $archive-basename) => resolve-uri(static-base-uri())"/>
 
+   <p:variable name="prefix" select="'[' || 'GRAB-OSCAL-CLI' || ']'"/>
+   
    <!-- It beginneth -->
 
-   <p:load href="{ $download-path }/{ $zip-name }"/>
+   <p:load href="{ $download-path }/{ $zip-name }" message="[GRAB-OSCAL-CLI] p:load: { $download-path }/{ $zip-name } ..."/>
    
-   <p:store href="lib/{ $zip-name }" message="Saving lib/{ $zip-name } (thanks Dave!)"/>
+   <p:store href="lib/{ $zip-name }" message="{$prefix} Saving lib/{ $zip-name } (thanks Dave!)"/>
    
-   <p:identity message="See https://github.com/usnistgov/oscal-cli to set up and use oscal-cli"/>
+   <p:identity message="{$prefix} See https://github.com/usnistgov/oscal-cli to set up and use oscal-cli"/>
    
-   <p:unarchive message="Unzipping { $zip-name }"/>
+   <p:unarchive message="{$prefix} Unzipping { $zip-name }"/>
       
-   <p:for-each message="Unzipping into directory { $whither }">
+   <p:for-each message="{$prefix} Unzipping into directory { $whither }">
       <p:variable name="local-path" select="p:document-property(.,'base-uri') => substring-after($zip-name)"/>
       <p:variable name="path-here" select="($whither || $local-path)"/>
 
       <!--<p:identity message="Seeing a file for { $path-here }"/>-->
-      <p:store href="{ $path-here }" message="Saving { $path-here }"/>
+      <p:store href="{ $path-here }" message="{$prefix} Saving { $path-here }"/>
    </p:for-each>
    
 </p:declare-step>

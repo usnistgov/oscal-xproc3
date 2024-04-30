@@ -26,8 +26,9 @@
    </p:input>
    
    <p:variable name="download-path" select="download/@path/string(.)"/>
+   <p:variable name="prefix" select="'[' || 'GRAB-OSCAL' || ']'"/>
    
-   <p:for-each message="Saving resources in ./lib ...">
+   <p:for-each message="{$prefix} Saving resources in ./lib ...">
       <!-- iterating over each 'resource' as a discrete document node -->
       <p:with-input select="download/resource"/>
       <p:variable name="my-name" select="string(.)"/>
@@ -35,8 +36,8 @@
       
       <!-- No exception handling since a failed load often produces a result
            making it difficult to anticipate what a failure looks like - -->
-      <p:load href="{ ($download-path,$my-name) => string-join('/') }"/>
-      <p:store message="... { $dir ! (. || '/')}{ $my-name }" href="{ ('lib',$dir,$my-name) => string-join('/')}"/>
+      <p:load href="{ ($download-path,$my-name) => string-join('/') }" message="[GRAB-OSCAL] Loading { $my-name} from { $download-path } ..."/>
+      <p:store message="{$prefix} ... saving { $dir ! (. || '/')}{ $my-name }" href="{ ('lib',$dir,$my-name) => string-join('/')}"/>
    </p:for-each>
    
 </p:declare-step>

@@ -1,33 +1,37 @@
 # Schema Validation Field Testing
 
-Determining conformance of OSCAL schemas to their Metaschema definitions.
+Determining conformance of [OSCAL schemas](https://pages.nist.gov/OSCAL) to their [Metaschema definitions](https://github.com/usnistgov/OSCAL/tree/main/src/metaschema).
 
-More generally this means determining conformance of any generated or acquired schemas to Metaschema semantics, or any semantics defined states of 'valid' and 'invalid' that can be specified by example.
+More generally this means determining conformance of any generated or acquired schemas to [Metaschema](https://pages.nist.gov/OSCAL) semantics, or to any semantics defining states of 'valid' and 'invalid', as specified by example.
 
 Note that 'field testing' is not a mathematical proof but a proof by induction -- we try it and see. The provability of schema validation in the abstract (with respect to 'content models' or any other conceivable constraint set) is a theoretical question not addressed here.
+
+The premise is that if you need to be a mathematician to understand schema validation, we have a problem. Instead, we assume that the rules that constitute document validity are understandable by anyone (or anyone with requisite domain knowledge), and do not require 'trust'.
+
+Accordingly these rules can be illustrated by example (conformant and not) and tested under automation (checking the conformance to expectations of schema processing results).
 
 Skip to the [dev punchlist](#dev-punchlist) below for latest plans.
 
 ## TL/DR
 
-1. Read the [top-level readme](../README.md) and follow its installation instructions to install and test Morgana with Saxon.
-1. Scan or read through this readme and any documentation you can find in project folders.
-1. Run the [`GRAB-OSCAL.xpl`](GRAB-OSCAL.xpl) pipeline (using [xp3.sh](../xp3.sh) or [xp3.bat](../xp3.bat) in the parent folder) to acquire OSCAL resources, creating a mini-library for OSCAL to be used in this application.
-1. Verify that it has run by checking to see that new resources have appeared where expected.
+1. Read the [top-level readme](../README.md) and follow its installation instructions to install and test Morgana with Saxon
+1. Scan or read through this readme and any documentation you can find in project folders
+1. Run the [`GRAB-OSCAL.xpl`](GRAB-OSCAL.xpl) pipeline (using [xp3.sh](../xp3.sh) or [xp3.bat](../xp3.bat) in the parent folder) to acquire OSCAL resources, creating a mini-library for OSCAL to be used in this application
+1. Verify that it has run by checking to see that new resources have appeared where expected
 1. To test run OSCAL validations:
     - [`PROVE-JSON-VALIDATIONS.xpl`](PROVE-JSON-VALIDATIONS.xpl) and [`PROVE-XSD-VALIDATIONS.xpl`](PROVE-XSD-VALIDATIONS.xpl) prove their respective validation sets against their respective schemas
     -  Schemas are currently wired into the pipelines - change them there or clone the pipelines for new schemas
     - XML and JSON reference sets are kept separate and aligned as necessary
-    - Expect errors if resources are missing or out of place (and be sure to run `GRAB-OSCAL.xpl`).
+    - Expect errors if resources are missing or out of place (and be sure to run `GRAB-OSCAL.xpl`)
 
 For use in development
 
-1. CONVERT-XML-REFERENCE-SET.xpl helps convert samples from XML to JSON - it is also hard-wired to convert documents named in the pipeline. As such, it can be reconfigured or imported into another pipeline.
-1. ../smoketest/POWERUP.xpl does nothing but exercise the XSLT engine (to hear it hum).
+1. [CONVERT-XML-REFERENCE-SET.xpl](CONVERT-XML-REFERENCE-SET.xpl) helps convert samples from XML to JSON - it is also hard-wired to convert documents named in the pipeline. As such, it can be reconfigured or imported into another pipeline.
+1. [../smoketest/POWERUP.xpl](../smoketest/POWERUP.xpl) does nothing but exercise the XSLT engine (to hear it hum).
 
 ## Testing
 
-See [`TESTING.md`](TESTING).
+See [`TESTING.md`](TESTING.md).
 
 ## In this project folder
 
@@ -35,14 +39,15 @@ The architecture and configuration are intended to be appropriated and embedded 
 
 - XProc 3 pipeline files provide runtime configurations
 - `reference-set` contains reference (sub)sets
-- within, distinct families (models / validation profiles) are distinguished, for example [`catalog-model`](reference-sets/catalog-model/) for OSCAL catalogs
+  - within, distinct families (models / validation profiles) are distinguished, for example [`catalog-model`](reference-sets/catalog-model/) for OSCAL catalogs
   - Each should have its own readme
-- `src` XSLT and XProc code supporting runtimes
+- `src` has XSLT and XProc code supporting runtimes
   - `\*.xpl` signifies XProc 3.0 (for Morgana XProc III)
 - `lib` (created by running `GRAB-OSCAL.xpl`) contains downloaded resources, including
   - schemas to be tested
   - utilities such as converter scripts
   - alternative implementations for comparison, such as [oscal-cli](https://github.com/usnistgov/oscal-cli)
+  - `.gitignore` excludes contents of `lib` from the repository, for the developer to curate locally
 
 ## Goals
 
@@ -50,13 +55,17 @@ We aim to be able to show definitively that a particular XSD or JSON schema is c
 
 This is in support of OSCAL Issue https://github.com/usnistgov/OSCAL/issues/1989 and related issues.
 
-Going beyond this to address more fundamental problems, for the sake of OSCAL conformance testing, and in general, we aim to be able to test any XSD or JSON Schema, with any schema validation engine. Similarly, any validator that 'emulates' a schema (returns the same error messages as a schema validation would, for the same inputs) can similarly be tested.
+Going beyond this to address more fundamental problems, for the sake of OSCAL conformance testing, and in general, we aim to be able to test any XSD or JSON Schema, with any schema validation engine. Any validator that 'emulates' a schema (returns the same error messages as a schema validation would, for the same inputs) can similarly be tested.
 
 For this prototype we focus on the processors built into commodity XML tools as a baseline: XSD and JSON Schema validation as offered by Morgana XProc III using its libraries of commodity tools.
 
 ## Non-goals
 
 To support generalizing the approach, an interface language for validation error reporting might be designed and deployed. This is not part of the current scope of work, but should be planned (in the [Metaschema](https://github.com/usnistgov/metaschema) context, not OSCAL context).
+
+[XVRL](https://spec.xproc.org/master/head/xvrl/) is available as a reference point for this work (part of XProc 3.0, 2020) and might be adopted, to start. Many of these pipelines could be provided with a XVRL output port.
+
+[TODO: identify potential consumers of XVRL that could give us leverage here?]
 
 Until then, each new validation engine must be provided with its own testing harness. XProc harnesses can be developed for any runtime that can be integrated into Morgana and deliver its results back for processing. (Hint: XProc 3.0 has a `p:os-exec` step.)
 
@@ -84,9 +93,6 @@ Use the pipeline, Luke! The pipeline `PROVE-XSD-VALIDATIONS.xpl` runs an XSD fie
 
 The pipeline `PROVE-JSON-VALIDATIONS.xpl` runs a JSON Schema field test on each of the documents named in it.
 
-TODO: work JSON testing up next, reusing code from `common`
-TODO: XSpec XSLTS in `common`
-
 ### Inspect and assess the test samples
 
 Test samples are all stored in the folder `reference-sets/`.
@@ -97,7 +103,7 @@ Note that their placement in the reference sets is used as an indicator to the v
 
 The XSLT `src/common/validation-screener.xsl` has a function with this logic.
 
-TODO: XSpec the core bits of logic here to externalize things a bit better.
+TODO: XSpec the core bits of logic here to externalize things a bit better?
 
 ### Add to the test samples
 
@@ -137,21 +143,21 @@ Accordingly we start with (at least) three categories:
 
 Running over these sets, a validation engine is expected to be able to discriminate their members correctly, to the extent possible.
 
-Without support for Metaschema constraints, an XSD or JSON Schema validator cannot distinguish between 'valid' and 'disordered' - for them, a putative category 'schema-valid' unifies `valid` and `disordered`.
+Without support for Metaschema constraints, an XSD or JSON Schema validator cannot distinguish between 'valid' and 'disordered' - for them, a putative category 'schema-valid' unifies 'valid' and 'disordered'.
 
-(A different intersection, namely instances that return no errors on constraints but are invalid structurally, is excluded, since structural validation is a *sine qua non*. Only instances that are not defective can be disordered.)
+(A different intersection, namely instances that return no errors on constraints but are invalid structurally, is excluded, since structural validation is a requirement for 'orderliness'. Only instances that are not defective can be disordered; or, defective instances are also disordered *ipso facto* even if no other constraints are violated.)
 
 We have to maintain all categories in both XML and JSON formats, to begin (possibly YAML also, in future).
 
-A small but pervasive problem in JSON Schema modeling provides us an opportunity to use this scaffolding (Issue metaschema-xslt #105).
+A small but pervasive problem in JSON Schema modeling provides us an opportunity to use this scaffolding [Issue metaschema-xslt #105](https://github.com/usnistgov/metaschema-xslt/issues/105).
 
 ### Validation state
 
-Note that this is not an intrinsic state of an instance, but a *relation* between a given instance (as artifact of representation) and a set of rules and definitions in application to it (collectively call a 'schema').
+Note that this is not an intrinsic state of an instance, but a *relation* between a given instance (as artifact of representation) and a set of rules and definitions in application to it (collectively called a 'schema').
 
 As it bears on certain distinguishable operations, 'validation state' might also be distinguished:
 
-- **legibility** - syntax okay and ordered enough for a lossless conversion
+- **legibility** - syntax okay and ordered enough for a lossless conversion - e.g. no unrecognized contents
 - **intelligibility** - (presumes legibility) datatypes are lexically correct and everything casts into types as defined
 - **completeness** - (presumes legibility) all model-based rules are followed and no required data fields or structures are missing
   - "valid" conventionally (above) is a combination of intelligible and complete
@@ -165,8 +171,7 @@ Especially the last category overlaps with system-level, not trans-systemic cons
 TODO: UPDATE THIS FILE, addressing all TODO
 
 - check-pipelines.xpl pipeline to apply Schematron to pipelines
-  - it can also apply XSpec, why not?
-  - add xslt3-functions repo for XSpec support  
+  - consider `xslt3-functions` submodule for SchXSLT support
 - call this from a top-level pipeline for ci/cd
 - 
 - Schematron over the pipelines?
@@ -177,10 +182,6 @@ TODO: UPDATE THIS FILE, addressing all TODO
 - XProc to apply the Schematron
 - Put this under CI/CD
 
-- Update all utilities and runtimes
-    - PROVE-XSD-VALIDATIONS.xpl
-    - PROVE-JSON-VALIDATIONS.xpl
-    - reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl
 - Pick up 'choice' testing and demo bug
 - Invite play testing
 - How far can we get with oscal-cli?

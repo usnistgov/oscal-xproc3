@@ -5,7 +5,7 @@
             
 	<p:output port="result" serialization="map{'indent' : true()}" />
 	
-   <p:xslt name="smoketest" message="XPROC 3 SMOKE TEST - - - Applying transformation ...">
+   <p:xslt name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - Applying transformation ...">
       <p:with-input port="source">
          <p:inline>
             <CONGRATULATIONS>Congratulations on running an XProc 3 pipeline.</CONGRATULATIONS>
