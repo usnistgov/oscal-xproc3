@@ -4,11 +4,11 @@ Determining conformance of [OSCAL schemas](https://pages.nist.gov/OSCAL) to thei
 
 More generally this means determining conformance of any generated or acquired schemas to [Metaschema](https://pages.nist.gov/OSCAL) semantics, or to any semantics defining states of 'valid' and 'invalid', as specified by example.
 
-Note that 'field testing' is not a mathematical proof but a proof by induction -- we try it and see. The provability of schema validation in the abstract (with respect to 'content models' or any other conceivable constraint set) is a theoretical question not addressed here.
+Note that 'field testing' is not a mathematical proof but an empirical demonstration -- we try it and see. In only some cases are we able and willing to exhaust the 'possibility space' we are examining, for an actual 'proof'. The provability of schema validation in the abstract (with respect to 'content models' or any other conceivable constraint set) is a theoretical question not addressed here.
 
-The premise is that if you need to be a mathematician to understand schema validation, we have a problem. Instead, we assume that the rules that constitute document validity are understandable by anyone (or anyone with requisite domain knowledge), and do not require 'trust'.
+The premise is that if you need to be a mathematician to understand schema validation, we have a problem. Instead, we assume that the rules that constitute document validity are understandable by anyone (or anyone with requisite domain knowledge), and do not require 'trust'. That being said - "rules is rules", but they can also be very relative (in function and applicability) and sensitive to circumstance.
 
-Accordingly these rules can be illustrated by example (conformant and not) and tested under automation (checking the conformance to expectations of schema processing results).
+Accordingly we help to define the constraint space by showing models or specimens. They demonstrate the rules by example (of conformance and failure) and tested under automation (checking schema processing results against expectations).
 
 Skip to the [dev punchlist](#dev-punchlist) below for latest plans.
 

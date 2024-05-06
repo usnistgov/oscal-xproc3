@@ -38,7 +38,7 @@ See [Morgana documentation](https://www.xml-project.com/manual/index.html) for m
 
 Because it reduces to (nearly) the most minimal use of XProc, if the [smoke test](./smoketest/) application doesn't work, nothing can be expected to work.
 
-If the smoke test works, but another pipeline does not function correctly, any problem is most likely with the pipeline itself, or in a resource that it reads or requires.
+If the smoke test works, but another pipeline does not function correctly, any problem is most likely not with installation or configuration, but with the pipeline itself, or in a resource that it reads or requires.
 
 Morgana returns information about errors and warnings in XML format. While this compromises their legibility on the screen, generally speaking the messages embedded are fairly helpful. And this XML is very useful for other purposes, as it can be trapped.
 

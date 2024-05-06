@@ -4,10 +4,11 @@ TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
 
 TODO: CI/CD setup - Schematron; XSpec
 
+TODO: PR page with TODO
 
 ## Libraries
 
-The underlying processors, [Morgana XProc IIIse](https://www.xml-project.com/morganaxproc-iiise.html) and [Saxon](), are tested by their developers and user communities, as well as by this project.
+The underlying processors, [Morgana XProc IIIse](https://www.xml-project.com/morganaxproc-iiise.html) and [Saxon](https://www.saxonica.com/welcome/welcome.xml), are tested by their developers and user communities, as well as by this project.
 
 XProc conformance testing is [documented for Morgana on its site](https://test-suite.xproc.org/implementation.html), using the [public XProc 3.0 test suite](https://test-suite.xproc.org/).
 
