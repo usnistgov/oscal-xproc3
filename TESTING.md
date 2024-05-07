@@ -1,8 +1,6 @@
 # TESTING oscal-xproc3
 
-TODO: Make up an XSpec for XSLT smoketest/congratulations.xsl
-
-TODO: CI/CD setup - Schematron; XSpec
+TODO: CI/CD setup - Schematron; XSpec - xslt3-functions submodule
 
 TODO: PR page with TODO
 
@@ -36,7 +34,7 @@ We aim to support XSpec for XSLT unit tests and very much encourage deployment o
 
 They are good not only for testing but also to help elucidate what an XSLT does and how it works.
 
-Examing the file system and CI/CD configuration is the best way to assess how far we have advanced with this.
+Examining the file system and CI/CD configuration is the best way to assess how far we have advanced with this.
 
 ## Testing under CI/CD
 

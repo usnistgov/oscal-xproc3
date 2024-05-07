@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" stylesheet="congratulations.xsl">
+   <x:scenario label="Scenario for testing a function">
+      <x:context>
+         <CONGRATULATIONS>Here is stuff</CONGRATULATIONS>
+      </x:context>
+      
+      <x:expect label="break out and amend">
+         <CONGRATULATIONS>
+            <LINE>Here is stuff</LINE>
+            <LINE>...</LINE>
+         </CONGRATULATIONS>
+      </x:expect>
+      <x:expect label="new line is added as expected" test="$x:result/LINE[last()] => starts-with('You have successfully executed an XSL transformation')"/>
+   </x:scenario>
+</x:description>
