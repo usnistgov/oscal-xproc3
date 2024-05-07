@@ -3,7 +3,7 @@
    version="3.0" expand-text="true" exclude-result-prefixes="#all">
    
    <!-- Purpose: validate the operation of the Saxon transformation engine inside an XProc configuration. -->
-   <!-- Input: an XML document in no namespace with a single element CONGRATULATIONS, in no namespace, with plain text content, as in the pipeline file ../../hello-morgana.xpl -->
+   <!-- Input: an XML document in no namespace with a single element CONGRATULATIONS, in no namespace, with plain text content -->
    
    <xsl:template match="/CONGRATULATIONS">
       <xsl:copy>

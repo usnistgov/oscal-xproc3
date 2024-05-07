@@ -9,7 +9,7 @@ If the PR is a work-in-progress submitted for early review, please include [WIP]
 ### All Submissions:
 
 - [ ] Follow [Contributing](https://github.com/usnistgov/oscal-xproc3/blob/main/CONTRIBUTING.md) guidelines
-- [ ] Make no changes addressing issues being addressed in other open [Pull Requests](https://github.com/usnistgov/oscal-xproc3/pulls)
+- [ ] Make no changes duplicating or conflicting with other open [Pull Requests](https://github.com/usnistgov/oscal-xproc3/pulls)
 - [ ] Have been squashed to keep only relevant interim commits, if any \[[instructions](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)\]
 - [ ] Have been tested manually
 - [ ] Pass all CI/CD checks
