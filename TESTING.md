@@ -30,11 +30,15 @@ Additionally, applications that are (for example) testing frameworks, also need 
 
 ### Testing XSLT with unit tests
 
-We aim to support XSpec for XSLT unit tests and very much encourage deployment of XSpecs.
+We aim to support XSpec for XSLT unit tests and very much encourage deployment of XSpecs. They are good not only for testing but also to help elucidate what an XSLT does and how it works.
 
-They are good not only for testing but also to help elucidate what an XSLT does and how it works.
+The best way to assess how far we have advanced with this is to examine the file system and CI/CD configuration.
 
-Examining the file system and CI/CD configuration is the best way to assess how far we have advanced with this.
+### House rules: code format
+
+No house rules have been defined or codified yet for XProc, XSLT, XSpec or other formats, but [a Schematron](testing/xproc3-house-rules.sch) is underway to help XProc authors write flawless XProc for this repo. See the [testing](./testing) folder. As documented inline, it enforces a couple of guidelines at WARNING level as well as providing error detection.
+
+In time there may be Schematrons or other tests for XSpecs and other work.
 
 ## Testing under CI/CD
 

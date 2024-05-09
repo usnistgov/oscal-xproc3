@@ -3,8 +3,12 @@
 
 # contents of lib
 lib/*
+# except its readme.md
+!lib/readme.md
 
 # XSpec test results
 
+*_report.html
 **/xspec/*-result.html
 **/*xspec*-result.html
+*junit-report.xml
