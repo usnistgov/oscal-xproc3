@@ -183,7 +183,16 @@ Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.b
 
 Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there is no actual pipeline of that name).
 
-<details><summary>Drag and drop (Windows only, so far)</summary>
+<details><summary>File naming convention</summary>
+
+In this repository, an XProc pipeline (step) named in all capitals, as in `ALL-CAPS.xpr`, is a "standalone" pipeline step, meaning it works without having to set any external bindings or options.
+
+See the [House Rules](./house-rules.md) for more.
+
+(NB: this convention is unlikely to apply in repository submodules.)
+</details>
+
+<details><summary>Drag and drop (Windows only)</summary>
 
 Optionally, Windows users can use a 'batch file' command interface, with drag-and-drop functionality in the GUI (graphic user interface, your 'Desktop').
 
@@ -194,35 +203,20 @@ Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be
 TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this functionality on \*nix or Mac platforms - lettuce know &#x1F96C; if you want or can do this
   
 </details>
-<details><summary>File naming convention</summary>
-
-In this repository, an XProc pipeline (step) named in all capitals, as in `ALL-CAPS.xpr`, is a "standalone" pipeline step, meaning it needs no external bindings or options set to run.
-
-For their data sources, XProc pipelines can either read from the Internet (when connected and authorized), from the local file system under user permissions (more commonly), or from inputs provided at runtime using ports on the pipeline(s) invoked.
-
-Likewise, when run they can either write outputs (into the local file system), or expose results on output ports, or both.
-A well-designed pipeline will alert its user as to these activities, effects and state changes, using comments in the code, runtime messaging, and logs as appropriate.
-
-For our pipelines (not repository submodules) we follow a convention that an XProc with *no exposed ports* (no output ports to bind, and no input ports to provide for) is named with ALL CAPITALS. For example, the [smoke-testing pipeline smoketest/POWER-UP.xpl](./smoketest/POWER-UP.xpl). When run, it reports outputs back to the console but does not write anywhere (unless you redirect those outputs to do so).
-
-Such pipelines can be run with no arguments and no prior knowledge of their intended inputs and outputs, since these are all declared in the XProc itself. As processes they are also deterministic, in the sense that hard-wiring them also makes it easy to see, under simple inspection, where they read and write, following the ['rule of least power'](https://en.wikipedia.org/wiki/Rule_of_least_power) and helping the user to do so. Such a pipeline will ordinarily result in outputs to STDOUT (if only status messages) unless configured otherwise at runtime -- but they may and commonly will also write to the file system.
-
-Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented. Indeed, the only function of a 'self-contained' ALL-CAPS pipeline may be to apply subpipelines (steps defined in imported XProcs) to hard-wired inputs, producing hard-wired outputs.
-
-(NB: this convention is unlikely to apply in repository submodules.)
-</details>
 
 ## Testing
 
 Testing is a central focus of this initiative. See [TESTING.md](./TESTING.md).
 
+Some repository-wide testing, not for functionality but other requirements, in the [testing](./testing) directory.
+
 ## Contact information
 
 TODO: procure a project alias from ServiceNow
 
-This project is being maintained by Wendell Piez, wapiez @ nist . gov of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
+This project is being maintained by Wendell Piez, w a p i e z @ n i s t . g o v of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
 
-Please [create a Github Issue][repo-issues] or [join an OSCAL forum]() to pursue discussion on this repository. In support of this project, email to the principal investigator is also welcome.
+Please [create a Github Issue][repo-issues] or [pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/) for discussion on this repository. In support of this project, email to the principal investigator is also welcome.
 
 ## Related Material
 
