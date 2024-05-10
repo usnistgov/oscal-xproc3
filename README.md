@@ -284,6 +284,7 @@ Currently these dependencies are:
 
 - [Morgana XProc IIIse][morgana], by Achim Berndzen and &lt;xml-project />
 - [Saxon 12.3][saxon12], from Saxonica
+- - [SchXSLT][schxslt], by David Maus
 
 Both require Java, as detailed on their support pages.
 
@@ -325,4 +326,5 @@ This README was composed using the [NIST Open Source Repository template as of A
 [ixml]: https://invisiblexml.org
 [morgana]: https://www.xml-project.com/morganaxproc-iiise.html
 [saxon12]: https://www.saxonica.com/documentation12/documentation.xml
+[schxslt]: https://github.com/schxslt/schxslt
 

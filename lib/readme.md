@@ -8,7 +8,20 @@ See the project [readme](../README.md), the [setup script](../setup.sh) and [set
 
 Expect runtime errors from processing if libraries are missing or named incorrectly. Since scripts including [xp3.sh](../xp3.sh) and [xp3.bat](../xp3.bat) invocation shells use this software, adjustments must be made as software versions, locations or interfaces change.
 
-Refresh by deleteing everything but this file, and run [setup](../setup.sh) again.
+## In the subdirectory
+
+- [readme.md](readme.md) - this file
+- [morgana-config.xml](morgana-config.xml) - Morgana configuration file
+- [GRAB-SAXON.xpl](GRAB-SAXON.xpl) - Saxon download and installation pipeline (XProc 3.0)
+- [GRAB-SCHXSLT.xpl](GRAB-SCHXSLT.xpl) - SchXSLT download pipeline (XProc 3.0)
+
+## Restore
+
+Refresh by deleting everything but the files just named.
+
+Run [setup](../setup.sh) again (or [follow the setup notes](../setup-notes.md)) and the two `GRAB*` pipelines in the folder, to acquire Saxon and SchXSLT for XSLT and Schematron support.
+
+Test by running the [smoke tests](../smoketest/).
 
 
 ---
