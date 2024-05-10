@@ -1,7 +1,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:POWER-UP"
-   name="POWER-UP">
+   type="ox:SMOKETEST-SCHEMATRON"
+   name="SMOKETEST-SCHEMATRON">
             
 	<p:output port="result" serialization="map{'indent' : true()}" />
 

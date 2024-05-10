@@ -23,8 +23,10 @@ else
     echo "You have ${morgana} in directory lib"
 fi
 
-echo "Morgana is available - next, try executing a bare pipeline such as smoketest/POWER-UP.xpl, or proceed straight to acquiring Saxon --"
-echo "Run the pipeline lib/GRAB-SAXON.xpl to download, unzip and install the Saxon-HE processor, enabling XSLT and XQuery in your XProc pipelines"
+echo "Morgana is available - next, try executing a bare pipeline such as smoketest/POWER-UP.xpl ..."
+echo "Having run this .sh script you can probably figure out that ./xp3.sh lib/POWER-UP.xpl is the syntax to do that"
+echo "Then run the pipeline lib/GRAB-SAXON.xpl to download, unzip and install the Saxon-HE processor, enabling XSLT and XQuery in your XProc pipelines"
+echo "viz: ./xp3.sh lib/GRAB-SAXON.xpl"
 
 popd > /dev/null
 

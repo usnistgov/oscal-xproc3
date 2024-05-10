@@ -32,7 +32,8 @@ As a standard supporting a common semantics across implementations -- itself pro
 
 Both of these are important for OSCAL, which comes as both XML and JSON and whose users vary from the highly technical, to the bare beginner (in data formats, in OSCAL or both).
 
-[An accessible overview of XProc 3.0](https://www.xml.com/articles/2019/11/05/introduction-xproc-30/), by Erik Siegel, appears on [XML.com](https://www.xml.com/).
+[An accessible overview of XProc 3.0](https://www.xml.com/articles/2019/11/05/introduction-xproc-30/), by Erik Siegel, appears on [XML.com](https://www.xml.com/)
+[XPorc.net](xporc.net) is a site run by Martin Kraetke with an [XProc tutorial](https://xporc.net/xproc-tutorial)
 
 \* Especially when combined with [Invisible XML][ixml].
 
