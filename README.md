@@ -188,9 +188,9 @@ Again you should see fine-looking results, this time in XML.
 
 #### Other smoke tests
 
-After installing Saxon, the smoke test []() will function, returning sensible outputs.
+After installing Saxon, the smoke test [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl) will function, returning sensible outputs.
 
-After installing SchXSLT, the smoke test []() will function, returning sensible outputs.
+After installing SchXSLT, the smoke test [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl) will function, returning sensible outputs.
 
 
 [Another page offers help](./setup-notes.md) with details on manual setup.
@@ -217,7 +217,7 @@ Note that a pipeline may run successfully without XSLT or Schematron support, if
 
 In this repository, an XProc pipeline (step) named in all capitals, as in `ALL-CAPS.xpr`, is a "standalone" pipeline step, meaning it works without having to set any external bindings or options.
 
-See the [House Rules](./house-rules.md) for more.
+See the [House Rules](./house-rules.md) for more information.
 
 (NB: this convention is unlikely to apply in repository submodules.)
 </details>
@@ -238,7 +238,7 @@ TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this functionality 
 
 Testing is a central focus of this initiative. See [TESTING.md](./TESTING.md).
 
-Some repository-wide testing, not for functionality but other requirements, in the [testing](./testing) directory.
+Some repository-wide testing, not for functionality but for other requirements, is maintained in the [testing](./testing) directory.
 
 ## Contact information
 
