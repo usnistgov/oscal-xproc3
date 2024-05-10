@@ -44,9 +44,14 @@
 
    <sch:let name="typename-given" value="/*/@type/tokenize(., ':')[last()]"/>
    
-   <xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
+   <!--<xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
-      select="function($v as item()) as xs:boolean { string($v) => matches('^\s*\{\s*\$\i\c*\s*\}') }"/>
+      select="function($v as item()) as xs:boolean { string($v) => matches('^\s*\{\s*\$\i\c*\s*\}') }"/>-->
+   
+   <xsl:function name="ox:leads-with-variable-reference" as="xs:boolean">
+      <xsl:param name="v" as="item()"/>
+      <xsl:sequence select="string($v) => matches('^\s*\{\s*\$\i\c*\s*\}')"/>
+   </xsl:function>
    
    <sch:pattern>
       <sch:rule context="/*">
@@ -62,7 +67,7 @@
 
       <sch:rule context="*[exists(@message)]">
          <sch:assert sqf:fix="sqf-prepend-message-tag"
-            test="starts-with(@message,$tag) or $ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
+            test="starts-with(@message,$tag) or ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
          <sqf:fix id="sqf-prepend-message-tag">
             <sqf:description>
                <sqf:title>Prepend the message with '<sch:value-of select="$tag"/>'</sqf:title>

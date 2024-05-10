@@ -3,8 +3,10 @@
 
 # contents of lib
 lib/*
-# except its readme.md
+# except for important items
 !lib/readme.md
+!lib/GRAB-SCHXSLT.xpl
+!lib/morgana-config.xml
 
 # XSpec test results
 

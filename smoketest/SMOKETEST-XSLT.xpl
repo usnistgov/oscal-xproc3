@@ -5,12 +5,14 @@
             
 	<p:output port="result" serialization="map{'indent' : true()}" />
 	
-   <p:identity name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - Applying transformation ...">
+   <p:xslt name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - Applying transformation ...">
       <p:with-input port="source">
          <p:inline>
             <CONGRATULATIONS>Congratulations on running an XProc 3 pipeline.</CONGRATULATIONS>
          </p:inline>
       </p:with-input>
-   </p:identity>
+      <!-- inline XSLTs don't apparently work so well inside Morgana? -->
+      <p:with-input port="stylesheet" href="congratulations.xsl"/>
+   </p:xslt>
 
 </p:declare-step>

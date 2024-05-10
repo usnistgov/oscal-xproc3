@@ -4,13 +4,17 @@
    name="POWER-UP">
             
 	<p:output port="result" serialization="map{'indent' : true()}" />
-	
-   <p:identity name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - Applying transformation ...">
+
+   <!-- assert-valid='false' returns the input document with SVRL on another port
+   see https://spec.xproc.org/master/head/validation/#c.validate-with-schematron
+   -->
+   <p:validate-with-schematron assert-valid="false">
+      <p:with-input port="schema" href="doing-well.sch"/>
       <p:with-input port="source">
          <p:inline>
             <CONGRATULATIONS>Congratulations on running an XProc 3 pipeline.</CONGRATULATIONS>
          </p:inline>
       </p:with-input>
-   </p:identity>
+   </p:validate-with-schematron>
 
 </p:declare-step>

@@ -67,7 +67,9 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-The `lib` folder contents are excluded from git, and used to save third-party libraries. The `lib` library is populated by the installation script. It can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - follow the [readme](./lib/readme.md).
+`lib` and `testing` folders are special; others represent projects.
+
+The `lib` folder comes bare bones - it has only its readme, a configuration file and a utility pipeline. This library is populated by the [installation script](./setup.sh). It can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md).
 
 Each project is kept in its own folder, next to the `lib` folder. In that folder, the project will have its own README.md. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
 
@@ -94,9 +96,14 @@ TODO: Register this software in MIDAS and any other public listings or search po
 TODO: Anything else to make the project more FAIR
 </details>
 
-<details><summary>`TODO` convention</summary>
+<details><summary>House rules</summary>
 
-Documentation on this site starting with this file uses a conventional marker in plain text, `TODO`, to take passing note of tasks remaining undone or incomplete.
+Contributors are expected to follow [CONTRIBUTORS](./CONTRIBUTORS.md) guidelines and to try to [be FAIR](fair-software.md); additionally there are some [house rules](house-rules.md). Since there is a house rule against making rules with no mechanism for enforcement or amelioration, constraints are light and mainly regard coding conventions.
+
+</details>
+<details><summary>`TODO` annotation convention</summary>
+
+A house rule: documentation on this site starting with this file uses a conventional marker in plain text, `TODO`, to take passing note of tasks remaining undone or incomplete.
 
 Project contributors can see them as either indicators that someone is paying attention (maybe to the wrong thing), or prompts for contributions.
 
@@ -129,11 +136,27 @@ After installation and testing, you can start anywhere -- you have already start
 
 Developed on Windows and tested with WSL and Git bash.
 
-Install the libraries by running the script:
+I. Install the XProc3 engine by running the script:
 
 ```
 > ./setup.sh
 ```
+
+You should now be able to run bare-bones XProc - a pipeline processor (Morgana) with rudimentary capabilities.
+
+The next steps both test this runtime, and provide Morgana with more power, namely XSLT transformations (using Saxon), and Schematron (using SchXLST).
+
+SchXSLT is written in XSLT and requires Saxon, so run (and test) the Saxon pipeline first.
+
+How to run any of these pipelines is [detailed below](#running-the-software).
+
+II. To install Saxon: [lib/GRAB-SAXON.xpl](lib/GRAB-SAXON.xpl)
+
+To test Saxon: [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl)
+
+III. To install SchXSLT: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl)
+
+To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
 
 <details><summary>Does it work?</summary>
 
@@ -143,19 +166,17 @@ To test your Java installation from the command line:
 > java -version
 ```
 
-
 You should see a nice message with your Java version, not an error or traceback.
 
 TODO - tip for anyone with no Java?
 
-To test your Morgana setup and installation, try the [Smoke test application](./smoketest):
+To test Morgana, try the [Smoke test application](./smoketest):
 
 ```
 > ./xp3.sh smoketest/POWER-UP.xpl
 ```
 
 or (Windows users)
-
 
 ```
 > .\xp3 smoketest\POWER-UP.xpl
@@ -164,6 +185,13 @@ or (Windows users)
 Again you should see fine-looking results, this time in XML.
 
 *FEAR NOT THE ANGLE BRACKET*
+
+#### Other smoke tests
+
+After installing Saxon, the smoke test []() will function, returning sensible outputs.
+
+After installing SchXSLT, the smoke test []() will function, returning sensible outputs.
+
 
 [Another page offers help](./setup-notes.md) with details on manual setup.
 
@@ -183,7 +211,9 @@ Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.b
 
 Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there is no actual pipeline of that name).
 
-<details><summary>File naming convention</summary>
+Note that a pipeline may run successfully without XSLT or Schematron support, if the pipeline itself does not depend on these capabilities.
+
+<details><summary>ALL-CAPS file naming convention</summary>
 
 In this repository, an XProc pipeline (step) named in all capitals, as in `ALL-CAPS.xpr`, is a "standalone" pipeline step, meaning it works without having to set any external bindings or options.
 

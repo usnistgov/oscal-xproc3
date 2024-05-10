@@ -2,15 +2,17 @@
 
 While not all submissions or contributions will always follow all house rules, any violations can be regarded as fair game for correction.
 
-Developers should always observe and follow the rules.
+Developers should always observe and follow the rules. Assessors can expect them to be followed, and make judgements accordingly.
 
-Assessors should expect them to be followed.
+For this site, not all rules are enumerated here. To the extent that aligning rules, rule sets and applications is a problem *in scope* for these projects, they may also have their own ways of addressing them - so consult project readmes and docs.
 
-For this site, not all rules are enumerated here. To the extent that aligning rules, rule sets and applications, since that problem is *in scope* for these projects, which may have their own ways of addressing them - so consult project readmes and docs.
+Anyone working with XML should know and become familiar with the concept that a **rules set** &mdash; whether in the form of a **schema**, a **transformation** or **query**, or other means of interrogationg and filtering &mdash; can readily be applied, both in principle and in practice, to an XML document. And any document can be evaluated to any rules set. While the significance of the result of such an exam will vary by the case, the *capability* of automating and thereby easily replicating and verifying results of such evaluations by means of an open process, is one whose full implications have not yet been explored.
 
-Anyone working with XML should know and become familiar with the concept that a rules set - whether in the form of a schema, a transformation or query, or other means of interrogationg and filtering - can always, readily be applied to an XML document. While the significance of the result of such an exam will vary by the case, the *capability* of automating and thereby easily replicating and verifying results by means of an open process, is one whose full implications have not yet been explored..
+We aim to do that here. Enforcement with a light touch does not mean no enforcement.
 
+## 'TODO' annotation convention
 
+See the [readme.md](readme.md), although this should be self-explanatory.
 
 ## Schematron
 

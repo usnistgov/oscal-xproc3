@@ -17,24 +17,14 @@ morgana_download="https://sourceforge.net/projects/morganaxproc-iiise/files/${mo
 
 if [ ! -f "${morgana}.zip" ]; then
     echo "Downloading Morgana XProc III SE ..."
-    curl -L -o "${morgana}.zip"  "${morgana_download}"
+    curl -L -o "${morgana}.zip" "${morgana_download}"
     unzip -qo "${morgana}.zip" -x __MACOSX/**
 else
     echo "You have ${morgana} in directory lib"
 fi
 
-
-if [ ! -f ${morgana}/MorganaXProc-IIIse_lib/saxon-he-12.3.jar ]; then
-    echo "Downloading Saxon 12.3 ..."
-    curl -L -o SaxonHE12-3J.zip https://www.saxonica.com/download/SaxonHE12-3J.zip
-    echo "Unzipping and installing Saxon HE jar into Morgana ..."
-    unzip -q -o SaxonHE12-3J.zip "saxon-he-12.3.jar"
-    mv -f saxon-he-12.3.jar ${morgana}/MorganaXProc-IIIse_lib
-else
-    echo "Saxon-HE is available with ${morgana}"
-fi
-
-echo "Morgana is available - next, try executing a pipeline with xp3.sh --"
+echo "Morgana is available - next, try executing a bare pipeline such as smoketest/POWER-UP.xpl, or proceed straight to acquiring Saxon --"
+echo "Run the pipeline lib/GRAB-SAXON.xpl to download, unzip and install the Saxon-HE processor, enabling XSLT and XQuery in your XProc pipelines"
 
 popd > /dev/null
 
