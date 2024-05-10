@@ -284,9 +284,9 @@ Currently these dependencies are:
 
 - [Morgana XProc IIIse][morgana], by Achim Berndzen and &lt;xml-project />
 - [Saxon 12.3][saxon12], from Saxonica
-- - [SchXSLT][schxslt], by David Maus
+- [SchXSLT][schxslt], by David Maus
 
-Both require Java, as detailed on their support pages.
+Morgana and Saxon both require Java, as detailed on their support pages. SchXSLT requires XSLT, hence Saxon.
 
 See [THIRD_PARTY_LICENSES.md](./THIRD_PARTY_LICENSES.md) for more.
 
@@ -294,7 +294,7 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 
 ## Acknowledgements
 
-With the authors of Morgana and Saxon, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially open-source. Only an open, welcoming and supportive community could prove capable of such a collective achievement.
+With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially open-source. Only an open, welcoming and supportive community could prove capable of such a collective achievement.
 
 ---
 
