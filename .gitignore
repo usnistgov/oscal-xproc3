@@ -5,6 +5,7 @@
 lib/*
 # except for important items
 !lib/readme.md
+!lib/GRAB-SAXON.xpl
 !lib/GRAB-SCHXSLT.xpl
 !lib/morgana-config.xml
 
