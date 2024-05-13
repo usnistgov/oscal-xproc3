@@ -2,20 +2,18 @@
 
 [OSCAL][oscal] on an [XProc 3.0][xproc] platform
 
-OSCAL is the Open Security Controls Assessment Language. It is a domain-specific language supporting the field of systems security and risk management (RMF), expressed in XML, JSON and other formats. This site supports primarily but *not exclusively* XML formatted OSCAL.
+OSCAL is the Open Security Controls Assessment Language. It is a domain-specific language supporting the field of systems security, security assessment and risk management (RMF), expressed in XML, JSON and other formats. This site supports primarily but *not exclusively* XML-formatted OSCAL.
 
 The XProc demonstrations and capabilities shown are not limited to OSCAL.
 
-[TODO: split out some of the high-level discussion and guidance into a wiki?]
-
 ## Background and project goals
 
-This project aims to make XML-based processing using commodity (open-source) tools more broadly available to users and developers of OSCAL.
+This project aims to make XML-based processing using commodity (open-source) tools more broadly available, useful, reliable and intelligible, especially to users and developers of OSCAL.
 
 The many subordinate goals include:
 
   - Supporting OSCAL activities such as schema testing and development
-  - Providing useful models for XProc 3.0 and related standards and initiatives  
+  - Providing useful applications and models for study, showing XProc 3.0 and related standards and initiatives  
 
 Learn more about XProc in [researching-xproc.md](./researching-xproc.md).
 
@@ -33,7 +31,7 @@ If this software is as easy and performant as we hope, it might be useful not on
 
 Projects currently planned for deployment in this repository include:
 
-  - `schema-field-test` OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner - does an OSCAL schema validator test what you think it tests? (try it and see)
+  - [`schema-field-test](./schema-field-test)` OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
@@ -50,25 +48,29 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 `lib` and `testing` folders are special; others represent projects.
 
-The `lib` folder comes bare bones - it has only its readme, a configuration file and a utility pipeline. This library is populated by the [installation script](./setup.sh). It can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md).
+The `lib` folder comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), ahnd (once the basic setup is done) by these same utility pipelines.
 
-Each project is kept in its own folder, next to the `lib` folder. In that folder, the project will have its own README.md. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
+`lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Also, a `testing` directory contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
+Next to `lib`, each project is kept in its own separate folder. There, the project will have its own README.md. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
+
+One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and 'fully assembled' forms.
+
+The `testing` directory contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
 
 ## Software maturity
 
-The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed and tested in other contexts. Yet work here also includes work on job configuration (XProc itself) and on testing, which is to say on tools to determine correctness and reliability, therefore (by implication) maturity. These may be experimental, not mature.
+The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed and tested in other contexts. Yet work here also includes job configuration (XProc itself) and testing, which is to say on tools to determine correctness and reliability, therefore (by implication) maturity. These may be experimental, not mature.
 
-At the same time, both individual initiatives and the site as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so.
+At the same time, both individual initiatives and the site as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal.
 
 Assume the worst, hope for the best, and test.
 
-Cloning the repository is encouraged and taken as a sign of success, as is participation in testing and development activities.
+Cloning the repository is encouraged and taken as a sign of success. So is any participation in testing and development activities.
 
 <details><summary>FAIR principles</summary>
 
-This project is developed with an interest in FAIR principles -- **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. See the [FAIR Software](./fair-software.md) page for a writeup.
+This project is developed with an interest in FAIR principles &mdash; **F**indable, **A**ccessible, **I**nteroperable and **R**eusable. See the [FAIR Software](./fair-software.md) page for a writeup.
 
 At the same time, the work here is intended to provide a model for study. Any lapses from FAIRness are also therefore instructive. [Channels for discussion][repo-issues] are open.
 
@@ -108,7 +110,7 @@ After following the installation instructions to download and test the core libr
 
 Software developers using and learning XProc 3.0 and the XDM stack (XML/XSLT/XQuery) may wish to open the box and see how the internals work.
 
-After installation and testing, you can start anywhere -- you have already started.
+After installation and testing, you can start anywhere &mdash; you have already started.
 </details>
 
 ### Installation instructions
@@ -209,7 +211,7 @@ See the [House Rules](./house-rules.md) for more information.
 
 Optionally, Windows users can use a 'batch file' command interface, with drag-and-drop functionality in the GUI (graphic user interface, your 'Desktop').
 
-In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals as in 'ALL-CAPS.xpl') -- explanation below.)
+In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals as in 'ALL-CAPS.xpl') &mdash; explanation below.)
 
 Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
 

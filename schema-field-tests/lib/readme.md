@@ -1,6 +1,6 @@
 # Schema field tests - lib
 
-If this directory is empty, try running pipelines in the schema field tests to populate it.
+If this directory is empty, try running pipelines in the parent subdirectory to populate it.
 
 This directory has its contents excluded from git, to be provided as needed by users or developers who wish to run the utility.
 

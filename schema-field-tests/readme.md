@@ -4,11 +4,11 @@ Determining conformance of [OSCAL schemas](https://pages.nist.gov/OSCAL) to thei
 
 More generally this means determining conformance of any generated or acquired schemas to [Metaschema](https://pages.nist.gov/OSCAL) semantics, or to any semantics defining states of 'valid' and 'invalid', as specified by example.
 
-Note that 'field testing' is not a mathematical proof but an empirical demonstration -- we try it and see. In only some cases are we able and willing to exhaust the 'possibility space' we are examining, for an actual 'proof'. The provability of schema validation in the abstract (with respect to 'content models' or any other conceivable constraint set) is a theoretical question not addressed here.
+Note that 'field testing' offers no mathematical proof, but only empirical demonstration &mdash; we try it and see. In only some cases are we able and willing to exhaust the 'possibility space' we are examining, for an actual 'proof'. The provability of schema validation in the abstract (with respect to 'content models' or any other conceivable constraint set) is a theoretical question not addressed here.
 
 The premise is that if you need to be a mathematician to understand schema validation, we have a problem. Instead, we assume that the rules that constitute document validity are understandable by anyone (or anyone with requisite domain knowledge), and do not require 'trust'. That being said - "rules is rules", but they can also be very relative (in function and applicability) and sensitive to circumstance.
 
-Accordingly we help to define the constraint space by showing models or specimens. They demonstrate the rules by example (of conformance and failure) and tested under automation (checking schema processing results against expectations).
+Accordingly we help to define the constraint space by showing models or specimens. They demonstrate the rules by example (of conformance and failure) and tested under automation (checking schema processing results against well-defined expectations).
 
 Skip to the [dev punchlist](#dev-punchlist) below for latest plans.
 
@@ -170,17 +170,9 @@ Especially the last category overlaps with system-level, not trans-systemic cons
 
 TODO: UPDATE THIS FILE, addressing all TODO
 
-- check-pipelines.xpl pipeline to apply Schematron to pipelines
-  - consider `xslt3-functions` submodule for SchXSLT support
-- call this from a top-level pipeline for ci/cd
-- 
-- Schematron over the pipelines?
-  - Use of @message
-    - Recommend on any p:load or p:store
-    - format
-  - /define-step/@type, @name
-- XProc to apply the Schematron
-- Put this under CI/CD
+TODO: break this readme out into high-level vs theoretical treatment (./validation-theory.md).
+
+- Schematron under ci/cd?
 
 - Pick up 'choice' testing and demo bug
 - Invite play testing
