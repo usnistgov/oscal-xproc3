@@ -55,17 +55,18 @@ In XProc, a configuration may include any of:
 
 Learn more by researching [XProc](https://xproc.org/), looking at examples and trying things out.
 
-<details><summary>More about running XProc</summary>
+### Aiming for transparency
 
 For their data sources, XProc pipelines can either read from the Internet (when connected and authorized), from the local file system under user permissions (more commonly), or from inputs provided at runtime using ports on the pipeline(s) invoked.
 
 Likewise, when run they can either write outputs (into the local file system), or expose results on output ports, or both.
 
+Because an XProc does not expose documents on its ports does not mean it does not read and write to the file system, thereby producing 'side effects', by design. Any pipeline or step might do either or both.
+
 A well-designed pipeline will alert its user as to these activities, effects and state changes, using comments in the code, runtime messaging, and logs as appropriate.
 
-As noted, for our pipelines (not repository submodules) we follow a convention that an XProc with *no exposed ports* (no output ports to bind, and no input ports to provide for) is named with ALL CAPITALS. For example, the smoke-testing pipeline [smoketest/POWER-UP.xpl](./smoketest/POWER-UP.xpl). When executed, it simply runs: it does not have to be set in any way, even with a nominal input or source file.
+It also follows the ['rule of least power'](https://en.wikipedia.org/wiki/Rule_of_least_power) and helps the user to do so. *More power is not more good*
 
-Pipelines like this can be run with no arguments and no prior knowledge of their intended inputs and outputs because those are all declared in the XProc itself. As processes they are also deterministic, in the sense that hard-wiring them also makes it easy to see, under simple inspection, where they read and write, following the ['rule of least power'](https://en.wikipedia.org/wiki/Rule_of_least_power) and helping the user to do so. Such a pipeline will ordinarily result in outputs to STDOUT (if only status messages) unless configured otherwise at runtime -- but they may and commonly will also write to the file system.
+---
 
-Other XProc pipelines represent either subpipelines, or specialized processing with ports exposed for special purposes, to be called with arguments or parameters as documented. Indeed, the only function of a 'self-contained' ALL-CAPS pipeline may be to apply subpipelines (steps defined in imported XProcs) to hard-wired inputs, producing hard-wired outputs.
-</details>
+
