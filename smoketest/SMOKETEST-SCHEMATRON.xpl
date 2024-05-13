@@ -17,4 +17,6 @@
       </p:with-input>
    </p:validate-with-schematron>
 
+   <p:namespace-delete prefixes="ox"/>
+   
 </p:declare-step>

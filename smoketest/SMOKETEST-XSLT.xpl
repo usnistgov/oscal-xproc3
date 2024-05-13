@@ -15,4 +15,6 @@
       <p:with-input port="stylesheet" href="congratulations.xsl"/>
    </p:xslt>
 
+   <p:namespace-delete prefixes="ox"/>
+   
 </p:declare-step>

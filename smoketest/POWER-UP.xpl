@@ -3,7 +3,7 @@
    type="ox:POWER-UP"
    name="POWER-UP">
             
-	<p:output port="result" serialization="map{'indent' : true()}" />
+	<p:output port="result" serialization="map{ 'indent' : true() }" />
 	
    <p:identity name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - Applying transformation ...">
       <p:with-input port="source">
@@ -13,4 +13,6 @@
       </p:with-input>
    </p:identity>
 
+   <p:namespace-delete prefixes="ox"/>
+   
 </p:declare-step>
