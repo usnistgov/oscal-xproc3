@@ -1,8 +1,8 @@
 # Repository testing
 
-While projects in this repository should each provide its own testing, its various resources also benefit from repository-wide testing, for example Schematron testing to ensure fitness of XProc pipelines and XSpec test files, according to project requirements.
+While projects in this repository should all provide for their own testing, XProc and other formats in use also benefit from repository-wide testing, for example Schematron testing to ensure fitness of XProc pipelines and XSpec test files, according to repository (not only project) requirements.
 
-The [House Rules](../house-rules.md) include a number of constraints that can usefully be applied to any of the resources posted. Since XSLT and XProc 3.0 are both expressed in XML format, this makes them amenable to testing using the same tool set as we use to test other (XML-based) processes and results.
+The [House Rules](../house-rules.md) include and imply a number of constraints that can usefully be applied to any of the resources posted. Since XSLT, XProc, and XSpec are both expressed in XML format, this makes them amenable to testing using the same tool set as we use to test other (XML-based) processes and results.
 
 ## Pipelines in this folder:
 
@@ -25,5 +25,7 @@ The same Schematron is easy and fun to use in a tool that supports Schematron Qu
 
 Naturally the application of all these rules can be altered by editing the Schematron.
 
-Depending on the demand, similar rules can be enforced for XSLT and XSpec.
+Depending on requirements and demand, similar rules can be enforced for XSLT and XSpec.
+
+---
 
