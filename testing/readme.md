@@ -10,6 +10,8 @@ The [House Rules](../house-rules.md) include and imply a number of constraints t
 
 [BATCH-XPROC3-HOUSE-RULES.xpl](BATCH-XPROC3-HOUSE-RULES.xpl) - applies the House Rules Schematron to a set of XProc files enumerated in the pipeline step. Edit the file or call it with overriding bindings on the `xproc-files` input port.
 
+[HARDFAIL-XPROC3-HOUSE-RULES.xpl](HARDFAIL-XPROC3-HOUSE-RULES.xpl) - same as BATCH-XPROC3-HOUSE-RULES.xpl, except this pipeline FAILS HARD if any files are found to be invalid - which includes messages of any kind or stated level from Schematron (whether `assert` or `report` or what the nominal warning level). Since it fails if documents are out of expected order, this version is useful under CI/CD or other 'brittle' process workflows.
+
 ## Schematron in this folder:
 
 [xproc3-house-rules.sch](xproc3-house-rules.sch) - Schematron to validate House Rules on XProc pipelines.

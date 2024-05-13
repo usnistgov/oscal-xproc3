@@ -9,10 +9,6 @@
    <!-- Note: this doesn't run without an available copy of SchXSLT -
         to be set up in ../lib -->
    
-   
-   <!-- Purpose: An XProc 3 pipeline providing batch validation of XML inputs against an XSD -->
-   
-   <!-- Input: a set of files is collected dynamically via p:directory - all *.xpr files outside a directory named 'no_test' or 'no-test' -->
    <p:input port="xproc-files" sequence="true">
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
@@ -24,7 +20,6 @@
    
    <p:for-each>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-      <p:variable name="base" select="base-uri(/)"/>
       <p:try>
          <p:group name="validation">
             <p:variable name="base" select="base-uri(/*)"/>
