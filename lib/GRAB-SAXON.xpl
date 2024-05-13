@@ -3,7 +3,7 @@
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:cx="http://xmlcalabash.com/ns/extensions"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:GRAB-SAXON0"
+   type="ox:GRAB-SAXON"
    name="GRAB-SAXON">
 
 
