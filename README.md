@@ -199,6 +199,8 @@ Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there
 
 Note that a pipeline may run successfully without XSLT or Schematron support, if the pipeline itself does not depend on these capabilities.
 
+Similarly, the Morgana installation provided by this project is not the only way to run XProc - these pipelines will work just as well in any other conformant XProc 3.0 engine or processing environment.
+
 <details><summary>ALL-CAPS file naming convention</summary>
 
 In this repository, an XProc pipeline (step) named in all capitals, as in `ALL-CAPS.xpr`, is a "standalone" pipeline step, meaning it works without having to set any external bindings or options.
@@ -206,6 +208,7 @@ In this repository, an XProc pipeline (step) named in all capitals, as in `ALL-C
 See the [House Rules](./house-rules.md) for more information.
 
 (NB: this convention is unlikely to apply in repository submodules.)
+
 </details>
 
 <details><summary>Drag and drop (Windows only)</summary>
