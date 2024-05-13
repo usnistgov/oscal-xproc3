@@ -10,11 +10,20 @@
         to be set up in ../lib -->
    
    <p:input port="xproc-files" sequence="true">
-      <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
+      <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
+      <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
+      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
+      <p:document href="../schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
+      <p:document href="../schema-field-tests/GRAB-OSCAL.xpl"/>
+      <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
+      <p:document href="../schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
+      <p:document href="../smoketest/POWER-UP.xpl"/>
+      <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
+      <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
    </p:input>
-   
-   <p:output port="result"  serialization="map{'indent' : true()}"/>
+ 
+   <p:output port="result" serialization="map{'indent' : true()}"/>
 
    <p:variable name="schematron-path" select="'xproc3-house-rules.sch'"/>
    
