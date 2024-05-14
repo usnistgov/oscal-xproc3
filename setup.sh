@@ -19,6 +19,7 @@ if [ ! -f "${morgana}.zip" ]; then
     echo "Downloading Morgana XProc III SE ..."
     curl -L -o "${morgana}.zip" "${morgana_download}"
     unzip -qo "${morgana}.zip" -x __MACOSX/**
+    chmod +x "${morgana}/Morgana.sh"
 else
     echo "You have ${morgana} in directory lib"
 fi

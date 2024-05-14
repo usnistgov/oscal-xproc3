@@ -14,7 +14,7 @@
    
    <p:variable name="zip-name"  select="'SaxonHE12-3J.zip'"/>
    
-   <p:variable name="target-dir" select="'MorganaXProc-IIIse-1.3.7x/MorganaXProc-IIIse_lib'"/>
+   <p:variable name="target-dir" select="'MorganaXProc-IIIse-1.3.7/MorganaXProc-IIIse_lib'"/>
    <p:variable name="whither" select="resolve-uri($target-dir, static-base-uri())"/>
 
    <p:variable name="prefix" select="'[' || 'GRAB-SAXON' || ']'"/>
