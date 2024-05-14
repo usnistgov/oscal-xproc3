@@ -11,33 +11,22 @@
    
         caution - this includes Schematron WARNING and INFO level messages -->
    
+   <p:import href="TEST-XPROC-SET.xpl"/>
    
-   <p:input port="source" sequence="true">
-      <p:document href="../lib/GRAB-SAXON.xpl"/>
-      <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
-      
-      <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
-      <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
-      <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
-      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
-      <p:document href="../schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
-      <p:document href="../schema-field-tests/GRAB-OSCAL.xpl"/>
-      <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
-      <p:document href="../schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
-      <p:document href="../smoketest/POWER-UP.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
-   </p:input>
-    
    <p:variable name="schematron-path" select="'xproc3-house-rules.sch'"/>
    
+   <ox:TEST-XPROC-SET name="test-set"/>
+   
    <p:for-each>
+      <p:with-input pipe="xproc-files@test-set"/>
       <p:validate-with-schematron assert-valid="true"
          message="[HARDFAIL-XPROC3-HOUSE-RULES] Validating { base-uri(/) } against { $schematron-path }">
          <p:with-input port="schema" href="{$schematron-path}"/>
       </p:validate-with-schematron>
       <p:sink/>
    </p:for-each>
+   
+   <!-- If we manage to get this far we have succeeded - no result is called for -->
    
 </p:declare-step>
 

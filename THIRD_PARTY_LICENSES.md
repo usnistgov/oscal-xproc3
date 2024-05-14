@@ -19,5 +19,4 @@ Additionally to these, further details on licensing will be given in any project
 
 Note that these libraries are not available from the project repository; the utility `setup.sh`, or pipelines designed for the purpose, can be run to acquire them.
 
-
 ---

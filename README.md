@@ -220,9 +220,9 @@ Optionally, Windows users can use a batch file command interface, with drag-and-
 
 In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals, as in 'ALL-CAPS.xpl' &mdash; explanation below.)
 
-Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options. EXTRA BONUS: a Windows `ico` file, `barreloffish.ico`, with its SVG original, is included at the top level for this purpose.
+Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
 
-TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this or equivalent functionality on \*nix or Mac platforms - Appl - lettuce know &#x1F96C; if you want or can do this
+TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this or equivalent functionality on \*nix or Mac platforms - AppleScript! - lettuce know &#x1F96C; if you want or can do this
   
 </details>
 
@@ -284,13 +284,13 @@ See [THIRD_PARTY_LICENSES.md](./THIRD_PARTY_LICENSES.md) for more.
 
 XProc 3.0 aims to be platform- and application-independent, so one use of this project will be to test and assess portability across environments supporting XProc. 
 
-## Acknowledgements
+## XProc platform acknowledgements
 
-With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially open-source. Only an open, welcoming and supportive community could prove capable of such a collective achievement.
+With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially unencumbered and open-source. Only an open, dedicated and supportive community could prove capable of such a collective achievement.
 
 ---
 
-This README was composed using the [NIST Open Source Repository template as of April 24, 2024](https://github.com/usnistgov/opensource-repo/blob/095af7e/README.md).
+This README was composed starting from the [NIST Open Source Repository template as of April 24, 2024](https://github.com/usnistgov/opensource-repo/blob/095af7e/README.md).
 
 ---
 
