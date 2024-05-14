@@ -10,6 +10,9 @@
         to be set up in ../lib -->
    
    <p:input port="xproc-files" sequence="true">
+      <p:document href="../lib/GRAB-SAXON.xpl"/>
+      <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
+      
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
