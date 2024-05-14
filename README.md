@@ -194,7 +194,9 @@ TODO: keep this list up to date
 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
+```
 > ./xp3.sh LAUNCH.xpl
+```
 
 Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there is no actual pipeline of that name).
 
@@ -214,13 +216,13 @@ See the [House Rules](./house-rules.md) for more information.
 
 <details><summary>Drag and drop (Windows only)</summary>
 
-Optionally, Windows users can use a 'batch file' command interface, with drag-and-drop functionality in the GUI (graphic user interface, your 'Desktop').
+Optionally, Windows users can use a batch file command interface, with drag-and-drop functionality in the GUI (graphical user interface, your 'Desktop').
 
-In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals as in 'ALL-CAPS.xpl') &mdash; explanation below.)
+In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals, as in 'ALL-CAPS.xpl' &mdash; explanation below.)
 
-Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
+Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options. EXTRA BONUS: a Windows `ico` file, `barreloffish.ico`, with its SVG original, is included at the top level for this purpose.
 
-TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this functionality on \*nix or Mac platforms - lettuce know &#x1F96C; if you want or can do this
+TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this or equivalent functionality on \*nix or Mac platforms - Appl - lettuce know &#x1F96C; if you want or can do this
   
 </details>
 
@@ -291,7 +293,6 @@ With the authors of incorporated tooling, the many contributors to the XProc and
 This README was composed using the [NIST Open Source Repository template as of April 24, 2024](https://github.com/usnistgov/opensource-repo/blob/095af7e/README.md).
 
 ---
-
 
 <!-- links -->
 
