@@ -6,7 +6,7 @@ The [House Rules](../house-rules.md) include and imply a number of constraints t
 
 Apply the House Rules to any XProc in your editor, IDE or Schematron processor of choice, or use the pipelines to validate sets of XProcs.
 
-One pipeline here will validate all XProcs found in the other project.
+One pipeline here will validate all XProcs found in the repository (outside `/lib`), acquired by producing a file listing using `x:directory`.
 
 Two more will validate a set of files enumerated in a fourth pipeline, which exists for the sole purpose of collecting these files for processing.
 
@@ -20,17 +20,18 @@ This is useful for CI/CD, while the aggregating batcher BATCH-XPROC3-HOUSE-RULES
 
 writing a plaintext report to the console.
 
-## Pipelines in this folder:
+## Pipelines (summary)
 
-[REPO-XPROC3-HOUSE-RULES.xpl](REPO-XPROC3-HOUSE-RULES.xpl) - applies the House Rules Schematron to all XProc files in the repository (outside the top-level `lib` directory), polling the system to acquire them based on file suffix.
+- [TEST-XPROC-SET.xpl](TEST-XPROC-SET.xpl) lists XProc files to be tested
+- [BATCH-XPROC3-HOUSE-RULES.xpl](BATCH-XPROC3-HOUSE-RULES.xpl) runs the House Rules Schematron on those files, producing an aggregated report
+- [HARDFAIL-XPROC3-HOUSE-RULES.xpl](HARDFAIL-XPROC3-HOUSE-RULES.xpl) does the same, except failing on error (useful for CI/CD)
+- [REPO-XPROC3-HOUSE-RULES.xpl](REPO-XPROC3-HOUSE-RULES.xpl) produces an aggregated report, but from all XProcs not just those listed in `TEST-XPROC-SET.xpl`
 
-[BATCH-XPROC3-HOUSE-RULES.xpl](BATCH-XPROC3-HOUSE-RULES.xpl) - applies the House Rules Schematron to a set of XProc files called in from the subpipeline `TEST-XPROC-SET.xpl`. 
+## CI/CD
 
-[HARDFAIL-XPROC3-HOUSE-RULES.xpl](HARDFAIL-XPROC3-HOUSE-RULES.xpl) - same as BATCH-XPROC3-HOUSE-RULES.xpl, except this pipeline FAILS HARD if any files are found to be invalid - which includes messages of any kind or stated level from Schematron (whether `assert` or `report` or what the nominal warning level). Since it fails if documents are out of expected order, this version is useful under CI/CD or other 'brittle' process workflows.
+CI/CD (continuous integration and development) is supported via [Github Actions](../.github/workflows/test.yml). Consult the setup to see what tests you can expect to see running.
 
-This pipeline also uses the subpipeline to acquire its list of XProc files.
-
-[TEST-XPROC-SET.xpl](TEST-XPROC-SET.xpl) - acquires the files for the two XProc pipelines last mentioned (but not `REPO-XPROC3-HOUSE-RULES.xpl`).
+Our aim is to support comprehensive testing interactively and under CI/CD, including Schematron, XSpec and other testing.
 
 ## Schematron in this folder:
 
