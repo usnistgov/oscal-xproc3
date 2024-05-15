@@ -27,6 +27,6 @@ elif [ "${1:-}" = '-h' ] || [ "${1:-}" = '--help' ]; then usage
 
 else
 
-  ${MORGANA} $@ -xslt-connector=saxon12-3 -indent-errors
+  ${MORGANA} -config=lib/morgana-config.xml $@ -indent-errors
 
 fi

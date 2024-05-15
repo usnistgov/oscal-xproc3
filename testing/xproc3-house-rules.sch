@@ -44,10 +44,31 @@
 
    <sch:let name="typename-given" value="/*/@type/tokenize(., ':')[last()]"/>
    
-   <xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
+   <!--<xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
-      select="function($v as item()) as xs:boolean { string($v) => matches('^\s*\{\s*\$\i\c*\s*\}') }"/>
+      select="function($v as item()) as xs:boolean { string($v) => matches('^\s*\{\s*\$\i\c*\s*\}') }"/>-->
    
+   <xsl:function name="ox:leads-with-variable-reference" as="xs:boolean">
+      <xsl:param name="v" as="item()"/>
+      <xsl:sequence select="string($v) => matches('^\s*\{\s*\$\i\c*\s*\}')"/>
+   </xsl:function>
+   
+<!-- Rules being enforced:
+
+      The XProc is version 3.0
+      The assigned type /*/@type should match the file name, in the http://csrc.nist.gov/ns/oscal-xproc3 namespace (prefix 'ox')
+      The name /*/@name should also match the file name
+      
+      No PIs appear anywhere
+      
+      Messages are tagged - leading with either a literal [STEP-NAME], or a variable reference
+      
+      p:load and p:store events provide messages
+      
+      Anything referenced with href resolves
+        - to turn this off for the pipeline, list the XProc by name among processes named in $unlinked-xprod 
+
+   -->
    <sch:pattern>
       <sch:rule context="/*">
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
@@ -62,7 +83,7 @@
 
       <sch:rule context="*[exists(@message)]">
          <sch:assert sqf:fix="sqf-prepend-message-tag"
-            test="starts-with(@message,$tag) or $ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
+            test="starts-with(@message,$tag) or ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
          <sqf:fix id="sqf-prepend-message-tag">
             <sqf:description>
                <sqf:title>Prepend the message with '<sch:value-of select="$tag"/>'</sqf:title>
@@ -84,10 +105,14 @@
      </sch:rule>
    </sch:pattern>
    
+   <!-- Any files to be reprieved from linking rules should be listed here, by /*/@name  -->
+   <sch:let name="unlinked-xproc" value="('CONVERT-XML-REFERENCE-SET')"/>
+   
    <sch:pattern>
       <!-- Not matching elements with href that contain { or } -->
       <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
-         <sch:assert test="resolve-uri(@href, base-uri(.)) => unparsed-text-available()">No resource found at <sch:value-of
+         <sch:let name="exception" value="/*/@name = $unlinked-xproc"/>
+         <sch:assert test="$exception or resolve-uri(@href, base-uri(.)) => unparsed-text-available()">No resource found at <sch:value-of
             select="@href"/></sch:assert>
       </sch:rule>
    </sch:pattern>

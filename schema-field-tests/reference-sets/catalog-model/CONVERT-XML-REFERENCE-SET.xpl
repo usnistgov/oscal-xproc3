@@ -6,6 +6,8 @@
    type="ox:CONVERT-XML-REFERENCE-SET"
    name="CONVERT-XML-REFERENCE-SET">
    
+<!-- Note: requires XSLT at $converter-xslt (provided by ../../GRAB-OSCAL.xpl) -->
+   
    <p:input port="samples" sequence="true">
       <p:document href="xml/fully-valid/okay-catalog.xml"/>
       <p:document href="xml/fully-valid/minimal.xml"/>
@@ -16,12 +18,14 @@
       <p:document href="xml/schema-invalid/control-group-mixing.xml"/>
    </p:input>
    
+   <p:variable name="converter-xslt" select="'../../lib/oscal-converters/oscal_catalog_xml-to-json-converter.xsl'"/>
+   
    <p:for-each>
       <p:variable name="base" select="base-uri(.)"/>
       <p:variable name="json-file" select="replace($base,'xml','json')"/>
 
       <p:xslt>
-         <p:with-input port="stylesheet" href="../../lib/oscal-converters/oscal_catalog_xml-to-json-converter.xsl"/>
+         <p:with-input port="stylesheet" href="{$converter-xslt}"/>
          <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
       </p:xslt>
       

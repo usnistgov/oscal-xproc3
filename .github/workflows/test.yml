@@ -1,0 +1,36 @@
+on:
+  push:
+  pull_request:
+name: CI
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b
+        id: checkout
+      - name: Check dependency cache
+        uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9
+        with:
+          path: |
+            lib
+          key: oscal-xproc3-deps-${{ hashFiles('lib/**') }}-${{ hashFiles('*.sh') }}
+        id: cache        
+      - name: Setup dependencies
+        if: steps.cache.outputs.cache-hit != 'true'      
+        run: |
+          ./setup.sh
+          ./xp3.sh lib/GRAB-SAXON.xpl
+          ./xp3.sh lib/GRAB-SCHXSLT.xpl
+        id: setup
+      - name: Run smoketests
+        run: |
+          ./xp3.sh smoketest/POWER-UP.xpl
+          ./xp3.sh smoketest/SMOKETEST-XSLT.xpl
+          ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl
+        id: exec_smoketests
+      - name: Run tests
+        run: |
+          ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl
+        id: exec_tests
