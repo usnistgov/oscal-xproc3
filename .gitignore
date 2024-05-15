@@ -11,6 +11,7 @@ lib/*
 
 # XSpec test results
 
+*-result.html
 *_report.html
 **/xspec/*-result.html
 **/*xspec*-result.html
