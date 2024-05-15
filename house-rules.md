@@ -18,7 +18,7 @@ See the [readme.md](readme.md), although this should be self-explanatory.
 
 Schematron for checking XProc pipelines is here: [testing/xproc3-house-rules.sch](testing/xproc3-house-rules.sch).
 
-Please check the [testing](./testing) folder also for Schematrons for other formats including XSpec.
+Please check the [testing](./testing) folder also for Schematrons for other formats including XSpec. Its readme provides more details.
 
 Schematron tests can be applied either interactively, or in CI/CD. Check CI/CD settings.
 

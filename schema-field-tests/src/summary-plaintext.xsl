@@ -27,8 +27,6 @@
       <xsl:text>&#xA;</xsl:text>
       <xsl:apply-templates/>
       <xsl:apply-templates select="@href"/>
-      
-      
    </xsl:template>
    
    <xsl:template match="@href">: { . }</xsl:template>
