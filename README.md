@@ -39,7 +39,7 @@ If this software is as easy, securable and performant as we hope to show, it mig
 
 Projects currently planned for deployment in this repository include:
 
-  - [schema-field-test](./schema-field-test) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
+  - [schema-field-tests](./schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
