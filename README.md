@@ -25,13 +25,21 @@ This repository serves as a platform for demonstration and development of capabi
 
 This may include either OSCAL applications, or applications built to be used in OSCAL development. See below and project (folder) readme files for more details.
 
-If this software is as easy and performant as we hope, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
+Enabling these lightweight, transparent and declarative "logical layers" written in XProc (pipeline step definitions), in XSLT (transformations) and in Schematron (query-based validations) are these excellent libraries (with their dependencies):
+
+- [Morgana XProc IIIse][morgana] - XProc 3.0
+- [Saxon-HE][saxon12] - XSLT 3.0/3.1 (and XQuery)
+- [SchXSLT][schxslt] - ISO Schematron / community enhancements
+
+These are open-source projects in support of W3C- and ISO-standardized technologies. (Soon to come: [XSpec](https://github.com/xspec/xspec).) Helping to install, configure, and make these work seamlessly, so users do not have to notice, is a goal of this project.
+
+If this software is as easy, securable and performant as we hope to show, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
 
 ### Currently planned projects
 
 Projects currently planned for deployment in this repository include:
 
-  - [`schema-field-test](./schema-field-test)` OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
+  - [schema-field-test](./schema-field-test) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
@@ -63,7 +71,7 @@ The `testing` directory contains tests and logic applicable to the repository or
 
 The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed and tested in other contexts. Yet work here also includes job configuration (XProc itself) and testing, which is to say on tools to determine correctness and reliability, therefore (by implication) maturity. These may be experimental, not mature.
 
-At the same time, both individual initiatives and the site as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal.
+At the same time, the libraries we use (Morgana, Saxon and others) are themselves at various levels of maturity (Saxon in particular having been field-tested for over 20 years). And both particular initiatives and the code repository as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal.
 
 Assume the worst, hope for the best, and test.
 
