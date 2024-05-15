@@ -2,9 +2,9 @@
 
 <details><summary>What is XProc 3.0</summary>
 
-[XProc 3.0][xproc] is an information processing and pipelining stack based on (W3C Recommendation) XDM [XQuery and XPath Data Model 3.1][xdm3], a technology published and supported by its developer, customer and user community. The problems addressed by XProc  &mdash; the configuration, management and execution of complex, composable information processing subsystems (*pipelines* in XProc)  &mdash; are in the center of any XML system, yet they are commonly dealt with &mdash; or worked around - by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions &mdash; almost inevitably platform-dependent, if only because a single link with a dependency brings that dependency to every chain that includes it.
+[XProc 3.0][xproc] is an information processing and pipelining stack based on (W3C Recommendation) XDM [XQuery and XPath Data Model 3.1][xdm3], a technology published and supported by its developer, customer and user community. The problems addressed by XProc  &mdash; the configuration, management and execution of complex, composable information processing subsystems (*pipelines* in XProc)  &mdash; are at the center of any XML system, yet they are commonly dealt with &mdash; or worked around &mdash; by painful means and methods including carefully engineered and customized build utilities (Apache Ant or GNU `make`), scripts (`bash` and other), execution environments (web processing stacks), IDE workflows and proprietary solutions &mdash; almost inevitably platform-dependent, if only because a single link with a dependency brings that dependency to every chain that includes it.
 
-This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are masked or (worse) obstructed and left unexplored.
+This has hindered the propagation of XML-based technology despite its demonstrated generality, usefuless and power, because wherever it is painful and awkward to integrate, its strengths and virtues are obscured or (worse) obstructed and left unexplored.
 
 As a standard supporting a common semantics across implementations &mdash; itself proof-tested by a history of earlier work &mdash; [XProc 3.0][xproc] promises greater adaptability, accessibility, and scalability than prior solutions to the problem of pipeline orchestration.
 
@@ -13,7 +13,7 @@ As a standard supporting a common semantics across implementations &mdash; itsel
 - More streamlined and easier to learn and use
 - Open to any format or data notation, including JSON and plain-text-based formats (e.g. CSV, TSV etc.), in addition to XML\*
 
-Both of these are important for OSCAL, which comes as both XML and JSON and whose users vary from the highly technical, to the bare beginner (in data formats, in OSCAL or both).
+Both of these are important for OSCAL, which comes in both XML and JSON and whose users vary from the highly technical, to the bare beginner (in data formats, in OSCAL or both).
 
 \* Especially when combined with [Invisible XML](https://invisiblexml.org).
 
