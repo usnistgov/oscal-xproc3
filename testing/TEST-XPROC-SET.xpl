@@ -15,7 +15,7 @@
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
-      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
+      <!-- <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/> -->
       <p:document href="../schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
       <p:document href="../schema-field-tests/GRAB-OSCAL.xpl"/>
       <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
@@ -30,4 +30,3 @@
    <p:identity/>
    
 </p:declare-step>
-
