@@ -34,7 +34,7 @@
        
           <radialGradient id="splash">
              <stop offset="60%" stop-color="white" />
-             <stop offset="90%" stop-color="white" stop-opacity="0" />
+             <stop offset="100%" stop-color="white" stop-opacity="0" />
           </radialGradient>
           
           
@@ -50,7 +50,7 @@
           <ellipse id="soup" cy="7" rx="33" ry="10" fill="#3b7eff" fill-opacity="0.4" />
           
           <path id="bottom" stroke-width="3" stroke="#202d43"
-             fill="#3b7eff"   fill-opacity="0.4" stroke-linecap="round"
+             fill="#3b7eff" fill-opacity="1" stroke-linecap="round"
              d="M 30 72 a 30 10 0 0 1 -60 0
              v -3    a 30 10 0 0 1 60 0 z"/>
           
@@ -72,7 +72,7 @@
           <path id="lid" stroke-width="2" fill="none" stroke="#202d43"
              d="M 30 0 a 30 10 0 0 1 -60 0
              v -3        a 30 10 0 0 1 60 0 z"/>
-          <path stroke-width="1" fill="#202d43" stroke="#202d43"
+          <path id="rim" stroke-width="1" fill="#202d43" stroke="#202d43"
              d="M 30 0 a 30 10 0 0 1 -60 0
              v -3        a 30 10 0 0 0 60 0 z"/>
           
