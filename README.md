@@ -243,13 +243,13 @@ Testing is a central focus of this initiative. See [TESTING.md](./TESTING.md).
 
 Some repository-wide testing, not for functionality but for other requirements, is maintained in the [testing](./testing) directory.
 
-## Contact information
+## Contact the project
 
-TODO: procure a project alias from ServiceNow
+- [Create a Github Issue][repo-issues]
+- [Pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/)
+- Send email to [xslt-interest@nist.gov](mailto:xslt-interest@nist.gov)
 
 This project is being maintained by Wendell Piez, w a p i e z @ n i s t . g o v of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
-
-Please [create a Github Issue][repo-issues] or [pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/) for discussion on this repository. In support of this project, email to the principal investigator is also welcome.
 
 ## Related Material
 
