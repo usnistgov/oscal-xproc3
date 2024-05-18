@@ -27,8 +27,8 @@
           </g>
           
           <linearGradient id="barrelful" x1="20%" x2="100%" y1="0%" y2="0%">
-             <stop offset="20%" stop-color="#3b7eff" />
-             <stop offset="100%" stop-color="#ebf2ff" />
+             <stop offset="20%" stop-color="#3b7eff" stop-opacity="0.6" />
+             <stop offset="100%" stop-color="white"  stop-opacity="0.2"/>
           </linearGradient>
        
        
@@ -40,12 +40,21 @@
           
        </defs>
        <!--<rect fill="gainsboro" width="100%" height="100%"/>-->
-       <rect fill="url(#splash)" width="100%" height="100%"/>
+       <!--<rect fill="url(#splash)" width="100%" height="100%"/>-->
        
        <g transform="translate(50 15)">
           <!--<path  stroke-width="1" fill="white" stroke="none"
              d="M 30 0 a 30 10 0 0 1 -60 0
              v -3        a 30 10 0 0 1 60 0 z"/>-->
+          
+          
+          <path id="lid" stroke-width="2" fill="white" fill-opacity="0.2" stroke="#202d43"
+             d="M 30 0 a 30 10 0 0 1 -60 0
+             v -3        a 30 10 0 0 1 60 0 z"/>
+          <path id="rim" stroke-width="1" fill="#202d43" stroke="#202d43"
+             d="M 30 0 a 30 10 0 0 1 -60 0
+             v -3        a 30 10 0 0 0 60 0 z"/>
+          
           
           <ellipse id="soup" cy="7" rx="33" ry="10" fill="#3b7eff" fill-opacity="0.4" />
           
@@ -58,23 +67,17 @@
              d="M -30 0 q -30 35 0 70
              a 30 10 0 1 0 60 0 q 30 -35 0 -70
              a 30 10 0 0 1 -60 0 z"/>-->
+          <path fill="url(#barrelful)" fill-opacity="1" stroke-width="2" stroke="#202d43"
+             d="M -30 0 q -30 35 0 70
+             a 30 10 0 1 0 60 0 q 30 -35 0 -70
+             a 30 10 0 0 1 -60 0 z"/>
+          
           <g transform="translate(0 20)">
              <!--<use x="1" y="-16" transform="scale(-1 1)" xlink:href="#Kanava"/>-->
              <use x="-17" y="-2.5" transform="scale(2)" xlink:href="#Kanava"/>
              <!--<use x="0" y="16" transform="scale(-1 1)" xlink:href="#Kanava" />-->
           </g>
-
-          <path fill="url(#barrelful)" fill-opacity="0.4" stroke-width="2" stroke="#202d43"
-             d="M -30 0 q -30 35 0 70
-             a 30 10 0 1 0 60 0 q 30 -35 0 -70
-             a 30 10 0 0 1 -60 0 z"/>
           
-          <path id="lid" stroke-width="2" fill="none" stroke="#202d43"
-             d="M 30 0 a 30 10 0 0 1 -60 0
-             v -3        a 30 10 0 0 1 60 0 z"/>
-          <path id="rim" stroke-width="1" fill="#202d43" stroke="#202d43"
-             d="M 30 0 a 30 10 0 0 1 -60 0
-             v -3        a 30 10 0 0 0 60 0 z"/>
           
        </g>
        
