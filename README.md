@@ -55,17 +55,20 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-`lib` and `testing` folders are special; others represent projects.
+`lib`, `testing` and `icons` folders are special; others represent projects.
 
-The `lib` folder comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), ahnd (once the basic setup is done) by these same utility pipelines.
+[The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), ahnd (once the basic setup is done) by these same utility pipelines.
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Next to `lib`, each project is kept in its own separate folder. There, the project will have its own README.md. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
+Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **README.md**. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
 
 One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and 'fully assembled' forms.
 
-The `testing` directory contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
+[The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
+
+Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that can be associated with scripts or file types.
+
 
 ## Software maturity
 
@@ -228,7 +231,7 @@ Optionally, Windows users can use a batch file command interface, with drag-and-
 
 In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals, as in 'ALL-CAPS.xpl' &mdash; explanation below.)
 
-Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
+Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options. Some icons for this purpose are provided [in the repository](./icons/).
 
 TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this or equivalent functionality on \*nix or Mac platforms - AppleScript! - lettuce know &#x1F96C; if you want or can do this
   
@@ -240,13 +243,13 @@ Testing is a central focus of this initiative. See [TESTING.md](./TESTING.md).
 
 Some repository-wide testing, not for functionality but for other requirements, is maintained in the [testing](./testing) directory.
 
-## Contact information
+## Contact the project
 
-TODO: procure a project alias from ServiceNow
+- [Create a Github Issue][repo-issues]
+- [Pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/)
+- Send email to [xslt-interest@nist.gov](mailto:xslt-interest@nist.gov)
 
 This project is being maintained by Wendell Piez, w a p i e z @ n i s t . g o v of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
-
-Please [create a Github Issue][repo-issues] or [pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/) for discussion on this repository. In support of this project, email to the principal investigator is also welcome.
 
 ## Related Material
 
