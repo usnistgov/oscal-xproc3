@@ -9,8 +9,8 @@
        <defs>
           
           <g id="Kanava" transform="scale(0.2)"> 
-             <!-- Kanava XProc 3 logo by Bethan Tovey-Walsh -->
-             <!--change: /g[@id='Kanava'/*/g[]/g[1]/path/@fill from 3B7EFF to 2958b2 - darker
+             <!-- Kanava XProc 3 logo by Bethan Tovey-Walsh (c) copyright 2024 (used by permission) -->
+             <!-- change: 
              /svg/g[1]/defs[1]/g[1]/svg[1]/g[1]/g[1]/path[1]/@fill-opacity from 0.506 to 1 -->
              <svg version="1.1" x="0" y="0" width="160" height="120" viewBox="0, 0, 2732, 2048">
                 <g id="Layer_8_Copy">
