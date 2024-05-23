@@ -12,8 +12,7 @@
    
    <p:variable name="zip-name"  select="'main.zip'"/>
    
-   <p:variable name="target-dir" select="'lib/resolver-xslt'"/>
-   <p:variable name="whither" select="resolve-uri($target-dir, static-base-uri())"/>
+   <p:variable name="destination" select="resolve-uri('../lib/resolver-xslt', static-base-uri())"/>
 
    <p:variable name="prefix" select="'[' || 'GRAB-PROFILE-RESOLVER-XSLT' || ']'"/>
    
@@ -21,7 +20,7 @@
 
    <p:load href="{ $download-path }/{ $zip-name }" message="{ $prefix } p:load { $download-path }/{ $zip-name } ..."/>
    
-   <p:store href="lib/oscal/{ $zip-name }" message="{$prefix} Saving lib/oscal/{ $zip-name } (thank you OSCAL Team)"/>
+   <p:store href="../lib/oscal/{ $zip-name }" message="{$prefix} Saving lib/oscal/{ $zip-name } (thank you OSCAL Team)"/>
    
    <!-- see p:unarchive here: https://spec.xproc.org/3.0/steps/#c.unarchive -->
    <!-- We pull the XSLT out, leaving the testing and XSpec in the zip -->
@@ -32,7 +31,7 @@
    <p:for-each>
       <p:variable name="basename" select="/*/base-uri() => replace('.+/','')"/>
 
-      <p:store href="{ $whither }/{ $basename }" message="{$prefix} Saving { $whither }/{ $basename }"/>
+      <p:store href="{ $destination }/{ $basename }" message="{$prefix} Saving { $destination }/{ $basename }"/>
       <!--<p:identity message="{$prefix} Saving { $whither }/{ $basename }"/>-->
    </p:for-each>
 

@@ -5,7 +5,7 @@
       <title>Some favorite controls</title>
       <last-modified>2024-05-23T16:03:25.1735177-04:00</last-modified>
       <version>0.1</version>
-      <oscal-version>1.0.0</oscal-version>
+      <oscal-version>1.1.2</oscal-version>
    </metadata>
    <import href="../lib/oscal-content/NIST_SP-800-53_rev5_catalog.xml">
       <include-controls>

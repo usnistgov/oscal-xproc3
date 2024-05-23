@@ -29,7 +29,7 @@
    
    <p:variable name="download-path" select="download/@path/string(.)"/>
    <p:variable name="prefix" select="'[' || 'GATHER-OSCAL-DATA' || ']'"/>
-   <p:variable name="destination" select="'lib/oscal-content'"/>
+   <p:variable name="destination" select="'../lib/oscal-content'"/>
    
    <p:for-each message="{$prefix} Saving resources in ./lib ...">
       <!-- iterating over each 'resource' as a discrete document node -->
@@ -39,7 +39,7 @@
       
       <!-- No exception handling, keep an eye on outputs -->
       <p:load href="{ ($download-path,$dir,$my-name) => string-join('/') }" message="{$prefix} Loading { $my-name} from { $download-path }/{ $dir } ..."/>
-      <p:store message="{$prefix} ... saving { $destination }{ $my-name }" href="{ $destination }/{ $my-name }"/>
+      <p:store message="{$prefix} ... saving { $destination }/{ $my-name }" href="{ $destination }/{ $my-name }"/>
    </p:for-each>
    
 </p:declare-step>
