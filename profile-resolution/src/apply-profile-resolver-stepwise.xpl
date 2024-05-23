@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
-   xmlns:cx="http://xmlcalabash.com/ns/extensions"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:apply-profile-resolver-stepwise"
    name="apply-profile-resolver-stepwise">

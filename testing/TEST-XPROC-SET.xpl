@@ -11,14 +11,14 @@
    <p:input port="source" sequence="true">
       <p:document href="../lib/GRAB-SAXON.xpl"/>
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
-      
+
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
 
       <p:document href="../template/GRAB-RESOURCES.xpl"/>
-      
-      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/> 
+
+      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
       <p:document href="../schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
       <p:document href="../schema-field-tests/GRAB-OSCAL.xpl"/>
       <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
@@ -28,6 +28,16 @@
       <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
       <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
       <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
+
+      <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
+      <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
+      <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>
+      <p:document href="../profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>
+      <p:document href="../profile-resolution/src/apply-remote-profile-resolver.xpl"/>
+      <p:document href="../profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
+      <p:document href="../profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>
+      <p:document href="../profile-resolution/resolve-profile-and-save.xpl"/>
+
    </p:input>
  
    <p:output port="xproc-files" sequence="true"/>
