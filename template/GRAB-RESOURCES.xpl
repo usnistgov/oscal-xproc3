@@ -17,11 +17,11 @@
       <p:inline>
          <download path="https://github.com/usnistgov/OSCAL/releases/download/v1.1.2">
             <!-- OSCAL catalog schemas and converters are as good as anything for demonstration -->
-            <resource dir="oscal-converters">oscal_catalog_xml-to-json-converter.xsl</resource>
-            <resource dir="oscal-converters">oscal_catalog_json-to-xml-converter.xsl</resource>
+            <!--<resource dir="oscal-converters">oscal_catalog_xml-to-json-converter.xsl</resource>
+            <resource dir="oscal-converters">oscal_catalog_json-to-xml-converter.xsl</resource>-->
             <resource dir="oscal-schemas">oscal_catalog_schema.xsd</resource>
             <resource dir="oscal-schemas">oscal_profile_schema.xsd</resource>
-            <resource dir="oscal-schemas">oscal_catalog_schema.json</resource>
+            <!--<resource dir="oscal-schemas">oscal_catalog_schema.json</resource>-->
          </download>
       </p:inline>
    </p:input>
@@ -42,7 +42,7 @@
       <p:load message="[GRAB-RESOURCES] Loading { $my-name} from { $download-path } ..."
               href="{ ($download-path,$my-name) => string-join('/') }" />
       <p:store message="{$prefix} ... saving { $dir ! (. || '/')}{ $my-name }"
-               href="{ ('lib',$dir,$my-name) => string-join('/')}"/>
+               href="{ ('../lib',$dir,$my-name) => string-join('/')}"/>
    </p:for-each>
    
 </p:declare-step>

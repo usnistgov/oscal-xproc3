@@ -7,8 +7,6 @@
 <!-- Purpose: resolve a pipeline and write its results to a local file.
      The file created is named after the profile and placed next to the XProc invocation. -->
 
-         
-
    <!-- Switch out the subpipeline to rely on local or remote copy, or to expose steps -->
    
    <!-- Calls a local copy of the driver XSLT -->
@@ -22,9 +20,6 @@
    
    <!-- And we're off -->
    
-   <!-- The subpipeline should returns either an OSCAL catalog, or
-        if the catalog could not be produced, a copy of the input profile-->
-   
    <p:input port="source" primary="true" sequence="false"/>
    
    <p:variable name="profile-basename" select="/*/base-uri() => replace('.*/','') => replace('\.xml$','')"/>
@@ -33,10 +28,15 @@
    <p:variable name="prefix" select="'[' || 'resolve-profile' || ']'"/>
    
    <!-- Use the one imported above -->
+   <!-- TODO: give them the same type so they can be called interchangeably?
+     requires loosening our rule about @type and file name ... we could use starts-with instead of = -->
    <ox:apply-profile-resolver/>
    <!--<ox:apply-remote-profile-resolver/>-->
    <!--<ox:apply-profile-resolver-stepwise/>-->
-   
+
+   <!-- The subpipeline should bring back either an OSCAL catalog, or
+        if the catalog could not be produced, a copy of the input profile-->
+
    <p:choose xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
       <p:when test="/oscal:catalog => exists()">
          <p:store href="{ $resolution-path }" message="{ $prefix } Saving resolved profile as file { $resolution-path }"/>

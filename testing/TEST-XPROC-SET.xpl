@@ -32,7 +32,7 @@
       <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
       <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>
+      <!--<p:document href="../profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>-->
       <p:document href="../profile-resolution/src/apply-remote-profile-resolver.xpl"/>
       <p:document href="../profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
       <p:document href="../profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>

@@ -92,6 +92,8 @@ TODO: thinking about a Schematron that can detect a broken import chain in OSCAL
 
 ### Designating your profile (source) at runtime
 
+TODO: test these scripts
+
 The scripts `` and `` provide Windows and Linux/WSL users respectively with an interface for resolving a (single) profile from the command line.
 
 For example:
