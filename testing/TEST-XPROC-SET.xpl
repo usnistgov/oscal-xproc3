@@ -34,7 +34,7 @@
       <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>
       <!--<p:document href="../profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>-->
       <p:document href="../profile-resolution/src/apply-remote-profile-resolver.xpl"/>
-      <p:document href="../profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
+      <!--<p:document href="../profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>-->
       <p:document href="../profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>
       <p:document href="../profile-resolution/resolve-profile-and-save.xpl"/>
 
