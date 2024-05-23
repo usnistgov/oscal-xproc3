@@ -55,7 +55,7 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-`lib`, `testing` and `icons` folders are special; others represent projects.
+`lib`, `template`, `testing` and `icons` folders are special; others represent projects.
 
 [The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), ahnd (once the basic setup is done) by these same utility pipelines.
 
@@ -67,8 +67,9 @@ One such project is [smoketest](./smoketest), devoted to testing the software in
 
 [The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
 
-Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that can be associated with scripts or file types.
+[The `template` directory](./template) contains a blank project template. Copy and rename this folder for a quick start on XProc infrastructure for your project. It contains boilerlate documentation and logic ready for rewriting.
 
+Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that can be associated with scripts or file types.
 
 ## Software maturity
 
@@ -123,6 +124,9 @@ After following the installation instructions to download and test the core libr
 Software developers using and learning XProc 3.0 and the XDM stack (XML/XSLT/XQuery) may wish to open the box and see how the internals work.
 
 After installation and testing, you can start anywhere &mdash; you have already started.
+
+- [Project starter template](./template/) - Blank readmes with a working pipeline ready for adaptation
+
 </details>
 
 ### Installation instructions
@@ -133,8 +137,8 @@ Developed on Windows and tested with WSL, Git bash, and Windows Powershell.
 
 I. Install the XProc3 engine by running the script:
 
-```
-> ./setup.sh
+```bash
+./setup.sh
 ```
 
 The [setup-notes](./setup-notes.md) file provides a walkthrough of what this script does, if `bash` does not come through -- the setup can be done by hand.
@@ -159,8 +163,8 @@ To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMA
 
 To test your Java installation from the command line:
 
-```
-> java -version
+```bash
+java -version
 ```
 
 You should see a nice message with your Java version, not an error or traceback.
@@ -171,14 +175,14 @@ TODO - tip for anyone with no Java?
 
 To test Morgana, try the [Smoke test application](./smoketest):
 
-```
-> ./xp3.sh smoketest/POWER-UP.xpl
+```bash
+./xp3.sh smoketest/POWER-UP.xpl
 ```
 
 or (Windows users, from a command line or Powershell window)
 
-```
-> .\xp3 smoketest\POWER-UP.xpl
+```bash
+.\xp3 smoketest\POWER-UP.xpl
 ```
 
 Again you should see fine-looking results, this time in XML.
@@ -205,11 +209,11 @@ TODO: keep this list up to date
 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
-```
-> ./xp3.sh LAUNCH.xpl
+```bash
+./xp3.sh LAUNCH.xpl
 ```
 
-Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there is no actual pipeline of that name).
+Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (or return an error when no pipeline is found by that name).
 
 Note that a pipeline may run successfully without XSLT or Schematron support, if the pipeline itself does not depend on these capabilities.
 
