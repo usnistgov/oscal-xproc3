@@ -37,6 +37,7 @@
          </p:xslt>
          <p:xslt name="metadata" message="{$prefix} -- tagging metadata">
             <p:with-input port="stylesheet" href="../lib/resolver-xslt/oscal-profile-resolve-metadata.xsl"/>
+            <p:with-option name="parameters" select="map { 'uuid-method': 'random-xslt' }"/>
          </p:xslt>
          <p:xslt name="merge"    message="{$prefix} -- structuring result catalog">
             <p:with-input port="stylesheet" href="../lib/resolver-xslt/oscal-profile-resolve-merge.xsl"/>

@@ -20,6 +20,7 @@
             <resource dir="oscal-converters">oscal_catalog_xml-to-json-converter.xsl</resource>
             <resource dir="oscal-converters">oscal_catalog_json-to-xml-converter.xsl</resource>
             <resource dir="oscal-schemas">oscal_catalog_schema.xsd</resource>
+            <resource dir="oscal-schemas">oscal_profile_schema.xsd</resource>
             <resource dir="oscal-schemas">oscal_catalog_schema.json</resource>
          </download>
       </p:inline>

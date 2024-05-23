@@ -108,17 +108,25 @@ Actually three variant subpipelines are provided, each for a different use case.
 
 ### Running the pipeline locally using its XSLT driver
 
+If you have run the [setup/GRAB-PROFILE-RESOLVER-XSLT.xpl](setup/GRAB-PROFILE-RESOLVER-XSLT.xpl) pipeline successfully, you have copies of the XSLT needed for profile resolution, and can execute it locally.
+
+(Or if you acquire copies for yourself, of course.)
+
+The pipeline [src/apply-profile-resolver.xpl](rc/apply-profile-resolver.xpl) executes this transformation sequence using the top-level [lib/resolver-xslt/oscal-profile-RESOLVE.xsl](lib/resolver-xslt/oscal-profile-RESOLVE.xsl) XSLT.
+
 ### Calling the driver stylesheet in from a remote location
+
+The pipeline [src/apply-remote-profile-resolver.xpl](rc/apply-remote-profile-resolver.xpl) calls the same XSLT from its Github repository home, to be delivered to the pipeline at runtime.
 
 ### Running the pipeline as a sequence of discrete transformation steps
 
+Alternatively, the pipeline [src/apply-profile-resolver-stepwise.xpl](src/apply-profile-resolver-stepwise.xpl) executes profile resolution as a chain of transformations, not a single call on an XSLT to execute an internal pipeline.
 
-## Credits for contributors
+This is expected to be useful for debugging and analysis, as well as a demonstration of composition in XSLT and XProc working together.
 
-This pipeline runs XSLT distributed by the OSCAL team, originally developed by Wendell Piez, with subsequent testing and development by Amanda Galtman.
+## Contributors
 
-
-
+The software runs XSLT distributed by the OSCAL team, originally developed by Wendell Piez, with further testing and development by Amanda Galtman.
 
 
 started 20240523

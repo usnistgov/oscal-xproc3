@@ -35,6 +35,7 @@
    
    <p:xslt name="resolve">
       <p:with-input port="stylesheet" href="{$xslt}"/>
+      <p:with-option name="parameters" select="map { 'uuid-method': 'random-xslt' }"/>
    </p:xslt>
    
 </p:declare-step>

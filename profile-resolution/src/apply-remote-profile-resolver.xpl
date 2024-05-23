@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
-   xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
-   xmlns:cx="http://xmlcalabash.com/ns/extensions"
+<p:declare-step version="3.0" xmlns:p="http://www.w3.org/ns/xproc"
+   xmlns:c="http://www.w3.org/ns/xproc-step"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:apply-remote-profile-resolver"
    name="apply-remote-profile-resolver">
@@ -20,6 +19,7 @@
    
    <p:xslt name="resolve">
       <p:with-input port="stylesheet" href="{ $xslt }"/>
+      <p:with-option name="parameters" select="map { 'uuid-method': 'random-xslt' }"/>
    </p:xslt>
    
 </p:declare-step>
