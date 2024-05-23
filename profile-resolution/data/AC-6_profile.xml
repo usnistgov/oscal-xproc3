@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="1e4e8d17-2ffe-4f0e-8d8b-3c857a74b5a2">
+   <metadata>
+      <title>Some favorite controls</title>
+      <last-modified>2024-05-23T16:03:25.1735177-04:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.0.0</oscal-version>
+   </metadata>
+   <import href="../lib/oscal-content/NIST_SP-800-53_rev5_catalog.xml">
+      <include-controls>
+         <with-id>ac-4</with-id>
+         <with-id>ac-4.14</with-id>
+         <with-id>ac-6</with-id>
+         <with-id>cm-7</with-id>
+         <with-id>cm-7.6</with-id>
+         <with-id>cm-7.7</with-id>
+         <with-id>sa-11</with-id>
+         <with-id>sc-2</with-id>
+         <with-id>sc-6</with-id>
+         <with-id>sc-7</with-id>
+         <with-id>sc-27</with-id>
+         <with-id>sc-36</with-id>
+         <with-id>si-10</with-id>
+         <with-id>si-10.3</with-id>
+         <with-id>si-10.5</with-id>
+      </include-controls>
+   </import>
+</profile>
