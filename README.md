@@ -132,7 +132,7 @@ After installation and testing, you can start anywhere &mdash; you have already 
 
 ### Installation instructions
 
-*Platform requirements*: Java, with a `bash` shell for automated installation. (Only Java is required if you can install manually.)
+*Platform requirements*: Java, with a `bash` shell for automated installation. Only Java is required if you can install manually.
 
 Developed on Windows and tested with WSL, Git bash, and Windows Powershell.
 
@@ -142,11 +142,11 @@ I. Install the XProc3 engine by running the script:
 ./setup.sh
 ```
 
-The [setup-notes](./setup-notes.md) file provides a walkthrough of what this script does, if `bash` does not come through -- the setup can be done by hand.
+The [setup-notes](./setup-notes.md) file provides a walkthrough of what this script does, if `bash` does not come through: the setup can be done by hand.
 
-After setup, you should now be able to run bare-bones XProc - a pipeline processor (Morgana) with rudimentary capabilities. How to run any of these pipelines is [detailed below](#running-the-software).
+After setup, you should now be able to run bare-bones XProc using a pipeline processor (Morgana) with rudimentary capabilities. How to run any of these pipelines is [detailed below](#running-the-software).
 
-If impatient to test, review **Does It Work?** below before proceeding.
+If impatient to test, review **Does It Work?** below before proceeding. But expect errors with many pipelines if you forget to finish the installation.
 
 The next steps both test the runtime, and provide Morgana with more power, namely XSLT for transformations (using Saxon), and Schematron for query-based validation (using SchXLST).
 
@@ -160,7 +160,7 @@ III. To install SchXSLT: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl)
 
 To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
 
-<details><summary>**Does it work?**</summary>
+<details><summary><bold>Does it work?</bold></summary>
 
 To test your Java installation from the command line:
 
