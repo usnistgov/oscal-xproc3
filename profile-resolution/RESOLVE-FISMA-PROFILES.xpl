@@ -12,7 +12,8 @@
    
    <!-- Note expect things to bomb if profiles don't call their catalogs correctly or things are missing -->
    <p:input port="source" primary="true" sequence="true">
-      <p:document href="lib/oscal-content/NIST_SP-800-53_rev5_LOW-baseline-resolved-profile_catalog.xml"/>
+      <!-- Profiles in lib have broken links to catalogs! these are corrected -->
+      <p:document href="data/NIST_SP-800-53_rev5_LOW-baseline_profile.xml"/>
       <p:document href="data/AC-6_profile.xml"/>
    </p:input>
 

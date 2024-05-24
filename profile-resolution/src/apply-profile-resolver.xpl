@@ -17,22 +17,6 @@
    <!-- Switch out for any top-level or 'driver' resolving transformation -->
    <p:variable name="xslt" select="'../lib/resolver-xslt/oscal-profile-RESOLVE.xsl' => resolve-uri(static-base-uri())"/>
 
-   <!--<p:variable name="prefix" select="'[' || 'apply-profile-resolver' || ']'"/>-->
-      
-   <!--<p:choose>
-      <p:when test="doc-available($xslt) => not()">
-         <p:identity
-            message="{$prefix} Cannot resolve OSCAL profile against its catalog - transformation not found {
-            true() }- try running GRAB-PROFILE-RESOLVER-XSLT.xpl to acquire a local copy"/>
-         <p:sink/>
-      </p:when>
-      <p:otherwise>
-         <p:xslt name="resolve">
-            <p:with-input port="stylesheet" href="{$xslt}"/>
-         </p:xslt>
-      </p:otherwise>
-   </p:choose>-->
-   
    <p:xslt name="resolve">
       <p:with-input port="stylesheet" href="{$xslt}"/>
       <p:with-option name="parameters" select="map { 'uuid-method': 'random-xslt' }"/>

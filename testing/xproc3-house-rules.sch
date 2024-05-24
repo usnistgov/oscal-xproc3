@@ -114,7 +114,7 @@
    <sch:pattern>
       <!-- Not matching elements with href that contain { or } -->
       <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
-         <sch:let name="exception" value="/*/@name = $unlinked-xproc"/>
+         <sch:let name="exception" value="(/*/@name = $unlinked-xproc) or (tokenize(@href,'/')='lib')"/>
          <sch:assert test="$exception or resolve-uri(@href, base-uri(.)) => unparsed-text-available()">No resource found at <sch:value-of
             select="@href"/></sch:assert>
       </sch:rule>

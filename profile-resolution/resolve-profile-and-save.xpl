@@ -25,7 +25,7 @@
    <p:variable name="profile-basename" select="/*/base-uri() => replace('.*/','') => replace('\.xml$','')"/>
    <p:variable name="resolution-path" select="$profile-basename || '-resolved.xml'"/>
    
-   <p:variable name="prefix" select="'[' || 'resolve-profile' || ']'"/>
+   <p:variable name="prefix" select="'[' || 'resolve-profile-and-save' || ']'"/>
    
    <!-- Use the one imported above -->
    <!-- TODO: give them the same type so they can be called interchangeably?

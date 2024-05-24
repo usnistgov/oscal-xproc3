@@ -21,12 +21,13 @@
       <transform>oscal-profile-resolve-merge.xsl</transform>
       <transform>oscal-profile-resolve-modify.xsl</transform>
       <transform>oscal-profile-resolve-finish.xsl</transform>-->
+
+   <p:variable name="prefix" select="'[' || 'apply-profile-resolver-stepwise' ||  ']'"/>
    
    <p:choose>
       <p:when test="document-available('../lib/resolver-xslt/oscal-profile-resolve-select.xsl') => not()">
-         <p:identity
-            message="{$prefix} Cannot resolve OSCAL profile against its catalog - transformation not found {
-             (: nanimonai :) }- try running GRAB-PROFILE-RESOLVER-XSLT.xpl to acquire a local copy"/>
+         <p:identity message="{$prefix} Cannot resolve OSCAL profile against its catalog - transformation not found { true()
+             }- try running GRAB-PROFILE-RESOLVER-XSLT.xpl to acquire a local copy"/>
          <p:sink/>
       </p:when>
       <p:otherwise>
