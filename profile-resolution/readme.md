@@ -1,18 +1,22 @@
-# OSCAL XProc3 Project Template
+# OSCAL Profile Resolution
 
-Use this file to document the project in the containing folder.
+XProc 3.0 pipelines for running OSCAL Profile Resolution.
 
-For an outline of full (minimal) project documentation, see the [NIST Open-Source Software Repository Template](https://github.com/usnistgov/opensource-repo/blob/main/README.md).
-
-The repository [README](../README.md) addresses all these points on a general level (repository-wide). Given the assumption that all projects are abiding by [repository guidelines](../CODE_OF_CONDUCT.md), each project readme (this file) is available for documenting its specifics.
-
-Consider describing the following here:
+Convert OSCAL XML profiles into their equivalent catalogs (control sets).
 
 ## Project purpose, scope and goals
 
+This project aims to make XSLT stylesheets distributed by the OSCAL team more accessible for use and testing.
+
+These XSLTs implement [OSCAL Profile Resolution](https://pages.nist.gov/OSCAL/resources/concepts/processing/profile-resolution) as specified as part of OSCAL, the [Open Security Controls Assessment Language](https://pages.nist.gov/OSCAL). They were developed originally by NIST Team (with the help of an expert volunteer) as a demonstration and proof-of-concept (viability) for this declarative approach to constructing traceable baselines referencing control catalogs in OSCAL.
+
 ## Who might find this useful
 
-The project is centered on an application or family of applications. Who will use it?
+- OSCAL users and practitioners who have profiles they wish to test and debug, or who wish to create an OSCAL baseline (or overlay) in the form of a profile
+
+- OSCAL developers who wish to test this implementation or test against it
+
+- XProc / XSLT students who wish to see a worked example of a pipeline in multiple steps
 
 ## What is provided
 
