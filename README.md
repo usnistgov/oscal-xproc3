@@ -56,15 +56,15 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-`lib`, `template`, `testing` and `icons` folders are special; others represent projects.
+`lib`, `template`, `testing`, `icons` and (hidden) `.github` folders are special; others represent projects.
 
-[The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), ahnd (once the basic setup is done) by these same utility pipelines.
+[The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by the pipelines.
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **README.md**. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
+Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless and except where noted otherwise.
 
-One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and 'fully assembled' forms.
+One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and fully configured forms.
 
 [The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
 

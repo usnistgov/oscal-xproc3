@@ -20,10 +20,12 @@
                <xsl:variable name="product-version" select="system-property('xsl:product-version')"/>
                
                <xsl:template match="/CONGRATULATIONS">
+                  <!--<xsl:variable name="product-name">Engine</xsl:variable>
+                  <xsl:variable name="product-version">One-oh</xsl:variable>-->
                   <xsl:copy>
                      <LINE><xsl:apply-templates/></LINE>
                      <LINE>
-                        <xsl:text expand-text="false">You have successfully executed an XSL transformation, using { $product-name }, version { $product-version }</xsl:text>
+                        <xsl:text expand-text="true">You have successfully executed an XSL transformation, using { $product-name }, version { $product-version }</xsl:text>
                      </LINE>
                   </xsl:copy>
                </xsl:template>
