@@ -43,6 +43,7 @@ Projects currently planned for deployment in this repository include:
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
+  - [profile-resolution](./profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
   - `data-convert` - convert OSCAL XML into JSON and OSCAL JSON into XML
   - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
