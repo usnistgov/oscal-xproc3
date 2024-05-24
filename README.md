@@ -203,7 +203,8 @@ After installing SchXSLT, the smoke test [smoketest/SMOKETEST-SCHEMATRON.xpl](sm
 
 If Morgana is installed with Saxon-HE you should be good to go running any pipeline. See project readme documents for details on each project.
 
-- [Schema Field Tests](./schema-field-tests/readme.md)
+- [Schema Field Tests](./schema-field-tests) - Testing whether OSCAL schemas correctly enforce rules over data (with surprises)
+- [OSCAL Profile Resolution](./profile-resolution) - converting an OSCAL profile (representing a baseline or overlay) into its catalog of controls
 
 TODO: keep this list up to date
 

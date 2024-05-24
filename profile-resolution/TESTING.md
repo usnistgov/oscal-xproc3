@@ -54,7 +54,7 @@ Additionally, an [XSL transformation](src/trace-profile-imports.xsl) provides su
 
 ## Anomalies in results
 
-OSCAL profile resolution specification is still in draft, and has been found to be ambiguous on a couple of points.
+The [OSCAL profile resolution specification](https://pages.nist.gov/OSCAL/resources/concepts/processing/profile-resolution) is still in draft, and has been found to be ambiguous on a couple of points.
 
 ### Orphan links in resolved catalogs
 
