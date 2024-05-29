@@ -11,7 +11,7 @@ This project aims to make XSLT stylesheets distributed by the OSCAL team more ac
 These XSLTs implement [OSCAL Profile Resolution](https://pages.nist.gov/OSCAL/resources/concepts/processing/profile-resolution) as specified as part of OSCAL, the [Open Security Controls Assessment Language](https://pages.nist.gov/OSCAL). They were developed originally by NIST Team (with the help of an expert volunteer) as a demonstration and proof-of-concept (viability) for this declarative approach to constructing traceable baselines referencing control catalogs in OSCAL.
 
 ## Who might find this useful
-
+ 
 - OSCAL users and practitioners who have profiles they wish to test and debug, or who wish to create an OSCAL baseline (or overlay) in the form of a profile
 
 - OSCAL developers who wish to test this implementation or test against it
@@ -82,7 +82,9 @@ Two standalone pipelines are provided, pre-wired for testing.
 
 RESOLVE-KITTEN-CONTROLS.xpl uses files already available in the [data](data) folder. It should run without modification. Its resulting catalog will be written in a `result` folder.
 
-RESOLVE-FISMA-BASELINE.xpl resolves a copy of the FISMA 'LOW' baseline, expressed in OSCAL, over its control set, using files assumed to be found in the folder [lib/oscal-content/](lib/oscal-content/). (NB: unless you have modified the configuration, these files are not committed into Github, as a security and transparency precaution.)
+RESOLVE-FISMA-BASELINE.xpl resolves a copy of the FISMA 'LOW' baseline, expressed in OSCAL, over its control set, using files assumed to be found in the folder [lib/oscal-content/](lib/oscal-content/).
+
+NB: unless you have modified the configuration, these files are not committed into Github, as a security and transparency precaution.
 
 Run the pipeline [setup/ACQUIRE-OSCAL-DATA.xpl](setup/ACQUIRE-OSCAL-DATA.xpl) to populate this folder. 
 
@@ -96,9 +98,7 @@ TODO: thinking about a Schematron that can detect a broken import chain in OSCAL
 
 ### Designating your profile (source) at runtime
 
-TODO: test these scripts
-
-The scripts `` and `` provide Windows and Linux/WSL users respectively with an interface for resolving a (single) profile from the command line.
+The scripts `resolve-profile.bat` and `resolve-profile.sh` provide Windows and Linux/WSL users respectively with an interface for resolving a (single) profile from the command line.
 
 For example:
 
@@ -106,13 +106,26 @@ For example:
 ./resolve-profile.sh testing/cat-profile.xml
 ```
 
-## How to use it to test and understand XSLT
+produces a catalog named `cat-profile-resolved.xml` next to the script.
 
-Note that the scripts and pipelines use a subpipeline for the application of the profile resolver.
+The handler [resolve-profile-and-save.xpl](resolve-profile-and-save.xpl) does two things for the runtime:
+ - Calls a subpipeline for profile resolution
+ - Writes the result to a name and place
 
-Actually three variant subpipelines are provided, each for a different use case.
+## How to use it to test and understand Xproc amd XSLT
 
-### Running the pipeline locally using its XSLT driver
+All the subpipelines should do the same thing. If they do not, this is of interest, and must reflect variations either in XSLT logic or in configuration, both of which can be traced.
+
+Examine each pipeline in more detail to consider its organization and how it handles tradeoffs it poses in running and maintenance, next to the others.
+
+### Subpipeline variants
+
+Three variant subpipelines are provided, each for a different use case.
+
+Since all three are marked with the same top-level `type='apply-profile-resolver'`, they cannot be used together, but may instead be switched for one another.
+
+
+#### Running the pipeline locally using its XSLT driver
 
 If you have run the [setup/GRAB-PROFILE-RESOLVER-XSLT.xpl](setup/GRAB-PROFILE-RESOLVER-XSLT.xpl) pipeline successfully, you have copies of the XSLT needed for profile resolution, and can execute it locally.
 
@@ -120,20 +133,26 @@ If you have run the [setup/GRAB-PROFILE-RESOLVER-XSLT.xpl](setup/GRAB-PROFILE-RE
 
 The pipeline [src/apply-profile-resolver.xpl](rc/apply-profile-resolver.xpl) executes this transformation sequence using the top-level [lib/resolver-xslt/oscal-profile-RESOLVE.xsl](lib/resolver-xslt/oscal-profile-RESOLVE.xsl) XSLT.
 
-### Calling the driver stylesheet in from a remote location
+#### Calling the driver stylesheet in from a remote location
 
-The pipeline [src/apply-remote-profile-resolver.xpl](rc/apply-remote-profile-resolver.xpl) calls the same XSLT from its Github repository home, to be delivered to the pipeline at runtime.
+The pipeline [src/apply-profile-resolver-remotely.xpl](rc/apply-profile-resolver-remotely.xpl) calls the same XSLT from its Github repository home, to be delivered to the pipeline at runtime.
 
-### Running the pipeline as a sequence of discrete transformation steps
+#### Running the pipeline as a sequence of discrete transformation steps
 
-Alternatively, the pipeline [src/apply-profile-resolver-stepwise.xpl](src/apply-profile-resolver-stepwise.xpl) executes profile resolution as a chain of transformations, not a single call on an XSLT to execute an internal pipeline.
+Alternatively, the pipeline [src/apply-profile-resolver-stepwise.xpl](src/apply-profile-resolver-stepwise.xpl) executes profile resolution as a chain of transformations, not a single call on an XSLT that happens to execute an internal pipeline.
 
 This is expected to be useful for debugging and analysis, as well as a demonstration of composition in XSLT and XProc working together.
 
+Casual testing also suggests it performs at least as well as the XSLT driver, while providing a more direct interface (controls) over runtime options.
+
+### XSLT transformations
+
+XSLT for performing the profile resolution is downloaded from the [OSCAL repository](https://github.com/usnistgov/OSCAL/tree/main/src/utils/resolver-pipeline) as shown in the setup pipelines.
+
+Its behavior is dictated by the [OSCAL Profile Resolution Specification](https://pages.nist.gov/OSCAL/resources/concepts/processing/profile-resolution/).
 ## Contributors
 
 The software runs XSLT distributed by the OSCAL team, originally developed by Wendell Piez, with further testing and development by Amanda Galtman.
-
 
 started 20240523
 
