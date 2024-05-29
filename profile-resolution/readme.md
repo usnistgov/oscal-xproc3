@@ -112,7 +112,7 @@ The handler [resolve-profile-and-save.xpl](resolve-profile-and-save.xpl) does tw
  - Calls a subpipeline for profile resolution
  - Writes the result to a name and place
 
-## How to use it to test and understand Xproc amd XSLT
+## How to use it to test and understand Xproc and XSLT
 
 All the subpipelines should do the same thing. If they do not, this is of interest, and must reflect variations either in XSLT logic or in configuration, both of which can be traced.
 

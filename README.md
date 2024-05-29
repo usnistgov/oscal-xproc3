@@ -58,7 +58,7 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 `lib`, `template`, `testing`, `icons` and (hidden) `.github` folders are special; others represent projects.
 
-[The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by the pipelines.
+[The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by running the pipelines.
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
@@ -117,6 +117,7 @@ OSCAL developers may wish to use software on this site as a 'black box', without
 After following the installation instructions to download and test the core libraries, choose the application you are interested in, and start there.
 
 - [OSCAL Schema Field Testing](./schema-field-tests/) - assessing the adequacy and correctness of schemas against their definitions
+- [OSCAL Profile Resolution](./profile-resolution/) - producing a catalog of controls from an OSCAL profile, representing a control baseline or catalog overlay
 
 </details>
 <details>
