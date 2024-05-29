@@ -75,7 +75,7 @@
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <xsl:value-of select="$unexpected-prefixes" separator=", "/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-type" test="$typename-given = $basename">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="starts-with($basename, $typename-given)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-name" test="@name = $basename">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>

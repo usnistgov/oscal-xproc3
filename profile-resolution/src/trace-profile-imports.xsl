@@ -63,7 +63,7 @@
    
    <xsl:key name="internal-resources" match="resource[exists(@uuid)]" use="'#' || @uuid"/>
 
-   <xsl:function name="ox:given-href" as="xs:anyURI?">
+   <xsl:function name="ox:given-href" as="xs:anyURI?" cache="true">
       <xsl:param name="import" as="element(import)"/>
       <!-- $target is any oscal:resource indicated with an internal link -->
       <xsl:variable name="target" select="key('internal-resources',$import/@href,$import/root())/descendant::rlink[not(@media-type!='application/oscal.catalog+xml')][exists(@href)]"/>

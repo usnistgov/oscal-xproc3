@@ -31,6 +31,6 @@ elif [ "${1:-}" = '-h' ] || [ "${1:-}" = '--help' ]; then usage
 
 else
 
-  ${MORGANA} -config=lib/morgana-config.xml -input:oscal-profile=${PROFILE_IN} $@ -indent-errors
+  ${MORGANA} -config=lib/morgana-config.xml resolve-profile-and-save.xpl -input:source=${PROFILE_IN} $@ -indent-errors
 
 fi

@@ -303,7 +303,7 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 
 ## XProc platform acknowledgements
 
-With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh, Achim Berndzen and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially unencumbered and open-source. Only an open, dedicated and supportive community could prove capable of such a collective achievement.
+With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh, Achim Berndzen and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces, Trang, and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially unencumbered and open-source. Only an open, dedicated and supportive community could prove capable of such a collective achievement.
 
 ---
 

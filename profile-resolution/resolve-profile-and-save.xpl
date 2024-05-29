@@ -10,13 +10,13 @@
    <!-- Switch out the subpipeline to rely on local or remote copy, or to expose steps -->
    
    <!-- Calls a local copy of the driver XSLT -->
-   <p:import href="src/apply-profile-resolver.xpl"/>
+   <!--<p:import href="src/apply-profile-resolver.xpl"/>-->
 
    <!-- Calls the driver stylesheet from the OSCAL repo-->
    <!--<p:import href="src/apply-remote-profile-resolver.xpl"/>-->
 
    <!-- Calls the pipeline in steps, for debugging -->
-   <!--<p:import href="src/apply-profile-resolver-stepwise.xpl"/>-->
+   <p:import href="src/apply-profile-resolver-remotely.xpl"/>
    
    <!-- And we're off -->
    
@@ -27,24 +27,18 @@
    
    <p:variable name="prefix" select="'[' || 'resolve-profile-and-save' || ']'"/>
    
-   <!-- Use the one imported above -->
-   <!-- TODO: give them the same type so they can be called interchangeably?
-     requires loosening our rule about @type and file name ... we could use starts-with instead of = -->
+  <!-- First, apply whichever pipeline has been imported -->
    <ox:apply-profile-resolver/>
-   <!--<ox:apply-remote-profile-resolver/>-->
-   <!--<ox:apply-profile-resolver-stepwise/>-->
-
+   
    <!-- The subpipeline should bring back either an OSCAL catalog, or
         if the catalog could not be produced, a copy of the input profile-->
 
    <p:choose xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
       <p:when test="/oscal:catalog => exists()">
-         <p:store href="{ $resolution-path }" message="{ $prefix } Saving resolved profile as file { $resolution-path }"/>
+         <p:store href="{ $resolution-path }"
+            serialization="map{ 'indent': true() }"
+            message="{ $prefix } Saving resolved profile as file { $resolution-path }"/>
 </p:when>
-      <!--<p:when test="/oscal:profile => exists()">         
-         <p:identity
-            message="{$prefix} PROFILE RESOLUTION FAILURE - the pipeline was not applied successfully"/>
-      </p:when>-->
       <p:otherwise>
          <p:identity
             message="{$prefix} PROFILE RESOLUTION FAILURE - the pipeline was not applied successfully"/>

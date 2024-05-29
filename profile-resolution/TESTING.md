@@ -28,7 +28,7 @@ Providing for live validation -- as opposed to validating materials committed he
 
 ### Schemas
 
-The pipeline [../template/GRAB-RESOURCES.xpl](../template/GRAB-RESOURCES.xpl) downloads materials including OSCAL schemas, into a [lib]() directory. These schemas can be used for validating profiles and catalogs using generic XML tooling, including XProc pipelines composed for that purpose.
+The pipeline [../template/GRAB-RESOURCES.xpl](../template/GRAB-RESOURCES.xpl) downloads materials including OSCAL schemas, into a [lib](../lib/) directory. These schemas can be used for validating profiles and catalogs using generic XML tooling, including XProc pipelines composed for that purpose.
 
 Other projects in this repository also offer validation logic useful for developing and debugging OSCAL profiles.
 
