@@ -76,6 +76,8 @@ At that point all the other pipelines will work without modifications: all resou
 
 Another setup XProc, [setup/ACQUIRE-OSCAL-DATA.xpl](setup/ACQUIRE-OSCAL-DATA.xpl) will pick up some OSCAL data for local maintenance and use in testing.
 
+NB: unless you have modified the configuration, these files are not committed into Github, as a security and transparency precaution.
+
 ### Standalone pipelines
 
 Two standalone pipelines are provided, pre-wired for testing.
@@ -83,10 +85,6 @@ Two standalone pipelines are provided, pre-wired for testing.
 RESOLVE-KITTEN-CONTROLS.xpl uses files already available in the [data](data) folder. It should run without modification. Its resulting catalog will be written in a `result` folder.
 
 RESOLVE-FISMA-BASELINE.xpl resolves a copy of the FISMA 'LOW' baseline, expressed in OSCAL, over its control set, using files assumed to be found in the folder [lib/oscal-content/](lib/oscal-content/).
-
-NB: unless you have modified the configuration, these files are not committed into Github, as a security and transparency precaution.
-
-Run the pipeline [setup/ACQUIRE-OSCAL-DATA.xpl](setup/ACQUIRE-OSCAL-DATA.xpl) to populate this folder. 
 
 ### Resolving a profile (or more than one) in 'batch'
 
@@ -124,18 +122,21 @@ Three variant subpipelines are provided, each for a different use case.
 
 Since all three are marked with the same top-level `type='apply-profile-resolver'`, they cannot be used together, but may instead be switched for one another.
 
-
 #### Running the pipeline locally using its XSLT driver
 
-If you have run the [setup/GRAB-PROFILE-RESOLVER-XSLT.xpl](setup/GRAB-PROFILE-RESOLVER-XSLT.xpl) pipeline successfully, you have copies of the XSLT needed for profile resolution, and can execute it locally.
+If you have run the [setup/GRAB-PROFILE-RESOLVER-XSLT.xpl](setup/GRAB-PROFILE-RESOLVER-XSLT.xpl) pipeline successfully, you have a copy of the XSLT needed for profile resolution, and can execute it locally.
 
-(Or if you acquire copies for yourself, of course.)
+(Or if you acquire a copy for yourself, of course. )
 
-The pipeline [src/apply-profile-resolver.xpl](rc/apply-profile-resolver.xpl) executes this transformation sequence using the top-level [lib/resolver-xslt/oscal-profile-RESOLVE.xsl](lib/resolver-xslt/oscal-profile-RESOLVE.xsl) XSLT.
+This XSLT takes the form of several transformations to be executed in sequence over an input profile (each one working on the results of its predecessor).
+
+These can be sequenced using XProc or by using their own XSLT 'driver' to pull them together.
+
+The pipeline [src/apply-profile-resolver.xpl](src/apply-profile-resolver.xpl) executes this transformation sequence using the top-level [lib/resolver-xslt/oscal-profile-RESOLVE.xsl](lib/resolver-xslt/oscal-profile-RESOLVE.xsl) XSLT.
 
 #### Calling the driver stylesheet in from a remote location
 
-The pipeline [src/apply-profile-resolver-remotely.xpl](rc/apply-profile-resolver-remotely.xpl) calls the same XSLT from its Github repository home, to be delivered to the pipeline at runtime.
+The pipeline [src/apply-profile-resolver-remotely.xpl](src/apply-profile-resolver-remotely.xpl) calls the same XSLT from its Github repository home, to be delivered to the pipeline at runtime.
 
 #### Running the pipeline as a sequence of discrete transformation steps
 
@@ -150,6 +151,7 @@ Casual testing also suggests it performs at least as well as the XSLT driver, wh
 XSLT for performing the profile resolution is downloaded from the [OSCAL repository](https://github.com/usnistgov/OSCAL/tree/main/src/utils/resolver-pipeline) as shown in the setup pipelines.
 
 Its behavior is dictated by the [OSCAL Profile Resolution Specification](https://pages.nist.gov/OSCAL/resources/concepts/processing/profile-resolution/).
+
 ## Contributors
 
 The software runs XSLT distributed by the OSCAL team, originally developed by Wendell Piez, with further testing and development by Amanda Galtman.
