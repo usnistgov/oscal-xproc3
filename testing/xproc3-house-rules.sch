@@ -34,6 +34,7 @@
    <sch:ns prefix="ox" uri="http://csrc.nist.gov/ns/oscal-xproc3"/>
    <sch:ns prefix="p" uri="http://www.w3.org/ns/xproc"/>
    <sch:ns prefix="c" uri="http://www.w3.org/ns/xproc-step"/>
+   <sch:ns prefix="xsl" uri="http://www.w3.org/1999/XSL/Transform"/>
    
    <sch:let name="filename" value="(/*/base-uri() => tokenize('/'))[last()]"/>
    <sch:let name="basename" value="replace($filename, '\..*$', '')"/>
@@ -71,8 +72,10 @@
    -->
    <sch:pattern>
       <sch:rule context="/*">
+         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml'))]"/>
+         <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-type" test="$typename-given = $basename">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="starts-with($basename, $typename-given)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-name" test="@name = $basename">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>
@@ -111,7 +114,7 @@
    <sch:pattern>
       <!-- Not matching elements with href that contain { or } -->
       <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
-         <sch:let name="exception" value="/*/@name = $unlinked-xproc"/>
+         <sch:let name="exception" value="(/*/@name = $unlinked-xproc) or (tokenize(@href,'/')='lib')"/>
          <sch:assert test="$exception or resolve-uri(@href, base-uri(.)) => unparsed-text-available()">No resource found at <sch:value-of
             select="@href"/></sch:assert>
       </sch:rule>

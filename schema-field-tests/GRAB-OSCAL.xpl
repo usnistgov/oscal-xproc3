@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
-   xmlns:cx="http://xmlcalabash.com/ns/extensions"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:GRAB-OSCAL"
    name="GRAB-OSCAL">
-   
    
    <!-- Purpose: update local copies of some OSCAL resources from its release repository -->
    
@@ -17,10 +15,10 @@
    <p:input port="resource-names">
       <p:inline>
          <download path="https://github.com/usnistgov/OSCAL/releases/download/v1.1.2">
-            <resource dir="oscal-converters">oscal_catalog_xml-to-json-converter.xsl</resource>
-            <resource dir="oscal-converters">oscal_catalog_json-to-xml-converter.xsl</resource>
-            <resource dir="oscal-schemas">oscal_catalog_schema.xsd</resource>
-            <resource dir="oscal-schemas">oscal_catalog_schema.json</resource>
+            <resource destination="oscal-converters">oscal_catalog_xml-to-json-converter.xsl</resource>
+            <resource destination="oscal-converters">oscal_catalog_json-to-xml-converter.xsl</resource>
+            <resource destination="oscal-schemas">oscal_catalog_schema.xsd</resource>
+            <resource destination="oscal-schemas">oscal_catalog_schema.json</resource>
          </download>
       </p:inline>
    </p:input>
@@ -32,12 +30,12 @@
       <!-- iterating over each 'resource' as a discrete document node -->
       <p:with-input select="download/resource"/>
       <p:variable name="my-name" select="string(.)"/>
-      <p:variable name="dir" select="/*/@dir"/>
+      <p:variable name="destination" select="/*/@destination"/>
       
       <!-- No exception handling since a failed load often produces a result
            making it difficult to anticipate what a failure looks like - -->
       <p:load href="{ ($download-path,$my-name) => string-join('/') }" message="[GRAB-OSCAL] Loading { $my-name} from { $download-path } ..."/>
-      <p:store message="{$prefix} ... saving { $dir ! (. || '/')}{ $my-name }" href="{ ('lib',$dir,$my-name) => string-join('/')}"/>
+      <p:store message="{$prefix} ... saving { $destination ! (. || '/')}{ $my-name }" href="{ ('lib',$destination,$my-name) => string-join('/')}"/>
    </p:for-each>
    
 </p:declare-step>
