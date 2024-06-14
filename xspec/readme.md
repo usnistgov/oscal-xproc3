@@ -7,7 +7,7 @@
   - As demonstrated by test files here
   - But also usable throughout the repository
   
-When working with this project take care, as pipelines defined here may be used across the repository.
+When working with this project take care, as pipelines defined here may be used to run XSpec in other project folders. Running `make test` from the top helps ensure nothing is broken by accident.
 
 ## Approach
 
@@ -21,31 +21,40 @@ When working with this project take care, as pipelines defined here may be used 
 
 ## Contents
 
-- XProc 3.0 in the file system here mirrors XProc giving with XSpec
+- XProc 3.0 in the file system here provides XSpec evaluation in pipelines.
+
+## Notes of interest
+
+### Patching the compiler XSLT
+
+XSpec works by transpiling an XSpec into an XSLT and then executing it. These XSLTs all work fine in their current form, apart from a small problem resulting from a bug (or lapse in specification) in Morgana, which drops results from `xsl:result-document` when no `@href` is given.
+
+Accordingly, we provide a slight amendment to the XSLT produced by the compiler, before executing it.
+
+See [xspec-execute.xpl](xspec-execute.xpl) for this code. The change is made dynamically in the pipeline, and produces the results needed.
+
+### Seeing XSpec as XSpec
+
+Because xspec files are typically not named `*.xml` they may not be recognized as XML by an XProc engine, for parsing. You will get an error for not knowing what to do with an octet stream.
+
+To mitigate this, call the document in (`p:document` or `p:load`) with `content-type="application/xml"`.
+
+(Passing the name on the command line is still a problem.)
 
 ## Punchlist
 
-- Analyze, trace and rebuild  XProc runtime for XSpec
-  - The directory [xspec-dev](xspec-dev) in this project folder is at the same level as the local copy of the XSpec distribution saved out by [../lib/GRAB-XSPEC.xpl](../lib/GRAB-XSPEC.xpl)
-  - Accordingly, its XProc 1.0 can simply be mirrored and updated (Famous Last Words)
-
-- Illustrate with some XSpecs in action
-  - runtime messages
-  - HTML report
-  - JUnit report
-  - In batches
-
-- Cover XSLT, Schematron, XQuery
+- Schematron
+- XQuery
 
 ## For later
 
 - XSpec comes with SchXSLT - should we consolidate?
   - At least note as a possible optimization
-
       
 ## Acknowledgements
 
-Florent Georges is the author of the XProc 1.0 pipelines we seek to re-engineer in this project.
+Florent Georges is the author of the XProc 1.0 pipelines we are emulating in this project.
 
-Other XSpec contributors have played roles as well in bringing us this far.
+Other XSpec contributors have played important roles as well in bringing us this far.
+
 ---

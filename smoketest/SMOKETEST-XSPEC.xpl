@@ -13,4 +13,6 @@
    
    <ox:xspec-execute name="execute-xspec"/>
    
+   <p:identity message="[SMOKETEST-XSPEC] All done, successful run"/>
+   
 </p:declare-step>
