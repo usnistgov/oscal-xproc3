@@ -31,6 +31,12 @@ Use [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl) to pull down SchXSLT.
 
 Or, by hand - find [David Maus's SchXSLT](https://github.com/schxslt/schxslt) on Github. The [distribution you want](https://github.com/schxslt/schxslt/releases/download/v1.9.5/schxslt-1.9.5-xproc.zip) provides XProc support.
 
+## Acquire XSpec for XSpec support
+
+Use [lib/GRAB-XSPEC.xpl](lib/GRAB-XSPEC.xpl) to pull down SchXSLT.
+
+Developers who already have these libraries also have options for using available copies rather than downloading them - see the [lib/readme.md][lib/readme.md].
+
 ### Note on Saxon versions
 
 We have successfully run with Saxon-HE 12.3 and the runtime flag ` -xslt-connector=saxon12-3` when invoking Morgana.

@@ -30,6 +30,7 @@ Enabling these lightweight, transparent and declarative "logical layers" written
 - [Morgana XProc IIIse][morgana] - XProc 3.0
 - [Saxon-HE][saxon12] - XSLT 3.0/3.1 (and XQuery)
 - [SchXSLT][schxslt] - ISO Schematron / community enhancements
+- [XSpec][xspec] - XSpec - XSLT/XQuery unit testing
 
 These are open-source projects in support of W3C- and ISO-standardized technologies. (Soon to come: [XSpec](https://github.com/xspec/xspec).) Helping to install, configure, and make these work seamlessly, so users do not have to notice, is a goal of this project.
 
@@ -161,6 +162,10 @@ III. To install SchXSLT: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl)
 
 To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
 
+IV. To install XSpec: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-XSPEC.xpl)
+
+To test XSPec: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-XSPEC.xpl)
+
 <details><summary><bold>Does it work?</bold></summary>
 
 To test your Java installation from the command line:
@@ -196,6 +201,8 @@ Again you should see fine-looking results, this time in XML.
 After installing Saxon, the smoke test [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl) will function, returning sensible outputs.
 
 After installing SchXSLT, the smoke test [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl) will function, returning sensible outputs.
+
+After installing XSpec, the smoke test [smoketest/SMOKETEST-XSPEC.xpl](smoketest/SMOKETEST-XSPEC.xpl) will function, returning sensible outputs.
 
 [Another page offers help](./setup-notes.md) with details on manual setup.
 

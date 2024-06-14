@@ -56,6 +56,8 @@
    
 <!-- Rules being enforced:
 
+      A warning is given if the file is not listed in TEST-XPROC-SET.xpl for CI/CD runtime
+      
       The XProc is version 3.0
       The assigned type /*/@type should match the file name, in the http://csrc.nist.gov/ns/oscal-xproc3 namespace (prefix 'ox')
       The name /*/@name should also match the file name
@@ -70,10 +72,15 @@
         - to turn this off for the pipeline, list the XProc by name among processes named in $unlinked-xprod 
 
    -->
+   
+   <sch:let name="listed-uris" value="document('TEST-XPROC-SET.xpl')/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
+   
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml'))]"/>
-         <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
+         <sch:assert role="warning" test="base-uri(.) = $listed-uris">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in src/testing/TEST-XPROC-SET.xpl - should it be?</sch:assert>
+                  
+         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml','xsl','x'))]"/>
+         <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="starts-with($basename, $typename-given)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
