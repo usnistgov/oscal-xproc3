@@ -23,12 +23,12 @@ jobs:
           ./setup.sh
           ./xp3.sh lib/GRAB-SAXON.xpl
           ./xp3.sh lib/GRAB-SCHXSLT.xpl
-          ./xp3.sh lib/GRAB-XPROC.xpl
+          ./xp3.sh lib/GRAB-XSPEC.xpl
         id: setup
       - name: Run smoketests
         run: |
           ./xp3.sh smoketest/POWER-UP.xpl
-          ./xp3.sh smoketest/SMOKETEST-XPROC.xpl
+          ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl
         id: exec_smoketests
       - name: Run tests
         run: |
