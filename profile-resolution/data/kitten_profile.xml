@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+         uuid="ec787c82-8d37-4f9d-ad5a-36b6b2308ce2">
+   <metadata>
+      <title>Kitten profile</title>
+      <last-modified>2024-05-23T15:19:43.2904654-04:00</last-modified>
+      <version>0.1</version>
+      <oscal-version>1.0.2</oscal-version>
+   </metadata>
+   <import href="cat_catalog.xml">
+      <include-controls>
+         <with-id>boxes</with-id>
+         <with-id>treats</with-id>
+         <with-id>toys</with-id>
+      </include-controls>
+   </import>
+</profile>

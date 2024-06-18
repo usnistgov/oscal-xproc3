@@ -25,9 +25,8 @@ else
 fi
 
 echo "Morgana is available - next, try executing a bare pipeline such as smoketest/POWER-UP.xpl ..."
-echo "Having run this .sh script you can probably figure out that ./xp3.sh smoketest/POWER-UP.xpl is the syntax to do that"
+echo "Hint: ./xp3.sh lib/POWER-UP.xpl (Linux/WSL) or xp3 lib\POWER-UP.xpl (Windows CMD)"
 echo "Then run the pipeline lib/GRAB-SAXON.xpl to download, unzip and install the Saxon-HE processor, enabling XSLT and XQuery in your XProc pipelines"
-echo "viz: ./xp3.sh lib/GRAB-SAXON.xpl"
 
 popd > /dev/null
 

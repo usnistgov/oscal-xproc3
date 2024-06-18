@@ -43,6 +43,7 @@ Projects currently planned for deployment in this repository include:
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
+  - [profile-resolution](./profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
   - `data-convert` - convert OSCAL XML into JSON and OSCAL JSON into XML
   - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
@@ -55,17 +56,21 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-`lib` and `testing` folders are special; others represent projects.
+`lib`, `template`, `testing`, `icons` and (hidden) `.github` folders are special; others represent projects.
 
-The `lib` folder comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), ahnd (once the basic setup is done) by these same utility pipelines.
+[The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by running the pipelines.
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Next to `lib`, each project is kept in its own separate folder. There, the project will have its own README.md. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless otherwise noted.
+Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless and except where noted otherwise.
 
-One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and 'fully assembled' forms.
+One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and fully configured forms.
 
-The `testing` directory contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
+[The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
+
+[The `template` directory](./template) contains a blank project template. Copy and rename this folder for a quick start on XProc infrastructure for your project. It contains boilerlate documentation and logic ready for rewriting.
+
+Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that can be associated with scripts or file types.
 
 ## Software maturity
 
@@ -112,6 +117,7 @@ OSCAL developers may wish to use software on this site as a 'black box', without
 After following the installation instructions to download and test the core libraries, choose the application you are interested in, and start there.
 
 - [OSCAL Schema Field Testing](./schema-field-tests/) - assessing the adequacy and correctness of schemas against their definitions
+- [OSCAL Profile Resolution](./profile-resolution/) - producing a catalog of controls from an OSCAL profile, representing a control baseline or catalog overlay
 
 </details>
 <details>
@@ -120,25 +126,28 @@ After following the installation instructions to download and test the core libr
 Software developers using and learning XProc 3.0 and the XDM stack (XML/XSLT/XQuery) may wish to open the box and see how the internals work.
 
 After installation and testing, you can start anywhere &mdash; you have already started.
+
+- [Project starter template](./template/) - Blank readmes with a working pipeline ready for adaptation
+
 </details>
 
 ### Installation instructions
 
-*Platform requirements*: Java, with a `bash` shell for automated installation. (Only Java is required if you can install manually.)
+*Platform requirements*: Java, with a `bash` shell for automated installation. Only Java is required if you can install manually.
 
 Developed on Windows and tested with WSL, Git bash, and Windows Powershell.
 
 I. Install the XProc3 engine by running the script:
 
+```bash
+./setup.sh
 ```
-> ./setup.sh
-```
 
-The [setup-notes](./setup-notes.md) file provides a walkthrough of what this script does, if `bash` does not come through -- the setup can be done by hand.
+The [setup-notes](./setup-notes.md) file provides a walkthrough of what this script does, if `bash` does not come through: the setup can be done by hand.
 
-After setup, you should now be able to run bare-bones XProc - a pipeline processor (Morgana) with rudimentary capabilities. How to run any of these pipelines is [detailed below](#running-the-software).
+After setup, you should now be able to run bare-bones XProc using a pipeline processor (Morgana) with rudimentary capabilities. How to run any of these pipelines is [detailed below](#running-the-software).
 
-If impatient to test, review **Does It Work?** below before proceeding.
+If impatient to test, review **Does It Work?** below before proceeding. But expect errors with many pipelines if you forget to finish the installation.
 
 The next steps both test the runtime, and provide Morgana with more power, namely XSLT for transformations (using Saxon), and Schematron for query-based validation (using SchXLST).
 
@@ -152,12 +161,12 @@ III. To install SchXSLT: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl)
 
 To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
 
-<details><summary>**Does it work?**</summary>
+<details><summary><bold>Does it work?</bold></summary>
 
 To test your Java installation from the command line:
 
-```
-> java -version
+```bash
+java -version
 ```
 
 You should see a nice message with your Java version, not an error or traceback.
@@ -168,14 +177,14 @@ TODO - tip for anyone with no Java?
 
 To test Morgana, try the [Smoke test application](./smoketest):
 
-```
-> ./xp3.sh smoketest/POWER-UP.xpl
+```bash
+./xp3.sh smoketest/POWER-UP.xpl
 ```
 
 or (Windows users, from a command line or Powershell window)
 
-```
-> .\xp3 smoketest\POWER-UP.xpl
+```bash
+.\xp3 smoketest\POWER-UP.xpl
 ```
 
 Again you should see fine-looking results, this time in XML.
@@ -196,17 +205,18 @@ After installing SchXSLT, the smoke test [smoketest/SMOKETEST-SCHEMATRON.xpl](sm
 
 If Morgana is installed with Saxon-HE you should be good to go running any pipeline. See project readme documents for details on each project.
 
-- [Schema Field Tests](./schema-field-tests/readme.md)
+- [Schema Field Tests](./schema-field-tests) - Testing whether OSCAL schemas correctly enforce rules over data (with surprises)
+- [OSCAL Profile Resolution](./profile-resolution) - converting an OSCAL profile (representing a baseline or overlay) into its catalog of controls
 
 TODO: keep this list up to date
 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
-```
-> ./xp3.sh LAUNCH.xpl
+```bash
+./xp3.sh LAUNCH.xpl
 ```
 
-Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (there is no actual pipeline of that name).
+Will initiate an XProc 3 step (pipeline) defined in the file `LAUNCH.xpl` (or return an error when no pipeline is found by that name).
 
 Note that a pipeline may run successfully without XSLT or Schematron support, if the pipeline itself does not depend on these capabilities.
 
@@ -228,7 +238,7 @@ Optionally, Windows users can use a batch file command interface, with drag-and-
 
 In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals, as in 'ALL-CAPS.xpl' &mdash; explanation below.)
 
-Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options.
+Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options. Some icons for this purpose are provided [in the repository](./icons/).
 
 TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this or equivalent functionality on \*nix or Mac platforms - AppleScript! - lettuce know &#x1F96C; if you want or can do this
   
@@ -240,13 +250,13 @@ Testing is a central focus of this initiative. See [TESTING.md](./TESTING.md).
 
 Some repository-wide testing, not for functionality but for other requirements, is maintained in the [testing](./testing) directory.
 
-## Contact information
+## Contact the project
 
-TODO: procure a project alias from ServiceNow
+- [Create a Github Issue][repo-issues]
+- [Pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/)
+- Send email to [xslt-interest@nist.gov](mailto:xslt-interest@nist.gov)
 
 This project is being maintained by Wendell Piez, w a p i e z @ n i s t . g o v of the National Institute of Standards and Technology, Information Technology Laboratory, Computer Security Division (NIST/ITL/CSD 773.03).
-
-Please [create a Github Issue][repo-issues] or [pursue an OSCAL lead](https://pages.nist.gov/OSCAL/contact/) for discussion on this repository. In support of this project, email to the principal investigator is also welcome.
 
 ## Related Material
 
@@ -294,7 +304,7 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 
 ## XProc platform acknowledgements
 
-With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces; Trang; and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially unencumbered and open-source. Only an open, dedicated and supportive community could prove capable of such a collective achievement.
+With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh, Achim Berndzen and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces, Trang, and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially unencumbered and open-source. Only an open, dedicated and supportive community could prove capable of such a collective achievement.
 
 ---
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
-   xmlns:cx="http://xmlcalabash.com/ns/extensions"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:PROVE-XSD-VALIDATIONS"
-   name="PROVE-XSD-VALIDATIONS"
-   >
+   name="PROVE-XSD-VALIDATIONS">
 
   <!-- Purpose: An XProc 3 pipeline providing batch validation of XML inputs against an XSD -->
    
