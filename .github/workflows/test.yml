@@ -28,6 +28,7 @@ jobs:
       - name: Run smoketests
         run: |
           ./xp3.sh smoketest/POWER-UP.xpl
+          ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl
           ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl
         id: exec_smoketests
       - name: Run tests
