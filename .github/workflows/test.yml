@@ -43,7 +43,7 @@ jobs:
           name: Test Results
           # JUnit results of pipeline ./testing/BATCH-XSPEC-JUNIT.xpl
           path: |
-            testing/xspec-results/**.*_junit.xml
+            testing/xspec-results/**/*_junit.xml
 
   event_file:
     name: "Upload Results to Event File"
