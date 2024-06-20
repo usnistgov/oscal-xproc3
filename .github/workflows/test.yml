@@ -44,7 +44,6 @@ jobs:
           # JUnit results of pipeline ./testing/BATCH-XSPEC-JUNIT.xpl
           path: |
             testing/xspec-reports/**/*_junit.xml
-
   event_file:
     name: "Upload Results to Event File"
     runs-on: ubuntu-20.04
