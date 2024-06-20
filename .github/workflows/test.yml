@@ -1,7 +1,16 @@
+name: CI
 on:
   push:
-  pull_request:
-name: CI
+    branches:
+      - main
+      - develop
+  pull_request: {}
+permissions:
+  checks: write
+  pull-requests: write  
+env:
+  JAVA_VERSION: "17"
+  JAVA_DISTRIBUTION: "temurin"
 jobs:
   test:
     name: Test
