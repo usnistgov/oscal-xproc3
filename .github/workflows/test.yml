@@ -27,7 +27,6 @@ jobs:
         id: setup
       - name: Run smoketests
         run: |
-          ls -lha lib
           ./xp3.sh smoketest/POWER-UP.xpl
           ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl
           ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl
@@ -37,3 +36,23 @@ jobs:
           ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl
           ./xp3.sh testing/BATCH-XSPEC.xpl
         id: exec_tests
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+        with:
+          name: Test Results
+          path: |
+            # JUnit results of pipeline ./testing/BATCH-XSPEC-JUNIT.xpl
+            testing/xspec-results/**.*_junit.xml
+
+  event_file:
+    name: "Upload Results to Event File"
+    runs-on: ubuntu-20.04
+    needs: test
+    steps:
+    - name: Upload
+      uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+      with:
+        name: Test Results Event
+        path: ${{ github.event_path }}
+

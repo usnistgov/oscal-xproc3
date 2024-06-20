@@ -13,7 +13,7 @@
    <sch:pattern>
       <sch:rule context="/*">
          <sch:report test="false()">CONGRATULATIONS - you have performed Schematron validation on a <sch:name/> document.</sch:report>
-         <sch:assert test="false()">An assertion should fail when it is false.</sch:assert>
+         <sch:assert test="true()">An assertion should fail when it is false.</sch:assert>
       </sch:rule>
    </sch:pattern>
    

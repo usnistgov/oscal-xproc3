@@ -16,6 +16,7 @@
       <p:document href="TEST-XPROC-SET.xpl"/>
       <p:document href="TEST-XSPEC-SET.xpl"/>
       <p:document href="BATCH-XSPEC.xpl"/>
+      <p:document href="BATCH-XSPEC-JUNIT.xpl"/>
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
