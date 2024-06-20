@@ -41,8 +41,8 @@ jobs:
         uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
         with:
           name: Test Results
+          # JUnit results of pipeline ./testing/BATCH-XSPEC-JUNIT.xpl
           path: |
-            # JUnit results of pipeline ./testing/BATCH-XSPEC-JUNIT.xpl
             testing/xspec-results/**.*_junit.xml
 
   event_file:
