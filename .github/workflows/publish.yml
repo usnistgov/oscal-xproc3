@@ -34,6 +34,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_name: XSpec Test Results
           comment_mode: always
-          files: "testing/xspec-results/**/*_junit.xml"
+          files: "testing/xspec-reports/**/*_junit.xml"
           report_individual_runs: true
           deduplicate_classes_by_file_name: false

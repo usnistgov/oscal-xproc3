@@ -15,7 +15,7 @@
    <p:variable name="repo-root" select="resolve-uri('.. ',static-base-uri())  => replace('^file:///','file:/')"/>
    
    <p:variable name="schematron-path" select="'xproc3-house-rules.sch'"/>
-   <p:variable name="outdir"          select="'xspec-reports'"/>
+   <p:variable name="outdir"          select="'xspec-reports' => resolve-uri(static-base-uri())"/>
    
    <ox:TEST-XSPEC-SET name="test-set"/>
    
