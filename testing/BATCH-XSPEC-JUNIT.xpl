@@ -13,22 +13,18 @@
    
    <p:variable name="repo-root" select="resolve-uri('.. ',static-base-uri())  => replace('^file:///','file:/')"/>
    
-   <p:variable name="schematron-path" select="'xproc3-house-rules.sch'"/>
-   <p:variable name="outdir"          select="'xspec-reports' => resolve-uri(static-base-uri())"/>
+   <p:variable name="outdir" select="'xspec-reports' => resolve-uri(static-base-uri())"/>
    
    <ox:TEST-XSPEC-SET name="test-set"/>
    
    <p:for-each>
       <p:with-input pipe="xspec-files@test-set"/>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-      <p:variable name="base" select="base-uri(/*)"/>
-      <p:variable name="repo-path" select="substring-after($base,$repo-root)"/>
-      <p:variable name="html-report-path"  select="replace($repo-path,'\.xspec$','') || '_report.html' "/>
-      <p:variable name="junit-report-path" select="replace($repo-path,'\.xspec$','') || '_junit.xml' "/>
-      <!--<p:identity message="[BATCH-XSPEC] $base: { $base }"/>
-      <p:identity message="[BATCH-XSPEC] $repo-path: { $repo-path }"/>
-      <p:identity message="[BATCH-XSPEC] $repo-root: { $repo-root }"/>-->
-
+      <p:variable name="xspec-filename" select="base-uri(/*)"/>
+      <p:variable name="relative-path" select="substring-after($xspec-filename,$repo-root)"/>
+      <p:variable name="html-report-path"  select="replace($relative-path,'\.xspec$','') || '_report.html' "/>
+      <p:variable name="junit-report-path" select="replace($relative-path,'\.xspec$','') || '_junit.xml' "/>
+      
       <ox:xspec-execute name="execute-xspec"/>
       
       <!--<p:store message="[BATCH-XSPEC-JUNIT] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
