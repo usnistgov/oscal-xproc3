@@ -24,8 +24,8 @@
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
       <p:variable name="base" select="base-uri(/*)"/>
       <p:variable name="repo-path" select="substring-after($base,$repo-root)"/>
-      <p:variable name="html-report-path"  select="replace($repo-path,'\.xspec$','') || '-report.html' "/>
-      <p:variable name="junit-report-path" select="replace($repo-path,'\.xspec$','') || '-junit.xml' "/>
+      <p:variable name="html-report-path"  select="replace($repo-path,'\.xspec$','') || '_report.html' "/>
+      <p:variable name="junit-report-path" select="replace($repo-path,'\.xspec$','') || '_junit.xml' "/>
       <!--<p:identity message="[BATCH-XSPEC] $base: { $base }"/>
       <p:identity message="[BATCH-XSPEC] $repo-path: { $repo-path }"/>
       <p:identity message="[BATCH-XSPEC] $repo-root: { $repo-root }"/>-->
