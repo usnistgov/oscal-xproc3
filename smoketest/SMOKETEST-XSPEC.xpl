@@ -11,7 +11,7 @@
    
    <p:identity message="[SMOKETEST-XSPEC] Testing XSpec by running ./congratulations-xslt.xspec"/>
    
-   <ox:xspec-execute name="execute-xspec"/>
+   <ox:xslt-xspec-execute name="execute-xspec"/>
    
    <p:identity message="[SMOKETEST-XSPEC] All done, successful run"/>
 

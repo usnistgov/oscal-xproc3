@@ -40,11 +40,6 @@
    <sch:let name="basename" value="replace($filename, '\..*$', '')"/>
    <sch:let name="tag" value="'[' || $basename || ']'"/>
    
-   <sch:let name="type-prefix" value="substring-before(/*/@type, ':')"/>
-   <sch:let name="type-uri" value="/*/namespace-uri-for-prefix($type-prefix, .)"/>
-
-   <sch:let name="typename-given" value="/*/@type/tokenize(., ':')[last()]"/>
-   
    <!--<xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
       select="function($v as item()) as xs:boolean { string($v) => matches('^\s*\{\s*\$\i\c*\s*\}') }"/>-->
@@ -78,13 +73,10 @@
    <sch:pattern>
       <sch:rule context="/*">
          <sch:assert role="warning" test="base-uri(.) = $listed-uris">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in src/testing/TEST-XPROC-SET.xpl - should it be?</sch:assert>
-                  
+         
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml','xsl','x'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-type" test="starts-with($basename, $typename-given)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-name" test="@name = $basename">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>
       
       <sch:rule context="processing-instruction()">
@@ -104,6 +96,16 @@
    </sch:pattern>
 
    <sch:pattern>
+      <sch:rule context="p:declare-step">
+         <sch:let name="type-prefix" value="substring-before(@type, ':')"/>
+         <sch:let name="type-uri" value="namespace-uri-for-prefix($type-prefix, .)"/>
+         <sch:let name="typename-given" value="@type/tokenize(., ':')[last()]"/>
+         
+         <sch:assert sqf:fix="sqf-repair-step-type" test="contains($basename, $typename-given) or contains($typename-given, $basename)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or not(. is /*)">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
+      </sch:rule>
+      
      <sch:rule context="p:load | p:store">
         <sch:assert sqf:fix="sqf-add-message" test="matches(@message,'\S')" role="warning">XProc <sch:name/> should emit a message</sch:assert>
         <sqf:fix id="sqf-add-message">

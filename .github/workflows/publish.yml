@@ -23,6 +23,9 @@ jobs:
         with:
           run_id: ${{ github.event.workflow_run.id }}
           path: artifacts
+      - name: Look at files
+        run: |
+          find '.' -iname *.xml
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@8885e273a4343cd7b48eaa72428dea0c3067ea98
         with:
@@ -34,6 +37,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_name: XSpec Test Results
           comment_mode: always
-          files: "testing/xspec-reports/**/*_junit.xml"
+          files: "**/*junit.xml"
           report_individual_runs: true
           deduplicate_classes_by_file_name: false
