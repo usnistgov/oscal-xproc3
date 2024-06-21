@@ -23,6 +23,9 @@ jobs:
         with:
           run_id: ${{ github.event.workflow_run.id }}
           path: artifacts
+      - name: Look at files
+        run: |
+          find '.' -iname *.xml
       - name: Publish Test Results
         uses: EnricoMi/publish-unit-test-result-action@8885e273a4343cd7b48eaa72428dea0c3067ea98
         with:
