@@ -6,10 +6,7 @@
       </x:context>
       
       <x:expect label="break out and amend">
-         <CONGRATULATIONS>
-            <LINE>Here is stuff</LINE>
-            <LINE>...</LINE>
-         </CONGRATULATIONS>
+         <WRONGAGAIN/>
       </x:expect>
       <x:expect label="new line is added as expected" test="$x:result/LINE[last()] => starts-with('You have successfully executed an XSL transformation')"/>
    </x:scenario>
