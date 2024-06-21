@@ -11,7 +11,12 @@
    <p:input port="source" sequence="true">
       <p:document href="../lib/GRAB-SAXON.xpl"/>
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
-
+      <p:document href="../lib/GRAB-XSPEC.xpl"/>
+      
+      <p:document href="TEST-XPROC-SET.xpl"/>
+      <p:document href="TEST-XSPEC-SET.xpl"/>
+      <p:document href="BATCH-XSPEC.xpl"/>
+      <p:document href="BATCH-XSPEC-JUNIT.xpl"/>
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
@@ -27,8 +32,10 @@
       <p:document href="../smoketest/POWER-UP.xpl"/>
       <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
       <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
+      <p:document href="../smoketest/SMOKETEST-XSPEC.xpl"/>
 
+      <p:document href="../xspec/xspec-execute.xpl"/>
+      
       <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
       <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>

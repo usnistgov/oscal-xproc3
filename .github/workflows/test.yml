@@ -1,7 +1,16 @@
+name: CI
 on:
   push:
-  pull_request:
-name: CI
+    branches:
+      - main
+      - develop
+  pull_request: {}
+permissions:
+  checks: write
+  pull-requests: write  
+env:
+  JAVA_VERSION: "17"
+  JAVA_DISTRIBUTION: "temurin"
 jobs:
   test:
     name: Test
@@ -23,14 +32,35 @@ jobs:
           ./setup.sh
           ./xp3.sh lib/GRAB-SAXON.xpl
           ./xp3.sh lib/GRAB-SCHXSLT.xpl
+          ./xp3.sh lib/GRAB-XSPEC.xpl
         id: setup
       - name: Run smoketests
         run: |
           ./xp3.sh smoketest/POWER-UP.xpl
-          ./xp3.sh smoketest/SMOKETEST-XSLT.xpl
           ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl
+          ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl
         id: exec_smoketests
       - name: Run tests
         run: |
           ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl
+          ./xp3.sh testing/BATCH-XSPEC-JUNIT.xpl
         id: exec_tests
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+        with:
+          name: Test Results
+          # JUnit results of pipeline ./testing/BATCH-XSPEC-JUNIT.xpl
+          path: |
+            testing/xspec-reports/**/*_junit.xml
+  event_file:
+    name: "Upload Results to Event File"
+    runs-on: ubuntu-20.04
+    needs: test
+    steps:
+    - name: Upload
+      uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3
+      with:
+        name: Test Results Event
+        path: ${{ github.event_path }}
+

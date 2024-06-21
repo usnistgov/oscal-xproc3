@@ -25,17 +25,31 @@ Or, by hand - download Saxon-HE 12.3 at https://www.saxonica.com/download/SaxonH
   - Take care no other versions of Saxon are present (which might conflict)
   - Discard the rest if unwanted - keeping the zip file intact for the license information etc.
 
+### Note on Saxon versions
+
+We have successfully run with Saxon-HE 12.3 and the runtime flag ` -xslt-connector=saxon12-3` when invoking Morgana.
+
+Developers who have success with later versions and reasons to need a Saxon upgrade should [please make an Issue](https://github.com/usnistgov/oscal-xproc3/issues) or (better) [a PR](https://github.com/usnistgov/oscal-xproc3/pulls).
+
 ## Acquire SchXSLT for Schematron support
 
 Use [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl) to pull down SchXSLT.
 
 Or, by hand - find [David Maus's SchXSLT](https://github.com/schxslt/schxslt) on Github. The [distribution you want](https://github.com/schxslt/schxslt/releases/download/v1.9.5/schxslt-1.9.5-xproc.zip) provides XProc support.
 
-### Note on Saxon versions
+## Acquire XSpec for XSpec support
 
-We have successfully run with Saxon-HE 12.3 and the runtime flag ` -xslt-connector=saxon12-3` when invoking Morgana.
+Use [lib/GRAB-XSPEC.xpl](lib/GRAB-XSPEC.xpl) to pull down XSpec.
 
-Developers who have success with later versions and reasons to need a Saxon upgrade should [please make an Issue](https://github.com/usnistgov/oscal-xproc3/issues) or (better) [a PR](https://github.com/usnistgov/oscal-xproc3/pulls).
+## Skip these downloads
+
+Alternatively, developers who already have these libraries can configure to use available copies rather than downloading them - see the [lib/readme.md](lib/readme.md).
+
+- For Saxon, provide the Saxon `jar` to the Morgana runtime (the pipeline does this by copying it into Morgana's `lib` directory; classpath incantations also work).
+
+- For SchXSLT, edit the [Morgana configuration](lib/morgana-config.xml) or use a different configuration when invoking Morgana.
+
+- for XSpec, edit the top-level [XSpec execution pipeline](xspec/xspec-execute.xpl) or any pipeline that calls into XSpec directly.
 
 ## Check your paths
 
@@ -51,15 +65,17 @@ Likewise, tests are provided that can show that XSLT and Schematron capabilities
 
 - [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl)
 - [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
+- [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-XSPEC.xpl)
 
+Note that since Schematron and XSpec depend on XSLT and hence invoke Saxon, the Saxon-only smoketest can often be skipped.
 
 ### Smoke tests are working but a pipeline doesn't
 
 If the smoke tests work, but a pipeline does not function correctly, any problem is most likely not with installation or configuration, but with the pipeline itself, or in a resource that it reads or requires.
 
-Morgana returns information about errors and warnings in XML format. While this compromises their legibility on the screen, generally speaking the messages embedded are fairly helpful. And this XML is very useful for other purposes, as it can be trapped.
+Morgana returns information about errors and warnings in XML format. While this compromises their legibility on the screen, generally speaking the messages embedded are fairly helpful. And this XML is very useful for other purposes, as it can be trapped and processed further.
 
-Any problems with any pipelines on this site (or any pipelines not otherwise called out in documentation or comments) should be [reported](https://github.com/usnistgov/oscal-xproc3/issues), as it is not our aim to distribute broken software. Of course, if your aim is to learn XProc and XSLT, it is to be hoped you are looking at useful error messages very soon.
+Any problems with any pipelines on this site (or any pipelines not otherwise called out in documentation or comments) should be [reported](https://github.com/usnistgov/oscal-xproc3/issues), as it is not our aim to distribute broken software. Of course, if your aim is to learn XProc and XSLT, we also hope you are looking at useful error messages very soon - signposts on your journey.
 
 ---
 
