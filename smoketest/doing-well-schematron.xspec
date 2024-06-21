@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="doing-well.sch">
+   
+   <x:scenario label="Doing well, thank you - checks out">
+      <x:context>
+         <CONGRATULATIONS>
+            <doing-well>THANK YOU</doing-well>
+         </CONGRATULATIONS>
+      </x:context>
+      
+      <x:expect-not-assert id="doing-well_positive-assertion" label="Okay input looks good"/>
+      <x:expect-assert     id="doing-well_negative-assertion" label="Liars still lying"/>
+      <x:expect-report     id="doing-well_positive-report"    label="Everyone is welcome"/>
+      <x:expect-not-report id="doing-well_negative-report"    label="Quiet is quiet"/>
+   </x:scenario>
+   
+   <x:scenario label="Doing well but not so thankful -">
+      <x:context>
+         <CONGRATULATIONS>
+            <doing-well>But not providing the expected answer</doing-well>
+         </CONGRATULATIONS>
+      </x:context>
+      
+      <x:expect-assert     id="doing-well_positive-assertion" label="Answer isn't good"/>
+      <x:expect-assert     id="doing-well_negative-assertion" label="Liars still lying"/>
+      <x:expect-not-report id="doing-well_positive-report"    label="Everyone is welcome - not"/>
+      <x:expect-not-report id="doing-well_negative-report"    label="Quiet is quiet"/>
+   </x:scenario>
+   
+</x:description>

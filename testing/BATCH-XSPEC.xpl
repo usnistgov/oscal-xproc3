@@ -26,7 +26,7 @@
       <p:variable name="html-report-path"  select="replace($relative-path,'\.xspec$','') || '_report.html' "/>
       <p:variable name="junit-report-path" select="replace($relative-path,'\.xspec$','') || '_junit.xml' "/>
       
-      <ox:xspec-execute name="execute-xspec"/>
+      <ox:xslt-xspec-execute name="execute-xspec"/>
       
       <p:store message="[BATCH-XSPEC] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
          <p:with-input port="source" pipe="xspec-html-report@execute-xspec"/>

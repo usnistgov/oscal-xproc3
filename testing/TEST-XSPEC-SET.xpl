@@ -7,6 +7,12 @@
    >
 
    <!-- Pipeline to be called as subpipeline, delivering a list of XProcs -->
+
+   <!--Keep in mind that as construed tby tools, validation presumes *without further qualification*
+       that any report or assertion returned by a Schematron makes the containing document 'invalid'.
+   
+       Schematrons used for query and diagnostics that do not follow this rule shouldn't be listed
+       and run under CI/CD -->
    
    <p:input port="source" sequence="true">
       <!-- We need content type because xspec suffix throws off the parser -->
