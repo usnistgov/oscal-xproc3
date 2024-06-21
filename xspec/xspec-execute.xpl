@@ -4,10 +4,10 @@
    xmlns:x="http://www.jenitennison.com/xslt/xspec"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3">
 
-
-   <!-- XProc 3.0 rendition of saxon-xslt-harness
-     -->
-   <!-- Credit: Florent Georges is the author of the original XProc 1.0 XSpec testing harnesses, which this code (in its first iteration) sets out to emulate -->
+   <!-- XProc 3.0 rendition of saxon-xslt-harness -->
+   <!-- Credit: Florent Georges is the author of the original XProc 1.0 XSpec testing harnesses,
+        which this code (in its first iteration) sets out to emulate -->
+   
    
    <!-- Providing a relative path to XSpec (top-level directory) on this system. with trailing slash -->   
    <p:option name="xspec-home" select="'../lib/xspec-3.0.3/'" static="true"/>
@@ -44,7 +44,9 @@
          <p:with-input port="source" pipe="secondary@execute-xspec"/>
       </p:identity>
 
-      <!-- A report looks like: <x:report stylesheet="bogus.xsl" xspec="dummy.xspec" date="2024-04-01T16:26:29.142753100-04:00"/> -->
+      <!-- A report looks like:
+         <x:report stylesheet="bogus.xsl" xspec="dummy.xspec"
+          date="2024-04-01T16:26:29.142753100-04:00"/> -->
 
       <p:xslt name="html-report">
          <p:with-input port="stylesheet" href="{ $formatter-xslt }"/>

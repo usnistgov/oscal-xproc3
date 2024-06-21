@@ -20,16 +20,13 @@
    <p:for-each>
       <p:with-input pipe="xspec-files@test-set"/>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-      <p:variable name="xspec-filename" select="base-uri(/*)"/>
-      <p:variable name="relative-path" select="substring-after($xspec-filename,$repo-root)"/>
+      <p:variable name="xspec-filename"    select="base-uri(/*)"/>
+      <p:variable name="relative-path"     select="substring-after($xspec-filename,$repo-root)"/>
       <p:variable name="html-report-path"  select="replace($relative-path,'\.xspec$','') || '_report.html' "/>
       <p:variable name="junit-report-path" select="replace($relative-path,'\.xspec$','') || '_junit.xml' "/>
       
       <ox:xslt-xspec-execute name="execute-xspec"/>
       
-      <!--<p:store message="[BATCH-XSPEC-JUNIT] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
-         <p:with-input port="source" pipe="xspec-html-report@execute-xspec"/>
-      </p:store>-->
       <p:store message="[BATCH-XSPEC-JUNIT] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
          <p:with-input port="source" pipe="xspec-junit-report@execute-xspec"/>
       </p:store>
