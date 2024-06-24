@@ -33,6 +33,12 @@ Accordingly, we provide a slight amendment to the XSLT produced by the compiler,
 
 See [xspec-execute.xpl](xspec-execute.xpl) for this code. The change is made dynamically in the pipeline, and produces the results needed.
 
+### Schematron XSpec
+
+This is the first implementation of XSpec for Schematron that we have seen under XProc 3.0. Like the XSLT XSpec, Schematron XSpec as supported by the downloaded packages were *almost* without modification.
+
+Notes on the Schematron XSpec implementation are [here](schematron-xspec.md).
+
 ### Seeing XSpec as XSpec
 
 Because xspec files are typically not named `*.xml` they may not be recognized as XML by an XProc engine, for parsing. You will get an error for not knowing what to do with an octet stream.

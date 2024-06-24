@@ -68,7 +68,7 @@
 
    -->
    
-   <sch:let name="listed-uris" value="document('TEST-XPROC-SET.xpl')/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
+   <sch:let name="listed-uris" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
    
    <sch:pattern>
       <sch:rule context="/*">
