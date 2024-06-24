@@ -18,6 +18,7 @@
       <p:output port="xspec-html-report" primary="true" pipe="result@html-report"/>
       <p:output port="xspec-junit-report" primary="false" pipe="result@junit-report"/>
       
+      <!-- These paths are sensitive to the XSpec distribution at $xspec-home - take care -->
       <p:variable name="compiler-xslt"  select="$xspec-home || 'src/compiler/compile-xslt-tests.xsl'"/>
       <p:variable name="formatter-xslt" select="$xspec-home || 'src/reporter/format-xspec-report.xsl'"/>
       <p:variable name="junit-xslt"     select="$xspec-home || 'src/reporter/junit-report.xsl'"/>

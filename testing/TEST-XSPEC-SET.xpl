@@ -3,17 +3,13 @@
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:TEST-XSPEC-SET"
-   name="TEST-XSPEC-SET"
-   >
+   name="TEST-XSPEC-SET">
 
-   <!-- Pipeline to be called as subpipeline, delivering a list of XProcs -->
+   <!-- Pipeline to be called as subpipeline, delivering a sequence of XSpec files, parsed as XML -->
 
-   <!--Keep in mind that as construed tby tools, validation presumes *without further qualification*
-       that any report or assertion returned by a Schematron makes the containing document 'invalid'.
-   
-       Schematrons used for query and diagnostics that do not follow this rule shouldn't be listed
-       and run under CI/CD -->
-   
+   <!-- Strictly diagnostic or demonstration XSpecs can be excluded from this list,
+        while the rule for CI/CD is "Paranoia is my good friend". -->
+
    <p:input port="source" sequence="true">
       <!-- We need content type because xspec suffix throws off the parser -->
       <p:document href="../smoketest/congratulations-xslt.xspec" content-type="application/xml"/>
