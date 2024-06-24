@@ -84,8 +84,9 @@
       </sch:rule>
 
       <sch:rule context="*[exists(@message)]">
+         <sch:let name="parent-label" value="('[' || ../@name || ']')"/>
          <sch:assert sqf:fix="sqf-prepend-message-tag"
-            test="starts-with(@message,$tag) or ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
+            test="starts-with(@message,$tag) or ox:leads-with-variable-reference(@message) or (starts-with(@message, $parent-label))">Message should start with tag <sch:value-of select="$tag"/> or label <sch:value-of select="$parent-label"/></sch:assert>
          <sqf:fix id="sqf-prepend-message-tag">
             <sqf:description>
                <sqf:title>Prepend the message with '<sch:value-of select="$tag"/>'</sqf:title>

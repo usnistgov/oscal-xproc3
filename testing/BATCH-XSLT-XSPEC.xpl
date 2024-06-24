@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:BATCH-XSPEC"
-   name="BATCH-XSPEC"
+   type="ox:BATCH-XSLT-XSPEC"
+   name="BATCH-XSLT-XSPEC"
    >
 
    <!-- Executes available XSpecs -->
@@ -28,10 +28,10 @@
       
       <ox:xslt-xspec-execute name="execute-xspec"/>
       
-      <p:store message="[BATCH-XSPEC] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
+      <p:store message="[BATCH-XSLT-XSPEC] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
          <p:with-input port="source" pipe="xspec-html-report@execute-xspec"/>
       </p:store>
-      <p:store message="[BATCH-XSPEC] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
+      <p:store message="[BATCH-XSLT-XSPEC] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
          <p:with-input port="source" pipe="xspec-junit-report@execute-xspec"/>
       </p:store>
       <p:sink/>

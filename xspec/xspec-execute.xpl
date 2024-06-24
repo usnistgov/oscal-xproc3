@@ -9,7 +9,6 @@
    <!-- Credit: Florent Georges is the author of the original XProc 1.0 XSpec testing harnesses,
         which this code (in its first iteration) sets out to emulate -->
    
-   
    <p:import href="../lib/schxslt-1.9.5/xproc/3.0/library.xpl"/>
    
    <!-- Providing a relative path to XSpec (top-level directory) on this system. with trailing slash -->   
@@ -26,6 +25,8 @@
       <p:variable name="formatter-xslt" select="$xspec-home || 'src/reporter/format-xspec-report.xsl'"/>
       <p:variable name="junit-xslt"     select="$xspec-home || 'src/reporter/junit-report.xsl'"/>
 
+      <p:variable name="xspec-file-path" select="base-uri(/)"/>
+      
       <p:xslt name="compile-xspec">
          <p:with-input port="stylesheet" href="{ $compiler-xslt }"/>
       </p:xslt>
@@ -36,7 +37,7 @@
          attribute-name="href" attribute-value="report" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
 
       <!-- run the XSLT -->
-      <p:xslt name="execute-xspec">
+      <p:xslt name="execute-xspec" message="[xslt-xspec-execute] Executing XSPec { base-uri(/) } testing XSLT { /*/@stylesheet }">
          <p:with-input port="source">
             <p:empty/>
          </p:with-input>
@@ -82,10 +83,11 @@
       
       <!-- Acquire and compile Schematron into XSLT for later combination, then sink-->
       
+      <p:variable name="xspec-file-path" select="base-uri(/)"/>
       <p:variable name="target-schematron-path" select="/*/@schematron"/>
       
       <schxslt:compile-schematron name="target-schematron-xslt" xmlns:schxslt="https://doi.org/10.5281/zenodo.1495494">
-         <p:with-input port="source" href="{ resolve-uri($target-schematron-path, base-uri(/)) }"/>
+         <p:with-input port="source" href="{ resolve-uri($target-schematron-path, $xspec-file-path) }"/>
       </schxslt:compile-schematron>
       
       <p:sink/>
@@ -119,7 +121,7 @@
          attribute-name="href" attribute-value="report" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
       
       <!-- Now, execute -->
-      <p:xslt name="execute-xspec">
+      <p:xslt name="execute-xspec" message="[schematron-xspec-execute] Executing XSPec { $xspec-file-path } testing Schematron { resolve-uri($target-schematron-path, $xspec-file-path) } ">
          <p:with-input port="source">
             <p:empty/>
          </p:with-input>

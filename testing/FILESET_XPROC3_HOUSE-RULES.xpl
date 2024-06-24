@@ -13,7 +13,8 @@
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
       <p:document href="../lib/GRAB-XSPEC.xpl"/>
       
-      <p:document href="BATCH-XSPEC.xpl"/>
+      <p:document href="BATCH-XSLT-XSPEC.xpl"/>
+      <p:document href="BATCH-SCH-XSPEC.xpl"/>
       <p:document href="BATCH-XSPEC-JUNIT.xpl"/>
       <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
