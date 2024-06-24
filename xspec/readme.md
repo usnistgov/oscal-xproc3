@@ -35,7 +35,7 @@ See [xspec-execute.xpl](xspec-execute.xpl) for this code. The change is made dyn
 
 ### Schematron XSpec
 
-This is the first implementation of XSpec for Schematron that we have seen under XProc 3.0. Like the XSLT XSpec, Schematron XSpec as supported by the downloaded packages were *almost* without modification.
+This is the first implementation of XSpec for Schematron that we have seen under XProc 3.0. Like the XSLT XSpec, Schematron XSpec as supported by the downloaded packages work with only a few adjustments.
 
 Notes on the Schematron XSpec implementation are [here](schematron-xspec.md).
 

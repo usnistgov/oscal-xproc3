@@ -7,7 +7,7 @@
 
    <!-- Executes available XSpecs writing only JUnit results -->
    
-   <p:import href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
+   <p:import href="FILESET_XSLT-XSPEC.xpl"/>
    
    <p:import href="../xspec/xspec-execute.xpl"/>
    
@@ -15,7 +15,7 @@
    
    <p:variable name="outdir" select="'xspec-reports' => resolve-uri(static-base-uri())"/>
    
-   <ox:FILESET_XPROC3_HOUSE-RULES name="test-set"/>
+   <ox:FILESET_XSLT-XSPEC name="test-set"/>
    
    <p:for-each>
       <p:with-input pipe="xspec-files@test-set"/>
