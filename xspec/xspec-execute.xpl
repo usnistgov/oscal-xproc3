@@ -118,6 +118,7 @@
       <!-- Next rewrite the XSLT to include templates (and all) from the target Schematron-compiled-as-XSLT
            in place of the xsl:import --> 
       <p:xslt name="import-rewrite" message="[xspec-execute] importing XSLT into XSpec...">
+         <!-- parameter $imported carries the compiled Schematron templates to be folded in -->
          <p:with-option name="parameters" select="map { 'imported': $schematron-xslt }"/>
          <p:with-input port="stylesheet" href="xspec-expand-import.xsl"/>            
       </p:xslt>
@@ -191,7 +192,7 @@
       <p:input  port="source" primary="true"/>
       <p:output port="result"/>
 
-      <p:variable name="junit-xslt"     select="$xspec-home || 'src/reporter/junit-report.xsl'"/>
+      <p:variable name="junit-xslt" select="$xspec-home || 'src/reporter/junit-report.xsl'"/>
 
       <p:xslt name="junit-report">
          <p:with-input port="stylesheet" href="{ $junit-xslt }"/>
