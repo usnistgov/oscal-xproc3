@@ -1,8 +1,6 @@
 # Schematron XSpec under XProc 3.0
 
-XSpec testing Schematron is a bit more complicated than testing XSLT, in part because Schematron itself is not a simple transformation, but rather the application by means of transformation of a set of rules - a transformation on top of a transformation.
-
-Additionally, at this date we have no XProc 3.0 implementation of XSpec (to my knowledge) - this is fresh ground.
+XSpec testing Schematron is a bit more complicated than testing XSLT, because Schematron itself is not a simple transformation. By means of a transformation, a set of rules is applied to a document or XML fragment (for testing), with that transformation (Compiled Schematron XSLT) being produced by a transformation (the Schematron compiler - SchXSLT here).
 
 ## Schematron XSpec Execution Workflow
 
@@ -39,10 +37,13 @@ sampleXML-.-|embeds or\nreferences|testingXSLT
 
 ### XProc implementation
 
-In the 'classic' architecture depicted, the ready-to-go XSLT imports a ready-to-go XSLT as if it were a compiled XSpec XSLT importing a target XSLT. In this case, however, this compiled XSLT does not exist until the processor has a change to compile the Schematron - against its own target XSLT - to produce it. This makes it difficult to import.
+As depicted, a ready-to-go XSLT (**Compiled XSLT**) imports a ready-to-go XSLT (**Compiled Schematron XSLT** produced using the commodity tool) as if it were a compiled XSpec XSLT importing a target XSLT. In the usual case this is the XSLT under test -- and indeed ordinarly we would run the Schematron by producing and running it. In this case, however, the upstream compiled XSLT does not exist unless the processor compiles the upstream Schematron to produce it. An XSLT that does not exist is difficult to import from another module.
 
-We address this with a post-process executed over the XSLT that replaces the import instruction with the templates to be imported.
+Rather than introduce a file-system or other runtime dependency into XProc - which would 'prefer' to be entirely side-effect-free - the pipeline here modifies the (compiled) XSLT on the fly, replacing its `xsl:import` instruction with the literal templates to be imported. 
 
-Closer examination and testing can help to determine if this approach is hazardous - and how to mitigate it if it is. For example, use of `xsl:apply-imports` might have to be adapted.
+Closer examination and testing can help to determine if this approach is fragile, and how to mitigate it if it is. For example, use of `xsl:apply-imports` might have to be rewritten.
 
-This (analysis and implementation) can all be done as XProc operations without affecting 'mother code' - learn as we go.
+In particular, Schematrons that rely on complex XSLT especially when it is modular (xsl:include, xsl:import) YMMV.
+
+The hope going forward is that this work (trying and testing, analysis and implementation) can all be done -- with XProc -- without affecting 'mother code' --
+learn as we go.
