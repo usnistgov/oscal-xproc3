@@ -12,17 +12,17 @@ Expect runtime errors from processing if libraries are missing or named incorrec
 
 None of pipelines offered by projects in this repository depend on this particular software or installation, which is offered to provide for easy testing, enable adoption and offer demonstration to users new to XProc.
 
-More experienced users who already have Morgana or any capable XProc 3 processor should consider using that installation instead of using the repository setup. This is a useful test of capabilities and claims.
+More experienced users who are already running Morgana or any capable XProc 3 processor should consider using that installation instead of, or in addition to, the repository setup. This is a useful test of capabilities and claims.
 
-Skipping the setup entirely, when run by any conformant XProc engine the pipelines should perform similarly and give the same results. Given reasonably minor and straightforward adjustment, scripts should also work.
+When run by any conformant XProc engine the pipelines should perform similarly and give the same results. As and when they are minimalistic, and given reasonably minor and straightforward adjustment to system paths etc., scripts should also function.
 
 ## In the subdirectory
 
 - [readme.md](readme.md) - this file
 - [morgana-config.xml](morgana-config.xml) - Morgana configuration file
-- [GRAB-SAXON.xpl](GRAB-SAXON.xpl) - Saxon download and installation pipeline (XProc 3.0)
-- [GRAB-SCHXSLT.xpl](GRAB-SCHXSLT.xpl) - SchXSLT download pipeline (XProc 3.0)
-- [GRAB-XSPEC.xpl](GRAB-XSPECT.xpl) - XSpec download pipeline (current XSpec)
+- [GRAB-SAXON.xpl](GRAB-SAXON.xpl) - Saxon download and installation pipeline
+- [GRAB-SCHXSLT.xpl](GRAB-SCHXSLT.xpl) - SchXSLT download pipeline
+- [GRAB-XSPEC.xpl](GRAB-XSPECT.xpl) - XSpec download pipeline
 
 ## Restore
 
@@ -36,9 +36,7 @@ Test by running the [smoke tests](../smoketest/).
 
 If you know you don't need a capability (such as XSpec) you don't need to install the library.
 
-If you already have XSpec on your system, you don't need a second copy here.
-
-Accommodate the local pipelines by editing the XSpec pipeline [../xspec/xspec-execute.xpl](../xspec/xspec-execute.xpl). Where it has
+Since all XSpec operations are piped through a single library file, only that XProc instance needs to adjusted for a new XSpec location. Accommodate calling pipelines by editing the pipeline [../xspec/xspec-execute.xpl](../xspec/xspec-execute.xpl). Where it has
 
 ```xml
 <p:variable name="xspec-home" select="'../lib/xspec-3.0.3/'"/>
@@ -53,6 +51,9 @@ This suggests you can trim this library further by using that copy of SchXSLT (o
 In this case, for Schematron functionality to work in your pipelines, edit the [Morgana configuration file](morgana-config.xml), updating element `/morgana-config/path_to_SchXSLT_2`) provide a path to a subdirectory where SchXSLT can be found and called.
 
 [Smoke tests](../smoketest) can be used to verify functionality after reconfiguration.
+
+Keep in mind that sharing information about bugs also helps reward the hard-working people who have built software - making it better for everyone and confirming the value of the effort.
+
 
 ---
 
