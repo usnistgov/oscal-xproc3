@@ -12,7 +12,7 @@
          </p:inline>
       </p:with-input>
       <!-- inline XSLTs don't apparently work so well inside Morgana? -->
-      <p:with-input port="stylesheet" href="congratulations.xsl"/>
+      <p:with-input port="stylesheet" href="src/congratulations.xsl"/>
    </p:xslt>
 
    <p:namespace-delete prefixes="ox"/>

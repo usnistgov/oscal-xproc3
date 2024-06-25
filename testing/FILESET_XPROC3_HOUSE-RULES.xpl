@@ -13,14 +13,13 @@
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
       <p:document href="../lib/GRAB-XSPEC.xpl"/>
       
-      <p:document href="BATCH-XSLT-XSPEC.xpl"/>
-      <p:document href="BATCH-SCH-XSPEC.xpl"/>
-      <p:document href="BATCH-XSPEC-JUNIT.xpl"/>
-      <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
+      <p:document href="RUN_XSPEC_BATCH.xpl"/>
+      <p:document href="RUN_XSPEC-JUNIT_BATCH.xpl"/>
+      <p:document href="RUN_XPROC3-HOUSE-RULES_BATCH.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
-      <p:document href="FILESET_XSLT-XSPEC.xpl"/>
+      <p:document href="FILESET_XSPEC.xpl"/>
 
       <p:document href="../template/GRAB-RESOURCES.xpl"/>
 

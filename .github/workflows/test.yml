@@ -44,7 +44,7 @@ jobs:
       - name: Run tests
         run: |
           ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl
-          ./xp3.sh testing/BATCH-XSPEC-JUNIT.xpl
+          ./xp3.sh testing/RUN_XSPEC-JUNIT_BATCH.xpl
         id: exec_tests
       - name: Upload test results
         if: always()

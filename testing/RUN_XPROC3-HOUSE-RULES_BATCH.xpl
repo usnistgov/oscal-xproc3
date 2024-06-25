@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:BATCH-XPROC3-HOUSE-RULES"
-   name="BATCH-XPROC3-HOUSE-RULES"
+   type="ox:RUN_XPROC3-HOUSE-RULES_BATCH"
+   name="RUN_XPROC3-HOUSE-RULES_BATCH"
    >
 
    <!-- Note: this doesn't run without an available copy of SchXSLT -
@@ -24,7 +24,7 @@
          <p:group name="validation">
             <p:variable name="base" select="base-uri(/*)"/>
             <!-- assert-valid='true' presents c:errors results when validation fails as 'no failed assertions or successful reports' -->
-            <p:validate-with-schematron assert-valid="true"  message="[BATCH-XPROC3-HOUSE-RULES] Validating { $base } against { $schematron-path }">
+            <p:validate-with-schematron assert-valid="true" message="[RUN_XPROC3-HOUSE-RULES_BATCH] Validating { $base } against { $schematron-path }">
                <p:with-input port="schema" href="{$schematron-path}"/>
             </p:validate-with-schematron>
             
@@ -41,11 +41,11 @@
       
    <p:wrap-sequence name="wrapup" wrapper="ALL-REPORTS"/>
       
-   <p:xslt name="assessment" message="[BATCH-XPROC3-HOUSE-RULES] Assessing ...">
+   <p:xslt name="assessment" message="[RUN_XPROC3-HOUSE-RULES_BATCH] Assessing ...">
       <p:with-input port="stylesheet" href="src/validation-screener.xsl"/>
    </p:xslt>
    
-   <p:xslt name="summary" message="[BATCH-XPROC3-HOUSE-RULES] Summarizing ...">
+   <p:xslt name="summary" message="[RUN_XPROC3-HOUSE-RULES_BATCH] Summarizing ...">
       <p:with-input port="stylesheet" href="src/validation-summarizer.xsl"/>
    </p:xslt>
    

@@ -2,12 +2,12 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:BATCH-XSPEC"
-   name="BATCH-XSPEC-JUNIT">
+   type="ox:RUN_XSPEC-JUNIT_BATCH"
+   name="RUN_XSPEC-JUNIT_BATCH">
 
    <!-- Executes available XSpecs writing only JUnit results -->
    
-   <p:import href="FILESET_XSLT-XSPEC.xpl"/>
+   <p:import href="FILESET_XSPEC.xpl"/>
    
    <p:import href="../xspec/xspec-execute.xpl"/>
    
@@ -15,7 +15,7 @@
    
    <p:variable name="outdir" select="'xspec-reports' => resolve-uri(static-base-uri())"/>
    
-   <ox:FILESET_XSLT-XSPEC name="test-set"/>
+   <ox:FILESET_XSPEC name="test-set"/>
    
    <p:for-each>
       <p:with-input pipe="xspec-files@test-set"/>
@@ -25,9 +25,9 @@
       <p:variable name="html-report-path"  select="replace($relative-path,'\.xspec$','') || '_report.html' "/>
       <p:variable name="junit-report-path" select="replace($relative-path,'\.xspec$','') || '_junit.xml' "/>
       
-      <ox:xslt-xspec-execute name="execute-xspec"/>
+      <ox:xspec-execute name="execute-xspec"/>
       
-      <p:store message="[BATCH-XSPEC-JUNIT] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
+      <p:store message="[RUN_XSPEC-JUNIT_BATCH] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
          <p:with-input port="source" pipe="xspec-junit-report@execute-xspec"/>
       </p:store>
       <p:sink/>

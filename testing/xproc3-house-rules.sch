@@ -102,9 +102,9 @@
          <sch:let name="type-uri" value="namespace-uri-for-prefix($type-prefix, .)"/>
          <sch:let name="typename-given" value="@type/tokenize(., ':')[last()]"/>
          
-         <sch:assert sqf:fix="sqf-repair-step-type" test="contains($basename, $typename-given) or contains($typename-given, $basename)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="contains($basename, $typename-given) or contains($typename-given, $basename) or exists(/p:library)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or not(. is /*)">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or exists(/p:library)">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>
       
      <sch:rule context="p:load | p:store">
