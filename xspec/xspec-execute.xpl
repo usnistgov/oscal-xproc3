@@ -17,7 +17,7 @@
    <!-- Providing a relative path to XSpec (top-level directory) on this system. with trailing slash -->   
    <p:option name="xspec-home" select="'../lib/xspec-3.0.3/'" static="true"/>
    
-   <p:declare-step name="xslt-xspec-execute" type="ox:xslt-xspec-execute">      
+   <p:declare-step name="execute-xslt-xspec" type="ox:execute-xslt-xspec">      
       <p:input port="xspec-source" primary="true" content-types="application/xml"/>      
       <p:output port="xspec-html-report" primary="true" pipe="result@html-report"/>
       <p:output port="xspec-junit-report" primary="false" pipe="result@junit-report"/>
@@ -34,8 +34,8 @@
          match="/*/xsl:template[@name='Q{{http://www.jenitennison.com/xslt/xspec}}main']/xsl:result-document"
          attribute-name="href" attribute-value="report" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
       <!-- Run the XSLT -->
-      <p:xslt name="execute-xspec"
-         message="[xslt-xspec-execute] Executing XSPec { base-uri(/) } testing XSLT { /*/@stylesheet }">
+      <p:xslt name="xslt-xspec-execution"
+         message="[### execute-xslt-xspec] Executing XSPec { base-uri(/) } testing XSLT { /*/@stylesheet }">
          <p:with-input port="source">
             <p:empty/>
          </p:with-input>
@@ -44,7 +44,7 @@
       </p:xslt>
       <!-- Picking up this result and putting it back on the primary port. -->
       <p:identity name="xspec-report">
-         <p:with-input port="source" pipe="secondary@execute-xspec"/>
+         <p:with-input port="source" pipe="secondary@xslt-xspec-execution"/>
       </p:identity>
 
       <ox:produce-html-report name="html-report"/>
@@ -55,26 +55,26 @@
       </ox:produce-junit-report>
    </p:declare-step>
    
-   <p:declare-step name="xquery-xspec-execute" type="ox:xquery-xspec-execute">      
+   <p:declare-step name="execute-xquery-xspec" type="ox:execute-xquery-xspec">      
       <p:input port="xspec-source" primary="true" content-types="application/xml"/>
       
       <p:output port="xspec-html-report" primary="true" pipe="result@html-report"/>
       <p:output port="xspec-junit-report" primary="false" pipe="result@junit-report"/>
       
-      <p:variable name="compiler-xslt"  select="$xspec-home || 'src/compiler/compile-xquery-tests.xsl'"/>
-      <p:variable name="xspec-file-path" select="base-uri(/)"/>
-      <p:variable name="xquery-target-path" select="resolve-uri(/*/@query-at,$xspec-file-path)"/>
+      <p:variable name="compiler-xslt"      select="$xspec-home || 'src/compiler/compile-xquery-tests.xsl'"/>
+      <p:variable name="xspec-file-path"    select="base-uri(/)"/>
+      <p:variable name="xquery-target"      select="/*/@query-at"/>
+      <p:variable name="xquery-target-path" select="resolve-uri($xquery-target,$xspec-file-path)"/>
       
       <p:xslt name="compiled-xspec">
-         <p:with-input port="source" pipe="xspec-source@xquery-xspec-execute"/>
+         <p:with-input port="source" pipe="xspec-source@execute-xquery-xspec"/>
          <p:with-input port="stylesheet" href="{$compiler-xslt}"/>
          <p:with-option name="parameters" select="map { 'query-at': $xquery-target-path }"/>
       </p:xslt>
-      <p:xquery name="execute-xspec" message="[xquery-xspec-execute] Executing XQuery XSpec - no runtime messages, sorry">
+      <p:xquery name="xquery-xspec-execution" message="[### execute-xquery-xspec] Executing XQuery XSpec { $xspec-file-path } testing { $xquery-target } - no runtime messages, sorry">
          <p:with-input port="query" pipe="result@compiled-xspec"/>
       </p:xquery>
       <p:identity name="xspec-report"/>
-      
       
       <ox:produce-html-report name="html-report"/>
       <p:sink/>
@@ -84,7 +84,7 @@
       </ox:produce-junit-report>
    </p:declare-step>
    
-   <p:declare-step name="schematron-xspec-execute" type="ox:schematron-xspec-execute">      
+   <p:declare-step name="execute-schematron-xspec" type="ox:execute-schematron-xspec">      
       <p:input port="xspec-source" primary="true" content-types="application/xml"/>
       
       <p:output port="xspec-html-report"  primary="true"  pipe="result@html-report"/>
@@ -107,7 +107,7 @@
       
       <!-- Pick up XSpec for Schematron and reduce to XSpec for XSLT -->
       <p:xslt name="reduce-schematron-xspec">
-         <p:with-input port="source" pipe="xspec-source@schematron-xspec-execute"/>
+         <p:with-input port="source" pipe="xspec-source@execute-schematron-xspec"/>
          <p:with-input port="stylesheet" href="{ $schematron-xspec-reducer-xslt }"/>
          <p:with-option name="parameters" select="map { 'stylesheet-uri': $schematron-xslt-uri }"/>
       </p:xslt>
@@ -127,7 +127,7 @@
          match="/*/xsl:template[@name='Q{{http://www.jenitennison.com/xslt/xspec}}main']/xsl:result-document"
          attribute-name="href" attribute-value="report" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
       <!-- Now, execute -->
-      <p:xslt name="execute-xspec" message="[schematron-xspec-execute] Executing XSPec { $xspec-file-path } testing Schematron { resolve-uri($target-schematron-path, $xspec-file-path) } ">
+      <p:xslt name="schematron-xspec-execution" message="[### execute-schematron-xspec] Executing XSPec { $xspec-file-path } testing Schematron { $target-schematron-path } ">
          <p:with-input port="source">
             <p:empty/>
          </p:with-input>
@@ -135,7 +135,7 @@
          <p:with-option name="template-name" select="'Q{http://www.jenitennison.com/xslt/xspec}main'"/>
       </p:xslt>
       <p:identity name="xspec-report">
-         <p:with-input port="source" pipe="secondary@execute-xspec"/>
+         <p:with-input port="source" pipe="secondary@schematron-xspec-execution"/>
       </p:identity>
       
       <ox:produce-html-report name="html-report"/>      
@@ -146,26 +146,26 @@
       </ox:produce-junit-report>
    </p:declare-step>
    
-   <p:declare-step name="xspec-execute" type="ox:xspec-execute">
+   <p:declare-step name="execute-xspec" type="ox:execute-xspec">
       <p:input port="xspec-source" primary="true" content-types="application/xml"/>
       <p:output port="xspec-html-report" primary="true" pipe="xspec-html-report@switcher"/>
       <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@switcher"/>
 
       <p:choose name="switcher">
          <p:when test="exists(/x:description/@schematron)">
-            <p:output port="xspec-html-report" primary="true"   pipe="xspec-html-report@schematron-xspec-execute"/>
-            <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@schematron-xspec-execute"/>
-            <ox:schematron-xspec-execute name="schematron-xspec-execute"/>
+            <p:output port="xspec-html-report" primary="true"   pipe="xspec-html-report@schematron-xspec-execution"/>
+            <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@schematron-xspec-execution"/>
+            <ox:execute-schematron-xspec name="schematron-xspec-execution"/>
          </p:when>
          <p:when test="exists(/x:description/@stylesheet)">
-            <p:output port="xspec-html-report" primary="true"   pipe="xspec-html-report@xslt-xspec-execute"/>
-            <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@xslt-xspec-execute"/>
-            <ox:xslt-xspec-execute name="xslt-xspec-execute"/>
+            <p:output port="xspec-html-report" primary="true"   pipe="xspec-html-report@xslt-xspec-execution"/>
+            <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@xslt-xspec-execution"/>
+            <ox:execute-xslt-xspec name="xslt-xspec-execution"/>
          </p:when>
          <p:when test="exists(/x:description/@query)">
-            <p:output port="xspec-html-report" primary="true"   pipe="xspec-html-report@xquery-xspec-execute"/>
-            <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@xquery-xspec-execute"/>
-            <ox:xquery-xspec-execute name="xquery-xspec-execute"/>
+            <p:output port="xspec-html-report" primary="true"   pipe="xspec-html-report@xquery-xspec-execution"/>
+            <p:output port="xspec-junit-report" primary="false" pipe="xspec-junit-report@xquery-xspec-execution"/>
+            <ox:execute-xquery-xspec name="xquery-xspec-execution"/>
          </p:when>
          <p:otherwise>
             <p:output port="xspec-html-report" primary="true"/>

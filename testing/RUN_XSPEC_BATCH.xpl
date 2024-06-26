@@ -26,15 +26,14 @@
       <p:variable name="html-report-path"  select="replace($relative-path,'\.xspec$','') || '_report.html' "/>
       <p:variable name="junit-report-path" select="replace($relative-path,'\.xspec$','') || '_junit.xml' "/>
       
-      <ox:xslt-xspec-execute name="execute-xspec"/>
+      <ox:execute-xspec name="xspec-execution"/>
       
       <p:store message="[RUN_XSPEC_BATCH] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
-         <p:with-input port="source" pipe="xspec-html-report@execute-xspec"/>
+         <p:with-input port="source" pipe="xspec-html-report@xspec-execution"/>
       </p:store>
       <p:store message="[RUN_XSPEC_BATCH] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
-         <p:with-input port="source" pipe="xspec-junit-report@execute-xspec"/>
+         <p:with-input port="source" pipe="xspec-junit-report@xspec-execution"/>
       </p:store>
-      <p:sink/>
    </p:for-each>
       
 </p:declare-step>

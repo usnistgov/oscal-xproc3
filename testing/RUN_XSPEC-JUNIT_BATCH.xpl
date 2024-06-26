@@ -17,20 +17,19 @@
    
    <ox:FILESET_XSPEC name="test-set"/>
    
+   <!-- See pipeline RUN_XSPEC_BATCH.xpl for logic capturing HTML also -->
    <p:for-each>
       <p:with-input pipe="xspec-files@test-set"/>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
       <p:variable name="xspec-filename"    select="base-uri(/*)"/>
       <p:variable name="relative-path"     select="substring-after($xspec-filename,$repo-root)"/>
-      <p:variable name="html-report-path"  select="replace($relative-path,'\.xspec$','') || '_report.html' "/>
       <p:variable name="junit-report-path" select="replace($relative-path,'\.xspec$','') || '_junit.xml' "/>
       
-      <ox:xspec-execute name="execute-xspec"/>
+      <ox:execute-xspec name="xspec-execution"/>
       
       <p:store message="[RUN_XSPEC-JUNIT_BATCH] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
-         <p:with-input port="source" pipe="xspec-junit-report@execute-xspec"/>
+         <p:with-input port="source" pipe="xspec-junit-report@xspec-execution"/>
       </p:store>
-      <p:sink/>
    </p:for-each>
       
 </p:declare-step>
