@@ -14,7 +14,7 @@
    
    <p:identity message="[SMOKETEST-XSPEC] Testing XSpec by running { base-uri(/) }"/>
    
-   <ox:xspec-execute name="execute-xspec"/>
+   <ox:execute-xspec name="execute-xspec"/>
    
    <p:identity message="[SMOKETEST-XSPEC] All done, successful run"/>
 
