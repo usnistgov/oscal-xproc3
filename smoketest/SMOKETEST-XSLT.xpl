@@ -3,8 +3,8 @@
    type="ox:SMOKETEST-XSLT"
    name="SMOKETEST-XSLT">
             
-	<p:output port="result" serialization="map{'indent' : true()}" />
-	
+   <p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
+   
    <p:xslt name="smoketest" message="[SMOKETEST-XSLT] XPROC 3 SMOKE TEST - - - Applying transformation ...">
       <p:with-input port="source">
          <p:inline>

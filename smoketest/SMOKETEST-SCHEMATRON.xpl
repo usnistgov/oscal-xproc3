@@ -3,12 +3,12 @@
    type="ox:SMOKETEST-SCHEMATRON"
    name="SMOKETEST-SCHEMATRON">
             
-	<p:output port="result" serialization="map{'indent' : true()}" />
+	<p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
 
    <!-- assert-valid='false' returns the input document with SVRL on another port
    see https://spec.xproc.org/master/head/validation/#c.validate-with-schematron
    -->
-   <p:validate-with-schematron assert-valid="true">
+   <p:validate-with-schematron assert-valid="true" message="[SMOKETEST-SCHEMATRON] Running a Schematron, expecting to see no errors ...">
       <p:with-input port="schema" href="src/doing-well.sch"/>
       <p:with-input port="source">
          <p:inline>

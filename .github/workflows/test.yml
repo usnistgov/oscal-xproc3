@@ -36,7 +36,6 @@ jobs:
         id: setup
       - name: Run smoketests
         run: |
-          ls -lha lib
           ./xp3.sh smoketest/POWER-UP.xpl -silent
           ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl -silent
           ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl -silent

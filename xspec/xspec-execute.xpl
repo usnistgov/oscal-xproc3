@@ -18,13 +18,14 @@
    <p:option name="xspec-home" select="'../lib/xspec-3.0.3/'" static="true"/>
    
    <p:declare-step name="execute-xslt-xspec" type="ox:execute-xslt-xspec">      
-      <p:input port="xspec-source" primary="true" content-types="application/xml"/>      
-      <p:output port="xspec-html-report" primary="true" pipe="result@html-report"/>
+      <p:input port="xspec-source"        primary="true"  content-types="application/xml"/>      
+      <p:output port="xspec-html-report"  primary="true"  pipe="result@html-report"/>
       <p:output port="xspec-junit-report" primary="false" pipe="result@junit-report"/>
       
       <!-- These paths are sensitive to the XSpec distribution at $xspec-home - take care -->
-      <p:variable name="compiler-xslt"  select="$xspec-home || 'src/compiler/compile-xslt-tests.xsl'"/>
+      <p:variable name="compiler-xslt"   select="$xspec-home || 'src/compiler/compile-xslt-tests.xsl'"/>
       <p:variable name="xspec-file-path" select="base-uri(/)"/>
+      <p:variable name="xslt-path"       select="/*/@stylesheet"/>
       
       <p:xslt name="compile-xspec">
          <p:with-input port="stylesheet" href="{ $compiler-xslt }"/>
@@ -35,7 +36,7 @@
          attribute-name="href" attribute-value="report" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
       <!-- Run the XSLT -->
       <p:xslt name="xslt-xspec-execution"
-         message="[### execute-xslt-xspec] Executing XSPec { base-uri(/) } testing XSLT { /*/@stylesheet }">
+         message="[### execute-xslt-xspec] Executing XSPec { base-uri(/) } testing XSLT { $xslt-path }">
          <p:with-input port="source">
             <p:empty/>
          </p:with-input>
