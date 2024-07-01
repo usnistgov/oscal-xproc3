@@ -32,7 +32,7 @@ Enabling these lightweight, transparent and declarative "logical layers" written
 - [SchXSLT][schxslt] - ISO Schematron / community enhancements
 - [XSpec][xspec] - XSpec - XSLT/XQuery unit testing
 
-These are open-source projects in support of W3C- and ISO-standardized technologies. (Soon to come: [XSpec](https://github.com/xspec/xspec).) Helping to install, configure, and make these work seamlessly, so users do not have to notice, is a goal of this project.
+These are open-source projects in support of W3C- and ISO-standardized technologies. Helping to install, configure, and make these work seamlessly, so users do not have to notice, is a goal of this project.
 
 If this software is as easy, securable and performant as we hope to show, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
 
@@ -133,6 +133,8 @@ After installation and testing, you can start anywhere &mdash; you have already 
 </details>
 
 ### Installation instructions
+
+Note: if you already have Morgana XProc III installed, you should be able to use it, appropriately configured, to run any pipeline in the repository. But local installation is also easy and clean.
 
 *Platform requirements*: Java, with a `bash` shell for automated installation. Only Java is required if you can install manually.
 
@@ -339,6 +341,7 @@ This README was composed starting from the [NIST Open Source Repository template
 [xproc-specs]: https://xproc.org/specifications.html
 [xproc1]: https://xproc.org/
 [xproc1-site]: https://archive.xproc.org/
+[xspec]: https://github.com/xspec/xspec
 [ixml]: https://invisiblexml.org
 [morgana]: https://www.xml-project.com/morganaxproc-iiise.html
 [saxon12]: https://www.saxonica.com/documentation12/documentation.xml

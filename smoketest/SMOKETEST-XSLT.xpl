@@ -3,8 +3,8 @@
    type="ox:SMOKETEST-XSLT"
    name="SMOKETEST-XSLT">
             
-	<p:output port="result" serialization="map{'indent' : true()}" />
-	
+   <p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
+   
    <p:xslt name="smoketest" message="[SMOKETEST-XSLT] XPROC 3 SMOKE TEST - - - Applying transformation ...">
       <p:with-input port="source">
          <p:inline>
@@ -12,7 +12,7 @@
          </p:inline>
       </p:with-input>
       <!-- inline XSLTs don't apparently work so well inside Morgana? -->
-      <p:with-input port="stylesheet" href="congratulations.xsl"/>
+      <p:with-input port="stylesheet" href="src/congratulations.xsl"/>
    </p:xslt>
 
    <p:namespace-delete prefixes="ox"/>

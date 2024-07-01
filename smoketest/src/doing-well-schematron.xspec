@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="doing-well.sch">
+   
+   <x:scenario label="XSpec Schematron tests - exercising four rules: positive and negative assertions, and positive and negative reports">
+      <x:context>
+         <CONGRATULATIONS>
+            <doing-well>THANK YOU</doing-well>
+         </CONGRATULATIONS>
+      </x:context>
+      
+      <x:expect-not-assert id="doing-well_positive-assertion" label="A.1 Okay input looks good"/>
+      <x:expect-assert     id="doing-well_negative-assertion" label="A.2 Liars still lying"/>
+      <x:expect-report     id="doing-well_positive-report"    label="A.3 Everyone is welcome"/>
+      <x:expect-not-report id="doing-well_negative-report"    label="A.4 Quiet is quiet"/>
+   </x:scenario>
+   
+   <x:scenario label="All four rules again, this time with bad input">
+      <x:context>
+         <CONGRATULATIONS>
+            <doing-well>But not providing the expected answer</doing-well>
+         </CONGRATULATIONS>
+      </x:context>
+      
+      <x:expect-assert     id="doing-well_positive-assertion" label="B.1 Answer isn't good"/>
+      <x:expect-assert     id="doing-well_negative-assertion" label="B.2 Liars still lying"/>
+      <x:expect-not-report id="doing-well_positive-report"    label="B.3 Everyone is welcome - but not this time"/>
+      <x:expect-not-report id="doing-well_negative-report"    label="B.4 Quiet is always quiet"/>
+   </x:scenario>
+   
+</x:description>

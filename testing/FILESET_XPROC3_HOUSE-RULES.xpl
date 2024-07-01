@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:TEST-XPROC-SET"
-   name="TEST-XPROC-SET"
+   type="ox:FILESET_XPROC3_HOUSE-RULES"
+   name="FILESET_XPROC3_HOUSE-RULES"
    >
 
    <!-- Pipeline to be called as subpipeline, delivering a list of XProcs -->
@@ -13,13 +13,13 @@
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
       <p:document href="../lib/GRAB-XSPEC.xpl"/>
       
-      <p:document href="TEST-XPROC-SET.xpl"/>
-      <p:document href="TEST-XSPEC-SET.xpl"/>
-      <p:document href="BATCH-XSPEC.xpl"/>
-      <p:document href="BATCH-XSPEC-JUNIT.xpl"/>
-      <p:document href="BATCH-XPROC3-HOUSE-RULES.xpl"/>
+      <p:document href="RUN_XSPEC_BATCH.xpl"/>
+      <p:document href="RUN_XSPEC-JUNIT_BATCH.xpl"/>
+      <p:document href="RUN_XPROC3-HOUSE-RULES_BATCH.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
+      <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
+      <p:document href="FILESET_XSPEC.xpl"/>
 
       <p:document href="../template/GRAB-RESOURCES.xpl"/>
 

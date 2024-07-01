@@ -3,7 +3,7 @@
    type="ox:POWER-UP"
    name="POWER-UP">
             
-	<p:output port="result" serialization="map{ 'indent' : true() }" />
+   <p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
 	
    <p:identity name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - saying 'Hello World'">
       <p:with-input port="source">

@@ -39,6 +39,7 @@
    <sch:let name="filename" value="(/*/base-uri() => tokenize('/'))[last()]"/>
    <sch:let name="basename" value="replace($filename, '\..*$', '')"/>
    <sch:let name="tag" value="'[' || $basename || ']'"/>
+   <sch:let name="tag-regex" value="'^\[#*\s*(' || $basename || ')\]'"/>
    
    <!--<xsl:variable name="ox:leads-with-variable-reference" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -68,7 +69,7 @@
 
    -->
    
-   <sch:let name="listed-uris" value="document('TEST-XPROC-SET.xpl')/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
+   <sch:let name="listed-uris" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
    
    <sch:pattern>
       <sch:rule context="/*">
@@ -84,8 +85,10 @@
       </sch:rule>
 
       <sch:rule context="*[exists(@message)]">
+         <sch:let name="parent-label" value="'[' || ../@name || ']'"/>
+         <sch:let name="parent-label-regex" value="'^\[#*\s*(' || ../@name || ')\]'"/>
          <sch:assert sqf:fix="sqf-prepend-message-tag"
-            test="starts-with(@message,$tag) or ox:leads-with-variable-reference(@message)">Message should start with tag <sch:value-of select="$tag"/></sch:assert>
+            test="matches(@message,$tag-regex) or ox:leads-with-variable-reference(@message) or (matches(@message, $parent-label-regex))">Message should start with tag <sch:value-of select="$tag"/> or label <sch:value-of select="$parent-label"/></sch:assert>
          <sqf:fix id="sqf-prepend-message-tag">
             <sqf:description>
                <sqf:title>Prepend the message with '<sch:value-of select="$tag"/>'</sqf:title>
@@ -101,9 +104,9 @@
          <sch:let name="type-uri" value="namespace-uri-for-prefix($type-prefix, .)"/>
          <sch:let name="typename-given" value="@type/tokenize(., ':')[last()]"/>
          
-         <sch:assert sqf:fix="sqf-repair-step-type" test="contains($basename, $typename-given) or contains($typename-given, $basename)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="contains($basename, $typename-given) or contains($typename-given, $basename) or exists(/p:library)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or not(. is /*)">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or exists(/p:library)">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>
       
      <sch:rule context="p:load | p:store">

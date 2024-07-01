@@ -30,21 +30,20 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'      
         run: |
           ./setup.sh
-          ./xp3.sh lib/GRAB-SAXON.xpl
-          ./xp3.sh lib/GRAB-SCHXSLT.xpl
-          ./xp3.sh lib/GRAB-XSPEC.xpl
+          ./xp3.sh lib/GRAB-SAXON.xpl   -silent
+          ./xp3.sh lib/GRAB-SCHXSLT.xpl -silent
+          ./xp3.sh lib/GRAB-XSPEC.xpl   -silent
         id: setup
       - name: Run smoketests
         run: |
-          ls -lha lib
           ./xp3.sh smoketest/POWER-UP.xpl
-          ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl
-          ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl
+          ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl -silent
+          ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl      -silent
         id: exec_smoketests
       - name: Run tests
         run: |
-          ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl
-          ./xp3.sh testing/BATCH-XSPEC-JUNIT.xpl
+          ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl -silent
+          ./xp3.sh testing/RUN_XSPEC-JUNIT_BATCH.xpl       -silent
         id: exec_tests
       - name: Upload test results
         if: always()
