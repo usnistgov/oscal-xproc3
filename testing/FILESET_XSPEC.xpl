@@ -10,6 +10,8 @@
    <!-- Strictly diagnostic or demonstration XSpecs can be excluded from this list,
         while the rule for CI/CD is "Paranoia is my good friend". -->
 
+   <p:documentation>Defining a set of files for XSpec evaluation. Listing any and all XSpec files in the repository intended to be run under CI/CD.</p:documentation>
+   
    <p:input port="source" sequence="true">
       <!-- We need content type because xspec suffix throws off the parser -->
       <p:document href="../smoketest/src/congratulations-xslt.xspec" content-type="application/xml"/>
