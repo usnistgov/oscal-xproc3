@@ -58,7 +58,6 @@
    
    <p:declare-step name="execute-xquery-xspec" type="ox:execute-xquery-xspec">      
       <p:input port="xspec-source" primary="true" content-types="application/xml"/>
-      
       <p:output port="xspec-html-report" primary="true" pipe="result@html-report"/>
       <p:output port="xspec-junit-report" primary="false" pipe="result@junit-report"/>
       

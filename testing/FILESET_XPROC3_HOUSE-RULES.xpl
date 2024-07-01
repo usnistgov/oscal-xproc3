@@ -8,6 +8,8 @@
 
    <!-- Pipeline to be called as subpipeline, delivering a list of XProcs -->
    
+   <p:documentation>Defining a set of files for Schematron (House Rules) evaluation, or other use. Listing any and all files in the repository subject to these Schematron tests under CI/CD.</p:documentation>
+      
    <p:input port="source" sequence="true">
       <p:document href="../lib/GRAB-SAXON.xpl"/>
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>

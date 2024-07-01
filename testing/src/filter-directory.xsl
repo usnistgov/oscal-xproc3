@@ -12,7 +12,12 @@
    </xsl:template>
    
    <xsl:template match="c:directory">
-      <xsl:apply-templates/>
+      <!-- Keeping only folders containing XProc, or directories with XProc -->
+      <xsl:where-populated>
+         <dir name="{@name}">
+            <xsl:apply-templates/>
+         </dir>
+      </xsl:where-populated>
    </xsl:template>
    
    <!-- excluding XProcs inside /lib -->
