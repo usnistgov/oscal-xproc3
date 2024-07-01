@@ -20,7 +20,6 @@
       <p:document href="RUN_XPROC3-HOUSE-RULES_BATCH.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
-      <p:document href="REPO-XPROC3-MAP.xpl"/>
       <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XSPEC.xpl"/>
 
