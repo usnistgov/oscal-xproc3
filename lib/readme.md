@@ -22,7 +22,7 @@ When run by any conformant XProc engine the pipelines should perform similarly a
 - [morgana-config.xml](morgana-config.xml) - Morgana configuration file
 - [GRAB-SAXON.xpl](GRAB-SAXON.xpl) - Saxon download and installation pipeline
 - [GRAB-SCHXSLT.xpl](GRAB-SCHXSLT.xpl) - SchXSLT download pipeline
-- [GRAB-XSPEC.xpl](GRAB-XSPECT.xpl) - XSpec download pipeline
+- [GRAB-XSPEC.xpl](GRAB-XSPEC.xpl) - XSpec download pipeline
 
 ## Restore
 
