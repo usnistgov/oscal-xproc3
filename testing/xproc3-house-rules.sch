@@ -123,7 +123,12 @@
    <!-- Any files to be reprieved from linking rules should be listed here, by /*/@name  -->
    <sch:let name="unlinked-xproc" value="('CONVERT-XML-REFERENCE-SET')"/>
    
-   <xsl:key name="reference-by-uri" match="*[matches(@href, '^[^\}\{]+$')]" use="resolve-uri(@href,base-uri(.))"/>
+   <!--<xsl:key name="reference-by-uri" match="*[matches(@href, '^[^\}\{]+$')]" use="resolve-uri(@href,base-uri(.))"/>-->
+   <!--<xsl:function name="ox:leads-with-variable-reference" as="xs:boolean">
+      <xsl:param name="v" as="item()"/>
+      <xsl:sequence select="string($v) => matches('^\s*\{\s*\$\i\c*\s*\}')"/>
+   </xsl:function>-->
+   
    
    <sch:pattern>
       <!-- Not matching elements with href that contain { or } -->
@@ -132,7 +137,7 @@
          <sch:let name="expanded-uri" value="resolve-uri(@href, base-uri(.))"/>
          <sch:assert test="$exception or ($expanded-uri => unparsed-text-available())">No resource found at <sch:value-of
             select="@href"/></sch:assert>
-         <sch:assert test="(key('reference-by-uri', $expanded-uri) => count()) = 1">Repeat reference to this URI</sch:assert>
+         <!--<sch:assert test="(key('ox:reference-by-uri', $expanded-uri) => count()) = 1">Repeat reference to this URI</sch:assert>-->
       </sch:rule>
    </sch:pattern>
    
