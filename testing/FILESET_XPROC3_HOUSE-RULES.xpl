@@ -38,6 +38,10 @@
 
       <p:document href="../xspec/xspec-execute.xpl"/>
       
+      <p:document href="../oscal-publish/setup/GRAB-OSCAL-CATALOG-SCHEMA.xpl"/>
+      <p:document href="../oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
+      <p:document href="../oscal-publish/publish-oscal-catalog.xpl"/>
+      
       <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
       <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>
