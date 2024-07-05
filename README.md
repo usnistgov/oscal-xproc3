@@ -110,11 +110,11 @@ Assuming 'TODO' items are addressed and these markers disappear, the git history
 
 ### Innovations
 
-As of mid-2024, we believe some aspects of this initiative are innovative or at least unusual, even if they have been foreseen for a long time. Please let us know of relevant prior art, or independent invention, especially if it pre-empts our work here.
+As of mid-2024, we believe some aspects of this initiative are innovative or unusual, even as it stands on foundations laid by others. Please let us know of relevant prior art, or independent invention, especially if it anticipates the work here.
 
 #### Pipelines for &ldquo;self setup&rdquo;
 
-After a single script is run to download and unpack, all setup and configuration is done with pipelines. Like all XProc pipelines, these are available, enabling the developer or user to override or customize the setup easily, or to perform it manually.
+After a single script is run to download and unpack, all setup and configuration is done with pipelines. Like all XProc pipelines in the repo these can be edited or adjusted, enabling the developer or user to override or customize the setup easily, or to perform it manually.
 
 #### XProc 3.0-based CI/CD
 
@@ -130,13 +130,13 @@ Batch runtime results, including reports, can be aggregated using XProc and XSLT
 
 #### Prototype implementation of XSpec under XProc 3.0
 
-This repository supports running XSpec to test XSLT, Schematron and XQuery.
+This repository supports running [XSpec][xspec] to test XSLT, Schematron and XQuery.
 
 Because it runs under XProc, XSpec becomes available to any project as well as CI/CD.
 
 Assuming it holds up under use and testing, we hope to be able to contribute this work into the XSpec repository (XSpec developers please take note), if not to retire it in favor of a better implementation.
 
-#### New maintenance model (demo) &mdash; patching XSLT on the fly
+#### New XSLT maintenance model (demonstration) &mdash; patching XSLT on the fly
 
 When we discover bugs in dependent processes, we can not only report them as bugs (to the upstream project), but also mitigate them in place. Since XSLT transformations are in XML, we can use XProc and XSLT to modify any XSLT discovered to have bugs and lapses.
 
@@ -144,14 +144,13 @@ The code capturing such a modification provides a patch to upstream developers, 
 
 And until this is done, we can run ahead, while proceeding to use the feature in question as modified.
 
-Examples of this can be found in the (XSpec implementation pipeline](xspec/xspec-execute.xpl), which (at time of writing) offers patches to an XSLT provided in the XSpec repository.
+Examples of this can be found in the (XSpec implementation pipeline)(xspec/xspec-execute.xpl), which (at time of writing) offers patches to an XSLT provided in the XSpec repository.
 
 #### Loosely coupled projects
 
 Projects each have their own libraries and dependencies in addition to the common (platform) dependencies. Consequently the repository as a whole can easily be pared down to just a minimalistic implementation of one or a few functionalities or applications, for demonstration or further development.
 
 This makes cloning and further development easier.
-
 
 ## Where to start
 
