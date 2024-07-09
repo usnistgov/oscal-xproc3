@@ -1,55 +1,78 @@
 # OSCAL Production Workflow
 
-Goals:
+Near-term goals:
+
+- Demo a simple formatting application
+- Show options for runtime validations and resource management
+
+Stretch goals:
 
 - Demonstrate OSCAL formatting
     - web (HTML, Markdown)
     - PDF
 - Demonstrate validation in a formatting workflow
 - Demonstrate 'enhancement-based' XSLT maintenance
-  - "all bugs are also enhancements"
-  - enhancements can be demonstrated in a pipeline before integrating into upstream
+  - "All bugs are also enhancements"
+  - Enhancements can be demonstrated in a pipeline before integrating into upstream
 - Demonstrate pipeline-based configurations
   - runtime options   
 
-Need: more samples?
+## OSCAL publishing pipeline
 
-Pipelines
+The pipeline [publish-oscal-catalog.xpl](publish-oscal-catalog.xpl) shows work in progress towards formatted production of OSCAL.
 
-I. Core Accepts any OSCAL catalog and formats it
+## Setup and Operation
 
-Emitting an alarming WARNING message if not valid
+Pipelines in the [setup/](setup/) directory provide for setup. Run these (standalone) to copy files onto the local system.
 
-Producing
-   HTML
-   Markdown
-   PDF
+The XSLT library is required for operation of the "publishing" production pipeline. The OSCAL Catalog schema is optional, as the same resource can be acquired by a live `http` reference (assuming connectivity, etc.).
 
-II. Solo wrapper
-  Produces HTML, Markdown or PDF for a single instance
-  Writes it to the file system next to the input
+To operate:
 
-III. Batch wrapper
-  Calls solo wrapper for a batch
-  Passes option through for result format(s)?
-  
-IV. Alternative XSLT shows XSLT customization layer
+Either use the `publish-oscal-catalog.xpl` pipeline directly (in a script or on the command line), binding its input `source` port to your OSCAL Catalog
 
-"Generic" OSCAL?
+Or, write a wrapper XProc that imports the publishing XProc and applies it to a document collection you define.
 
-- Validating OSCAL XML
-- Converting JSON into XML and validating?
-- Producing HTML
-- Producing Markdown
-- Producing PDF
+## Current status
 
-1. Download schema, XSLTs
-1. Drop OSCAL in the hopper
-1. Validate and convert OSCAL JSON?
-1. Validate OSCAL XML
-1. Convert OSCAL XML into outputs
-  - singly
-  - in batches
-1. Scripts and runtimes for users
-  - "Nullary" pipelines - no inputs - standalone
-  - Unary pipeline - accept name of single input (file or folder name)
+The utility pipeline [publish-oscal-catalog.xpl](publish-oscal-catalog.xpl) will provide rendering capabilities for OSCAL catalogs. At present it produces HTML only.
+
+For now
+
+  - Works well to produce HTML (web pages) for those able to work directly with XSLT
+    - Mainly because it is likely to require customization and tuning
+    - By default, this writes an HTML next to its XML input. Whether/where to serialize is configurable.
+  - Can serve as a useful working example
+  - Makes a good testbed for front-end developers learning XSLT
+    - Could benefit from better unit testing (XSpec)
+  - Producing PDF is technically feasible but not yet possible with free-to-use open-source tooling
+
+## Details
+
+On the [publish-oscal-catalog.xpl](publish-oscal-catalog.xpl) pipeline, a source catalog file can be provided on the `source` port; for demonstration the pipeline is provided with an OSCAL catalog file as fallback.
+
+In the pipeline, the file provided is validated against a copy of the OSCAL Catalog schema (stored locally or remotely), with a warning if input fails the validation. An HTML file result is then produced, in all cases. The warning if emitted thus gives the user an additional hint, when the results defective as they typically will be, with schema-invalid inputs.
+
+If you receive an error trying to retrieve the schema, its location can be adjusted in the pipeline. A setup pipeline can be used to acquire a local copy.
+
+## To do
+
+(Help wanted! let us know)
+
+**XSpec** - this XSLT has no XSpec: wouldn't that be good?
+
+**Enhanced HTML** An alternative ["NIST Emulator" XSLT](lib/xslt/publish/nist-emulation/sp800-53A-catalog_html.xsl), makes a more highly polished HTML view, closer to a print page view.
+
+**PDF production** Given a license to Morgana XProcIIIee, or a capable XProc 3.0 processor with support for `xsl-formatter`, we can try the FO-based production offered in the XSLT repository.
+
+(For now, in the [home repository](https://github.com/usnistgov/oscal-xslt) you can find a runtime using Maven and XProc 1.0.)
+
+**Markdown dump** If you need the data in Markdown, it can be readily produced from HTML using an HTML-to-Markdown filter, devised or borrowed.
+
+**More samples** Especially other forms of OSCAL.
+
+**Demonstrate batching** With more samples come more ways to combine files in runtimes.
+
+
+---
+started 20240706

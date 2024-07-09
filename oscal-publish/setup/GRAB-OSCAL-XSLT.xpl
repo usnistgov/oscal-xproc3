@@ -24,7 +24,7 @@
    <!-- see p:unarchive here: https://spec.xproc.org/3.0/steps/#c.unarchive -->
    <!-- We pull the XSLT out, leaving the testing and XSpec in the zip -->
    <p:unarchive message="{$prefix} Unzipping { $zip-name }"
-      include-filter="^oscal-xslt-main/publish/.*(xsl|css)$" />
+      include-filter="^oscal-xslt-main/(misc|publish)/.*(xsl|css)$" />
       
    <p:for-each>
       <p:variable name="basename" select="p:document-property(/,'base-uri') => substring-after('oscal-xslt-main/')"/>
