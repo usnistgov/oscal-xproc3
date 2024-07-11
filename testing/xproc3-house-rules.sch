@@ -127,6 +127,8 @@
    <sch:let name="all-hrefs" value="//*[matches(@href, '^[^\}\{]+$')]/resolve-uri(@href, base-uri(.))"/>
    
    <sch:pattern>
+      <!-- Pre-empting for p:store -->
+      <sch:rule context="p:store"/>
       <!-- Not matching elements with href that contain { or } -->
       <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
          <sch:let name="exception" value="(/*/@name = $unlinked-xproc) or (tokenize(@href,'/')='lib')"/>

@@ -1,0 +1,9 @@
+# Everything inside lib
+lib/*
+# except keep the readme
+!lib/readme.md
+
+# These files are produced by pipelines and should not be committed
+repository-step-list.html
+xproc-step-list.html
+xproc-steps.xml
