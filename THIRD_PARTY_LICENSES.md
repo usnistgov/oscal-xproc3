@@ -2,7 +2,7 @@
 
 OSCAL-XProc relies on these open-source software packages:
 
-- [MorganaXProcIII](https://www.xml-project.com/morganaxproc-iiise.html) from [&lt;xml-project />](https://www.xml-project.com)
+- [MorganaXProc-III](https://www.xml-project.com/morganaxproc-iiise.html) from [&lt;xml-project />](https://www.xml-project.com)
 - Saxon 12 from [Saxonica](https://www.saxonica.com/)
 - [SchXSLT](https://github.com/schxslt/schxslt) by David Maus, a Schematron implementation
 - Their dependencies, including Java.

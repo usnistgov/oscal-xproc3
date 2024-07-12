@@ -23,25 +23,56 @@ We can go through slides together but it might be a bit of a 'whirlwind tour' if
 
 code the lessons in HTML with Schematron support and Markdown processing
 
-Lesson_1 - Setup and smoke tests [slides on XProc background and context]
+Lesson_01 - 'setup' Setup and smoke tests [slides on XProc background and context]
 
-Lesson_2 - Setup and smoke test pipelines - a look inside - what to look for inside a pipeline, how to research [slides, also step indexes]
+Lesson_02 - 'unpack' Setup and smoke test pipelines - a look inside - what to look for inside a pipeline, how to research XProc [slides, also step indexes]
+  namespaces
+  header: options and ports
+  steps
+  
+  recognize an atomic step by the fact that it has no elements except
+    p:with-input and p:with-option (right?)
 
-Lesson_3 - An OSCAL XML-to-JSON conversion pipeline [slides on XML and JSON in XPath 3.1]
+  whereas compound steps have subpipelines
+  
+  core compound steps include:
+    for-each
+    try/catch
+    choose/when/otherwise, if
+    group - handy wrapper
+    viewport - works on matched (selected) subtrees of input
 
-Lesson_3 - OSCAL Validation - singles and batches [slides on validation, field testing]
+  core atomic steps - see references
+  declared steps - 'ox' namespace
+        
 
-Lesson_4 - OSCAL transformation - XSLT for HTML [slides on rendering pipelines]
+Lesson_03 - 'oscal-convert' An OSCAL XML-to-JSON conversion pipeline [slides on XML and JSON in XPath 3.1]
 
-Lesson_5 - XProc task management [slides on file and zip capabilities]
+Lesson_04 - 'oscal-validate' OSCAL Validation - singles and batches [slides on validation, field testing]
 
-Lesson_6 - XProc reflection - pipelines to document XProc [slides on file and zip capabilities]
+Lesson_05 - 'oscal-transform' OSCAL transformation - XSLT for HTML [slides on rendering pipelines]; also profile resolution
+
+Lesson_06 - 'xproc-files' XProc file management [slides on file and zip capabilities]
+  super useful among other reasons b/c .docx, .xslx, .otx and .epub formats are all zip archives
+  
+Lesson_07 - 'xproc-document' XProc reflection - pipelines to document XProc
             
-Lesson_7 - Validating XProc with Schematron
+Lesson_08 - 'xproc-validate' Validating XProc with Schematron
 
-Lesson_8 - Unpacking the repository / CI/CD, regression testing and publishing workflows
+Lesson_09 - 'xproc-repo' Unpacking the repository / CI/CD, regression testing and publishing workflows
 
-Encore - XSpec for OSCAL XSLT under XProc
+Lesson_10 - XSpec for OSCAL XSLT under XProc
+
+Each lesson
+  Objective
+  Resources
+  Lesson steps
+    assumptions/prerequisites
+    procedure
+    observations/provocations
+  Observations
+  Questions and feedback
+  (Background remarks in callouts?)
 
 ## Background and context (to cover)
 
@@ -79,13 +110,6 @@ Encore - XSpec for OSCAL XSLT under XProc
   XProc specifications - source
   https://github.com/xproc/3.0-steps/blob/master/steps/src/main/xml/specification.xml
 
-#### XProc Index to Steps
-
-See the pipelines [COLLECT-XPROC-STEPS.xpl](COLLECT-XPROC-STEPS.xpl) and [XPROC-STEP-INDEX-HTML.xpl](XPROC-STEP-INDEX-HTML.xpl).
-
-The first of these produces a digest of step declarations from the specifications and formats it. The second formats a static input presumed to have been saved -- and subject to refresh -- by running the first pipeline.
-
-Note the index produced is ahead of the published specifications insofar as there is any publication latency (between the source files under Github that are inspected, and their publication as formal specs).
 #### XProc self-runners? XProc spelunking
 
 Concept: generate a suite of XProc step definitions as demo tests
@@ -123,16 +147,25 @@ Premises: you know the file system, the resources and the operations to perform
 3. How pipelines work
 
 Chains
-  principle is simple
+  principle is simple, same as functional composition a(.) => b(.) => c(.)
+  
   they can be long
   order of steps can matter
+  we can start with an a() if we want a to produce (not modify)
+  but a(.) => b() permits dropping a() and also .
+
 Branches
-  multiple inputs the same
-    e.g. a 'wrap-sequence'
-  multiple inputs different e.g. doc + schema
-  multiple outputs e.g. results and reports
+
+multiple inputs the same - collections of alike documents
+  to be aggregated or analyzed as a group
+
+multiple inputs different e.g. doc + schema
+
+multiple outputs e.g. results and reports
+
 Compositional logic
   mix and match
+
 Functional logic and side-effects
   Functional mappings
     map/filter/reduce can be executed 'atemporally'

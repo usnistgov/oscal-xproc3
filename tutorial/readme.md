@@ -14,13 +14,58 @@ We need to send this out two weeks early? Or anyone who registers late should be
 
 For preparation:
   - Take your pick: slides, repository or both
-  - Start at the top and see how far you get
+  - Start at the top with Lesson 0 and proceed from there
+    - They all involve a hands-on component
   - Take notes
   - Get as far as you can - extra points for finishing the course
 
 We will start with a poll - how far did you get?
 
+# Architecture
 
+The course contains a sequence of hands-on lessons of increasing depth and complexity.
+
+See the [outline.md](outline.md) for an overview of current plans.
+
+They are to be centered on a short sequence of applications, mostly OSCAL applications (one XProc applicationn at the end). Each of these is presented in a Lesson with a curriculum (slides/writeup) offered at three levels:
+
+**101** - Beginners - anyone - presumes only the preceding Lessons
+
+You can use the command line to accomplish tasks, but do not expect to be coding.
+
+**102** - Developers - presumes deeper interest, but at an intro level
+
+Tutorial tasks may involve editing code and providing your own OSCAL examples.
+
+**599** - Advanced
+
+Proceeding through the lessons you can choose how deeply to go with each, and also whether and when to come back.
+
+## Production
+
+Source files are maintained in a reduced HTML format.
+
+This reduction is enforced by means of a Schematron rule set, which forbids anything outside of a small core of supported features in HTML.
+
+Simultaneously, a transformation is maintained that rewrites these into Markdown syntax. These files can be produced statically or under CI/CD, committed into the repository and read directly in its previews.
+
+At a future point we can also opt to do something better with this HTML.
+
+### Requirements
+
+For the lesson set:
+
+- Schematron
+- Markdown XSLT
+- Production pipeline
+
+For each Lesson folder, where 'key' is a keyword for the lesson:
+
+- Lesson_X/key_101_src.html
+- Lesson_X/key_102_src.html
+- Lesson_X/key_599_src.html
+
+These will be developed *incrementally over time* - don't expect everything to be there just yet.
 
 ## XProc 101 - What Is XProc
 
@@ -54,12 +99,13 @@ OSCAL sample data
 
 Assumes XSLT / regards it as a black box
 Assumes *some* XML
+Assumes you have completed 101 and all its exercises (could be on your own)
+
+Provides a more detailed survey and more exercises
 
 Included will be:
 
 Pipelines and pipeline architectures - theory and practice
-
-Potentials including TDD; distributed development; platform independence supporting data security
 
 Setting up and running pipelines
   - standalone
@@ -76,7 +122,7 @@ Diagnostic methods
 
 `@content-type` options including plain text, XML and JSON
 
-## XProc 111-112 - Deep dive into XProc
+## XProc 599-600 - Advanced Practicum
 
 Writing your own steps
 - Names and @type
@@ -87,3 +133,8 @@ Inline XSLT or XQuery
 Local function libraries?
 
 iXML for other notations
+
+## Leave your tracks
+
+Consider making a pull request with an enhancement to the repository. If there are no corrections or improvements to suggest, sample files are always welcome. Future users can have the benefit of your experience.
+
