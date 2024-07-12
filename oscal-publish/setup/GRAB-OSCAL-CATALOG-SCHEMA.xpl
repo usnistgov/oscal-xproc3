@@ -13,12 +13,11 @@ Since the OSCAL Schema files are directly addressable as resources over the Inte
   
    <p:variable name="download-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2'"/>
    
-   <p:variable name="destination" select="resolve-uri('../lib', static-base-uri())"/>
+   <p:variable name="destination" select="resolve-uri('../lib')"/><!-- by default, evaluating relative to static-base-uri() -->
 
    <p:variable name="prefix" select="'[' || 'GRAB-OSCAL-CATALOG-SCHEMA' || ']'"/>
    
-   <!-- It beginneth -->
-
+   <!-- Commence steps -->
       
    <p:for-each>
       <p:with-input>
@@ -27,7 +26,6 @@ Since the OSCAL Schema files are directly addressable as resources over the Inte
       <p:variable name="basename" select="/*/base-uri() => replace('.+/','')"/>
 
       <p:store href="{ $destination }/{ $basename }" message="{$prefix} Saving { $destination }/{ $basename }"/>
-
    </p:for-each>
 
 </p:declare-step>

@@ -59,11 +59,21 @@ If you receive an error trying to retrieve the schema, its location can be adjus
 
 (Help wanted! let us know)
 
+**Schematron** - this XSLT provides a nice illustration of how nicely Schematron can provide for 'pre-checks' against publication anomalies.
+
+For example, the HTML rendering XSLT has no fallback logic for rendering controls that have no 'label' properties, but nothing requires those in the schema or constraints, either.
+
+An XSLT alteration in an importing layer could repair this, but a Schematron can also warn about it this issue up front.
+
+**XSLT alterations** We could make those XSLT improvements here. We could also demonstrate other improvements in a customization layer.
+
 **XSpec** - this XSLT has no XSpec: wouldn't that be good?
 
 **Enhanced HTML** An alternative ["NIST Emulator" XSLT](lib/xslt/publish/nist-emulation/sp800-53A-catalog_html.xsl), makes a more highly polished HTML view, closer to a print page view.
 
-**PDF production** Given a license to Morgana XProcIIIee, or a capable XProc 3.0 processor with support for `xsl-formatter`, we can try the FO-based production offered in the XSLT repository.
+**Simpler HTML** Another XSLT (not yet written) could make a 'plain page' optimized to show everything legibly.
+
+**PDF production** Given a license to MorganaXProc-IIIee, or a capable XProc 3.0 processor with support for `xsl-formatter`, we can try the FO-based production offered in the XSLT repository.
 
 (For now, in the [home repository](https://github.com/usnistgov/oscal-xslt) you can find a runtime using Maven and XProc 1.0.)
 

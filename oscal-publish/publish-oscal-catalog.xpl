@@ -3,7 +3,7 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:publish-oscal-catalog" name="publish-oscal-catalog">
 
    <p:input port="source" primary="true">
-      <p:document href="../profile-resolution/data/cat_catalog.xml"/>
+      <p:document href="data/cat_catalog.xml"/>
    </p:input>
 
    <p:input port="schema" primary="false">
@@ -43,25 +43,8 @@
       <p:with-input port="stylesheet" href="lib/xslt/publish/nist-emulation/sp800-53A-catalog_html.xsl"/>
    </p:xslt>
 
-   <p:store href="{$result-html-path}" message="[publish-oscal-catalog] Storing { $result-html-path }"/>
-
-
-   <!-- For Markdown, we need an improved rendering XSLT for this HTML in
-   <p:xslt name="make-markdown">
-      <p:with-input port="stylesheet" href="src/html-to-markdown.xsl"/>
-   </p:xslt>
-
-   <p:store href="{$result-md-path}" message="[publish-oscal-catalog] Storing { $result-md-path }"/>-->
-
-   <!--<p:sink/>-->
-
-   <!-- Note FO step picks up HTML, not OSCAL -->
-   <!--<p:xslt name="make-xsl-fo">
-      <p:with-input port="source" pipe="result@make-html"/>
-      <p:with-input port="stylesheet" href="lib/xslt/publish/nist-emulation/oscal_sp800-53-emulator_fo.xsl"/>
-   </p:xslt>-->
-
-   <!--<p:xsl-formatter name="make-pdf" content-type="application/pdf"/>
-   <p:store message="[publish-oscal-catalog] storing {{$result-pdf-path}}" href="{$result-pdf-path}"/>-->
+   <!-- Serialization matters! If this is serialized in XML syntax browsers can have trouble parsing -->
+   <p:store href="{$result-html-path}" message="[publish-oscal-catalog] Storing { $result-html-path }"
+   serialization="map{'method': 'html', 'indent': true() }"/>
 
 </p:declare-step>
