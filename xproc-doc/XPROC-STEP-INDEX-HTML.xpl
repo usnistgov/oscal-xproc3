@@ -13,7 +13,7 @@
 <!-- As produced by COLLECT-XPROC-STEPS.xpl - you will get an error if that pipeline is not run first -->
 <!-- For later: an integrated pipeline that runs both together -->
    <p:input port="step-list" primary="true">
-      <p:document href="out/xproc-steps.xml"/>
+      <p:document href="xproc-steps.xml"/>
    </p:input>
    
 <!-- Before we splice in foreign contents, we rewrite a little - adding a/@target enabling links

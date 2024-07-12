@@ -72,7 +72,7 @@
    <!-- Putting it all in no namespace to make the XSLT easier -->
    <p:namespace-delete prefixes="p"/>
    
-   <p:store href="out/xproc-steps.xml"  serialization="map{'indent' : true()}"
+   <p:store href="xproc-steps.xml"  serialization="map{'indent' : true()}"
       message="[COLLECT-XPROC-STEPS] Storing out/xproc-steps.xml"/>
    
    <p:sink message="[COLLECT-XPROC-STEPS] To produce HTML from this XML, run pipeline XPROC-STEP-INDEX-HTML.xpl"/>
