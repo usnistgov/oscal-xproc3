@@ -75,7 +75,7 @@
       <sch:rule context="/*">
          <sch:assert role="warning" test="base-uri(.) = $listed-uris">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be?</sch:assert>
          
-         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml','xsl','x'))]"/>
+         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('p','c','ox','xml','xsl','x','xs'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
       </sch:rule>
@@ -123,12 +123,17 @@
    <!-- Any files to be reprieved from linking rules should be listed here, by /*/@name  -->
    <sch:let name="unlinked-xproc" value="('CONVERT-XML-REFERENCE-SET')"/>
    
+   <!-- Brute-forcing into full paths for path checking -->
+   <sch:let name="all-hrefs" value="//*[matches(@href, '^[^\}\{]+$')]/resolve-uri(@href, base-uri(.))"/>
+   
    <sch:pattern>
       <!-- Not matching elements with href that contain { or } -->
       <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
          <sch:let name="exception" value="(/*/@name = $unlinked-xproc) or (tokenize(@href,'/')='lib')"/>
-         <sch:assert test="$exception or resolve-uri(@href, base-uri(.)) => unparsed-text-available()">No resource found at <sch:value-of
+         <sch:let name="expanded-uri" value="resolve-uri(@href, base-uri(.))"/>
+         <sch:assert test="$exception or ($expanded-uri => unparsed-text-available())">No resource found at <sch:value-of
             select="@href"/></sch:assert>
+         <sch:assert test="count($all-hrefs[. = $expanded-uri]) = 1" role="warning">Resolved URI is referenced elsewhere</sch:assert>
       </sch:rule>
    </sch:pattern>
    

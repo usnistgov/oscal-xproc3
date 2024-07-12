@@ -1,0 +1,7 @@
+# Everything inside lib
+lib/*
+# except keep the readme
+!lib/readme.md
+
+# For results of processing placed next to inputs
+data/**/*.html
