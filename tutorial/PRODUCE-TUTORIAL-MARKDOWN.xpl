@@ -11,6 +11,7 @@
       <p:inline>
          <LESSON_PLAN>
             <Lesson key="setup"/>
+            <Lesson key="unpack"/>
          </LESSON_PLAN>
       </p:inline>
    </p:input>

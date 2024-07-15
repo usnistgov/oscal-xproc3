@@ -37,6 +37,7 @@
       
       <p:document href="../tutorial/GRAB-RESOURCES.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
       
       <p:document href="../smoketest/POWER-UP.xpl"/>
       <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>

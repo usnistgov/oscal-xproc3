@@ -23,7 +23,9 @@ However, the resources offered are also intended to be available for discussion,
 
 Not only is there no rule against 'borrowing' from or adapting this tutorial or part of it -- that is part of the idea. (Credit your sources as always.)
 
-As noted in the readme, there are several ways to work the sequence. Read it first!
+As noted in the readme, there are several ways to work the sequence.
+
+Even the most casual readers will benefit from doing the **101** sequence exercises, which require no coding, just operation of the tools.
 
 ### Lesson sequence
 
@@ -32,14 +34,14 @@ As noted in the readme, there are several ways to work the sequence. Read it fir
 - oscal-convert
 - oscal-validate
 - oscal-transform
-- oscal-pub
+- oscal-publish
 - xproc-files (including zipping)
 - xproc-document - covering xproc-doc
 - xproc-validate - covering Schematron
 - xproc-repo - ci/cd, regression testing
 - xproc-xspec
 - xproc-debug
-- tutorial-pub
+- tutorial-publish
 
 ### Equipment
 

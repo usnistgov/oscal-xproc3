@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>XProc 102: Project setup and installation</title>
+      <title>102: Examining the setup</title>
    </head>
    <body>
-      <h1>XProc 102: Project setup and installation</h1>
+      <h1>102: Examining the setup</h1>
       <p></p>
       <section><h2>Goals</h2>
       <ul>
@@ -38,6 +38,10 @@
                <li><a href="../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests SchXSLT</li>
                <li><a href="../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec</li>
             </ul>
+         <p>Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels
+            and connectors.</p>
+         <p>Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in
+            a text editor, in an XML editor.</p>
       </section>
       <section>
          <h2>Step Two: Modify the pipelines</h2>
@@ -53,37 +57,6 @@
             <li>Try to retrieve something from a broken link</li>
          </ul>
          <p>Make sure that pipelines are back in working order when this exercise is complete.</p>
-      </section>
-      <section>
-         <h2>Take note</h2>
-         <section>
-            <h3>Where are these downloads coming from?</h3>
-            <p>These pipelines use different strategies for resource acquisition, depending on the case, and on where
-               and in what form the resource is available. (Sometimes a file on Github is downloaded "raw", sometimes an
-               archive is downloaded and opened, and so on.) For now, it is not necessary to understand details in any
-               case, only to observe the variation and range. (With more ideas welcome. Could XProc be used to build a
-                  <q>secure downloader</q>?)</p>
-            <p>Wherever you see <code>href</code> attributes, take notice.</p>
-            <p>Since <code>href</code> is how XProc <q>sees</q> the world, either to read data in or to write data out,
-               this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For
-               example, a download will not succeed if the resource indicated by the <code>href</code> for the download
-               returns an error, or nothing. <code>href</code> attribute settings therefore become <i>points of
-                  control</i> for interaction between an XProc pipeline, and its runtime environment.</p>
-            <p>Useful detail: where XProc has <code>p:store href="some-uri.file"</code>, the <code>href</code> is read
-               by the processor as the intended location for storage of pipeline data, that is, for a <i>write</i>
-               operation. In other cases <code>href</code> is always an argument for a <i>read</i> operation.</p>
-         </section>
-         <section>
-            <h3>Syntax tips</h3>
-            <p>XProc uses XPath syntax, in which a syntax such as <code>$foo</code> (a name with a <code>$</code>
-               prefixed) indicates a <b>variable reference</b>. XProc also uses a <i>value expansion syntax</i>
-                  (either<i>text</i> or <i>attribute</i> value syntax) using curly braces - so syntax such as
-                  <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
-                  write] to the URI given by <code>$some-xml-uri</code></q>.</p>
-            <p>An XProc developer always knows where  <code>href</code> is used in a pipeline, and how to test for and
-               update their use. As always with syntax, the easiest way to learn about it is to try making changes and
-               observing outcomes.</p>
-         </section>
       </section>
       <section>
          <h2>For consideration</h2>

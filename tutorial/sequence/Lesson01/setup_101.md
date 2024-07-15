@@ -1,5 +1,4 @@
 XProc 101: Project setup and installation
-
 # XProc 101: Project setup and installation
 
 ## Goals
@@ -27,14 +26,14 @@ The setup script is a `bash` script: [./setup.sh](../../setup.sh), to be run wit
 For XProc runtime -- to execute pipelines -- use either of the scripts [./xp3.sh](../../xp3.sh) (under `bash`) or [./xp3.bat](../../xp3.bat) (for Windows). These scripts are used for all pipelines (basically, for everything) unless otherwise noted.
 
 The following pipelines will be run. They are described in top-level [README](../../README.md) documentation and the expected places.
- 
-* [lib/GRAB-SAXON.xpl](../../lib/GRAB-SAXON.xpl) 
-* [lib/GRAB-SCHXSLT.xpl](../../lib/GRAB-SCHXSLT.xpl) 
-* [lib/GRAB-XSPEC.xpl](../../lib/GRAB-XSPEC.xpl) 
-* [smoketest/SMOKETEST-XSLT.xpl](../../smoketest/SMOKETEST-XSLT.xpl) 
-* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../smoketest/SMOKETEST-SCHEMATRON.xpl) 
-* [smoketest/SMOKETEST-XSPEC.xpl](../../smoketest/SMOKETEST-XSPEC.xpl) 
 
+ * [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
+ * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
+ * [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
+ * [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl)
+ * [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl)
+ * [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl)
+ 
 
 ## Step One - setup
 
@@ -52,10 +51,10 @@ When you can run all the smoke tests without ugly tracebacks, this lesson is com
 ## Step Two - confirm
 
 You know things are working in your XProc when either or both of two things are happening:
- 
-* On the console, notifications show up with reassuring messages announcing progress 
-* When you expect files to be produced, they appear (or are updated) as expected 
 
+ * On the console, notifications show up with reassuring messages announcing progress
+ * When you expect files to be produced, they appear (or are updated) as expected
+ 
 
 Both of those will occur with this lesson. The files produced by download scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
 
