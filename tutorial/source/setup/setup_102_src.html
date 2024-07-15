@@ -32,7 +32,6 @@
                <li><a href="../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
                <li><a href="../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
                </ul>
-            <p>These pipelines use different strategies for resource acquisition, depending on the case, where and in what form the resource is available.</p>
          <p>The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.</p>
             <ul>
                <li><a href="../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon</li>
@@ -44,7 +43,8 @@
          <h2>Step Two: Modify the pipelines</h2>
          <p>Use a text editor or IDE for this exercise.</p>
          <p>If you have any concepts for improvements to the pipelines, or other resources that might be acquired this way, copy and modify one of the pipelines given to achieve those results.</p>
-         <p>Even if not - be sure to break the pipelines given -- or of copies under new names -- in any of several ways. Then run them, as a <i>safe way</i> to familiarize yourself with error messages:</p>
+         <p>Even if not - be sure to break the pipelines given -- or of copies under new names -- in any of several
+            ways. Then run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
          <ul>
             <li>Break the XML syntax of a pipeline and try to run it</li>
             <li>Leave XML syntax intact (well-formed), but break something in the XProc
@@ -55,17 +55,49 @@
          <p>Make sure that pipelines are back in working order when this exercise is complete.</p>
       </section>
       <section>
+         <h2>Take note</h2>
+         <section>
+            <h3>Where are these downloads coming from?</h3>
+            <p>These pipelines use different strategies for resource acquisition, depending on the case, and on where
+               and in what form the resource is available. (Sometimes a file on Github is downloaded "raw", sometimes an
+               archive is downloaded and opened, and so on.) For now, it is not necessary to understand details in any
+               case, only to observe the variation and range. (With more ideas welcome. Could XProc be used to build a
+                  <q>secure downloader</q>?)</p>
+            <p>Wherever you see <code>href</code> attributes, take notice.</p>
+            <p>Since <code>href</code> is how XProc <q>sees</q> the world, either to read data in or to write data out,
+               this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For
+               example, a download will not succeed if the resource indicated by the <code>href</code> for the download
+               returns an error, or nothing. <code>href</code> attribute settings therefore become <i>points of
+                  control</i> for interaction between an XProc pipeline, and its runtime environment.</p>
+            <p>Useful detail: where XProc has <code>p:store href="some-uri.file"</code>, the <code>href</code> is read
+               by the processor as the intended location for storage of pipeline data, that is, for a <i>write</i>
+               operation. In other cases <code>href</code> is always an argument for a <i>read</i> operation.</p>
+         </section>
+         <section>
+            <h3>Syntax tips</h3>
+            <p>XProc uses XPath syntax, in which a syntax such as <code>$foo</code> (a name with a <code>$</code>
+               prefixed) indicates a <b>variable reference</b>. XProc also uses a <i>value expansion syntax</i>
+                  (either<i>text</i> or <i>attribute</i> value syntax) using curly braces - so syntax such as
+                  <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
+                  write] to the URI given by <code>$some-xml-uri</code></q>.</p>
+            <p>An XProc developer always knows where  <code>href</code> is used in a pipeline, and how to test for and
+               update their use. As always with syntax, the easiest way to learn about it is to try making changes and
+               observing outcomes.</p>
+         </section>
+      </section>
+      <section>
          <h2>For consideration</h2>
          <p>Developers coming to this technology need to consider who would use it, and whether it is useful mainly at
             the back end, or also directly in the hands of professionals who must work with the data, bringing expertise
-            in subject matter (such as, for OSCAL, systems security documentation) but not in data processing as such.
-            Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be
+            in subject matter (such as, for OSCAL, systems security documentation) but not in data processing as
+            such.</p>
+         <p>Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be
             developed (this is a known problem) but more importantly whether the systems themselves are adaptable enough
             so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for
                <i>particular</i>, <i>special</i> and <i>local</i> problems discovered only at the points where
-            information is gathered and codified. This larger fitting of solutions to problems is a responsibility for
-            both CMEs (content matter experts) and developers together, who must define problems to be solved before
-            finding approaches to them.</p>
+            information is gathered and codified.</p>
+         <p>This larger fitting of solutions to problems is a responsibility for both CMEs (content matter experts) and
+            developers together, who must define problems to be solved before approaches to them can be found.</p>
          <p>The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions
             come up in an OSCAL context or any context where XML is demonstrably capable.</p>
       </section>

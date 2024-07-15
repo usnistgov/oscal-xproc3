@@ -36,6 +36,8 @@
       <p:document href="../xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
       
       <p:document href="../tutorial/GRAB-RESOURCES.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
+      
       <p:document href="../smoketest/POWER-UP.xpl"/>
       <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
       <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
