@@ -13,15 +13,47 @@ Understanding of the current state of the art wrt XML technologies.
 - Comfortable installing and running tools from the command line (Linux or Windows)
 - Familiar with XML on at least one platform, or ready to learn
 - Comfortable with Github (cloning or forking repositories)
-- Have Java installed and working
+- Have Java (v8/11) installed and working
 
 ## Sketch
 
-This tutorial is designed as a self-guided tour for those unable to get live help. By following instructions carefully (and assuming requisite background), you should be able to make things work, understand the moving parts, and to know what to research next.
+This tutorial is designed to offer a self-guided tour for those unable to get live help. By following instructions carefully (and assuming requisite background), you should be able to make things work, understand the moving parts, and determine what to research next.
 
-We can go through slides together but it might be a bit of a 'whirlwind tour' if we do - they are meant to offer points for future reference, not for a dog-and-pony show.
+However, the resources offered are also intended to be available for discussion, whether in formal or informal training sessions among professionals, academics or amateur/freelancers. In development, we will be keeping the solo autodidact in mind -- but we also take note when we see opportunities for discussion and consideration of differing perspectives.
 
-code the lessons in HTML with Schematron support and Markdown processing
+Not only is there no rule against 'borrowing' from or adapting this tutorial or part of it -- that is part of the idea. (Credit your sources as always.)
+
+As noted in the readme, there are several ways to work the sequence. Read it first!
+
+### Lesson sequence
+
+- setup
+- unpack (survey of files used in setup)
+- oscal-convert
+- oscal-validate
+- oscal-transform
+- oscal-pub
+- xproc-files (including zipping)
+- xproc-document - covering xproc-doc
+- xproc-validate - covering Schematron
+- xproc-repo - ci/cd, regression testing
+- xproc-xspec
+- xproc-debug
+- tutorial-pub
+
+### Equipment
+
+Command line with bash or Windows (cmd/Powershell)
+
+File system browser i.e. Windows Explorer or Linux desktop
+  - or you are awesome with the CL!
+  
+Programmer's text editor for light editing
+  XML capabilities are awesome but not essential
+
+
+
+#### notes
 
 Lesson_01 - 'setup' Setup and smoke tests [slides on XProc background and context]
 
@@ -52,16 +84,35 @@ Lesson_04 - 'oscal-validate' OSCAL Validation - singles and batches [slides on v
 
 Lesson_05 - 'oscal-transform' OSCAL transformation - XSLT for HTML [slides on rendering pipelines]; also profile resolution
 
+  advanced - use a defective catalog e.g. cat catalog missing labels
+    how to mitigate defects:
+      change source
+        upstream or on the fly
+      change XSLT
+        layer over XSLT
+        patch XSLT going through
+
+
+
 Lesson_06 - 'xproc-files' XProc file management [slides on file and zip capabilities]
   super useful among other reasons b/c .docx, .xslx, .otx and .epub formats are all zip archives
   
+Advanced XProc
+
 Lesson_07 - 'xproc-document' XProc reflection - pipelines to document XProc
             
 Lesson_08 - 'xproc-validate' Validating XProc with Schematron
 
+
 Lesson_09 - 'xproc-repo' Unpacking the repository / CI/CD, regression testing and publishing workflows
 
-Lesson_10 - XSpec for OSCAL XSLT under XProc
+Lesson_10 - XSpec for XSLT under XProc
+ 
+Lesson_11 Interactive XProc
+   debugging and analysis techniques
+     writing interim results
+     exposing on ports
+     filtering what is exposed
 
 Each lesson
   Objective
