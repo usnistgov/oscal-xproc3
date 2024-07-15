@@ -67,8 +67,8 @@
             </p:with-input>
          </p:insert>
 
-         <!--<p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
-         message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
+         <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
+         message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
       </p:for-each>
 
