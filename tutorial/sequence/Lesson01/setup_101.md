@@ -7,17 +7,19 @@ Run an XProc 3.0 pipeline in an XProc 3.0 engine.
 
 With a little practice, become comfortable running XProc pipelines, seeing results on a console (command-line) window as well as in the file system.
 
-Since pipelines can be used to download resources, setup after the first script can use XProc, so you can't finish the setup without practicing XProc as well.
+Since pipelines can be used to download resources, setup after the first script use XProc. Finishing the setup gets you started practicing with the XProc.
 
 ## Prerequisites
 
 You have Java installed with a JVM (Java Virtual Machine) available on the command line, version 8.0 and 11 (and later).
 
-tip: check your Java version from the console using `java --version`.
+You have a live Internet connection and the capability to download and save resources (binaries and code libraries) for local use.
+
+**Tip:** check your Java version from the console using `java --version`.
 
 You are comfortable entering commands on the command line. For installation, you want a `bash` shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use `bash`, the setup can be done by hand (downloading and unpacking a package from SourceForge).
 
-After installation, subsequent work on Windows does not require `bash` unless you choose to use it ??? a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described).
+After installation, subsequent work on Windows does not require `bash` unless you choose to use it ??? a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described in the documentation).
 
 ## Resources
 
@@ -35,7 +37,7 @@ The following pipelines will be run. They are described in top-level [README](..
  * [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl)
  
 
-## Step One - setup
+## Step One: Setup
 
 Find setup instructions for the repository in the [Project README](../../README.md) and in the linked [Setup Notes](../../setup-notes.md).
 
@@ -48,7 +50,9 @@ As noted in the docs, if you happen already to have [Morgana XProc III](https://
 
 When you can run all the smoke tests without ugly tracebacks, this lesson is complete.
 
-## Step Two - confirm
+## Step Two: Confirm
+
+The top-level README and setup notes also describe testing your installation. Do this next.
 
 You know things are working in your XProc when either or both of two things are happening:
 
@@ -56,15 +60,17 @@ You know things are working in your XProc when either or both of two things are 
  * When you expect files to be produced, they appear (or are updated) as expected
  
 
-Both of those will occur with this lesson. The files produced by download scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
+Both of those will occur with this lesson. The files produced by downloading scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
+
+Note: you need a live Internet connection for your http requests to go through.
 
 ## Comments / review
 
 Within the project as a whole, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline.
 
-Among other effects, this makes an XProc-based system largely or entirely platform-independent and portable.
+Among other benefits, this makes an XProc-based system largely or entirely platform-independent and portable.
 
-`xp3.sh` and `xp3.bat` are examples of such scripts written for this project. Either of them enables a user to run, without further configuration, the [Morgana XProcIIIse]() processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (`bash` in the case of the shell script, Windows batch command syntax for the `bat` file). Other platforms supporting Java (and hence Morgana with its libraries) could be provided with similar scripts. (PR opportunity!)
+`xp3.sh` and `xp3.bat` are examples of such scripts written for this project. Either of them enables a user to run, without further configuration, the [Morgana XProcIIIse]() processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (`bash` in the case of the shell script, Windows batch command syntax for the `bat` file). Other platforms supporting Java (and hence Morgana with its libraries) could be provided with similar scripts. (Pull request opportunity.)
 
 XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing, both XML-based and using other formats such as JSON and plain text. The scripts in the repo show only one way of running XProc. Keep in mind that even simple scripts can be used in more than one way. 
 
