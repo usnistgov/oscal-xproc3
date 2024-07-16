@@ -10,8 +10,8 @@
          <p>Run an XProc 3.0 pipeline in an XProc 3.0 engine.</p>
          <p>With a little practice, become comfortable running XProc pipelines, seeing results on a console
             (command-line) window as well as in the file system.</p>
-         <p>Since pipelines can be used to download resources, setup after the first script use XProc. Finishing the
-            setup gets you started practicing with the XProc.</p>
+         <p>Since pipelines can be used to download resources, after the first script to get the XProc engine, we use
+            XProc. Finishing the setup gets you started practicing with the pipelines.</p>
       </section>
       <section>
          <h2>Prerequisites</h2>
@@ -57,7 +57,18 @@
             download it again. Try skipping straight to the smoke tests. (You can use a runtime script
                <code>xp3.sh</code> or <code>xp3.bat</code> as a model for your own, and adjust. Any reasonably recent
             version of Morgana should function if configured correctly, and we are interested if it does not.) </p>
-         <p>When you can run all the smoke tests without ugly tracebacks, this lesson is complete.</p>
+         <section>
+            <h3>Shortcut</h3>
+            <p>If you want to run through the tutorial exercises but you are unsure of how deeply you will delve, you
+               can postpone two of the installations until later:</p>
+            <ul>
+               <li>You will need SchXSLT only when you want to run Schematron</li>
+               <li>You will need XSpec only when you want to run XSpec unit tests</li>
+            </ul>
+            <p>When you see tracebacks suggesting one of these is not supported, you can return to setup.</p>
+            <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0/3.1), consider
+               the Saxon installation an essential requirement.</p>
+         </section>
          </section>
       <section>
          <h2>Step Two: Confirm</h2>
@@ -72,12 +83,14 @@
          project <code>lib</code> directory, as documented. Refresh or restore by deleting the downloaded files and
          running the pipelines to acquire them again.</p>
       <p>Note: you need a live Internet connection for your http requests to go through.</p>
+      <p>When you can run all the smoke tests without ugly tracebacks, this lesson is complete.</p>
          <section>
          <h2>Comments / review</h2>
          <p>Within the project as a whole, everything is done with XProc 3.0, meaning everything can be done using a
             single script, which invokes an XProc processor to read and execute a pipeline.</p>
          <p>Among other benefits, this makes an XProc-based system largely or entirely platform-independent and
-            portable.</p>
+            portable. And this portability does not require a dedicated environment, only a Java Virtual Machine
+            (JVM).</p>
          <p><code>xp3.sh</code> and <code>xp3.bat</code> are examples of such scripts written for this project. Either
             of them enables a user to run, without further configuration, the <a href="">Morgana XProcIIIse</a>
             processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (<code>bash</code> in the
@@ -94,7 +107,8 @@
          <pre>$ ../xp3.sh POWER-UP.xpl</pre>
          <p>This works the same ways on Windows, with adjustments: </p>
          <pre>> ..\xp3 POWER-UP.xpl </pre>
-         <p>(On Windows a <code>bat</code> suffix is recognized as executable and does not have to be given.)</p>
+         <p>(On Windows a <code>bat</code> file suffix marks it as executable and does not have to be given explicitly
+            when calling.)</p>
          <p>Windows users (and others to varying degrees) can set up a drag-and-drop based workflow - using your mouse
             or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows batch file).
             A command window opens to show the operation of the pipeline. See the <a href="../../README.md">README</a>

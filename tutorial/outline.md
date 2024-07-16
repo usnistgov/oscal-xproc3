@@ -80,9 +80,12 @@ Lesson_02 - 'unpack' Setup and smoke test pipelines - a look inside - what to lo
   declared steps - 'ox' namespace
         
 
-Lesson_03 - 'oscal-convert' An OSCAL XML-to-JSON conversion pipeline [slides on XML and JSON in XPath 3.1]
+Lesson_03 - 'oscal-convert' An OSCAL XML-to-JSON conversion pipeline [slides on XML and JSON in XPath 3.1] - show rendering btw JSON and XML step by step
 
 Lesson_04 - 'oscal-validate' OSCAL Validation - singles and batches [slides on validation, field testing]
+  OSCAL with various schemas
+  OSCAL with Schematron
+    (run the Schematron smoke test to be sure you have it)
 
 Lesson_05 - 'oscal-transform' OSCAL transformation - XSLT for HTML [slides on rendering pipelines]; also profile resolution
 
