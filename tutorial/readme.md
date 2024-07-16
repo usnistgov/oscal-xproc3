@@ -59,13 +59,13 @@ For the lesson set:
 - Markdown XSLT
 - Production pipeline
 
-For each Lesson folder, where 'key' is a keyword for the lesson:
+See the top-level pipelines for current capabilities. At time of writing:
 
-- Lesson_X/key_101_src.html
-- Lesson_X/key_102_src.html
-- Lesson_X/key_599_src.html
+[PRODUCE-TUTORIAL-MARKDOWN.xpl](PRODUCE-TUTORIAL-MARKDOWN.xpl) produces a set of Markdown files, writing them to the `sequence` directory.
 
-These will be developed *incrementally over time* - don't expect everything to be there just yet.
+These files are not retained by git, being regarded instead as production artifacts. Run the pipeline when you want to refresh them.
+
+[PRODUCE-TUTORIAL-PREVIEW.xpl](PRODUCE-TUTORIAL-PREVIEW.xpl)
 
 ## XProc 101 - What Is XProc
 
@@ -115,7 +115,7 @@ Setting up and running pipelines
   - (via APIs)
 
 Diagnostic methods
-- Rewiring inputs (setting @sequence to true)
+- Rewiring inputs and outputs (setting @sequence to true)
 - Writing intermediate results
 - `@message` and `p:identity/@message`
 - Variables and AVTs in messages and paths
@@ -135,6 +135,15 @@ Local function libraries?
 iXML for other notations
 
 ## Leave your tracks
+
+### Discussion board
+
+The Github repository Discussion Board is a worthwhile place to browse or to pose questions, whether directly about the tutorial or exercises, or more broadly.
+
+### Github Issues
+
+
+
 
 Consider making a pull request with an enhancement to the repository. If there are no corrections or improvements to suggest, sample files are always welcome. Future users can have the benefit of your experience.
 
