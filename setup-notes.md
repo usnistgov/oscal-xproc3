@@ -3,7 +3,6 @@
 With Java and `bash`, run `./setup.sh` to set up. `curl` and `unzip` must be available on your command line.
 
 See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for licensing information on these products and open-source initiatives.
-
 Or, by hand ...
 
 ## Set up Morgana XProc IIIse

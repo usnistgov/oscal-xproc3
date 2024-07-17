@@ -3,14 +3,18 @@
    xmlns="http://csrc.nist.gov/ns/oscal-xproc3"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xpath-default-namespace="http://www.w3.org/1999/xhtml" version="3.0">
+    xpath-default-namespace="http://www.w3.org/1999/xhtml" version="3.0"
+   exclude-result-prefixes="#all">
 
     <!-- Purpose: Convert XML to markdown. Note that namespace bindings must be given. -->
 
     <!--<XSLT:key name="parameters" match="param" use="@id"/>-->
 
-    <xsl:strip-space elements="html head body main aside div section"/>
-    
+    <xsl:strip-space elements="*"/>
+   
+    <xsl:preserve-space elements="p li pre td th
+       h1 h2 h3 h4 h5 h6 i b a code span strong em q"/>
+   
     <xsl:template match="/">
        <xsl:variable name="strings">
           <xsl:apply-templates mode="md"/>
@@ -35,6 +39,20 @@
         </xsl:if>
     </xsl:template>
 
+    <xsl:template match="html" mode="md">
+       <xsl:apply-templates select="body" mode="md"/>
+    </xsl:template>
+
+    <xsl:template match="blockquote" mode="md">
+       <xsl:call-template name="conditional-lf"/>
+       <xsl:apply-templates mode="blockquoted"/>       
+    </xsl:template>
+   
+   <xsl:template match="*" mode="blockquoted">
+      <xsl:text>&#xA;&gt; </xsl:text>
+      <xsl:apply-templates select="." mode="md"/>
+   </xsl:template>
+   
     <xsl:template mode="md" match="p">
         <xsl:call-template name="conditional-lf"/>
         <string>
@@ -62,11 +80,13 @@
         <xsl:apply-templates select="*" mode="md"/>
     </xsl:template>
 
+    <xsl:template match="colgroup"/>
+   
     <xsl:template mode="md" match="tr">
         <string>
             <xsl:apply-templates select="*" mode="md"/>
         </string>
-        <xsl:if test="empty(preceding-sibling::tr)">
+        <xsl:if test="empty(preceding-sibling::tr | parent::tbody | parent::tgroup)">
             <string>
                 <xsl:text>|</xsl:text>
                 <xsl:for-each select="th | td">
@@ -146,16 +166,9 @@
     </xsl:template>
 
     <xsl:template mode="md" match="q">
-        <xsl:text>"</xsl:text>
+        <xsl:text>&#8220;</xsl:text>
         <xsl:apply-templates mode="md"/>
-        <xsl:text>"</xsl:text>
-    </xsl:template>
-
-    <!-- <insert type="param" id-ref="ac-1_prm_1"/> -->
-    <xsl:template mode="md" match="insert">
-        <xsl:text>{{ insert: </xsl:text>
-        <xsl:value-of select="@type, @id-ref" separator=", "/>
-        <xsl:text> }}</xsl:text>
+       <xsl:text>&#8221;</xsl:text>
     </xsl:template>
 
     <xsl:key name="element-by-id" match="*[exists(@id)]" use="@id"/>

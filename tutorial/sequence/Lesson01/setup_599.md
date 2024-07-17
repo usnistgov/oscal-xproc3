@@ -1,4 +1,6 @@
-599: In depth XProc
+
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [source/setup/setup_599_src.html](../../source/setup/setup_599_src.html) 
+
 # 599: In depth XProc
 
 ## Some observations

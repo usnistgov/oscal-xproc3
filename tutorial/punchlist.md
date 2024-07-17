@@ -38,9 +38,10 @@ Lesson_02 - 'unpack' Setup and smoke test pipelines - a look inside - what to lo
   recognize an atomic step by the fact that it has no elements except
     p:with-input and p:with-option (right?)
 
-  whereas compound steps have subpipelines
+  whereas compound steps pull together multiple steps with pre-configured inputs to operate in special ways such as iterating (when performing a sequence for a set of inputs) as distinct from grouping, or try/catch, enabling the processor to pick up if a process errors or exceptions are flagged.
   
-  core compound steps include:
+   There are only a few compound steps in the core step library: 
+  
     for-each
     try/catch
     choose/when/otherwise, if
@@ -52,6 +53,11 @@ Lesson_02 - 'unpack' Setup and smoke test pipelines - a look inside - what to lo
         
 
 Lesson_03 - 'oscal-convert' An OSCAL XML-to-JSON conversion pipeline [slides on XML and JSON in XPath 3.1] - show rendering btw JSON and XML step by step
+
+102 - debugging by writing intermediates
+599 bonus exercise: convert JSON into XML, then apply a Schematron
+      running a p:compare step - look-see
+      introducing normalizers to isolate converter deltas
 
 Lesson_04 - 'oscal-validate' OSCAL Validation - singles and batches [slides on validation, field testing]
   OSCAL with various schemas

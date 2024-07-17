@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>599: XProc ecosystem</title>
+      <title>599: Deep background</title>
    </head>
    <body>
-      <h1>599: XProc ecosystem</h1>
+      <h1>599: Deep background</h1>
       <p>More in depth.</p>
-      <section><h2>Goals</h2>
-      <ul>
-         <li>More familiarity with XProc 3.0: more syntax</li>
-         <li>History, concepts and resources</li>
-      </ul>
+      <section>
+         <h2>Goals</h2>
+         <ul>
+            <li>Consider XProc in its operational context including <b>standards</b> and <b>requirements</b></li>
+            <li>Learn or relearn some deep XML history</li>
+            <li>Gain a basis for assessing the appropriateness and utility of XProc in particular and XML in
+               general</li>
+         </ul>
       </section>
-      <section><h2>Resources</h2>
+      <section>
+         <h2>Resources</h2>
          <p>The same pipelines you ran in setup: <a href="../setup/setup_101_src.html">Setup 101</a>.</p>
          <p>Also, <a href="https://xproc.org">XProc.org dashboard page</a></p>
          <p>Also, XProc index materials produced in this repository: <a href="../../../xproc-doc/readme.md">XProc
@@ -20,9 +24,7 @@
       </section>
       <section>
          <h2>Prerequisites</h2>
-         <section>
-            <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
-         </section>
+         <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
       </section>
       <section>
          <h2>XProc schema</h2>
@@ -49,17 +51,30 @@
             for dealing with the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
          <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a
                href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips XPath 1.0 in many important respects.</p>
-      </section>
+      
       <section>
-         <h3>XML time line</h3>
+         <h3>Documents and data</h3>
+         <p>One of the more important features of XPath and the XDM is that they are designed not only to meet needs for
+            the representation and transmission of structured data. A specialized class of data formats has evolved that
+            represent information in ways that are not <i>unstructured</i>, but that contrast with more common or usual
+            structures of data formats, whether they be tabular or object-oriented, or other. We say <q>common</q> or
+               <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
+         <p>But largely since terabytes of structured data (emitted by sensors or even captured from forms interfaces)
+            are easier to collect than terabytes of documents, documents are called <q>unstructured</q> meaning not that
+            they have no structure, but that each one is structured in itself, and is not compatible with encodings
+            designed to capture other structures.</p>
+         <p>Documentary data formats especially markup formats are designed to work in this in-between space.</p>
+         <p>And so we get XPath - a query syntax which permits working with an organized structure of a particular kind
+            (an <i>XDM document tree</i>), which in turn is designed for handling the combination of <i>highly
+               regular</i> and <i>quite irregular</i> data structures that characterize information sets we (loosely)
+            call <q>documentary</q>.</p>
+         <p>The definition of what is a document is out of scope for this tutorial – an interesting topic but not only a
+            technical one.</p>
+      </section></section>
+      <section>
+         <h2>XML time line</h2>
          <p>[TODO: complete this]</p>
          <table>
-            <colgroup>
-               <col />
-               <col />
-               <col />
-               <col />
-            </colgroup>
             <thead>
                <tr>
                   <th>Year</th>
@@ -155,13 +170,9 @@
             a publishing framework can be considered as a <q>documentary build</q> at a higher level.</p>
       </section>
       <section>
-         <h3>XPath illustrative examples</h3>
+         <h2>XPath illustrative examples</h2>
          <p>This is not the place to learn XPath, but a selection of XPaths can offer a hint of its capabilities.</p>
          <table>
-            <colgroup>
-               <col />
-               <col />
-            </colgroup>
             <thead>
                <tr>
                   <th>XPath</th>
@@ -219,22 +230,24 @@
          <li>Consistently and repeatedly shown to be capable at this scale (size/complexity)</li>
          <li>Commodity and standards-based, easing problem of proprietary product endorsement</li>
       </ul>
-      <section>The technologies we rely on share a common foundation in XML and XDM, technologies developed under the
-         auspices of the World Wide Web Consortium.<p>They are commodity tools in the sense that they are freely
-            available to use without restriction, an important qualification for this distribution, which <i>cannot
-               endorse any particular technological solution to any problem</i>, however posed or circumscribed.
-            Accordingly, solutions here are not offered as endorsements but as stipulations of (minimum) viable
-            functionality in tools or capabilities, and not only using tools as <q>black boxes</q>, but under control
-            and conformant to external specifications (standards).</p>Users of these tools should keep in mind the model
-         whereby we imagine the viability of a tools market and ecosystem that enables both large and small software
-         developers including independent developers, academic researchers, and students, to participate meaningfully,
-         finding an appropriate value or service proposition to provide their long-term goals. Translated, this means
-         the tools must be capable enough for industrial use at scale, while also <q>scale down</q> to demonstration or
-         classroom use.</section>
-      <section><p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
-            ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and
-            intersecting with the web, the XML family of standards arguably provides the best demonstration of complete
-            or near-complete capabilities at least with respect to the harder problems of document processing.</p><ul>
+      <p>The technologies we rely on share a common foundation in XML and XDM, technologies developed under the auspices
+         of the World Wide Web Consortium. </p>
+      <p>They are commodity tools in the sense that they are freely available to use without restriction, an important
+         qualification for this distribution, which <i>cannot endorse any particular technological solution to any
+            problem</i>, however posed or circumscribed. Accordingly, solutions here are not offered as endorsements but
+         as stipulations of (minimum) viable functionality in tools or capabilities, and not only using tools as
+            <q>black boxes</q>, but under control and conformant to external specifications (standards).</p>
+      <p>Users of these tools should keep in mind the model whereby we
+         imagine the viability of a tools market and ecosystem that enables both large and small software developers
+         including independent developers, academic researchers, and students, to participate meaningfully, finding an
+         appropriate value or service proposition to provide their long-term goals. Translated, this means the tools
+         must be capable enough for industrial use at scale, while also <q>scale down</q> to demonstration or classroom
+         use.</p>
+      <p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
+         ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and intersecting
+         with the web, the XML family of standards arguably provides the best demonstration of complete or near-complete
+         capabilities at least with respect to the harder problems of document processing.</p>
+      <ul>
             <li>XSLT up to <a href="https://www.w3.org/TR/xslt-30/">XSLT 3.0</a> (in <a
                   href="https://www.saxonica.com/welcome/welcome.xml">Saxon</a>)</li>
             <li><a href="https://www.w3.org/TR/xquery-31/">XQuery</a> (in Saxon)</li>
@@ -244,14 +257,14 @@
                specification</li>
             <li><a href="https://github.com/xspec/xspec">XSpec</a>, a community-maintained XSLT-based framework for
                test-driven development, supporting testing XSLT, XQuery and Schematron</li>
-         </ul>Since they are known to be highly conformant to their respective specifications as well as well tested,
-         these tools provide a useful functional baseline for other tooling that addresses the same functional
-            requirements.<p>They are also, relatively speaking, <i>mature</i> technologies, at least in comparison to
-            similar offerings.</p></section>
-      <section>
-         <p>And when XProc works, we also have the functional underpinnings we need for comparing - for example -
-            different XSLT implementations.</p>
-         <p>Initiated in 1996, XML continues to be generative in 2024.</p>
-      </section>
+         </ul>
+      <p>Since they are known to be highly conformant to their respective specifications as well as well tested, these
+         tools provide a useful functional baseline for other tooling that addresses the same functional
+         requirements.</p>
+      <p>They are also, relatively speaking, <i>mature</i> technologies, at least in comparison to
+            similar offerings.</p>
+      <p>And when XProc works, we also have the functional underpinnings we need for comparing - for example - different
+         XSLT implementations.</p>
+      <p>Initiated in 1996, XML continues to be generative in 2024.</p>
    </body>
 </html>

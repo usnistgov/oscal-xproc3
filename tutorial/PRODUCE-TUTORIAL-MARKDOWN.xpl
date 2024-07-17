@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" 
    version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-TUTORIAL-MARKDOWN" name="PRODUCE-TUTORIAL-MARKDOWN">
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   type="ox:PRODUCE-TUTORIAL-MARKDOWN"
+   name="PRODUCE-TUTORIAL-MARKDOWN">
 
 
    <!--<p:output serialization="map{'indent': true() }" sequence="true"/>-->
-   
    
    <p:input port="source" primary="true">
       <p:inline>
@@ -15,6 +16,10 @@
          </LESSON_PLAN>
       </p:inline>
    </p:input>
+   
+   <p:variable name="ox:normalize-uri" as="function(*)"  
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      select="function($u as xs:anyURI) as xs:anyURI { xs:anyURI( replace($u,'^file:///','file:/') ) }"/>
    
    <p:for-each name="lessons">
       <p:with-input select="descendant::Lesson"/>
@@ -45,10 +50,12 @@
          </p:with-input>
       </p:xslt>
 
+
       <p:for-each name="files">
          <p:with-input select="descendant::c:file"/>
          <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-         <p:variable name="path" select="/*/@path"/>
+         <p:variable name="path" select="(/*/@path => resolve-uri()) ! $ox:normalize-uri(.)"/>
+         <p:variable name="project-uri" select="resolve-uri('.') ! $ox:normalize-uri(.)"/>
 
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>
@@ -57,6 +64,18 @@
             select="base-uri() => replace('.*/','') => replace('_src\.html$','.md')"/>
          <p:variable name="result-md-path" select="('sequence',('Lesson' || $lesson-no), $result-md-filename) => string-join('/') => resolve-uri()"/>
 
+         <!-- binding html namespace here so it can be unprefixed - less clutter -->
+         <p:insert match="//body" position="first-child" xmlns="http://www.w3.org/1999/xhtml">
+            <p:with-input port="insertion">
+               <p:inline>
+               <blockquote>
+                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>
+               </p>
+               </blockquote>
+               </p:inline>
+            </p:with-input>
+         </p:insert>
+         
          <p:xslt name="make-markdown" initial-mode="md">
             <p:with-input port="stylesheet" href="src/xhtml-to-markdown.xsl"/>
          </p:xslt>

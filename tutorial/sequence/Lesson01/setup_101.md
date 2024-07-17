@@ -1,4 +1,6 @@
-XProc 101: Project setup and installation
+
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [source/setup/setup_101_src.html](../../source/setup/setup_101_src.html) 
+
 # XProc 101: Project setup and installation
 
 ## Goals
@@ -29,13 +31,13 @@ For XProc runtime -- to execute pipelines -- use either of the scripts [./xp3.sh
 
 The following pipelines will be run. They are described in top-level [README](../../README.md) documentation and the expected places.
 
- * [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
- * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
- * [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
- * [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl)
- * [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl)
- * [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl)
- 
+* [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
+* [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
+* [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
+* [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl)
+* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl)
+* [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl)
+
 
 ## Step One: Setup
 
@@ -52,9 +54,9 @@ As noted in the docs, if you happen already to have [Morgana XProc III](https://
 
 If you want to run through the tutorial exercises but you are unsure of how deeply you will delve, you can postpone two of the installations until later:
 
- * You will need SchXSLT only when you want to run Schematron
- * You will need XSpec only when you want to run XSpec unit tests
- 
+* You will need SchXSLT only when you want to run Schematron
+* You will need XSpec only when you want to run XSpec unit tests
+
 
 When you see tracebacks suggesting one of these is not supported, you can return to setup.
 
@@ -66,9 +68,9 @@ The top-level README and setup notes also describe testing your installation. Do
 
 You know things are working in your XProc when either or both of two things are happening:
 
- * On the console, notifications show up with reassuring messages announcing progress
- * When you expect files to be produced, they appear (or are updated) as expected
- 
+* On the console, notifications show up with reassuring messages announcing progress
+* When you expect files to be produced, they appear (or are updated) as expected
+
 
 Both of those will occur with this lesson. The files produced by downloading scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
 

@@ -1,13 +1,15 @@
-102: Examining the setup
+
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [source/setup/setup_102_src.html](../../source/setup/setup_102_src.html) 
+
 # 102: Examining the setup
 
 
 
 ## Goals
 
- * You get to look at some pipeline organization and syntax on the inside
- * You get some experience with success and failure invoking XProc pipelines. An early chance to learn to die fast and well.
- 
+* You get to look at some pipeline organization and syntax on the inside
+* You get some experience with success and failure invoking XProc pipelines. An early chance to learn to die fast and well.
+
 
 ## Resources
 
@@ -33,17 +35,17 @@ Specifically, the pipelines can acquire resources from the Internet, save them l
 
 Accordingly, the first group of pipelines (in the [lib](../lib/) directory has a single purpose, namely (together and separately) to download software for Morgana.
 
- * [lib/GRAB-SAXON.xpl](../../lib/GRAB-SAXON.xpl)
- * [lib/GRAB-SCHXSLT.xpl](../../lib/GRAB-SCHXSLT.xpl)
- * [lib/GRAB-XSPEC.xpl](../../lib/GRAB-XSPEC.xpl)
- 
+* [lib/GRAB-SAXON.xpl](../../lib/GRAB-SAXON.xpl)
+* [lib/GRAB-SCHXSLT.xpl](../../lib/GRAB-SCHXSLT.xpl)
+* [lib/GRAB-XSPEC.xpl](../../lib/GRAB-XSPEC.xpl)
+
 
 The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.
 
- * [smoketest/SMOKETEST-XSLT.xpl](../../smoketest/SMOKETEST-XSLT.xpl) tests Saxon
- * [smoketest/SMOKETEST-SCHEMATRON.xpl](../../smoketest/SMOKETEST-SCHEMATRON.xpl) tests SchXSLT
- * [smoketest/SMOKETEST-XSPEC.xpl](../../smoketest/SMOKETEST-XSPEC.xpl) tests XSpec
- 
+* [smoketest/SMOKETEST-XSLT.xpl](../../smoketest/SMOKETEST-XSLT.xpl) tests Saxon
+* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../smoketest/SMOKETEST-SCHEMATRON.xpl) tests SchXSLT
+* [smoketest/SMOKETEST-XSPEC.xpl](../../smoketest/SMOKETEST-XSPEC.xpl) tests XSpec
+
 
 Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels and connectors.
 
@@ -57,13 +59,13 @@ If you have any concepts for improvements to the pipelines, or other resources t
 
 Even if not - be sure to break the pipelines given -- or of copies under new names -- in any of several ways. Then run the modified pipelines, as a *safe way* to familiarize yourself with error messages:
 
- * Break the XML syntax of a pipeline and try to run it
- * Leave XML syntax intact (well-formed), but break something in the XProc   * An element name, attribute or attribute setting
+* Break the XML syntax of a pipeline and try to run it
+* Leave XML syntax intact (well-formed), but break something in the XProc   * An element name, attribute or attribute setting
   * A namespace
 
  
- * Try to retrieve something from a broken link
- 
+* Try to retrieve something from a broken link
+
 
 Make sure that pipelines are back in working order when this exercise is complete.
 
