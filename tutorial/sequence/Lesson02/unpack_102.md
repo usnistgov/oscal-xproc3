@@ -13,10 +13,11 @@
 
 The same pipelines you ran in setup: [Setup 101](../setup/setup_101_src.html).
 
-Also, [XProc.org dashboard page](https://xproc.org)
+This tutorial's handmade[XProc dashboard](../../xproc-dashboard.md) with links
 
-Also, XProc index materials produced in this repository: [XProc
-               docs](../../../xproc-doc/readme.md)
+Also, the official [XProc.org dashboard page](https://xproc.org)
+
+Also, check out XProc index materials produced in this repository: [XProc docs](../../../xproc-doc/readme.md)
 
 ## Prerequisites
 Same as [Setup 101](setup_101_src.html).
@@ -25,7 +26,31 @@ Same as [Setup 101](setup_101_src.html).
 
 ## Architecture of an XProc pipeline
 
-PIpeline prologue and steps.
+### XProc files and XProc steps
+
+The *step* is the core conceptual unit of XProc. An XProc processing pipeline is composed of steps. But a pipeline is also considered as a step in itself.
+
+In other words, steps in XProc are *compositional*. They are building block assemblies made out of smaller building block assemblies. A step is a way to process data. A pipeline is a way of orchestrating and arranging such processes.
+
+Thus it is also normal when working with XProc to distinguish between pipelines and steps. It is a relative distinction, but important. The pipeline is the logical and actual definition of how your data is to be processed. Every pipeline is composed of an arrangement, often a series, of such definitions. The definitions - the steps - include "primitives", and are designed for generality and reusability. This saves work, focuses optimization, and makes it possible to scale up to address data processing requirement sets that are both large and complex.
+
+Accommodating this design, an XProc *file* considered as an XML instance is either of two things: a *step declaration*, or a collection of such declarations, a *library*.
+
+Additionally, step declarations can include their own subpipeline (step) declarations, as a hybrid: declaring a step, with its own library.
+
+An example of a step library in this repository is [xpec-execute.xpl](../../../xspec/xspec-execute.xpl), which collects several steps supporting XSpec, one each for supporting test suites for XSLT, XQuery and Schematron respectively.
+
+Most other pipelines arestep declarations. Recognize a step declaration by the element, `p:declare-step` (in the XProc namespace) and a library by the element `p:library`.
+
+### XProc step header and body
+
+### Atomic and compound steps
+
+### Namespaces and extension steps
+
+### Schema for XProc 3.0
+
+(for 599?)
 
 ## Take note
 

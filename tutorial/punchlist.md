@@ -13,11 +13,10 @@ Now see [xproc-dashboard.md](xproc-dashboard.md)
 
 ## Exercises
 
-
-
-
 ## End to end dependencies
 
+- find and fix all TODO
+- link checking? how to streamline page linking
 - update / finish
    - `tutorial/outline.md`
    - `tutorial/readme.md`

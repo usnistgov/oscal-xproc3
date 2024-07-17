@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>101 - Unpacking XProc 3.0</title>
+   </head>
+   <body>
+      <h1>101 - Unpacking XProc 3.0</h1>
+      <p></p>
+      <section><h2>Goals</h2>
+      <ul>
+         <li>More familiarity with XProc 3.0: more syntax</li>
+         <li>History, concepts and resources</li>
+      </ul>
+      </section>
+      <section><h2>Resources</h2>
+         <p>The same pipelines you ran in setup: <a href="../setup/setup_101_src.html">Setup 101</a>.</p>
+         <p>Also, <a href="https://xproc.org">XProc.org dashboard page</a></p>
+         <p>Also, XProc index materials produced in this repository: <a href="../../../xproc-doc/readme.md">XProc
+               docs</a></p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <section>
+            <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
+         </section>
+      </section>
+      
+      <section>
+         <h2>A closer look</h2>
+         <p>If you have completed <a href="../setup/setup_101_src.html">Setup 102</a> you have already opened and
+            inspected the pipelines in the <a>lib</a> and <a>smoketest</a> folders.</p>
+         <p>Routine code inspection can also be done on Github as well (not a bad idea in any case) not just in a
+            copy.</p>
+         <p>A quick summary of what these pipelines do:</p>
+            <ul>
+               <li><a href="../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
+               <li><a href="../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
+               <li><a href="../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
+               </ul>
+         <p>The second group of pipelines is a bit more interesting. Each of the utilities provided for in packages just
+            downloaded is tested by running a smoke test.</p>
+         <p>Each smoke test performs a minor task, serving as a smoke test inasmuch as its only aim is to determine
+            whether a simple and robust process completes successfully.</p>
+            <ul>
+               <li><a href="../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon, an
+               XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same
+               data model) developed with XML processing in mind, but in recent years generalized to a wider range of
+               data structures.</li>
+               <li><a href="../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
+               SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology.
+               Schematron relies on XSLT, so this library requires Saxon.</li>
+               <li><a href="../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec, an
+               XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.</li>
+            </ul>
+         <p>All these together comprise more than can be learned in an afternoon, or even a week.</p>
+         <p>At the same time, common foundations make it possible to learn these technologies together and in
+            tandem.</p>
+         <p>In particular, they all share a syntax for interrogating (querying) the structure of an XML document and
+            returning its data: the XPath expression language.</p>
+      </section>
+      <section>
+         <h2>Learning about XProc</h2>
+      </section>
+   </body>
+</html>

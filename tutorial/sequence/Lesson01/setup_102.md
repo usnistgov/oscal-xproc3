@@ -5,8 +5,8 @@
 
 ## Goals
 
- * Some exposure to XProc 3 organization and syntax on the inside
- * Some experience with success and failure invoking XProc pipelines -- learning to die fast and well
+ * You get to look at some pipeline organization and syntax on the inside
+ * You get some experience with success and failure invoking XProc pipelines. An early chance to learn to die fast and well.
  
 
 ## Resources
@@ -20,6 +20,8 @@ Please complete the repository setup and smoke tests as described in the [101 le
 This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via `file` and `http` protocols, and web-based technologies including HTML.
 
 XML knowledge is also assumed, while at the same time we are interested to know where this gap needs to be filled.
+
+You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development environment) for more interactive testing of the code.
 
 ## Step One: Inspect the pipelines
 
@@ -45,7 +47,7 @@ The second group of pipelines also has a single purpose, namely to exercise and 
 
 Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels and connectors.
 
-Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in a text editor, in an XML editor.
+Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in a plain text editor, in an XML editor.
 
 ## Step Two: Modify the pipelines
 

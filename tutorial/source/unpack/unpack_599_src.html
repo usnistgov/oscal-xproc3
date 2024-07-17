@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>599: XProc ecosystem</title>
+   </head>
+   <body>
+      <h1>599: XProc ecosystem</h1>
+      <p>More in depth.</p>
+      <section><h2>Goals</h2>
+      <ul>
+         <li>More familiarity with XProc 3.0: more syntax</li>
+         <li>History, concepts and resources</li>
+      </ul>
+      </section>
+      <section><h2>Resources</h2>
+         <p>The same pipelines you ran in setup: <a href="../setup/setup_101_src.html">Setup 101</a>.</p>
+         <p>Also, <a href="https://xproc.org">XProc.org dashboard page</a></p>
+         <p>Also, XProc index materials produced in this repository: <a href="../../../xproc-doc/readme.md">XProc
+               docs</a></p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <section>
+            <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
+         </section>
+      </section>
+      <section>
+         <h2>XProc schema</h2>
+      </section>
+      <p>A schema for the XProc language, considered as core steps (compound and atomic) plus optional community-defined
+         steps, is referenced from the XProc Specification. This RNG schema is very useful.</p>
+      <p>However, for the most part it is necessary only to validate in the application, i.e. to let Morgana (in this
+         case) take responsibility for this operation as it sees fit. The reference schema becomes useful if we find or
+         suspect bugs in Morgana, but until then it has no direct role in any runtime operation.</p>
+      <p>Nevertheless the RNG schema can still be very useful as a reference and an object for querying -- queries whose
+         results tell us about XProc.</p>
+      <section>
+         <h2>XPath</h2>
+         <p>Like other XDM-based technologies, XProc embeds and incorporates XPath, an expression language for XML.
+            XPath 3.0 is a functional language in its own right, although not designed for end-to-end processing of
+            encoded source data into encoded results, but only for certain critical operations that ordinarily need to
+            be performed within such end-to-end processing. Since it is partial in this way, XPath is defined not in
+            terms of any data notation (such as XML syntax or any other) but rather against an <i>abstract data
+               object</i>, namely an <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model),
+            a putative information object that may be provided to the system by parsing an XML (syntax) instance, or by
+            other means. As the query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the
+            basis for XQuery, <a href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data
+            model, which any architect of a system using this technology must know. Learning XPath equips you mentally
+            for dealing with the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
+         <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a
+               href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips XPath 1.0 in many important respects.</p>
+      </section>
+      <section>
+         <h3>XML time line</h3>
+         <p>[TODO: complete this]</p>
+         <table>
+            <colgroup>
+               <col />
+               <col />
+               <col />
+               <col />
+            </colgroup>
+            <thead>
+               <tr>
+                  <th>Year</th>
+                  <th>Publication</th>
+                  <th>Capabilities</th>
+                  <th>Processing frameworks</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>1998</td>
+                  <td>XML 1.0</td>
+                  <td>syntax</td>
+                  <td>Batch processing, shell scripts, <code>make</code></td>
+               </tr>
+               <tr>
+                  <td>1999</td>
+                  <td>XPath 1.0, XSLT 1.0</td>
+                  <td>basic tree querying and transformations (down hill)</td>
+                  <td>Web browsers? (some, sort of)</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XQuery 1.0</td>
+                  <td></td>
+                  <td>Perl, Python, Java APIs / integration</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XPath 2.0</td>
+                  <td></td>
+                  <td>Server frameworks (Apache Cocoon)</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Apache Ant</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td>2007</td>
+                  <td>XSLT 2.0</td>
+                  <td>transformations (up hill)</td>
+                  <td>XProc 1.0</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XDM (XML data model)</td>
+                  <td>unification</td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XPath 3.0</td>
+                  <td></td>
+                  <td>Web browsers (all - but only XPath 1.0/HTML DOM Level 4)</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XPath 3.1</td>
+                  <td>higher-order functions, map and array objects</td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XProc 1.0</td>
+                  <td></td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td>2017</td>
+                  <td>XSLT 3.0/3.1</td>
+                  <td>JSON harmonization, functions as arguments</td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>XProc 3.0</td>
+                  <td></td>
+                  <td></td>
+               </tr>
+            </tbody>
+         </table>
+         <p>The technologies have been in constant use over this period.</p>
+         <p>Historically, the requirements of processing frameworks have often been met by software developers' build
+            utilities (for example, GNU <code>make</code> or Apache Ant). This is not an accident: in certain respects,
+            a publishing framework can be considered as a <q>documentary build</q> at a higher level.</p>
+      </section>
+      <section>
+         <h3>XPath illustrative examples</h3>
+         <p>This is not the place to learn XPath, but a selection of XPaths can offer a hint of its capabilities.</p>
+         <table>
+            <colgroup>
+               <col />
+               <col />
+            </colgroup>
+            <thead>
+               <tr>
+                  <th>XPath</th>
+                  <th>Returns</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><code>/html</code></td>
+                  <td>An XML document root (top-level) element named <code>html</code> (subject to namespace
+                     resolution)</td>
+               </tr>
+               <tr>
+                  <td><code>//p</code></td>
+                  <td>All the elements named <code>p</code> in the document</td>
+               </tr>
+               <tr>
+                  <td><code>//seg[@type='null']</code></td>
+                  <td>All the elements named <code>seg</code> with an attribute <code>type</code> with value
+                        <code>null</code></td>
+               </tr>
+               <tr>
+                  <td><code>/*</code></td>
+                  <td>Any document (rather, any element at the top of a document) - <code>*</code> is a wildcard
+                     character</td>
+               </tr>
+               <tr>
+                  <td><code>/section[exists(.//table)]</code></td>
+                  <td>An element inside the top-level element, named <code>section</code>, that contains a
+                        <code>table</code> element anywhere inside it</td>
+               </tr>
+               <tr>
+                  <td><code>/descendant::p[10]</code></td>
+                  <td>The tenth <code>p</code> element in the document</td>
+               </tr>
+               <tr>
+                  <td><code>//p[10]</code></td>
+                  <td>All <code>p</code> elements, that are the tenth <code>p</code> inside their respective
+                     parents</td>
+               </tr>
+               <tr>
+                  <td><code>//section[count(.//p) gt 10]</code></td>
+                  <td>All <code>section</code> elements that contain more than 10 <code>p</code> elements, anywhere
+                     inside</td>
+               </tr>
+            </tbody>
+         </table>
+      </section>
+      <section>
+         <h2>XML and XDM: context and rationale</h2>
+      </section>
+      <p>TODO: edit down</p>
+      <ul>
+         <li>Freely available without restriction</li>
+         <li>Consistently and repeatedly shown to be capable at this scale (size/complexity)</li>
+         <li>Commodity and standards-based, easing problem of proprietary product endorsement</li>
+      </ul>
+      <section>The technologies we rely on share a common foundation in XML and XDM, technologies developed under the
+         auspices of the World Wide Web Consortium.<p>They are commodity tools in the sense that they are freely
+            available to use without restriction, an important qualification for this distribution, which <i>cannot
+               endorse any particular technological solution to any problem</i>, however posed or circumscribed.
+            Accordingly, solutions here are not offered as endorsements but as stipulations of (minimum) viable
+            functionality in tools or capabilities, and not only using tools as <q>black boxes</q>, but under control
+            and conformant to external specifications (standards).</p>Users of these tools should keep in mind the model
+         whereby we imagine the viability of a tools market and ecosystem that enables both large and small software
+         developers including independent developers, academic researchers, and students, to participate meaningfully,
+         finding an appropriate value or service proposition to provide their long-term goals. Translated, this means
+         the tools must be capable enough for industrial use at scale, while also <q>scale down</q> to demonstration or
+         classroom use.</section>
+      <section><p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
+            ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and
+            intersecting with the web, the XML family of standards arguably provides the best demonstration of complete
+            or near-complete capabilities at least with respect to the harder problems of document processing.</p><ul>
+            <li>XSLT up to <a href="https://www.w3.org/TR/xslt-30/">XSLT 3.0</a> (in <a
+                  href="https://www.saxonica.com/welcome/welcome.xml">Saxon</a>)</li>
+            <li><a href="https://www.w3.org/TR/xquery-31/">XQuery</a> (in Saxon)</li>
+            <li><a href="https://github.com/Schematron">Schematron</a> (in <a>SchXSLT</a>, an open-source implementation
+               in XSLT of <a href="https://schematron.com/">Schematron</a> including the <a
+                  href="https://www.iso.org/obp/ui/#iso:std:iso-iec:19757:-3:ed-3:v1:en">ISO/IEC 19757-3</a>
+               specification</li>
+            <li><a href="https://github.com/xspec/xspec">XSpec</a>, a community-maintained XSLT-based framework for
+               test-driven development, supporting testing XSLT, XQuery and Schematron</li>
+         </ul>Since they are known to be highly conformant to their respective specifications as well as well tested,
+         these tools provide a useful functional baseline for other tooling that addresses the same functional
+            requirements.<p>They are also, relatively speaking, <i>mature</i> technologies, at least in comparison to
+            similar offerings.</p></section>
+      <section>
+         <p>And when XProc works, we also have the functional underpinnings we need for comparing - for example -
+            different XSLT implementations.</p>
+         <p>Initiated in 1996, XML continues to be generative in 2024.</p>
+      </section>
+   </body>
+</html>

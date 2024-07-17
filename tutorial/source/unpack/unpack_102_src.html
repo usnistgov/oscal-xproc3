@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>102: XProc fundamentals</title>
+   </head>
+   <body>
+      <h1>102: XProc fundamentals</h1>
+      <p></p>
+      <section><h2>Goals</h2>
+      <ul>
+         <li>More familiarity with XProc 3.0: more syntax</li>
+         <li>History, concepts and resources</li>
+      </ul>
+      </section>
+      <section><h2>Resources</h2>
+         <p>The same pipelines you ran in setup: <a href="../setup/setup_101_src.html">Setup 101</a>.</p>
+         <p>This tutorial's handmade<a href="../../xproc-dashboard.md">XProc dashboard</a> with links</p>
+         <p>Also, the official <a href="https://xproc.org">XProc.org dashboard page</a></p>
+         <p>Also, check out XProc index materials produced in this repository: <a href="../../../xproc-doc/readme.md"
+               >XProc docs</a></p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <section>
+            <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
+         </section>
+      </section>
+      <section>
+         <h2>Learning about XProc</h2>
+      </section>
+      <section>
+         <h2>Architecture of an XProc pipeline</h2>
+         <section>
+            <h3>XProc files and XProc steps</h3>
+            <p>The <i>step</i> is the core conceptual unit of XProc. An XProc processing pipeline is composed of steps.
+               But a pipeline is also considered as a step in itself.</p>
+            <p>In other words, steps in XProc are <i>compositional</i>. They are building block assemblies made out of
+               smaller building block assemblies. A step is a way to process data. A pipeline is a way of orchestrating
+               and arranging such processes.</p>
+            <p>Thus it is also normal when working with XProc to distinguish between pipelines and steps. It is a
+               relative distinction, but important. The pipeline is the logical and actual definition of how your data
+               is to be processed. Every pipeline is composed of an arrangement, often a series, of such definitions.
+               The definitions - the steps - include <q>primitives</q>, and are designed for generality and reusability.
+               This saves work, focuses optimization, and makes it possible to scale up to address data processing
+               requirement sets that are both large and complex.</p>
+            <p>Accommodating this design, an XProc <i>file</i> considered as an XML instance is either of two things: a
+                  <i>step declaration</i>, or a collection of such declarations, a <i>library</i>.</p>
+            <p>Additionally, step declarations can include their own subpipeline (step) declarations, as a hybrid:
+               declaring a step, with its own library.</p>
+            <p>An example of a step library in this repository is <a href="../../../xspec/xspec-execute.xpl"
+                  >xpec-execute.xpl</a>, which collects several steps supporting XSpec, one each for supporting test
+               suites for XSLT, XQuery and Schematron respectively.</p>
+            <p>Most other pipelines arestep declarations. Recognize a step declaration by the element,
+                  <code>p:declare-step</code> (in the XProc namespace) and a library by the element
+                  <code>p:library</code>.</p>
+         </section>
+         <section>
+            <h3>XProc step header and body</h3>
+         </section>
+         <section>
+            <h3>Atomic and compound steps</h3>
+         </section>
+         <section>
+            <h3>Namespaces and extension steps</h3>
+         </section>
+         <section>
+            <h3>Schema for XProc 3.0</h3>
+            <p>(for 599?)</p>
+         </section>
+      </section>
+      <section>
+         <h2>Take note</h2>
+         <section>
+            <h3>Where are these downloads coming from?</h3>
+            <p>These pipelines use different strategies for resource acquisition, depending on the case, and on where
+               and in what form the resource is available. (Sometimes a file on Github is downloaded "raw", sometimes an
+               archive is downloaded and opened, and so on.) For now, it is not necessary to understand details in every
+               case, only to observe the variation and range. (With more ideas welcome. Could XProc be used to build a
+                  <q>secure downloader</q>?)</p>
+            <p>Wherever you see <code>href</code> attributes, take note.</p>
+            <p>Since <code>href</code> is how XProc <q>sees</q> the world, either to read data in or to write data out,
+               this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For
+               example, a download will not succeed if the resource indicated by the <code>href</code> for the download
+               returns an error, or nothing. <code>href</code> attribute settings therefore become <i>points of
+                  control</i> for interaction between an XProc pipeline, and its runtime environment.</p>
+            <p>Useful detail: where XProc has <code>p:store href="some-uri.file"</code>, the <code>href</code> is read
+               by the processor as the intended location for storage of pipeline data, that is, for a <i>write</i>
+               operation. In other cases <code>href</code> is always an argument for a <i>read</i> operation.</p>
+         </section>
+         <section>
+            <h3>Syntax tips</h3>
+            <p>XProc uses XPath syntax, in which a syntax such as <code>$foo</code> (a name with a <code>$</code>
+               prefixed) indicates a <b>variable reference</b>. XProc also uses a <i>value expansion syntax</i>
+                  (either<i>text</i> or <i>attribute</i> value syntax) using curly braces - so syntax such as
+                  <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
+                  write] to the URI given by <code>$some-xml-uri</code></q>.</p>
+            <p>An XProc developer always knows where <code>href</code> is used in a pipeline, and how to test for and
+               update their use. As always with syntax, the easiest way to learn about it is to try making changes and
+               observing outcomes.</p>
+         </section>
+      </section>
+   </body>
+</html>
