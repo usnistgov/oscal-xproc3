@@ -12,3 +12,12 @@ Like everything on this site, these productions are placed in the public domain,
 
 ![Kanava the XProc fish, in a fishbowl](fishbowl.svg)
 
+## Working with drag and drop
+
+<video src="dragndrop.mp4" width="320" height="240" controls></video>
+
+## Setting up a shortcut in Windows
+
+<video src="windows-shortcut-setup.mp4" width="320" height="240" controls></video>
+
+We will be much obliged for anyone who can show us how to provide the same on other platforms.
