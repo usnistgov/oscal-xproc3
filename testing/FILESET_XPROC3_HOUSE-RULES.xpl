@@ -34,7 +34,7 @@
       <p:document href="../xproc-doc/COLLECT-XPROC-STEPS.xpl"/>
       <p:document href="../xproc-doc/XPROC-STEP-INDEX-HTML.xpl"/>
       <p:document href="../xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
-      <p:document href="../xproc-doc/xproc-paint-html.xpl"/>
+      <!--<p:document href="../xproc-doc/xproc-paint-html.xpl"/>-->
       
       <p:document href="../tutorial/GRAB-OSCAL-RESOURCES.xpl"/>
       <p:document href="../tutorial/GRAB-XPROC-RESOURCES.xpl"/>
