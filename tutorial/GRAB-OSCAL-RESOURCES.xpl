@@ -8,8 +8,13 @@
 
    <!-- Purpose: update local copies of some OSCAL resources from its release repository -->
    
-   <p:variable name="download-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2'"/>
+   <!-- This standalone XProc assumes an (empty) 'source' input but does not use it, and
+   needs no output port as it writes to the file system. -->
    
+   <!--  /end prologue -->
+   <!--  :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: :%: -->
+   
+   <p:variable name="download-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2'"/>
   
    <!-- A $prefix is used to tag messages, expected to match the process type -->
    <p:variable name="prefix" select="'[' || 'GRAB-RESOURCES' || ']'"/>

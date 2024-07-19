@@ -34,10 +34,13 @@
       <p:document href="../xproc-doc/COLLECT-XPROC-STEPS.xpl"/>
       <p:document href="../xproc-doc/XPROC-STEP-INDEX-HTML.xpl"/>
       <p:document href="../xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
+      <p:document href="../xproc-doc/xproc-paint-html.xpl"/>
       
-      <p:document href="../tutorial/GRAB-RESOURCES.xpl"/>
+      <p:document href="../tutorial/GRAB-OSCAL-RESOURCES.xpl"/>
+      <p:document href="../tutorial/GRAB-XPROC-RESOURCES.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
       
       <p:document href="../smoketest/POWER-UP.xpl"/>
       <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>

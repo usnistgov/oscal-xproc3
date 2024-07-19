@@ -8,6 +8,10 @@ Foundation for further work with XML and XSLT.
 
 Understanding of the current state of the art with respect to XML technologies, especially within the OSCAL and systems security context, and including any identified limitations (if any).
 
+Address primarily OSCAL users but potentially any users of XProc.
+
+Provide useful information to readers at different levels, whether it be technical background, or need-to-know technical details.
+
 ## Course Prerequisites
 
 - Comfortable installing and running tools from the command line (Linux or Windows)
@@ -26,6 +30,17 @@ Not only is there no rule against 'borrowing' from or adapting this tutorial or 
 As noted in the readme, there are several ways to work the sequence.
 
 Even the most casual readers will benefit from doing the **101** sequence exercises, which require no coding, just operation of the tools.
+
+### Production
+
+The lessons are written as a set of 'lesson units' each of which contains multiple (usually three) approaches to lesson material.
+
+Each lesson entails reading followed by a set of more or less open-ended 'play' exercises. Their source code is maintained in XHTML, using a small subset of tags validated against a strict rule set.
+
+[An XProc pipeline](PRODUCE-TUTORIAL-MARKDOWN.xpl) is then used to produce Markdown pages.
+
+Results of this process are written into the [sequence](sequence/) folder. Within this folder, the lessons are offered in a sequence, as marshalled by the pipeline. This indirect mapping between source lesson units and the lesson sequence gives us the ability to reconfigure the sequence easily, either to rearrange or to extend and edit when new or different lesson units are wanted.
+
 
 ### Lesson sequence
 

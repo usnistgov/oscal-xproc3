@@ -16,6 +16,8 @@
 
    <!-- is there a better way to annotate a directory list with full paths?
         or: make a step out of this and import it -->
+   <!--<p:add-attribute match="//c:file" attribute-name="path" attribute-value="{ base-uri(.) }"/>-->
+   
    <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">

@@ -6,7 +6,8 @@
    <sch:ns prefix="html" uri="http://www.w3.org/1999/xhtml"/>
    
    <sch:pattern>
-      <sch:rule context="html:html | html:head | html:title | html:body | html:section | html:p | html:ul | html:ol | html:li | html:pre"/>
+      <sch:rule context="html:html | html:head | html:title | html:body | html:section |
+         html:p | html:ul | html:ol | html:li | html:pre | html:details | html:summary"/>
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6"/>
       <sch:rule context="html:b | html:i | html:code | html:a | html:q"/>
       <sch:rule context="html:table | html:thead | html:tbody | html:tr | html:th | html:td"/>
@@ -18,6 +19,9 @@
    <sch:pattern id="errant-text">
       <sch:rule context="html:section | html:body">
          <sch:assert test="text()[matches(., '\S')] => empty()">Element <name/> has loose text contents.</sch:assert>
+      </sch:rule>
+      <sch:rule context="html:a[not(matches(@href,'^https?:'))]">
+         <sch:assert test="unparsed-text-available(resolve-uri(@href,base-uri(.)))">Not seeing anything at href <sch:value-of select="@href"/></sch:assert>
       </sch:rule>
    </sch:pattern>
    
@@ -35,12 +39,8 @@
          <sch:let name="deep" value="count(ancestor::html:body | ancestor::html:section)"/>
          <sch:assert test="number(replace(local-name(), '\D', '')) = $deep"><sch:name/> found out of place - try
                h<sch:value-of select="$deep"/></sch:assert>
+         <sch:assert test="empty(parent::* except (parent::html:body|parent::html:section))">Not expecting to see <name/> here</sch:assert>
       </sch:rule>
-
    </sch:pattern>
-   
-   <sch:pattern>
-   </sch:pattern>
-   
 
 </sch:schema>

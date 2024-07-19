@@ -7,11 +7,12 @@
 
 
    <!-- XSpec is an XSLT-based unit testing framework
-        for XSLT, XQuery and Schematron
-        
-   -->
+        for XSLT, XQuery and Schematron -->
    
    <!--https://github.com/xspec/xspec/archive/refs/tags/v3.0.3.zip-->
+
+   <!-- /end prologue -->
+   <!-- start subpipeline -->
    
    <p:variable name="download" select="'https://github.com/xspec/xspec/archive/refs/tags/v3.0.3.zip'"/>
    <!--<p:variable name="download" select="'xspec-3.0.3.zip'"/>-->

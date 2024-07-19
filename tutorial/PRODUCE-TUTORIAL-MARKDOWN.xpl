@@ -12,7 +12,8 @@
       <p:inline>
          <LESSON_PLAN>
             <Lesson key="setup"/>
-            <Lesson key="unpack"/>
+            <Lesson key="unpack"/>            
+            <Lesson key="oscal-convert"/>
          </LESSON_PLAN>
       </p:inline>
    </p:input>
@@ -29,7 +30,6 @@
       <p:variable name="lesson-no" select="format-number(p:iteration-position(),'01')"/>
 
       <p:directory-list path="source/{ $lesson_key }" max-depth="unbounded" include-filter="_src\.html$"/>
-
 
       <!-- is there a better way to annotate a directory list with full paths?
         or: make a step out of this and import it -->
@@ -50,18 +50,20 @@
          </p:with-input>
       </p:xslt>
 
-
       <p:for-each name="files">
          <p:with-input select="descendant::c:file"/>
          <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-         <p:variable name="path" select="(/*/@path => resolve-uri()) ! $ox:normalize-uri(.)"/>
-         <p:variable name="project-uri" select="resolve-uri('.') ! $ox:normalize-uri(.)"/>
-
+         <p:variable name="path" select="/*/@path => p:urify()"/>
+         <p:variable name="project-uri" select="p:urify('.')"/>
+         
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>
 
          <p:variable name="result-md-filename"
             select="base-uri() => replace('.*/','') => replace('_src\.html$','.md')"/>
+         <!--<p:identity message="$path is { $path }"/>-->
+         <!--<p:identity message="$project-uri is { $project-uri }"/>-->
+         
          <p:variable name="result-md-path" select="('sequence',('Lesson' || $lesson-no), $result-md-filename) => string-join('/') => resolve-uri()"/>
 
          <!-- binding html namespace here so it can be unprefixed - less clutter -->
@@ -69,8 +71,8 @@
             <p:with-input port="insertion">
                <p:inline>
                <blockquote>
-                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>
-               </p>
+                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>.</p>
+                  <p>To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.</p>
                </blockquote>
                </p:inline>
             </p:with-input>
@@ -93,4 +95,7 @@
       </p:for-each>
 
    </p:for-each>
+   
+   
+   
 </p:declare-step>

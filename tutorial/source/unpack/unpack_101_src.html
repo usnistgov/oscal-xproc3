@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>101 - Unpacking XProc 3.0</title>
+      <title>101: Unpacking XProc 3.0</title>
    </head>
    <body>
-      <h1>101 - Unpacking XProc 3.0</h1>
+      <h1>101: Unpacking XProc 3.0</h1>
       <p></p>
       <section><h2>Goals</h2>
       <ul>
@@ -21,35 +21,45 @@
       <section>
          <h2>Prerequisites</h2>
          
-            <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
+            <p>Same as <a href="../setup/setup_101_src.html">Setup 101</a>.</p>
          
       </section>
       
       <section>
          <h2>A closer look</h2>
          <p>If you have completed <a href="../setup/setup_101_src.html">Setup 102</a> you have already opened and
-            inspected the pipelines in the <a>lib</a> and <a>smoketest</a> folders.</p>
-         <p>Routine code inspection can also be done on Github as well (not a bad idea in any case) not just in a
+            inspected the pipelines in the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md">smoketest</a> folders.</p>
+         <p>Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a
             copy.</p>
          <p>A quick summary of what these pipelines do:</p>
             <ul>
-               <li><a href="../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
-               <li><a href="../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
-               <li><a href="../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
+               <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a> downloads a zip file from a <a
+                  href="https://www.saxonica.com/download">Saxonica download site</a>, saves it, and extracts a
+                  <code>jar</code> (Java library) file, which it places in the Morgana library directory</li>
+               <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a> downloads a zip file from Github and
+               unzips it into a directory where Morgana can find it.</li>
+               <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and <q>unarchives</q> a
+               zip file resource, this time a copy of <a href="https://github.com/xspec/xspec">an XSpec
+               distribution</a>.</li>
                </ul>
+         <p>Essentially, these all replicate and capture the work a developer must do to identify and acquire libraries.
+            Maintaining our dependencies this way - not quite, but almost <q>by hand</q>, -- appears to have benefits
+            for system transparency and robustness.</p>
          <p>The second group of pipelines is a bit more interesting. Each of the utilities provided for in packages just
             downloaded is tested by running a smoke test.</p>
          <p>Each smoke test performs a minor task, serving as a smoke test inasmuch as its only aim is to determine
-            whether a simple and robust process completes successfully.</p>
+            whether a simple representative process completes successfully.</p>
             <ul>
-               <li><a href="../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon, an
+            <li><a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a> amounts to an XProc <q>Hello
+                  World</q>. In that spirit, feel free to edit and adjust.</li>
+            <li><a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon, an
                XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same
                data model) developed with XML processing in mind, but in recent years generalized to a wider range of
                data structures.</li>
-               <li><a href="../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
+               <li><a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
                SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology.
                Schematron relies on XSLT, so this library requires Saxon.</li>
-               <li><a href="../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec, an
+               <li><a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec, an
                XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.</li>
             </ul>
          <p>All these together comprise more than can be learned in an afternoon, or even a week.</p>
@@ -60,6 +70,14 @@
       </section>
       <section>
          <h2>Learning about XProc</h2>
+         <p>This tutorial has as handmade<a href="../../xproc-dashboard.md">XProc
+               dashboard page</a> with links.</p>
+         <p>Also, the official <a href="https://xproc.org">XProc.org dashboard page</a>.</p>
+         <p>Also, check out XProc index materials (with code snips) produced in this repository: <a
+               href="../../../xproc-doc/readme.md">XProc docs</a>. Produced using XProc, these
+            can be covered in detail in a later lesson unit.</p>
+         <p>There is <a href="https://xmlpress.net/publications/xproc-3-0/">a book, Erik Siegel's <i>XProc 3.0
+                  Programmer's Reference</i></a> (2020).</p>
       </section>
    </body>
 </html>

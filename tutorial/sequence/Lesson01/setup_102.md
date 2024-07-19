@@ -1,5 +1,8 @@
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [source/setup/setup_102_src.html](../../source/setup/setup_102_src.html) 
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/setup/setup_102_src.html](../..//tutorial/source/setup/setup_102_src.html).
+
+> 
+To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
 
 # 102: Examining the setup
 
@@ -7,8 +10,8 @@
 
 ## Goals
 
-* You get to look at some pipeline organization and syntax on the inside
-* You get some experience with success and failure invoking XProc pipelines. An early chance to learn to die fast and well.
+* Look at some pipeline organization and syntax on the inside
+* Success and failure invoking XProc pipelines: an early chance to learn to die, fast and well
 
 
 ## Resources
@@ -27,24 +30,26 @@ You will also need a programmer's plain text editor, XML/XSLT editor or IDE (int
 
 ## Step One: Inspect the pipelines
 
-The two groupings of pipelines used in setup and testing should be discussed separately.
+The two groupings of pipelines used in setup and testing can be considered separately.
 
-The key to understanding both groups is to know that one the initial [Setup script](../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so it can use only basic XProc steps, but those are enough for these purposes.
+The key to understanding both groups is to know that once the initial [Setup
+               script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so ??? before extension libraries are in place ??? it can use only basic XProc steps, but those are enough for these purposes.
 
-Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). In this case, the downloaded resources provide software that the pipeline engine (Morgana) can use to do more.
+Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 
-Accordingly, the first group of pipelines (in the [lib](../lib/) directory has a single purpose, namely (together and separately) to download software for Morgana.
+Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) directory has a single purpose, namely (together and separately) to download software for Morgana.
 
-* [lib/GRAB-SAXON.xpl](../../lib/GRAB-SAXON.xpl)
-* [lib/GRAB-SCHXSLT.xpl](../../lib/GRAB-SCHXSLT.xpl)
-* [lib/GRAB-XSPEC.xpl](../../lib/GRAB-XSPEC.xpl)
+* [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
+* [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
+* [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
 
 
 The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.
 
-* [smoketest/SMOKETEST-XSLT.xpl](../../smoketest/SMOKETEST-XSLT.xpl) tests Saxon
-* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../smoketest/SMOKETEST-SCHEMATRON.xpl) tests SchXSLT
-* [smoketest/SMOKETEST-XSPEC.xpl](../../smoketest/SMOKETEST-XSPEC.xpl) tests XSpec
+* [smoketest/POWER-UP.xpl](../../../smoketest/POWER-UP.xpl) tests MorganaXProc-III
+* [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl) tests Saxon
+* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl) tests SchXSLT
+* [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl) tests XSpec
 
 
 Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels and connectors.
@@ -63,7 +68,7 @@ Even if not - be sure to break the pipelines given -- or of copies under new nam
 * Leave XML syntax intact (well-formed), but break something in the XProc   * An element name, attribute or attribute setting
   * A namespace
 
- 
+
 * Try to retrieve something from a broken link
 
 
@@ -71,7 +76,7 @@ Make sure that pipelines are back in working order when this exercise is complet
 
 ## For consideration
 
-Developers coming to this technology need to consider who would use it, and whether it is useful mainly at the back end, or also directly in the hands of professionals who must work with the data, bringing expertise in subject matter (such as, for OSCAL, systems security documentation) but not in data processing as such.
+Developers coming to this technology need to consider who would use it, and whether it is useful mainly at the back end, or also &ldquo;on the shop floor&rdquo;, directly in the hands of professionals who must work with the data, bringing expertise in subject matter (such as, for OSCAL, systems security documentation) but not in data processing as such.
 
 Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be developed (this is a known problem) but more importantly whether the systems themselves are adaptable enough so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for *particular*, *special* and *local* problems discovered only at the points where information is gathered and codified.
 

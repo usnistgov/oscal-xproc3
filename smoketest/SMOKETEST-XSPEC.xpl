@@ -12,6 +12,8 @@
       <!--<p:document content-type="application/xml" href="src/shout-xquery.xspec"/>-->
    </p:input>
    
+   <!-- /end prologue -->
+   
    <p:identity message="[SMOKETEST-XSPEC] Testing XSpec by running { base-uri(/) }"/>
    
    <ox:execute-xspec name="execute-xspec"/>

@@ -66,6 +66,8 @@ Lesson_04 - 'oscal-validate' OSCAL Validation - singles and batches [slides on v
 
 Lesson_05 - 'oscal-transform' OSCAL transformation - XSLT for HTML [slides on rendering pipelines]; also profile resolution
 
+simple - try using p:uuid to replace OSCAL uuids
+
   advanced - use a defective catalog e.g. cat catalog missing labels
     how to mitigate defects:
       change source

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>101: OSCAL from XML to JSON and back</title>
+   </head>
+   <body>
+      <h1>101: OSCAL from XML to JSON and back</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Learn how OSCAL data can be converted between JSON and XML formats, using XProc.</p>
+         <p>Learn something about potential problems and limitations when doing this, and about how to detect, avoid,
+            prevent or mitigate them.</p>
+         <p>Work with XProc features designed for handling JSON data (XDM <b>map</b> objects that can be cast to
+            XML).</p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>This unit relies on the <a href="../../../oscal-convert/readme.md">oscal-convert project</a> in this
+            repository. Like all projects in the repo, it is designed to be self-explanatory, at least to experienced
+            users.</p>
+         <p>Also like other projects, there are preliminaries for acquiring resources, along with pipelines to run.</p>
+      </section>
+      <section>
+         <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
+      </section>
+      <section>
+         <h2>Step two: return trip</h2>
+      </section>
+      <section>
+         <h2>What could possibly go wrong?</h2>
+         <p>When coping with errors, syntax errors are relatively easy. But anomalous inputs especially invalid inputs
+            can result in lost data. The most important concern is to help detect data quality issues and see to it that
+            no new data quality problems are introduced by a pipeline. While in comparison to syntax or configuration
+            problems, these can be subtle, there is also good news: the very same tools we use to process inputs into
+            outputs, can also be used to test and validate them.</p>
+         <p>Generally speaking, OSCAL maintains 'validation parity' between its XML and JSON formats with respect to
+            their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for XML data as
+            the JSON Schema does for JSON data, while accounting for differences between the two notations and data
+            models. A consequence of this is that valid OSCAL data, either XML or JSON, can reliably be converted to
+            valid data in the other notation, while invalid data may not be converted at all, resulting in gaps or empty
+            results.</p>
+         <p>For this and related reasons on open systems, the working principle in XML is often to formalize a model as
+            early as possible - or adopt a model already built - in support of schema validation as a
+               <b>prerequisite</b> and <b>primary requirement</b> for working with any data set. Validation against
+            schemas is covered in a subsequent lesson unit (coming soon near you).</p>
+      </section>
+      <section>
+         <h2>for 102/599: XProc for JSON</h2>
+         <p>map objects; steps for working with them; interim p:store as debug method</p>
+      </section>
+      <section>
+         <h2>for 102/599: YAML TODO</h2>
+         <p>map objects; steps for working with them</p>
+      </section>
+      <section>
+         <h2>for 102/599: round tripping as process test</h2>
+      </section>
+   </body>
+</html>

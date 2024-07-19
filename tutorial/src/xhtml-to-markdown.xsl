@@ -166,9 +166,9 @@
     </xsl:template>
 
     <xsl:template mode="md" match="q">
-        <xsl:text>&#8220;</xsl:text>
+        <xsl:text>&amp;ldquo;</xsl:text>
         <xsl:apply-templates mode="md"/>
-       <xsl:text>&#8221;</xsl:text>
+       <xsl:text>&amp;rdquo;</xsl:text>
     </xsl:template>
 
     <xsl:key name="element-by-id" match="*[exists(@id)]" use="@id"/>
@@ -181,7 +181,18 @@
         <xsl:value-of select="@href"/>
         <xsl:text>)</xsl:text>
     </xsl:template>
-
+   
+   <xsl:template match="details | summary" mode="md">
+      <xsl:call-template name="conditional-lf"/>
+      <xsl:apply-templates select="." mode="tag"/>
+   </xsl:template>
+   
+   <xsl:template mode="tag" match="*" expand-text="true">
+      <xsl:text>&lt;{ local-name() }&gt;</xsl:text>
+      <xsl:apply-templates mode="md"/>
+      <xsl:text>&lt;/{ local-name() }&gt;</xsl:text>
+   </xsl:template>
+      
     <!-- See top level template match="/" for XSLT:template match="text()" mode="md" -->
 
 

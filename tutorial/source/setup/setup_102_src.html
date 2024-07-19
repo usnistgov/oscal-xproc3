@@ -8,9 +8,8 @@
       <p></p>
       <section><h2>Goals</h2>
       <ul>
-         <li>You get to look at some pipeline organization and syntax on the inside</li>
-         <li>You get some experience with success and failure invoking XProc pipelines. An early chance to learn to die
-               fast and well.</li>
+         <li>Look at some pipeline organization and syntax on the inside</li>
+         <li>Success and failure invoking XProc pipelines: an early chance to learn to die, fast and well</li>
       </ul>
       </section>
       <section><h2>Resources</h2>
@@ -26,20 +25,28 @@
       
       <section>
          <h2>Step One: Inspect the pipelines</h2>
-         <p>The two groupings of pipelines used in setup and testing should be discussed separately.</p>
-         <p>The key to understanding both groups is to know that one the initial <a href="../../setup.sh">Setup script</a> is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so it can use only basic XProc steps, but those are enough for these purposes.</p>
-         <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). In this case, the downloaded resources provide software that the pipeline engine (Morgana) can use to do more.</p>
-            <p>Accordingly, the first group of pipelines (in the <a href="../lib/">lib</a> directory has a single purpose, namely (together and separately) to download software for Morgana.</p>
+         <p>The two groupings of pipelines used in setup and testing can be considered separately.</p>
+         <p>The key to understanding both groups is to know that once the initial <a href="../../../setup.sh">Setup
+               script</a> is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing
+            so – before extension libraries are in place – it can use only basic XProc steps, but those are enough for
+            these purposes.</p>
+         <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
+            unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
+            (Morgana) can use to do more.</p>
+            <p>Accordingly, the first group of pipelines (in the <a href="../../../lib/readme.md">lib</a> directory has
+            a single purpose, namely (together and separately) to download software for Morgana.</p>
             <ul>
-               <li><a href="../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
-               <li><a href="../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
-               <li><a href="../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
+               <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
+               <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
+               <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
                </ul>
          <p>The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.</p>
             <ul>
-               <li><a href="../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon</li>
-               <li><a href="../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests SchXSLT</li>
-               <li><a href="../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec</li>
+            <li><a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a> tests MorganaXProc-III</li>
+            <li><a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon</li>
+               <li><a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
+               SchXSLT</li>
+               <li><a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec</li>
             </ul>
          <p>Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels
             and connectors.</p>
@@ -54,9 +61,10 @@
             ways. Then run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
          <ul>
             <li>Break the XML syntax of a pipeline and try to run it</li>
-            <li>Leave XML syntax intact (well-formed), but break something in the XProc
-            <ul><li>An element name, attribute or attribute setting</li><li>A namespace</li></ul>
-            </li>
+            <li>Leave XML syntax intact (well-formed), but break something in the XProc <ul>
+                  <li>An element name, attribute or attribute setting</li>
+                  <li>A namespace</li>
+               </ul></li>
             <li>Try to retrieve something from a broken link</li>
          </ul>
          <p>Make sure that pipelines are back in working order when this exercise is complete.</p>
@@ -64,9 +72,9 @@
       <section>
          <h2>For consideration</h2>
          <p>Developers coming to this technology need to consider who would use it, and whether it is useful mainly at
-            the back end, or also directly in the hands of professionals who must work with the data, bringing expertise
-            in subject matter (such as, for OSCAL, systems security documentation) but not in data processing as
-            such.</p>
+            the back end, or also <q>on the shop floor</q>, directly in the hands of professionals who must work with
+            the data, bringing expertise in subject matter (such as, for OSCAL, systems security documentation) but not
+            in data processing as such.</p>
          <p>Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be
             developed (this is a known problem) but more importantly whether the systems themselves are adaptable enough
             so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for

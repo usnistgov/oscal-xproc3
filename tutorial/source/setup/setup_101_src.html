@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>XProc 101: Project setup and installation</title>
+      <title>101: Project setup and installation</title>
    </head>
    <body>
-      <h1>XProc 101: Project setup and installation</h1>
+      <h1>101: Project setup and installation</h1>
       <section>
          <h2>Goals</h2>
          <p>Run an XProc 3.0 pipeline in an XProc 3.0 engine.</p>
@@ -30,14 +30,15 @@
       </section>
       <section>
          <h2>Resources</h2>
-         <p>The setup script is a <code>bash</code> script: <a href="../../setup.sh">./setup.sh</a>, to be run with no arguments.</p>
-         <p>For XProc runtime -- to execute pipelines -- use either of the scripts <a href="../../xp3.sh">./xp3.sh</a> (under <code>bash</code>) or <a href="../../xp3.bat">./xp3.bat</a> (for Windows). These scripts are
+         <p>The setup script is a <code>bash</code> script: <a href="../../../setup.sh">./setup.sh</a>, to be run with no arguments.</p>
+         <p>For XProc runtime -- to execute pipelines -- use either of the scripts <a href="../../../xp3.sh">./xp3.sh</a> (under <code>bash</code>) or <a href="../../../xp3.bat">./xp3.bat</a> (for Windows). These scripts are
             used for all pipelines (basically, for everything) unless otherwise noted.</p>
-         <p>The following pipelines will be run. They are described in top-level <a href="../../README.md">README</a> documentation and the expected places.</p>
+         <p>The following pipelines will be run. They are described in top-level <a href="../../../README.md">README</a> documentation and the expected places.</p>
          <ul>
             <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
             <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
             <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
+            <li><a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a></li>
             <li><a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a></li>
             <li><a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a></li>
             <li><a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a></li>
@@ -45,7 +46,7 @@
       </section>
          <section>
             <h2>Step One: Setup</h2>
-            <p>Find setup instructions for the repository in the <a href="../../README.md">Project README</a> and in the linked <a href="../../setup-notes.md">Setup Notes</a>.</p>
+            <p>Find setup instructions for the repository in the <a href="../../README.md">Project README</a> and in the linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
             <p>After reading and reviewing these documents, perform the setup as instructed. To do this you can either
             fork or clone the repository in Github or simply download and decompress a zip of the <a
                href="https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip">current
@@ -92,11 +93,11 @@
             portable. And this portability does not require a dedicated environment, only a Java Virtual Machine
             (JVM).</p>
          <p><code>xp3.sh</code> and <code>xp3.bat</code> are examples of such scripts written for this project. Either
-            of them enables a user to run, without further configuration, the <a href="">Morgana XProcIIIse</a>
-            processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (<code>bash</code> in the
-            case of the shell script, Windows batch command syntax for the <code>bat</code> file). Other platforms
-            supporting Java (and hence Morgana with its libraries) could be provided with similar scripts. (Pull request
-            opportunity.)</p>
+            of them enables a user to run, without further configuration, the <a
+               href="https://www.xml-project.com/morganaxproc-iiise.html">Morgana XProcIIIse</a> processor on any XProc
+            3.0 pipeline, assuming the appropriate platform for each (<code>bash</code> in the case of the shell script,
+            Windows batch command syntax for the <code>bat</code> file). Other platforms supporting Java (and hence
+            Morgana with its libraries) could be provided with similar scripts. (Pull request opportunity.)</p>
          <p>XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing,
             both XML-based and using other formats such as JSON and plain text. The scripts in the repo show only one
             way of running XProc. Keep in mind that even simple scripts can be used in more than one way. </p>

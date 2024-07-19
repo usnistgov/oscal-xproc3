@@ -1,0 +1,21 @@
+@namespace "http://www.w3.org/1999/xhtml";
+
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+body { font-family: Cambria }
+
+section { margin: 0.4em; padding: 0.3em; outline: thin solid black }
+
+h1 { color: #003311 }
+h2 { color: #006622 }
+h3 { color: #009933 }
+h4 { color: #00cc44 }
+h5 { color: #00ff55 }
+h6 { color: #33ff77 }
+
+a:after {
+    content: 
+        oxy_urlChooser(        
+        edit, "href",
+        columns 25);
+}
