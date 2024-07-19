@@ -11,13 +11,3 @@ In an effort to support [XProc 3.0](https://xproc.org) branding and awareness ef
 Like everything on this site, these productions are placed in the public domain, with [no warranty](../LICENSE.md), only the hope they may be useful. Please reuse, alter and appropriate as you see fit, giving credit for originals.
 
 ![Kanava the XProc fish, in a fishbowl](fishbowl.svg)
-
-## Working with drag and drop
-
-<video src="dragndrop.mp4" width="320" height="240" controls></video>
-
-## Setting up a shortcut in Windows
-
-<video src="windows-shortcut-setup.mp4" width="320" height="240" controls></video>
-
-We will be much obliged for anyone who can show us how to provide the same on other platforms.
