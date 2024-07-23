@@ -13,15 +13,22 @@ Now see [xproc-dashboard.md](xproc-dashboard.md)
 
 ## Exercises
 
+Now run pipeline PRODUCE-TUTORIAL-TOC.xpl to produce a [table of contents](sequence/lesson-sequence.md) (in Markdown) to exercises.
+
+To add to the Toc, edit the pipeline.
+
+To add to the production pipeline, edit PRODUCE-TUTORIAL-MARKDOWN.xpl
+
 ## End to end dependencies
 
 - find and fix all TODO
 - link checking? how to streamline page linking
-- update / finish
+- update / finish / close
    - `tutorial/outline.md`
    - `tutorial/readme.md`
    - `./README.md`
-- conclude this punchlist
+   - this file and any other .md files in `tutorial`
+   - conclude this punchlist
 - delete this file
 
 ---
@@ -98,6 +105,19 @@ Lesson_11 Interactive XProc
      writing interim results
      exposing on ports
      filtering what is exposed
+
+More --
+
+XProc-based CMS? or better, 'content management' features without a CMS
+
+XProc reading dynamically from the web? E.g. feeds and updates
+  RSS/Atom? content syndication
+    ie. a resource that updates while remaining stable
+      address
+      content types
+    archive accessions, but does not delete
+      'retractions' instead
+
 
 Each lesson
   Objective

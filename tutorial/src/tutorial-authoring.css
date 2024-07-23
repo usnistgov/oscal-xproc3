@@ -2,7 +2,7 @@
 
 @namespace oxy "http://www.oxygenxml.com/extensions/author";
 
-body { font-family: Cambria }
+body { font-family: Cambria; line-height: 135% }
 
 section { margin: 0.4em; padding: 0.3em; outline: thin solid black }
 

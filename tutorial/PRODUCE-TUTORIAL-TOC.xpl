@@ -32,8 +32,6 @@
 
    <!-- is there a better way to annotate a directory list with full paths?
         or: make a step out of this and import it -->
-   <!--<p:add-attribute match="//c:file" attribute-name="path" attribute-value="{ base-uri(.) }"/>-->
-   
       <p:xslt>
          <p:with-input port="stylesheet">
             <p:inline expand-text="false">
@@ -50,8 +48,6 @@
             </p:inline>
          </p:with-input>
       </p:xslt>
-         
-      
       <p:viewport match="c:file">
          <p:variable name="path" select="/*/@path"/>
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-TOC] Loading {$path}"/>
@@ -59,7 +55,6 @@
          <p:rename new-name="file"/>
          <p:add-attribute attribute-name="href" attribute-value="{replace($path,'.*/','') => replace('_src\.html$','.md')  }"/>
       </p:viewport>
-      
    </p:for-each>
    
    <p:wrap-sequence wrapper="LESSONPLAN"/>

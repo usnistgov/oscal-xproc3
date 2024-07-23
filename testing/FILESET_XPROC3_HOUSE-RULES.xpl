@@ -53,6 +53,9 @@
       <p:document href="../oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
       <p:document href="../oscal-publish/publish-oscal-catalog.xpl"/>
       
+      <p:document href="../oscal-convert/GRAB-RESOURCES.xpl"/>
+      <p:document href="../oscal-convert/CONVERT-XML-DATA.xpl"/>
+      
       <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
       <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>

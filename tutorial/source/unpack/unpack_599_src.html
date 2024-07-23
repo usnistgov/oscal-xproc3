@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>599: Going deeper</title>
+      <title>599: More context</title>
    </head>
    <body>
-      <h1>599: Going deeper</h1>
+      <h1>599: More context</h1>
       <p>More in depth.</p>
       <section>
          <h2>Goals</h2>
@@ -71,8 +71,8 @@
                created by a machine, into a form that a machine can <q>recognize</q>, or rather into a form we can
                recognize in and with the machine, without destroying it.</p>
             <p>So documents are called <q>unstructured</q> but they might better be called <q>relatively irregular</q>,
-               meaning not that they have no structure, but that each one is structured in itself, and is hence not
-               compatible or not fully compatible with encodings designed to capture other structures.</p>
+               meaning not that they have no structure, but that each one is structured in itself, and moreover, likely
+               to be incompatible or not fully compatible with encodings designed to capture other structures.</p>
             <p>And to the extent this is the case, any encoding capable of describing documents must have the capability
                of supporting each document's own distinctive structure and organization, whether that be due to its
                family (what is called a <b>document type</b>) or an expression of its own intrinsic logic. The format
@@ -127,7 +127,7 @@
                <tr>
                   <td>1999</td>
                   <td>XPath 1.0, XSLT 1.0</td>
-                  <td>basic tree querying and transformations (down hill)</td>
+                  <td>basic tree querying and transformations (down hill); functional support for namespaces</td>
                   <td>Web browsers? (some, sort of)</td>
                   <td></td>
                </tr>
@@ -150,6 +150,14 @@
                   <td>XPath 2.0</td>
                   <td></td>
                   <td>Server frameworks (Apache Cocoon)</td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td>2001</td>
+                  <td>XML Schema Definition language (XDM)</td>
+                  <td>Standardizes atomic data types (foundations of XSD); namespace-based validation (RNG also offers
+                     this, 2001-2002)</td>
+                  <td></td>
                   <td></td>
                </tr>
                <tr>
@@ -189,9 +197,16 @@
                </tr>
                <tr>
                   <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>XQuery+XSLT in eXist-db or BaseX (XQuery engines)</td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td></td>
                   <td>XPath 3.0</td>
                   <td></td>
-                  <td>Web browsers (all - but only XPath 1.0/HTML DOM Level 4)</td>
+                  <td></td>
                   <td></td>
                </tr>
                <tr>
@@ -238,7 +253,8 @@
       </section>
       <section>
          <h2>XPath illustrative examples</h2>
-         <p>This is not the place to learn XPath, but a selection of XPaths can offer a hint of its capabilities.</p>
+         <p>This is not the place to learn XPath, but a selection of XPath expressions can offer a hint of its
+            capabilities.</p>
          <table>
             <thead>
                <tr>

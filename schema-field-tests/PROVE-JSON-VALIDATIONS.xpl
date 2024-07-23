@@ -9,6 +9,11 @@
             
      emulates the parallel XSD pipeline XSD-VALIDATE-CHOICES.xpl-->
    
+   <p:documentation>
+      <p>An XProc 3 pipeline providing batch validation of JSON inputs</p>
+      <p>emulates the parallel XSD pipeline XSD-VALIDATE-CHOICES.xpl</p>
+   </p:documentation>
+   
    <p:input port="json-samples" sequence="true">
       <p:document href="reference-sets/catalog-model/json/fully-valid/minimal.json"/>
       <p:document href="reference-sets/catalog-model/json/fully-valid/okay-catalog.json"/>

@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:GRAB-RESOURCES"
-   name="GRAB-RESOURCES">
+   type="ox:GRAB-OSCAL-RESOURCES"
+   name="GRAB-OSCAL-RESOURCES">
    
 
    <!-- Purpose: update local copies of some OSCAL resources from its release repository -->
