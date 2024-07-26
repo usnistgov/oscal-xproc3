@@ -10,9 +10,7 @@
 
    <!--In this case a previewer needs only to aggregate all the documents, not alter them -->
 
-
    <p:directory-list path="source" max-depth="unbounded" include-filter="_src\.html$"/>
-
 
    <!-- is there a better way to annotate a directory list with full paths?
         or: make a step out of this and import it -->

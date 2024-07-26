@@ -30,9 +30,12 @@
             managed, easily inspected, controlled, and edited if necessary.</p>
          <p>But sources and results from a conversion process do not always have to work with local resources. XProc
             sees the Internet itself - whatever protocols are supported by the processor (the <code>file</code> and
-               <code>http</code> protocols are required) work the same. Of course, permissions to read and write files
-            from and into file system locations, must be in place. But when authentication is configured or resources
-            are openly available, this can be a very convenient option.</p>
+               <code>http</code> protocols are required for conformance) work as they do on the Worldwide Web. Of
+            course, permissions must be in place to read and write files from and into file system locations. But when
+            authentication is configured or resources are openly available, using <code>http</code> to reach resources
+            or sources can be a very convenient option.</p>
+         <p>TBD - TODO - question - how many and of what sort of source data files - so far there is only the cat
+            catalog</p>
          <ul>
             <li>Converting local XML to JSON with a local XSLT</li>
             <li>Converting local data using a remote XSLT</li>
@@ -56,10 +59,10 @@
             used to test and validate data to both applicable standards and local rules.</p>
          <p>Generally speaking, OSCAL maintains <q>validation parity</q> between its XML and JSON formats with respect
             to their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for OSCAL
-            XML data as the JSON Schema does for OSCAL JSON data, and accounting for differences between the two
-            notations and data models. A consequence of this is that valid OSCAL data, either XML or JSON, can reliably
-            be converted to valid data in the other notation, while invalid data may not be converted at all, resulting
-            in gaps or empty results.</p>
+            XML data as the JSON Schema does for OSCAL JSON data, accounting for differences between the two notations,
+            the data models and how information is mapped into them. A consequence of this is that valid OSCAL data,
+            either XML or JSON, can reliably be converted to valid data in the other notation, while invalid data may
+            not be converted at all, resulting in gaps or empty results.</p>
          <p>For this and related reasons on open systems, the working principle in XML is often to formalize a model (to
             write and deploy a schema) as early as possible - or adopt a model already built - as a way to institute and
             enforce schema validation as a <b>prerequisite</b> and <b>primary requirement</b> for working with any data
@@ -82,6 +85,19 @@
       <section>
          <h2>for 102/599: YAML TODO</h2>
          <p>map objects; steps for working with them</p>
+      </section>
+      <section>
+         <h2>for 102/599: XProc port bindings</h2>
+         <p>This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime
+            argument</p>
+         <p>Thus, a script <code>convert-oscal-catalog-xml.sh mycatalog.xml</code> could produce
+               <code>mycatalog.json</code> from <code>mycatalog.xml</code> etc.</p>
+         <p>Such a script could live in the project directory - do we want an Issue for this work item? </p>
+      </section>
+      <section>
+         <h2>for 102/599: URIs and URI schemes</h2>
+         <p>see <a href="https://spec.xproc.org/master/head/xproc/#err.inline.D0012"></a> it is up to implementations to
+            define supported URI schemes  - also XML catalogs</p>
       </section>
       <section>
          <h2>for 102/599: round tripping as process test</h2>

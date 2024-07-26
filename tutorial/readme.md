@@ -93,7 +93,11 @@ Developers, users and decision-makers
 
 OSCAL activities, XProc activities or both?
 
-OSCAL sample data
+OSCAL sample data - more and better
+
+If you make a fork of this repository, let us know - also be aware we may use your name (unless you tell us not to).
+
+If you copy or use anything from the repository also feel free to let us know.
 
 ## XProc 102 - Intro for developers
 

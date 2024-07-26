@@ -108,6 +108,13 @@ Lesson_11 Interactive XProc
 
 More --
 
+Integrating open-source XSLT
+  for example TAN https://textalign.net/
+
+General-purpose XML-to-JSON/JSON-to-XML testing harness
+  compares round trips from any invoked process
+     (XSLT-based)
+
 XProc-based CMS? or better, 'content management' features without a CMS
 
 XProc reading dynamically from the web? E.g. feeds and updates

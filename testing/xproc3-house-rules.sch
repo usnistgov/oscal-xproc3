@@ -73,7 +73,7 @@
    
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:assert role="warning" test="base-uri(.) = $listed-uris">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be?</sch:assert>
+         <sch:assert role="warning" test="base-uri(.) = $listed-uris">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be? (But expect CI/CD errors if a listed XProc is not also committed to the branch.)</sch:assert>
          
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
