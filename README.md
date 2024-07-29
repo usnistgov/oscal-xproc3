@@ -108,7 +108,8 @@ Project contributors can see them as either indicators that someone is paying at
 Assuming 'TODO' items are addressed and these markers disappear, the git history for edited files will reflect this.
 </details>
 
-### Innovations
+<details>
+<summary>Innovations</summary>
 
 As of mid-2024, we believe some aspects of this initiative are innovative or unusual, even as it stands on foundations laid by others. Please let us know of relevant prior art, or independent invention, especially if it anticipates the work here.
 
@@ -151,6 +152,8 @@ Examples of this can be found in the (XSpec implementation pipeline)(xspec/xspec
 Projects each have their own libraries and dependencies in addition to the common (platform) dependencies. Consequently the repository as a whole can easily be pared down to just a minimalistic implementation of one or a few functionalities or applications, for demonstration or further development.
 
 This makes cloning and further development easier.
+
+</details>
 
 ## Where to start
 
