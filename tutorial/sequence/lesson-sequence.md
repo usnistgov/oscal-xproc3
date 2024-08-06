@@ -11,7 +11,7 @@
 
 * [101: Unpacking XProc 3.0](Lesson02/unpack_101.md)
 * [102: XProc fundamentals](Lesson02/unpack_102.md)
-* [599: Going deeper](Lesson02/unpack_599.md)
+* [599: More context](Lesson02/unpack_599.md)
 
 
 ### Lesson unit 03

@@ -67,7 +67,7 @@
          <p:variable name="result-md-path" select="('sequence',('Lesson' || $lesson-no), $result-md-filename) => string-join('/') => resolve-uri()"/>
 
          <!-- binding html namespace here so it can be unprefixed - less clutter -->
-         <p:insert match="//body" position="first-child" xmlns="http://www.w3.org/1999/xhtml">
+         <p:insert match="body" position="first-child" xmlns="http://www.w3.org/1999/xhtml">
             <p:with-input port="insertion">
                <p:inline>
                <blockquote>
@@ -83,7 +83,7 @@
          </p:xslt>
 
          <!-- Since 'md' mode delivers <string> elements wanting whitespace, we provide it here -->
-         <p:insert match="//ox:string" position="after">
+         <p:insert match="ox:string" position="after">
             <p:with-input port="insertion">
                <p:inline>&#xA;</p:inline>
             </p:with-input>

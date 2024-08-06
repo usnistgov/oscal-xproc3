@@ -21,7 +21,7 @@
    <p:add-attribute name="links-rewritten"
       attribute-name="target"
       attribute-value="specs"
-      match="//a"
+      match="a"
       xmlns="http://www.w3.org/1999/xhtml">
       <p:with-input port="source" pipe="spec-doc@XPROC-STEP-INDEX-HTML"/>
    </p:add-attribute> 
@@ -37,7 +37,7 @@
    </p:xslt>
    
    <!-- Grabbing the list of links to optional step definitions straight from the page on line -  -->
-   <p:insert match="/descendant::div[@id='specification-links']" 
+   <p:insert match="div[@id='specification-links']" 
       xmlns="http://www.w3.org/1999/xhtml"
       position="last-child" message="[XPROC-STEP-INDEX-HTML] Inserting reference links">
       <p:with-input port="insertion" select="/descendant::ul[5]" pipe="@links-rewritten">

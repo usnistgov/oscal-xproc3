@@ -25,7 +25,7 @@
       <p:variable name="step-location" select="resolve-uri(/*/@href,base-uri(.))"/>
       <p:load content-type="text/xml" href="{ $step-location }" message="[COLLECT-XPROC-STEPS] Loading { $step-location }"/>
       <p:filter select="//p:declare-step"/>
-      <p:add-attribute match="//p:declare-step" attribute-name="library" attribute-value="standard"/> 
+      <p:add-attribute match="p:declare-step" attribute-name="library" attribute-value="standard"/> 
    </p:for-each>
 
    <!-- we don't need to sink since the next step ignores the primary results anyway -->
@@ -60,7 +60,7 @@
       <p:variable name="library" select="/*/@library"/>
       <p:variable name="href" select="/*/@href"/>
       <p:load content-type="text/xml" href="{ $href }" message="[COLLECT-XPROC-STEPS] Loading { $href }"/>
-      <p:add-attribute match="//p:declare-step" attribute-name="library" attribute-value="{$library}"/> 
+      <p:add-attribute match="p:declare-step" attribute-name="library" attribute-value="{$library}"/> 
       <p:filter  select="//p:declare-step"/>
    </p:for-each>
    

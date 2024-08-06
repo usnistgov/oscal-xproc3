@@ -125,6 +125,9 @@ XProc reading dynamically from the web? E.g. feeds and updates
     archive accessions, but does not delete
       'retractions' instead
 
+XProc producing Github Issues digest from querying into Github Issues page?
+
+Pulling in from wiki pages?
 
 Each lesson
   Objective
@@ -305,4 +308,6 @@ Note - in some places there may be 'road work' going on
 
 
 Here we should start with a proposed visiting order?
+
+
 

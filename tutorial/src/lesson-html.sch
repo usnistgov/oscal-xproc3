@@ -27,6 +27,7 @@
    
    <sch:pattern>
       <sch:rule context="html:section/* | html:body/*">
+         <sch:assert test="exists(self::html:section) or empty(preceding-sibling::html:section)">Element not expected following a section</sch:assert>
          <sch:report test="preceding-sibling::node()[1]/self::text()[matches(.,'\S')] => exists()" role="warning">Look there ...</sch:report>
       </sch:rule>
    </sch:pattern>

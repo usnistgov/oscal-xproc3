@@ -5,7 +5,6 @@
    type="ox:GRAB-OSCAL-CLI"
    name="GRAB-OSCAL-CLI">
 
-
    <!-- Maven home for OSCAL CLI distribution
       https://repo1.maven.org/maven2/gov/nist/secauto/oscal/tools/oscal-cli/cli-core/1.0.1/cli-core-1.0.1-oscal-cli.zip
       
@@ -18,7 +17,7 @@
    <p:variable name="archive-basename"  select="'cli-core-1.0.1-oscal-cli'"/>
    
    <p:variable name="zip-name"  select="$archive-basename || '.zip'"/>
-   <p:variable name="whither" select="('lib/' || $archive-basename) => resolve-uri(static-base-uri())"/>
+   <p:variable name="where-to" select="('lib/' || $archive-basename) => resolve-uri(static-base-uri())"/>
 
    <p:variable name="prefix" select="'[' || 'GRAB-OSCAL-CLI' || ']'"/>
    
@@ -32,11 +31,11 @@
    
    <p:unarchive message="{$prefix} Unzipping { $zip-name }"/>
       
-   <p:for-each message="{$prefix} Unzipping into directory { $whither }">
+   <p:for-each message="{$prefix} Unzipping into directory { $where-to }">
       <p:variable name="local-path" select="p:document-property(.,'base-uri') => substring-after($zip-name)"/>
-      <p:variable name="path-here" select="($whither || $local-path)"/>
+      <p:variable name="path-here" select="($where-to || $local-path)"/>
 
-      <!--<p:identity message="Seeing a file for { $path-here }"/>-->
+      <!--<p:identity message="{$prefix} Seeing a file for { $path-here }"/>-->
       <p:store href="{ $path-here }" message="{$prefix} Saving { $path-here }"/>
    </p:for-each>
    

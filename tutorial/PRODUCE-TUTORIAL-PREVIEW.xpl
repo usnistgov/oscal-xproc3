@@ -49,7 +49,7 @@
    </p:wrap-sequence>
 
    <!--A cleaner preview production would push it all through an XSLT, but we are learning XProc so let's do it by steps -->
-   <p:delete match="//p | //pre | //ul | //ol | //table"/>
+   <p:delete match="p | pre | ul | ol | table"/>
    
    <p:wrap match="/*" wrapper="div"/>
       
@@ -81,6 +81,6 @@
 
    <p:namespace-delete prefixes="html xsl ox c"/>
    
-   <p:store href="tutorial-preview.html" message="[PRODUCE-TUTORIAL-PREVIEW] Storing tutorial-preview.html"/>
+   <p:store href="tutorial-preview.html" message="[PRODUCE-TUTORIAL-PREVIEW] Storing tutorial-preview.html" serialization="map{ 'method': 'html' }"/>
 
 </p:declare-step>
