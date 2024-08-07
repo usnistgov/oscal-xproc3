@@ -57,57 +57,60 @@
    
    <p:wrap-sequence wrapper="sequence"/>
    
+   <p:group name="full-body">
+
+      <p:viewport match="c:file">
+         <p:variable name="path" select="/*/@path"/>
+         <p:variable name="project-uri" select="p:urify('.')"/>
+         <p:variable name="lesson-no" select="format-number(p:iteration-position(),'01')"/>
+         <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
+         <p:load href="{$path}" message="[TUTORIAL-PAGE] Loading {$path} "/>
+
+         <p:filter select="//body"/>
+         <p:add-attribute attribute-name="id"
+            attribute-value="{ substring-before($path,'_src.html') => replace('.*/','')}"/>
+         <p:add-attribute attribute-name="class" attribute-value="unit"/>
+         <p:rename match="body" new-name="section"/>
+      </p:viewport>
+
+      <p:add-attribute match="c:directory" attribute-name="class" attribute-value="lesson"/>
+      <p:delete match="@xml:base | c:directory/@name"/>
+      <p:rename match="body" new-name="section"/>
+      <p:rename match="c:directory" new-name="section"/>
+      <p:rename match="*:sequence" new-name="body"/>
+
+      <p:namespace-rename to="http://www.w3.org/1999/xhtml"/>
+      <p:namespace-delete prefixes="xsl ox c"/>
+
+   </p:group>
    
-   <p:viewport match="c:file">
-      <p:variable name="path" select="/*/@path"/>
-      <p:variable name="project-uri" select="p:urify('.')"/>
-      <p:variable name="lesson-no" select="format-number(p:iteration-position(),'01')"/>
-      <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
-      <p:load href="{$path}" message="[TUTORIAL-PAGE] Loading {$path} "/>
-      
-      <p:filter select="//body"  />
-      <p:add-attribute attribute-name="id" attribute-value="{ substring-before($path,'_src.html') => replace('.*/','')}" />
-      <p:add-attribute attribute-name="class" attribute-value="unit" />
-      <p:rename match="body" new-name="section" />
-   </p:viewport>
-   
-   <p:add-attribute match="c:directory" attribute-name="class" attribute-value="lesson" />
-   <p:delete match="@xml:base | c:directory/@name"/>
-   <p:rename match="body" new-name="section" />
-   <p:rename match="c:directory" new-name="section" />
-   <p:rename match="*:sequence" new-name="body" />
-   
-   <p:namespace-rename to="http://www.w3.org/1999/xhtml"/>
-   <p:namespace-delete prefixes="xsl ox c"/>
-   
-   <p:identity name="full-body" />
-   
-   
-   <p:xslt>
-      <p:with-input port="stylesheet">
-         <p:inline expand-text="false">
-            <xsl:stylesheet version="3.0">
-               <xsl:mode on-no-match="shallow-copy"/>
-               <xsl:template match="p | pre | ul | ol | table | details" xpath-default-namespace="http://www.w3.org/1999/xhtml"/>
-               <xsl:template match="*:body">
-                  <div class="toc">
-                     <xsl:apply-templates/><!-- ... -->
-                  </div>
-               </xsl:template>
-               <xsl:template match="*:section" expand-text="true">
-                  <div>
-                     <xsl:copy-of select="@*"/>
-                     <xsl:apply-templates/>
-                  </div>
-               </xsl:template>
-            </xsl:stylesheet>
-         </p:inline>
-      </p:with-input>
-   </p:xslt>
-   
-   <p:delete match="@id"/>
-   
-   <p:identity name="overview-div" />
+   <p:group name="overview-div">
+      <p:xslt>
+         <p:with-input port="stylesheet">
+            <p:inline expand-text="false">
+               <xsl:stylesheet version="3.0">
+                  <xsl:mode on-no-match="shallow-copy"/>
+                  <xsl:template match="p | pre | ul | ol | table | details"
+                     xpath-default-namespace="http://www.w3.org/1999/xhtml"/>
+                  <xsl:template match="*:body">
+                     <div class="toc">
+                        <xsl:apply-templates/>
+                        <!-- ... -->
+                     </div>
+                  </xsl:template>
+                  <xsl:template match="*:section" expand-text="true">
+                     <div>
+                        <xsl:copy-of select="@*"/>
+                        <xsl:apply-templates/>
+                     </div>
+                  </xsl:template>
+               </xsl:stylesheet>
+            </p:inline>
+         </p:with-input>
+      </p:xslt>
+
+      <p:delete match="@id"/><!-- not getting attributes to match in my embedded XSLT ...? -->
+   </p:group>
    
    <!-- Now having an 'overview' div albeit without links, we splice back in -->
    <p:insert position="first-child">

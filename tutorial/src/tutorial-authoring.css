@@ -13,6 +13,17 @@ h4 { color: #00cc44 }
 h5 { color: #00ff55 }
 h6 { color: #33ff77 }
 
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  float: left; clear: both; font-family: sans-serif; outline: thin solid blue;
+  color: steelblue; margin-right: 0.2rem; padding: 0.3em; font-size: 40%;
+   vertical-align: text-top;
+content: oxy_name() }
+
 a:after {
     content: 
         oxy_urlChooser(        

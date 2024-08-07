@@ -30,18 +30,18 @@
       </section>
       <section>
          <h2>XProc schema</h2>
+         <p>A schema for the XProc language, considered as core steps (compound and atomic) plus optional
+            community-defined steps, is referenced from the <a href="https://spec.xproc.org/3.0/xproc/#ancillary-files"
+               >XProc Specification</a>. <a href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is
+            very useful.</p>
+         <p>It may often be considered gratuitous to validate XProc files against a schema, when the application (for
+            us, Morgana)must in any case take responsibility for conformance issues, as it sees fit. The reference
+            schema becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role
+            in any runtime operation.</p>
+         <p>Nevertheless the RNG schema still serves as a reference and an object for querying -- queries whose results
+            tell us about XProc. <a href="../../GRAB-XPROC-RESOURCES.xpl">A pipeline</a> for acquiring both RNG schema
+            and its RNC (compact syntax) variant is provided for interest and possible later use.</p>
       </section>
-      <p>A schema for the XProc language, considered as core steps (compound and atomic) plus optional community-defined
-         steps, is referenced from the <a href="https://spec.xproc.org/3.0/xproc/#ancillary-files">XProc
-            Specification</a>. <a href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is very
-         useful.</p>
-      <p>It may often be considered gratuitous to validate XProc files against a schema, when the application (for us,
-         Morgana)must in any case take responsibility for conformance issues, as it sees fit. The reference schema
-         becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role in any
-         runtime operation.</p>
-      <p>Nevertheless the RNG schema still serves as a reference and an object for querying -- queries whose results
-         tell us about XProc. <a href="../../GRAB-XPROC-RESOURCES.xpl">A pipeline</a> for acquiring both RNG schema and
-         its RNC (compact syntax) variant is provided for interest and possible later use.</p>
       <section>
          <h2>XPath</h2>
          <p>Like other XDM-based technologies, XProc embeds and incorporates XPath, an expression language for XML.

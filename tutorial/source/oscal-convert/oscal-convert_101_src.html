@@ -26,8 +26,9 @@
       </section>
       <section>
          <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
-         <p>Acquisition pipeline in the project folder collects some OSCAL onto the local system, where it can be
-            managed, easily inspected, controlled, and edited if necessary.</p>
+         <p><a href="../../../oscal-convert/GRAB-RESOURCES.xpl">An acquisition pipeline</a> in the project folder
+            collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and edited
+            if necessary.</p>
          <p>But sources and results from a conversion process do not always have to work with local resources. XProc
             sees the Internet itself - whatever protocols are supported by the processor (the <code>file</code> and
                <code>http</code> protocols are required for conformance) work as they do on the Worldwide Web. Of
@@ -47,6 +48,25 @@
       <section>
          <h2>Step two: return trip</h2>
          <p>Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?</p>
+      </section>
+      <section>
+         <h2>What is this XSLT?</h2>
+         <p>If your criticism of XProc so far is that it makes it look easy when it isn't, you have a point. Conversion
+            from XML to JSON isn't free, assuming it works at all. In this case, the heavy lifting is done by the XSLT
+            component - the Saxon engine invoked by the <code>p:xslt</code> step, applying logic defined in an XSLT
+            stylesheet (aka transformation) stored elsewhere. It happens that a converter for OSCAL data is available in
+            XSLT, so rather than having to confront this considerable problem ourselves, we drop that in.</p>
+         <p>In later units we will see how using the XProc steps described, rudimentary data manipulations can be done
+            using XProc by itself, without entailing the use of either XSLT or XQuery (another capability invoked with a
+            different step). At the same time, while pipelines are based on the idea of passing data through a series of
+            processes, there are many cases where logic is sufficiently complex that it becomes essential to maintain –
+            and test – that logic externally from the XProc. At what point it becomes more efficient to encapsulate
+            logic separately (whether by XSLT, XQuery or other means), depends very much on the case.</p>
+         <p>The <code>p:xslt</code> pipeline step in particular is so important for real-world uses of XProc that it is
+            introduced early, to show such black-box application. XProc also makes a fine environment for testing XSLT
+            developed or acquired to handle specific tasks, a topic covered in more depth later. Indeed XSLT and XQuery
+            being, like XProc itself, declarative languages, it makes sense to factor them out while maintaining easy
+            access and transparency for analysis and auditing purposes.</p>
       </section>
       <section>
          <h2>What could possibly go wrong?</h2>
