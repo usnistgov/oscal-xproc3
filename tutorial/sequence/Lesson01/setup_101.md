@@ -16,7 +16,7 @@ Since pipelines can be used to download resources, after the first script to get
 
 ## Prerequisites
 
-You have Java installed with a JVM (Java Virtual Machine) available on the command line, version 8.0 and 11 (and later).
+You have Java installed with a JVM (Java Virtual Machine) available on the command line (a JRE or JDK), version 8 (and later).
 
 You have a live Internet connection and the capability to download and save resources (binaries and code libraries) for local use.
 

@@ -4,7 +4,7 @@
 > 
 To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
 
-# 599: Going deeper
+# 599: More context
 
 More in depth.
 
@@ -30,8 +30,7 @@ Same as [Setup 101](../setup/setup_101_src.html). Prior exercises, or the practi
 
 ## XProc schema
 
-A schema for the XProc language, considered as core steps (compound and atomic) plus optional community-defined steps, is referenced from the [XProc
-            Specification](https://spec.xproc.org/3.0/xproc/#ancillary-files). [This RNG schema](https://spec.xproc.org/3.0/xproc/xproc30.rng) is very useful.
+A schema for the XProc language, considered as core steps (compound and atomic) plus optional community-defined steps, is referenced from the [XProc Specification](https://spec.xproc.org/3.0/xproc/#ancillary-files). [This RNG schema](https://spec.xproc.org/3.0/xproc/xproc30.rng) is very useful.
 
 It may often be considered gratuitous to validate XProc files against a schema, when the application (for us, Morgana)must in any case take responsibility for conformance issues, as it sees fit. The reference schema becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role in any runtime operation.
 
@@ -49,7 +48,7 @@ One of the more important features of XPath and the XDM is that they are designe
 
 We see a great deal of structured data these days if only because it is so easy to make structured data with machines, and we now have the machines. What remains difficult is to translate what has not been created by a machine, into a form that a machine can &ldquo;recognize&rdquo;, or rather into a form we can recognize in and with the machine, without destroying it.
 
-So documents are called &ldquo;unstructured&rdquo; but they might better be called &ldquo;relatively irregular&rdquo;, meaning not that they have no structure, but that each one is structured in itself, and is hence not compatible or not fully compatible with encodings designed to capture other structures.
+So documents are called &ldquo;unstructured&rdquo; but they might better be called &ldquo;relatively irregular&rdquo;, meaning not that they have no structure, but that each one is structured in itself, and moreover, likely to be incompatible or not fully compatible with encodings designed to capture other structures.
 
 And to the extent this is the case, any encoding capable of describing documents must have the capability of supporting each document's own distinctive structure and organization, whether that be due to its family (what is called a **document type**) or an expression of its own intrinsic logic. The format must be not only structured, but *structurable*, and its structures must to some extent be capable of self-description ??? combining data with metadata.
 
@@ -70,16 +69,18 @@ A definition for what is a document is out of scope for this tutorial ??? an int
 | 1987 | SGML (ISO-IEC 8879-1) | parsing logic; schema validation; configurable syntax; tree of elements and attributes | Proprietary stacks | Mainframes, workstations |
 | 1998 | XML 1.0 | standard syntax | Batch processing, shell scripts, `make` | Mainframes, workstations, PCs (x86 generation) |
 | 1996 | Unicode 2.0 | standard character sets | Support for Unicode is slow to come |  |
-| 1999 | XPath 1.0, XSLT 1.0 | basic tree querying and transformations (down hill) | Web browsers? (some, sort of) |  |
+| 1999 | XPath 1.0, XSLT 1.0 | basic tree querying and transformations (down hill); functional support for namespaces | Web browsers? (some, sort of) |  |
 | 2000 |  |  | Apache Ant | Java |
 |  | XQuery 1.0 |  | Perl, Python, Java APIs / integration |  |
 |  | XPath 2.0 |  | Server frameworks (Apache Cocoon) |  |
+| 2001 | XML Schema Definition language (XDM) | Standardizes atomic data types (foundations of XSD); namespace-based validation (RNG also offers this, 2001-2002) |  |  |
 | 2003-2004 | W3C Document Object Model (DOM) | API for HTML and XML documents |  |  |
 | 2005 | &ldquo;The XML data model&rdquo; (W3C) | An essay |  |  |
 |  |  |  |  |  |
 | 2007 | XSLT 2.0 | transformations (up hill) | XProc 1.0 |  |
 |  | XDM (XPath/XQuery data model) | unification |  | Client- and server-side XML processing stacks |
-|  | XPath 3.0 |  | Web browsers (all - but only XPath 1.0/HTML DOM Level 4) |  |
+|  |  |  | XQuery+XSLT in eXist-db or BaseX (XQuery engines) |  |
+|  | XPath 3.0 |  |  |  |
 |  | XPath 3.1 | higher-order functions, map and array objects |  |  |
 |  | XProc 1.0 |  |  |  |
 | 2017 | XSLT 3.0/3.1 | JSON harmonization, functions as arguments |  |  |
@@ -92,7 +93,7 @@ Historically, the requirements of processing frameworks have often been met by s
 
 ## XPath illustrative examples
 
-This is not the place to learn XPath, but a selection of XPaths can offer a hint of its capabilities.
+This is not the place to learn XPath, but a selection of XPath expressions can offer a hint of its capabilities.
 
 | XPath | Returns | XPath long (explicit) notation |
 | --- | --- | --- |

@@ -16,13 +16,15 @@ To create a persistent copy (for example, for purposes of annotation) save this 
 
 ## Resources
 
-The same pipelines you ran in setup: [Setup 101](../setup/setup_101_src.html).
+Take a quick look *now*:
 
-This tutorial's handmade[XProc dashboard](../../xproc-dashboard.md) with links
+This tutorial's handmade [XProc dashboard](../../xproc-dashboard.md) with links
 
 Also, the official [XProc.org dashboard page](https://xproc.org)
 
 Also, check out XProc index materials produced in this repository: [XProc docs](../../../xproc-doc/readme.md)
+
+And the same pipelines you ran in setup: [Setup 101](../setup/setup_101_src.html).
 
 ## Prerequisites
 
@@ -77,6 +79,8 @@ Fortunately, the vocabulary of the language is not very large. Core XProc has on
 
 All elements defined by XProc are listed in this analytical breakout.
 
+TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc RNG?
+
 | Function | XProc elements / p: namespace |
 | Documentation | `p:documentation`, ,  |
 | Top-level | `p:declare-step`, `p:library` |
@@ -94,8 +98,6 @@ All elements defined by XProc are listed in this analytical breakout.
 | Variable declaration | `p:variable` |
 | Connectors | `p:with-input`, `p:with-option`, `p:pipe`, `p:pipeinfo`, `p:document`, `p:inline`, `p:empty` |
 
-TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc RNG?
-
 #### XProc embedded documentation
 
 An example of this is the XProc `p:documentation` element. This element is designed to carry documentation to a consuming application. Rather than mandate some kind of behavior for `p:documentation` ??? something difficult or impossible to do for the general case, or to test ???- the XProc rule is &ldquo;anything marked as documentation is for some other consumer&rdquo;, i.e. a documentation engine, not the XProc processor. In other words, a conformant processor [must ignore anything it sees](https://spec.xproc.org/3.0/xproc/#documentation) inside `p:documentation`.
@@ -106,20 +108,22 @@ There is a small loophole, namely that the effect of `p:inline` for capturing XM
 
 Keep in mind that every XProc pipeline is also, potentially and actually, a step. There are two things we need to know about steps - how to define them, and how to use them.
 
-We begin with how to recognize and use steps, but we can't avoid how to define them - because an XProc pipeline is also an XProc step, we can't use steps without ending up with a pipeline. We have only to look at the working pipeline we make with our steps, to see how a step is made.
+We begin with how to recognize and use steps, but we can't avoid how to define them: because an XProc pipeline is also an XProc step, we can't use steps without ending up with a pipeline. We have only to look at the working pipeline we make with our steps, to see how a step is made.
 
 As described in the [XProc 3.0
-                  specification](https://spec.xproc.org/3.0/xproc/#declare-pipelines), XProc step declarations can be divided into an initial set of elements for setup and configuration, followed by what the specification calls a *subpipeline*, which is typically a sequence of steps to be executed ??? any steps available, which could be anything.
+                  specification](https://spec.xproc.org/3.0/xproc/#declare-pipelines), XProc step declarations can be divided into an initial set of elements for setup and configuration, followed by what the specification calls a *subpipeline*, which is typically a sequence of steps to be executed ??? any steps available, which could be anything. Think of the subpipeline as the working parts of the pipeline, while the rest is all about how it is set up.
 
-Fortunately, the list of elements that come before the steps is short: `p:import`, `p:import-functions`, `p:input`, `p:output`, `p:option` or `p:declare-step`. Everything coming after is a step.
+The list of elements that come before the steps is short, which helps: `p:import`, `p:import-functions`, `p:input`, `p:output`, `p:option` or `p:declare-step`. Everything coming after is a step.
 
-Within this set of elements XProc further distinguishes between the **imports** for steps and functions, appearing first (elements `p:import` and `p:import-functions`), to be followed by elements configuring the step: `p:input`, `p:output`, `p:option` ??? elements together called the [prologue](https://spec.xproc.org/3.0/xproc/#declare-pipelines).
+Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes between the **imports** for steps and functions, appearing first (elements `p:import` and `p:import-functions`), to be followed by elements configuring the step: `p:input`, `p:output`, `p:option` ??? elements together called the [prologue](https://spec.xproc.org/3.0/xproc/#declare-pipelines).
 
-The prologue is used to define ports and options for the pipeline - the points of control for its interfaces. (Technically: runtime bindings, and parameter or option settings.) If only a single input is needed, a single input port (named `source`) will be assumed.
+The prologue is used to define ports and options for the pipeline - the points of control for its interfaces. (Technically: runtime bindings, and parameter or option settings.) If only a single input is needed, a single input port (named `source`) can be assumed, so prologues can be empty (and invisible, or not there).
 
 Following the prologue, a step may also have local step definitions (`p:declare-step`).
 
-After imports, prologue and (optional) step declarations, the step sequence that follows is called the [subpipeline](https://spec.xproc.org/3.0/xproc/#dt-subpipeline). One other complication: for purposes of exposition, we are pretending that `p:variable` (a variable declaration) is a step, which is not how the XProc recommendation describes it, although it appears in the subpipeline with and among its steps.
+After imports, prologue and (optional) step declarations, the step sequence that follows comprises the [subpipeline](https://spec.xproc.org/3.0/xproc/#dt-subpipeline).
+
+One other complication: for purposes of exposition, we have pretended that `p:variable` (a variable declaration) and `p:documentation` (for out-of-band documentation) are steps, which is not how the XProc recommendation describes them, although they appears in the subpipeline with and among its steps.
 
 In summary: any XProc pipeline, viewed as a step declaration, can have the following --
 
@@ -136,7 +140,7 @@ In summary: any XProc pipeline, viewed as a step declaration, can have the follo
   * Variable declarations - `p:variable`
 
 
-* Finally, as noted above, `p:documentation` can appear anywhere in a pipeline, but it will be ignored except when appearing inside `p:inline` ??? a detail to be covered later.
+* Finally, as noted above, `p:documentation` can appear anywhere in a pipeline, but it will be ignored except when appearing inside `p:inline`. What to do with these is a topic to be covered later.
 
 
 NB: the pipelines run so far have XML comments demarcating the prologue from the steps
@@ -149,19 +153,19 @@ Fortunately XProc keeps things simple by providing only a few compound steps sup
 
 Here are all the compound steps. All others are atomic steps.
 
-* [p:for-each](https://spec.xproc.org/3.0/xproc/#p.for-each) - produce subpipeline results for each member of a (provided or defined) sequence of inputs
+* [p:for-each](https://spec.xproc.org/3.0/xproc/#p.for-each) - produce subpipeline results for each member of a sequence of inputs (documents or nodes)
 * [p:if](https://spec.xproc.org/3.0/xproc/#p.if) - execute a subpipeline conditionally
-* [p:choose](https://spec.xproc.org/3.0/xproc/#p.choose) - execute subpipeline based on a series of tests 
-* [p:group](https://spec.xproc.org/3.0/xproc/#p.group) - group a subpipeline (step sequence) into a single step
+* [p:choose](https://spec.xproc.org/3.0/xproc/#p.choose) - execute a subpipeline conditionally (`switch/case` operator)
+* [p:group](https://spec.xproc.org/3.0/xproc/#p.group) - group a subpipeline (step sequence) into a single logical step
 * [p:viewport](https://spec.xproc.org/3.0/xproc/#p.viewport) - reproduce outputs, except splicing subpipeline results in place of matched nodes (elements) in the input
 * [p:try](https://spec.xproc.org/3.0/xproc/#p.try) - execute a subpipeline, and deliver its results, or if it fails, a fallback subpipeline given in a `p:catch`
 
 
-Additionally to these elements, XProc subpipelines may contain variable declarations, to be covered RSN.
+Additionally to these elements, XProc subpipelines may contain variable declarations and documentation, as noted below.
 
 ### Namespaces and extension steps
 
-We recognize steps because we either recognize them by name - for standard steps in the `p:` (XProc) namespace such as `p:filter` and `p:add-attribute` - or because we do not. Extension steps in XProc take the form of elements in an extension namespace. Generally speaking, that is, any element not prefixed with `p:` is subject to evaluation as an extension.
+We recognize steps because we either recognize them by name - for standard steps in the `p:` (XProc) namespace such as `p:filter` and `p:add-attribute` - or because we do not. Extension steps in XProc take the form of elements in an extension namespace. Generally speaking, that is, any element not prefixed with `p:` is treated as out of scope for XProc and to be ignored, while subject to evaluation as an extension.
 
 In an XProc pipeline (library or step declaration) one may also see a namespace `c:`. TODO - come back to
 
@@ -198,9 +202,9 @@ After reading this page, do this again, except focusing on a few key areas:
 
 * Keep in mind how inputs (source data) for your pipeline can be provided either with `p:input` (part of the pipeline prologue) or directly by `p:load` (a step). When you see a document referenced on either `p:document` or `p:load`, by means of `href`, you are looking at a call either to an XML document, or some other data instance (e.g.: text file; JSON data instance). (One difference is that `p:document` bindings provided to `p:input` can be overridden but `p:load` says what it says.) These inputs are ordinarily dependencies for the pipeline. Change or override them, and you change the inputs provided.
 * `@href` attributes on `p:store` (in contrast to `p:load`) are equally important, but for the opposite reason: `p:store` is one of the ways XProc offers to &ldquo;write&rdquo; or save out its processing results, to the location given (in a writeable file system). The other way is binding to a `p:output` port and doing something with that.
-* Detail: while `p:input/p:document` is a way of providing inputs, you aren't likely to see `p:output/p:document`. The XProc specication clarifies the reason why (at the end of the section [p:output](https://spec.xproc.org/3.0/xproc/#p.output)) this pattern would be used only for very special purposes, if at all. Defining an output **port**, `p:output`, when given, shows not what will or should happen with process results (outputs), but rather exactly what kinds of outputs are available, i.e. a pipelines defined outputs with the names and configurations including which results they capture.
+* Detail: while `p:input/p:document` is a way of providing inputs, you aren't likely to see `p:output/p:document`. The XProc specication clarifies the reason why (at the end of the section [p:output](https://spec.xproc.org/3.0/xproc/#p.output)) this pattern would be used only for very special purposes, if at all. Defining an output **port**, `p:output`, when given, shows not what will or should happen with process results (outputs), but rather exactly what kinds of outputs are available, with the names and configurations including which results they capture. If such a port is not connected to a processing result but to a static resource, the static resource is what will appear there.
 * Reverse this logic and you can see that a pipeline with no `p:output` must somewhere among its steps have one or more `p:store` steps, since these are the only ways results are made available externally to the pipeline runtime.
-* For security analysts: yes, this last point is consequential for purposes of auditing and assessing vulnerabilities in and with XProc.
+* For security analysts: yes, this last point is consequential for purposes of auditing and assessing vulnerabilities in and with XProc. A pipeline with no `p:store` has no effects on a file system where it runs; a pipeline with no output ports exposes no results (for a calling process to receive) - so to have neither is effectively to have no effects anywhere.
 * Both `p:load` and `p:store` are commonly provided with `@message` attributes, which are used to produce console messages (in a tool like Morgana) when steps in a subpipeline are executed.
 
 

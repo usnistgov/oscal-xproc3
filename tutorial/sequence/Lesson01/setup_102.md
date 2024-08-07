@@ -11,7 +11,7 @@ To create a persistent copy (for example, for purposes of annotation) save this 
 ## Goals
 
 * Look at some pipeline organization and syntax on the inside
-* Success and failure invoking XProc pipelines: an early chance to learn to die, fast and well
+* Success and failure invoking XProc pipelines: an early chance to ???learn to die??? gracefully (to use the gamers' idiom).
 
 
 ## Resources
