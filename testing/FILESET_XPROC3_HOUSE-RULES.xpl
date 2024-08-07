@@ -31,6 +31,17 @@
       <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
       <p:document href="../schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
 
+      <p:document href="../xproc-doc/COLLECT-XPROC-STEPS.xpl"/>
+      <p:document href="../xproc-doc/XPROC-STEP-INDEX-HTML.xpl"/>
+      <p:document href="../xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
+      <!--<p:document href="../xproc-doc/xproc-paint-html.xpl"/>-->
+      
+      <p:document href="../tutorial/GRAB-OSCAL-RESOURCES.xpl"/>
+      <p:document href="../tutorial/GRAB-XPROC-RESOURCES.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
+      
       <p:document href="../smoketest/POWER-UP.xpl"/>
       <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
       <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
@@ -41,6 +52,9 @@
       <p:document href="../oscal-publish/setup/GRAB-OSCAL-CATALOG-SCHEMA.xpl"/>
       <p:document href="../oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
       <p:document href="../oscal-publish/publish-oscal-catalog.xpl"/>
+      
+      <p:document href="../oscal-convert/GRAB-RESOURCES.xpl"/>
+      <p:document href="../oscal-convert/CONVERT-XML-DATA.xpl"/>
       
       <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>

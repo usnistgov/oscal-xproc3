@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>102: Examining the setup</title>
+   </head>
+   <body>
+      <h1>102: Examining the setup</h1>
+      <p></p>
+      <section><h2>Goals</h2>
+      <ul>
+         <li>Look at some pipeline organization and syntax on the inside</li>
+         <li>Success and failure invoking XProc pipelines: an early chance to “learn to die” gracefully (to use the
+               gamers' idiom).</li>
+      </ul>
+      </section>
+      <section><h2>Resources</h2>
+         <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
+      </section>
+      <section><h2>Prerequisites</h2>
+      <p>Please complete the repository setup and smoke tests as described in the <a href="setup_101_src.html">101 lesson</a>. In this lesson, we will run these pipelines with adjustments, or similar pipelines.</p>
+         <p>This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via <code>file</code> and <code>http</code> protocols, and web-based technologies including HTML.</p>
+         <p>XML knowledge is also assumed, while at the same time we are interested to know where this gap needs to be
+            filled.</p>
+         <p>You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development
+            environment) for more interactive testing of the code.</p>
+      </section>
+      
+      <section>
+         <h2>Step One: Inspect the pipelines</h2>
+         <p>The two groupings of pipelines used in setup and testing can be considered separately.</p>
+         <p>The key to understanding both groups is to know that once the initial <a href="../../../setup.sh">Setup
+               script</a> is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing
+            so – before extension libraries are in place – it can use only basic XProc steps, but those are enough for
+            these purposes.</p>
+         <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
+            unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
+            (Morgana) can use to do more.</p>
+            <p>Accordingly, the first group of pipelines (in the <a href="../../../lib/readme.md">lib</a> directory has
+            a single purpose, namely (together and separately) to download software for Morgana.</p>
+            <ul>
+               <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
+               <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
+               <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
+               </ul>
+         <p>The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.</p>
+            <ul>
+            <li><a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a> tests MorganaXProc-III</li>
+            <li><a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon</li>
+               <li><a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
+               SchXSLT</li>
+               <li><a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec</li>
+            </ul>
+         <p>Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels
+            and connectors.</p>
+         <p>Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in
+            a plain text editor, in an XML editor.</p>
+      </section>
+      <section>
+         <h2>Step Two: Modify the pipelines</h2>
+         <p>Use a text editor or IDE for this exercise.</p>
+         <p>If you have any concepts for improvements to the pipelines, or other resources that might be acquired this way, copy and modify one of the pipelines given to achieve those results.</p>
+         <p>Even if not - be sure to break the pipelines given -- or of copies under new names -- in any of several
+            ways. Then run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
+         <ul>
+            <li>Break the XML syntax of a pipeline and try to run it</li>
+            <li>Leave XML syntax intact (well-formed), but break something in the XProc <ul>
+                  <li>An element name, attribute or attribute setting</li>
+                  <li>A namespace</li>
+               </ul></li>
+            <li>Try to retrieve something from a broken link</li>
+         </ul>
+         <p>Make sure that pipelines are back in working order when this exercise is complete.</p>
+      </section>
+      <section>
+         <h2>For consideration</h2>
+         <p>Developers coming to this technology need to consider who would use it, and whether it is useful mainly at
+            the back end, or also <q>on the shop floor</q>, directly in the hands of professionals who must work with
+            the data, bringing expertise in subject matter (such as, for OSCAL, systems security documentation) but not
+            in data processing as such.</p>
+         <p>Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be
+            developed (this is a known problem) but more importantly whether the systems themselves are adaptable enough
+            so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for
+               <i>particular</i>, <i>special</i> and <i>local</i> problems discovered only at the points where
+            information is gathered and codified.</p>
+         <p>This larger fitting of solutions to problems is a responsibility for both CMEs (content matter experts) and
+            developers together, who must define problems to be solved before approaches to them can be found.</p>
+         <p>The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions
+            come up in an OSCAL context or any context where XML is demonstrably capable.</p>
+      </section>
+   </body>
+</html>
