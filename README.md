@@ -38,13 +38,13 @@ If this software is as easy, securable and performant as we hope to show, it mig
 
 ### Projects -- current and conceived
 
-Projects currently planned for deployment in this repository include:
+See the [Projects folder](./projects/) for current projects. Projects now planned for deployment in this repository include:
 
-   - [`oscal-convert`](./oscal-convert/) - convert OSCAL XML into JSON and OSCAL JSON into XML
-  - [`oscal-publish`](./oscal-publish/) - convert OSCAL catalogs (including resolved profiles) into HTML (and with XProc support, PDF)
-  - [`profile-resolution`](./profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
-  - [`xproc-doc`](./xproc-doc) XProc 3.0 documentation produced using XProc, often from the specifications
- - [`schema-field-tests`](./schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
+   - [`oscal-convert`](projects/oscal-convert/) - convert OSCAL XML into JSON and OSCAL JSON into XML
+  - [`oscal-publish`](projects/oscal-publish/) - convert OSCAL catalogs (including resolved profiles) into HTML (and with XProc support, PDF)
+  - [`profile-resolution`](projects/profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
+  - [`xproc-doc`](projects/xproc-doc) XProc 3.0 documentation produced using XProc, often from the specifications
+ - [`schema-field-tests`](projects/schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
@@ -59,19 +59,25 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-`lib`, `template`, `testing`, `icons` and (hidden) `.github` folders are special; others represent projects.
+Folders outside `projects` including `lib`, `smoketest`, `project-template`, `testing`, `icons` and (hidden) `.github` folders serve the repository as a whole; specific applications are all to be found among [projects](./projects).
 
 [The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by running the pipelines.
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered as its own starting point -- while a project such as `xspec` can also help to support others. Projects can not only 'cross-pollinate', but also call one another's logic directly as long as all resources are available.
+Within  [projects](./projects), each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered as its own starting point. As projects can not only 'cross-pollinate', but also call one another's logic directly as long as all resources are available), experiment is easy - so care must be taken.
 
-One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic installation and fully configured and equipped.
+At the top level (not stored as a project), pipelines in [smoketest](./smoketest) are devoted to testing the software installation both in its basic installation and fully configured and equipped.
+
+[The `project-template` directory](./project-template) contains a blank project template. Copy and rename this folder for a quick start on XProc infrastructure for your project. It contains boilerlate documentation and logic ready for rewriting.
+
+(TODO: instead of hand copy/paste, XProc for this can generate a customized copy.)
 
 [The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
 
-[The `template` directory](./template) contains a blank project template. Copy and rename this folder for a quick start on XProc infrastructure for your project. It contains boilerlate documentation and logic ready for rewriting.
+[`tutorial`](./tutorial) contains a tutorial (work in progress at time of writing) based on project walkthroughs.
+
+The [`xspec` directory](./xspec) contains pipeline support for XSpec, the unit testing framework for XSLT and XQyery. This is saved here inasmuch as it is considered intfrastructure, not a project.
 
 Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that can be associated with scripts or file types.
 
@@ -98,7 +104,7 @@ TODO: Anything else to make the project more FAIR
 
 <details><summary>House rules</summary>
 
-Contributors are expected to follow [CONTRIBUTORS](./CONTRIBUTORS.md) guidelines and to try to [be FAIR](fair-software.md); additionally there are some [house rules](house-rules.md). Since there is a house rule against making rules with no mechanism for enforcement or amelioration, constraints are light and mainly regard coding conventions.
+Contributors are expected to follow [CONTRIBUTORS](./CONTRIBUTORS.md) guidelines and to try to [be FAIR](fair-software.md); additionally there are some [house rules](./testing/house-rules.md). Since there is a house rule against making rules with no mechanism for enforcement or amelioration, constraints are light and mainly regard coding conventions.
 
 </details>
 <details><summary>`TODO` annotation convention</summary>
