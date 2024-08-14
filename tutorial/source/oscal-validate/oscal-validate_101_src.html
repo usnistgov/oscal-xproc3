@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>101: OSCAL from XML to JSON and back</title>
+   </head>
+   <body>
+      <h1>101: OSCAL from XML to JSON and back</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Learn how OSCAL data can be converted between JSON and XML formats, using XProc.</p>
+         <p>Learn something about potential problems and limitations when doing this, and about how to detect, avoid,
+            prevent or mitigate them.</p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>This unit relies on the <a href="../../../oscal-validate/readme.md">oscal-validate project</a> in this
+            repository, with its files.</p>
+      </section>
+      <section>
+         <h2>Step one: validate some OSCAL XML</h2>
+      </section>
+      <section>
+         <h2>Step two: validating sets of documents, handling outputs</h2>
+         <p>TODO Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?</p>
+         <p> Also see 102 for a pipeline to digest results of batch validation plus see field testing.</p>
+      </section>
+      <section>
+         <h2>What could possibly go wrong?</h2>
+         <p>As always, determining early whether a problem can be solved or mitigated at home, versus when it requires
+            some kind of external intervention, is key.</p>
+         <p>Fortunately many of the data quality issues that can prevent validation processes from working are the same
+            issues that prevent processing in general, and as such are recognizable from the same tracebacks.</p>
+         <p>Creating a syntax error in a file to be validated, that is, should produce a similar or the same error in
+            processing that you will see from trying to transform or convert that same file, or perform any processing,
+            inasmuch as a syntax error prevents any kind of processing at all. Expect to see console tracebacks and
+            error messages, but not process outputs (either messages or files).</p>
+         <p>For the same reason, this class of problems are usually found early in pipeline development.</p>
+         <p>The more interesting class of problems is what is called <q>validation errors</q>, which somewhat
+            confusingly represents that class of problems that result not from files that are syntactically erroneous
+            and therefore cannot be read, but more subltly, in data instances that can be read, but when read to not
+            conform to an applicable rules set.</p>
+         <p>Such a rules set is called a <q>schema</q> and deploying a schema to impose regularity and predictability
+            over an open-ended body of data – including data that has not yet been created – is a primary responsibility
+            of an entity that seeks to define an interoperable language, supporting robust data interchange across
+            organizational boundaries.</p>
+         <section>
+            <h3>Little problems</h3>
+         </section>
+         <section>
+            <h3>Bigger problems</h3>
+         </section>
+      </section>
+      <section>
+         <h2>What is this schema?</h2>
+      </section>
+      <section>
+         <h2>102: XProc exception handling</h2>
+         <p>try/catch</p>
+      </section>
+   </body>
+</html>

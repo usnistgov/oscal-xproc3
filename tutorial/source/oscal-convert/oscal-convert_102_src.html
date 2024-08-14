@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>102: Hands on data conversions</title>
+   </head>
+   <body>
+      <h1>102: Hands on data conversions</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Learn how OSCAL data can be converted between JSON and XML formats, using XProc.</p>
+         <p>Learn something about potential problems and limitations when doing this, and about how to detect, avoid,
+            prevent or mitigate them.</p>
+         <p>Work with XProc features designed for handling JSON data (XDM <b>map</b> objects that can be cast to
+            XML).</p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p>Run the pipelines described in <a href="https://github.com/usnistgov/oscal-xproc3/discussions/18">the 101
+               Lesson</a></p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>Same as the <a href="oscal-convert_101_src.html">101 lesson</a>.</p>
+      </section>
+      <section>
+         <h2>Probing error space - data conversions</h2>
+         <p>Broadly speaking, problems encountered running these conversions fall into two categories, the distinction
+            being simple, namely whether a bad outcome is due to an error in the processor and its logic, or in the data
+            inputs provided. The term <q>error</q> here hides a great deal. So does <q>bad outcome</q>. One type of bad
+            outcome takes the form of failures at runtime - the term <q>failure</q> again leaving questions open. Other
+            bad outcomes are not detectable at runtime. If inputs are bad (inconsistent with stated contracts such as
+            data validation), processes can run <i>correctly</i> and deliver incorrect results: correctly representing
+            inputs, in their incorrectness. Again, the term <i>correct</i> here is underspecified and underdefined,
+            except in the case.</p>
+         <section>
+            <h3>Converting broken XML or JSON</h3>
+         </section>
+         <section>
+            <h3>Converting broken OSCAL</h3>
+         </section>
+         <section>
+            <h3>Converting not-OSCAL</h3>
+         </section>
+      </section>
+      <section>
+         <h2>XProc diagnostic how-to</h2>
+         <section>
+            <h3>Emitting runtime messages</h3>
+         </section>
+         <section>
+            <h3>Saving out interim results</h3>
+            <p><code>p:store</code></p>
+         </section>
+      </section>
+      <section>
+         <h2>Validate early and often</h2>
+      </section>
+      <section>
+         <h2>for 599: XProc for JSON</h2>
+         <p>map objects; steps for working with them; interim p:store as debug method</p>
+      </section>
+      <section>
+         <h2>for 599: YAML TODO</h2>
+         <p>map objects; steps for working with them</p>
+      </section>
+      <section>
+         <h2>for 599: XProc port bindings</h2>
+         <p>This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime
+            argument</p>
+         <p>Thus, a script <code>convert-oscal-catalog-xml.sh mycatalog.xml</code> could produce
+               <code>mycatalog.json</code> from <code>mycatalog.xml</code> etc.</p>
+         <p>Such a script could live in the project directory - do we want an Issue for this work item? </p>
+      </section>
+      <section>
+         <h2>for 599: URIs and URI schemes</h2>
+         <p>see <a href="https://spec.xproc.org/master/head/xproc/#err.inline.D0012"></a> it is up to implementations to
+            define supported URI schemes  - also XML catalogs</p>
+      </section>
+      <section>
+         <h2>for 599: round tripping as process test</h2>
+      </section>
+   </body>
+</html>

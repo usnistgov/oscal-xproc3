@@ -41,10 +41,13 @@ Each lesson entails reading followed by a set of more or less open-ended 'play' 
 
 Results of this process are written into the [sequence](sequence/) folder. Within this folder, the lessons are offered in a sequence, as marshalled by the pipeline. This indirect mapping between source lesson units and the lesson sequence gives us the ability to reconfigure the sequence easily, either to rearrange or to extend and edit when new or different lesson units are wanted.
 
+Files in this folder are overwritten by the tutorial production sequence, so keep your copies or clones safe by planting them elsewhere.
 
 ### Lesson sequence
 
-Currently planned. The sequence is not final and not everything may be in it. While lessons build from one to the next they are designed for a certain degree of mix-and-match.
+[A directory to the lesson sequence is updated dynamically (using XProc)](sequence/lesson-sequence.md)
+
+A provisional working sequence appears below. While lessons build from one to the next they are designed for a certain degree of mix-and-match.
 
 - setup
 - unpack (survey of files used in setup)
@@ -63,10 +66,14 @@ Currently planned. The sequence is not final and not everything may be in it. Wh
 
 ### Equipment
 
-Command line with bash or Windows (cmd/Powershell)
+You will be happy to have a developer's or data analyst's setup:
 
-File system browser i.e. Windows Explorer or Linux desktop
+- Command line with bash or Windows (cmd/Powershell)
+
+- File system browser i.e. Windows Explorer or Linux desktop
   - or you are awesome with the CL!
   
-Programmer's text editor for light editing
+- Programmer's text editor for light editing
   XML capabilities are awesome but not essential
+
+- Web browser and other commodity Internet tools

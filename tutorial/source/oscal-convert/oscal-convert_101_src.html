@@ -10,8 +10,6 @@
          <p>Learn how OSCAL data can be converted between JSON and XML formats, using XProc.</p>
          <p>Learn something about potential problems and limitations when doing this, and about how to detect, avoid,
             prevent or mitigate them.</p>
-         <p>Work with XProc features designed for handling JSON data (XDM <b>map</b> objects that can be cast to
-            XML).</p>
       </section>
       <section>
          <h2>Prerequisites</h2>
@@ -20,8 +18,9 @@
       <section>
          <h2>Resources</h2>
          <p>This unit relies on the <a href="../../../oscal-convert/readme.md">oscal-convert project</a> in this
-            repository. Like all projects in the repo, it is designed to be self-contained and self-explanatory to the
-            extent practical. Use your search engine and XProc resources to learn background and terminology.</p>
+            repository, with its files. Like all projects in the repo, it is designed to be self-contained and
+            self-explanatory to the extent practical. Use your search engine and XProc resources to learn background and
+            terminology.</p>
          <p>Also like other projects, there are preliminaries for acquiring resources, along with pipelines to run.</p>
       </section>
       <section>
@@ -96,31 +95,10 @@
             <p>In the <a href="../../../oscal-publish/publish-oscal-catalog.xpl">publishing demonstration project
                   folder</a> is an XProc that valides XML against an OSCAL schema, before formatting it. The same could
                be done for an XProc that converts the data into JSON - either or both before or after conversion.</p>
+            <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html">Lesson
+                  102</a>, or continue on to the next project, oscal-validate, for more on validation of documents and
+               sets of documents.</p>
          </section>
-      </section>
-      <section>
-         <h2>for 102/599: XProc for JSON</h2>
-         <p>map objects; steps for working with them; interim p:store as debug method</p>
-      </section>
-      <section>
-         <h2>for 102/599: YAML TODO</h2>
-         <p>map objects; steps for working with them</p>
-      </section>
-      <section>
-         <h2>for 102/599: XProc port bindings</h2>
-         <p>This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime
-            argument</p>
-         <p>Thus, a script <code>convert-oscal-catalog-xml.sh mycatalog.xml</code> could produce
-               <code>mycatalog.json</code> from <code>mycatalog.xml</code> etc.</p>
-         <p>Such a script could live in the project directory - do we want an Issue for this work item? </p>
-      </section>
-      <section>
-         <h2>for 102/599: URIs and URI schemes</h2>
-         <p>see <a href="https://spec.xproc.org/master/head/xproc/#err.inline.D0012"></a> it is up to implementations to
-            define supported URI schemes  - also XML catalogs</p>
-      </section>
-      <section>
-         <h2>for 102/599: round tripping as process test</h2>
       </section>
    </body>
 </html>

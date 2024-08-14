@@ -36,19 +36,21 @@ These are open-source projects in support of W3C- and ISO-standardized technolog
 
 If this software is as easy, securable and performant as we hope to show, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
 
-### Currently planned projects
+### Projects -- current and conceived
 
 Projects currently planned for deployment in this repository include:
 
-  - [schema-field-tests](./schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
+   - [`oscal-convert`](./oscal-convert/) - convert OSCAL XML into JSON and OSCAL JSON into XML
+  - [`oscal-publish`](./oscal-publish/) - convert OSCAL catalogs (including resolved profiles) into HTML (and with XProc support, PDF)
+  - [`profile-resolution`](./profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
+  - [`xproc-doc`](./xproc-doc) XProc 3.0 documentation produced using XProc, often from the specifications
+ - [`schema-field-tests`](./schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
-  - [profile-resolution](./profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
-  - `data-convert` - convert OSCAL XML into JSON and OSCAL JSON into XML
-  - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
   - `index-oscal` - produce indexes to information encoded in OSCAL  
+  - `oscal-extract` - produce OSCAL from Word ML (ITL/CSD template format?) or STS (ref SP800-171)
 
 TODO: update this list
 READERS: [anything to add?][repo-issues]
@@ -63,9 +65,9 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless and except where noted otherwise.
+Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered as its own starting point -- while a project such as `xspec` can also help to support others. Projects can not only 'cross-pollinate', but also call one another's logic directly as long as all resources are available.
 
-One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and fully configured forms.
+One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic installation and fully configured and equipped.
 
 [The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
 
@@ -77,7 +79,7 @@ Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that 
 
 The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed and tested in other contexts. Yet work here also includes job configuration (XProc itself) and testing, which is to say on tools to determine correctness and reliability, therefore (by implication) maturity. These may be experimental, not mature.
 
-At the same time, the libraries we use (Morgana, Saxon and others) are themselves at various levels of maturity (Saxon in particular having been field-tested for over 20 years). And both particular initiatives and the code repository as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal.
+At the same time, the libraries we use (Morgana, Saxon and others) are themselves at various levels of maturity (Saxon in particular having been field-tested for over 20 years). And both particular initiatives and the code repository as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal. New contrivances are made of old and reliable parts.
 
 Assume the worst, hope for the best, and test.
 

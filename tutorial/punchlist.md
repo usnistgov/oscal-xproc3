@@ -259,13 +259,15 @@ Names and step types
   Assign same step types only to pipelines with the same 'signature'
     (this is in principle testable)
 
-Capturing and redirecting pipeline results
+Capturing and redirecting pipeline results - binding ports at runtime
 
 Messages
 
 `p:sink`
 
 `p:try`/`p:catch`
+
+`@select` vs `@match` semantics, with running demo of a 'deep match'
 
 Inline XSLT
   TVTs and AVTs in embedded code!
