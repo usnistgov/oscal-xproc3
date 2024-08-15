@@ -22,6 +22,7 @@
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XSPEC.xpl"/>
+      <p:document href="VALIDATION-FILESET-READYCHECK.xpl"/>
 
       <p:document href="../project-template/GRAB-RESOURCES.xpl"/>
       <p:document href="../project-template/MINIMAL.xpl"/>
@@ -40,7 +41,7 @@
       <p:document href="../tutorial/GRAB-OSCAL-RESOURCES.xpl"/>
       <p:document href="../tutorial/GRAB-XPROC-RESOURCES.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
-      <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
+      <p:document href="../tutorial/SOURCES-PREVIEW.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
       
       <p:document href="../smoketest/POWER-UP.xpl"/>

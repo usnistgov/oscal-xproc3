@@ -3,7 +3,7 @@
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:html="http://www.w3.org/1999/xhtml"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-TUTORIAL-PREVIEW" name="PRODUCE-TUTORIAL-PREVIEW">
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:SOURCES-PREVIEW" name="SOURCES-PREVIEW">
 
 
    <!--<p:output serialization="map{'indent': true() }" sequence="true"/>-->
@@ -39,7 +39,7 @@
       <p:variable name="path" select="/*/@path"/>
 
       <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
-      <p:load href="{$path}" message="[PRODUCE-TUTORIAL-PREVIEW] Loading {$path} "/>
+      <p:load href="{$path}" message="[SOURCES-PREVIEW] Loading {$path} "/>
 
       <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
    </p:for-each>
@@ -81,6 +81,6 @@
 
    <p:namespace-delete prefixes="html xsl ox c"/>
    
-   <p:store href="tutorial-preview.html" message="[PRODUCE-TUTORIAL-PREVIEW] Storing tutorial-preview.html" serialization="map{ 'method': 'html' }"/>
+   <p:store href="tutorial-preview.html" message="[SOURCES-PREVIEW] Storing tutorial-preview.html" serialization="map{ 'method': 'html' }"/>
 
 </p:declare-step>
