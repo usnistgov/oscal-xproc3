@@ -9,7 +9,7 @@
 ## Goals
 
 * Look at some pipeline organization and syntax on the inside
-* Success and failure invoking XProc pipelines: an early chance to ???learn to die??? gracefully (to use the gamers' idiom).
+* Success and failure invoking XProc pipelines: an early chance to â€œlearn to dieâ€� gracefully (to use the gamers' idiom).
 
 
 ## Resources
@@ -31,7 +31,7 @@ You will also need a programmer's plain text editor, XML/XSLT editor or IDE (int
 The two groupings of pipelines used in setup and testing can be considered separately.
 
 The key to understanding both groups is to know that once the initial [Setup
-               script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so ??? before extension libraries are in place ??? it can use only basic XProc steps, but those are enough for these purposes.
+               script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so &mdash; before extension libraries are in place &mdash; it can use only basic XProc steps, but those are enough for these purposes.
 
 Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 

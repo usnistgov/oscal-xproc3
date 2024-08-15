@@ -17,3 +17,9 @@
 ### Lesson unit 03
 
 * [101: OSCAL from XML to JSON and back](Lesson03/oscal-convert_101.md)
+* [102: Hands on data conversions](Lesson03/oscal-convert_102.md)
+
+
+### Lesson unit 04
+
+* [101: Validating OSCAL](Lesson04/oscal-validate_101.md)

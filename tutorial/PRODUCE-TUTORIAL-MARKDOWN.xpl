@@ -97,7 +97,13 @@
             </p:with-input>
          </p:insert>
 
-         <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
+         <!-- Unwrap everything -->
+         <p:unwrap match="*"/>
+         
+         <!-- Shocking that this works, needing some explanation -->
+         <p:text-replace pattern="â€“" replacement="&amp;mdash;"/>
+         
+         <p:store href="{$result-md-path}" 
          message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
       </p:for-each>

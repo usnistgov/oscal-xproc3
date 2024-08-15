@@ -38,7 +38,7 @@ For the same reason, this class of problems is usually found early in pipeline d
 
 The more interesting class of problems is what are called &ldquo;validation errors&rdquo;, which somewhat confusingly represents that class of problems that result not from files that are syntactically erroneous and therefore cannot be read, but more subltly, in data instances that can be read, but that when read, are found to fail to conform to expectations, as expressed in an applicable rules set.
 
-Such a rules set is called a &ldquo;schema&rdquo; and deploying a schema to impose regularity and predictability over an open-ended body of data ??? including data that has not yet been created ??? is a primary responsibility of an entity that seeks to define an interoperable language, supporting robust data interchange across organizational boundaries.
+Such a rules set is called a &ldquo;schema&rdquo; and deploying a schema to impose regularity and predictability over an open-ended body of data &mdash; including data that has not yet been created &mdash; is a primary responsibility of an entity that seeks to define an interoperable language, supporting robust data interchange across organizational boundaries.
 
 ### When you know your schema
 

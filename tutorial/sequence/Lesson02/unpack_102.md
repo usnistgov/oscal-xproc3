@@ -98,7 +98,7 @@ TODO - tbd - reformat this table for legibility (CSS grids); validate its comple
 
 #### XProc embedded documentation
 
-An example of this is the XProc `p:documentation` element. This element is designed to carry documentation to a consuming application. Rather than mandate some kind of behavior for `p:documentation` ??? something difficult or impossible to do for the general case, or to test ???- the XProc rule is &ldquo;anything marked as documentation is for some other consumer&rdquo;, i.e. a documentation engine, not the XProc processor. In other words, a conformant processor [must ignore anything it sees](https://spec.xproc.org/3.0/xproc/#documentation) inside `p:documentation`.
+An example of this is the XProc `p:documentation` element. This element is designed to carry documentation to a consuming application. Rather than mandate some kind of behavior for `p:documentation` &mdash; something difficult or impossible to do for the general case, or to test &mdash;- the XProc rule is &ldquo;anything marked as documentation is for some other consumer&rdquo;, i.e. a documentation engine, not the XProc processor. In other words, a conformant processor [must ignore anything it sees](https://spec.xproc.org/3.0/xproc/#documentation) inside `p:documentation`.
 
 There is a small loophole, namely that the effect of `p:inline` for capturing XML overrides this provision, so if you put `p:documentation` inside `p:inline`, it &ldquo;becomes visible&rdquo; - as inline content, not as XProc to be operated on.
 
@@ -109,11 +109,11 @@ Keep in mind that every XProc pipeline is also, potentially and actually, a step
 We begin with how to recognize and use steps, but we can't avoid how to define them: because an XProc pipeline is also an XProc step, we can't use steps without ending up with a pipeline. We have only to look at the working pipeline we make with our steps, to see how a step is made.
 
 As described in the [XProc 3.0
-                  specification](https://spec.xproc.org/3.0/xproc/#declare-pipelines), XProc step declarations can be divided into an initial set of elements for setup and configuration, followed by what the specification calls a *subpipeline*, which is typically a sequence of steps to be executed ??? any steps available, which could be anything. Think of the subpipeline as the working parts of the pipeline, while the rest is all about how it is set up.
+                  specification](https://spec.xproc.org/3.0/xproc/#declare-pipelines), XProc step declarations can be divided into an initial set of elements for setup and configuration, followed by what the specification calls a *subpipeline*, which is typically a sequence of steps to be executed &mdash; any steps available, which could be anything. Think of the subpipeline as the working parts of the pipeline, while the rest is all about how it is set up.
 
 The list of elements that come before the steps is short, which helps: `p:import`, `p:import-functions`, `p:input`, `p:output`, `p:option` or `p:declare-step`. Everything coming after is a step.
 
-Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes between the **imports** for steps and functions, appearing first (elements `p:import` and `p:import-functions`), to be followed by elements configuring the step: `p:input`, `p:output`, `p:option` ??? elements together called the [prologue](https://spec.xproc.org/3.0/xproc/#declare-pipelines).
+Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes between the **imports** for steps and functions, appearing first (elements `p:import` and `p:import-functions`), to be followed by elements configuring the step: `p:input`, `p:output`, `p:option` &mdash; elements together called the [prologue](https://spec.xproc.org/3.0/xproc/#declare-pipelines).
 
 The prologue is used to define ports and options for the pipeline - the points of control for its interfaces. (Technically: runtime bindings, and parameter or option settings.) If only a single input is needed, a single input port (named `source`) can be assumed, so prologues can be empty (and invisible, or not there).
 
@@ -147,7 +147,7 @@ NB: the pipelines run so far have XML comments demarcating the prologue from the
 
 Given an understanding of the organization of an XProc pipeline, all that remains to understand of its syntax is the steps themselves, which follow a common pattern. Briefly put, atomic steps are any steps you use by simply invoking it with inputs and options: its logic is self-contained, and the operation it carries out is (at least conceptually) &ldquo;single&rdquo;. Compound steps, instead, are used to execute more than one subpipeline, with settings determined dynamically for the step.
 
-Fortunately XProc keeps things simple by providing only a few compound steps supporting the identified range of needs ??? and no way for users to define their own. This does not prove to be a practical limitation, since atomic steps can have multiple inputs and outputs, distinguished by type and role, and indeed since atomic steps used in a pipeline can be defined with compound steps in their own subpipelines, either externally or even within the same step declaration.
+Fortunately XProc keeps things simple by providing only a few compound steps supporting the identified range of needs &mdash; and no way for users to define their own. This does not prove to be a practical limitation, since atomic steps can have multiple inputs and outputs, distinguished by type and role, and indeed since atomic steps used in a pipeline can be defined with compound steps in their own subpipelines, either externally or even within the same step declaration.
 
 Here are all the compound steps. All others are atomic steps.
 
@@ -194,7 +194,7 @@ An XProc developer always knows where `href` is used in a pipeline, and how to t
 
 ## Exercise: Knowing what to look for
 
-The last lesson unit already provided an opportunity to alter pipelines and see how they fail when not encoded correctly ??? when &ldquo;broken&rdquo;, any way we can think of breaking them. (Then we had an opportunity to put them back.)
+The last lesson unit already provided an opportunity to alter pipelines and see how they fail when not encoded correctly &mdash; when &ldquo;broken&rdquo;, any way we can think of breaking them. (Then we had an opportunity to put them back.)
 
 After reading this page, do this again, except focusing on a few key areas:
 

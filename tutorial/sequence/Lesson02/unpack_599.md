@@ -48,7 +48,7 @@ We see a great deal of structured data these days if only because it is so easy 
 
 So documents are called &ldquo;unstructured&rdquo; but they might better be called &ldquo;relatively irregular&rdquo;, meaning not that they have no structure, but that each one is structured in itself, and moreover, likely to be incompatible or not fully compatible with encodings designed to capture other structures.
 
-And to the extent this is the case, any encoding capable of describing documents must have the capability of supporting each document's own distinctive structure and organization, whether that be due to its family (what is called a **document type**) or an expression of its own intrinsic logic. The format must be not only structured, but *structurable*, and its structures must to some extent be capable of self-description ??? combining data with metadata.
+And to the extent this is the case, any encoding capable of describing documents must have the capability of supporting each document's own distinctive structure and organization, whether that be due to its family (what is called a **document type**) or an expression of its own intrinsic logic. The format must be not only structured, but *structurable*, and its structures must to some extent be capable of self-description &mdash; combining data with metadata.
 
 And this is to give no consideration to the fact that these structures can be described at *multiple levels* of generality or specificity with regard to either their supposed semantics, or their configuration in operation.
 
@@ -56,7 +56,7 @@ Documentary data formats especially markup formats are designed to work in this 
 
 And so we get XPath - a query syntax which permits working with an organized structure of a particular kind (an *XDM document tree*), which in turn is designed for handling the combination of *highly regular* and *quite irregular* data structures that characterize information sets we (loosely) call **documentary**.
 
-A definition for what is a document is out of scope for this tutorial ??? an interesting topic but not only a technical one.
+A definition for what is a document is out of scope for this tutorial &mdash; an interesting topic but not only a technical one.
 
 ## XML time line
 
@@ -113,7 +113,7 @@ This is not the place to learn XPath, but a selection of XPath expressions can o
 
 The technologies we rely on share a common foundation in XML and XDM, technologies developed under the auspices of the World Wide Web Consortium. 
 
-They are commodity tools in the sense that they are freely available to use without restriction, an important qualification for this distribution, which has a prior commitment *not to endorse particular technological solutions to any problem*, however posed or circumscribed. Accordingly, solutions here are not offered as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities, and not only using tools as &ldquo;black boxes&rdquo;, but under control and conformant to external specifications ??? i.e., standards.
+They are commodity tools in the sense that they are freely available to use without restriction, an important qualification for this distribution, which has a prior commitment *not to endorse particular technological solutions to any problem*, however posed or circumscribed. Accordingly, solutions here are not offered as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities, and not only using tools as &ldquo;black boxes&rdquo;, but under control and conformant to external specifications &mdash; i.e., standards.
 
 Users of these tools should keep in mind the model whereby we imagine the viability of a tools market and ecosystem that enables both large and small software developers including independent developers, academic researchers, and students, to participate meaningfully, finding an appropriate value or service proposition to provide their long-term goals. Translated, this means the tools must be capable enough for industrial use at scale, while also &ldquo;scale down&rdquo; to demonstration or classroom use.
 

@@ -22,7 +22,7 @@ You have a live Internet connection and the capability to download and save reso
 
 You are comfortable entering commands on the command line. For installation, you want a `bash` shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use `bash`, the setup can be done by hand (downloading and unpacking a package from SourceForge).
 
-After installation, subsequent work on Windows does not require `bash` unless you choose to use it ??? a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described in the documentation).
+After installation, subsequent work on Windows does not require `bash` unless you choose to use it &mdash; a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described in the documentation).
 
 ## Resources
 
