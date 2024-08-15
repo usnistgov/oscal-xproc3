@@ -1,8 +1,6 @@
-
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/setup/setup_599_src.html](../../../tutorial/source/setup/setup_599_src.html).
-
 > 
-To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
 
 # 599: Meeting XProc
 

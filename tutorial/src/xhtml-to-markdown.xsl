@@ -49,9 +49,20 @@
     </xsl:template>
    
    <xsl:template match="*" mode="blockquoted">
-      <xsl:text>&#xA;&gt; </xsl:text>
-      <xsl:apply-templates select="." mode="md"/>
+      <xsl:variable name="here">
+         <xsl:apply-templates select="." mode="md"/>
+      </xsl:variable>
+      <xsl:apply-templates select="$here" mode="decorate-blockquote"/>   
    </xsl:template>
+   
+   <xsl:template match="string"   xpath-default-namespace="http://csrc.nist.gov/ns/oscal-xproc3" mode="decorate-blockquote">
+      <xsl:copy>
+        <xsl:text>&gt; </xsl:text>
+         <xsl:apply-templates mode="#current"/>
+      </xsl:copy>
+   </xsl:template>
+   
+   <xsl:mode name="decorate-blockquote" on-no-match="shallow-copy"/>
    
     <xsl:template mode="md" match="p">
         <xsl:call-template name="conditional-lf"/>
