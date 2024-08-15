@@ -1,5 +1,5 @@
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/unpack/unpack_101_src.html](../..//tutorial/source/unpack/unpack_101_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/unpack/unpack_101_src.html](../../../tutorial/source/unpack/unpack_101_src.html).
 
 > 
 To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.

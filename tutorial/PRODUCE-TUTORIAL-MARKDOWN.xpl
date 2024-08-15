@@ -72,7 +72,7 @@
             <p:with-input port="insertion">
                <p:inline>
                <blockquote>
-                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>.</p>
+                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../..{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>.</p>
                   <p>To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.</p>
                </blockquote>
                </p:inline>
