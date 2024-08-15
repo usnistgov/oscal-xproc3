@@ -31,67 +31,6 @@
          <p> Also see 102 for a pipeline to digest results of batch validation plus see field testing.</p>
       </section>
       <section>
-         <h2>What could possibly go wrong?</h2>
-         <p>As always, determining early whether a problem can be solved or mitigated at home, versus when it requires
-            some kind of external intervention, is key.</p>
-         <p>Fortunately many of the issues that can prevent validation processes from working are the same issues that
-            prevent processing in general, and as such are recognizable from the same tracebacks. If a file is missing
-            or if it doesn't parse properly at all (i.e., if it proves not to be XML or JSON at all despite
-            representations), you already know how to recognize and (often) repair that.</p>
-         <p>A syntax error in a file to be validated, that is, should produce a similar or the same error in processing
-            that you will see from trying to transform or convert that same file, or perform any processing, inasmuch as
-            a syntax error prevents any kind of processing at all. As usual in such cases, expect to see console
-            tracebacks and error messages, but not process outputs (either messages or files).</p>
-         <p>For the same reason, this class of problems is usually found early in pipeline development. Once a pipeline
-            is running with tools operating and configured properly, this problem goes away. A developer breaking new
-            ground still must be able to recognize them.</p>
-         <p>The more interesting class of problems is what are called <q>validation errors</q>, which somewhat
-            confusingly represents that class of problems that result not from files that are syntactically erroneous
-            and therefore cannot be read, but more subltly, in data instances that can be read, but that when read, are
-            found to fail to conform to expectations, as expressed in an applicable rules set.</p>
-         <p>Such a rules set is called a <q>schema</q> and deploying a schema to impose regularity and predictability
-            over an open-ended body of data – including data that has not yet been created – is a primary responsibility
-            of an entity that seeks to define an interoperable language, supporting robust data interchange across
-            organizational boundaries.</p>
-         <section>
-            <h3>When you know your schema</h3>
-         </section>
-         <section>
-            <h3>When you must determine a schema</h3>
-         </section>
-      </section>
-      <section>
-         <h2>What is this schema?</h2>
-         <section>
-            <h3>Schemas and document types</h3>
-            <p>Schemas turn an open-world problem into a closed-world problem, giving it boundaries and helping to make
-               it manageable. It traces the outline of the expected. Anything it does not account for can be considered
-               out of consideration, other things being equal. As such it is an extremely useful <q>touchstone
-                  process</q> (it might be called) that reveal early what kinds of risks there are, if any (and only if
-               risks of wasted effort and resources), from processing inputs not fit, defective or <q>to spec</q>. There
-               are many ways of designing and building information processing systems with and around schemas, and many
-               types of schemas for specific technologies. Even within the relatively narrow context of XML, there are
-               many schema validation technologies available, and many approaches to validation using different kinds of
-               schemas or schemas in different ways.</p>
-            <p>Even within this complexity, however, a certain regularity is accomplished by the most typical use case
-               and application for a schema, broadly, namely to define and assert a <i>document type</i> for an instance
-               or recognized entity evaluated by an XML processor. XML documents, that is to say, share many general
-               characteristics (for example rules of syntax), while in other respects their differences are critical. In
-               order that we can distinguish, for example, between a document as a <b>bill</b> (or invoice) and a
-                  <b>receipt</b> (two things that may superficially look somewhat similar), we can distinguish between
-               apparently small but critical distinctions that define and characterize them - the rules they follow.</p>
-            <p>OSCAL deploys a range of models, each with its own schemas (for XML and JSON variants of the model). Each
-               model describes a different OSCAL type.</p>
-         </section>
-      </section>
-      <section>
-         <h2>Critique so far</h2>
-         <p>At time of writing this tutorial is very rough, with very much extension and refinement remaining to be
-            done.</p>
-         <p>Tell us what we are doing right and wrong so far. Help us understand where things need to be explained, or
-            better, illuminated by saying less - where is it too thick.</p>
-      </section>
-      <section>
          <h2>102: Validation results and XProc outputs</h2>
          <p>other workflows and orchestrations - using schema validation as gateway </p>
          <p>setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating

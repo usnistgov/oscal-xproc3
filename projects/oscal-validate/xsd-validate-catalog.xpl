@@ -24,9 +24,6 @@
    <!-- With assert-valid=false, the process will not end with invalid results, while the validation report is captured
         on the `report` output port of the pipeline -->
    
-   
-   
-   
    <p:validate-with-xml-schema name="validation" 
       assert-valid="false" message="[xsd-validate-catalog] Attempting to validate { base-uri(/*) } ..">
       <p:with-input port="schema">

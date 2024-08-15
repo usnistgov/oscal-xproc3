@@ -30,7 +30,7 @@
       <p:output port="report" pipe="report@catalog-validator"/>
       
       <!--The content-type coming back from Github is text/plain so we force into XML ... -->
-      <p:if test="not(p:document-property(/,'content-type')='xml')">
+      <p:if test="not(p:document-properties(.)?content-type='xml')">
          <p:cast-content-type content-type="application/xml"/>
       </p:if>
       
@@ -63,6 +63,5 @@
          </p:inline>
       </p:with-input>
    </p:xslt>
-
    
 </p:declare-step>

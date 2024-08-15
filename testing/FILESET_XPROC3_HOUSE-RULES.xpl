@@ -58,6 +58,10 @@
       <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/oscal-convert/CONVERT-XML-DATA.xpl"/>
       
+      <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
+      <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>
+      <p:document href="../projects/oscal-validate/XSD-VALIDATE-OFFSITE.xpl"/>
+      
       <p:document href="../projects/profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../projects/profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
       <p:document href="../projects/profile-resolution/src/apply-profile-resolver.xpl"/>
