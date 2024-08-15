@@ -37,16 +37,11 @@
          <p>Fortunately many of the issues that can prevent validation processes from working are the same issues that
             prevent processing in general, and as such are recognizable from the same tracebacks. If a file is missing
             or if it doesn't parse properly at all (i.e., if it proves not to be XML or JSON at all despite
-            representations), you already know how to recognize that and (at least in principle) repair it.</p>
-         <p>If you do not yet understand the critical distinction between syntactic correctness or
-               <q>well-formedness</q>, and validity against the rules stipulated by a model, check out <a
-               href="https://pages.nist.gov/OSCAL/resources/concepts/validation/">the OSCAL web site on that
-            topic</a>.</p>
-         <p>A syntax error will typically produce a similar or the same error in a validation process as it does in any
-            process, inasmuch as a syntax error prevents any kind of processing at all. (At a deeper level, some kinds
-            of validation can work on the fly to deliver early results, but for an all-or-nothing parse, this has no
-            bearing.) As usual in such cases, expect to see console tracebacks and error messages, but not process
-            outputs, either messages or files.</p>
+            representations), you already know how to recognize and (often) repair that.</p>
+         <p>A syntax error in a file to be validated, that is, should produce a similar or the same error in processing
+            that you will see from trying to transform or convert that same file, or perform any processing, inasmuch as
+            a syntax error prevents any kind of processing at all. As usual in such cases, expect to see console
+            tracebacks and error messages, but not process outputs (either messages or files).</p>
          <p>For the same reason, this class of problems is usually found early in pipeline development. Once a pipeline
             is running with tools operating and configured properly, this problem goes away. A developer breaking new
             ground still must be able to recognize them.</p>
@@ -95,6 +90,18 @@
             done.</p>
          <p>Tell us what we are doing right and wrong so far. Help us understand where things need to be explained, or
             better, illuminated by saying less - where is it too thick.</p>
+      </section>
+      <section>
+         <h2>102: Validation results and XProc outputs</h2>
+         <p>other workflows and orchestrations - using schema validation as gateway </p>
+         <p>setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating
+            instances on the way through (schema-field-tests)</p>
+      </section>
+      <section>
+         <h2>102: XProc exception handling</h2>
+         <p>other workflows and orchestrations - using schema validation as gateway </p>
+         <p>setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating
+            instances on the way through (schema-field-tests)</p>
       </section>
    </body>
 </html>

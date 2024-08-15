@@ -103,7 +103,7 @@
          <!-- Shocking that this works, needing some explanation -->
          <p:text-replace pattern="â€“" replacement="&amp;mdash;"/>
          
-         <p:store href="{$result-md-path}" 
+         <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'UTF-8'}"
          message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
       </p:for-each>
