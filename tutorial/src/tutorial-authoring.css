@@ -24,6 +24,8 @@ h6:before {
    vertical-align: text-top;
 content: oxy_name() }
 
+a.LessonUnit { background-color: pink }
+
 a:after {
     content: 
         oxy_urlChooser(        

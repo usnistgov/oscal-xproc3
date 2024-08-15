@@ -12,21 +12,19 @@ Learn how OSCAL data can be converted between JSON and XML formats, using XProc.
 
 Learn something about potential problems and limitations when doing this, and about how to detect, avoid, prevent or mitigate them.
 
-Work with XProc features designed for handling JSON data (XDM **map** objects that can be cast to XML).
-
 ## Prerequisites
 
 You have succeeded in prior exercises, including tools installation and setup.
 
 ## Resources
 
-This unit relies on the [oscal-convert project](../../../oscal-convert/readme.md) in this repository. Like all projects in the repo, it is designed to be self-contained and self-explanatory to the extent practical. Use your search engine and XProc resources to learn background and terminology.
+This unit relies on the [oscal-convert project](../../../projects/oscal-convert/readme.md) in this repository, with its files. Like all projects in the repo, it is designed to be self-contained and self-explanatory to the extent practical. Use your search engine and XProc resources to learn background and terminology.
 
 Also like other projects, there are preliminaries for acquiring resources, along with pipelines to run.
 
 ## Step one: convert some OSCAL XML into OSCAL JSON
 
-[An acquisition pipeline](../../../oscal-convert/GRAB-RESOURCES.xpl) in the project folder collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and edited if necessary.
+[An acquisition pipeline](../../../projects/oscal-convert/GRAB-RESOURCES.xpl) in the project folder collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and edited if necessary.
 
 But sources and results from a conversion process do not always have to work with local resources. XProc sees the Internet itself - whatever protocols are supported by the processor (the `file` and `http` protocols are required for conformance) work as they do on the Worldwide Web. Of course, permissions must be in place to read and write files from and into file system locations. But when authentication is configured or resources are openly available, using `http` to reach resources or sources can be a very convenient option.
 
@@ -62,26 +60,7 @@ For this and related reasons on open systems, the working principle in XML is of
 One way to manage the problem of ensuring input quality is to validate on the way in, either as a dependent (prerequisite) process, or built into a pipeline. Whatever you want to do with invalid inputs, including ignoring them and producing warnings or runtime exceptions, can be defined in a pipeline much like anything else.
 
 In the [publishing demonstration project
-                  folder](../../../oscal-publish/publish-oscal-catalog.xpl) is an XProc that valides XML against an OSCAL schema, before formatting it. The same could be done for an XProc that converts the data into JSON - either or both before or after conversion.
+                  folder](../../../projects/oscal-publish/publish-oscal-catalog.xpl) is an XProc that valides XML against an OSCAL schema, before formatting it. The same could be done for an XProc that converts the data into JSON - either or both before or after conversion.
 
-## for 102/599: XProc for JSON
-
-map objects; steps for working with them; interim p:store as debug method
-
-## for 102/599: YAML TODO
-
-map objects; steps for working with them
-
-## for 102/599: XProc port bindings
-
-This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime argument
-
-Thus, a script `convert-oscal-catalog-xml.sh mycatalog.xml` could produce `mycatalog.json` from `mycatalog.xml` etc.
-
-Such a script could live in the project directory - do we want an Issue for this work item? 
-
-## for 102/599: URIs and URI schemes
-
-see [](https://spec.xproc.org/master/head/xproc/#err.inline.D0012) it is up to implementations to define supported URI schemes - also XML catalogs
-
-## for 102/599: round tripping as process test
+Learn more about recognizing and dealing with errors in [Lesson
+                  102](oscal-convert_102_src.html), or continue on to the next project, oscal-validate, for more on validation of documents and sets of documents.

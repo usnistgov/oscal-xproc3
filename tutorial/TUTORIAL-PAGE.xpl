@@ -17,6 +17,7 @@
             <Lesson key="setup"/>
             <Lesson key="unpack"/>            
             <Lesson key="oscal-convert"/>
+            <Lesson key="oscal-validate"/>
          </LESSON_PLAN>
       </p:inline>
    </p:input>
@@ -120,18 +121,26 @@
    
    <p:wrap-sequence wrapper="html" />
    
+   <!-- Please consider whether it is not overdue to factor all this out into XSLT ... -->
+   
    <p:insert position="first-child">
       <p:with-input port="insertion">
          <p:inline expand-text="false">
             <head>
                <title>TUTORIAL PREVIEW</title>
                <style type="text/css">
-                  .toc { font-size: 80%; padding: 0.4em; outline: thin solid black; margin: 0.4em 0em; width: fit-content }
+                  .toc { font-size: 80%; padding: 0.4em; outline: thin solid black; margin: 0.4em 0em; width: fit-content;
+                    counter-reset: lessonNo 0 }
                   .toc * { margin: 0em; font-weight: normal }
                   .toc div { margin: 0.2em; margin-left: 1em; outline: thin solid grey }
-                  .toc .lesson { display: flex }
-                  .toc .unit { width: 30vw }
+                  .toc .lesson { display: flex; counter-increment: lessonNo 1; padding: 0.8em }
+                  .toc .lesson:nth-child(even) { background-color: lightsteelblue }
+                  .toc div.lesson:before { content: attr(class) '&#xa0;' counter(lessonNo); background-color: lavender; color: midnightblue; padding: 0.2em; font-family: sans-serif
+                    display: inline-block; height: fit-content }
+                  .toc .unit { width: 30vw; background-color: whitesmoke }
                   section section section { margin: 0.2em; margin-left: 1em; padding-left: 0.6em; border-left: medium solid grey }
+                  
+                  
                </style>
             </head>
          </p:inline>

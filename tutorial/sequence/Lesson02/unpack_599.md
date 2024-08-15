@@ -17,16 +17,16 @@ More in depth.
 
 ## Resources
 
-The same pipelines you ran in setup: [Setup 101](../setup/setup_101_src.html).
+The same pipelines you ran in setup: [Setup 101](../setup/setup_101.md).
 
 Also, [XProc.org dashboard page](https://xproc.org)
 
 Also, XProc index materials produced in this repository: [XProc
-               docs](../../../xproc-doc/readme.md)
+               docs](../../../projects/xproc-doc/readme.md)
 
 ## Prerequisites
 
-Same as [Setup 101](../setup/setup_101_src.html). Prior exercises, or the practical equivalent, are assumed.
+Same as [Setup 101](../setup/setup_101.md). Prior exercises, or the practical equivalent, are assumed.
 
 ## XProc schema
 

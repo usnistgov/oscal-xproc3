@@ -14,6 +14,7 @@
             <Lesson key="setup"/>
             <Lesson key="unpack"/>            
             <Lesson key="oscal-convert"/>
+            <Lesson key="oscal-validate"/>
          </LESSON_PLAN>
       </p:inline>
    </p:input>
@@ -77,6 +78,13 @@
                </p:inline>
             </p:with-input>
          </p:insert>
+         
+         <!--Rewriting cross-referencing links from HTML to presumed Markdown file targets -->
+         <!-- This is of course so that GH can rewrite the Markdown links back into HTML links! -->
+         
+         <p:string-replace name="link-rewrite"
+            match="a[@class='LessonUnit']/@href"  xmlns="http://www.w3.org/1999/xhtml"
+            replace="replace(.,'_src\.html','.md')"/>
          
          <p:xslt name="make-markdown" initial-mode="md">
             <p:with-input port="stylesheet" href="src/xhtml-to-markdown.xsl"/>

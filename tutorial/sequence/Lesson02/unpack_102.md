@@ -22,13 +22,13 @@ This tutorial's handmade [XProc dashboard](../../xproc-dashboard.md) with links
 
 Also, the official [XProc.org dashboard page](https://xproc.org)
 
-Also, check out XProc index materials produced in this repository: [XProc docs](../../../xproc-doc/readme.md)
+Also, check out XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md)
 
-And the same pipelines you ran in setup: [Setup 101](../setup/setup_101_src.html).
+And the same pipelines you ran in setup: [Setup 101](../setup/setup_101.md).
 
 ## Prerequisites
 
-You have done [Setup 101](../setup/setup_101_src.html), [Setup 102](../setup/setup_101_src.html) and [Unpack 101](unpack_101_src.html).
+You have done [Setup 101](../setup/setup_101.md), [Setup 102](../setup/setup_101.md) and [Unpack 101](unpack_101_src.html).
 
 ## Learning about XProc
 

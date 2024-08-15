@@ -12,6 +12,7 @@
             <Lesson key="setup"/>
             <Lesson key="unpack"/>
             <Lesson key="oscal-convert"/>
+            <Lesson key="oscal-validate"/>
          </LESSON_PLAN>
       </p:inline>
    </p:input>

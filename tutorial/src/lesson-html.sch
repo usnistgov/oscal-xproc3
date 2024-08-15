@@ -43,5 +43,18 @@
          <sch:assert test="empty(parent::* except (parent::html:body|parent::html:section))">Not expecting to see <name/> here</sch:assert>
       </sch:rule>
    </sch:pattern>
+   
+   <sch:pattern>
+      <sch:rule context="html:a">
+         <sch:let name="internal" value="starts-with(@href,'../') and matches(@href,'_src\.html$')"/>
+         <sch:assert sqf:fix="tag-lessonUnit-link" test="@class='LessonUnit' or not($internal)">Link to lesson should be given @class='LessonUnit'</sch:assert>
+         <sqf:fix id="tag-lessonUnit-link">
+            <sqf:description>
+               <sqf:title>Tag the link with class='LessonUnit'</sqf:title>
+            </sqf:description>
+            <sqf:add node-type="attribute" select="'LessonUnit'" target="class"/>
+         </sqf:fix>  
+      </sch:rule>
+   </sch:pattern>
 
 </sch:schema>

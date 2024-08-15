@@ -16,20 +16,20 @@ To create a persistent copy (for example, for purposes of annotation) save this 
 
 ## Resources
 
-The same pipelines you ran in setup: [Setup 101](../setup/setup_101_src.html).
+The same pipelines you ran in setup: [Setup 101](../setup/setup_101.md).
 
 Also, [XProc.org dashboard page](https://xproc.org)
 
 Also, XProc index materials produced in this repository: [XProc
-               docs](../../../xproc-doc/readme.md)
+               docs](../../../projects/xproc-doc/readme.md)
 
 ## Prerequisites
 
-Same as [Setup 101](../setup/setup_101_src.html).
+Same as [Setup 101](../setup/setup_101.md).
 
 ## A closer look
 
-If you have completed [Setup 102](../setup/setup_101_src.html) you have already opened and inspected the pipelines in the [lib](../../../lib/readme.md) and [smoketest](../../../smoketest/readme.md) folders.
+If you have completed [Setup 102](../setup/setup_101.md) you have already opened and inspected the pipelines in the [lib](../../../lib/readme.md) and [smoketest](../../../smoketest/readme.md) folders.
 
 Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a copy.
 
@@ -66,7 +66,7 @@ This tutorial has as handmade[XProc
 
 Also, the official [XProc.org dashboard page](https://xproc.org).
 
-Also, check out XProc index materials (with code snips) produced in this repository: [XProc docs](../../../xproc-doc/readme.md). Produced using XProc, these can be covered in detail in a later lesson unit.
+Also, check out XProc index materials (with code snips) produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md). Produced using XProc, these can be covered in detail in a later lesson unit.
 
 There is [a book, Erik Siegel's XProc 3.0
                   Programmer's Reference](https://xmlpress.net/publications/xproc-3-0/) (2020).

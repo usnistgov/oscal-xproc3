@@ -23,17 +23,18 @@
       <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XSPEC.xpl"/>
 
-      <p:document href="../template/GRAB-RESOURCES.xpl"/>
+      <p:document href="../project-template/GRAB-RESOURCES.xpl"/>
+      <p:document href="../project-template/MINIMAL.xpl"/>
+      
+      <p:document href="../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
+      <p:document href="../projects/schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
+      <p:document href="../projects/schema-field-tests/GRAB-OSCAL.xpl"/>
+      <p:document href="../projects/schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
+      <p:document href="../projects/schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
 
-      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
-      <p:document href="../schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
-      <p:document href="../schema-field-tests/GRAB-OSCAL.xpl"/>
-      <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
-      <p:document href="../schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
-
-      <p:document href="../xproc-doc/COLLECT-XPROC-STEPS.xpl"/>
-      <p:document href="../xproc-doc/XPROC-STEP-INDEX-HTML.xpl"/>
-      <p:document href="../xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
+      <p:document href="../projects/xproc-doc/COLLECT-XPROC-STEPS.xpl"/>
+      <p:document href="../projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl"/>
+      <p:document href="../projects/xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
       <!--<p:document href="../xproc-doc/xproc-paint-html.xpl"/>-->
       
       <p:document href="../tutorial/GRAB-OSCAL-RESOURCES.xpl"/>
@@ -49,21 +50,21 @@
 
       <p:document href="../xspec/xspec-execute.xpl"/>
       
-      <p:document href="../oscal-publish/setup/GRAB-OSCAL-CATALOG-SCHEMA.xpl"/>
-      <p:document href="../oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
-      <p:document href="../oscal-publish/publish-oscal-catalog.xpl"/>
+      <p:document href="../projects/oscal-publish/setup/GRAB-OSCAL-CATALOG-SCHEMA.xpl"/>
+      <p:document href="../projects/oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
+      <p:document href="../projects/oscal-publish/publish-oscal-catalog.xpl"/>
       
-      <p:document href="../oscal-convert/GRAB-RESOURCES.xpl"/>
-      <p:document href="../oscal-convert/CONVERT-XML-DATA.xpl"/>
+      <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-convert/CONVERT-XML-DATA.xpl"/>
       
-      <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
-      <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver-remotely.xpl"/>
-      <p:document href="../profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
-      <p:document href="../profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>
-      <p:document href="../profile-resolution/resolve-profile-and-save.xpl"/>
+      <p:document href="../projects/profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
+      <p:document href="../projects/profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
+      <p:document href="../projects/profile-resolution/src/apply-profile-resolver.xpl"/>
+      <p:document href="../projects/profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>
+      <p:document href="../projects/profile-resolution/src/apply-profile-resolver-remotely.xpl"/>
+      <p:document href="../projects/profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
+      <p:document href="../projects/profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>
+      <p:document href="../projects/profile-resolution/resolve-profile-and-save.xpl"/>
    </p:input>
  
    <p:output port="xproc-files" sequence="true"/>
