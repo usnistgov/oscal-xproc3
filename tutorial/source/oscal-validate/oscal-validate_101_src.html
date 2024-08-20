@@ -1,32 +1,74 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>101: Validating OSCAL</title>
+      <title>101: Seeing valid OSCAL</title>
    </head>
    <body>
-      <h1>101: Validating OSCAL</h1>
+      <h1>101: Seeing valid OSCAL</h1>
       <section>
          <h2>Goals</h2>
-         <p>Apply XProc for OSCAL schema validation, to determine the conformance of your OSCAL files to the rules
-            defined by an appropriate schema.</p>
+         <p>Run pipelines that perform OSCAL schema validation, determining the conformance of your OSCAL files to the
+            rules defined by an appropriate schema.</p>
+         <p>See how these are wired up in XProc, along with a sense of the complexity, tradeoffs and possibilities.</p>
          <p>Gain some sense of wider issues related to schemas, schema evolution, data set regularity and
             predictability.</p>
       </section>
       <section>
          <h2>Prerequisites</h2>
          <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+         <p> You know what OSCAL is and <a href="https://pages.nist.gov/OSCAL/resources/concepts/validation/">what
+                  <q>validation</q> means</a> in the context of XML and data processing. You are aware of the existence
+            of the OSCAL schemas to define syntax for its models in XML and in JSON.</p>
       </section>
       <section>
          <h2>Resources</h2>
          <p>This unit relies on the <a href="../../../projects/oscal-validate/readme.md">oscal-validate project</a> in
             this repository, with its files. Like other projects this one may have installation or setup pipelines to
             run.</p>
+         <p>Additionally if you have your own OSCAL to bring, especially OSCAL catalogs, bring them along.</p>
+         <p>Learners who are completely new to XML may find themselves in deep, quite soon. Then too, and in any case,
+            without a problem of your own to solve, any demonstration here will be very abstract. Counter these problems
+            with more resources:</p>
+         <ul>
+            <li>Work closely with a partner who can bring the data</li>
+            <li>Reach out via Github Discussions with questions</li>
+         </ul>
       </section>
       <section>
          <h2>Step one: validate some OSCAL XML</h2>
+         <p>The project contains pipelines that perform validation. Any description that appears here may go out of
+            date, so check everything stated in the tutorial coverage against the actual files.</p>
+         <section>
+            <h3>Boldly coding</h3>
+            <p>There are those who will look at a screen with a traceback with equanimity and dispassion - and those who
+               will recoil. Maybe you are one of the fearless, maybe even one of the curious. Open the pipeline code in
+               a programmer's text editor or IDE (integrated development environment) and get a sense of just how
+               malleable it is.</p>
+            <p>XML comment syntax takes the form of angle-bracketed text with dashes (hyphens) and a bang: <code>&lt;!–
+                  --></code>. You will see comments throughout the code examples, sometimes as inline documentation, and
+               sometimes for entire blocks of inactive code.</p>
+            <p>The intrepid explorer will try both <i>tweaking</i>, around the edges, then <i>adapting</i>, with new
+               ideas.</p>
+            <p>The best of it is, as you learn how <b>a traceback is a tasty treat</b>, you enter a virtuous learning
+               cycle. Repair a few bugs and you might get a taste for it. (Try the <a href="oscal-validate_102_src.html"
+                  >102 Lesson unit </a>)</p>
+            <p>If you'd rather keep your feet dry, advance to the next Lesson.</p>
+         </section>
       </section>
       <section>
-         <h2>Step two: validating sets of documents, handling outputs</h2>
+         <h2>Step two: validate and report</h2>
+         <p>Schema validation is an automated process, but it is typically done not for its own sake, but rather as a
+            preliminary to some other kind of processing, data analysis or manipulation. Accordingly a validator is
+            frequently designed to be deployed silently - it only makes noise (emits errors or exceptions) if and as
+            problems arise. Silence is good news when it comes to validators.</p>
+         <p>However, we also have a step that instead of ending silently, reports summary results.</p>
+         <section>
+            <h3>Optional: confirm the validation</h3>
+         </section>
+      </section>
+      <section>
+         <h2>Step three: Run a batch validator</h2>
+         <img src="ugly-traceback.png" alt="ugly-traceback.png" />
          <p>TODO Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?</p>
          <p> Also see 102 for a pipeline to digest results of batch validation plus see field testing.</p>
       </section>
@@ -35,18 +77,16 @@
          <p>As always, determining early whether a problem can be solved or mitigated at home, versus when it requires
             some kind of external intervention, is key.</p>
          <p>Fortunately many of the issues that can prevent validation processes from working are the same issues that
-            prevent processing in general, and as such are recognizable from the same tracebacks. If a file is missing
-            or if it doesn't parse properly at all (i.e., if it proves not to be XML or JSON at all despite
-            representations), you already know how to recognize that and (at least in principle) repair it.</p>
+            prevent processing in general, and as such are recognizable from the same tracebacks.</p>
          <p>If you do not yet understand the critical distinction between syntactic correctness or
                <q>well-formedness</q>, and validity against the rules stipulated by a model, check out <a
                href="https://pages.nist.gov/OSCAL/resources/concepts/validation/">the OSCAL web site on that
             topic</a>.</p>
          <p>A syntax error will typically produce a similar or the same error in a validation process as it does in any
-            process, inasmuch as a syntax error prevents any kind of processing at all. (At a deeper level, some kinds
-            of validation can work on the fly to deliver early results, but for an all-or-nothing parse, this has no
-            bearing.) As usual in such cases, expect to see console tracebacks and error messages, but not process
-            outputs, either messages or files.</p>
+            process, inasmuch as a syntax error prevents any kind of processing to be conducted dependably (by a
+            deterministic process). As usual in such cases, expect to see console tracebacks and error messages when
+            things go wrong (resources are unavailable or out of order), but not process outputs, whether messages or
+            files.</p>
          <p>For the same reason, this class of problems is usually found early in pipeline development. Once a pipeline
             is running with tools operating and configured properly, this problem goes away. A developer breaking new
             ground still must be able to recognize them.</p>

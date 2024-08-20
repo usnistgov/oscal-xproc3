@@ -16,16 +16,14 @@
    <!--<p:variable name="schema-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_catalog_schema.xsd'"/>-->
    <!--<p:variable name="schema-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2/oscal_complete_schema.xsd'"/>-->
    
-   <!-- Local files can remove some perturbance  -->
+   <!-- Using a local file can remove some perturbance -->
    <p:variable name="schema-path" select="'../schema-field-tests/lib/oscal-schemas/oscal_catalog_schema.xsd'"/>
-   
-   <!-- Split acquisition and validation against the cached copy for better and more robust performance. -->
    
    <!-- With assert-valid=false, the process will not end with invalid results, while the validation report is captured
         on the `report` output port of the pipeline -->
    
    <p:validate-with-xml-schema name="validation" 
-      assert-valid="false" message="[xsd-validate-catalog] Attempting to validate { base-uri(/*) } ..">
+      assert-valid="false" message="[xsd-validate-catalog] Attempting to validate { base-uri(/*) } --">
       <p:with-input port="schema">
          <!-- w/o content-type the acquisition gags on the type provided over https -->
          <p:document href="{$schema-path}" content-type="application/xml"/>

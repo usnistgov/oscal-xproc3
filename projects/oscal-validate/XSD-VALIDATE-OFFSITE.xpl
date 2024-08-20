@@ -9,10 +9,10 @@
 
    <!-- STOP VALIDATION HALLPASS FILESET_XPROC3_HOUSE-RULES.xpl -->
    
-   <p:import href="xsd-validate-catalog.xpl"/>
+   <p:import href="xsd-validate-catalog.xpl"/><!-- Encapsulates validation for all pipelines that use it -->
    
    <p:input port="source" primary="true" sequence="true">
-      <!-- a valid instance -->
+      <!-- valid OSCAL catalogs, in a remote repository -->
       <p:document href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_LOW-baseline-resolved-profile_catalog.xml"/>
       <p:document href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_MODERATE-baseline-resolved-profile_catalog.xml"/>
       <p:document href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_HIGH-baseline-resolved-profile_catalog.xml"/> 

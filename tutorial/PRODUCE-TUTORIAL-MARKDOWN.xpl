@@ -6,7 +6,7 @@
    name="PRODUCE-TUTORIAL-MARKDOWN">
 
 
-   <!--<p:output serialization="map{'indent': true() }" sequence="true"/>-->
+   <p:output serialization="map{'indent': true() }" sequence="true"/>
    
    <p:input port="source" primary="true">
       <p:inline>
@@ -15,6 +15,7 @@
             <Lesson key="unpack"/>            
             <Lesson key="oscal-convert"/>
             <Lesson key="oscal-validate"/>
+            <Lesson key="oscal-publish"/>
          </LESSON_PLAN>
       </p:inline>
    </p:input>
@@ -30,11 +31,11 @@
            https://spec.xproc.org/master/head/xproc/#f.iteration-position -->
       <p:variable name="lesson-no" select="format-number(p:iteration-position(),'01')"/>
 
-      <p:directory-list path="source/{ $lesson_key }" max-depth="unbounded" include-filter="_src\.html$"/>
+      <p:directory-list  path="source/{ $lesson_key }" max-depth="unbounded" include-filter="(_src\.html|png)$"/>
 
       <!-- is there a better way to annotate a directory list with full paths?
         or: make a step out of this and import it -->
-      <p:xslt>
+      <p:xslt name="directory">
          <p:with-input port="stylesheet">
             <p:inline expand-text="false">
                <xsl:stylesheet version="3.0">
@@ -52,7 +53,7 @@
       </p:xslt>
 
       <p:for-each name="files">
-         <p:with-input select="descendant::c:file"/>
+         <p:with-input select="descendant::c:file[ends-with(@path,'_src.html')]"/>
          <!-- Remember that each input node is a root for its own tree - hence XPath context -->
          <p:variable name="path" select="/*/@path => p:urify()"/>
          <p:variable name="project-uri" select="p:urify('.')"/>
@@ -108,8 +109,26 @@
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
       </p:for-each>
 
+      <p:for-each name="graphics">
+         <p:with-input select="descendant::c:file[ends-with(@path,'.png')]">
+            <p:pipe port="result" step="directory"/>
+         </p:with-input>
+         <!-- Remember that each input node is a root for its own tree - hence XPath context -->
+         <p:variable name="path" select="/*/@path => p:urify()"/>
+         <!--<p:variable name="project-uri" select="p:urify('.')"/>-->
+         
+         <p:variable name="filename" select="replace($path,'.*/','')"/>
+         <!--<p:identity message="$path is { $path }"/>-->
+         <!--<p:identity message="$project-uri is { $project-uri }"/>-->
+         
+         <p:variable name="target-path" select="('sequence',('Lesson' || $lesson-no), $filename) => string-join('/') => resolve-uri()"/>
+         
+         <p:file-copy href="{$path}" target="{$target-path}"/>
+         
+         <!--p:sink inhibits p:file-copy from reporting to result -->         
+         <p:sink  message="[PRODUCE-TUTORIAL-MARKDOWN] Copied { $path } into Lesson { $lesson-no }"/>
+      </p:for-each>
+
    </p:for-each>
-   
-   
    
 </p:declare-step>

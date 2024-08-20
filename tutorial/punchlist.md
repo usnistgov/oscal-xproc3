@@ -269,6 +269,8 @@ Messages
 
 `@select` vs `@match` semantics, with running demo of a 'deep match'
 
+`p:variable/p:pipe` for binding variables to intermediate and secondary outputs
+
 Inline XSLT
   TVTs and AVTs in embedded code!
   

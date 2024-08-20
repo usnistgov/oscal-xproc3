@@ -8,7 +8,7 @@
       <p></p>
       <section><h2>Goals</h2>
       <ul>
-         <li>More familiarity with XProc 3.0: more syntax</li>
+         <li>More familiarity with XProc 3.0: some syntax</li>
          <li>History, concepts and resources</li>
       </ul>
       </section>
@@ -27,8 +27,10 @@
       
       <section>
          <h2>A closer look</h2>
-         <p>If you have completed <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 102</a> you have already opened and
-            inspected the pipelines in the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md">smoketest</a> folders.</p>
+         <p>If you have completed <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 102</a> you have
+            already glanced at the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md"
+               >smoketest</a> folders, and run pipelines you have found therein. To edit these files, use any
+            XML-capable plain text editor (that is, with care, any editor at all that save text files as UTF-8).</p>
          <p>Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a
             copy.</p>
          <p>A quick summary of what these pipelines do:</p>
@@ -47,11 +49,12 @@
             for system transparency and robustness.</p>
          <p>The second group of pipelines is a bit more interesting. Each of the utilities provided for in packages just
             downloaded is tested by running a smoke test.</p>
-         <p>Each smoke test performs a minor task, serving as a smoke test inasmuch as its only aim is to determine
-            whether a simple representative process completes successfully.</p>
+         <p>Each smoke test performs a minor task, serving as a <q>smoke test</q> inasmuch as its only aim is to
+            determine whether a simple representative process completes successfully. (When we plug in the board, can we
+            see and smell smoke?)</p>
             <ul>
             <li><a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a> amounts to an XProc <q>Hello
-                  World</q>. In that spirit, feel free to edit and adjust.</li>
+                  World</q>. In that spirit, feel free to edit and adjust this file.</li>
             <li><a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon, an
                XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same
                data model) developed with XML processing in mind, but in recent years generalized to a wider range of
@@ -62,17 +65,54 @@
                <li><a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec, an
                XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.</li>
             </ul>
-         <p>All these together comprise more than can be learned in an afternoon, or even a week.</p>
+         <p>All these together comprise more than can be learned in an afternoon, or even a week. Any and each of them
+            can nonetheless be used as a <q>black box</q> by any competent operator, even without understanding about
+            internals.</p>
          <p>At the same time, common foundations make it possible to learn these technologies together and in
             tandem.</p>
          <p>In particular, they all share a syntax for interrogating (querying) the structure of an XML document and
             returning its data: the XPath expression language.</p>
       </section>
       <section>
+         <h2>Messing around</h2>
+         <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
+            it behaves.</p>
+         <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
+            modify the copy. Modifying one of the smoketest pipelines, see what happens when:</p>
+         <ul>
+            <li>An <code>href</code> points to a location on the system where there is no file</li>
+            <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
+               formed)</li>
+            <li>Individual steps are excluded</li>
+            <li>New elements are renamed (etc.)</li>
+         </ul>
+         <p>When changes introduce errors, runtime failures and tracebacks will <i>sometimes</i> appear. The indicated
+            problem or the source of the reported problem must be repaired. And sometimes a process will run
+            successfully. Whether it is in error then depends on how well it conforms to its requirements. Does it
+            deliver the results we want and expect?</p>
+         <p>As an exercise, make some changes in copies of the test pipelines. Make at least one change that produces
+            outputs (such as echoing a document to the console) that are visibly different from the results of the
+            original pipeline.</p>
+      </section>
+      <section>
+         <h2>XProc coverage index</h2>
+         <p>While they are sometimes rudimentary, the pipelines in this repository address realistic requirements, and
+            as such, offer examples of XProc usage.</p>
+         <p>A pipeline can process the XProc files in the projects and report where and how they use XProc. <a
+               href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">An available prototype</a> does this in two forms:</p>
+         <ul>
+            <li>Assuming the projects are sequenced with the lessons that discuss them, the pipeline gives a listing of
+                  <i>first appearances</i> of XProc elements among the examples</li>
+            <li>With this, it gives a comprehensive index of XProc elements by name, appearing in the projects covered
+               by the lessons</li>
+         </ul>
+         <p>The Markdown results are written to the file <a href="../../sequence/element-directory.md"></a>. It can be
+            refreshed by running <a href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">the pipeline</a>again.</p>
+      </section>
+      <section>
          <h2>Learning about XProc</h2>
-         <p>This tutorial has as handmade<a href="../../xproc-dashboard.md">XProc
-               dashboard page</a> with links.</p>
-         <p>Also, the official <a href="https://xproc.org">XProc.org dashboard page</a>.</p>
+         <p>This tutorial has a handmade<a href="../../xproc-dashboard.md">XProc dashboard page</a> with links.</p>
+         <p>Also, see the official <a href="https://xproc.org">XProc.org dashboard page</a>.</p>
          <p>Also, check out XProc index materials (with code snips) produced in this repository: <a
                href="../../../projects/xproc-doc/readme.md">XProc docs</a>. Produced using XProc, these
             can be covered in detail in a later lesson unit.</p>

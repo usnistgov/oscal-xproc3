@@ -64,6 +64,15 @@
    
    <xsl:mode name="decorate-blockquote" on-no-match="shallow-copy"/>
    
+   <xsl:template match="img" mode="md" expand-text="true">
+      <xsl:call-template name="conditional-lf"/>
+      <string>
+         <xsl:text>!</xsl:text>
+         <xsl:for-each select="@alt">[{ normalize-space(.) }]</xsl:for-each>
+         <xsl:for-each select="@src">({ normalize-space(.) })</xsl:for-each>
+      </string>
+   </xsl:template>
+
     <xsl:template mode="md" match="p">
         <xsl:call-template name="conditional-lf"/>
         <string>

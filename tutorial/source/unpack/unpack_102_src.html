@@ -39,21 +39,23 @@
          <h2>Anatomy of an XProc pipeline</h2>
          <section>
             <h3>XProc files and XProc steps</h3>
-            <p>An XProc <i>file</i> is an XML document instance, which when parsed as XML produces a document rooted at
-               an XProc <code>p:step-declaration</code> or <code>p:library</code> element (where <code>p:</code>
-               identifies the XProc namespace), and otherwise conforms to the rules of XProc syntax.</p>
             <p>The <i>step</i> is the core conceptual unit of XProc. An XProc processing pipeline is composed of steps.
                But a pipeline is also considered as a step in itself. As such it can be used in other pipelines, and so
                on.</p>
             <p>In other words, steps in XProc are <i>compositional</i>. They are building block assemblies made out of
                smaller building block assemblies. A step is a way to process data. A pipeline is a way of orchestrating
                and arranging such processes.</p>
-            <p>Thus it is also normal when working with XProc to distinguish between pipelines and steps. It is a
-               relative distinction, but important. The pipeline is the logical and actual definition of how your data
-               is to be processed. Every pipeline is composed of an arrangement, often a series, of operations. The
-               definitions - the steps - include <q>primitives</q>, and are designed for generality and reusability to
-               designate and configure these operations. This saves work, focuses optimization, and makes it possible to
-               scale up to address data processing requirement sets that are both large and complex.</p>
+            <p>The distinction between pipelines and steps is relative and provisional, but important and useful. The
+               pipeline is the logical and actual definition of how your data is to be processed. Every pipeline is
+               composed of an arrangement, often a series, of operations. The definitions - the steps - include
+                  <q>primitives</q>, being designed for generality and reusability for the most common operations. But
+               since a pipeline is also a step, we can always combine more than the primitives or core compound steps of
+               the language. At a higher level, defining new steps with new step declarations, and using them in
+               combination with other steps, is how we manage complexity and change in the requirements. This strategy
+               can support for adaptability while also supporting an 'incremental maturity model', improving with reuse,
+               building and testing over time. Careful use and deployment of new steps is how we save work, by focusing
+               optimization and making it possible to scale up to address data processing requirement sets that are both
+               large and complex.</p>
             <p>Accommodating this design, an XProc <i>file</i> considered as an XML instance is either of two things: a
                   <i>step declaration</i>, or a collection of such declarations, a <i>library</i>.</p>
             <p>Additionally, step declarations can include their own pipeline (step) declarations, making a hybrid
@@ -94,102 +96,6 @@
                   (recognizable by the prefix <code>p:</code>). Additional to these 95 might be other steps you acquire
                   or define. As with any lanuage, there are parts you will hardly ever use, while other parts are used
                   routinely.</p>
-               <section>
-                  <h5>Survey of XProc elements</h5>
-                  <p>All elements defined by XProc are listed in this analytical breakout.</p>
-                  <p>TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against
-                     XProc RNG?</p>
-                  <table>
-                     <tr>
-                        <th>Function</th>
-                        <th>XProc elements / p: namespace</th>
-                     </tr>
-                     <tr>
-                        <td>Documentation</td>
-                        <td><code>p:documentation</code>, , </td>
-                     </tr>
-                     <tr>
-                        <td>Top-level</td>
-                        <td><code>p:declare-step</code>, <code>p:library</code></td>
-                     </tr>
-                     <tr>
-                        <td>Imports</td>
-                        <td><code>p:import</code>, <code>p:import-functions</code></td>
-                     </tr>
-                     <tr>
-                        <td>Prologue</td>
-                        <td><code>p:input</code>, <code>p:output</code>, <code>p:option</code></td>
-                     </tr>
-                     <tr>
-                        <td>Compound steps</td>
-                        <td><code>p:for-each</code>, <code>p:viewport</code>, <code>p:choose</code>,
-                           <code>p:when</code>, <code>p:otherwise</code>, <code>p:if</code>, <code>p:group</code>,
-                              <code>p:try</code>, <code>p:catch</code>, <code>p:finally</code>, <code>p:run</code>,
-                              <code>p:run-input</code>, <code>p:run-option</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - XML</td>
-                        <td><code>p:add-attribute</code>, <code>p:add-xml-base</code>, <code>p:delete</code>,
-                              <code>p:filter</code>, <code>p:identity</code>, <code>p:insert</code>,
-                              <code>p:label-elements</code>, <code>p:make-absolute-uris</code>,
-                              <code>p:namespace-delete</code>, <code>p:namespace-rename</code>, <code>p:pack</code>,
-                              <code>p:rename</code>, <code>p:replace</code>, <code>p:set-attributes</code>,
-                              <code>p:uuid</code>, <code>p:unwrap</code>, <code>p:wrap-sequence</code>,
-                              <code>p:wrap</code>, <code>p:xinclude</code>, <code>p:xquery</code>,
-                           <code>p:xslt</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - zipping</td>
-                        <td><code>p:archive</code>, <code>p:archive-manifest</code>, <code>p:unarchive</code>,
-                              <code>p:uncompress</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - JSON</td>
-                        <td><code>p:json-join</code>, <code>p:json-merge</code>, <code>p:set-properties</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - plain text</td>
-                        <td><code>p:string-replace</code>, <code>p:text-count</code>, <code>p:text-head</code>,
-                              <code>p:text-join</code>, <code>p:text-replace</code>, <code>p:text-sort</code>,
-                              <code>p:text-tail</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - utility</td>
-                        <td><code>p:cast-content-type</code>, <code>p:compare</code>, <code>p:compress</code>,
-                              <code>p:count</code>, <code>p:error</code>, <code>p:hash</code>,
-                              <code>p:http-request</code>, <code>p:load</code>, <code>p:sink</code>,
-                              <code>p:split-sequence</code>, <code>p:store</code>, <code>p:www-form-urldecode</code>,
-                              <code>p:www-form-urlencode</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - optional - file system</td>
-                        <td><code>p:directory-list</code>, <code>p:file-copy</code>, <code>p:file-delete</code>,
-                              <code>p:file-info</code>, <code>p:file-mkdir</code>, <code>p:file-move</code>,
-                              <code>p:file-create-tempfile</code>, <code>p:file-touch</code></td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - optional - validation</td>
-                        <td><code>p:validate-with-nvdl</code>, <code>p:validate-with-relax-ng</code>,
-                              <code>p:validate-with-schematron</code>, <code>p:validate-with-xml-schema</code>,
-                              <code>p:validate-with-json-schema</code></td>
-                     </tr>
-                     <tr>
-                        <td>Other optional steps</td>
-                        <td><code>p:os-info</code>, <code>p:os-exec</code>, <code>p:css-formatter</code>,
-                              <code>p:xsl-formatter</code>, <code>p:markdown-to-html</code></td>
-                     </tr>
-                     <tr>
-                        <td>Variable declaration</td>
-                        <td><code>p:variable</code></td>
-                     </tr>
-                     <tr>
-                        <td>Connectors</td>
-                        <td><code>p:with-input</code>, <code>p:with-option</code>, <code>p:pipe</code>,
-                              <code>p:pipeinfo</code>, <code>p:document</code>, <code>p:inline</code>,
-                              <code>p:empty</code></td>
-                     </tr>
-                  </table>
-               </section>
             </section>
             <section>
                <h4>XProc embedded documentation</h4>

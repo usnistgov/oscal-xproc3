@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>101: Validating OSCAL</title>
+      <title>102: Validating OSCAL</title>
    </head>
    <body>
-      <h1>101: Validating OSCAL</h1>
+      <h1>102: Validating OSCAL</h1>
       <section>
          <h2>Goals</h2>
          <p>Apply XProc for OSCAL schema validation, to determine the conformance of your OSCAL files to the rules
@@ -14,7 +14,8 @@
       </section>
       <section>
          <h2>Prerequisites</h2>
-         <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+         <p>You have succeeded in prior exercises, including tools installation and setup. You know what OSCAL is and
+            what <q>validation</q> means in the context of XML and data processing.</p>
       </section>
       <section>
          <h2>Resources</h2>
@@ -23,24 +24,67 @@
             run.</p>
       </section>
       <section>
-         <h2>Step one: validate some OSCAL XML</h2>
+         <h2>Schema validation under XProc / code review</h2>
       </section>
       <section>
-         <h2>Step two: validating sets of documents, handling outputs</h2>
+         <h2>validating sets of documents, handling outputs</h2>
          <p>TODO Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?</p>
          <p> Also see 102 for a pipeline to digest results of batch validation plus see field testing.</p>
+         <p>[for 102] XProc 3.0 validation steps include an option <code>assert-valid</code> (takes a Boolean
+               <code>true</code> or <code>false</code>), which configures how the step works when validation errors are
+            encountered. This is essentially a switch between asking the XProc engine to stop with an error when inputs
+            presented to the step show validation errors - often the preferred fail-safe solution for validity checks -
+            or whether to continue processing the document, so as (for example) to survey it further or treat it
+            somehow. Validation errors are reported back to the pipeline in either case - by virtue of validating, we
+            will always get a report of where such errors occur. But with assert-valid off (<code>false</code>), if we
+            wish we can, instead of quitting, continue with processing.</p>
+         <p>One reason to continue with processing is because we are aggregating validation results from a set of
+            documents, so we do not want an error if any of them fails. Instead we wish only to validate them and to
+            collect the reports.</p>
+         <p>See project <a href="../../../projects/schema-field-tests/readme.md">schema-field-tests</a> for deeper
+            coverage of validation, batch validation and schema testing.</p>
+         <section>
+            <h3>Rule of thumb - <code>assert-valid</code></h3>
+            <p>Use <code>assert-valid='true'</code> when the purpose of schema validation in a pipeline is as a
+               screener, with the results to be processed further as input to a step. This reflects and enforces a
+               logical dependency between the schema as a contract (enforceable by the assertion), and downstream
+               processing built against the schema's models. It means that downstream processors are relieved thereby of
+               an entire class of data processing errors, due to incorrect or inadequate or unforeseen inputs.</p>
+            <p>Use <code>assert-valid='false'</code> when a document is to be discarded after validation, while the
+               results of validation - its reports, if any - are taken up. Typically this is done on files in entire
+               collections, so halting the process and delivering an error is not in order for bad inputs that are
+               detected in any case.</p>
+         </section>
       </section>
       <section>
-         <h2>102: Validation results and XProc outputs</h2>
-         <p>other workflows and orchestrations - using schema validation as gateway </p>
-         <p>setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating
-            instances on the way through (schema-field-tests)</p>
+         <h2>Review: why validate?</h2>
+         <p>The simplest reason we use schemas to validate documents is that it prevents certain kinds of errors that
+            can be difficult to manage otherwise. Schema validation is part of the tool set of <q>jigs and gauges</q> we
+            use to keep our models and our data aligned.</p>
+         <p>Schemas give us information subject to inferencing, such that when a given schema is applicable, it shows us
+            (as designers and engineers) what is and can be known about our data, in general, and what is unknown, where
+            are its dimensions of variance. A schema defines a boundary of in / legitimate, and out - illegitimate for
+            our purposes and out of scope, however legitimate it may be otherwise. It </p>
+      </section>
+      <section>
+         <h2>102: Defining a pipeline step</h2>
+      </section>
+      <section>
+         <h2>102: Other schemas vs/and other models</h2>
+         <p>The main reason it is useful to have all the OSCAL catalog validation in this project use the same step is
+            that it consolidates control of which version, indeed which copy and location, of the OSCAL catalog schema
+            (XSD) is to be used. Having such a single point of control means we can manage all the tools that use this
+            logic together. If we wish to use an XProc validation step directly - hard-wiring a schema into a step -
+            remains an option.</p>
       </section>
       <section>
          <h2>102: XProc exception handling</h2>
          <p>other workflows and orchestrations - using schema validation as gateway </p>
          <p>setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating
             instances on the way through (schema-field-tests)</p>
+      </section>
+      <section>
+         <h2>599: some XProc features</h2>
       </section>
    </body>
 </html>

@@ -2,11 +2,13 @@
 > 
 > To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
 
-# 101: Validating OSCAL
+# 101: Seeing valid OSCAL
 
 ## Goals
 
-Apply XProc for OSCAL schema validation, to determine the conformance of your OSCAL files to the rules defined by an appropriate schema.
+Run pipelines that perform OSCAL schema validation, determining the conformance of your OSCAL files to the rules defined by an appropriate schema.
+
+See how these are wired up in XProc, along with a sense of the complexity, tradeoffs and possibilities.
 
 Gain some sense of wider issues related to schemas, schema evolution, data set regularity and predictability.
 
@@ -14,13 +16,48 @@ Gain some sense of wider issues related to schemas, schema evolution, data set r
 
 You have succeeded in prior exercises, including tools installation and setup.
 
+ You know what OSCAL is and [what
+                  validation means](https://pages.nist.gov/OSCAL/resources/concepts/validation/) in the context of XML and data processing. You are aware of the existence of the OSCAL schemas to define syntax for its models in XML and in JSON.
+
 ## Resources
 
 This unit relies on the [oscal-validate project](../../../projects/oscal-validate/readme.md) in this repository, with its files. Like other projects this one may have installation or setup pipelines to run.
 
+Additionally if you have your own OSCAL to bring, especially OSCAL catalogs, bring them along.
+
+Learners who are completely new to XML may find themselves in deep, quite soon. Then too, and in any case, without a problem of your own to solve, any demonstration here will be very abstract. Counter these problems with more resources:
+
+* Work closely with a partner who can bring the data
+* Reach out via Github Discussions with questions
+
+
 ## Step one: validate some OSCAL XML
 
-## Step two: validating sets of documents, handling outputs
+The project contains pipelines that perform validation. Any description that appears here may go out of date, so check everything stated in the tutorial coverage against the actual files.
+
+### Boldly coding
+
+There are those who will look at a screen with a traceback with equanimity and dispassion - and those who will recoil. Maybe you are one of the fearless, maybe even one of the curious. Open the pipeline code in a programmer's text editor or IDE (integrated development environment) and get a sense of just how malleable it is.
+
+XML comment syntax takes the form of angle-bracketed text with dashes (hyphens) and a bang: `<!&mdash; -->`. You will see comments throughout the code examples, sometimes as inline documentation, and sometimes for entire blocks of inactive code.
+
+The intrepid explorer will try both *tweaking*, around the edges, then *adapting*, with new ideas.
+
+The best of it is, as you learn how **a traceback is a tasty treat**, you enter a virtuous learning cycle. Repair a few bugs and you might get a taste for it. (Try the [102 Lesson unit ](oscal-validate_102_src.html))
+
+If you'd rather keep your feet dry, advance to the next Lesson.
+
+## Step two: validate and report
+
+Schema validation is an automated process, but it is typically done not for its own sake, but rather as a preliminary to some other kind of processing, data analysis or manipulation. Accordingly a validator is frequently designed to be deployed silently - it only makes noise (emits errors or exceptions) if and as problems arise. Silence is good news when it comes to validators.
+
+However, we also have a step that instead of ending silently, reports summary results.
+
+### Optional: confirm the validation
+
+## Step three: Run a batch validator
+
+![ugly-traceback.png](ugly-traceback.png)
 
 TODO Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?
 
@@ -30,9 +67,12 @@ TODO Two ways: separate pipeline; and single pipeline; also a 'switcher' pipelin
 
 As always, determining early whether a problem can be solved or mitigated at home, versus when it requires some kind of external intervention, is key.
 
-Fortunately many of the issues that can prevent validation processes from working are the same issues that prevent processing in general, and as such are recognizable from the same tracebacks. If a file is missing or if it doesn't parse properly at all (i.e., if it proves not to be XML or JSON at all despite representations), you already know how to recognize and (often) repair that.
+Fortunately many of the issues that can prevent validation processes from working are the same issues that prevent processing in general, and as such are recognizable from the same tracebacks.
 
-A syntax error in a file to be validated, that is, should produce a similar or the same error in processing that you will see from trying to transform or convert that same file, or perform any processing, inasmuch as a syntax error prevents any kind of processing at all. As usual in such cases, expect to see console tracebacks and error messages, but not process outputs (either messages or files).
+If you do not yet understand the critical distinction between syntactic correctness or &ldquo;well-formedness&rdquo;, and validity against the rules stipulated by a model, check out [the OSCAL web site on that
+            topic](https://pages.nist.gov/OSCAL/resources/concepts/validation/).
+
+A syntax error will typically produce a similar or the same error in a validation process as it does in any process, inasmuch as a syntax error prevents any kind of processing to be conducted dependably (by a deterministic process). As usual in such cases, expect to see console tracebacks and error messages when things go wrong (resources are unavailable or out of order), but not process outputs, whether messages or files.
 
 For the same reason, this class of problems is usually found early in pipeline development. Once a pipeline is running with tools operating and configured properly, this problem goes away. A developer breaking new ground still must be able to recognize them.
 
@@ -59,15 +99,3 @@ OSCAL deploys a range of models, each with its own schemas (for XML and JSON var
 At time of writing this tutorial is very rough, with very much extension and refinement remaining to be done.
 
 Tell us what we are doing right and wrong so far. Help us understand where things need to be explained, or better, illuminated by saying less - where is it too thick.
-
-## 102: Validation results and XProc outputs
-
-other workflows and orchestrations - using schema validation as gateway 
-
-setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating instances on the way through (schema-field-tests)
-
-## 102: XProc exception handling
-
-other workflows and orchestrations - using schema validation as gateway 
-
-setting schema validation to require-valid=false and using try/catch to trap - as a way of annotating instances on the way through (schema-field-tests)

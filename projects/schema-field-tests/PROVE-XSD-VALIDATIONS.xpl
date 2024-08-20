@@ -31,6 +31,10 @@
 
    <p:variable name="schema-path" select="'lib/oscal-schemas/oscal_catalog_schema.xsd'"/>
    
+   <!-- Doing this with try/catch -
+
+     Alternatively we could set assert-valid=false and simple interrogate the report port on outputs?  -->
+   
    <p:for-each>
       <p:try>
          <p:group name="validation">
