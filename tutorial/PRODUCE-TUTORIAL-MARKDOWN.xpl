@@ -8,17 +8,7 @@
 
    <p:output serialization="map{'indent': true() }" sequence="true"/>
    
-   <p:input port="source" primary="true">
-      <p:inline>
-         <LESSON_PLAN>
-            <Lesson key="setup"/>
-            <Lesson key="unpack"/>            
-            <Lesson key="oscal-convert"/>
-            <Lesson key="oscal-validate"/>
-            <Lesson key="oscal-publish"/>
-         </LESSON_PLAN>
-      </p:inline>
-   </p:input>
+   <p:input port="source" primary="true" href="lesson-plan.xml"/>
    
    <p:variable name="ox:normalize-uri" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"

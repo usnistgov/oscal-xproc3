@@ -6,11 +6,11 @@
 
 ## Goals
 
-Run an XProc 3.0 pipeline in an XProc 3.0 engine.
+Run an XProc 3.0 pipeline in an XProc 3.0 engine. See the results.
 
-With a little practice, become comfortable running XProc pipelines, seeing results on a console (command-line) window as well as in the file system.
+With a little practice, become comfortable running XProc pipelines, seeing results on a console (command line) window as well as in the file system.
 
-Since pipelines can be used to download resources, after the first script to get the XProc engine, we use XProc. Finishing the setup gets you started practicing with the pipelines.
+After the first script to get the XProc engine, we use XProc for subsequent downloads. Finishing the setup gets you started practicing with the pipelines.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ You have a live Internet connection and the capability to download and save reso
 
 You are comfortable entering commands on the command line. For installation, you want a `bash` shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use `bash`, the setup can be done by hand (downloading and unpacking a package from SourceForge).
 
-After installation, subsequent work on Windows does not require `bash` unless you choose to use it &mdash; a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described in the documentation).
+After installation, subsequent work on Windows does not require `bash` unless you choose to use it &mdash; a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described in the documentation). Mac and LInux (and WSL) users can continue to use `bash`.
 
 ## Resources
 
@@ -71,7 +71,7 @@ The top-level README and setup notes also describe testing your installation. Do
 You know things are working in your XProc when either or both of two things are happening:
 
 * On the console, notifications show up with reassuring messages announcing progress
-* When you expect files to be produced, they appear (or are updated) as expected
+* When you expect files to be produced, they appear, or are updated, as expected
 
 
 Both of those will occur with this lesson. The files produced by downloading scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
@@ -82,13 +82,17 @@ When you can run all the smoke tests without ugly tracebacks, this lesson is com
 
 ## Comments / review
 
-Within the project as a whole, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline.
+Within this project as a whole, and within its subprojects, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline. This simplicity is at the center of the argument for XProc. The counter argument is that the world is never like that. This project is based on the premise that a lab environment can be useful even for studying things more commonly encountered in the real world.
 
-Among other benefits, this makes an XProc-based system largely or entirely platform-independent and portable. And this portability does not require a dedicated environment, only a Java Virtual Machine (JVM).
+Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc offers the user and the developer (in either or both roles) very focused and concentrated points of control or points of adjustment. Out in the field - where software is deployed and used - it may never be like that. User interfaces constrain what users can do, and even developers are rarely free to just mess around, as it might be thought of.
 
-`xp3.sh` and `xp3.bat` are examples of such scripts written for this project. Either of them enables a user to run, without further configuration, the [Morgana XProcIIIse](https://www.xml-project.com/morganaxproc-iiise.html) processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (`bash` in the case of the shell script, Windows batch command syntax for the `bat` file). Other platforms supporting Java (and hence Morgana with its libraries) could be provided with similar scripts. (Pull request opportunity.)
+To the extent this is the case, this project only works if things are actually simple enough to pick up and use.
 
-XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing, both XML-based and using other formats such as JSON and plain text. The scripts in the repo show only one way of running XProc. Keep in mind that even simple scripts can be used in more than one way. 
+`xp3.sh` and `xp3.bat` represent attempts at this. Each of them (on its execution platform) enables a user to run, without further configuration, the [Morgana XProcIIIse](https://www.xml-project.com/morganaxproc-iiise.html) processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (`bash` in the case of the shell script, Windows batch command syntax for the `bat` file). Other platforms supporting Java (and hence Morgana with its libraries) could be provided with similar scripts.
+
+Such a script itself must be &ldquo;vanilla&rdquo; and generic: it simply invokes the processor with the designated pipeline, and stands back. The logic of operations is entirely encapsulated in the XProc pipeline designated. XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing, both XML-based and using other formats such as JSON and plain text. It is the intent of this project not to explore and map this space &mdash; which is vast &mdash; but to show off enough XProc and related logic (XSLT, XSpec) to show how this exploration can be done.
+
+As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple scripts can be used in more than one way. 
 
 For example, a pipeline can be executed from the project root:
 
@@ -114,4 +118,4 @@ Windows users (and others to varying degrees) can set up a drag-and-drop based w
 
 It is important to try things out since any of these methods can be the basis of a workflow. 
 
-For the big picture, also keep in mind that while the command line is useful for development and demonstration, it can be obscure and cryptic. XProc-based systems, when integrated into tools or developer editors and environments, can look much nicer than tracebacks in a console window.
+For the big picture, keep in mind that while the command line is useful for development and demonstration &mdash; and however familiar XProc itself may become to the developer &mdash; to the uninitiated it remains obscure and cryptic. XProc-based systems, when integrated into tools or developer editors and environments, can look much nicer than tracebacks in a console window. The beauty we are looking for here is in a different kind of elegance and power.

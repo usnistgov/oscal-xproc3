@@ -58,6 +58,29 @@ And so we get XPath - a query syntax which permits working with an organized str
 
 A definition for what is a document is out of scope for this tutorial &mdash; an interesting topic but not only a technical one.
 
+## Survey of XProc elements
+
+All elements defined by XProc are listed in this analytical breakout.
+
+TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc RNG?
+
+| Function | XProc elements / p: namespace |
+| Documentation | `p:documentation`, ,  |
+| Top-level | `p:declare-step`, `p:library` |
+| Imports | `p:import`, `p:import-functions` |
+| Prologue | `p:input`, `p:output`, `p:option` |
+| Compound steps | `p:for-each`, `p:viewport`, `p:choose`, `p:when`, `p:otherwise`, `p:if`, `p:group`, `p:try`, `p:catch`, `p:finally`, `p:run`, `p:run-input`, `p:run-option` |
+| Atomic steps - core - XML | `p:add-attribute`, `p:add-xml-base`, `p:delete`, `p:filter`, `p:identity`, `p:insert`, `p:label-elements`, `p:make-absolute-uris`, `p:namespace-delete`, `p:namespace-rename`, `p:pack`, `p:rename`, `p:replace`, `p:set-attributes`, `p:uuid`, `p:unwrap`, `p:wrap-sequence`, `p:wrap`, `p:xinclude`, `p:xquery`, `p:xslt` |
+| Atomic steps - core - zipping | `p:archive`, `p:archive-manifest`, `p:unarchive`, `p:uncompress` |
+| Atomic steps - core - JSON | `p:json-join`, `p:json-merge`, `p:set-properties` |
+| Atomic steps - core - plain text | `p:string-replace`, `p:text-count`, `p:text-head`, `p:text-join`, `p:text-replace`, `p:text-sort`, `p:text-tail` |
+| Atomic steps - core - utility | `p:cast-content-type`, `p:compare`, `p:compress`, `p:count`, `p:error`, `p:hash`, `p:http-request`, `p:load`, `p:sink`, `p:split-sequence`, `p:store`, `p:www-form-urldecode`, `p:www-form-urlencode` |
+| Atomic steps - optional - file system | `p:directory-list`, `p:file-copy`, `p:file-delete`, `p:file-info`, `p:file-mkdir`, `p:file-move`, `p:file-create-tempfile`, `p:file-touch` |
+| Atomic steps - optional - validation | `p:validate-with-nvdl`, `p:validate-with-relax-ng`, `p:validate-with-schematron`, `p:validate-with-xml-schema`, `p:validate-with-json-schema` |
+| Other optional steps | `p:os-info`, `p:os-exec`, `p:css-formatter`, `p:xsl-formatter`, `p:markdown-to-html` |
+| Variable declaration | `p:variable` |
+| Connectors | `p:with-input`, `p:with-option`, `p:pipe`, `p:pipeinfo`, `p:document`, `p:inline`, `p:empty` |
+
 ## XML time line
 
 [TODO: complete this, or move it, or both]

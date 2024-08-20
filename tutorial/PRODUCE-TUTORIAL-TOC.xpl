@@ -6,17 +6,7 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-TUTORIAL-TOC" name="PRODUCE-TUTORIAL-TOC">
 
 
-   <p:input port="source" primary="true">
-      <p:inline>
-         <LESSON_PLAN>
-            <Lesson key="setup"/>
-            <Lesson key="unpack"/>
-            <Lesson key="oscal-convert"/>
-            <Lesson key="oscal-validate"/>
-            <Lesson key="oscal-publish"/>
-         </LESSON_PLAN>
-      </p:inline>
-   </p:input>
+   <p:input port="source" primary="true" href="lesson-plan.xml"/>
    
    <p:output serialization="map{'indent': true(), 'method': 'text' }" sequence="true"/>
    

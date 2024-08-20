@@ -40,13 +40,11 @@ You have done [Setup 101](../setup/setup_101.md), [Setup 102](../setup/setup_101
 
 ### XProc files and XProc steps
 
-An XProc *file* is an XML document instance, which when parsed as XML produces a document rooted at an XProc `p:step-declaration` or `p:library` element (where `p:` identifies the XProc namespace), and otherwise conforms to the rules of XProc syntax.
-
 The *step* is the core conceptual unit of XProc. An XProc processing pipeline is composed of steps. But a pipeline is also considered as a step in itself. As such it can be used in other pipelines, and so on.
 
 In other words, steps in XProc are *compositional*. They are building block assemblies made out of smaller building block assemblies. A step is a way to process data. A pipeline is a way of orchestrating and arranging such processes.
 
-Thus it is also normal when working with XProc to distinguish between pipelines and steps. It is a relative distinction, but important. The pipeline is the logical and actual definition of how your data is to be processed. Every pipeline is composed of an arrangement, often a series, of operations. The definitions - the steps - include &ldquo;primitives&rdquo;, and are designed for generality and reusability to designate and configure these operations. This saves work, focuses optimization, and makes it possible to scale up to address data processing requirement sets that are both large and complex.
+The distinction between pipelines and steps is relative and provisional, but important and useful. The pipeline is the logical and actual definition of how your data is to be processed. Every pipeline is composed of an arrangement, often a series, of operations. The definitions - the steps - include &ldquo;primitives&rdquo;, being designed for generality and reusability for the most common operations. But since a pipeline is also a step, we can always combine more than the primitives or core compound steps of the language. At a higher level, defining new steps with new step declarations, and using them in combination with other steps, is how we manage complexity and change in the requirements. This strategy can support for adaptability while also supporting an 'incremental maturity model', improving with reuse, building and testing over time. Careful use and deployment of new steps is how we save work, by focusing optimization and making it possible to scale up to address data processing requirement sets that are both large and complex.
 
 Accommodating this design, an XProc *file* considered as an XML instance is either of two things: a *step declaration*, or a collection of such declarations, a *library*.
 
@@ -72,29 +70,6 @@ Like any language using XML syntax, XProc depends on a conceptual relation betwe
 In the same way, elements in XProc's XML vocabulary correspond to structures in XProc - structures which developers and users rely on, as they define both the internals and the &ldquo;control interface&rdquo; for the language as a semantic construct - something that &ldquo;does something&rdquo;. In XProc, those structures include things like **documents**, **content-types** (think of &ldquo;formats&rdquo; such as XML and JSON), **ports** and **steps**. Some XProc elements represent steps, others do not. (In the same way as an XSLT key declaration is not a template rule.) Learning this difference among others is how you learn XProc.
 
 Fortunately, the vocabulary of the language is not very large. Core XProc has only 95 elements defined in its namespace (or 99, if you are strictly counting all element types defined, not just the names those elements are given). This includes elements for all the core and community-defined steps (recognizable by the prefix `p:`). Additional to these 95 might be other steps you acquire or define. As with any lanuage, there are parts you will hardly ever use, while other parts are used routinely.
-
-##### Survey of XProc elements
-
-All elements defined by XProc are listed in this analytical breakout.
-
-TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc RNG?
-
-| Function | XProc elements / p: namespace |
-| Documentation | `p:documentation`, ,  |
-| Top-level | `p:declare-step`, `p:library` |
-| Imports | `p:import`, `p:import-functions` |
-| Prologue | `p:input`, `p:output`, `p:option` |
-| Compound steps | `p:for-each`, `p:viewport`, `p:choose`, `p:when`, `p:otherwise`, `p:if`, `p:group`, `p:try`, `p:catch`, `p:finally`, `p:run`, `p:run-input`, `p:run-option` |
-| Atomic steps - core - XML | `p:add-attribute`, `p:add-xml-base`, `p:delete`, `p:filter`, `p:identity`, `p:insert`, `p:label-elements`, `p:make-absolute-uris`, `p:namespace-delete`, `p:namespace-rename`, `p:pack`, `p:rename`, `p:replace`, `p:set-attributes`, `p:uuid`, `p:unwrap`, `p:wrap-sequence`, `p:wrap`, `p:xinclude`, `p:xquery`, `p:xslt` |
-| Atomic steps - core - zipping | `p:archive`, `p:archive-manifest`, `p:unarchive`, `p:uncompress` |
-| Atomic steps - core - JSON | `p:json-join`, `p:json-merge`, `p:set-properties` |
-| Atomic steps - core - plain text | `p:string-replace`, `p:text-count`, `p:text-head`, `p:text-join`, `p:text-replace`, `p:text-sort`, `p:text-tail` |
-| Atomic steps - core - utility | `p:cast-content-type`, `p:compare`, `p:compress`, `p:count`, `p:error`, `p:hash`, `p:http-request`, `p:load`, `p:sink`, `p:split-sequence`, `p:store`, `p:www-form-urldecode`, `p:www-form-urlencode` |
-| Atomic steps - optional - file system | `p:directory-list`, `p:file-copy`, `p:file-delete`, `p:file-info`, `p:file-mkdir`, `p:file-move`, `p:file-create-tempfile`, `p:file-touch` |
-| Atomic steps - optional - validation | `p:validate-with-nvdl`, `p:validate-with-relax-ng`, `p:validate-with-schematron`, `p:validate-with-xml-schema`, `p:validate-with-json-schema` |
-| Other optional steps | `p:os-info`, `p:os-exec`, `p:css-formatter`, `p:xsl-formatter`, `p:markdown-to-html` |
-| Variable declaration | `p:variable` |
-| Connectors | `p:with-input`, `p:with-option`, `p:pipe`, `p:pipeinfo`, `p:document`, `p:inline`, `p:empty` |
 
 #### XProc embedded documentation
 

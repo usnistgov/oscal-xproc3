@@ -7,14 +7,14 @@
 
    <!-- PRODUCE-TUTORIAL-ELEMENTLIST produces an XML file
 
-     Listing each lesson with the XProc elements first used in pipelines for that lesson
-     Along with an index to XProc elements in all the lessons
+     Listing directories in sequence, with the XProc elements first used in pipelines in that directory
+     Along with an index to XProc elements in all directories
      
    -->
 
    <p:input port="source" primary="true">
       <p:inline>
-         <SEQUENCE>
+         <SEQUENCE><!-- should align with lesson-plan.xml -->
             <project dir="../lib"/>
             <project dir="../smoketest"/>
             <project dir="../projects/oscal-convert/"/>
@@ -62,7 +62,9 @@
       <p:delete match="c:directory[@name='lib']/c:directory"/>
       <p:viewport match="c:file">
          <p:variable name="path" select="/*/@path"/>
-         <p:variable name="names" select=" doc($path)//p:*/name() => distinct-values()"/>
+         <p:variable name="names" select="//p:*/name() => distinct-values()">
+            <p:document href="{ $path }"/>
+         </p:variable>
          <!--<p:load href="{$path}" message="[PRODUCE-TUTORIAL-ELEMENTLIST] Loading {$path}"/>-->
          <p:add-attribute attribute-name="elements" attribute-value="{ $names }"/>
       </p:viewport>
@@ -119,9 +121,11 @@
                <xsl:template match="c:directory" expand-text="true">
                   <div>
                      <xsl:element name="h{count(ancestor-or-self::*)}">{ ancestor-or-self::*/@name => string-join('/') }</xsl:element>
-                     <ul>
-                        <xsl:apply-templates select="c:file"/>
-                     </ul>
+                     <xsl:where-populated>
+                        <ul>
+                           <xsl:apply-templates select="c:file"/>
+                        </ul>
+                     </xsl:where-populated>
                      <xsl:apply-templates select="c:directory"/>
                   </div>
                </xsl:template>
@@ -162,9 +166,6 @@
    
    <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
       message="[PRODUCE-TUTORIAL-TOC] [PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>
-   
-   
-   <!--c-->
    
    <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
    
