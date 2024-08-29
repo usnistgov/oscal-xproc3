@@ -11,14 +11,25 @@
 
    <!--<p:output port="tutorial-singlepage" serialization="map{'indent': true() }" sequence="true"/>-->
    
-   <p:input port="source" primary="true" href="lesson-plan.xml"/>
+   <p:input port="source" primary="true">
+      <p:document href="lesson-plan.xml"/>
+      <!--<p:inline>
+      <LESSON_PLAN>
+         <Lesson key="setup"/>
+         <Lesson key="unpack"/>            
+         <Lesson key="oscal-convert"/>
+         <Lesson key="oscal-validate"/>
+         <Lesson key="oscal-publish"/>
+      </LESSON_PLAN>
+      </p:inline>-->
+   </p:input>
    
    <p:variable name="ox:normalize-uri" as="function(*)"  
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
       select="function($u as xs:anyURI) as xs:anyURI { xs:anyURI( replace($u,'^file:///','file:/') ) }"/>
    
    <p:for-each name="lessons">
-      <p:with-input select="descendant::Lesson"/>
+      <p:with-input select="descendant::*:Lesson"/><!-- Lesson map is in no namespace, while currently we are defaulting to XHTML, hence *:Lesson -->
       <p:variable name="lesson-key" select="/*/@key"/>
       <!-- Note use of p:iteration-position to produce a sequence number
            https://spec.xproc.org/master/head/xproc/#f.iteration-position -->

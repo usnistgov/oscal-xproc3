@@ -73,8 +73,7 @@
    
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:assert role="warning" test="base-uri(.) = $listed-uris or comment()[1]/(contains(.,'HALLPASS') and contains(.,'FILESET_XPROC3_HOUSE-RULES.xpl') )">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be? (But expect CI/CD errors if a listed XProc is not also committed to the branch.)</sch:assert>
-         
+         <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or comment()[1]/(contains(.,'HALL PASS') and contains(.,'HOUSE RULES') )">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be? (But expect CI/CD errors if a listed XProc is not also committed to the branch. To exempt, mention BOTH keywords "HALL PASS" and "HOUSE RULES" (upper case)</sch:assert>
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
@@ -145,6 +144,13 @@
             <sqf:title>Assign version 3.0</sqf:title>
          </sqf:description>
          <sqf:add node-type="attribute" select="'3.0'" target="version"/>
+      </sqf:fix>
+      
+      <sqf:fix id="sqf-exempt-from-houserules-check">
+         <sqf:description>
+            <sqf:title>Exempt the file from house rules checking by adding a comment to be removed later.</sqf:title>
+         </sqf:description>
+         <sqf:add match="/*" node-type="comment" select="'&#xa;=+=+=+=+= HOUSE RULES HALL PASS - remove this comment when the file is committed to the repo =+=+=+=+=  '"/>
       </sqf:fix>
       
       <sqf:fix id="sqf-repair-step-type">

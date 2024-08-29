@@ -6,8 +6,6 @@
    type="ox:REPORT-VALIDATION-EXAMPLE"
    name="REPORT-VALIDATION-EXAMPLE">
 
-   <!-- STOP VALIDATION HALLPASS FILESET_XPROC3_HOUSE-RULES.xpl -->
-   
    <p:import href="xsd-validate-catalog.xpl"/>
    
    <p:input port="source" primary="true">

@@ -13,7 +13,7 @@
    <p:variable name="result-md-path" select="resolve-uri('sequence/lesson-sequence.md')"/>
    
    <p:for-each name="lessons">
-      <p:with-input select="descendant::Lesson"/>
+      <p:with-input select="descendant::*:Lesson"/>
       <p:variable name="lesson_key" select="/*/@key"/>
       <!-- Note use of p:iteration-position to produce a sequence number
            https://spec.xproc.org/master/head/xproc/#f.iteration-position -->

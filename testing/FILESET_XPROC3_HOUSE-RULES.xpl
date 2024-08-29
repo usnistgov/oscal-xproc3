@@ -61,6 +61,7 @@
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-OFFSITE.xpl"/>
+      <p:document href="../projects/oscal-validate/REPORT-VALIDATION-EXAMPLE.xpl"/>
       
       <p:document href="../projects/profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
       <p:document href="../projects/profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
