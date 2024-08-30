@@ -33,6 +33,18 @@ Pasted from the document:
 
 > This publication is available at the Army Publishing Directorate (APD) site (https://armypubs.army.mil), and the Central Army Registry site (https://atiam.train.army.mil/catalog/dashboard).
 
+### Why OSCAL
+
+The Field Manual, while a distinctive work with many special and bespoke characteristics, is also *aspiring* to be OSCAL.
+
+The surest sign of this is the series of patterns and structural regularities throughout the document and especially in Chapter 4 - sure indications (as noted explicitly) of "intent" in their organization and composition. What this document describes as *leader requirements*, *attributes* and *capabilities* become controls in OSCAL.
+
+However, if Chapter 4 is a control catalog, the next question is, what is a profile.
+
+As a selection of controls, a profile of FM 6-22 is indeed the "self-cultivation" checklist it describes in paragraph 4-1 and elsewhere, which describes how it is intended "to help individuals identify and prioritize which leader requirements to target for growth" - i.e. a leader requirements *selection* is to be made.
+
+In other words - read the docs. Constructing an OSCAL profile to leverage this catalog remains a tbd.
+
 ### From PDF to HTML - to NISO STS - to OSCAL
 
 Not all PDF is created equal. And multiple ways to produce HTML or other legible forms from PDF sources exist, with varying results.
