@@ -75,9 +75,9 @@
       </p:with-input>
    </p:xslt>
 
-   <p:variable name="xml-legible" select="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   <p:variable name="legible" select="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
    
-   <p:store href="temp/t02.xml" message="Saving extracted chapter 4"  serialization="$xml-legible"/>
+   <p:store href="temp/t02.xml" message="Saving extracted chapter 4"  serialization="$legible"/>
    
    <!-- Now we have content we can restructure - see the XSLTs for the logic -->
    
@@ -90,32 +90,37 @@
       <p:with-input port="stylesheet" href="src/fm22-6_restructure.xsl"/>
    </p:xslt>
    
-   <p:store href="temp/t03_structured.xml" message="Saving chapter 4 re/structured"  serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   <p:store href="temp/t03_structured.xml" message="Saving chapter 4 re/structured"  serialization="$legible"/>
    
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6-html-to-sts.xsl"/>
    </p:xslt>
    
    <!-- This is valid STS, although not yet perfect -->
-   <p:store href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping"  serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   <p:store href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping"  serialization="$legible"/>
    
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance1.xsl"/>
    </p:xslt>
    
    <!-- p is either labeled (enumerated) as in the source, or collected into lists -->
-   <p:store href="temp/t05_sts-corrected.xml" message="STS cleanup" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   <p:store href="temp/t05_sts-corrected.xml" message="STS cleanup" serialization="$legible"/>
    
    
    
-   <!-- enhancements -
+   <!-- further corrections and enhancements -
+          consolidate paragraphs with no target into targeted paragraphs (group-starts-with?)
           cross-references? at least to tables (T|t)able\s+4\-\d\d?
-          remove 'legend' table footer
-          
+          mark up <abbrev> around acronyms replacing "Legend" lines
+          map 'legend' tr into table-footer
+          break out disp-quote in "Employing Leadership Requirements Model Development Activities" box
+        
+        validate STS for consistency?
+          src/fm22-6_chapter4.sch
+          tables
+        
         convert to OSCAL
-        
-        
-          
+
 -->
 
 <!-- Analytic pass: for section, build a table containing cells with each of:

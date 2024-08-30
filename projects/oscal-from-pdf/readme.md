@@ -2,30 +2,28 @@
 
 # OSCAL from PDF
 
-In this project we acquire PDF documents and cast them into OSCAL as best we can.
+In this project we acquire PDF documents and cast them into OSCAL.
 
-Note that most such documents might be as efficiently tagged by hand as corrected by any other means. The goal here is not, however, only to produce an OSCAL version of a given document or information set, but to show how the information may be cast using a *traceable*, *replicable* and *validable*.
+Note that most such documents might be as efficiently tagged by hand as corrected by any other means. The goal here is not, however, only to produce an OSCAL version of a given document or information set, but to show how the information may be cast using a method, and producing results, that are *traceable*, *replicable* and *validable*.
 
 ## Army Field Manual FM 6-22 on Leadership Development, in OSCAL, via NISO STS format
 
-The success of OSCAL is largely due to its excellent demonstration in the form of the OSCAL SP 800-53 - but other catalogs are wanting. (Possibly they exist, but are not shared.) We also want for good examples.
+Project goal: demonstrate OSCAL capabilities by capturing a well-structured and well-described representation of US Army Field Manual 6-22, *Developing Leaders*.
 
-Army Field Manual on Leadership Development FM 6-22, a descendant of FM 22-100 and kindred documents, makes a good example - while also making a good illustration of a means and method to create well-structured XML (OSCAL) data from an uncontrolled source.
+Possibly, the success of OSCAL is partly due to its excellent demonstration in the form of the OSCAL SP 800-53. But if only for demonstration and to test design in deployment, other catalogs are wanting. (Possibly they exist, but are not shared.) We also want for good examples.
 
-(The source in question being, of course, controlled by its authors, just uncontrolled by us. We can discern meaning but we cannot dictate it.)
+Army Field Manual on Leadership Development FM 6-22, a descendant of FM 22-100 and kindred documents, makes such an example - while also making a good illustration of a means and method to create well-structured XML (OSCAL) data from an uncontrolled source.
 
+*The source in question being, of course, controlled by its authors, just uncontrolled by us. We can discern meaning but we cannot dictate it.*
 
-FM 6-22 downloaded from
+FM 6-22 can be downloaded from
 https://rdl.train.army.mil/catalog/#/search?search_terms=FM%206-22
-
 
 Also see Leader Attributes from https://www.moore.army.mil/mcoe/sja/content/pdf/Leader%20Attributes.pdf
 
-Project goal: demonstrate OSCAL capabilities by capturing some structured parts of US Army Field Manual 6-22, *Developing Leaders*.
-
 Even a quick survey of this document shows a great richness and variety of structured data, currently enumerated and tabulated for view (mostly) but not yet queryable.
 
-This is a pity since evidently authors went to great trouble and expense to design and enforce regular patterns, which after being used to "paint" the information, are inaccessible.
+This is a pity since evidently authors went to great trouble and expense to design and enforce regular patterns, which after being used to "paint" the information, are inaccessible and ineffectual.
 
 Tagging in OSCAL or any of a number of other suitable formats would be an easy way to liberate this data.
 
@@ -70,7 +68,6 @@ In particular, the file [temp/t05_sts-corrected.xml](temp/t05_sts-corrected.xml)
 
 View this file using NISO STS Tools such as the [NISO STS Viewer](https://pages.nist.gov/xslt-blender/sts-viewer/).
 
-
 NISO STS makes a good intermediate model for this enhancement, as it
 
 - Presents a comprehensive, retrospective encoding of the document as received, stabilizing a semantic representation, without entanglement in the next task, namely mapping this (or any) semantically adequate representation into OSCAL
@@ -110,8 +107,7 @@ However large, however, this exercise would probably start at the same place, na
 A survey/scan of the entire document suggests that Chapter 4, *Learning and Developmental Activities*, with its extensive tables (especially Tables 4-6 through 4-80), meets these criteria.
 
 It also shows that Chapters 3 and 5 are extremely interesting and challenging as well, inasmuch as they constitute a manuals for how to compose instructions in a structured (written) form. This includes illustrations that amount to screen shots of structured text. Updating such guidelines for the present day (when orders are no longer only printed but may take other forms) is well beyond the scope of this project.
- 
- 
+
 ## Data sources
 
 The PDF data source [can be downloaded from its platform](https://rdl.train.army.mil/catalog-ws/view/100.ATSC/3110F413-E915-47C1-85AA-DD4065C654C3-1274570636396/fm6_22.pdf). It is not being committed to repository.

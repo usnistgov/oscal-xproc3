@@ -20,9 +20,7 @@
       <xsl:apply-templates/>
    </xsl:template>
    
-   <xsl:template match="h2[.=../../h1]">
-      <xsl:message expand-text="true">Cleaning up h2 { . }</xsl:message>
-   </xsl:template>
+   <xsl:template match="h2[.=../../h1]"/>
    
    <xsl:template match="p[string(.) => normalize-space() => not()]"/>
    

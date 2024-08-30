@@ -63,9 +63,7 @@
    
    <xsl:template match="p[.='Learning and Developmental Activities']" priority="20"/>
    
-   <xsl:template match="p[.=preceding-sibling::*[1]]">
-      <xsl:message expand-text="true">Dropping p '{ . }'</xsl:message>
-   </xsl:template>
+   <xsl:template match="p[.=preceding-sibling::*[1]]"/>
    
    <xsl:template match="section">
       <sec>
@@ -82,8 +80,7 @@
          <xsl:apply-templates/>
       </title>
    </xsl:template>
-   
-          
+       
    <xsl:template match="p">
       <p>
          <xsl:for-each select="preceding-sibling::*[1]/self::bullet">
@@ -94,9 +91,7 @@
    </xsl:template>
    
    <xsl:template match="bullet"/>
-   
-   <xsl:template match="body/p[matches(.,'^Table \d\-\d\d?')] | sec/p[matches(.,'^Table \d\-\d\d?')]"/>
-      
+         
    <xsl:template match="table" priority="32" expand-text="true">
       <xsl:variable name="title-p" select="preceding-sibling::*[1]"/>
       <xsl:variable name="tableNo" select="replace($title-p,'(^Table 4\-|\..*$)','')"/>

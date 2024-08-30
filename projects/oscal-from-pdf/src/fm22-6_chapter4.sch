@@ -4,8 +4,8 @@
    
    
    <sch:pattern>
-     <sch:rule context="sec">
-        <sch:assert test="count(table) = 75">We expect to see 75 tables; only <sch:value-of select="count(table)"/> are here</sch:assert>
+     <sch:rule context="body/p | sec/p">
+        <sch:assert test="child::*[1] is child::target[1]">We expect p element to start with a target.</sch:assert>
      </sch:rule>
    
    </sch:pattern>
