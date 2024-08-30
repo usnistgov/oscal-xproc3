@@ -95,7 +95,7 @@
    
    <xsl:template match="bullet"/>
    
-   <xsl:template match="p[matches(.,'^Table \d\-\d\d?')]"/>
+   <xsl:template match="body/p[matches(.,'^Table \d\-\d\d?')] | sec/p[matches(.,'^Table \d\-\d\d?')]"/>
       
    <xsl:template match="table" priority="32" expand-text="true">
       <xsl:variable name="title-p" select="preceding-sibling::*[1]"/>

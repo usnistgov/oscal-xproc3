@@ -75,7 +75,9 @@
       </p:with-input>
    </p:xslt>
 
-   <p:store href="temp/t02.xml" message="Saving extracted chapter 4"  serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   <p:variable name="xml-legible" select="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   
+   <p:store href="temp/t02.xml" message="Saving extracted chapter 4"  serialization="$xml-legible"/>
    
    <!-- Now we have content we can restructure - see the XSLTs for the logic -->
    
@@ -97,25 +99,24 @@
    <!-- This is valid STS, although not yet perfect -->
    <p:store href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping"  serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
    
+   <p:xslt>
+      <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance1.xsl"/>
+   </p:xslt>
+   
+   <!-- p is either labeled (enumerated) as in the source, or collected into lists -->
+   <p:store href="temp/t05_sts-corrected.xml" message="STS cleanup" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   
+   
    
    <!-- enhancements -
-          fix up initial sections (tables, boxes)
-          pull out bulleted paragraphs into lists
-          pull out paragraph numbering into labels?
-          repair boxed-text in section 4.7
           cross-references? at least to tables (T|t)able\s+4\-\d\d?
-          pull together table 5 and any other continued tables (e.g. 4-57, 4-58)
           remove 'legend' table footer
-          boxed text starting with 'Employing Leadership Requirements Model Developmental 
-Activities'
-
+          
         convert to OSCAL
-          Retain tables 1-5 as plain-old tables
-          break numbered sections out into parts
-          separate out a formal part for capabilities / indicators
+        
+        
           
 -->
-   <!-- Next convert into STS, then provide with enhancement / clean up / refactoring --> 
 
 <!-- Analytic pass: for section, build a table containing cells with each of:
    strength_indicators (signs of strength)
