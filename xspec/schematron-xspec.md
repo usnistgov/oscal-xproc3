@@ -37,7 +37,7 @@ sampleXML-.-|embeds or\nreferences|testingXSLT
 
 ## XProc implementation
 
-As depicted, a ready-to-go XSLT (**Compiled XSLT**) imports a ready-to-go XSLT (**Compiled Schematron XSLT** produced using the commodity tool) as if it were a compiled XSpec XSLT importing a target XSLT. In the usual case this is the XSLT under test -- and indeed ordinarly we would run the Schematron by producing and running it. In this case, however, the upstream compiled XSLT does not exist unless the processor compiles the upstream Schematron to produce it. An XSLT that does not exist is difficult to import from another module.
+As depicted, a ready-to-go XSLT (**Compiled XSLT**) imports a ready-to-go XSLT (**Compiled Schematron XSLT** produced using the commodity tool) as if it were a compiled XSpec XSLT importing a target XSLT. In the usual case this is the XSLT under test -- and indeed ordinarily we would run the Schematron by producing and running it. In this case, however, the upstream compiled XSLT does not exist unless the processor compiles the upstream Schematron to produce it. An XSLT that does not exist is difficult to import from another module.
 
 Rather than introduce a file-system or other runtime dependency into XProc - which would 'prefer' to be entirely side-effect-free - the pipeline here modifies the (compiled) XSLT on the fly, replacing its `xsl:import` instruction with the literal templates to be imported. 
 
