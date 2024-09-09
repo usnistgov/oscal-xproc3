@@ -37,7 +37,7 @@ Pasted from the document:
 
 The Field Manual, while a distinctive work with many special and bespoke characteristics, is also *aspiring* to be OSCAL.
 
-The surest sign of this is the series of patterns and structural regularities throughout the document and especially in Chapter 4 - sure indications (as noted explicitly) of "intent" in their organization and composition. What this document describes as *leader requirements*, *attributes* and *capabilities* become controls in OSCAL.
+The surest sign of this is the series of patterns and structural regularities throughout the document and especially in Chapter 4 - indications (as also noted explicitly) of "intent" in their organization and composition. What this document describes as *leader requirements*, *attributes* and *capabilities* become controls in OSCAL.
 
 However, if Chapter 4 is a control catalog, the next question is, what is a profile.
 
@@ -47,7 +47,7 @@ In other words - read the docs. Constructing an OSCAL profile to leverage this c
 
 ### From PDF to HTML - to NISO STS - to OSCAL
 
-Not all PDF is created equal. And multiple ways to produce HTML or other legible forms from PDF sources exist, with varying results.
+Not all PDF is created equal. And multiple ways to produce HTML or other tractable forms from PDF sources exist, with varying results.
 
 Since these tools will change, we don't recommend any, but suggest trying a range and choosing, or choosing based on some other criterion.
 
@@ -65,7 +65,7 @@ Both these steps can be done using XProc 3.0.
 A sequence of transformations reproduces the data set with NISO STS (Standards Tag Suite) markup, with markup errors corrected.
 
 - (Re)structuring where the HTML is flat or broken
-- Improving fidelity and consisteny of representation by:
+- Improving fidelity and consistency of representation by:
   - Repairing broken callout boxes
   - Consolidating partial/broken tables into tables
   - Grouping bulleted items into lists
