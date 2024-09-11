@@ -1,36 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
-   xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:xvrl="http://www.xproc.org/ns/xvrl"
    type="ox:MINIMAL"
-   name="MINIMAL"
-   xmlns="http://www.w3.org/1999/xhtml">
+   name="MINIMAL" xmlns="http://www.w3.org/1999/xhtml">
 
-   
-  <!-- For samples and boilerplate see file ../../projects/xproc-doc/xproc-snippets.xml -->
 
-   <!--<p:output port="schematron-messages" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>-->
+   <!-- For samples and boilerplate see file ../../projects/xproc-doc/xproc-snippets.xml -->
    
-  <p:load href="source/export/fm6_22.html"/>
-   
-   
-   
-  <!--<p:cast-content-type content-type="xml/application"/>-->
-   
-   <!--<p:store href="temp/in_html" message="saving input" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>-->
+   <!--<p:import href="src/xvrl-summarize.xpl"/>-->
+
+   <p:option static="true" name="writing-all" select="false()"/>
    
    
-   <!-- The HTML coming in is poorly and incorrectly structured, with contents crammed into list items
-     even across section boundaries
-     In particular, Chapter 4 starts inside a list item within a purported list that spans across chapters.
+   <p:output port="sts-validation-report" sequence="true"
+      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-sts-validation"/>
+
+   <p:output port="oscal-validation-report" sequence="true"
+      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-validation"/>
+   
+   
+   <!-- Ende Prolog -->
+   
+   <!-- A copy of the following step is also in file src/xvrl-summarize.xpl for import - 
+      here a local declaration is shown  -->
+   
+   <!-- An XSLT is the other obvious way to do this, but XProc! --> 
+   <p:declare-step name="xvrl-summarize" type="ox:xvrl-summarize">
+      <!-- Expecting an xvrl:report or xvrl:NO_REPORT on the primary input port -->
+      <p:input port="xvrl-report" primary="true"/>
+      
+      <p:output port="summary" sequence="true"/>
+      
+      <p:variable name="here" select="resolve-uri('.') => p:urify()"/>
+      <p:variable name="schema" select="/xvrl:report/xvrl:metadata/xvrl:schema/p:urify(@href)"/>
+      <p:variable name="validation-errors" select="//xvrl:detection[@severity=('fatal-error','error')]"/>
+      <p:variable name="error-count" select="count($validation-errors)"/>
+   
+      <p:choose>
+         <p:when test="empty(/xvrl:report)">
+            <p:identity>
+               <p:with-input port="source">
+                  <p:empty/>
+               </p:with-input>
+            </p:identity>
+         </p:when>
+         <p:when test="empty($validation-errors)">
+            <p:identity>
+               <p:with-input port="source">
+                  <p:inline xml:space="preserve">CONGRATULATIONS! No validation errors are reported against { substring-after($schema, $here) }</p:inline>
+               </p:with-input>
+            </p:identity>
+         </p:when>
+         <p:otherwise>
+            <p:identity>
+               <p:with-input port="source">
+                  <p:inline xml:space="preserve">Uhoh . . .        
+Validating result with { $schema } - { $error-count } {
+            if ($error-count eq 1) then 'error' else 'errors' } reported</p:inline>
+               </p:with-input>
+            </p:identity>
+         </p:otherwise>
+      </p:choose>
+   </p:declare-step>
+   
+   <!-- These schemas must be in place for validations to be performed -->
+   <!-- Break these to test pipeline behavior when they are missing  -->
+   <p:variable name="sts-rng" select="'lib/NISO-STS-interchange-1-MathML3-RNG/NISO-STS-interchange-1-mathml3.rng'"/>
+   <p:variable name="oscal-xsd" select="'lib/oscal_catalog_schema.xsd'"/>
+
+   <!-- for data serialization -->
+   <p:variable name="legible" select="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+
+   <!-- Anfangen  -->
+
+   <p:load href="source/export/fm6_22.html"/>
+
+   <!--
+      
+   The HTML coming in is poorly and incorrectly structured, with contents crammed into list items, even across section boundaries.
+       
+   In particular, Chapter 4 starts inside a list item within a purported list that spans across chapters.
    
    A filter deals with this by flattening all lists and marking where list bullets are presumed to appear. -->
-   
+
    <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
-            <xsl:stylesheet version="3.0" xpath-default-namespace="http://www.w3.org/1999/xhtml" exclude-result-prefixes="#all">
+            <xsl:stylesheet version="3.0" xpath-default-namespace="http://www.w3.org/1999/xhtml"
+               exclude-result-prefixes="#all">
                <xsl:mode on-no-match="shallow-copy"/>
                <xsl:template match="ul">
                   <xsl:apply-templates/>
@@ -43,20 +101,11 @@
          </p:inline>
       </p:with-input>
    </p:xslt>
-   
-   <p:store href="temp/t01.html" message="Saving flattened input"  serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
-   
-   <!-- The path /*/body/p[normalize-space() => starts-with('Chapter')]
-   shows that Chapters appear cleanly demarcated by body/p[matches(normalize-space(.),'Chapter \d')]
-   so we will use these as our boundaries for pulling Chapter 4 only -->
 
-   
-   
-   <!--<p:delete match="/*/body/*[/*/body/p[normalize-space()='Chapter 4'] >> .] |
-      /*/body/*[. >> /*/body/p[normalize-space()='Chapter 5']] | /*/body/p[normalize-space()='Chapter 5']"/>-->
-   
-   <!-- Next we drop out everything but Chapter 4 - the above representing an effort to do this in
-        XProc-alone - couldn't get it to work and bothersomely slow -->
+   <p:store use-when="$writing-all" href="temp/t01.html" message="Saving flattened input"
+      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+
+   <!-- Next we drop out everything but Chapter 4 using a crude but effective method on this data set-->
    <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
@@ -67,7 +116,7 @@
                <xsl:variable name="ch5" select="$ch5_head/(. | following-sibling::*)"/>
                <xsl:template match="body">
                   <xsl:copy>
-                    <xsl:apply-templates select="$ch4_head/(. | following-sibling::*) except $ch5"/>
+                     <xsl:apply-templates select="$ch4_head/(. | following-sibling::*) except $ch5"/>
                   </xsl:copy>
                </xsl:template>
             </xsl:stylesheet>
@@ -75,55 +124,126 @@
       </p:with-input>
    </p:xslt>
 
-   <p:variable name="legible" select="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
    
-   <p:store href="temp/t02.xml" message="Saving extracted chapter 4"  serialization="$legible"/>
-   
+   <p:store use-when="$writing-all" href="temp/t02.xml" message="Saving extracted chapter 4"
+      serialization="$legible"/>
+
    <!-- Now we have content we can restructure - see the XSLTs for the logic -->
-   
+
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_structure.xsl"/>
    </p:xslt>
-   
+
    <!-- Now with nested structures, although some collect multiple items (indicated by paragraph numbers) and tables (to be joined) -->
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_restructure.xsl"/>
    </p:xslt>
-   
-   <p:store href="temp/t03_structured.xml" message="Saving chapter 4 re/structured"  serialization="$legible"/>
-   
+
+   <p:store use-when="$writing-all" href="temp/t03_structured.xml" message="Saving chapter 4 re/structured" serialization="$legible"/>
+
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6-html-to-sts.xsl"/>
    </p:xslt>
-   
+
    <!-- This is valid STS, although not yet perfect -->
-   <p:store href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping"  serialization="$legible"/>
-   
+   <p:store use-when="$writing-all" href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping" serialization="$legible"/>
+
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance1.xsl"/>
    </p:xslt>
-   
+
    <!-- p is either labeled (enumerated) as in the source, or collected into lists -->
-   <p:store href="temp/t05_sts-corrected.xml" message="STS cleanup" serialization="$legible"/>
-   
-   
-   
-   <!-- further corrections and enhancements -
-          consolidate paragraphs with no target into targeted paragraphs (group-starts-with?)
-          cross-references? at least to tables (T|t)able\s+4\-\d\d?
-          mark up <abbrev> around acronyms replacing "Legend" lines
-          map 'legend' tr into table-footer
-          break out disp-quote in "Employing Leadership Requirements Model Development Activities" box
-        
-        validate STS for consistency?
-          src/fm22-6_chapter4.sch
-          tables
-        
-        convert to OSCAL
+   <p:store use-when="$writing-all" href="temp/t05_sts-corrected.xml" message="STS fixup" serialization="$legible"/>
 
--->
+   <p:xslt>
+      <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance2.xsl"/>
+   </p:xslt>
 
-<!-- Analytic pass: for section, build a table containing cells with each of:
+   <p:store use-when="$writing-all" href="temp/t06_sts-enhanced.xml" message="STS cleanup" serialization="$legible"/>
+
+   <p:xslt>
+      <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance3.xsl"/>
+   </p:xslt>
+
+   <!-- Saving before we validate, because validation produces a report as primary result-->
+   <p:store name="best-sts" message="Saving STS best-so-far - temp/FM_6-22-STS.xml" href="temp/FM_6-22-STS.xml" serialization="$legible"/>
+
+   <p:choose name="sts-validation">
+      <p:when test="doc-available($sts-rng)">
+         <p:output port="report" pipe="report@sts-rng-validation"/>
+         <p:validate-with-relax-ng assert-valid="false" name="sts-rng-validation"
+            message="Validating STS against RNG schema { $sts-rng }">
+            <p:with-input port="schema">
+               <p:document href="{ $sts-rng }"/>
+            </p:with-input>
+         </p:validate-with-relax-ng>
+      </p:when>
+      <p:otherwise>
+         <p:output port="report" pipe="result@no-rng"/>
+         <p:identity
+            message="Not validating STS - no schema found at { $sts-rng } - try running pipeline GRAB-NISO_STS-RNG.xpl"
+            name="no-rng">
+            <p:with-input port="source">
+               <p:inline>
+                  <NO_REPORT xmlns="http://www.xproc.org/ns/xvrl">Schema { $sts-rng } not found - try running pipeline
+                     GRAB-NISO_STS-RNG.xpl</NO_REPORT>
+               </p:inline>
+            </p:with-input>
+         </p:identity>
+      </p:otherwise>
+   </p:choose>
+
+   <ox:xvrl-summarize name="summarize-sts-validation"/>
+
+   <!-- Now we have STS and have checked it, we can produce OSCAL -->
+
+   <p:xslt>
+      <p:with-input port="source" pipe="result@best-sts"/>
+      <p:with-input port="stylesheet" href="src/fm22-6_sts-to-oscal.xsl"/>
+   </p:xslt>
+
+   <!-- Some whitespace cleanup after XSLT shuffling -->
+   <p:string-replace xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
+      match="o:p/text()[1][empty(preceding-sibling::*)]" replace="replace(.,'^\s+','')"/>
+   
+   <p:store message="Saving OSCAL - temp/FM_6-22-OSCAL.xml" href="temp/FM_6-22-OSCAL.xml" serialization="$legible"/>
+
+   <p:choose name="oscal-validation">
+      <p:when test="doc-available($oscal-xsd)">
+         <p:output port="report" pipe="report@oscal-xsd-validation"/>
+         <p:validate-with-xml-schema assert-valid="false" name="oscal-xsd-validation"
+            message="Validating OSCAL against XSD { $oscal-xsd }">
+            <p:with-input port="schema">
+               <p:document href="{ $oscal-xsd }"/>
+            </p:with-input>
+         </p:validate-with-xml-schema>
+      </p:when>
+      <p:otherwise>
+         <p:output port="report" pipe="result@no-xsd"/>
+         <p:identity message="Not validating OSCAL - no schema found at { $oscal-xsd }" name="no-xsd">
+            <p:with-input port="source">
+               <p:inline>
+                  <NO_REPORT xmlns="http://www.xproc.org/ns/xvrl">Schema { $oscal-xsd } not found - try running pipeline
+                     GRAB-RESOURCES.xpl</NO_REPORT>
+               </p:inline>
+            </p:with-input>
+         </p:identity>
+      </p:otherwise>
+   </p:choose>
+
+   <ox:xvrl-summarize name="summarize-oscal-validation"/>
+
+   <!-- Next, OSCAL -
+   capability tables into OSCAL controls
+     'Evaluation' includes Strength and Need Indicators and Underlying Causes
+     'Capability Growth' includees Feedback, Study and Practice parts
+   
+   main text?
+   
+   -->
+
+
+   <!-- Analytic pass: for section, build a table containing cells with each of:
    strength_indicators (signs of strength)
    need_indicators (lapses / shortfalls)
    underlying_causes (shadow forms, negative projections or inversions)
@@ -136,22 +256,9 @@
         li mismanagement
         split tables
         flat structures / anomalous formatting
-      
-      structure nested sections via implicit headers on p/@class
-      validate these against tables pulled from Table 4-4 and Table 4-5
         
-      The plan is to start with the tables for each 
-      These are the regularities we expect from these tables:
-   We should see tables 4-6 through 4-80 in total (75 tables)
-   tr 1 leads with "Strength Indicators" in td[1] and "Need Indicators" in td[2]
-   tr 2 has two cells
-   tr 3 spans two columns, reading "underlying causes"
-   tr 4 / count(td) = 1
-   tr 5 / td[1] reads 'Feedback'
-   row 5 / td[2] reads 'Study'
-   row 5 / td[3] reads 'Practice'
-   each of tr[5] has count(td)=2-->
-   
+-->
+
    <!--<p:validate-with-schematron assert-valid="true" name="table-check"
       message="Checking chapter 4 table integrity in data capture ...">
       <p:with-input port="schema" href="src/fm22-6_chapter4.sch"/>
@@ -160,5 +267,5 @@
    <p:identity name="schematron-messages">
       <p:with-input port="source" pipe="report@table-check"/>
    </p:identity>-->
-   
+
 </p:declare-step>

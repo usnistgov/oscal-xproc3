@@ -84,7 +84,7 @@
    <xsl:template match="p">
       <p>
          <xsl:for-each select="preceding-sibling::*[1]/self::bullet">
-            <xsl:attribute name="style-type">bulleted</xsl:attribute>
+            <xsl:attribute name="style-type">bullet</xsl:attribute>
          </xsl:for-each>
          <xsl:apply-templates/>
       </p>

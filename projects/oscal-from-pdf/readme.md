@@ -69,44 +69,46 @@ A sequence of transformations reproduces the data set with NISO STS (Standards T
   - Repairing broken callout boxes
   - Consolidating partial/broken tables into tables
   - Grouping bulleted items into lists
+  - Making spot corrections
 
-Etc. Details can be traced in the [XProc pipeline file extract-FM6_22-chapter4.xpl](extract-FM6_22-chapter4.xpl).
+The last category includes a number of tactical interventions to correct or enhance encoding where the text has been wrongly or inadequately tagged at earlier stages - note that these changes all serve to *reveal* not *hide* the original, and in every case the XSLT documents unambiguously any changes being made.
+
+Details can be traced in the [XProc pipeline file extract-FM6_22-chapter4.xpl](extract-FM6_22-chapter4.xpl).
 
 The result is Chapter 4 *only* in a correct and harmonious STS encoding.
 
-As currently configured (still in development) this pipeline writes results - intermediate as well as final - to the [temp](temp) directory.
-
-In particular, the file [temp/t05_sts-corrected.xml](temp/t05_sts-corrected.xml) in that directory (produced by the pipeline) is valid NIST STS XML.
+As currently configured (still in development) this pipeline writes results - intermediate as well as final - to the [temp](temp) directory. Using a 'diff' tool on any consecutive pair of files here shows the changes made by the transformation that produces the later from the earlier.
 
 View this file using NISO STS Tools such as the [NISO STS Viewer](https://pages.nist.gov/xslt-blender/sts-viewer/).
 
 NISO STS makes a good intermediate model for this enhancement, as it
-
-- Presents a comprehensive, retrospective encoding of the document as received, stabilizing a semantic representation, without entanglement in the next task, namely mapping this (or any) semantically adequate representation into OSCAL
+- Presents a comprehensive, retrospective encoding of the document as received, stabilizing a semantic representation, without entanglement in the related but different problem of mapping this (or any) semantically adequate representation into OSCAL
 - Can be inspected, tested and validated on the way through, including with bespoke validation, STS display tools and other methods
-- Produces a useful spin-off artifact (the STS instance itself)
+- Produces a useful spin-off artifact: the STS instance itself
 
 With a clean STS representation of the document in hand, casting into OSCAL will be straightforward.
 
 The main advantages of this stepwise process are in transparencey and traceability, duplicability, and debuggability.
 
+#### NISO STS quality check
+
+If it is adequate in its semantic description, we should be able to validate the h*ck out of the data in its STS form. (This is circular reasoning: if it is invalid, we call it inadequate.)
+
+The constraint set we use to assert this validation is in three tiers:
+
+1. NISO STS validation - the pipeline [GRAB-NISO_STS-RNG.xpl](GRAB-NISO_STS-RNG.xpl) acquires a copy of an RNG schema for this purpose
+1. Schematron validation - house rules (NIST RLM) - see [src/sts-check.sch](src/sts-check.sch)
+1. Schematron validation - bespoke rules asserting regularities for this instance - see [src/fm22-6_chapter4.sch](src/fm22-6_chapter4.sch)
+   Note: this Schematron is used to report errors and anomalies in sources or intermediate STS files that are then remediated in subsequent phases
 
 #### NISO STS to OSCAL
 
-TODO: this is where we pause ...
+- Tables 4-6 and on (the 'competency tables') become controls with parts
+- The narrative sequence is dropped into its own free-flowing OSCAL (nested parts)
+
+TODO: Schematron and check internal cross-referencing
 
 OSCAL will be free-form text (with links) followed by a control sequence
-
-The XProc to perform this conversion is *TBD*
-
-keep section sequence replacing tables with links to control structures - competency/attribute/component
-          
-drill all the way to part[@class='item'] with line items
-        create control structures for tables 4-6 - 4-80
-        
-Retain tables 1-5 as plain-old tables
-          break numbered sections out into parts
-          separate out a formal part for capabilities / indicators
 
 ### Initial planning and survey
 
