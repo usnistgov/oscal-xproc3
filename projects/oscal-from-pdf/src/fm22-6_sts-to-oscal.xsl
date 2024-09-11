@@ -22,7 +22,7 @@
             <version>0.8 draft</version>
             <oscal-version>1.1.2</oscal-version>
             <remarks>
-               <p>This encoded representation of Field Manual 6-22 was produced from published source <em>without explicit authorization from</em> or <em>any coordination with</em> the document's originators or the US Army. Reliance on this representation without reference to the publication from which it is derived is not advised.</p>
+               <p>This encoded representation of Field Manual 6-22 was produced from published source <em>without explicit authorization from</em> the US Army or its representatives, and uncoordinated with the document's originators. While we have done our best to represent the document contents accurately, reliance on this representation without reference to the publication from which it is derived is not advised.</p>
                <p>See the repository readme for further documentation.</p>
             </remarks>
          </metadata>
@@ -32,17 +32,18 @@
          </group>
          <group id="attributes">
             <title>Attributes</title>
-            <xsl:apply-templates select="body/descendant::table-wrap[@custom-type = 'attribute']"
-               mode="competency-controls"/>
+            <xsl:apply-templates mode="competency-controls"
+               select="body/descendant::table-wrap[@custom-type = 'attribute']">
+               <xsl:with-param name="class">attribute</xsl:with-param>
+            </xsl:apply-templates>
          </group>
          <group id="competencies">
             <title>Competencies</title>
-            <xsl:apply-templates select="body/descendant::table-wrap[@custom-type = 'competency']"
-               mode="competency-controls"/>
+            <xsl:apply-templates mode="competency-controls"
+               select="body/descendant::table-wrap[@custom-type = 'competency']"/>
          </group>
       </catalog>
    </xsl:template>
-
 
    <xsl:template match="front"/>
    
@@ -156,7 +157,7 @@
    <xsl:key name="by-id" match="*[exists(@id)]" use="@id"/>
    
    <xsl:template match="table-wrap" mode="competency-controls" expand-text="true">
-      <xsl:variable name="class" select="if (@id = key('by-id','table4_4')//td/p/xref/@rid) then 'attribute' else 'competency'"/>
+      <xsl:param name="class">competency</xsl:param>
       <control id="{ @id }" class="{ $class }">
          <title>{ caption/title/normalize-space() }</title>
          <prop name="category"    value="{ ox:category-for-control(@id/string(.)) }"/>

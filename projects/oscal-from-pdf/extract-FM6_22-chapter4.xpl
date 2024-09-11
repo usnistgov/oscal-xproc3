@@ -2,6 +2,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:xvrl="http://www.xproc.org/ns/xvrl"
+   xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
    type="ox:MINIMAL"
    name="MINIMAL" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -18,6 +19,9 @@
 
    <p:output port="oscal-validation-report" sequence="true"
       serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-validation"/>
+   
+   <p:output port="oscal-schematron-report" sequence="true"
+      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-schematron"/>
    
    
    <!-- Ende Prolog -->
@@ -57,6 +61,42 @@
                <p:with-input port="source">
                   <p:inline xml:space="preserve">Uhoh . . .        
 Validating result with { $schema } - { $error-count } {
+            if ($error-count eq 1) then 'error' else 'errors' } reported</p:inline>
+               </p:with-input>
+            </p:identity>
+         </p:otherwise>
+      </p:choose>
+   </p:declare-step>
+   
+   <p:declare-step name="svrl-summarize" type="ox:svrl-summarize">
+      <!-- Expecting an svrl:report on the primary input port -->
+      <p:input port="svrl-report" primary="true"/>
+      
+      <p:output port="summary" sequence="true"/>
+      
+      <p:variable name="validation-errors" select="//svrl:failed-assert | //svrl:successful-report"/>
+      <p:variable name="error-count" select="count($validation-errors)"/>
+      
+      <p:choose>
+         <!--<p:when test="empty(/svrl:report)">
+            <p:identity>
+               <p:with-input port="source">
+                  <p:empty/>
+               </p:with-input>
+            </p:identity>
+         </p:when>-->
+         <p:when test="empty($validation-errors)">
+            <p:identity>
+               <p:with-input port="source">
+                  <p:inline xml:space="preserve">CONGRATULATIONS! No validation errors are reported from Schematron checking OSCAL</p:inline>
+               </p:with-input>
+            </p:identity>
+         </p:when>
+         <p:otherwise>
+            <p:identity>
+               <p:with-input port="source">
+                  <p:inline xml:space="preserve">Uhoh . . .        
+Validating result with Schematron - { $error-count } {
             if ($error-count eq 1) then 'error' else 'errors' } reported</p:inline>
                </p:with-input>
             </p:identity>
@@ -206,7 +246,7 @@ Validating result with { $schema } - { $error-count } {
    <p:string-replace xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
       match="o:p/text()[1][empty(preceding-sibling::*)]" replace="replace(.,'^\s+','')"/>
    
-   <p:store message="Saving OSCAL - temp/FM_6-22-OSCAL.xml" href="temp/FM_6-22-OSCAL.xml" serialization="$legible"/>
+   <p:store name="oscal" message="Saving OSCAL - temp/FM_6-22-OSCAL.xml" href="temp/FM_6-22-OSCAL.xml" serialization="$legible"/>
 
    <p:choose name="oscal-validation">
       <p:when test="doc-available($oscal-xsd)">
@@ -223,8 +263,7 @@ Validating result with { $schema } - { $error-count } {
          <p:identity message="Not validating OSCAL - no schema found at { $oscal-xsd }" name="no-xsd">
             <p:with-input port="source">
                <p:inline>
-                  <NO_REPORT xmlns="http://www.xproc.org/ns/xvrl">Schema { $oscal-xsd } not found - try running pipeline
-                     GRAB-RESOURCES.xpl</NO_REPORT>
+                  <NO_REPORT xmlns="http://www.xproc.org/ns/xvrl">Schema { $oscal-xsd } not found - try running pipeline GRAB-RESOURCES.xpl</NO_REPORT>
                </p:inline>
             </p:with-input>
          </p:identity>
@@ -233,39 +272,13 @@ Validating result with { $schema } - { $error-count } {
 
    <ox:xvrl-summarize name="summarize-oscal-validation"/>
 
-   <!-- Next, OSCAL -
-   capability tables into OSCAL controls
-     'Evaluation' includes Strength and Need Indicators and Underlying Causes
-     'Capability Growth' includees Feedback, Study and Practice parts
-   
-   main text?
-   
-   -->
-
-
-   <!-- Analytic pass: for section, build a table containing cells with each of:
-   strength_indicators (signs of strength)
-   need_indicators (lapses / shortfalls)
-   underlying_causes (shadow forms, negative projections or inversions)
-   feedback
-   study
-   practice -->
-
-   <!--
-      Problems with HTML in include
-        li mismanagement
-        split tables
-        flat structures / anomalous formatting
-        
--->
-
-   <!--<p:validate-with-schematron assert-valid="true" name="table-check"
-      message="Checking chapter 4 table integrity in data capture ...">
-      <p:with-input port="schema" href="src/fm22-6_chapter4.sch"/>
+   <p:validate-with-schematron assert-valid="false" name="schematron-validator">
+      <p:with-input port="source" pipe="result@oscal"/>
+      <p:with-input port="schema" href="src/oscal-check.sch"/>
    </p:validate-with-schematron>
    
-   <p:identity name="schematron-messages">
-      <p:with-input port="source" pipe="report@table-check"/>
-   </p:identity>-->
-
+   <ox:svrl-summarize name="summarize-oscal-schematron">
+      <p:with-input port="svrl-report" pipe="report@schematron-validator"/>
+   </ox:svrl-summarize>
+   
 </p:declare-step>

@@ -11,6 +11,7 @@
    
    <sch:pattern>
       <sch:rule context="oscal:a[starts-with(@href,'#')]">
+         
          <sch:assert test="key('xref',@href) => exists()">Internal link href='<sch:value-of select="@href"/>' has no target</sch:assert>
       </sch:rule>
    </sch:pattern>
