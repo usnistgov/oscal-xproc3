@@ -145,3 +145,42 @@ Output files will be written to your file system.
 
 These will be HTML, Markdown or (possible even) PDF depending on the pipeline.
 
+## TBD
+
+- Usage notes ('data', 'schemas')
+- Informatics context
+  - Data security and information exchange
+  - Legal and commercial aspects (contracting)
+  - Breadth of domains
+  - Breadth of forms within domains
+  - Deterministic processes
+    - validation, testing, replication, proof, scoping
+    - esp in context of untrustworthy agents
+    - requirement for 'high touch' sources
+- XML and document interchange / markup-based standards (externalities)
+   - HTML
+   - NISO STS
+   - OSCAL
+   - (TEI, DITA etc.)
+- FM 6-22
+   - A richly formatted document
+   - A control catalog
+
+Iterative process of analysis and implementation
+
+Using automation technologies to do hand work
+
+The purpose of the technology here is to stabilize and expose the process to tracing and testing, not necessarily to scale up. Because all interventions made against the data of any kind are codified in the form of programs (stylesheets), they can also be reviewed, altered, verified - or altered and applied again.
+
+The goal being to migrate information 'without loss' from one form to another, taking as a given that many forms are possible and that what constitutes 'loss' and even 'information' will vary by context.
+
+In any case, moving our information from one format to another, we seek to discard what is inessential and expose what is essential.
+
+PDF -> HTML using COTS software
+HTML -> NISO STS (cf Piez/Balisage)
+NISO STS -> OSCAL
+OSCAL -> HTML and print
+
+The end result should be 'nice data' - that is, tidy, legible, consistent and reasonably concise *enabling* encoding for this information set, suitable for exposing it for reuse in a variety of potential applications.
+
+HTML-based, STS-based and OSCAL-based applications are all conceivable with Field Manual 6-22 as a core data set.

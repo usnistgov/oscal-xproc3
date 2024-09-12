@@ -4,24 +4,29 @@
    xmlns:xvrl="http://www.xproc.org/ns/xvrl"
    xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
    type="ox:MINIMAL"
-   name="MINIMAL" xmlns="http://www.w3.org/1999/xhtml">
+   name="MINIMAL">
 
 
    <!-- For samples and boilerplate see file ../../projects/xproc-doc/xproc-snippets.xml -->
    
-   <!--<p:import href="src/xvrl-summarize.xpl"/>-->
+   <p:import href="src/validation-summarize.xpl"/>
 
-   <p:option static="true" name="writing-all" select="false()"/>
+   <p:option name="writing-all" static="true" select="false()"/>
    
    
-   <p:output port="sts-validation-report" sequence="true"
-      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-sts-validation"/>
+   <p:output port="validation-reports" sequence="true"
+      serialization="map{'omit-xml-declaration': true(), 'method': 'text', 'indent': true() }">
+      <!--<p:pipe step="summarize-sts-validation" port="summary"/>
+      <p:pipe step="summarize-oscal-validation" port="summary"/>
+      <p:pipe step="summarize-oscal-schematron" port="summary"/>-->
+            
+   </p:output>
 
-   <p:output port="oscal-validation-report" sequence="true"
+   <!--<p:output port="oscal-validation-report" sequence="true"
       serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-validation"/>
    
    <p:output port="oscal-schematron-report" sequence="true"
-      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-schematron"/>
+      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-schematron"/>-->
    
    
    <!-- Ende Prolog -->
@@ -30,8 +35,8 @@
       here a local declaration is shown  -->
    
    <!-- An XSLT is the other obvious way to do this, but XProc! --> 
-   <p:declare-step name="xvrl-summarize" type="ox:xvrl-summarize">
-      <!-- Expecting an xvrl:report or xvrl:NO_REPORT on the primary input port -->
+   <!--<p:declare-step name="xvrl-summarize" type="ox:xvrl-summarize">
+      <!-\- Expecting an xvrl:report or xvrl:NO_REPORT on the primary input port -\->
       <p:input port="xvrl-report" primary="true"/>
       
       <p:output port="summary" sequence="true"/>
@@ -52,24 +57,23 @@
          <p:when test="empty($validation-errors)">
             <p:identity>
                <p:with-input port="source">
-                  <p:inline xml:space="preserve">CONGRATULATIONS! No validation errors are reported against { substring-after($schema, $here) }</p:inline>
+                     <message>CONGRATULATIONS! No validation errors are reported against { substring-after($schema, $here) }</message>
                </p:with-input>
             </p:identity>
          </p:when>
          <p:otherwise>
             <p:identity>
                <p:with-input port="source">
-                  <p:inline xml:space="preserve">Uhoh . . .        
-Validating result with { $schema } - { $error-count } {
-            if ($error-count eq 1) then 'error' else 'errors' } reported</p:inline>
+                  <message>Uhoh . . . Validating result with { $schema } - { $error-count } {
+            if ($error-count eq 1) then 'error' else 'errors' } reported</message>
                </p:with-input>
             </p:identity>
          </p:otherwise>
       </p:choose>
-   </p:declare-step>
+   </p:declare-step>-->
    
-   <p:declare-step name="svrl-summarize" type="ox:svrl-summarize">
-      <!-- Expecting an svrl:report on the primary input port -->
+   <!--<p:declare-step name="svrl-summarize" type="ox:svrl-summarize">
+      <!-\- Expecting an svrl:report on the primary input port -\->
       <p:input port="svrl-report" primary="true"/>
       
       <p:output port="summary" sequence="true"/>
@@ -78,31 +82,30 @@ Validating result with { $schema } - { $error-count } {
       <p:variable name="error-count" select="count($validation-errors)"/>
       
       <p:choose>
-         <!--<p:when test="empty(/svrl:report)">
+         <!-\-<p:when test="empty(/svrl:report)">
             <p:identity>
                <p:with-input port="source">
                   <p:empty/>
                </p:with-input>
             </p:identity>
-         </p:when>-->
+         </p:when>-\->
          <p:when test="empty($validation-errors)">
             <p:identity>
                <p:with-input port="source">
-                  <p:inline xml:space="preserve">CONGRATULATIONS! No validation errors are reported from Schematron checking OSCAL</p:inline>
+                     <message>CONGRATULATIONS! No validation errors are reported from Schematron checking OSCAL</message>
                </p:with-input>
             </p:identity>
          </p:when>
          <p:otherwise>
             <p:identity>
                <p:with-input port="source">
-                  <p:inline xml:space="preserve">Uhoh . . .        
-Validating result with Schematron - { $error-count } {
-            if ($error-count eq 1) then 'error' else 'errors' } reported</p:inline>
+                  <message>Uhoh . . .  Validating result with Schematron - { $error-count } {
+            if ($error-count eq 1) then 'error' else 'errors' } reported</message>
                </p:with-input>
             </p:identity>
          </p:otherwise>
       </p:choose>
-   </p:declare-step>
+   </p:declare-step>-->
    
    <!-- These schemas must be in place for validations to be performed -->
    <!-- Break these to test pipeline behavior when they are missing  -->
@@ -134,7 +137,7 @@ Validating result with Schematron - { $error-count } {
                   <xsl:apply-templates/>
                </xsl:template>
                <xsl:template match="li">
-                  <bullet/>
+                  <bullet  xmlns="http://www.w3.org/1999/xhtml"/>
                   <xsl:apply-templates/>
                </xsl:template>
             </xsl:stylesheet>
@@ -206,7 +209,7 @@ Validating result with Schematron - { $error-count } {
    </p:xslt>
 
    <!-- Saving before we validate, because validation produces a report as primary result-->
-   <p:store name="best-sts" message="Saving STS best-so-far - temp/FM_6-22-STS.xml" href="temp/FM_6-22-STS.xml" serialization="$legible"/>
+   <p:store name="best-sts" message="SAVING STS best-so-far - temp/FM_6-22-STS.xml" href="temp/FM_6-22-STS.xml" serialization="$legible"/>
 
    <p:choose name="sts-validation">
       <p:when test="doc-available($sts-rng)">
@@ -225,28 +228,65 @@ Validating result with Schematron - { $error-count } {
             name="no-rng">
             <p:with-input port="source">
                <p:inline>
-                  <NO_REPORT xmlns="http://www.xproc.org/ns/xvrl">Schema { $sts-rng } not found - try running pipeline
-                     GRAB-NISO_STS-RNG.xpl</NO_REPORT>
+                  <ox:message>Schema { $sts-rng } not found - try running pipeline
+                     GRAB-NISO_STS-RNG.xpl</ox:message>
                </p:inline>
             </p:with-input>
          </p:identity>
       </p:otherwise>
    </p:choose>
 
-   <ox:xvrl-summarize name="summarize-sts-validation"/>
+   <ox:validation-summarize name="summarize-sts-validation">
+      <p:with-option name="doc-name" select="'the STS result'"/>
+      <p:with-option name="schema-name" select="$sts-rng"/>
+   </ox:validation-summarize>
 
    <!-- Now we have STS and have checked it, we can produce OSCAL -->
 
+   <!-- The pipeline source reaches back to the 'best-sts' step for its input -->
    <p:xslt>
       <p:with-input port="source" pipe="result@best-sts"/>
       <p:with-input port="stylesheet" href="src/fm22-6_sts-to-oscal.xsl"/>
    </p:xslt>
 
+   <p:store use-when="$writing-all" name="oscalized-sts" message="Saving OSCAL - temp/t16_oscalized.xml" href="temp/t16_oscalized.xml" serialization="$legible"/>
+   
    <!-- Some whitespace cleanup after XSLT shuffling -->
    <p:string-replace xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
       match="o:p/text()[1][empty(preceding-sibling::*)]" replace="replace(.,'^\s+','')"/>
    
-   <p:store name="oscal" message="Saving OSCAL - temp/FM_6-22-OSCAL.xml" href="temp/FM_6-22-OSCAL.xml" serialization="$legible"/>
+   <p:string-replace xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
+      match="text()" replace="replace(.,'\(starting on page 4-4\)','')"/>
+   
+   <p:string-replace xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
+      match="text()" replace="replace(.,' on page 4\-\d\d?','')"/>
+   
+   <p:xslt name="oscal-whitespace">
+      <p:with-input port="stylesheet">
+         <p:inline expand-text="false">
+            <xsl:stylesheet version="3.0" xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
+               <xsl:mode on-no-match="shallow-copy"/>
+               <xsl:template match="*" expand-text="true">
+                  <xsl:variable name="indent">{ ancestor::*/'  ' => string-join('') }</xsl:variable>
+                  <xsl:text>{ parent::element()/'&#xA;' }{ $indent }</xsl:text>
+                  <xsl:copy>
+                     <xsl:copy-of select="@*"/>
+                     <xsl:apply-templates/>
+                     <xsl:if test="exists(child::*) and empty((.|..)/child::text()[matches(.,'\S')])">&#xA;{ $indent }</xsl:if>
+                  </xsl:copy>
+               </xsl:template>
+               <xsl:template match="*[../child::text()[matches(.,'\S')] => exists() ]">
+                  <xsl:copy>
+                     <xsl:copy-of select="@*"/>
+                     <xsl:apply-templates/>
+                  </xsl:copy>
+               </xsl:template>
+            </xsl:stylesheet>
+         </p:inline>
+      </p:with-input>
+   </p:xslt>
+   
+   <p:store name="oscal" message="SAVING OSCAL - temp/FM_6-22-OSCAL.xml" href="temp/FM_6-22-OSCAL.xml"/>
 
    <p:choose name="oscal-validation">
       <p:when test="doc-available($oscal-xsd)">
@@ -263,22 +303,42 @@ Validating result with Schematron - { $error-count } {
          <p:identity message="Not validating OSCAL - no schema found at { $oscal-xsd }" name="no-xsd">
             <p:with-input port="source">
                <p:inline>
-                  <NO_REPORT xmlns="http://www.xproc.org/ns/xvrl">Schema { $oscal-xsd } not found - try running pipeline GRAB-RESOURCES.xpl</NO_REPORT>
+                  <ox:message>Schema { $oscal-xsd } not found - try running pipeline GRAB-RESOURCES.xpl</ox:message>
                </p:inline>
             </p:with-input>
          </p:identity>
       </p:otherwise>
    </p:choose>
 
-   <ox:xvrl-summarize name="summarize-oscal-validation"/>
+   <ox:validation-summarize name="summarize-oscal-validation">
+      <p:with-option name="doc-name"    select="'the OSCAL result'"/>
+      <p:with-option name="schema-name" select="$oscal-xsd"/>
+   </ox:validation-summarize>
 
    <p:validate-with-schematron assert-valid="false" name="schematron-validator">
       <p:with-input port="source" pipe="result@oscal"/>
       <p:with-input port="schema" href="src/oscal-check.sch"/>
    </p:validate-with-schematron>
    
-   <ox:svrl-summarize name="summarize-oscal-schematron">
-      <p:with-input port="svrl-report" pipe="report@schematron-validator"/>
-   </ox:svrl-summarize>
+   <ox:validation-summarize name="summarize-oscal-schematron">
+      <p:with-input port="validation-report" pipe="report@schematron-validator"/>
+      <p:with-option name="doc-name"    select="'the OSCAL result'"/>
+      <p:with-option name="schema-name" select="'src/oscal-check.sch'"/>
+   </ox:validation-summarize>
    
+   <p:wrap-sequence wrapper="REPORTS" name="validation-reports">
+      <p:with-input port="source">
+         <p:pipe step="summarize-sts-validation"   port="summary"/>
+         <p:pipe step="summarize-oscal-validation" port="summary"/>
+         <p:pipe step="summarize-oscal-schematron" port="summary"/>
+      </p:with-input>
+   </p:wrap-sequence>
+   
+   <p:insert match="ox:message" position="before">
+      <p:with-input port="insertion">
+         <p:inline>&#xA;</p:inline>
+      </p:with-input>
+   </p:insert>
+   
+   <p:namespace-delete prefixes="c xsl svrl ox xvrl"/>
 </p:declare-step>

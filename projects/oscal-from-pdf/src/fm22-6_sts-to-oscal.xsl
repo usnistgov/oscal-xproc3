@@ -13,19 +13,9 @@
 
    <xsl:template match="/processing-instruction()"/>
    
-   <xsl:template match="/*">
-      
-      <catalog uuid="27d2b146-2a4b-4a4e-9562-f18564b77b5c">
-         <metadata>
-            <title>Electronic Transcription - US Army Field Manual 6-22: Developing Leaders (November 2022) - Chapter 4: Learning and Developmental Activities</title>
-            <last-modified>2024-09-10T15:19:38.6995852-04:00</last-modified>
-            <version>0.8 draft</version>
-            <oscal-version>1.1.2</oscal-version>
-            <remarks>
-               <p>This encoded representation of Field Manual 6-22 was produced from published source <em>without explicit authorization from</em> the US Army or its representatives, and uncoordinated with the document's originators. While we have done our best to represent the document contents accurately, reliance on this representation without reference to the publication from which it is derived is not advised.</p>
-               <p>See the repository readme for further documentation.</p>
-            </remarks>
-         </metadata>
+   <xsl:template match="/*">      
+      <catalog uuid="3f6dfe83-7241-4619-a253-185e530a35ac">
+         <xsl:call-template name="metadata-block"/>
          <group id="full-text">
             <title>Learning and Developmental Activities</title>
             <xsl:apply-templates/>
@@ -43,6 +33,45 @@
                select="body/descendant::table-wrap[@custom-type = 'competency']"/>
          </group>
       </catalog>
+   </xsl:template>
+   
+   <xsl:template name="metadata-block">
+      <metadata>
+         <title>Electronic Transcription - US Army Field Manual 6-22: Developing Leaders (November 2022) - Chapter 4: Learning and Developmental Activities</title>
+         <last-modified>2024-09-10T15:19:38.6995852-04:00</last-modified>
+         <version>0.9 draft</version>
+         <oscal-version>1.1.2</oscal-version>
+         <role id="creator">
+            <title>Document Creator</title>
+         </role>
+         <role id="contact">
+            <title>Contact</title>
+         </role>
+         <party uuid="1cbbb30d-fb20-44ba-830a-c7ff821a7616" type="organization">
+            <name>XSLT Initiative, OSCAL Project (Open Security Controls Assessment Language)</name>
+            <link rel="repository" href="https://github.com/usnistgov/oscal-xproc3"/>
+            <email-address>xslt-interest@nist.gov</email-address>
+            <address>
+               <addr-line>National Institute of Standards and Technology</addr-line>
+               <addr-line>Attn: Computer Security Division 773-03</addr-line>
+               <addr-line>Information Technology Laboratory</addr-line>
+               <addr-line>100 Bureau Drive (Mail Stop 8930)</addr-line>
+               <city>Gaithersburg</city>
+               <state>MD</state>
+               <postal-code>20899-8930</postal-code>
+            </address>
+         </party>
+         <responsible-party role-id="creator">
+            <party-uuid>1cbbb30d-fb20-44ba-830a-c7ff821a7616</party-uuid>
+         </responsible-party>
+         <responsible-party role-id="contact">
+            <party-uuid>1cbbb30d-fb20-44ba-830a-c7ff821a7616</party-uuid>
+         </responsible-party>
+         <remarks>
+            <p>This encoded representation of <b>Field Manual 6-22</b> was produced from published sources independently of the document's originators, <em>without explicit authorization</em> from the US Army or its representatives. While we have done our best to represent the document contents accurately, reliance on this representation without reference to the publication from which it is derived is not advised.</p>
+            <p>See the <a href="https://github.com/usnistgov/oscal-xproc3">repository</a> for further information on the project and how we tested the fidelity of the transcription.</p>
+         </remarks>
+      </metadata>
    </xsl:template>
 
    <xsl:template match="front"/>
@@ -117,8 +146,39 @@
    <xsl:template match="table-wrap">
       <part id="{@id}" name="directory">
          <xsl:apply-templates select="caption, label"/>
+         
+         <xsl:if test="@id=('table4_4','table4_5')" expand-text="true">
+            <xsl:variable name="control-key">{ if (contains(caption/title,'attribute')) then 'attribute' else 'competency' }</xsl:variable>
+            <xsl:processing-instruction name="directory"> //control[@class='{ $control-key }'] by prop[@name=('category','subcategory')]</xsl:processing-instruction>
+         </xsl:if>
          <xsl:apply-templates select="* except (caption | label)"/>         
       </part>
+   </xsl:template>
+   
+   <xsl:template match="table-wrap[@id='table4_2']">
+      <part id="{@id}" name="directory">
+         <xsl:apply-templates select="caption, label"/>
+         <xsl:call-template name="pivot-table4_2">
+            <xsl:with-param name="rows" select="table/tbody/(tr except tr[1])"/>
+         </xsl:call-template>
+                  
+      </part>
+   </xsl:template>
+   
+      
+   <xsl:template name="pivot-table4_2" expand-text="true">
+      <xsl:param name="rows" as="element(tr)*"/>
+      <xsl:for-each-group select="$rows" group-starting-with="tr[count(td) eq 3]">
+         <part name="activity">
+            <title>{ ./td[1] }</title>
+            <xsl:for-each select="current-group() except .">
+               <part name="option">
+                  <title>{ td[1] }</title>
+                  <p>{ td[2]}</p>
+               </part>
+            </xsl:for-each>
+         </part>
+      </xsl:for-each-group>
    </xsl:template>
    
    <xsl:template match="boxed-text">
