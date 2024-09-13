@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>101: Producing OSCAL from a publication format</title>
+   </head>
+   <body>
+      <h1>101: Producing OSCAL from a publication format</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Learn how high-quality XML can be produced from uncontrolled source data, in this case an HTML file (web
+            page) produced by a commodity tool (Adobe Acrobat) from a publicly-available PDF document. The example
+            document is US Army Field Manual (FM) 6-22, edition of 2022: <b>Developing Leaders</b>. Its Chapter 4 in
+            particular offers a well-structured data set rich in what is called <q>semantics</q> - while that term is
+            not here defined - or at least arguably shows a vivid instance of how electronic forms of expression (XML,
+            markup) can make it possible to translate semantics, however defined, into applications.</p>
+         <p>Observe how a deterministic data processing framework can be tuned or programmed to resolve anomalies in
+               <q>bad inputs</q> (but not so bad), producing a well-formatted, cleanly encoded edition at a higher level
+            of quality and capability, using a traceable and verifiable process.</p>
+         <p>Along the way, learn something about XProc, XSLT transformations, XML, NISO STS format (a standard encoding
+            for supporting publication in electronic formats), OSCAL, US Army field manuals and documentation, and the
+            focus of FM 6-22: Leadership and leadership development.</p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+         <p>You are familiar with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set
+            for this application, in its <a
+               href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">final PDF
+            revision</a>.</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>This unit relies on the <a href="../../../projects/oscal-publish/readme.md">oscal-publish project</a> in
+            this repository, with its files. Like other projects this one may have installation or setup pipelines to
+            run.</p>
+         <p>Additionally if you have your own OSCAL to bring, especially OSCAL catalogs, bring them along.</p>
+         <p><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">SP  800-53 rev 5
+               (PDF)</a> is an essential reference.</p>
+      </section>
+      <section>
+         <h2>Step one: acquire resources</h2>
+         <p>As usual, the project contains pipelines to be used to acquire copies of resources, placing them in the
+            project lib directory . These may include dependencies for steps in the pipeline (read details in the <a
+               href="oscal-produce_102_src.html">102 lesson</a>) so it is a good idea to run them all.</p>
+         <p>These include a pipeline that copies the PDF original from which the HTML input (next step) was derived,
+            using a COTS (commercial off-the-shelf) tool. Inspect and read this PDF to see what the upstream data looks
+            like - and get a sense of what the data set looks like when the structures are <q>painted</q> on the
+            page.</p>
+         <p>The extraction and mapping focuses on Chapter 4 only of this document. Learn more about FM 6-22,
+               <i>Developing Leaders</i> in <a href="../../../projects/oscal-from-pdf/readme.md">the project
+            readme</a>.</p>
+      </section>
+      <section>
+         <h2>Step two (to skip): produce HTML</h2>
+         <p>For this exercise, we have already produced HTML from the PDF source: find it cached as an <a
+               href="../../../projects/oscal-from-pdf/source/export/fm6_22.html">input file in the project folder</a>.
+            Next to it is <a href="../../../projects/oscal-from-pdf/source/export/fm6_22_e.html">a copy with whitespace
+               added for legibility</a>, which may be easier to inspect.</p>
+         <p><i>Do not delete, replace, rename or alter this file</i>, as all the subsequent processing is tuned
+            specifically to it, its internal organization and regularities and anomalies. Another process input - even
+            an HTML file showing the <q>same text</q> - is highly unlikely to deliver acceptable results from the
+            pipeline. This is an important factor to keep in mind when considering the scalability of the exercise here.
+            It does not require less expertise than producing the original document (in some respects it requires
+            more).</p>
+         <p>For some data sets, however, and especially if the exercise can also be used advantageously in other ways -
+            that is, beyond its considerabl eimpacts on the availability and utility of the information - even a bespoke
+            transformation pipeline such as this can be useful. This occurs mainly when the source document is of such
+            high quality and consisteny instrinsically, that exposing its semantics via a rational and explicable text
+            encoding - a standards-based, platform- and application-independent encoding - such as OSCAL - becomes
+            attractive for the <i>leverage</i> it gives over the information. In FM 6-22 Chapter 4, we have exactly such
+            a document, which fits well into standards-based documentary formats such as NISO STS and, eventually,
+            OSCAL.</p>
+         <p>Because PDF is relatively opaque, extracting data from a PDF file with format intact is not a trivial
+            exercise. Even tools designed, sold and supported by the proprietors of PDF format (Adobe, Inc.) are able at
+            best to create outputs that <i>appear</i> to present the document with its organization and information
+            intact, if rendered on screen with an appropriate tool (in the case of HTML, a web browser). In so doing it
+            may meet a low baseline of functional requirement - the document is legible - while failing to meet others,
+            and in particular the requirements we have for clean and well-structured data fit for reuse in a broad range
+            of scenarios and applications, not only page production.</p>
+         <p>Indeed this HTML file makes an excellent example of the kind of rather-poor encoding produced by a
+            market-leading HTML export utility. Experts in data conversion might find other ways to make better encoding
+            from the PDF - a task out of scope for us. (As we are not trying to optimize but only to demonstrate the
+            methods applied.) This HTML is good enough, and that is what is often available.</p>
+         <p>The pipeline to be run in the next step starts by loading <a
+               href="../../../projects/oscal-from-pdf/source/export/fm6_22.html">source/export/fm6_22.html</a> - do not
+            rename, move or alter this file, or expect errors!</p>
+      </section>
+      <section>
+         <h2>Step three: run the pipeline</h2>
+      </section>
+      <section>
+         <h2>Step four (optional): run the pipeline in diagnostic mode</h2>
+      </section>
+   </body>
+</html>

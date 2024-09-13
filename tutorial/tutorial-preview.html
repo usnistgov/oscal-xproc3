@@ -371,6 +371,90 @@
                   <h2>Step two: edit and adjust</h2>
                </div>
             </div>
+            <div class="unit">
+               <h1>102: Publishing OSCAL</h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Step One: any old OSCAL catalog</h2>
+               </div>
+               <div>
+                  <h2>Step Two: publishing OSCAL JSON</h2>
+               </div>
+            </div>
+         </div>
+         <div class="lesson">
+            <div class="unit">
+               <h1>101: Producing OSCAL from a publication format</h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Step one: acquire resources</h2>
+               </div>
+               <div>
+                  <h2>Step two (to skip): produce HTML</h2>
+               </div>
+               <div>
+                  <h2>Step three: run the pipeline</h2>
+               </div>
+               <div>
+                  <h2>Step four (optional): run the pipeline in diagnostic mode</h2>
+               </div>
+            </div>
+            <div class="unit">
+               <h1>102: Producing OSCAL from uncooked data</h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Step one: run the pipeline in diagnostic mode</h2>
+               </div>
+               <div>
+                  <h2>Step two: survey the pipeline steps</h2>
+                  <div>
+                     <h3>feature: step by step <q>up the hill</q>
+                     </h3>
+                  </div>
+                  <div>
+                     <h3>feature: saving intermediate files conditionally</h3>
+                  </div>
+                  <div>
+                     <h3>feature: inline and out-of-line XSLT transformations</h3>
+                  </div>
+                  <div>
+                     <h3>feature: validations on the fly</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step 2.5: Inspect the STS version</h2>
+               </div>
+               <div>
+                  <h2>Step three: break and repair</h2>
+               </div>
+               <div>
+                  <h2>Step four: research XSLT</h2>
+               </div>
+            </div>
          </div>
       </div>
       <section class="lesson"
@@ -2095,6 +2179,77 @@
             <section>
                <h2>Prerequisites</h2>
                <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+               <p>You are acquainted with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set
+            for this application, in its <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">final PDF
+            revision</a>.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>This unit relies on the <a href="../../../projects/oscal-publish/readme.md">oscal-publish project</a> in
+            this repository, with its files. Like other projects this one may have installation or setup pipelines to
+            run.</p>
+               <p>Additionally if you have your own OSCAL to <q>print</q>, especially OSCAL catalogs, bring it along.</p>
+               <p>
+                  <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">SP  800-53 rev 5
+               (PDF)</a> is an essential reference.</p>
+            </section>
+            <section>
+               <h2>Step one: produce HTML</h2>
+            </section>
+            <section>
+               <h2>Step two: edit and adjust</h2>
+            </section>
+         </section>
+         <section class="unit"
+                  id="oscal-publish_102">
+            <h1>102: Publishing OSCAL</h1>
+            <section>
+               <h2>Goals</h2>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>Run the pipelines described in <a href="oscal-publish_101_src.html">the 101 Lesson</a>
+               </p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Like the <a href="oscal-publish_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-publish/readme.md">oscal-from-pdf project</a> in this repo.</p>
+               <p>Publishing your own OSCAL in these pipelines is also worth trying - the worst they can do is fail. Bring
+            OSCAL, especially OSCAL catalogs.</p>
+               <p>OSCAL JSON catalogs can be accommodated by splicing together a conversion pipeline with a publishing
+            pipeline, as described in the exercise.</p>
+            </section>
+            <section>
+               <h2>Step One: any old OSCAL catalog</h2>
+            </section>
+            <section>
+               <h2>Step Two: publishing OSCAL JSON</h2>
+            </section>
+         </section>
+      </section>
+      <section class="lesson"
+               id="oscal-produce">
+         <section class="unit"
+                  id="oscal-produce_101">
+            <h1>101: Producing OSCAL from a publication format</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn how high-quality XML can be produced from uncontrolled source data, in this case an HTML file (web
+            page) produced by a commodity tool (Adobe Acrobat) from a publicly-available PDF document. The example
+            document is US Army Field Manual (FM) 6-22, edition of 2022: <b>Developing Leaders</b>. Its Chapter 4 in
+            particular offers a well-structured data set rich in what is called <q>semantics</q> - while that term is
+            not here defined - or at least arguably shows a vivid instance of how electronic forms of expression (XML,
+            markup) can make it possible to translate semantics, however defined, into applications.</p>
+               <p>Observe how a deterministic data processing framework can be tuned or programmed to resolve anomalies in
+               <q>bad inputs</q> (but not so bad), producing a well-formatted, cleanly encoded edition at a higher level
+            of quality and capability, using a traceable and verifiable process.</p>
+               <p>Along the way, learn something about XProc, XSLT transformations, XML, NISO STS format (a standard encoding
+            for supporting publication in electronic formats), OSCAL, US Army field manuals and documentation, and the
+            focus of FM 6-22: Leadership and leadership development.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You have succeeded in prior exercises, including tools installation and setup.</p>
                <p>You are familiar with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set
             for this application, in its <a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf">final PDF
             revision</a>.</p>
@@ -2110,10 +2265,174 @@
                (PDF)</a> is an essential reference.</p>
             </section>
             <section>
-               <h2>Step one: produce HTML</h2>
+               <h2>Step one: acquire resources</h2>
+               <p>As usual, the project contains pipelines to be used to acquire copies of resources, placing them in the
+            project lib directory . These may include dependencies for steps in the pipeline (read details in the <a href="oscal-produce_102_src.html">102 lesson</a>) so it is a good idea to run them all.</p>
+               <p>These include a pipeline that copies the PDF original from which the HTML input (next step) was derived,
+            using a COTS (commercial off-the-shelf) tool. Inspect and read this PDF to see what the upstream data looks
+            like - and get a sense of what the data set looks like when the structures are <q>painted</q> on the
+            page.</p>
+               <p>The extraction and mapping focuses on Chapter 4 only of this document. Learn more about FM 6-22,
+               <i>Developing Leaders</i> in <a href="../../../projects/oscal-from-pdf/readme.md">the project
+            readme</a>.</p>
             </section>
             <section>
-               <h2>Step two: edit and adjust</h2>
+               <h2>Step two (to skip): produce HTML</h2>
+               <p>For this exercise, we have already produced HTML from the PDF source: find it cached as an <a href="../../../projects/oscal-from-pdf/source/export/fm6_22.html">input file in the project folder</a>.
+            Next to it is <a href="../../../projects/oscal-from-pdf/source/export/fm6_22_e.html">a copy with whitespace
+               added for legibility</a>, which may be easier to inspect.</p>
+               <p>
+                  <i>Do not delete, replace, rename or alter this file</i>, as all the subsequent processing is tuned
+            specifically to it, its internal organization and regularities and anomalies. Another process input - even
+            an HTML file showing the <q>same text</q> - is highly unlikely to deliver acceptable results from the
+            pipeline. This is an important factor to keep in mind when considering the scalability of the exercise here.
+            It does not require less expertise than producing the original document (in some respects it requires
+            more).</p>
+               <p>For some data sets, however, and especially if the exercise can also be used advantageously in other ways -
+            that is, beyond its considerabl eimpacts on the availability and utility of the information - even a bespoke
+            transformation pipeline such as this can be useful. This occurs mainly when the source document is of such
+            high quality and consisteny instrinsically, that exposing its semantics via a rational and explicable text
+            encoding - a standards-based, platform- and application-independent encoding - such as OSCAL - becomes
+            attractive for the <i>leverage</i> it gives over the information. In FM 6-22 Chapter 4, we have exactly such
+            a document, which fits well into standards-based documentary formats such as NISO STS and, eventually,
+            OSCAL.</p>
+               <p>Because PDF is relatively opaque, extracting data from a PDF file with format intact is not a trivial
+            exercise. Even tools designed, sold and supported by the proprietors of PDF format (Adobe, Inc.) are able at
+            best to create outputs that <i>appear</i> to present the document with its organization and information
+            intact, if rendered on screen with an appropriate tool (in the case of HTML, a web browser). In so doing it
+            may meet a low baseline of functional requirement - the document is legible - while failing to meet others,
+            and in particular the requirements we have for clean and well-structured data fit for reuse in a broad range
+            of scenarios and applications, not only page production.</p>
+               <p>Indeed this HTML file makes an excellent example of the kind of rather-poor encoding produced by a
+            market-leading HTML export utility. Experts in data conversion might find other ways to make better encoding
+            from the PDF - a task out of scope for us. (As we are not trying to optimize but only to demonstrate the
+            methods applied.) This HTML is good enough, and that is what is often available.</p>
+               <p>The pipeline to be run in the next step starts by loading <a href="../../../projects/oscal-from-pdf/source/export/fm6_22.html">source/export/fm6_22.html</a> - do not
+            rename, move or alter this file, or expect errors!</p>
+            </section>
+            <section>
+               <h2>Step three: run the pipeline</h2>
+            </section>
+            <section>
+               <h2>Step four (optional): run the pipeline in diagnostic mode</h2>
+            </section>
+         </section>
+         <section class="unit"
+                  id="oscal-produce_102">
+            <h1>102: Producing OSCAL from uncooked data</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn about the internals of an XML-based data extraction and mapping process, an <q>uphill data
+               conversion</q>.</p>
+               <p>Get a chance to see how XSLT gives XProc a way to address conversion at appropriate levels of scale and
+            abstraction.</p>
+               <p>See an example of how an XProc pipeline can integrate validation to provide runtime quality-assurance and
+            regression testing.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>Run the pipelines described in <a href="oscal-produce_101_src.html">the 101 Lesson</a>
+               </p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Like the <a href="oscal-produce_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-from-pdf/readme.md">oscal-from-pdf project</a> in this repo.</p>
+            </section>
+            <section>
+               <h2>Step one: run the pipeline in diagnostic mode</h2>
+            </section>
+            <section>
+               <h2>Step two: survey the pipeline steps</h2>
+               <section>
+                  <h3>feature: step by step <q>up the hill</q>
+                  </h3>
+                  <p>XProc is well suited for supporting an incremental development process based on an analysis/improvement
+               loop. One at a time, we isolate operations to perform on the incoming data to refashion it - renaming and
+               sometimes restructuring - into a more clearly encoded representation, closer to the goal of valid and
+               high-quality OSCAL.</p>
+                  <p>Keeping the operations isolated in separate transformations has important opportunities. We can</p>
+                  <ul>
+                     <li>Save out interim representations for inspection and validation (formal or informal)</li>
+                     <li>Isolate sub-processes for specialized requirements (micro-structures)</li>
+                     <li>Produce and persist (save out) any useful interim representation as a process by-product valuable in
+                  its own right</li>
+                  </ul>
+                  <p>As it happens, the document example here is easier to convert into OSCAL if we convert into NISO STS
+               format first. This gives us a good separation of concerns between producing any adequate semantic
+               representation (in principle, irrespective of vocabulary) and producing a final and optimized OSCAL
+               representation. Using NISO STS saves our having to invent a <q>bespoke</q> interim vocabulary, or use
+               HTML, for this purpose, while introducing rigor. So our pipeline has two main parts:</p>
+                  <ul>
+                     <li>Convert raw text into running NISO STS format (clean up, fix up, mapping)</li>
+                     <li>Convert NISO STS into OSCAL (refactoring)</li>
+                  </ul>
+                  <p>And when we map it out in detail:</p>
+                  <ul>
+                     <li>Convert HTML into NISO STS</li>
+                     <li>Save (valid or invalid)</li>
+                     <li>Validate against STS schema (QA check)</li>
+                     <li>Convert STS into OSCAL</li>
+                     <li>Save (valid or invalid)</li>
+                     <li>Validate against OSCAL schema and rules (QA checks)</li>
+                     <li>Report all validation results</li>
+                  </ul>
+                  <p>Thus we can expect our runtime to deliver three outputs:</p>
+                  <ul>
+                     <li>An XML file representing the document, nominally in NISO STS format</li>
+                     <li>An XML file representing the document, nominally in OSCAL format</li>
+                     <li>Validation results in the console: <q>All clear</q> or <q>Uhoh, please check</q> if validation errors
+                  were reported</li>
+                  </ul>
+                  <p>Specific validation errors are not, however, reported, only the summary finding. To see validation
+               errors, run the files with a validator or pipeline that reports them (see projects <a href="../../../projects/oscal-validate/readme.md">oscal-validate project</a>
+                     <a href="../../../projects/schema-field-tests/readme.md">oscal</a> ). Depending on the validation
+               technology being used - XML Schema (XSD), RelaxNG, Schematron or other - this can be done in a variety of
+               ways using commodity tools.</p>
+                  <p>As Step One also shows, the end-to-end process is not only robust (providing its own QA checks), it is
+               also traceable, replicable (on the same inputs) and adaptable (for similar inputs), as it captures and
+               codifies what an analyst learns about the incoming data, making this knowledge accessible and
+               reusable.</p>
+                  <p>Having a valid NISO STS instance as a <q>side effect</q> of this process also means we are saved the work
+               of mapping it back down from OSCAL into STS, if for any reason an STS version is wanted.</p>
+               </section>
+               <section>
+                  <h3>feature: saving intermediate files conditionally</h3>
+               </section>
+               <section>
+                  <h3>feature: inline and out-of-line XSLT transformations</h3>
+               </section>
+               <section>
+                  <h3>feature: validations on the fly</h3>
+                  <p>As described, the pipeline also validates its outputs on the fly and reports summary findings for these
+               processes. Summary findings are judged to be enough since the particular validation errors are not always
+               actionable, while when they are, they are also easy to determine by other means. (Validate the file
+               implicated using a different pipeline or tool.)</p>
+                  <p>In this implementation, these checks are provided fail-safes in case a user has failed to run pipelines
+               to acquire schemas required for validation. Missing one of these resources results not in an error or
+               process failure, but a warning that validation has not been performed.</p>
+                  <p>Alternatively to downloading and securing these dependeny resource, a user always has the option of
+               rewriting the pipeline to use a different resource or do something altogether different.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Step 2.5: Inspect the STS version</h2>
+               <p>This repository is devoted to OSCAL, but inasmuch as OSCAL comes in an XML format, it also plays well with
+            other XML-based formats such as DITA, TEI or NISO STS (a member of the NISO JATS family). In this
+            application, NISO STS or NISO BITS both offer credible alternatives for representing the document in
+            machine-readable form. Moreover - what is most interesting and important - such an encoding (we have chosen
+            STS as it is used elsewhere in our agency) is somewhat easier to produce than OSCAL. This is because OSCAL,
+            while very flexible in some respects, provides rigor in other respects especially with regard to document
+            structures: it demands and rewards regularity, not structural variation, among its parts. Field Manual 6-22
+            Chapter 4 is interesting in that it presents such regularity, but only implicitly by way of formatting
+            conventions. STS can represent these conventional forms as given, without refactoring.</p>
+               <p>This difference is easily appreciated by comparing the two variants.</p>
+               <p>To display an STS document in a browser for reference or proofreading, an STS application such as the <a href="https://pages.nist.gov/xslt-blender/sts-viewer/">NIST/ITL/CSD STS Viewer</a> can be useful.</p>
+            </section>
+            <section>
+               <h2>Step three: break and repair</h2>
+            </section>
+            <section>
+               <h2>Step four: research XSLT</h2>
             </section>
          </section>
       </section>

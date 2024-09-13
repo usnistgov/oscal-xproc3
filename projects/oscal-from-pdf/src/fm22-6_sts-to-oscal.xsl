@@ -41,8 +41,8 @@
          <last-modified>2024-09-10T15:19:38.6995852-04:00</last-modified>
          <version>0.9 draft</version>
          <oscal-version>1.1.2</oscal-version>
-         <role id="creator">
-            <title>Document Creator</title>
+         <role id="encoder">
+            <title>Document encoder</title>
          </role>
          <role id="contact">
             <title>Contact</title>
@@ -61,7 +61,7 @@
                <postal-code>20899-8930</postal-code>
             </address>
          </party>
-         <responsible-party role-id="creator">
+         <responsible-party role-id="encoder">
             <party-uuid>1cbbb30d-fb20-44ba-830a-c7ff821a7616</party-uuid>
          </responsible-party>
          <responsible-party role-id="contact">

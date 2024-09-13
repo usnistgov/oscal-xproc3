@@ -20,6 +20,7 @@
             <project dir="../projects/oscal-convert/"/>
             <project dir="../projects/oscal-validate/"/>
             <project dir="../projects/oscal-publish/"/>
+            <project dir="../projects/oscal-from-pdf/"/>
             <project dir="../projects/profile-resolution/"/>
             <project dir="../projects/xproc-doc/"/>
          </SEQUENCE>

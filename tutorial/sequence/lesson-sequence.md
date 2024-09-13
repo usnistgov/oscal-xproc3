@@ -29,3 +29,10 @@
 ### Lesson unit 05
 
 * [101: Some OSCAL publishing](Lesson05/oscal-publish_101.md)
+* [102: Publishing OSCAL](Lesson05/oscal-publish_102.md)
+
+
+### Lesson unit 06
+
+* [101: Producing OSCAL from a publication format](Lesson06/oscal-produce_101.md)
+* [102: Producing OSCAL from uncooked data](Lesson06/oscal-produce_102.md)

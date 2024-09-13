@@ -15,97 +15,7 @@
    
    
    <p:output port="validation-reports" sequence="true"
-      serialization="map{'omit-xml-declaration': true(), 'method': 'text', 'indent': true() }">
-      <!--<p:pipe step="summarize-sts-validation" port="summary"/>
-      <p:pipe step="summarize-oscal-validation" port="summary"/>
-      <p:pipe step="summarize-oscal-schematron" port="summary"/>-->
-            
-   </p:output>
-
-   <!--<p:output port="oscal-validation-report" sequence="true"
-      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-validation"/>
-   
-   <p:output port="oscal-schematron-report" sequence="true"
-      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" pipe="summary@summarize-oscal-schematron"/>-->
-   
-   
-   <!-- Ende Prolog -->
-   
-   <!-- A copy of the following step is also in file src/xvrl-summarize.xpl for import - 
-      here a local declaration is shown  -->
-   
-   <!-- An XSLT is the other obvious way to do this, but XProc! --> 
-   <!--<p:declare-step name="xvrl-summarize" type="ox:xvrl-summarize">
-      <!-\- Expecting an xvrl:report or xvrl:NO_REPORT on the primary input port -\->
-      <p:input port="xvrl-report" primary="true"/>
-      
-      <p:output port="summary" sequence="true"/>
-      
-      <p:variable name="here" select="resolve-uri('.') => p:urify()"/>
-      <p:variable name="schema" select="/xvrl:report/xvrl:metadata/xvrl:schema/p:urify(@href)"/>
-      <p:variable name="validation-errors" select="//xvrl:detection[@severity=('fatal-error','error')]"/>
-      <p:variable name="error-count" select="count($validation-errors)"/>
-   
-      <p:choose>
-         <p:when test="empty(/xvrl:report)">
-            <p:identity>
-               <p:with-input port="source">
-                  <p:empty/>
-               </p:with-input>
-            </p:identity>
-         </p:when>
-         <p:when test="empty($validation-errors)">
-            <p:identity>
-               <p:with-input port="source">
-                     <message>CONGRATULATIONS! No validation errors are reported against { substring-after($schema, $here) }</message>
-               </p:with-input>
-            </p:identity>
-         </p:when>
-         <p:otherwise>
-            <p:identity>
-               <p:with-input port="source">
-                  <message>Uhoh . . . Validating result with { $schema } - { $error-count } {
-            if ($error-count eq 1) then 'error' else 'errors' } reported</message>
-               </p:with-input>
-            </p:identity>
-         </p:otherwise>
-      </p:choose>
-   </p:declare-step>-->
-   
-   <!--<p:declare-step name="svrl-summarize" type="ox:svrl-summarize">
-      <!-\- Expecting an svrl:report on the primary input port -\->
-      <p:input port="svrl-report" primary="true"/>
-      
-      <p:output port="summary" sequence="true"/>
-      
-      <p:variable name="validation-errors" select="//svrl:failed-assert | //svrl:successful-report"/>
-      <p:variable name="error-count" select="count($validation-errors)"/>
-      
-      <p:choose>
-         <!-\-<p:when test="empty(/svrl:report)">
-            <p:identity>
-               <p:with-input port="source">
-                  <p:empty/>
-               </p:with-input>
-            </p:identity>
-         </p:when>-\->
-         <p:when test="empty($validation-errors)">
-            <p:identity>
-               <p:with-input port="source">
-                     <message>CONGRATULATIONS! No validation errors are reported from Schematron checking OSCAL</message>
-               </p:with-input>
-            </p:identity>
-         </p:when>
-         <p:otherwise>
-            <p:identity>
-               <p:with-input port="source">
-                  <message>Uhoh . . .  Validating result with Schematron - { $error-count } {
-            if ($error-count eq 1) then 'error' else 'errors' } reported</message>
-               </p:with-input>
-            </p:identity>
-         </p:otherwise>
-      </p:choose>
-   </p:declare-step>-->
+      serialization="map{'omit-xml-declaration': true(), 'method': 'text', 'indent': true() }"/>
    
    <!-- These schemas must be in place for validations to be performed -->
    <!-- Break these to test pipeline behavior when they are missing  -->
@@ -113,7 +23,7 @@
    <p:variable name="oscal-xsd" select="'lib/oscal_catalog_schema.xsd'"/>
 
    <!-- for data serialization -->
-   <p:variable name="legible" select="map{'indent' : true(), 'omit-xml-declaration': true() }"/>
+   <p:variable name="indented" select="map{'indent' : true() }"/>
 
    <!-- Anfangen  -->
 
@@ -167,9 +77,8 @@
       </p:with-input>
    </p:xslt>
 
-   
    <p:store use-when="$writing-all" href="temp/t02.xml" message="Saving extracted chapter 4"
-      serialization="$legible"/>
+      serialization="$indented"/>
 
    <!-- Now we have content we can restructure - see the XSLTs for the logic -->
 
@@ -182,34 +91,34 @@
       <p:with-input port="stylesheet" href="src/fm22-6_restructure.xsl"/>
    </p:xslt>
 
-   <p:store use-when="$writing-all" href="temp/t03_structured.xml" message="Saving chapter 4 re/structured" serialization="$legible"/>
+   <p:store use-when="$writing-all" href="temp/t03_structured.xml" message="Saving chapter 4 re/structured" serialization="$indented"/>
 
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6-html-to-sts.xsl"/>
    </p:xslt>
 
    <!-- This is valid STS, although not yet perfect -->
-   <p:store use-when="$writing-all" href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping" serialization="$legible"/>
+   <p:store use-when="$writing-all" href="temp/t04_sts-rough.xml" message="STS conversion - simple mapping" serialization="$indented"/>
 
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance1.xsl"/>
    </p:xslt>
 
    <!-- p is either labeled (enumerated) as in the source, or collected into lists -->
-   <p:store use-when="$writing-all" href="temp/t05_sts-corrected.xml" message="STS fixup" serialization="$legible"/>
+   <p:store use-when="$writing-all" href="temp/t05_sts-corrected.xml" message="STS fixup" serialization="$indented"/>
 
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance2.xsl"/>
    </p:xslt>
 
-   <p:store use-when="$writing-all" href="temp/t06_sts-enhanced.xml" message="STS cleanup" serialization="$legible"/>
+   <p:store use-when="$writing-all" href="temp/t06_sts-enhanced.xml" message="STS cleanup" serialization="$indented"/>
 
    <p:xslt>
       <p:with-input port="stylesheet" href="src/fm22-6_sts-enhance3.xsl"/>
    </p:xslt>
 
    <!-- Saving before we validate, because validation produces a report as primary result-->
-   <p:store name="best-sts" message="SAVING STS best-so-far - temp/FM_6-22-STS.xml" href="temp/FM_6-22-STS.xml" serialization="$legible"/>
+   <p:store name="best-sts" message="SAVING STS best-so-far - temp/FM_6-22-STS.xml" href="temp/FM_6-22-STS.xml" serialization="$indented"/>
 
    <p:choose name="sts-validation">
       <p:when test="doc-available($sts-rng)">
@@ -249,7 +158,7 @@
       <p:with-input port="stylesheet" href="src/fm22-6_sts-to-oscal.xsl"/>
    </p:xslt>
 
-   <p:store use-when="$writing-all" name="oscalized-sts" message="Saving OSCAL - temp/t16_oscalized.xml" href="temp/t16_oscalized.xml" serialization="$legible"/>
+   <p:store use-when="$writing-all" name="oscalized-sts" message="Saving OSCAL - temp/t16_oscalized.xml" href="temp/t16_oscalized.xml" serialization="$indented"/>
    
    <!-- Some whitespace cleanup after XSLT shuffling -->
    <p:string-replace xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
@@ -334,6 +243,7 @@
       </p:with-input>
    </p:wrap-sequence>
    
+   <!-- Adding a bit of whitespace so a 'text method' serialization looks okay. -->
    <p:insert match="ox:message" position="before">
       <p:with-input port="insertion">
          <p:inline>&#xA;</p:inline>

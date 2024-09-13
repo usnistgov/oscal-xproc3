@@ -33,9 +33,17 @@ Pasted from the document:
 
 > This publication is available at the Army Publishing Directorate (APD) site (https://armypubs.army.mil), and the Central Army Registry site (https://atiam.train.army.mil/catalog/dashboard).
 
+### This document
+
+FM 6-22 is coordinated with [ADP 6-22]().
+
+But FM 6-22 is a *Field Manual* not an *Army Document Publication*. As such it exhibits certain interesting traits. In particular, its regular structures map well into OSCAL control structures, and the functionalities that OSCAL provides (profiling and assessment) are even conceivable with this data set - with an interesting stretch.
+
+In order that this not be a "Procrustean stretch", the beds are adjustable - which is where XSLT and XProc play a role.
+
 ### Why OSCAL
 
-The Field Manual, while a distinctive work with many special and bespoke characteristics, is also *aspiring* to be OSCAL.
+Another way of putting it is that the Field Manual, while a distinctive work with many special and bespoke characteristics, is also *aspiring* to be OSCAL.
 
 The surest sign of this is the series of patterns and structural regularities throughout the document and especially in Chapter 4 - indications (as also noted explicitly) of "intent" in their organization and composition. What this document describes as *leader requirements*, *attributes* and *capabilities* become controls in OSCAL.
 
@@ -103,12 +111,13 @@ The constraint set we use to assert this validation is in three tiers:
 
 #### NISO STS to OSCAL
 
-- Tables 4-6 and on (the 'competency tables') become controls with parts
-- The narrative sequence is dropped into its own free-flowing OSCAL (nested parts)
+This is achieved in a single transformation. This involves both mapping and further structural induction, introducing new features.
 
-TODO: Schematron and check internal cross-referencing
+TODO: summarize feature set here
 
-OSCAL will be free-form text (with links) followed by a control sequence
+The resulting OSCAL is validating both against an OSCAL catalog schema, and a Schematron kept locally for the purpose.
+
+Possible next steps: bibliography and inline references
 
 ### Initial planning and survey
 
@@ -165,6 +174,7 @@ These will be HTML, Markdown or (possible even) PDF depending on the pipeline.
 - FM 6-22
    - A richly formatted document
    - A control catalog
+   - relation to ADP 6-22, other documents
 
 Iterative process of analysis and implementation
 

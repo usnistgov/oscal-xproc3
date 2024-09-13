@@ -14,14 +14,14 @@ Gain a sense of capabilities and limitations of automated ('lights-out') product
 
 You have succeeded in prior exercises, including tools installation and setup.
 
-You are familiar with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set for this application, in its [final PDF
+You are acquainted with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set for this application, in its [final PDF
             revision](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf).
 
 ## Resources
 
 This unit relies on the [oscal-publish project](../../../projects/oscal-publish/readme.md) in this repository, with its files. Like other projects this one may have installation or setup pipelines to run.
 
-Additionally if you have your own OSCAL to bring, especially OSCAL catalogs, bring them along.
+Additionally if you have your own OSCAL to &ldquo;print&rdquo;, especially OSCAL catalogs, bring it along.
 
 [SP  800-53 rev 5
                (PDF)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf) is an essential reference.
