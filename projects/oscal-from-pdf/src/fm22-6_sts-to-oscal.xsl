@@ -68,7 +68,7 @@
             <party-uuid>1cbbb30d-fb20-44ba-830a-c7ff821a7616</party-uuid>
          </responsible-party>
          <remarks>
-            <p>This encoded representation of <b>Field Manual 6-22</b> was produced from published sources independently of the document's originators, <em>without explicit authorization</em> from the US Army or its representatives. While we have done our best to represent the document contents accurately, reliance on this representation without reference to the publication from which it is derived is not advised.</p>
+            <p>This encoded representation of <b>Field Manual 6-22</b> was produced from published sources independently of the document's originators, <em>without explicit authorization</em> from the US Army or its publishing group. While we have done our best to represent the document contents accurately, reliance on this representation without reference to the publication from which it is derived is not advised.</p>
             <p>See the <a href="https://github.com/usnistgov/oscal-xproc3">repository</a> for further information on the project and how we tested the fidelity of the transcription.</p>
          </remarks>
       </metadata>

@@ -58,6 +58,11 @@
       <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/oscal-convert/CONVERT-XML-DATA.xpl"/>
       
+      <p:document href="../projects/oscal-from-pdf/PRODUCE_FM6-22-chapter4.xpl"/>
+      <p:document href="../projects/oscal-from-pdf/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-from-pdf/GRAB-FM6-22.xpl"/>
+      <p:document href="../projects/oscal-from-pdf/GRAB-NISO_STS-RNG.xpl"/>
+      
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-OFFSITE.xpl"/>

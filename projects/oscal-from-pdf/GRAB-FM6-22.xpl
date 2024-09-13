@@ -5,8 +5,6 @@
    type="ox:GRAB-FM6-22"
    name="GRAB-FM6-22">
    
-   <!-- =+=+=+=+= HOUSE RULES HALL PASS - remove this comment when the file is committed to the repo =+=+=+=+=  -->
-
   <!-- For samples and boilerplate see file ../projects/xproc-doc/xproc-snippets.xml -->
 
 <!-- https://rdl.train.army.mil/catalog-ws/view/100.ATSC/3110F413-E915-47C1-85AA-DD4065C654C3-1274570636396/fm6_22.pdf -->

@@ -2,14 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:GRAB-NISOSTS-RNG"
-   name="GRAB-NISOSTS-RNG">
-   
-   <!-- =+=+=+=+= HOUSE RULES HALL PASS - remove this comment when the file is committed to the repo =+=+=+=+=  -->
-
-
-   <!-- SchXSLT is at https://github.com/schxslt/schxslt
-        It is an XSLT-based Schematron processor -->
+   type="ox:GRAB-NISO_STS-RNG"
+   name="GRAB-NISO_STS-RNG">
    
    <!-- /end prologue -->
    <!-- start subpipeline -->
@@ -42,8 +36,5 @@
       <!--<p:identity message="{$prefix} Seeing a file for { $path-here }"/>-->
       <p:store href="{ $path-here }" message="{$prefix} Saving { $path-here }"/>
    </p:for-each>
-   
-   <!--
-   <p:identity message="{ $prefix } Test your Schematron capability using ../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
-   -->
+
 </p:declare-step>
