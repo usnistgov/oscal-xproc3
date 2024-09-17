@@ -10,6 +10,12 @@
     <xsl:key name="xref" match="*[exists(@id)]" use="'#' || @id"/>
    
    <sch:pattern>
+      <sch:rule context="*">
+        <sch:assert test="empty(@id) or (count(key('xref',@id/('#' || .) )) = 1)">ID clash</sch:assert>
+      </sch:rule>
+   </sch:pattern>
+   
+   <sch:pattern>
       <sch:rule context="oscal:a[starts-with(@href,'#')]">
          
          <sch:assert test="key('xref',@href) => exists()">Internal link href='<sch:value-of select="@href"/>' has no target</sch:assert>

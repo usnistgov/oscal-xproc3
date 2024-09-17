@@ -27,7 +27,7 @@
 
    <!--Set select="true()" if intermediate files should be written into the temp directory
        for demonstration or diagnostics -->
-   <p:option name="writing-all" static="true" select="false()"/>
+   <p:option name="writing-all" static="true" select="true()"/>
    
    <!-- Main output port captures validation summary messages -->   
    <p:output port="validation-reports" sequence="true"

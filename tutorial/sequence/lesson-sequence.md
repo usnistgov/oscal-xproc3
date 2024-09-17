@@ -29,7 +29,7 @@
 ### Lesson unit 05
 
 * [101: Some OSCAL publishing](Lesson05/oscal-publish_101.md)
-* [102: Publishing OSCAL](Lesson05/oscal-publish_102.md)
+* [102: More OSCAL Publishing](Lesson05/oscal-publish_102.md)
 
 
 ### Lesson unit 06

@@ -36,4 +36,15 @@
       </xsl:analyze-string>
    </xsl:template>
    
+   <xsl:template match="tr[1][td[last()]/normalize-space(.)='Go to…']" priority="5">
+      <xsl:copy-of select="."/>
+   </xsl:template>
+   
+   <xsl:template match="tr[td[last()]/normalize-space(.)='Go to…']"/>
+   
+   <!-- Removes an unwanted table cell from a left edge -->
+   <xsl:template match="tr[count(td)=4]/td[1][p=parent::tr/preceding-sibling::tr/td[1]/p]"/>
+   
+   
+   
 </xsl:stylesheet>

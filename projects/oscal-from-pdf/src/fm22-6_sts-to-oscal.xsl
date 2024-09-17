@@ -20,20 +20,62 @@
             <title>Learning and Developmental Activities</title>
             <xsl:apply-templates/>
          </group>
-         <group id="attributes">
-            <title>Attributes</title>
-            <xsl:apply-templates mode="competency-controls"
-               select="body/descendant::table-wrap[@custom-type = 'attribute']">
-               <xsl:with-param name="class">attribute</xsl:with-param>
-            </xsl:apply-templates>
-         </group>
-         <group id="competencies">
-            <title>Competencies</title>
-            <xsl:apply-templates mode="competency-controls"
-               select="body/descendant::table-wrap[@custom-type = 'competency']"/>
-         </group>
+
+         
+         <xsl:call-template name="build-group">
+            <xsl:with-param name="group-name">Attributes</xsl:with-param>
+            <xsl:with-param name="rows" select="descendant::table-wrap[@id = 'table4_4']/descendant::tr/following-sibling::tr"/>
+         </xsl:call-template>
+         
+         <xsl:call-template name="build-group">
+            <xsl:with-param name="group-name">Competencies</xsl:with-param>
+            <xsl:with-param name="rows" select="descendant::table-wrap[@id = 'table4_5']/descendant::tr/following-sibling::tr"/>
+         </xsl:call-template>
+         
       </catalog>
    </xsl:template>
+   
+   <xsl:template name="build-group" expand-text="true">
+      <xsl:param name="group-name"/>
+      <xsl:param name="rows"/>
+      <group id="{ lower-case($group-name) }">
+         <title>{ $group-name }</title>
+         <!-- attribute rows are all the rows in the attribute table, except the first,
+                 which contains column headers -->
+         <xsl:for-each-group select="$rows" expand-text="true" group-starting-with="tr[count(td) = 4]">
+            <xsl:variable name="core" select="td[1]/normalize-space(.)"/>
+            <group id="{lower-case(replace($core,'[ /]','_'))}_requirements">
+               <title>{ $core }</title>
+               <xsl:for-each-group select="current-group()" group-starting-with="tr[count(td) > 2]">
+                  <!-- position is first when count(td) is 3, or second when count(td) is 4 -->
+                  <xsl:variable name="capability" select="td[last() - 2]/normalize-space(.)"/>
+                  <group id="{lower-case(replace($capability,'[ /]','_'))}_requirements">
+                     <!-- Adding space before solidus due to imperfect inputs -->
+                     <title>{ replace($capability,'/',' /') }</title>
+                     <xsl:apply-templates mode="requirement-controls"
+                        select="current-group()/td[last()]/p/xref/key('by-id', @rid)"/>
+                  </group>
+               </xsl:for-each-group>
+            </group>
+         </xsl:for-each-group>
+      </group>
+   </xsl:template>
+   
+   
+   <!--<xsl:variable name="lookup-tables" select="//table-wrap[@id=('table4_4','table4_5')]/table"/>
+   
+   <xsl:function name="ox:category-for-control" as="xs:string?">
+      <xsl:param name="tableID" as="xs:string"/>
+      <xsl:variable name="linking-row" select="$lookup-tables/tbody/tr[td/p/xref/@rid=$tableID]"/>
+      <xsl:sequence select="($linking-row | $linking-row/preceding-sibling::tr)[count(td) eq 4][last()]/td[1]/normalize-space(.)"/>
+   </xsl:function>
+   
+   <xsl:function name="ox:subcategory-for-control" as="xs:string?">
+      <xsl:param name="tableID" as="xs:string"/>
+      <xsl:variable name="linking-row"     select="$lookup-tables/tbody/tr[td/p/xref/@rid=$tableID]"/>
+      <xsl:sequence select="($linking-row | $linking-row/preceding-sibling::tr)[count(td) = (3,4)][last()]/td[2]/normalize-space(.)"/>
+   </xsl:function>-->
+   
    
    <xsl:template name="metadata-block">
       <metadata>
@@ -68,7 +110,7 @@
             <party-uuid>1cbbb30d-fb20-44ba-830a-c7ff821a7616</party-uuid>
          </responsible-party>
          <remarks>
-            <p>This encoded representation of <b>Field Manual 6-22</b> was produced from published sources independently of the document's originators, <em>without explicit authorization</em> from the US Army or its publishing group. While we have done our best to represent the document contents accurately, reliance on this representation without reference to the publication from which it is derived is not advised.</p>
+            <p>This encoded representation of <b>Field Manual 6-22</b> was produced from published sources independently of the document's originators, <em>without explicit authorization</em> from the US Army or its publishing group. While we have done our best to represent the document contents accurately, we do not advise relying on this representation without reference to the publication from which it is derived.</p>
             <p>See the <a href="https://github.com/usnistgov/oscal-xproc3">repository</a> for further information on the project and how we tested the fidelity of the transcription.</p>
          </remarks>
       </metadata>
@@ -87,6 +129,7 @@
    <xsl:template match="tbody | caption">
       <xsl:apply-templates/>
    </xsl:template>
+  
    
    <xsl:template match="caption/title">
       <title>
@@ -116,20 +159,6 @@
    
    <xsl:template match="target"/>
 
-   <xsl:variable name="lookup-tables" select="//table-wrap[@id=('table4_4','table4_5')]/table"/>
-
-   <xsl:function name="ox:category-for-control" as="xs:string?">
-      <xsl:param name="tableID" as="xs:string"/>
-      <xsl:variable name="linking-row" select="$lookup-tables/tbody/tr[td/p/xref/@rid=$tableID]"/>
-      <xsl:sequence select="($linking-row | $linking-row/preceding-sibling::tr)[count(td) eq 4][last()]/td[1]/normalize-space(.)"/>
-   </xsl:function>
-   
-   <xsl:function name="ox:subcategory-for-control" as="xs:string?">
-      <xsl:param name="tableID" as="xs:string"/>
-      <xsl:variable name="linking-row"     select="$lookup-tables/tbody/tr[td/p/xref/@rid=$tableID]"/>
-      <xsl:sequence select="($linking-row | $linking-row/preceding-sibling::tr)[count(td) = (3,4)][last()]/td[2]/normalize-space(.)"/>
-   </xsl:function>
-   
    <xsl:template match="p[starts-with(.,'Tip:')]">
       <part name="tip">
          <prop name="label" value="Tip:"/>
@@ -149,7 +178,7 @@
          
          <xsl:if test="@id=('table4_4','table4_5')" expand-text="true">
             <xsl:variable name="control-key">{ if (contains(caption/title,'attribute')) then 'attribute' else 'competency' }</xsl:variable>
-            <xsl:processing-instruction name="directory"> //control[@class='{ $control-key }'] by prop[@name=('category','subcategory')]</xsl:processing-instruction>
+            <xsl:processing-instruction name="directory"> //group[@id={ $control-key }]//control </xsl:processing-instruction>
          </xsl:if>
          <xsl:apply-templates select="* except (caption | label)"/>         
       </part>
@@ -216,12 +245,12 @@
    
    <xsl:key name="by-id" match="*[exists(@id)]" use="@id"/>
    
-   <xsl:template match="table-wrap" mode="competency-controls" expand-text="true">
-      <xsl:param name="class">competency</xsl:param>
+   <xsl:template match="table-wrap" mode="requirement-controls" expand-text="true">
+      <xsl:param name="class">requirement</xsl:param>
       <control id="{ @id }" class="{ $class }">
          <title>{ caption/title/normalize-space() }</title>
-         <prop name="category"    value="{ ox:category-for-control(@id/string(.)) }"/>
-         <prop name="subcategory" value="{ ox:subcategory-for-control(@id) }"/>
+         <!--<prop name="category"    value="{ ox:category-for-control(@id/string(.)) }"/>-->
+         <!--<prop name="subcategory" value="{ ox:subcategory-for-control(@id) }"/>-->
          
          <part name="evaluation">
             <xsl:apply-templates mode="#current" select="table/tbody/tr[2]/td[1]">
@@ -248,7 +277,7 @@
       </control>
    </xsl:template>
    
-   <xsl:template mode="competency-controls" match="td" expand-text="true">
+   <xsl:template mode="requirement-controls" match="td" expand-text="true">
       <xsl:param name="title">Untitled</xsl:param>
       <part name="{ $title ! lower-case(.) ! translate(.,' ','_') }">
          <title>{ $title }</title>

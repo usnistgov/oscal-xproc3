@@ -39,7 +39,7 @@ FM 6-22 is coordinated with [ADP 6-22]().
 
 But FM 6-22 is a *Field Manual* not an *Army Document Publication*. As such it exhibits certain interesting traits. In particular, its regular structures map well into OSCAL control structures, and the functionalities that OSCAL provides (profiling and assessment) are even conceivable with this data set - with an interesting stretch.
 
-In order that this not be a "Procrustean stretch", the beds are adjustable - which is where XSLT and XProc play a role.
+In order that this not be a "Procrustean stretch", we need the beds to be adjustable, which is why we use XProc and XSLT.
 
 ### Why OSCAL
 
@@ -156,16 +156,24 @@ These will be HTML, Markdown or (possible even) PDF depending on the pipeline.
 
 ## TBD
 
+Semantic exposition using standard tagging: a case study and demonstration reading US Army Field Manual 6-22 on Leadership Development
+
 - Usage notes ('data', 'schemas')
-- Informatics context
-  - Data security and information exchange
+- Disciplinary context
+  - Informatics - neighbor of metrology
+  - Long-term data security and information exchange across organizational boundaries
+    -  (i.e. security of information across space, time and media)
   - Legal and commercial aspects (contracting)
   - Breadth of domains
   - Breadth of forms within domains
   - Deterministic processes
     - validation, testing, replication, proof, scoping
-    - esp in context of untrustworthy agents
-    - requirement for 'high touch' sources
+    - esp in context of untrustworthy agents / opaque partners
+    - requirements for 'high touch' sources
+  - Lack of an academic discipline
+    - Not computer science, sociology, media studies, cybernetics/OR, systems or game theory  
+      -  fragmented across domains, technologies and stacks
+      -  only somewhat/partly in the open ('standards-based')
 - XML and document interchange / markup-based standards (externalities)
    - HTML
    - NISO STS
@@ -175,6 +183,22 @@ These will be HTML, Markdown or (possible even) PDF depending on the pipeline.
    - A richly formatted document
    - A control catalog
    - relation to ADP 6-22, other documents
+- XSLT, XProc and the XDM stack
+  - standards-based and open-source
+- Pipelining architecture
+  - working by steps for greater efficiency / SOC
+  - iterative development captures findings while codifying solutions
+  - Advantage of STS intermediate format
+    - Already externalized, declarative, consistent, complete
+    - Enables STS-based processing for free or nearly
+    - Interfaces with STS/JATS-based interchange frameworks 
+  - Capabilities / Affordances of OSCAL expression
+    - Helps foreground 'operational regularities' i.e. semantics of the data
+    - Provides for more rigorous validation and alignment going forward
+      - Schematron or other query-based assertion set
+    - spin-offs, e.g. XSLT to produce tables and diagrams
+    - OSCAL applications - FM 6-22 oriented profiles or assessment reports?
+      - Posters, handheld 'field manuals' on mobile devices? 
 
 Iterative process of analysis and implementation
 

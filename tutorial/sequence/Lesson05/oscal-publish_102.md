@@ -2,7 +2,7 @@
 > 
 > To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
 
-# 102: Publishing OSCAL
+# 102: More OSCAL Publishing
 
 ## Goals
 
