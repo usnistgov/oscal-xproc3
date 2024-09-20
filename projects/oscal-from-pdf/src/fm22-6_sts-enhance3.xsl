@@ -23,6 +23,11 @@
       </xsl:analyze-string>
    </xsl:template>
    
+   <!-- Rewriting whitespace around solidus in a couple of places  -->
+   <xsl:template match="td/p/text()[matches(.,'([^ ]/ )|( /[^ ])')]" priority="10">
+      <xsl:text expand-text="true">{ replace(.,'/',' / ') => normalize-space() }</xsl:text>
+   </xsl:template>
+   
    <xsl:template match="p/text()">
       <xsl:analyze-string select="string(.)" regex="[tT]able 4\-(\d\d?)">
          <xsl:matching-substring>
@@ -44,7 +49,6 @@
    
    <!-- Removes an unwanted table cell from a left edge -->
    <xsl:template match="tr[count(td)=4]/td[1][p=parent::tr/preceding-sibling::tr/td[1]/p]"/>
-   
    
    
 </xsl:stylesheet>

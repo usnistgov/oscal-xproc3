@@ -79,10 +79,6 @@
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
       </sch:rule>
       
-      <sch:rule context="processing-instruction()">
-         <sch:report test="true()">Unexpected PI found.</sch:report>
-      </sch:rule>
-
       <sch:rule context="*[exists(@message)]">
          <sch:let name="parent-label" value="'[' || ../@name || ']'"/>
          <sch:let name="parent-label-regex" value="'^\[#*\s*(' || ../@name || ')\]'"/>

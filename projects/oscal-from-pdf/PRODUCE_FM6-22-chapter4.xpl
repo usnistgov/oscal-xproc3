@@ -233,6 +233,22 @@
    <p:store name="oscal" href="temp/FM_6-22-OSCAL.xml"
       message="{$label} SAVING OSCAL - temp/FM_6-22-OSCAL.xml"/>
 
+   <p:if test="$writing-all">
+      <p:insert match="/*" position="before">
+         <p:with-input port="insertion">
+            <p:inline><?xml-stylesheet type="text/xsl" href="src/www_fm22-6_simple.xsl"?>&#xA;</p:inline>
+         </p:with-input>
+      </p:insert>
+      <p:store name="oscal-working" href="FM_6-22-OSCAL-working.xml"
+         message="{$label} SAVING OSCAL working file - FM_6-22-OSCAL-working.xml"/>
+   </p:if>
+   
+   <p:insert match="ox:message" position="before">
+      <p:with-input port="insertion">
+         <p:inline>&#xA;</p:inline>
+      </p:with-input>
+   </p:insert>
+   
    <!-- Again we want to fail gracefully if setup has not been done  -->
    <!-- Pipeline GRAB-RESOURCES.xpl should have acquired the schema here -->
    <p:choose name="oscal-validation">

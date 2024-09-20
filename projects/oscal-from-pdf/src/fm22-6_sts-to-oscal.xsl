@@ -38,20 +38,19 @@
    <xsl:template name="build-group" expand-text="true">
       <xsl:param name="group-name"/>
       <xsl:param name="rows"/>
-      <group id="{ lower-case($group-name) }">
+      <group id="{ lower-case($group-name) }" class="requirement-category">
          <title>{ $group-name }</title>
          <!-- attribute rows are all the rows in the attribute table, except the first,
                  which contains column headers -->
          <xsl:for-each-group select="$rows" expand-text="true" group-starting-with="tr[count(td) = 4]">
             <xsl:variable name="core" select="td[1]/normalize-space(.)"/>
-            <group id="{lower-case(replace($core,'[ /]','_'))}_requirements">
+            <group id="{lower-case(replace($core,'[ /]','_'))}_requirements" class="requirements">
                <title>{ $core }</title>
                <xsl:for-each-group select="current-group()" group-starting-with="tr[count(td) > 2]">
                   <!-- position is first when count(td) is 3, or second when count(td) is 4 -->
                   <xsl:variable name="capability" select="td[last() - 2]/normalize-space(.)"/>
                   <group id="{lower-case(replace($capability,'[ /]','_'))}_requirements">
-                     <!-- Adding space before solidus due to imperfect inputs -->
-                     <title>{ replace($capability,'/',' /') }</title>
+                     <title>{ $capability }</title>
                      <xsl:apply-templates mode="requirement-controls"
                         select="current-group()/td[last()]/p/xref/key('by-id', @rid)"/>
                   </group>
@@ -120,7 +119,7 @@
    
    <xsl:template match="body">
       <part name="intro">
-         <xsl:apply-templates select="* except sec"/>
+         <xsl:call-template name="group-enumerations"/>
       </part>
       <xsl:apply-templates select="sec"/>
       
@@ -137,25 +136,32 @@
       </title>
    </xsl:template>
    
+   
+   
    <xsl:template match="sec">
       <!-- for the @id, mapping space to _ and stripping characters not permitted in XML names -->
-      <control id="{ title/normalize-space() => lower-case() => translate(' /','__') => replace('\C','') }">
+      <control id="{ title/normalize-space() => lower-case() => replace('\C+','_') }">
          <xsl:apply-templates select="title"/>
-         <xsl:for-each-group select="* except (title|sec)" group-starting-with="p[exists(target)]">
-            <xsl:choose>
-               <xsl:when test="exists(target)">
-                  <part name="enumeration" id="part-{  replace(target,'\.$','') }">
-                     <xsl:for-each select="child::target">
-                        <prop name="label" value="{ normalize-space(.) }"/>
-                     </xsl:for-each>
-                     <xsl:apply-templates select="current-group()"/>
-                  </part>
-               </xsl:when>
-            </xsl:choose>
-         </xsl:for-each-group>
+         <xsl:call-template name="group-enumerations"/>
          <xsl:apply-templates select="sec"/>
       </control>
    </xsl:template>
+   
+   <xsl:template name="group-enumerations">
+      <xsl:for-each-group select="* except (title | sec)" group-starting-with="p[exists(target)]">
+         <xsl:choose>
+            <xsl:when test="exists(target)">
+               <part name="enumeration" id="part-{  replace(target,'\.$','') }">
+                  <xsl:for-each select="child::target">
+                     <prop name="label" value="{ normalize-space(.) }"/>
+                  </xsl:for-each>
+                  <xsl:apply-templates select="current-group()"/>
+               </part>
+            </xsl:when>
+         </xsl:choose>
+      </xsl:for-each-group>
+   </xsl:template>
+   
    
    <xsl:template match="target"/>
 
@@ -200,10 +206,10 @@
       <xsl:for-each-group select="$rows" group-starting-with="tr[count(td) eq 3]">
          <part name="activity">
             <title>{ ./td[1] }</title>
-            <xsl:for-each select="current-group() except .">
+            <xsl:for-each select="current-group()">
                <part name="option">
-                  <title>{ td[1] }</title>
-                  <p>{ td[2]}</p>
+                  <title>{ td[last() - 1] }</title>
+                  <p>{ td[last()]}</p>
                </part>
             </xsl:for-each>
          </part>
@@ -249,6 +255,7 @@
       <xsl:param name="class">requirement</xsl:param>
       <control id="{ @id }" class="{ $class }">
          <title>{ caption/title/normalize-space() }</title>
+         <xsl:apply-templates select="label"/>
          <!--<prop name="category"    value="{ ox:category-for-control(@id/string(.)) }"/>-->
          <!--<prop name="subcategory" value="{ ox:subcategory-for-control(@id) }"/>-->
          

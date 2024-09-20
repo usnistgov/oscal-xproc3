@@ -24,7 +24,6 @@
    
    <p:output port="summary" sequence="true"/>
 
-
    <!-- The actual logic is in counting messages in the report, either for xvrl or svrl, extensible -->
    <p:variable name="ox:report-xvrl" as="function(*)"
       xmlns:xs="http://www.w3.org/2001/XMLSchema"
