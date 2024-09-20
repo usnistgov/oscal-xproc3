@@ -4,6 +4,10 @@
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
 
+   <xsl:variable name="alpha-upper">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
+
+   <xsl:variable name="alpha-lower">abcdefghijklmnopqrstuvwxyz</xsl:variable>
+   
   <xsl:template match="/">
      <html>
         <head>
@@ -14,18 +18,20 @@
      </html>
   </xsl:template>
    
-  <xsl:template match="oscal:catalog">
-    <body class="catalog">
-       <header>
-          <xsl:apply-templates select="oscal:metadata/oscal:title"/>
-       </header>
-       <main>
-          <xsl:apply-templates/>
-       </main>
-    </body>
-  </xsl:template>
-
-  <xsl:template match="oscal:metadata"/>
+   <xsl:template match="oscal:catalog">
+      <body class="catalog">
+         <header>
+            <xsl:apply-templates select="oscal:metadata/oscal:title"/>
+         </header>
+         <main>
+            <!-- tables in requirement groups are displayed with their calling
+                 controls in full-text so we skip them here -->
+            <xsl:apply-templates select="oscal:group[@id='full-text']"/>
+         </main>
+      </body>
+   </xsl:template>
+   
+   <xsl:template match="oscal:metadata"/>
 
    <xsl:template match="oscal:title">
       <h2 class="title">
@@ -39,19 +45,19 @@
       </h2>
    </xsl:template>
    
-   <xsl:template match="oscal:part/oscal:part/oscal:title">
+   <xsl:template match="oscal:part/oscal:part/oscal:title" priority="3">
       <h3 class="part2-title">
          <xsl:apply-templates/>
       </h3>
    </xsl:template>
    
-   <xsl:template match="oscal:part/oscal:part/oscal:part/oscal:title">
+   <xsl:template match="oscal:part/oscal:part/oscal:part/oscal:title" priority="9">
       <h4 class="part3-title">
          <xsl:apply-templates/>
       </h4>
    </xsl:template>
    
-   <xsl:template match="oscal:part/oscal:part/oscal:part/oscal:part/oscal:title">
+   <xsl:template match="oscal:part/oscal:part/oscal:part/oscal:part/oscal:title" priority="15">
       <h5 class="part4-title">
          <xsl:apply-templates/>
       </h5>
@@ -67,11 +73,17 @@
   <xsl:key name="by-id" match="*[@id]" use="@id"/>
 
    <xsl:template match="oscal:control">
+      <xsl:variable name="lower-title" select="translate(oscal:title,$alpha-upper,$alpha-lower)"/>
+      <xsl:variable name="requirements-table" select="key('requirement-by-title',$lower-title)"/>
+      <!--<xsl:variable name="requirements-table" select="//oscal:control[@class='requirement'][oscal:title = current()/oscal:title]"/>-->
       <section class="control { @class }">
          <xsl:copy-of select="@id"/>
          <xsl:apply-templates/>
+         <xsl:apply-templates select="$requirements-table"/>
       </section>
    </xsl:template>
+   
+   <xsl:key name="requirement-by-title" match="oscal:control[@class='requirement']" use="normalize-space(translate(oscal:title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))"/>
    
    <xsl:template match="oscal:control[@class='requirement']" priority="1">
       <details class="control { @class }"
@@ -171,16 +183,6 @@
       </h3>
    </xsl:template> 
    
-   <xsl:template match="oscal:part[@id='table4_1']/oscal:title" priority="11">
-      <h3 class="part3-title">
-         <xsl:for-each select="../oscal:prop[@name='label']">
-            <xsl:value-of select="@value"/>
-            <xsl:text>. </xsl:text>
-         </xsl:for-each>
-         <xsl:apply-templates/>
-      </h3>
-   </xsl:template> 
-   
    <xsl:template match="oscal:part[@id='table4_1']/oscal:prop[@name='label'] |
                         oscal:part[@id='table4_2']/oscal:prop[@name='label'] |
                         oscal:part[@id='table4_3']/oscal:prop[@name='label']" priority="11"/>
@@ -192,7 +194,7 @@
    </xsl:template>
    
    
-   <xsl:template match="oscal:control/oscal:control/oscal:title">
+   <xsl:template match="oscal:control/oscal:control/oscal:title" priority="4">
       <h4 class="enhancement-title">
          <xsl:apply-templates/>
       </h4>
@@ -257,7 +259,7 @@
     </ol>
   </xsl:template>
   
-  <xsl:template match="oscal:li">
+  <xsl:template match="oscal:li" priority="10">
     <li class="li">
       <xsl:apply-templates/>
     </li>
@@ -288,7 +290,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="oscal:table | oscal:p | oscal:li | oscal:ul | oscal:pre |
+  <xsl:template match="oscal:table | oscal:li | oscal:ul | oscal:pre |
     oscal:table//* | oscal:p//* | oscal:li//* | oscal:pre//*">
     <xsl:element name="{ local-name()}" namespace="http://www.w3.org/1999/xhtml">
        <xsl:copy-of select="@*"/>
@@ -307,18 +309,6 @@
    <xsl:template match="oscal:part[@name='enumeration']/oscal:prop[@name='label'] | oscal:part[@name='tip']/oscal:prop[@name='label']"/>
    
    <xsl:template match="oscal:part[@name='enumeration']/oscal:p[1] | oscal:part[@name='tip']/oscal:p[1]" priority="10">
-      <p>
-         <xsl:for-each select="../oscal:prop[@name='label']">
-            <b>
-               <xsl:value-of select="@value"/>
-            </b>
-         </xsl:for-each>
-         <xsl:text> </xsl:text>
-         <xsl:apply-templates/>
-      </p>
-   </xsl:template>
-   
-   <xsl:template match="oscal:part[@name='enumeration']/oscal:p[1]" priority="10">
       <p>
          <xsl:for-each select="../oscal:prop[@name='label']">
             <b>
@@ -440,9 +430,9 @@ body { font-family: sans-serif; padding-left: 1em; background-color: #454545  }
 
 p, li { font-family: serif }
 
-header { max-width: 50rem; text-align: center; color: white }
+header { max-width: 54rem; text-align: center; color: white; padding: 0rem 6vw }
 
-#full-text { max-width: 54rem; background-color: white; padding: 0.8rem;
+#full-text { max-width: 54rem; background-color: white; padding: 0rem 6vw;
   margin-bottom: 2rem; border: thin inset black }
 
 .requirements.group { background-color: whitesmoke; padding: 0.8rem }
