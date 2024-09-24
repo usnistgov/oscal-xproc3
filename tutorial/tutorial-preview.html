@@ -504,7 +504,7 @@
                      <a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a>
                   </li>
                   <li>
-                     <a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a>
+                     <a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a>
                   </li>
                   <li>
                      <a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a>
@@ -513,7 +513,7 @@
                      <a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a>
                   </li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a>
+                     <a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a>
                   </li>
                </ul>
             </section>
@@ -585,12 +585,12 @@
                <p>As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple scripts
             can be used in more than one way. </p>
                <p>For example, a pipeline can be executed from the project root:</p>
-               <pre>$ ./xp3.sh smoketest/POWER-UP.xpl</pre>
+               <pre>$ ./xp3.sh smoketest/TEST-XPROC3.xpl</pre>
                <p>Alternatively, a pipeline can be executed from its home directory, for example if currently in the
                <code>smoketest</code> directory (note the path to the script): </p>
-               <pre>$ ../xp3.sh POWER-UP.xpl</pre>
+               <pre>$ ../xp3.sh TEST-XPROC3.xpl</pre>
                <p>This works the same ways on Windows, with adjustments: </p>
-               <pre>&gt; ..\xp3 POWER-UP.xpl </pre>
+               <pre>&gt; ..\xp3 TEST-XPROC3.xpl </pre>
                <p>(On Windows a <code>bat</code> file suffix marks it as executable and does not have to be given explicitly
             when calling.)</p>
                <p>Windows users (and others to varying degrees) can set up a drag-and-drop based workflow - using your mouse
@@ -657,14 +657,14 @@
                <p>The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.</p>
                <ul>
                   <li>
-                     <a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a> tests MorganaXProc-III</li>
+                     <a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> tests MorganaXProc-III</li>
                   <li>
                      <a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon</li>
                   <li>
                      <a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
                SchXSLT</li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec</li>
+                     <a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec</li>
                </ul>
                <p>Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels
             and connectors.</p>
@@ -780,7 +780,7 @@
             see and smell smoke?)</p>
                <ul>
                   <li>
-                     <a href="../../../smoketest/POWER-UP.xpl">smoketest/POWER-UP.xpl</a> amounts to an XProc <q>Hello
+                     <a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> amounts to an XProc <q>Hello
                   World</q>. In that spirit, feel free to edit and adjust this file.</li>
                   <li>
                      <a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon, an
@@ -792,7 +792,7 @@
                SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology.
                Schematron relies on XSLT, so this library requires Saxon.</li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-XSPEC.xpl">smoketest/SMOKETEST-XSPEC.xpl</a> tests XSpec, an
+                     <a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec, an
                XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.</li>
                </ul>
                <p>All these together comprise more than can be learned in an afternoon, or even a week. Any and each of them
@@ -1094,7 +1094,7 @@
                come back to</p>
                   <details>
                      <summary>Question: Where are extension steps used in the XProcs run so far?</summary>
-                     <p>Answer: The <a href="./../../../smoketest/SMOKETEST-XSPEC.xpl">XSpec smoke test</a> calls an extension
+                     <p>Answer: The <a href="./../../../smoketest/TEST-XSPEC.xpl">XSpec smoke test</a> calls an extension
                   step named <code>ox:execute-xspec</code>, defined in an imported pipeline. In this document, the
                   prefix <code>ox</code> is bound to a utility namespace,
                      <code>http://csrc.nist.gov/ns/oscal-xproc3</code>.</p>
@@ -2213,7 +2213,7 @@
             </section>
             <section>
                <h2>Resources</h2>
-               <p>Like the <a href="oscal-publish_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-publish/readme.md">oscal-from-pdf project</a> in this repo.</p>
+               <p>Like the <a href="oscal-publish_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-publish/readme.md">oscal-import project</a> in this repo.</p>
                <p>Publishing your own OSCAL in these pipelines is also worth trying - the worst they can do is fail. Bring
             OSCAL, especially OSCAL catalogs.</p>
                <p>OSCAL JSON catalogs can be accommodated by splicing together a conversion pipeline with a publishing
@@ -2273,13 +2273,13 @@
             like - and get a sense of what the data set looks like when the structures are <q>painted</q> on the
             page.</p>
                <p>The extraction and mapping focuses on Chapter 4 only of this document. Learn more about FM 6-22,
-               <i>Developing Leaders</i> in <a href="../../../projects/oscal-from-pdf/readme.md">the project
+               <i>Developing Leaders</i> in <a href="../../../projects/oscal-import/readme.md">the project
             readme</a>.</p>
             </section>
             <section>
                <h2>Step two (to skip): produce HTML</h2>
-               <p>For this exercise, we have already produced HTML from the PDF source: find it cached as an <a href="../../../projects/oscal-from-pdf/source/export/fm6_22.html">input file in the project folder</a>.
-            Next to it is <a href="../../../projects/oscal-from-pdf/source/export/fm6_22_e.html">a copy with whitespace
+               <p>For this exercise, we have already produced HTML from the PDF source: find it cached as an <a href="../../../projects/oscal-import/source/export/fm6_22.html">input file in the project folder</a>.
+            Next to it is <a href="../../../projects/oscal-import/source/export/fm6_22_e.html">a copy with whitespace
                added for legibility</a>, which may be easier to inspect.</p>
                <p>
                   <i>Do not delete, replace, rename or alter this file</i>, as all the subsequent processing is tuned
@@ -2307,7 +2307,7 @@
             market-leading HTML export utility. Experts in data conversion might find other ways to make better encoding
             from the PDF - a task out of scope for us. (As we are not trying to optimize but only to demonstrate the
             methods applied.) This HTML is good enough, and that is what is often available.</p>
-               <p>The pipeline to be run in the next step starts by loading <a href="../../../projects/oscal-from-pdf/source/export/fm6_22.html">source/export/fm6_22.html</a> - do not
+               <p>The pipeline to be run in the next step starts by loading <a href="../../../projects/oscal-import/source/export/fm6_22.html">source/export/fm6_22.html</a> - do not
             rename, move or alter this file, or expect errors!</p>
             </section>
             <section>
@@ -2336,7 +2336,7 @@
             </section>
             <section>
                <h2>Resources</h2>
-               <p>Like the <a href="oscal-produce_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-from-pdf/readme.md">oscal-from-pdf project</a> in this repo.</p>
+               <p>Like the <a href="oscal-produce_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-import/readme.md">oscal-import project</a> in this repo.</p>
             </section>
             <section>
                <h2>Step one: run the pipeline in diagnostic mode</h2>

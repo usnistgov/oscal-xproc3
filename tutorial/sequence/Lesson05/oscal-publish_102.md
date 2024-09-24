@@ -12,7 +12,7 @@ Run the pipelines described in [the 101 Lesson](oscal-publish_101_src.html)
 
 ## Resources
 
-Like the [101 lesson](oscal-publish_101_src.html), this lesson unit uses the [oscal-from-pdf project](../../../projects/oscal-publish/readme.md) in this repo.
+Like the [101 lesson](oscal-publish_101_src.html), this lesson unit uses the [oscal-import project](../../../projects/oscal-publish/readme.md) in this repo.
 
 Publishing your own OSCAL in these pipelines is also worth trying - the worst they can do is fail. Bring OSCAL, especially OSCAL catalogs.
 

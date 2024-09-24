@@ -48,9 +48,9 @@ See the [Projects folder](./projects/) for current projects. Projects now planne
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
+  - [`oscal-import`](projects/oscal-import/) - produce OSCAL from PDF via HTML and NIST STS formats - a demonstration showing conversion of a 'high-touch' document into OSCAL, mapping its structures
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
   - `index-oscal` - produce indexes to information encoded in OSCAL  
-  - `oscal-extract` - produce OSCAL from Word ML (ITL/CSD template format?) or STS (ref SP800-171)
 
 TODO: update this list
 READERS: [anything to add?][repo-issues]
@@ -187,6 +187,13 @@ After installation and testing, you can start anywhere &mdash; you have already 
 
 </details>
 
+<details>
+<summary>Tutorial</summary>
+
+An [XProc tutorial](tutorial/sequence/lesson-sequence.md) is offered on this site - it provides an introduction to XProc aimed at a range of users at different levels, with walkthroughs of the project pipelines with detailed explanations of features, methods and techniques they illustrate.
+</details>
+
+
 ### Installation instructions
 
 Note: if you already have Morgana XProc III installed, you should be able to use it, appropriately configured, to run any pipeline in the repository. But local installation is also easy and clean.
@@ -205,23 +212,23 @@ The [setup-notes](./setup-notes.md) file provides a walkthrough of what this scr
 
 After setup, you should now be able to run bare-bones XProc using a pipeline processor (Morgana) with rudimentary capabilities. How to run any of these pipelines is [detailed below](#running-the-software).
 
-If impatient to test, review **Does It Work?** below before proceeding. But expect errors with many pipelines if you forget to finish the installation.
+A simple pipeline, [smoketest/TEST-XPROC3.xpl](smoketest/TEST-XPROC3.xpl) can be used to verify your installation works. More details are given below. (**Does It Work?**)
 
-The next steps both test the runtime, and provide Morgana with more power, namely XSLT for transformations (using Saxon), and Schematron for query-based validation (using SchXLST).
+The next steps both help to accustom you to the engine, and provide Morgana with more power, namely XSLT for transformations (using Saxon), and Schematron for query-based validation (using SchXLST).
 
 SchXSLT is written in XSLT and requires Saxon, so run (and test) the Saxon pipeline first.
 
 II. To install Saxon: [lib/GRAB-SAXON.xpl](lib/GRAB-SAXON.xpl)
 
-To test Saxon: [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl)
+To test Saxon: [smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl)
 
 III. To install SchXSLT: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl)
 
-To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
+To test SchXSLT: [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl)
 
-IV. To install XSpec: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-XSPEC.xpl)
+IV. To install XSpec: [lib/GRAB-XSPEC.xpl](lib/GRAB-XSPEC.xpl)
 
-To test XSPec: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-XSPEC.xpl)
+To test XSPec: [smoketest/TEST-XSPEC.xpl](smoketest/TEST-XSPEC.xpl)
 
 <details><summary><bold>Does it work?</bold></summary>
 
@@ -240,13 +247,13 @@ TODO - tip for anyone with no Java?
 To test Morgana, try the [Smoke test application](./smoketest):
 
 ```bash
-./xp3.sh smoketest/POWER-UP.xpl
+./xp3.sh smoketest/TEST-XPROC3.xpl
 ```
 
 or (Windows users, from a command line or Powershell window)
 
 ```bash
-.\xp3 smoketest\POWER-UP.xpl
+.\xp3 smoketest\TEST-XPROC3.xpl
 ```
 
 Again you should see fine-looking results, this time in XML.
@@ -255,11 +262,11 @@ Again you should see fine-looking results, this time in XML.
 
 **Other smoke tests**
 
-After installing Saxon, the smoke test [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl) will function, returning sensible outputs.
+After installing Saxon, the smoke test [smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl) will function, returning sensible outputs.
 
-After installing SchXSLT, the smoke test [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl) will function, returning sensible outputs.
+After installing SchXSLT, the smoke test [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl) will function, returning sensible outputs.
 
-After installing XSpec, the smoke test [smoketest/SMOKETEST-XSPEC.xpl](smoketest/SMOKETEST-XSPEC.xpl) will function, returning sensible outputs.
+After installing XSpec, the smoke test [smoketest/TEST-XSPEC.xpl](smoketest/TEST-XSPEC.xpl) will function, returning sensible outputs.
 
 [Another page offers help](./setup-notes.md) with details on manual setup.
 
@@ -269,11 +276,15 @@ After installing XSpec, the smoke test [smoketest/SMOKETEST-XSPEC.xpl](smoketest
 
 If Morgana is installed with Saxon-HE you should be good to go running any pipeline. See project readme documents for details on each project.
 
+See the [projects/](./projects/) directory with a list of projects - each should have a readme.
+
+Or jump to these projects:
+
 - [Schema Field Tests](./schema-field-tests) - Testing whether OSCAL schemas correctly enforce rules over data (with surprises)
 - [OSCAL Profile Resolution](./profile-resolution) - converting an OSCAL profile (representing a baseline or overlay) into its catalog of controls
+- [./projects/oscal-import/](./projects/oscal-import/) - Produce OSCAL from a PDF source via HTML and XML conversions
 
-TODO: keep this list up to date
-
+ 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
 ```bash

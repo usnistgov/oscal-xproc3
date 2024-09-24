@@ -27,7 +27,7 @@ Skip to the [dev punchlist](#dev-punchlist) below for latest plans.
 For use in development
 
 1. [CONVERT-XML-REFERENCE-SET.xpl](CONVERT-XML-REFERENCE-SET.xpl) helps convert samples from XML to JSON - it is also hard-wired to convert documents named in the pipeline. As such, it can be reconfigured or imported into another pipeline.
-1. [../smoketest/SMOKETEST-XSLT.xpl](../smoketest/SMOKETEST-XSLT.xpl) tests XProc with XSLT (to hear it hum). XSLT being used here to aggregate your validation reports.
+1. [../smoketest/TEST-XSLT.xpl](../smoketest/TEST-XSLT.xpl) tests XProc with XSLT (to hear it hum). XSLT being used here to aggregate your validation reports.
 
 ## Testing
 

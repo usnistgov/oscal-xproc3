@@ -35,12 +35,12 @@ As usual, the project contains pipelines to be used to acquire copies of resourc
 These include a pipeline that copies the PDF original from which the HTML input (next step) was derived, using a COTS (commercial off-the-shelf) tool. Inspect and read this PDF to see what the upstream data looks like - and get a sense of what the data set looks like when the structures are &ldquo;painted&rdquo; on the page.
 
 The extraction and mapping focuses on Chapter 4 only of this document. Learn more about FM 6-22, *Developing Leaders* in [the project
-            readme](../../../projects/oscal-from-pdf/readme.md).
+            readme](../../../projects/oscal-import/readme.md).
 
 ## Step two: examine HTML source data
 
-For this exercise, we have already produced HTML from the PDF source: find it cached as an [input file in the project folder](../../../projects/oscal-from-pdf/source/export/fm6_22.html). Next to it is [a copy with whitespace
-               added for legibility](../../../projects/oscal-from-pdf/source/export/fm6_22_e.html), which may be easier to inspect.
+For this exercise, we have already produced HTML from the PDF source: find it cached as an [input file in the project folder](../../../projects/oscal-import/source/export/fm6_22.html). Next to it is [a copy with whitespace
+               added for legibility](../../../projects/oscal-import/source/export/fm6_22_e.html), which may be easier to inspect.
 
 Compare this to the PDF document you have downloaded (or the document on line). Open the HTML file in a web browser to see what it looks like in display, but also inspect its source code. You don't have to read it: just seeing it is enough.
 
@@ -56,7 +56,7 @@ Indeed this HTML file makes an excellent example of the kind of rather-poor enco
 
 ## Step three: run the pipeline
 
-The pipeline starts by loading [source/export/fm6_22.html](../../../projects/oscal-from-pdf/source/export/fm6_22.html)
+The pipeline starts by loading [source/export/fm6_22.html](../../../projects/oscal-import/source/export/fm6_22.html)
 
 It produces output files in a `temp` directory. If you want to save out any of these outputs, you can copy files out, or edit the pipeline.
 

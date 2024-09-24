@@ -14,7 +14,7 @@ An easy debugging step if you ever suspect misconfiguration of these tools is to
 
 ## Run a smoke test
 
-`POWER-UP.xpl` is a self-contained XProc delivering outputs to the 'result' port on STDOUT.
+`TEST-XPROC3.xpl` is a self-contained XProc delivering outputs to the 'result' port on STDOUT.
 
 It does not read data in, or write to the file system. If these capabilities are in doubt, edit the pipeline to test these features.
 
@@ -23,8 +23,8 @@ It does not read data in, or write to the file system. If these capabilities are
 
 The folder additionally contains smoke test pipelines, useful for testing third-party components of the XProc runtime, namely Saxonica and SchXSLT:
 
-- Test Saxon for the XSLT capability using [SMOKETEST-XSLT](SMOKETEST-XSLT.xpl)
-- Test SchXSLT for the Schematron capability using [SMOKETEST-SCHEMATRON](SMOKETEST-SCHEMATRON.xpl)
+- Test Saxon for the XSLT capability using [TEST-XSLT](TEST-XSLT.xpl)
+- Test SchXSLT for the Schematron capability using [TEST-SCHEMATRON](TEST-SCHEMATRON.xpl)
 
 ## Analyze and debug
 

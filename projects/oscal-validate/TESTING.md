@@ -17,7 +17,7 @@ With this valid instance, the [samples](./samples/) directory contains an invali
 
 Of special interest here is that "good" outcomes (valid data) deliver *silence* while bad outcomes deliver noise (or rather, error messages - terrible music), because to be valid means ipso facto to be found "without error", so nothing is to be reported.
 
-In order to test Schematron capability in your XProc engine, run the ["Schematron smoke test" pipeline](../../smoketest/SMOKETEST-SCHEMATRON.xpl) (not in this project). It should complete successfully when run.
+In order to test Schematron capability in your XProc engine, run the ["Schematron smoke test" pipeline](../../smoketest/TEST-SCHEMATRON.xpl) (not in this project). It should complete successfully when run.
 
 Tests may include XSpec testing over XSLTs or Schematrons.
 

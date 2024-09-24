@@ -23,6 +23,8 @@ XProc enthusiasts with current links or news should please [contact the project]
 
 ## Landing pages
 
+[XProcRef](https://xprocref.org/index.html) offers a comprehensive user-oriented directory of the built-in steps
+
 [XProc.org site](https://xproc.org/) - with links to specs and other resources
 
 [XProc 3.0 Overview](https://spec.xproc.org/master/head/) - with links to component specifications (important to have) such as the Standard Step Library and the additional steps

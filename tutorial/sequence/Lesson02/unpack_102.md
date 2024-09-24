@@ -143,7 +143,7 @@ We recognize steps because we either recognize them by name - for standard steps
 In an XProc pipeline (library or step declaration) one may also see a namespace `c:`. TODO - come back to
 
 <details><summary>Question: Where are extension steps used in the XProcs run so far?</summary>
-Answer: The [XSpec smoke test](./../../../smoketest/SMOKETEST-XSPEC.xpl) calls an extension step named `ox:execute-xspec`, defined in an imported pipeline. In this document, the prefix `ox` is bound to a utility namespace, `http://csrc.nist.gov/ns/oscal-xproc3`.
+Answer: The [XSpec smoke test](./../../../smoketest/TEST-XSPEC.xpl) calls an extension step named `ox:execute-xspec`, defined in an imported pipeline. In this document, the prefix `ox` is bound to a utility namespace, `http://csrc.nist.gov/ns/oscal-xproc3`.
 </details>
 ### Schema for XProc 3.0
 

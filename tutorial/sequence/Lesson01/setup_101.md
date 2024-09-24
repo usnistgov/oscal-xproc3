@@ -35,10 +35,10 @@ The following pipelines will be run. They are described in top-level [README](..
 * [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
 * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
 * [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
-* [smoketest/POWER-UP.xpl](../../../smoketest/POWER-UP.xpl)
-* [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl)
-* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl)
-* [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl)
+* [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl)
+* [smoketest/TEST-XSLT.xpl](../../../smoketest/TEST-XSLT.xpl)
+* [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl)
+* [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl)
 
 
 ## Step One: Setup
@@ -97,19 +97,19 @@ As simple examples, these scripts show only one way of running XProc. Keep in mi
 For example, a pipeline can be executed from the project root:
 
 ```
-$ ./xp3.sh smoketest/POWER-UP.xpl
+$ ./xp3.sh smoketest/TEST-XPROC3.xpl
 ```
 
 Alternatively, a pipeline can be executed from its home directory, for example if currently in the `smoketest` directory (note the path to the script): 
 
 ```
-$ ../xp3.sh POWER-UP.xpl
+$ ../xp3.sh TEST-XPROC3.xpl
 ```
 
 This works the same ways on Windows, with adjustments: 
 
 ```
-> ..\xp3 POWER-UP.xpl 
+> ..\xp3 TEST-XPROC3.xpl 
 ```
 
 (On Windows a `bat` file suffix marks it as executable and does not have to be given explicitly when calling.)

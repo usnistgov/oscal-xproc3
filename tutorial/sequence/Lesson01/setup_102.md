@@ -44,10 +44,10 @@ Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) 
 
 The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.
 
-* [smoketest/POWER-UP.xpl](../../../smoketest/POWER-UP.xpl) tests MorganaXProc-III
-* [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl) tests Saxon
-* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl) tests SchXSLT
-* [smoketest/SMOKETEST-XSPEC.xpl](../../../smoketest/SMOKETEST-XSPEC.xpl) tests XSpec
+* [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl) tests MorganaXProc-III
+* [smoketest/TEST-XSLT.xpl](../../../smoketest/TEST-XSLT.xpl) tests Saxon
+* [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT
+* [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec
 
 
 Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels and connectors.

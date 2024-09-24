@@ -18,7 +18,7 @@ Run the pipelines described in [the 101 Lesson](oscal-produce_101_src.html)
 
 ## Resources
 
-Like the [101 lesson](oscal-produce_101_src.html), this lesson unit uses the [oscal-from-pdf project](../../../projects/oscal-from-pdf/readme.md) in this repo.
+Like the [101 lesson](oscal-produce_101_src.html), this lesson unit uses the [oscal-import project](../../../projects/oscal-import/readme.md) in this repo.
 
 ## Step one: run the pipeline in diagnostic mode
 

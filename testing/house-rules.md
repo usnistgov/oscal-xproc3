@@ -40,7 +40,7 @@ Project folders may also have their own `.gitignore.` Commonly, files downloaded
 
 ### All-capitals pipelines
 
-XProc pipelines that function standalone in this repository - with no special runtime arguments - are named with ALL CAPITALS, for example the smoke testing pipeline, [POWER-UP.xpl](smoketest/POWER-UP.xpl). These can be run by simply calling the pipeline to be executed by the XProc processor.
+XProc pipelines that function standalone in this repository - with no special runtime arguments - are named with ALL CAPITALS, for example the smoke testing pipeline, [TEST-XPROC3.xpl](smoketest/TEST-XPROC3.xpl). These can be run by simply calling the pipeline to be executed by the XProc processor.
 
 ### Pipelines as steps - subpipelines or pipeline assemblies
 
