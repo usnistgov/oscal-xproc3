@@ -13,6 +13,4 @@
       <xsl:value-of select="$str"/>
    </xsl:function>
    
-   
-   
 </xsl:stylesheet>

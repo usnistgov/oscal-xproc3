@@ -36,9 +36,9 @@ jobs:
         id: setup
       - name: Run smoketests
         run: |
-          ./xp3.sh smoketest/POWER-UP.xpl
-          ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl -silent
-          ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl      -silent
+          ./xp3.sh smoketest/TEST-XPROC3.xpl
+          ./xp3.sh smoketest/TEST-SCHEMATRON.xpl -silent
+          ./xp3.sh smoketest/TEST-XSPEC.xpl      -silent
         id: exec_smoketests
       - name: Run tests
         run: |
