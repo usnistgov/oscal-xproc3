@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-publish/oscal-publish_102_src.html](../../../tutorial/source/oscal-publish/oscal-publish_102_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 102: More OSCAL Publishing
 

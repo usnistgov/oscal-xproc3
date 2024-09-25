@@ -1,7 +1,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:SMOKETEST-SCHEMATRON"
-   name="SMOKETEST-SCHEMATRON">
+   type="ox:TEST-SCHEMATRON"
+   name="TEST-SCHEMATRON">
             
 	<p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
 
@@ -12,7 +12,7 @@
         see https://spec.xproc.org/master/head/validation/#c.validate-with-schematron
    -->
    <p:validate-with-schematron assert-valid="true"
-      message="[SMOKETEST-SCHEMATRON] Running a Schematron, expecting to see no errors ...">
+      message="[TEST-SCHEMATRON] Running a Schematron, expecting to see no errors ...">
       <p:with-input port="schema" href="src/doing-well.sch"/>
       <p:with-input port="source">
          <p:inline>

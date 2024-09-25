@@ -64,7 +64,7 @@
                <p:inline>
                <blockquote>
                   <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../..{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>.</p>
-                  <p>To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.</p>
+                  <p>Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).</p>
                </blockquote>
                </p:inline>
             </p:with-input>
@@ -77,24 +77,27 @@
             match="a[@class='LessonUnit']/@href"  xmlns="http://www.w3.org/1999/xhtml"
             replace="replace(.,'_src\.html','.md')"/>
          
-         <p:xslt name="make-markdown" initial-mode="md">
+         <p:xslt name="make-markdown">
             <p:with-input port="stylesheet" href="src/xhtml-to-markdown.xsl"/>
          </p:xslt>
 
          <!-- Since 'md' mode delivers <string> elements wanting whitespace, we provide it here -->
-         <p:insert match="ox:string" position="after">
+         <!--<p:insert match="ox:string" position="after">
             <p:with-input port="insertion">
                <p:inline>&#xA;</p:inline>
             </p:with-input>
-         </p:insert>
+         </p:insert>-->
 
          <!-- Unwrap everything -->
-         <p:unwrap match="*"/>
+         <!--<p:unwrap match="*"/>-->
          
          <!-- Shocking that this works, needing some explanation -->
-         <p:text-replace pattern="â€“" replacement="&amp;mdash;"/>
          
-         <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'UTF-8'}"
+         <!--<p:text-replace pattern="â€“" replacement="&amp;mdash;"/>-->
+         
+         <p:text-replace pattern="–" replacement="&amp;mdash;"/>
+         
+         <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'utf-8'}"
          message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
       </p:for-each>

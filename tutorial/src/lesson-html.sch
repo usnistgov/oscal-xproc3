@@ -44,9 +44,13 @@
       </sch:rule>
    </sch:pattern>
    
+   
+   
    <sch:pattern>
       <sch:rule context="html:a">
-         <sch:let name="internal" value="starts-with(@href,'../') and matches(@href,'_src\.html$')"/>
+         <sch:let name="internal" value="not(matches(@href,'^https?:/')) and matches(@href,'_src\.html$')"/>
+         <sch:assert test="not(matches(.,'\.\S{2,4}$')) or (replace(.,'^.*/','') = replace(@href,'^.*/',''))">Internal link is misdirected</sch:assert>
+         
          <sch:assert sqf:fix="tag-lessonUnit-link" test="@class='LessonUnit' or not($internal)">Link to lesson should be given @class='LessonUnit'</sch:assert>
          <sqf:fix id="tag-lessonUnit-link">
             <sqf:description>

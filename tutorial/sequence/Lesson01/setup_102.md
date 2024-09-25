@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/setup/setup_102_src.html](../../../tutorial/source/setup/setup_102_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 102: Examining the setup
 
@@ -9,8 +10,7 @@
 ## Goals
 
 * Look at some pipeline organization and syntax on the inside
-* Success and failure invoking XProc pipelines: an early chance to â€œlearn to dieâ€� gracefully (to use the gamers' idiom).
-
+* Success and failure invoking XProc pipelines: an early chance to "learn to die" gracefully (to use the gamers' idiom).
 
 ## Resources
 
@@ -22,7 +22,7 @@ Please complete the repository setup and smoke tests as described in the [101 le
 
 This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via `file` and `http` protocols, and web-based technologies including HTML.
 
-XML knowledge is also assumed, while at the same time we are interested to know where this gap needs to be filled.
+XML knowledge is also assumed. In particular, XProc uses [XPath                3.1](https://www.w3.org/TR/xpath-31/), the query language for XML. This latest version of XPath builds on XPath 1.0, so any XPath experience will help. In general, any XSLT or XQuery experience will be invaluable.
 
 You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development environment) for more interactive testing of the code.
 
@@ -30,8 +30,7 @@ You will also need a programmer's plain text editor, XML/XSLT editor or IDE (int
 
 The two groupings of pipelines used in setup and testing can be considered separately.
 
-The key to understanding both groups is to know that once the initial [Setup
-               script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so &mdash; before extension libraries are in place &mdash; it can use only basic XProc steps, but those are enough for these purposes.
+The key to understanding both groups is to know that once the initial [Setup                script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so â€“ before extension libraries are in place â€“ it can use only basic XProc steps, but those are enough for these purposes.
 
 Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 
@@ -41,7 +40,6 @@ Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) 
 * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
 * [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
 
-
 The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.
 
 * [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl) tests MorganaXProc-III
@@ -49,8 +47,7 @@ The second group of pipelines also has a single purpose, namely to exercise and 
 * [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT
 * [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec
 
-
-Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels and connectors.
+Take a look at these. If it is helpful, try to see the XML syntax as a set of nested frames with labels and connectors.
 
 Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in a plain text editor, in an XML editor.
 
@@ -60,15 +57,13 @@ Use a text editor or IDE for this exercise.
 
 If you have any concepts for improvements to the pipelines, or other resources that might be acquired this way, copy and modify one of the pipelines given to achieve those results.
 
-Even if not - be sure to break the pipelines given -- or of copies under new names -- in any of several ways. Then run the modified pipelines, as a *safe way* to familiarize yourself with error messages:
+Even if not - be sure to break the pipelines given -- or copies under new names -- in any of several ways. Then run the modified pipelines, as a *safe way* to familiarize yourself with error messages:
 
 * Break the XML syntax of a pipeline and try to run it
-* Leave XML syntax intact (well-formed), but break something in the XProc   * An element name, attribute or attribute setting
+* Leave XML syntax intact (well-formed), but break something in the XProc 
+  * An element name, attribute or attribute setting
   * A namespace
-
-
 * Try to retrieve something from a broken link
-
 
 Make sure that pipelines are back in working order when this exercise is complete.
 

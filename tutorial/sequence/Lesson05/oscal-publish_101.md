@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-publish/oscal-publish_101_src.html](../../../tutorial/source/oscal-publish/oscal-publish_101_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 101: Some OSCAL publishing
 
@@ -14,8 +15,7 @@ Gain a sense of capabilities and limitations of automated ('lights-out') product
 
 You have succeeded in prior exercises, including tools installation and setup.
 
-You are acquainted with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set for this application, in its [final PDF
-            revision](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf).
+You are acquainted with NIST SP 800-53, rev. 5, the publication that provides the model and requirements set for this application, in its [final PDF             revision](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf).
 
 ## Resources
 
@@ -23,8 +23,7 @@ This unit relies on the [oscal-publish project](../../../projects/oscal-publish/
 
 Additionally if you have your own OSCAL to &ldquo;print&rdquo;, especially OSCAL catalogs, bring it along.
 
-[SP  800-53 rev 5
-               (PDF)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf) is an essential reference.
+[SP  800-53 rev 5                (PDF)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf) is an essential reference.
 
 ## Step one: produce HTML
 

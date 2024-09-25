@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-convert/oscal-convert_102_src.html](../../../tutorial/source/oscal-convert/oscal-convert_102_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 102: Hands on data conversions
 
@@ -14,8 +15,7 @@ Work with XProc features designed for handling JSON data (XDM **map** objects th
 
 ## Prerequisites
 
-Run the pipelines described in [the 101
-               Lesson](https://github.com/usnistgov/oscal-xproc3/discussions/18)
+Run the pipelines described in [the 101                Lesson](https://github.com/usnistgov/oscal-xproc3/discussions/18)
 
 ## Resources
 

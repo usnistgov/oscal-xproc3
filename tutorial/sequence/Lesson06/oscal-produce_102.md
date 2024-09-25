@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-produce/oscal-produce_102_src.html](../../../tutorial/source/oscal-produce/oscal-produce_102_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 102: Producing OSCAL from uncooked data
 
@@ -34,12 +35,10 @@ Keeping the operations isolated in separate transformations has important opport
 * Isolate sub-processes for specialized requirements (micro-structures)
 * Produce and persist (save out) any useful interim representation as a process by-product valuable in its own right
 
-
 As it happens, the document example here is easier to convert into OSCAL if we convert into NISO STS format first. This gives us a good separation of concerns between producing any adequate semantic representation (in principle, irrespective of vocabulary) and producing a final and optimized OSCAL representation. Using NISO STS saves our having to invent a &ldquo;bespoke&rdquo; interim vocabulary, or use HTML, for this purpose, while introducing rigor. So our pipeline has two main parts:
 
 * Convert raw text into running NISO STS format (clean up, fix up, mapping)
 * Convert NISO STS into OSCAL (refactoring)
-
 
 And when we map it out in detail:
 
@@ -51,13 +50,11 @@ And when we map it out in detail:
 * Validate against OSCAL schema and rules (QA checks)
 * Report all validation results
 
-
 Thus we can expect our runtime to deliver three outputs:
 
 * An XML file representing the document, nominally in NISO STS format
 * An XML file representing the document, nominally in OSCAL format
 * Validation results in the console: &ldquo;All clear&rdquo; or &ldquo;Uhoh, please check&rdquo; if validation errors were reported
-
 
 Specific validation errors are not, however, reported, only the summary finding. To see validation errors, run the files with a validator or pipeline that reports them (see projects [oscal-validate project](../../../projects/oscal-validate/readme.md) [oscal](../../../projects/schema-field-tests/readme.md) ). Depending on the validation technology being used - XML Schema (XSD), RelaxNG, Schematron or other - this can be done in a variety of ways using commodity tools.
 

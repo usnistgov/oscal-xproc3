@@ -10,24 +10,46 @@
 
     <!--<XSLT:key name="parameters" match="param" use="@id"/>-->
 
-    <xsl:strip-space elements="*"/>
+    <!--<xsl:output indent="yes"/>-->
+   
+   
+   <!-- change 'string' to line   -->
+   <!-- unit test! -->
+   
+   <xsl:output omit-xml-declaration="true"/>
+   <xsl:strip-space elements="*"/>
    
     <xsl:preserve-space elements="p li pre td th
-       h1 h2 h3 h4 h5 h6 i b a code span strong em q"/>
+       h1 h2 h3 h4 h5 h6
+       i b a code span strong em q"/>
+
+    <xsl:template match="/" mode="md">
+       <md>  
+         <xsl:apply-templates mode="md"/>
+       </md>
+    </xsl:template>
    
-    <xsl:template match="/">
-       <xsl:variable name="strings">
-          <xsl:apply-templates mode="md"/>
+    <xsl:template match="/ | *">
+       <xsl:variable name="lines">
+          <md>
+            <xsl:apply-templates mode="md"/>
+          </md>
        </xsl:variable>
-       <xsl:apply-templates mode="render" select="$strings"/>
+       <xsl:apply-templates mode="render" select="$lines"/>
     </xsl:template>
    
-    <xsl:template match="ox:string" mode="render">
-       <xsl:text>&#xA;</xsl:text>
-       <xsl:apply-templates/>
-    </xsl:template>
-    
-    <xsl:template match="text()[empty(ancestor::pre)]" mode="md">
+   <xsl:template match="ox:md" mode="render">
+      <xsl:text>&#xA;</xsl:text>
+      <xsl:apply-templates mode="render"/>
+      <xsl:text>&#xA;</xsl:text>
+   </xsl:template>
+   
+   <xsl:template match="ox:line" mode="render">
+      <xsl:text>&#xA;</xsl:text>
+      <xsl:apply-templates mode="render"/>
+   </xsl:template>
+   
+   <xsl:template match="text()[empty(ancestor::pre)]" mode="md">
        <xsl:value-of select="replace(.,'\s\s+',' ')"/>
     </xsl:template>
    
@@ -35,7 +57,7 @@
         <xsl:variable name="predecessor"
             select="preceding-sibling::* | preceding-sibling::p | preceding-sibling::ul | preceding-sibling::ol | preceding-sibling::table | preceding-sibling::pre"/>
         <xsl:if test="exists($predecessor)">
-            <string/>
+            <line/>
         </xsl:if>
     </xsl:template>
 
@@ -55,7 +77,7 @@
       <xsl:apply-templates select="$here" mode="decorate-blockquote"/>   
    </xsl:template>
    
-   <xsl:template match="string"   xpath-default-namespace="http://csrc.nist.gov/ns/oscal-xproc3" mode="decorate-blockquote">
+   <xsl:template match="line"   xpath-default-namespace="http://csrc.nist.gov/ns/oscal-xproc3" mode="decorate-blockquote">
       <xsl:copy>
         <xsl:text>&gt; </xsl:text>
          <xsl:apply-templates mode="#current"/>
@@ -66,26 +88,26 @@
    
    <xsl:template match="img" mode="md" expand-text="true">
       <xsl:call-template name="conditional-lf"/>
-      <string>
+      <line>
          <xsl:text>!</xsl:text>
          <xsl:for-each select="@alt">[{ normalize-space(.) }]</xsl:for-each>
          <xsl:for-each select="@src">({ normalize-space(.) })</xsl:for-each>
-      </string>
+      </line>
    </xsl:template>
 
     <xsl:template mode="md" match="p">
         <xsl:call-template name="conditional-lf"/>
-        <string>
+        <line>
             <xsl:apply-templates mode="md"/>
-        </string>
+        </line>
     </xsl:template>
 
     <xsl:template mode="md" match="h1 | h2 | h3 | h4 | h5 | h6">
-        <string/>
-        <string>
+        <line/>
+        <line>
             <xsl:apply-templates select="." mode="mark"/>
             <xsl:apply-templates mode="md"/>
-        </string>
+        </line>
     </xsl:template>
 
     <xsl:template mode="mark" match="h1"># </xsl:template>
@@ -103,16 +125,16 @@
     <xsl:template match="colgroup"/>
    
     <xsl:template mode="md" match="tr">
-        <string>
+        <line>
             <xsl:apply-templates select="*" mode="md"/>
-        </string>
+        </line>
         <xsl:if test="empty(preceding-sibling::tr | parent::tbody | parent::tgroup)">
-            <string>
+            <line>
                 <xsl:text>|</xsl:text>
                 <xsl:for-each select="th | td">
                     <xsl:text> --- |</xsl:text>
                 </xsl:for-each>
-            </string>
+            </line>
         </xsl:if>
     </xsl:template>
 
@@ -125,43 +147,42 @@
 
     <xsl:template mode="md" priority="1" match="pre">
         <xsl:call-template name="conditional-lf"/>
-        <string>```</string>
-        <string>
+        <line>```</line>
+        <line>
             <xsl:apply-templates mode="md"/>
-        </string>
-        <string>```</string>
+        </line>
+        <line>```</line>
     </xsl:template>
 
     <xsl:template mode="md" priority="1" match="ul | ol">
-        <xsl:call-template name="conditional-lf"/>
-        <xsl:apply-templates mode="md"/>
-        <string/>
+        <line/>
+        <xsl:apply-templates mode="md"/>       
     </xsl:template>
 
-    <xsl:template mode="md" match="ul//ul | ol//ol | ol//ul | ul//ol">
-        <xsl:apply-templates mode="md"/>
+    <xsl:template mode="md" priority="10" match="ul//ul | ol//ol | ol//ul | ul//ol">
+       <xsl:apply-templates mode="md"/>
     </xsl:template>
 
     <xsl:template mode="md" match="li">
-        <string>
+        <line>
             <xsl:for-each select="../ancestor::ul">
                 <xsl:text>&#32;&#32;</xsl:text>
             </xsl:for-each>
             <xsl:text>* </xsl:text>
             <xsl:apply-templates mode="md"/>
-        </string>
+        </line>
     </xsl:template>
     <!-- Since XProc doesn't support character maps we do this in XSLT -   -->
 
     <xsl:template mode="md" match="ol/li">
-        <string/>
-        <string>
+        <line/>
+        <line>
             <xsl:for-each select="../ancestor::ul">
                 <xsl:text>&#32;&#32;</xsl:text>
             </xsl:for-each>
             <xsl:text>1. </xsl:text>
             <xsl:apply-templates mode="md"/>
-        </string>
+        </line>
     </xsl:template>
     <!-- Since XProc doesn't support character maps we do this in XSLT -   -->
 
@@ -195,7 +216,7 @@
 
     <xsl:template mode="md" match="a">
         <xsl:text>[</xsl:text>
-        <xsl:value-of select="."/>
+        <xsl:value-of select="replace(.,'\s',' ')"/>
         <xsl:text>]</xsl:text>
         <xsl:text>(</xsl:text>
         <xsl:value-of select="@href"/>

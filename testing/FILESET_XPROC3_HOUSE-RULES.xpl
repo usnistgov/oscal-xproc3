@@ -44,10 +44,10 @@
       <p:document href="../tutorial/SOURCES-PREVIEW.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
       
-      <p:document href="../smoketest/POWER-UP.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-XSPEC.xpl"/>
+      <p:document href="../smoketest/TEST-XPROC3.xpl"/>
+      <p:document href="../smoketest/TEST-SCHEMATRON.xpl"/>
+      <p:document href="../smoketest/TEST-XSLT.xpl"/>
+      <p:document href="../smoketest/TEST-XSPEC.xpl"/>
 
       <p:document href="../xspec/xspec-execute.xpl"/>
       
@@ -58,10 +58,10 @@
       <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/oscal-convert/CONVERT-XML-DATA.xpl"/>
       
-      <p:document href="../projects/oscal-from-pdf/PRODUCE_FM6-22-chapter4.xpl"/>
-      <p:document href="../projects/oscal-from-pdf/GRAB-RESOURCES.xpl"/>
-      <p:document href="../projects/oscal-from-pdf/GRAB-FM6-22.xpl"/>
-      <p:document href="../projects/oscal-from-pdf/GRAB-NISO_STS-RNG.xpl"/>
+      <p:document href="../projects/oscal-import/PRODUCE_FM6-22-chapter4.xpl"/>
+      <p:document href="../projects/oscal-import/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-import/GRAB-FM6-22.xpl"/>
+      <p:document href="../projects/oscal-import/GRAB-NISO_STS-RNG.xpl"/>
       
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>

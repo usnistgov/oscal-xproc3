@@ -1,7 +1,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:SMOKETEST-XSPEC"
-   name="SMOKETEST-XSPEC">
+   type="ox:TEST-XSPEC"
+   name="TEST-XSPEC">
 
    <p:import href="../xspec/xspec-execute.xpl"/>
    
@@ -14,10 +14,10 @@
    
    <!-- /end prologue -->
    
-   <p:identity message="[SMOKETEST-XSPEC] Testing XSpec by running { base-uri(/) }"/>
+   <p:identity message="[TEST-XSPEC] Testing XSpec by running { base-uri(/) }"/>
    
    <ox:execute-xspec name="execute-xspec"/>
    
-   <p:identity message="[SMOKETEST-XSPEC] All done, successful run"/>
+   <p:identity message="[TEST-XSPEC] All done, successful run"/>
 
 </p:declare-step>

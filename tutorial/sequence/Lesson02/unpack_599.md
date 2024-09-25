@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/unpack/unpack_599_src.html](../../../tutorial/source/unpack/unpack_599_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 599: More context
 
@@ -12,15 +13,13 @@ More in depth.
 * Learn or relearn some deep XML history including alternative approaches
 * Inform your capability to assess the utility and appropriateness of XProc in particular and XML in general, for a given problem or domain
 
-
 ## Resources
 
 The same pipelines you ran in setup: [Setup 101](../setup/setup_101.md).
 
 Also, [XProc.org dashboard page](https://xproc.org)
 
-Also, XProc index materials produced in this repository: [XProc
-               docs](../../../projects/xproc-doc/readme.md)
+Also, XProc index materials produced in this repository: [XProc                docs](../../../projects/xproc-doc/readme.md)
 
 ## Prerequisites
 
@@ -48,7 +47,7 @@ We see a great deal of structured data these days if only because it is so easy 
 
 So documents are called &ldquo;unstructured&rdquo; but they might better be called &ldquo;relatively irregular&rdquo;, meaning not that they have no structure, but that each one is structured in itself, and moreover, likely to be incompatible or not fully compatible with encodings designed to capture other structures.
 
-And to the extent this is the case, any encoding capable of describing documents must have the capability of supporting each document's own distinctive structure and organization, whether that be due to its family (what is called a **document type**) or an expression of its own intrinsic logic. The format must be not only structured, but *structurable*, and its structures must to some extent be capable of self-description &mdash; combining data with metadata.
+And to the extent this is the case, any encoding capable of describing documents must have the capability of supporting each document's own distinctive structure and organization, whether that be due to its family (what is called a **document type**) or an expression of its own intrinsic logic. The format must be not only structured, but *structurable*, and its structures must to some extent be capable of self-description â€“ combining data with metadata.
 
 And this is to give no consideration to the fact that these structures can be described at *multiple levels* of generality or specificity with regard to either their supposed semantics, or their configuration in operation.
 
@@ -56,7 +55,7 @@ Documentary data formats especially markup formats are designed to work in this 
 
 And so we get XPath - a query syntax which permits working with an organized structure of a particular kind (an *XDM document tree*), which in turn is designed for handling the combination of *highly regular* and *quite irregular* data structures that characterize information sets we (loosely) call **documentary**.
 
-A definition for what is a document is out of scope for this tutorial &mdash; an interesting topic but not only a technical one.
+A definition for what is a document is out of scope for this tutorial â€“ an interesting topic but not only a technical one.
 
 ## Survey of XProc elements
 
@@ -133,10 +132,9 @@ This is not the place to learn XPath, but a selection of XPath expressions can o
 * Consistently and repeatedly shown to be capable at scale (size/complexity)
 * Supported by commodity tools, easing problem of proprietary product endorsement
 
-
 The technologies we rely on share a common foundation in XML and XDM, technologies developed under the auspices of the World Wide Web Consortium. 
 
-They are commodity tools in the sense that they are freely available to use without restriction, an important qualification for this distribution, which has a prior commitment *not to endorse particular technological solutions to any problem*, however posed or circumscribed. Accordingly, solutions here are not offered as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities, and not only using tools as &ldquo;black boxes&rdquo;, but under control and conformant to external specifications &mdash; i.e., standards.
+They are commodity tools in the sense that they are freely available to use without restriction, an important qualification for this distribution, which has a prior commitment *not to endorse particular technological solutions to any problem*, however posed or circumscribed. Accordingly, solutions here are not offered as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities, and not only using tools as &ldquo;black boxes&rdquo;, but under control and conformant to external specifications â€“ i.e., standards.
 
 Users of these tools should keep in mind the model whereby we imagine the viability of a tools market and ecosystem that enables both large and small software developers including independent developers, academic researchers, and students, to participate meaningfully, finding an appropriate value or service proposition to provide their long-term goals. Translated, this means the tools must be capable enough for industrial use at scale, while also &ldquo;scale down&rdquo; to demonstration or classroom use.
 
@@ -146,7 +144,6 @@ In web standards including HTML and Javascript (ECMAScript) we arguably have the
 * [XQuery](https://www.w3.org/TR/xquery-31/) (in Saxon)
 * [Schematron](https://github.com/Schematron) (in [SchXSLT](https://github.com/schxslt/schxslt), an open-source implementation in XSLT of [Schematron](https://schematron.com/) including the [ISO/IEC 19757-3](https://www.iso.org/obp/ui/#iso:std:iso-iec:19757:-3:ed-3:v1:en) specification
 * [XSpec](https://github.com/xspec/xspec), a community-maintained XSLT-based framework for test-driven development, supporting testing XSLT, XQuery and Schematron
-
 
 Since they are known to be highly conformant to their respective specifications as well as well tested, these tools provide a useful functional baseline for evaluating other tooling that addresses the same functional requirements.
 

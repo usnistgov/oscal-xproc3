@@ -26,7 +26,7 @@
             SourceForge).</p>
          <p>After installation, subsequent work on Windows does not require <code>bash</code> unless you choose to use
             it – a Windows <code>CMD</code> or Powershell can serve as your environment and the processor invoked with a
-            Windows <code>bat</code> file (as described in the documentation). Mac and LInux (and WSL) users can
+            Windows <code>bat</code> file (as described in the documentation). Mac and Linux (and WSL) users can
             continue to use <code>bash</code>.</p>
       </section>
       <section>
@@ -40,16 +40,16 @@
             <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
             <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a></li>
             <li><a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a></li>
-            <li><a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a></li>
-            <li><a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a></li>
+            <li><a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a></li>
+            <li><a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a></li>
             <li><a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a></li>
          </ul>
       </section>
          <section>
             <h2>Step One: Setup</h2>
-            <p>Find setup instructions for the repository in the <a href="../../README.md">Project README</a> and in the linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
+            <p>Find setup instructions for the repository in the <a href="../../../README.md">Project README</a> and in the linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
             <p>After reading and reviewing these documents, perform the setup as instructed. To do this you can either
-            fork or clone the repository in Github or simply download and decompress a zip of the <a
+            fork or clone the repository in GitHub or simply download and decompress a zip of the <a
                href="https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip">current
             distribution</a>.</p>
          <p>After running the setup script, or performing the installation by hand, make sure you can run all the smoke
@@ -64,11 +64,11 @@
             <p>If you want to run through the tutorial exercises but you are unsure of how deeply you will delve, you
                can postpone two of the installations until later:</p>
             <ul>
-               <li>You will need SchXSLT only when you want to run Schematron</li>
-               <li>You will need XSpec only when you want to run XSpec unit tests</li>
+               <li>You will need XSpec only when you want to run tests of stylesheets or queries using the <a href="https://github.com/xspec/xspec">XSpec</a> testing framework</li>
+               <li>You will need SchXSLT only when you want to run Schematron (or XSpec tests of Schematron)</li>
             </ul>
             <p>When you see tracebacks suggesting one of these is not supported, you can return to setup.</p>
-            <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0/3.1), consider
+            <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0 with XPath 3.1), consider
                the Saxon installation an essential requirement.</p>
          </section>
          </section>

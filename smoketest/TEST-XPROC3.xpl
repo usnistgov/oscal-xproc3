@@ -1,11 +1,11 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:POWER-UP"
-   name="POWER-UP">
+   type="ox:TEST-XPROC3"
+   name="TEST-XPROC3">
             
    <p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
 	
-   <p:identity name="smoketest" message="[POWER-UP] XPROC 3 SMOKE TEST - - - saying 'Hello World'">
+   <p:identity name="smoketest" message="[TEST-XPROC3] XPROC 3 SMOKE TEST - - - saying 'Hello World'">
       <p:with-input port="source">
          <p:inline>
             <CONGRATULATIONS>Congratulations on running an XProc 3 pipeline.</CONGRATULATIONS>

@@ -1,6 +1,7 @@
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-convert/oscal-convert_101_src.html](../../../tutorial/source/oscal-convert/oscal-convert_101_src.html).
 > 
-> To create a persistent copy (for example, for purposes of annotation) save this file out elsewhere, and edit the copy.
+> Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 101: OSCAL from XML to JSON and back
 
@@ -32,7 +33,6 @@ TBD - TODO - question - how many and of what sort of source data files - so far 
 * Converting local data using a remote XSLT
 * Remote data with a local XSLT, writing locally - [](https://github.com/GSA/fedramp-automation/blob/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml)
 
-
 ## Step two: return trip
 
 Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?
@@ -41,7 +41,7 @@ Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?
 
 If your criticism of XProc so far is that it makes it look easy when it isn't, you have a point. Conversion from XML to JSON isn't free, assuming it works at all. In this case, the heavy lifting is done by the XSLT component - the Saxon engine invoked by the `p:xslt` step, applying logic defined in an XSLT stylesheet (aka transformation) stored elsewhere. It happens that a converter for OSCAL data is available in XSLT, so rather than having to confront this considerable problem ourselves, we drop that in.
 
-In later units we will see how using the XProc steps described, rudimentary data manipulations can be done using XProc by itself, without entailing the use of either XSLT or XQuery (another capability invoked with a different step). At the same time, while pipelines are based on the idea of passing data through a series of processes, there are many cases where logic is sufficiently complex that it becomes essential to maintain &mdash; and test &mdash; that logic externally from the XProc. At what point it becomes more efficient to encapsulate logic separately (whether by XSLT, XQuery or other means), depends very much on the case.
+In later units we will see how using the XProc steps described, rudimentary data manipulations can be done using XProc by itself, without entailing the use of either XSLT or XQuery (another capability invoked with a different step). At the same time, while pipelines are based on the idea of passing data through a series of processes, there are many cases where logic is sufficiently complex that it becomes essential to maintain â€“ and test â€“ that logic externally from the XProc. At what point it becomes more efficient to encapsulate logic separately (whether by XSLT, XQuery or other means), depends very much on the case.
 
 The `p:xslt` pipeline step in particular is so important for real-world uses of XProc that it is introduced early, to show such black-box application. XProc also makes a fine environment for testing XSLT developed or acquired to handle specific tasks, a topic covered in more depth later. Indeed XSLT and XQuery being, like XProc itself, declarative languages, it makes sense to factor them out while maintaining easy access and transparency for analysis and auditing purposes.
 
@@ -57,8 +57,6 @@ For this and related reasons on open systems, the working principle in XML is of
 
 One way to manage the problem of ensuring input quality is to validate on the way in, either as a dependent (prerequisite) process, or built into a pipeline. Whatever you want to do with invalid inputs, including ignoring them and producing warnings or runtime exceptions, can be defined in a pipeline much like anything else.
 
-In the [publishing demonstration project
-                  folder](../../../projects/oscal-publish/publish-oscal-catalog.xpl) is an XProc that valides XML against an OSCAL schema, before formatting it. The same could be done for an XProc that converts the data into JSON - either or both before or after conversion.
+In the [publishing demonstration project                   folder](../../../projects/oscal-publish/publish-oscal-catalog.xpl) is an XProc that valides XML against an OSCAL schema, before formatting it. The same could be done for an XProc that converts the data into JSON - either or both before or after conversion.
 
-Learn more about recognizing and dealing with errors in [Lesson
-                  102](oscal-convert_102_src.html), or continue on to the next project, oscal-validate, for more on validation of documents and sets of documents.
+Learn more about recognizing and dealing with errors in [Lesson                   102](oscal-convert_102_src.html), or continue on to the next project, oscal-validate, for more on validation of documents and sets of documents.

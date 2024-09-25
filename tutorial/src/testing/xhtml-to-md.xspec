@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   stylesheet="../xhtml-to-markdown.xsl"   
+   xslt-version="3.0">
+
+   <x:helper stylesheet="md-xspec.xsl"/>
+
+   <x:variable name="ox:file-as-text" as="function(*)"  
+      xmlns:xs="http://www.w3.org/2001/XMLSchema"
+      select="function($filename as xs:string) as text() { 
+        resolve-uri($filename, $x:xspec-uri) => unparsed-text() => ox:as-text-node()
+      }"/>
+   
+   <!--<x:scenario label="simple HTML, rendered">
+      <x:context href="simple.html"/>
+      <!-\-<x:expect label="converts into plain text" select="unparsed-text('simple.md')"/>-\->
+      <x:expect label="x" xml:space="preserve">
+
+# A Mystery
+
+Who wrote the plays we attribute to William Shakespeare?</x:expect>
+   </x:scenario>-->
+   
+   <x:scenario label="simple HTML, rendered">
+      <x:context href="simple.html"/>
+      <x:expect label="matches its saved target, 'simple.md'" select="$ox:file-as-text('simple.md')"/>
+   </x:scenario>
+   
+   
+   <x:scenario label="HTML fragments">
+      <x:scenario label="one p">
+         <x:context>
+            <p>A paragraph is a complete unit of thought, composed in the form of one or more sentences.</p>
+         </x:context>
+         <x:expect label="looks like a line" xml:space="preserve">
+A paragraph is a complete unit of thought, composed in the form of one or more sentences.
+</x:expect>
+      </x:scenario>
+      <x:scenario label="two ps">
+         <x:context>
+            <body>
+               <p>A paragraph is a complete unit of thought, composed in the form of one or more sentences.</p>
+               <p>Stack paragraphs in fives to make essays.</p>
+            </body>
+         </x:context>
+         <x:expect label="looks like two lines" xml:space="preserve">
+
+A paragraph is a complete unit of thought, composed in the form of one or more sentences.
+
+Stack paragraphs in fives to make essays.
+</x:expect>
+      </x:scenario>
+      <x:scenario label="headers">
+         <x:context>
+            <body>
+               <h1>A Life of William Shakespeare</h1>
+               <h2>Grain merchant of Warwick</h2>
+               <h3>Reputed poet, playwright and wit</h3>
+               <h4>Memorialized in Westminster Abbey</h4>
+               <h5>Possibly fraudulent</h5>
+               <h6>A puzzle, or a ruse</h6>
+            </body>
+         </x:context>
+         <x:expect label="have their markup" xml:space="preserve">
+
+
+# A Life of William Shakespeare
+
+## Grain merchant of Warwick
+
+### Reputed poet, playwright and wit
+
+#### Memorialized in Westminster Abbey
+
+##### Possibly fraudulent
+
+###### A puzzle, or a ruse
+</x:expect>
+         </x:scenario>
+      
+   </x:scenario>
+   
+   <!--<x:scenario label="simple HTML, rendered">
+      <x:context href="simple.html"/>
+      <x:expect label="matches its saved target, 'simple.md'" select="unparsed-text('simple.md') => ox:as-text-node()"/>
+   </x:scenario>-->
+   
+   <x:scenario label="More complex HTML">
+      <x:context href="mixup.html"/>
+      <x:expect label="matches its saved target, 'mixup.md'" select="$ox:file-as-text('mixup.md')"/>
+   </x:scenario>
+   
+</x:description>
