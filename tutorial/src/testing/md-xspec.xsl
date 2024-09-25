@@ -6,6 +6,7 @@
    exclude-result-prefixes="#all"
    version="3.0">
    
+   <!-- Utility XSLT for testing HTML to Markdown conversion -->
    
    <xsl:function name="ox:as-text-node" as="text()">
       <xsl:param name="str" as="xs:string"/>
