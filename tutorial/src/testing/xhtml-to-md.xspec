@@ -6,6 +6,16 @@
    stylesheet="../xhtml-to-markdown.xsl"   
    xslt-version="3.0">
 
+<!-- XSpec framed up for testing HTML to Markdown conversion.
+     Build this up when/as regression testing is called for.
+   
+   Note supporting files:
+     mixup.html results in mixup.md
+     simple.html results in simple.md
+     
+   -->
+
+
    <x:helper stylesheet="md-xspec.xsl"/>
 
    <x:variable name="ox:file-as-text" as="function(*)"  
@@ -14,21 +24,10 @@
         resolve-uri($filename, $x:xspec-uri) => unparsed-text() => ox:as-text-node()
       }"/>
    
-   <!--<x:scenario label="simple HTML, rendered">
-      <x:context href="simple.html"/>
-      <!-\-<x:expect label="converts into plain text" select="unparsed-text('simple.md')"/>-\->
-      <x:expect label="x" xml:space="preserve">
-
-# A Mystery
-
-Who wrote the plays we attribute to William Shakespeare?</x:expect>
-   </x:scenario>-->
-   
    <x:scenario label="simple HTML, rendered">
       <x:context href="simple.html"/>
       <x:expect label="matches its saved target, 'simple.md'" select="$ox:file-as-text('simple.md')"/>
    </x:scenario>
-   
    
    <x:scenario label="HTML fragments">
       <x:scenario label="one p">
@@ -56,7 +55,7 @@ Stack paragraphs in fives to make essays.
       <x:scenario label="headers">
          <x:context>
             <body>
-               <h1>A Life of William Shakespeare</h1>
+               <h1>A Life of William Shakspere</h1>
                <h2>Grain merchant of Warwick</h2>
                <h3>Reputed poet, playwright and wit</h3>
                <h4>Memorialized in Westminster Abbey</h4>
@@ -67,7 +66,7 @@ Stack paragraphs in fives to make essays.
          <x:expect label="have their markup" xml:space="preserve">
 
 
-# A Life of William Shakespeare
+# A Life of William Shakspere
 
 ## Grain merchant of Warwick
 
@@ -79,14 +78,17 @@ Stack paragraphs in fives to make essays.
 
 ###### A puzzle, or a ruse
 </x:expect>
-         </x:scenario>
+      </x:scenario>
+      <x:scenario label="some inline markup">
+         <x:context>
+            <p>Be <b>bold</b>, or risk being made <i>italic</i>. <a href="link.html">Link</a> to a page.</p>
+         </x:context>
+         <x:expect label="is rendered as expected" xml:space="preserve">
+Be **bold**, or risk being made *italic*. [Link](link.html) to a page.
+</x:expect>
+      </x:scenario>
       
    </x:scenario>
-   
-   <!--<x:scenario label="simple HTML, rendered">
-      <x:context href="simple.html"/>
-      <x:expect label="matches its saved target, 'simple.md'" select="unparsed-text('simple.md') => ox:as-text-node()"/>
-   </x:scenario>-->
    
    <x:scenario label="More complex HTML">
       <x:context href="mixup.html"/>

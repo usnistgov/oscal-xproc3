@@ -6,9 +6,9 @@ Tutorial exercises can be centered on OSCAL-oriented applications but the learni
 
 We need to be modest and realistic in our goals, in proportion to the great potentials.
 
-Slides show only snapshots of process - no live demo
-Each slide shows links to repo
-Students are invited to read slides ahead of time with other materials
+Pages show only snapshots of process - no live demo
+Each page comes with links to repo
+Students are invited to read up ahead of time with other materials
 
 We need to send this out two weeks early? Or anyone who registers late should be urged to dive in.
 
