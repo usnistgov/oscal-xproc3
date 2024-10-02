@@ -1,4 +1,5 @@
 
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-publish/oscal-publish_102_src.html](../../../tutorial/source/oscal-publish/oscal-publish_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
@@ -9,11 +10,11 @@
 
 ## Prerequisites
 
-Run the pipelines described in [the 101 Lesson](oscal-publish_101_src.html)
+Run the pipelines described in [the 101 Lesson](oscal-publish_101.md)
 
 ## Resources
 
-Like the [101 lesson](oscal-publish_101_src.html), this lesson unit uses the [oscal-import project](../../../projects/oscal-publish/readme.md) in this repo.
+Like the [101 lesson](oscal-publish_101.md), this lesson unit uses the [oscal-import project](../../../projects/oscal-publish/readme.md) in this repo.
 
 Publishing your own OSCAL in these pipelines is also worth trying - the worst they can do is fail. Bring OSCAL, especially OSCAL catalogs.
 

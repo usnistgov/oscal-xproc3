@@ -93,9 +93,11 @@
          
          <!-- Shocking that this works, needing some explanation -->
          
-         <!--<p:text-replace pattern="â€“" replacement="&amp;mdash;"/>-->
+         <!--<p:cast-content-type content-type="text/plain"/>-->
          
-         <p:text-replace pattern="–" replacement="&amp;mdash;"/>
+         <p:text-replace pattern="â€“" replacement="&amp;mdash;"/>
+         
+         <!--<p:text-replace pattern="–" replacement="&amp;mdash;"/>-->
          
          <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'utf-8'}"
          message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>

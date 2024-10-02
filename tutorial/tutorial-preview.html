@@ -43,6 +43,9 @@
                </div>
                <div>
                   <h2>Comments / review</h2>
+                  <div>
+                     <h3>Tweaks</h3>
+                  </div>
                </div>
             </div>
             <div class="unit">
@@ -179,7 +182,7 @@
                   <h2>XPath illustrative examples</h2>
                </div>
                <div>
-                  <h2>XML and XDM: context and rationale</h2>
+                  <h2>XML and the XDM: context and rationale</h2>
                </div>
                <div>
                   <h2>Exercise: Discussion board</h2>
@@ -199,7 +202,13 @@
                   <h2>Resources</h2>
                </div>
                <div>
+                  <h2>Step zero: an identity pipeline</h2>
+               </div>
+               <div>
                   <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
+                  <div>
+                     <h3>The playing field is the internet</h3>
+                  </div>
                </div>
                <div>
                   <h2>Step two: return trip</h2>
@@ -372,7 +381,7 @@
                </div>
             </div>
             <div class="unit">
-               <h1>102: Publishing OSCAL</h1>
+               <h1>102: More OSCAL Publishing</h1>
                <div>
                   <h2>Goals</h2>
                </div>
@@ -406,7 +415,10 @@
                   <h2>Step one: acquire resources</h2>
                </div>
                <div>
-                  <h2>Step two (to skip): produce HTML</h2>
+                  <h2>Step two: examine HTML source data</h2>
+                  <div>
+                     <h3>Warning: fragile!</h3>
+                  </div>
                </div>
                <div>
                   <h2>Step three: run the pipeline</h2>
@@ -483,14 +495,14 @@
                <code>bash</code>, the setup can be done by hand (downloading and unpacking a package from
             SourceForge).</p>
                <p>After installation, subsequent work on Windows does not require <code>bash</code> unless you choose to use
-            it â€“ a Windows <code>CMD</code> or Powershell can serve as your environment and the processor invoked with a
-            Windows <code>bat</code> file (as described in the documentation). Mac and LInux (and WSL) users can
+            it – a Windows <code>CMD</code> or Powershell can serve as your environment and the processor invoked with a
+            Windows <code>bat</code> file (as described in the documentation). Mac and Linux (and WSL) users can
             continue to use <code>bash</code>.</p>
             </section>
             <section>
                <h2>Resources</h2>
                <p>The setup script is a <code>bash</code> script: <a href="../../../setup.sh">./setup.sh</a>, to be run with no arguments.</p>
-               <p>For XProc runtime -- to execute pipelines -- use either of the scripts <a href="../../../xp3.sh">./xp3.sh</a> (under <code>bash</code>) or <a href="../../../xp3.bat">./xp3.bat</a> (for Windows). These scripts are
+               <p>For XProc runtime — to execute pipelines — use either of the scripts <a href="../../../xp3.sh">./xp3.sh</a> (under <code>bash</code>) or <a href="../../../xp3.bat">./xp3.bat</a> (for Windows). These scripts are
             used for all pipelines (basically, for everything) unless otherwise noted.</p>
                <p>The following pipelines will be run. They are described in top-level <a href="../../../README.md">README</a> documentation and the expected places.</p>
                <ul>
@@ -507,10 +519,10 @@
                      <a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a>
                   </li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a>
+                     <a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a>
                   </li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a>
+                     <a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a>
                   </li>
                   <li>
                      <a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a>
@@ -519,9 +531,9 @@
             </section>
             <section>
                <h2>Step One: Setup</h2>
-               <p>Find setup instructions for the repository in the <a href="../../README.md">Project README</a> and in the linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
+               <p>Find setup instructions for the repository in the <a href="../../../README.md">Project README</a> and in the linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
                <p>After reading and reviewing these documents, perform the setup as instructed. To do this you can either
-            fork or clone the repository in Github or simply download and decompress a zip of the <a href="https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip">current
+            fork or clone the repository in GitHub or simply download and decompress a zip of the <a href="https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip">current
             distribution</a>.</p>
                <p>After running the setup script, or performing the installation by hand, make sure you can run all the smoke
             tests successfully.</p>
@@ -534,11 +546,11 @@
                   <p>If you want to run through the tutorial exercises but you are unsure of how deeply you will delve, you
                can postpone two of the installations until later:</p>
                   <ul>
-                     <li>You will need SchXSLT only when you want to run Schematron</li>
-                     <li>You will need XSpec only when you want to run XSpec unit tests</li>
+                     <li>You will need XSpec only when you want to run tests of stylesheets or queries using the <a href="https://github.com/xspec/xspec">XSpec</a> testing framework</li>
+                     <li>You will need SchXSLT only when you want to run Schematron (or XSpec tests of Schematron)</li>
                   </ul>
                   <p>When you see tracebacks suggesting one of these is not supported, you can return to setup.</p>
-                  <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0/3.1), consider
+                  <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0 with XPath 3.1), consider
                the Saxon installation an essential requirement.</p>
                </section>
             </section>
@@ -564,12 +576,12 @@
             is never like that. This project is based on the premise that a lab environment can be useful even for
             studying things more commonly encountered in the real world.</p>
                <p>Effectively (and much more could be said about the processing stack, dependency management and so forth)
-            what this means is that XProc offers the user and the developer (in either or both roles) very focused and
-            concentrated points of control or points of adjustment. Out in the field - where software is deployed and
-            used - it may never be like that. User interfaces constrain what users can do, and even developers are
-            rarely free to just mess around, as it might be thought of.</p>
-               <p>To the extent this is the case, this project only works if things are actually simple enough to pick up and
-            use.</p>
+            what this means is that XProc offers the user and the developer (in either or both roles) with focused and
+            concentrated points of control or points of adjustment. In the field -- where software is deployed and
+            used -- things almost never just <q>drop in</q>. User interfaces, APIs, dependencies and platform quirks: all these 
+            constrain what users can do, and even developers are rarely free to just mess around, as it might be thought of.</p>
+               <p>To the extent this is the case, this project only works if things are actually simple enough to pick up,
+            use, learn and adapt.</p>
                <p>
                   <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at this. Each of them (on its execution
             platform) enables a user to run, without further configuration, the <a href="https://www.xml-project.com/morganaxproc-iiise.html">Morgana XProcIIIse</a> processor on any XProc
@@ -580,54 +592,60 @@
             pipeline, and stands back. The logic of operations is entirely encapsulated in the XProc pipeline
             designated. XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data
             processing, both XML-based and using other formats such as JSON and plain text. It is the intent of this
-            project not to explore and map this space â€“ which is vast â€“ but to show off enough XProc and related logic
-            (XSLT, XSpec) to show how this exploration can be done.</p>
-               <p>As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple scripts
-            can be used in more than one way. </p>
-               <p>For example, a pipeline can be executed from the project root:</p>
-               <pre>$ ./xp3.sh smoketest/TEST-XPROC3.xpl</pre>
-               <p>Alternatively, a pipeline can be executed from its home directory, for example if currently in the
-               <code>smoketest</code> directory (note the path to the script): </p>
-               <pre>$ ../xp3.sh TEST-XPROC3.xpl</pre>
-               <p>This works the same ways on Windows, with adjustments: </p>
-               <pre>&gt; ..\xp3 TEST-XPROC3.xpl </pre>
-               <p>(On Windows a <code>bat</code> file suffix marks it as executable and does not have to be given explicitly
-            when calling.)</p>
-               <p>Windows users (and others to varying degrees) can set up a drag-and-drop based workflow - using your mouse
-            or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows batch file).
-            A command window opens to show the operation of the pipeline. See the <a href="../../README.md">README</a>
-            for more information.</p>
-               <p>It is important to try things out since any of these methods can be the basis of a workflow. </p>
-               <p>For the big picture, keep in mind that while the command line is useful for development and demonstration â€“
-            and however familiar XProc itself may become to the developer â€“ to the uninitiated it remains obscure and
-            cryptic. XProc-based systems, when integrated into tools or developer editors and environments, can look
-            much nicer than tracebacks in a console window. The beauty we are looking for here is in a different kind of
-            elegance and power.</p>
+            project not to explore and map this space – which is vast – but to show off enough XProc and related logic
+            (XSLT, XSpec) to show how this exploration can be done. We are an outfitter at the beginning of what
+            we hope will be a long and profitable voyage.</p>
+               <section>
+                  <h3>Tweaks</h3>
+                  <p>As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple
+               scripts can be used in more than one way. </p>
+                  <p>For example, a pipeline can be executed from the project root:</p>
+                  <pre>$ ./xp3.sh smoketest/TEST-XPROC3.xpl</pre>
+                  <p>Alternatively, a pipeline can be executed from its home directory, for example if currently in the
+                  <code>smoketest</code> directory (note the path to the script): </p>
+                  <pre>$ ../xp3.sh TEST-XPROC3.xpl</pre>
+                  <p>This works the same ways on Windows, with adjustments: </p>
+                  <pre>&gt; ..\xp3 TEST-XPROC3.xpl </pre>
+                  <p>(On Windows a <code>bat</code> file suffix marks it as executable and does not have to be given
+               explicitly when calling.)</p>
+                  <p>Windows users (and others to varying degrees) can set up a drag-and-drop based workflow - using your
+               mouse or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows
+               batch file). A command window opens to show the operation of the pipeline. See the <a href="../../README.md">README</a> for more information.</p>
+                  <p>It is important to try things out since any of these methods can be the basis of a workflow. </p>
+                  <p>For the big picture, keep in mind that while the command line is useful for development and demonstration
+               – and however familiar XProc itself may become to the developer – to the uninitiated it remains obscure
+               and cryptic. XProc-based systems, when integrated into tools or developer editors and environments, can
+               look much nicer than tracebacks in a console window. The beauty we are looking for here is in a different
+               kind of elegance and power.</p>
+               </section>
             </section>
          </section>
          <section class="unit"
                   id="setup_102">
             <h1>102: Examining the setup</h1>
-            <p>
-            </p>
             <section>
                <h2>Goals</h2>
                <ul>
                   <li>Look at some pipeline organization and syntax on the inside</li>
-                  <li>Success and failure invoking XProc pipelines: an early chance to â€œlearn to dieâ€� gracefully (to use the
+                  <li>Success and failure invoking XProc pipelines: an early chance to "learn to die" gracefully (to use the
                gamers' idiom).</li>
                </ul>
             </section>
             <section>
                <h2>Resources</h2>
-               <p>Same as <a href="setup_101_src.html">Setup 101</a>.</p>
+               <p>Same as <a href="setup_101_src.html"
+                     class="LessonUnit">Setup 101</a>.</p>
             </section>
             <section>
                <h2>Prerequisites</h2>
-               <p>Please complete the repository setup and smoke tests as described in the <a href="setup_101_src.html">101 lesson</a>. In this lesson, we will run these pipelines with adjustments, or similar pipelines.</p>
-               <p>This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via <code>file</code> and <code>http</code> protocols, and web-based technologies including HTML.</p>
-               <p>XML knowledge is also assumed, while at the same time we are interested to know where this gap needs to be
-            filled.</p>
+               <p>Please complete the repository setup and smoke tests as described in the <a href="setup_101_src.html"
+                     class="LessonUnit">101 lesson</a>. In this lesson, we will run these pipelines with adjustments, or
+            similar pipelines.</p>
+               <p>This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via
+               <code>file</code> and <code>http</code> protocols), and web-based technologies including HTML.</p>
+               <p>XML knowledge is also assumed. In particular, XProc uses <a href="https://www.w3.org/TR/xpath-31/">XPath
+               3.1</a>, the query language for XML. This latest version of XPath builds on XPath 1.0, so any XPath
+            experience will help. In general, any XSLT or XQuery experience will be invaluable.</p>
                <p>You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development
             environment) for more interactive testing of the code.</p>
             </section>
@@ -636,7 +654,7 @@
                <p>The two groupings of pipelines used in setup and testing can be considered separately.</p>
                <p>The key to understanding both groups is to know that once the initial <a href="../../../setup.sh">Setup
                script</a> is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing
-            so â€“ before extension libraries are in place â€“ it can use only basic XProc steps, but those are enough for
+            so – before extension libraries are in place – it can use only basic XProc steps, but those are enough for
             these purposes.</p>
                <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
             unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
@@ -659,15 +677,15 @@
                   <li>
                      <a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> tests MorganaXProc-III</li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon</li>
+                     <a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a> tests Saxon</li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
+                     <a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a> tests
                SchXSLT</li>
                   <li>
                      <a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec</li>
                </ul>
-               <p>Take a look at these. If it is helpful, try visualize the XML syntax as a set of nested frames with labels
-            and connectors.</p>
+               <p>Take a look at these. If it is helpful, try to see the XML syntax as a set of nested frames with labels and
+            connectors.</p>
                <p>Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in
             a plain text editor, in an XML editor.</p>
             </section>
@@ -675,8 +693,8 @@
                <h2>Step Two: Modify the pipelines</h2>
                <p>Use a text editor or IDE for this exercise.</p>
                <p>If you have any concepts for improvements to the pipelines, or other resources that might be acquired this way, copy and modify one of the pipelines given to achieve those results.</p>
-               <p>Even if not - be sure to break the pipelines given -- or of copies under new names -- in any of several
-            ways. Then run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
+               <p>Even if not - be sure to break the pipelines given -- or copies under new names -- in any of several ways.
+            Then run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
                <ul>
                   <li>Break the XML syntax of a pipeline and try to run it</li>
                   <li>Leave XML syntax intact (well-formed), but break something in the XProc <ul>
@@ -699,7 +717,7 @@
             so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for
                <i>particular</i>, <i>special</i> and <i>local</i> problems discovered only at the points where
             information is gathered and codified.</p>
-               <p>This larger fitting of solutions to problems is a responsibility for both CMEs (content matter experts) and
+               <p>This larger fitting of solutions to problems is a responsibility for both SMEs (subject matter experts) and
             developers together, who must define problems to be solved before approaches to them can be found.</p>
                <p>The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions
             come up in an OSCAL context or any context where XML is demonstrably capable.</p>
@@ -710,8 +728,8 @@
             <h1>599: Meeting XProc</h1>
             <section>
                <h2>Some observations</h2>
-               <p>Because it is now centered on <i>pipelines</i> as much as on software packages, dependency management is
-            different from other technologies including Java and NodeJS - how so?</p>
+               <p>Because it is now centered on <i>pipelines</i> as much as on files and software packages, dependency
+            management is different from other technologies including Java and NodeJS - how so?</p>
                <p>MorganaXProc-III is implemented in Scala, and Saxon is built in Java, but otherwise distributions including
             the SchXSLT and XSpec distributions consist mainly of XSLT. This is either very good (with development and
             maintenance requirements in view), or not good at all.</p>
@@ -783,12 +801,12 @@
                      <a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> amounts to an XProc <q>Hello
                   World</q>. In that spirit, feel free to edit and adjust this file.</li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-XSLT.xpl">smoketest/SMOKETEST-XSLT.xpl</a> tests Saxon, an
+                     <a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a> tests Saxon, an
                XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same
                data model) developed with XML processing in mind, but in recent years generalized to a wider range of
                data structures.</li>
                   <li>
-                     <a href="../../../smoketest/SMOKETEST-SCHEMATRON.xpl">smoketest/SMOKETEST-SCHEMATRON.xpl</a> tests
+                     <a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a> tests
                SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology.
                Schematron relies on XSLT, so this library requires Saxon.</li>
                   <li>
@@ -877,13 +895,13 @@
                <h2>Prerequisites</h2>
                <p>You have done <a href="../setup/setup_101_src.html"
                      class="LessonUnit">Setup 101</a>, <a href="../setup/setup_101_src.html"
-                     class="LessonUnit">Setup 102</a> and <a href="unpack_101_src.html">Unpack 101</a>.</p>
+                     class="LessonUnit">Setup 102</a> and <a href="unpack_101_src.html"
+                     class="LessonUnit">Unpack 101</a>.</p>
             </section>
             <section>
                <h2>Learning about XProc</h2>
                <ul>
-                  <li>Search engines: use keywords <q>XProc3</q> or <q>XProc 3.0</q> to help distinguish from 1.0
-               technologies</li>
+                  <li>Search engines: use keywords <q>XProc3</q> or <q>XProc 3.0</q> to help distinguish from 1.0 technologies</li>
                   <li>Resources: links here and elsewhere</li>
                   <li>Hands on exercises</li>
                   <li>Work the notes - save out and annotate these pages</li>
@@ -915,7 +933,7 @@
                   <p>Additionally, step declarations can include their own pipeline (step) declarations, making a hybrid
                architecture: the pipeline comprises a step, with its own library not imported but in line. This can be
                useful.</p>
-                  <p>An example of a step library in this repository is <a href="../../../xspec/xspec-execute.xpl">xpec-execute.xpl</a>, which collects several steps supporting XSpec, one each for supporting the
+                  <p>An example of a step library in this repository is <a href="../../../xspec/xspec-execute.xpl">xspec-execute.xpl</a>, which collects several steps supporting XSpec, one each for supporting the
                XSpec testing framework for XSLT, XQuery and Schematron respectively.</p>
                   <p>The advantage of defining a step at the top level, rather than putting all steps into libraries, is that
                such a step can be invoked without prior knowledge of its type name, which is used by XProc to
@@ -954,8 +972,8 @@
                      <h4>XProc embedded documentation</h4>
                      <p>An example of this is the XProc <code>p:documentation</code> element. This element is designed to
                   carry documentation to a consuming application. Rather than mandate some kind of behavior for
-                     <code>p:documentation</code> â€“ something difficult or impossible to do for the general case, or to
-                  test â€“- the XProc rule is <q>anything marked as documentation is for some other consumer</q>, i.e. a
+                     <code>p:documentation</code> – something difficult or impossible to do for the general case, or to
+                  test –- the XProc rule is <q>anything marked as documentation is for some other consumer</q>, i.e. a
                   documentation engine, not the XProc processor. In other words, a conformant processor <a href="https://spec.xproc.org/3.0/xproc/#documentation">
                            <i>must ignore</i> anything it sees</a>
                   inside <code>p:documentation</code>.</p>
@@ -968,31 +986,30 @@
                   <h3>XProc step prologue and body</h3>
                   <p>Keep in mind that every XProc pipeline is also, potentially and actually, a step. There are two things we
                need to know about steps - how to define them, and how to use them.</p>
-                  <p>We begin with how to recognize and use steps, but we can't avoid how to define them: because an XProc
-               pipeline is also an XProc step, we can't use steps without ending up with a pipeline. We have only to
-               look at the working pipeline we make with our steps, to see how a step is made.</p>
+                  <p>We begin with how to recognize and use steps. But because an XProc pipeline is also an XProc step, we
+               can't use steps without ending up with a pipeline. We have only to look at the working pipeline we make
+               with our steps, to see how a step is made.</p>
                   <p>As described in the <a href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">XProc 3.0
                   specification</a>, XProc step declarations can be divided into an initial set of elements for setup
-               and configuration, followed by what the specification calls a <i>subpipeline</i>, which is typically a
-               sequence of steps to be executed â€“ any steps available, which could be anything. Think of the subpipeline
+               and configuration, followed by what the specification calls a <i>subpipeline</i>, consisting of a
+               sequence of steps to be executed – any steps available, which could be anything. Think of the subpipeline
                as the working parts of the pipeline, while the rest is all about how it is set up.</p>
-                  <p>The list of elements that come before the steps is short, which helps: <code>p:import</code>,
+                  <p>The list of elements that come before the subpipeline is short, which helps: <code>p:import</code>,
                   <code>p:import-functions</code>, <code>p:input</code>, <code>p:output</code>, <code>p:option</code> or
                   <code>p:declare-step</code>. Everything coming after is a step.</p>
                   <p>Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes
                between the <b>imports</b> for steps and functions, appearing first (elements <code>p:import</code> and
                   <code>p:import-functions</code>), to be followed by elements configuring the step:
-                  <code>p:input</code>, <code>p:output</code>, <code>p:option</code> â€“ elements together called the <a href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">prologue</a>.</p>
+                  <code>p:input</code>, <code>p:output</code>, <code>p:option</code> – elements together called the <a href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">prologue</a>.</p>
                   <p>The prologue is used to define ports and options for the pipeline - the points of control for its
                interfaces. (Technically: runtime bindings, and parameter or option settings.) If only a single input is
                needed, a single input port (named <code>source</code>) can be assumed, so prologues can be empty (and
                invisible, or not there).</p>
                   <p>Following the prologue, a step may also have local step definitions (<code>p:declare-step</code>).</p>
                   <p>After imports, prologue and (optional) step declarations, the step sequence that follows comprises the <a href="https://spec.xproc.org/3.0/xproc/#dt-subpipeline">subpipeline</a>.</p>
-                  <p>One other complication: for purposes of exposition, we have pretended that <code>p:variable</code> (a
-               variable declaration) and <code>p:documentation</code> (for out-of-band documentation) are steps, which
-               is not how the XProc recommendation describes them, although they appears in the subpipeline with and
-               among its steps.</p>
+                  <p>One other complication: among the steps in the subpipeline, <code>p:variable</code> (a variable
+               declaration) and <code>p:documentation</code> (for out-of-band documentation) are also permitted – these
+               are not properly steps, but can be useful to have with them.</p>
                   <p>In summary: any XProc pipeline, viewed as a step declaration, can have the following --</p>
                   <ul>
                      <li>Pipeline name and type assignment (if needed), given as attributes at the top</li>
@@ -1004,8 +1021,8 @@
                         single document</li>
                         </ul>
                      </li>
-                     <li>Optionally (and not common): step declarations for local steps - each has its own name and type,
-                  prologue and steps</li>
+                     <li>Optionally (and not common): step declarations for local steps, appearing at
+                     <code>p:declare-step</code>. Each of these will have its own name, type, prologue and steps</li>
                      <li>For this pipeline, one or more steps, called the <a href="https://spec.xproc.org/3.0/xproc/#dt-subpipeline">subpipeline</a>
                         <ul>
                            <li>Standard atomic and compound steps in XProc namespace (probably prefixed <code>p:</code>)</li>
@@ -1025,10 +1042,10 @@
                   <p>Given an understanding of the organization of an XProc pipeline, all that remains to understand of its
                syntax is the steps themselves, which follow a common pattern. Briefly put, atomic steps are any steps
                you use by simply invoking it with inputs and options: its logic is self-contained, and the operation it
-               carries out is (at least conceptually) <q>single</q>. Compound steps, instead, are used to execute more
+               carries out is (at least conceptually) <q>single</q>. Compound steps, instead, are used to deploy more
                than one subpipeline, with settings determined dynamically for the step.</p>
                   <p>Fortunately XProc keeps things simple by providing only a few compound steps supporting the identified
-               range of needs â€“ and no way for users to define their own. This does not prove to be a practical
+               range of needs – and no way for users to define their own. This does not prove to be a practical
                limitation, since atomic steps can have multiple inputs and outputs, distinguished by type and role, and
                indeed since atomic steps used in a pipeline can be defined with compound steps in their own
                subpipelines, either externally or even within the same step declaration.</p>
@@ -1102,7 +1119,8 @@
                </section>
                <section>
                   <h3>Schema for XProc 3.0</h3>
-                  <p>See the <a href="unpack_599_src.html">599-level coverage in this lesson unit</a> for a discussion of the
+                  <p>See the <a href="unpack_599_src.html"
+                        class="LessonUnit">599-level coverage in this lesson unit</a> for a discussion of the
                schema for XProc.</p>
                </section>
             </section>
@@ -1142,7 +1160,7 @@
             <section>
                <h2>Exercise: Knowing what to look for</h2>
                <p>The last lesson unit already provided an opportunity to alter pipelines and see how they fail when not
-            encoded correctly â€“ when <q>broken</q>, any way we can think of breaking them. (Then we had an opportunity
+            encoded correctly – when <q>broken</q>, any way we can think of breaking them. (Then we had an opportunity
             to put them back.)</p>
                <p>After reading this page, do this again, except focusing on a few key areas:</p>
                <ul>
@@ -1219,7 +1237,7 @@
             community-defined steps, is referenced from the <a href="https://spec.xproc.org/3.0/xproc/#ancillary-files">XProc Specification</a>. <a href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is
             very useful.</p>
                <p>It may often be considered gratuitous to validate XProc files against a schema, when the application (for
-            us, Morgana)must in any case take responsibility for conformance issues, as it sees fit. The reference
+            us, Morgana) must in any case take responsibility for conformance issues, as it sees fit. The reference
             schema becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role
             in any runtime operation.</p>
                <p>Nevertheless the RNG schema still serves as a reference and an object for querying -- queries whose results
@@ -1231,14 +1249,12 @@
                <p>Like other XDM-based technologies, XProc embeds and incorporates XPath, an expression language for XML.
             XPath 3.0 is a functional language in its own right, although not designed for end-to-end processing of
             encoded source data into encoded results, but only for certain critical operations that ordinarily need to
-            be performed within such end-to-end processing. Since it is partial in this way, XPath is defined not in
-            terms of any data notation (such as XML syntax or any other) but rather against an <i>abstract data
-               object</i>, namely an <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model),
-            a putative information object that may be provided to the system by parsing an XML (syntax) instance, or by
-            other means. As the query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the
-            basis for XQuery, <a href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data
-            model, which any architect of a system using this technology must know. Learning XPath equips you mentally
-            for dealing with the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
+            be performed within such end-to-end processing. Importantly, XPath is defined not in terms of any data
+            notation (such as XML syntax or any other) but rather against an <i>abstract data object</i>, namely an <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model), a putative information
+            object that may be provided to the system by parsing an XML (syntax) instance, or by other means. As the
+            query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the basis for XQuery, <a href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data model, which any
+            architect of a system using this technology must know. Learning XPath equips you mentally for dealing with
+            the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
                <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips XPath 1.0 in many important respects.</p>
                <section>
                   <h3>Documents and data</h3>
@@ -1246,8 +1262,8 @@
                for the representation and transmission of structured data. A specialized class of data formats has
                evolved that represent information in ways that are not <q>unstructured</q>, but that contrast with more
                common or usual structures of data formats, whether they be tabular data, serialization formats for
-               object models, or some other regular and fore-ordained arrangement. One might say <q>common</q> or
-                  <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
+               object models, or some other regular (formalized and codified) arrangement. One might say <q>common</q>
+               or <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
                   <p>We see a great deal of structured data these days if only because it is so easy to make structured data
                with machines, and we now have the machines. What remains difficult is to translate what has not been
                created by a machine, into a form that a machine can <q>recognize</q>, or rather into a form we can
@@ -1259,7 +1275,7 @@
                of supporting each document's own distinctive structure and organization, whether that be due to its
                family (what is called a <b>document type</b>) or an expression of its own intrinsic logic. The format
                must be not only structured, but <i>structurable</i>, and its structures must to some extent be capable
-               of self-description â€“ combining data with metadata.</p>
+               of self-description – combining data with metadata.</p>
                   <p>And this is to give no consideration to the fact that these structures can be described at <i>multiple
                   levels</i> of generality or specificity with regard to either their supposed semantics, or their
                configuration in operation.</p>
@@ -1268,7 +1284,7 @@
                (an <i>XDM document tree</i>), which in turn is designed for handling the combination of <i>highly
                   regular</i> and <i>quite irregular</i> data structures that characterize information sets we (loosely)
                call <b>documentary</b>.</p>
-                  <p>A definition for what is a document is out of scope for this tutorial â€“ an interesting topic but not only a
+                  <p>A definition for what is a document is out of scope for this tutorial – an interesting topic but not only a
                technical one.</p>
                </section>
             </section>
@@ -1277,6 +1293,9 @@
                <p>All elements defined by XProc are listed in this analytical breakout.</p>
                <p>TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc
             RNG?</p>
+               <p>NB - XProc 3.1 makes this a moving target.</p>
+               <p>NB also – see Erik Siegel's <a href="https://xprocref.org/index.html">XProcRef</a> indexing project for more
+            detailed summaries.</p>
                <table>
                   <tbody>
                      <tr>
@@ -1413,7 +1432,8 @@
                      <tr>
                         <td>1987</td>
                         <td>SGML (ISO-IEC 8879-1)</td>
-                        <td>parsing logic; schema validation; configurable syntax; tree of elements and attributes</td>
+                        <td>parsing logic; schema validation; configurable syntax; (implicit) tree of elements and
+                     attributes</td>
                         <td>Proprietary stacks</td>
                         <td>Mainframes, workstations</td>
                      </tr>
@@ -1445,8 +1465,7 @@
                         <td>2000</td>
                         <td>
                         </td>
-                        <td>
-                        </td>
+                        <td>XML-configured software builds</td>
                         <td>Apache Ant</td>
                         <td>Java</td>
                      </tr>
@@ -1705,25 +1724,25 @@
                </table>
             </section>
             <section>
-               <h2>XML and XDM: context and rationale</h2>
+               <h2>XML and the XDM: context and rationale</h2>
                <ul>
                   <li>Standard, non-proprietary and freely available without restriction</li>
                   <li>Consistently and repeatedly shown to be capable at scale (size/complexity)</li>
-                  <li>Supported by commodity tools, easing problem of proprietary product endorsement</li>
+                  <li>Supported by commodity tools, easing problem of proprietary product dependencies</li>
                </ul>
-               <p>The technologies we rely on share a common foundation in XML and XDM, technologies developed under the
-            auspices of the World Wide Web Consortium. </p>
-               <p>They are commodity tools in the sense that they are freely available to use without restriction, an
-            important qualification for this distribution, which has a prior commitment <i>not to endorse particular
-               technological solutions to any problem</i>, however posed or circumscribed. Accordingly, solutions here
-            are not offered as recommendations, but rather as stipulations of (minimum) viable functionality in tools or
-            capabilities, and not only using tools as <q>black boxes</q>, but under control and conformant to external
-            specifications â€“ i.e., standards.</p>
+               <p>The technologies we rely on share a common foundation in XML and XDM  (the XML data model), technologies
+            developed under the auspices of the World Wide Web Consortium. </p>
+               <p>These are supported by commodity tools that are freely available to use without restriction, an important
+            qualification for this distribution, which has a prior commitment <i>not to endorse particular technological
+               solutions to any problem</i>, however posed or circumscribed. Accordingly, solutions here are not offered
+            as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities,
+            and not only using tools as <q>black boxes</q>, but under control and conformant to external specifications
+            – i.e., standards.</p>
                <p>Users of these tools should keep in mind the model whereby we imagine the viability of a tools market and
-            ecosystem that enables both large and small software developers including independent developers, academic
-            researchers, and students, to participate meaningfully, finding an appropriate value or service proposition
-            to provide their long-term goals. Translated, this means the tools must be capable enough for industrial use
-            at scale, while also <q>scale down</q> to demonstration or classroom use.</p>
+            ecosystem that enables both large and small software developers – including independent developers, academic
+            researchers, and students – to participate meaningfully, finding an appropriate value or service proposition
+            to support immediate and long-term goals. Translated, this means the tools must be capable enough for
+            industrial use at scale, while they must also <q>scale down</q> to demonstration or classroom use.</p>
                <p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
             ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and
             intersecting with the web, the XML family of standards arguably provides the best demonstration of complete
@@ -1773,11 +1792,13 @@
             </section>
             <section>
                <h2>Resources</h2>
-               <p>This unit relies on the <a href="../../../projects/oscal-convert/readme.md">oscal-convert project</a> in this
-            repository, with its files. Like all projects in the repo, it is designed to be self-contained and
-            self-explanatory to the extent practical. Use your search engine and XProc resources to learn background and
-            terminology.</p>
+               <p>This unit relies on the <a href="../../../projects/oscal-convert/readme.md">oscal-convert project</a> in
+            this repository, with its files. Like all projects in the repo, it aims to be reasonably self-contained and
+            self-explanatory. Use your search engine and XProc resources to learn background and terminology.</p>
                <p>Also like other projects, there are preliminaries for acquiring resources, along with pipelines to run.</p>
+            </section>
+            <section>
+               <h2>Step zero: an identity pipeline</h2>
             </section>
             <section>
                <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
@@ -1785,12 +1806,20 @@
                   <a href="../../../projects/oscal-convert/GRAB-RESOURCES.xpl">An acquisition pipeline</a> in the project folder
             collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and edited
             if necessary.</p>
-               <p>But sources and results from a conversion process do not always have to work with local resources. XProc
-            sees the Internet itself - whatever protocols are supported by the processor (the <code>file</code> and
-               <code>http</code> protocols are required for conformance) work as they do on the Worldwide Web. Of
-            course, permissions must be in place to read and write files from and into file system locations. But when
-            authentication is configured or resources are openly available, using <code>http</code> to reach resources
-            or sources can be a very convenient option.</p>
+               <p>TBD / this all incoherent so far</p>
+               <section>
+                  <h3>The playing field is the internet</h3>
+                  <p>Keep in mind that XProc in theory, and your XProc engine in practice, may read its inputs using whatever
+               protocols it supports, while the <code>file</code> and <code>http</code> protocols are required for
+               conformance, and work as they do on the Worldwide Web. Of course, permissions must be in place to read
+               and write files from and into file system locations. But when authentication is configured or resources
+               are openly available, using <code>http</code> to reach resources or sources can be a very convenient
+               option.</p>
+                  <p>Keep in mind that where resources take the form of serializations of structured data such as XML or JSON,
+               what is <q>read</q> (in the sense of presented to a consuming application) may not be quite exactly the
+               same data serialization, since as a serialization, it is parsed into an object or representation of some
+               kind, </p>
+               </section>
                <p>TBD - TODO - question - how many and of what sort of source data files - so far there is only the cat
             catalog</p>
                <ul>
@@ -1815,8 +1844,8 @@
                <p>In later units we will see how using the XProc steps described, rudimentary data manipulations can be done
             using XProc by itself, without entailing the use of either XSLT or XQuery (another capability invoked with a
             different step). At the same time, while pipelines are based on the idea of passing data through a series of
-            processes, there are many cases where logic is sufficiently complex that it becomes essential to maintain â€“
-            and test â€“ that logic externally from the XProc. At what point it becomes more efficient to encapsulate
+            processes, there are many cases where logic is sufficiently complex that it becomes essential to maintain –
+            and test – that logic externally from the XProc. At what point it becomes more efficient to encapsulate
             logic separately (whether by XSLT, XQuery or other means), depends very much on the case.</p>
                <p>The <code>p:xslt</code> pipeline step in particular is so important for real-world uses of XProc that it is
             introduced early, to show such black-box application. XProc also makes a fine environment for testing XSLT
@@ -1852,7 +1881,8 @@
                   <p>In the <a href="../../../projects/oscal-publish/publish-oscal-catalog.xpl">publishing demonstration project
                   folder</a> is an XProc that valides XML against an OSCAL schema, before formatting it. The same could
                be done for an XProc that converts the data into JSON - either or both before or after conversion.</p>
-                  <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html">Lesson
+                  <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html"
+                        class="LessonUnit">Lesson
                   102</a>, or continue on to the next project, oscal-validate, for more on validation of documents and
                sets of documents.</p>
                </section>
@@ -1877,7 +1907,8 @@
             </section>
             <section>
                <h2>Resources</h2>
-               <p>Same as the <a href="oscal-convert_101_src.html">101 lesson</a>.</p>
+               <p>Same as the <a href="oscal-convert_101_src.html"
+                     class="LessonUnit">101 lesson</a>.</p>
             </section>
             <section>
                <h2>Probing error space - data conversions</h2>
@@ -1985,13 +2016,14 @@
                will recoil. Maybe you are one of the fearless, maybe even one of the curious. Open the pipeline code in
                a programmer's text editor or IDE (integrated development environment) and get a sense of just how
                malleable it is.</p>
-                  <p>XML comment syntax takes the form of angle-bracketed text with dashes (hyphens) and a bang: <code>&lt;!â€“
+                  <p>XML comment syntax takes the form of angle-bracketed text with dashes (hyphens) and a bang: <code>&lt;!–
                   --&gt;</code>. You will see comments throughout the code examples, sometimes as inline documentation, and
                sometimes for entire blocks of inactive code.</p>
                   <p>The intrepid explorer will try both <i>tweaking</i>, around the edges, then <i>adapting</i>, with new
                ideas.</p>
                   <p>The best of it is, as you learn how <b>a traceback is a tasty treat</b>, you enter a virtuous learning
-               cycle. Repair a few bugs and you might get a taste for it. (Try the <a href="oscal-validate_102_src.html">102 Lesson unit </a>)</p>
+               cycle. Repair a few bugs and you might get a taste for it. (Try the <a href="oscal-validate_102_src.html"
+                        class="LessonUnit">102 Lesson unit </a>)</p>
                   <p>If you'd rather keep your feet dry, advance to the next Lesson.</p>
                </section>
             </section>
@@ -2035,7 +2067,7 @@
             and therefore cannot be read, but more subltly, in data instances that can be read, but that when read, are
             found to fail to conform to expectations, as expressed in an applicable rules set.</p>
                <p>Such a rules set is called a <q>schema</q> and deploying a schema to impose regularity and predictability
-            over an open-ended body of data â€“ including data that has not yet been created â€“ is a primary responsibility
+            over an open-ended body of data – including data that has not yet been created – is a primary responsibility
             of an entity that seeks to define an interoperable language, supporting robust data interchange across
             organizational boundaries.</p>
                <section>
@@ -2202,18 +2234,20 @@
          </section>
          <section class="unit"
                   id="oscal-publish_102">
-            <h1>102: Publishing OSCAL</h1>
+            <h1>102: More OSCAL Publishing</h1>
             <section>
                <h2>Goals</h2>
             </section>
             <section>
                <h2>Prerequisites</h2>
-               <p>Run the pipelines described in <a href="oscal-publish_101_src.html">the 101 Lesson</a>
+               <p>Run the pipelines described in <a href="oscal-publish_101_src.html"
+                     class="LessonUnit">the 101 Lesson</a>
                </p>
             </section>
             <section>
                <h2>Resources</h2>
-               <p>Like the <a href="oscal-publish_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-publish/readme.md">oscal-import project</a> in this repo.</p>
+               <p>Like the <a href="oscal-publish_101_src.html"
+                     class="LessonUnit">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-publish/readme.md">oscal-import project</a> in this repo.</p>
                <p>Publishing your own OSCAL in these pipelines is also worth trying - the worst they can do is fail. Bring
             OSCAL, especially OSCAL catalogs.</p>
                <p>OSCAL JSON catalogs can be accommodated by splicing together a conversion pipeline with a publishing
@@ -2267,7 +2301,8 @@
             <section>
                <h2>Step one: acquire resources</h2>
                <p>As usual, the project contains pipelines to be used to acquire copies of resources, placing them in the
-            project lib directory . These may include dependencies for steps in the pipeline (read details in the <a href="oscal-produce_102_src.html">102 lesson</a>) so it is a good idea to run them all.</p>
+            project lib directory . These may include dependencies for steps in the pipeline (read details in the <a href="oscal-produce_102_src.html"
+                     class="LessonUnit">102 lesson</a>) so it is a good idea to run them all.</p>
                <p>These include a pipeline that copies the PDF original from which the HTML input (next step) was derived,
             using a COTS (commercial off-the-shelf) tool. Inspect and read this PDF to see what the upstream data looks
             like - and get a sense of what the data set looks like when the structures are <q>painted</q> on the
@@ -2277,41 +2312,62 @@
             readme</a>.</p>
             </section>
             <section>
-               <h2>Step two (to skip): produce HTML</h2>
+               <h2>Step two: examine HTML source data</h2>
                <p>For this exercise, we have already produced HTML from the PDF source: find it cached as an <a href="../../../projects/oscal-import/source/export/fm6_22.html">input file in the project folder</a>.
             Next to it is <a href="../../../projects/oscal-import/source/export/fm6_22_e.html">a copy with whitespace
                added for legibility</a>, which may be easier to inspect.</p>
-               <p>
-                  <i>Do not delete, replace, rename or alter this file</i>, as all the subsequent processing is tuned
-            specifically to it, its internal organization and regularities and anomalies. Another process input - even
-            an HTML file showing the <q>same text</q> - is highly unlikely to deliver acceptable results from the
-            pipeline. This is an important factor to keep in mind when considering the scalability of the exercise here.
-            It does not require less expertise than producing the original document (in some respects it requires
-            more).</p>
-               <p>For some data sets, however, and especially if the exercise can also be used advantageously in other ways -
-            that is, beyond its considerabl eimpacts on the availability and utility of the information - even a bespoke
-            transformation pipeline such as this can be useful. This occurs mainly when the source document is of such
-            high quality and consisteny instrinsically, that exposing its semantics via a rational and explicable text
-            encoding - a standards-based, platform- and application-independent encoding - such as OSCAL - becomes
-            attractive for the <i>leverage</i> it gives over the information. In FM 6-22 Chapter 4, we have exactly such
-            a document, which fits well into standards-based documentary formats such as NISO STS and, eventually,
-            OSCAL.</p>
-               <p>Because PDF is relatively opaque, extracting data from a PDF file with format intact is not a trivial
-            exercise. Even tools designed, sold and supported by the proprietors of PDF format (Adobe, Inc.) are able at
-            best to create outputs that <i>appear</i> to present the document with its organization and information
-            intact, if rendered on screen with an appropriate tool (in the case of HTML, a web browser). In so doing it
-            may meet a low baseline of functional requirement - the document is legible - while failing to meet others,
-            and in particular the requirements we have for clean and well-structured data fit for reuse in a broad range
-            of scenarios and applications, not only page production.</p>
-               <p>Indeed this HTML file makes an excellent example of the kind of rather-poor encoding produced by a
-            market-leading HTML export utility. Experts in data conversion might find other ways to make better encoding
-            from the PDF - a task out of scope for us. (As we are not trying to optimize but only to demonstrate the
-            methods applied.) This HTML is good enough, and that is what is often available.</p>
-               <p>The pipeline to be run in the next step starts by loading <a href="../../../projects/oscal-import/source/export/fm6_22.html">source/export/fm6_22.html</a> - do not
-            rename, move or alter this file, or expect errors!</p>
+               <p>Compare this to the PDF document you have downloaded (or the document on line). Open the HTML file in a web
+            browser to see what it looks like in display, but also inspect its source code. You don't have to read it:
+            just seeing it is enough.</p>
+               <section>
+                  <h3>Warning: fragile!</h3>
+                  <p>
+                     <i>Do not delete, replace, rename or alter this file</i>, as all the subsequent processing is tuned
+               specifically to it, its internal organization, regularities and anomalies. Another process input - even
+               an HTML file showing the same text (to any definition of <q>same</q>) - is highly unlikely to deliver
+               acceptable results from the pipeline. This is an important factor to keep in mind when considering the
+               scalability of the operation demonstrated. Producing a clean and legible <i>encoding</i> for the document
+               does not require less expertise than producing the original; in some ways (for example with respect to
+               knowledge of text encoding formats) it requires more.</p>
+                  <p>For some data sets, however, even a bespoke transformation pipeline such as this can be profitable, even
+               beyond its impacts in greater availability and utility of the information. The expense and effort may be
+               warranted when the source document is of such high quality and consistency instrinsically, that exposing
+               its <q>native semantics</q> via a rational and explicable text encoding - a standards-based, platform-
+               and application-independent encoding - such as OSCAL - becomes attractive for the specific kinds of
+               affordances – the leverage – it gives for processing the information. In FM 6-22 Chapter 4, we have
+               exactly such a document, which fits well into standards-based documentary formats such as NISO STS and,
+               eventually, OSCAL.</p>
+                  <p>Because PDF is relatively opaque, extracting data from a PDF file with format intact is not a trivial
+               exercise. PDF is arguably not a <q>data format</q> at all, but a language used to control a device for
+               casting pixels and glyphs onto a page or screen. This being its purpose, no tool can do more – at least
+               without the benefit of an external information source – than create outputs that <i>appear</i> to present
+               the document with its organization and information intact, if rendered on screen with an appropriate tool
+               (such as, in the case of an HTML rendition of the page, a web browser). In so doing it may meet a low
+               baseline of functional requirement - the document is legible - while failing to meet others. In
+               particular: failing to meet requirements for clean and well-structured data fit for reuse in a broad
+               range of scenarios and applications, not only page production.</p>
+                  <p>Indeed this HTML file makes an excellent example of the kind of rather-poor encoding produced by a
+               market-leading HTML export utility. Experts in data conversion might find other ways to make better
+               encoding from the PDF - a task out of scope for us. (As we are not trying to find the best export
+               utility, but on the contrary to demonstrate methods available so we do not have to do so.) This HTML is
+               good enough, and that is what is often available.</p>
+               </section>
             </section>
             <section>
                <h2>Step three: run the pipeline</h2>
+               <p>The pipeline starts by loading <a href="../../../projects/oscal-import/source/export/fm6_22.html">source/export/fm6_22.html</a>
+               </p>
+               <p>It produces output files in a <code>temp</code> directory. If you want to save out any of these outputs, you
+            can copy files out, or edit the pipeline.</p>
+               <p>Two files are created, both representing the Field Manual, each in a different format:</p>
+               <ul>
+                  <li>NISO STS (Standards Tag Suite) format describes the full text, with tables, in XML</li>
+                  <li>OSCAL (Open Security Controls Assessment Language) factors out a richer <q>semantic</q> view of the data
+               in OSCAL format, again presenting the full text of Chapter 4, but this time with externalized control
+               sets, representing 25 <b>attributes</b> and 50 <b>competencies</b> as these are described in Field Manual
+               6-22 and its related documents such as ADRP 6-22 (describing the US Army Leadership Requirements
+               Model).</li>
+               </ul>
             </section>
             <section>
                <h2>Step four (optional): run the pipeline in diagnostic mode</h2>
@@ -2331,12 +2387,14 @@
             </section>
             <section>
                <h2>Prerequisites</h2>
-               <p>Run the pipelines described in <a href="oscal-produce_101_src.html">the 101 Lesson</a>
+               <p>Run the pipelines described in <a href="oscal-produce_101_src.html"
+                     class="LessonUnit">the 101 Lesson</a>
                </p>
             </section>
             <section>
                <h2>Resources</h2>
-               <p>Like the <a href="oscal-produce_101_src.html">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-import/readme.md">oscal-import project</a> in this repo.</p>
+               <p>Like the <a href="oscal-produce_101_src.html"
+                     class="LessonUnit">101 lesson</a>, this lesson unit uses the <a href="../../../projects/oscal-import/readme.md">oscal-import project</a> in this repo.</p>
             </section>
             <section>
                <h2>Step one: run the pipeline in diagnostic mode</h2>

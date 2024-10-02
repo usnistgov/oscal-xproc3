@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
       <title>599: More context</title>
-   </head>
+   <meta charset="utf-8"/>    </head>
    <body>
       <h1>599: More context</h1>
       <p>More in depth.</p>
@@ -35,7 +35,7 @@
                >XProc Specification</a>. <a href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is
             very useful.</p>
          <p>It may often be considered gratuitous to validate XProc files against a schema, when the application (for
-            us, Morgana)must in any case take responsibility for conformance issues, as it sees fit. The reference
+            us, Morgana) must in any case take responsibility for conformance issues, as it sees fit. The reference
             schema becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role
             in any runtime operation.</p>
          <p>Nevertheless the RNG schema still serves as a reference and an object for querying -- queries whose results
@@ -47,14 +47,14 @@
          <p>Like other XDM-based technologies, XProc embeds and incorporates XPath, an expression language for XML.
             XPath 3.0 is a functional language in its own right, although not designed for end-to-end processing of
             encoded source data into encoded results, but only for certain critical operations that ordinarily need to
-            be performed within such end-to-end processing. Since it is partial in this way, XPath is defined not in
-            terms of any data notation (such as XML syntax or any other) but rather against an <i>abstract data
-               object</i>, namely an <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model),
-            a putative information object that may be provided to the system by parsing an XML (syntax) instance, or by
-            other means. As the query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the
-            basis for XQuery, <a href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data
-            model, which any architect of a system using this technology must know. Learning XPath equips you mentally
-            for dealing with the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
+            be performed within such end-to-end processing. Importantly, XPath is defined not in terms of any data
+            notation (such as XML syntax or any other) but rather against an <i>abstract data object</i>, namely an <a
+               href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model), a putative information
+            object that may be provided to the system by parsing an XML (syntax) instance, or by other means. As the
+            query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the basis for XQuery, <a
+               href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data model, which any
+            architect of a system using this technology must know. Learning XPath equips you mentally for dealing with
+            the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
          <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a
                href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips XPath 1.0 in many important respects.</p>
       
@@ -64,8 +64,8 @@
                for the representation and transmission of structured data. A specialized class of data formats has
                evolved that represent information in ways that are not <q>unstructured</q>, but that contrast with more
                common or usual structures of data formats, whether they be tabular data, serialization formats for
-               object models, or some other regular and fore-ordained arrangement. One might say <q>common</q> or
-                  <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
+               object models, or some other regular (formalized and codified) arrangement. One might say <q>common</q>
+               or <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
             <p>We see a great deal of structured data these days if only because it is so easy to make structured data
                with machines, and we now have the machines. What remains difficult is to translate what has not been
                created by a machine, into a form that a machine can <q>recognize</q>, or rather into a form we can
@@ -94,6 +94,9 @@
          <p>All elements defined by XProc are listed in this analytical breakout.</p>
          <p>TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc
             RNG?</p>
+         <p>NB - XProc 3.1 makes this a moving target.</p>
+         <p>NB also – see Erik Siegel's <a href="https://xprocref.org/index.html">XProcRef</a> indexing project for more
+            detailed summaries.</p>
          <table>
             <tr>
                <th>Function</th>
@@ -199,7 +202,8 @@
                <tr>
                   <td>1987</td>
                   <td>SGML (ISO-IEC 8879-1)</td>
-                  <td>parsing logic; schema validation; configurable syntax; tree of elements and attributes</td>
+                  <td>parsing logic; schema validation; configurable syntax; (implicit) tree of elements and
+                     attributes</td>
                   <td>Proprietary stacks</td>
                   <td>Mainframes, workstations</td>
                </tr>
@@ -227,7 +231,7 @@
                <tr>
                   <td>2000</td>
                   <td></td>
-                  <td></td>
+                  <td>XML-configured software builds</td>
                   <td>Apache Ant</td>
                   <td>Java</td>
                </tr>
@@ -408,25 +412,25 @@
          </table>
       </section>
       <section>
-         <h2>XML and XDM: context and rationale</h2>
+         <h2>XML and the XDM: context and rationale</h2>
          <ul>
             <li>Standard, non-proprietary and freely available without restriction</li>
             <li>Consistently and repeatedly shown to be capable at scale (size/complexity)</li>
-            <li>Supported by commodity tools, easing problem of proprietary product endorsement</li>
+            <li>Supported by commodity tools, easing problem of proprietary product dependencies</li>
          </ul>
-         <p>The technologies we rely on share a common foundation in XML and XDM, technologies developed under the
-            auspices of the World Wide Web Consortium. </p>
-         <p>They are commodity tools in the sense that they are freely available to use without restriction, an
-            important qualification for this distribution, which has a prior commitment <i>not to endorse particular
-               technological solutions to any problem</i>, however posed or circumscribed. Accordingly, solutions here
-            are not offered as recommendations, but rather as stipulations of (minimum) viable functionality in tools or
-            capabilities, and not only using tools as <q>black boxes</q>, but under control and conformant to external
-            specifications – i.e., standards.</p>
+         <p>The technologies we rely on share a common foundation in XML and XDM  (the XML data model), technologies
+            developed under the auspices of the World Wide Web Consortium. </p>
+         <p>These are supported by commodity tools that are freely available to use without restriction, an important
+            qualification for this distribution, which has a prior commitment <i>not to endorse particular technological
+               solutions to any problem</i>, however posed or circumscribed. Accordingly, solutions here are not offered
+            as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities,
+            and not only using tools as <q>black boxes</q>, but under control and conformant to external specifications
+            – i.e., standards.</p>
          <p>Users of these tools should keep in mind the model whereby we imagine the viability of a tools market and
-            ecosystem that enables both large and small software developers including independent developers, academic
-            researchers, and students, to participate meaningfully, finding an appropriate value or service proposition
-            to provide their long-term goals. Translated, this means the tools must be capable enough for industrial use
-            at scale, while also <q>scale down</q> to demonstration or classroom use.</p>
+            ecosystem that enables both large and small software developers – including independent developers, academic
+            researchers, and students – to participate meaningfully, finding an appropriate value or service proposition
+            to support immediate and long-term goals. Translated, this means the tools must be capable enough for
+            industrial use at scale, while they must also <q>scale down</q> to demonstration or classroom use.</p>
          <p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
             ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and
             intersecting with the web, the XML family of standards arguably provides the best demonstration of complete

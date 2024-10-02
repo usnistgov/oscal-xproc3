@@ -54,11 +54,9 @@
     </xsl:template>
    
     <xsl:template name="conditional-lf">
-        <xsl:variable name="predecessor"
-            select="preceding-sibling::* | preceding-sibling::p | preceding-sibling::ul | preceding-sibling::ol | preceding-sibling::table | preceding-sibling::pre"/>
-        <xsl:if test="exists($predecessor)">
+       <xsl:for-each select="preceding-sibling::*[1]">
             <line/>
-        </xsl:if>
+        </xsl:for-each>
     </xsl:template>
 
     <xsl:template match="html" mode="md">

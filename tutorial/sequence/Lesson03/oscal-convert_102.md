@@ -1,4 +1,5 @@
 
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-convert/oscal-convert_102_src.html](../../../tutorial/source/oscal-convert/oscal-convert_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
@@ -19,7 +20,7 @@ Run the pipelines described in [the 101                Lesson](https://github.co
 
 ## Resources
 
-Same as the [101 lesson](oscal-convert_101_src.html).
+Same as the [101 lesson](oscal-convert_101.md).
 
 ## Probing error space - data conversions
 

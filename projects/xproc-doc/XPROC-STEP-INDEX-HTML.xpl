@@ -40,9 +40,7 @@
    <p:insert match="div[@id='specification-links']" 
       xmlns="http://www.w3.org/1999/xhtml"
       position="last-child" message="[XPROC-STEP-INDEX-HTML] Inserting reference links">
-      <p:with-input port="insertion" select="/descendant::ul[5]" pipe="@links-rewritten">
-         <!--<p:document href="https://xproc.org/specifications.html"/>-->
-      </p:with-input>
+      <p:with-input port="insertion" select="/descendant::ul[5]" pipe="@links-rewritten"/>
    </p:insert>
       
    <p:store href="out/xproc-step-list.html" message="[XPROC-STEP-INDEX-HTML] Storing xproc-step-list.html"/>

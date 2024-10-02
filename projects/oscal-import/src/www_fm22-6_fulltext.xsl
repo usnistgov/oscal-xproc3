@@ -11,9 +11,12 @@
   <xsl:template match="/">
      <html>
         <head>
-           <title></title>
+           <title>
+              <xsl:value-of select="*/oscal:metadata/oscal:title"/>
+           </title>
+           <xsl:call-template name="css-style"/>
+           <xsl:call-template name="extra-style"/>
         </head>
-        <xsl:call-template name="css-style"/>
         <xsl:apply-templates/>
      </html>
   </xsl:template>
@@ -488,5 +491,8 @@ th { background-color: gainsboro }
 
      </style>
   </xsl:template>
+   
+   <!-- Hook for extension -->
+   <xsl:template name="extra-style"/>
    
 </xsl:stylesheet>

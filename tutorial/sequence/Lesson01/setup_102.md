@@ -1,11 +1,10 @@
 
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/setup/setup_102_src.html](../../../tutorial/source/setup/setup_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
 # 102: Examining the setup
-
-
 
 ## Goals
 
@@ -14,13 +13,13 @@
 
 ## Resources
 
-Same as [Setup 101](setup_101_src.html).
+Same as [Setup 101](setup_101.md).
 
 ## Prerequisites
 
-Please complete the repository setup and smoke tests as described in the [101 lesson](setup_101_src.html). In this lesson, we will run these pipelines with adjustments, or similar pipelines.
+Please complete the repository setup and smoke tests as described in the [101 lesson](setup_101.md). In this lesson, we will run these pipelines with adjustments, or similar pipelines.
 
-This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via `file` and `http` protocols, and web-based technologies including HTML.
+This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via `file` and `http` protocols), and web-based technologies including HTML.
 
 XML knowledge is also assumed. In particular, XProc uses [XPath                3.1](https://www.w3.org/TR/xpath-31/), the query language for XML. This latest version of XPath builds on XPath 1.0, so any XPath experience will help. In general, any XSLT or XQuery experience will be invaluable.
 
@@ -30,7 +29,7 @@ You will also need a programmer's plain text editor, XML/XSLT editor or IDE (int
 
 The two groupings of pipelines used in setup and testing can be considered separately.
 
-The key to understanding both groups is to know that once the initial [Setup                script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so â€“ before extension libraries are in place â€“ it can use only basic XProc steps, but those are enough for these purposes.
+The key to understanding both groups is to know that once the initial [Setup                script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so – before extension libraries are in place – it can use only basic XProc steps, but those are enough for these purposes.
 
 Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 
@@ -73,6 +72,6 @@ Developers coming to this technology need to consider who would use it, and whet
 
 Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be developed (this is a known problem) but more importantly whether the systems themselves are adaptable enough so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for *particular*, *special* and *local* problems discovered only at the points where information is gathered and codified.
 
-This larger fitting of solutions to problems is a responsibility for both CMEs (content matter experts) and developers together, who must define problems to be solved before approaches to them can be found.
+This larger fitting of solutions to problems is a responsibility for both SMEs (subject matter experts) and developers together, who must define problems to be solved before approaches to them can be found.
 
 The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions come up in an OSCAL context or any context where XML is demonstrably capable.

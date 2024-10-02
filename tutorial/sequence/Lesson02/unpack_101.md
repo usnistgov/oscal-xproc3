@@ -1,4 +1,5 @@
 
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/unpack/unpack_101_src.html](../../../tutorial/source/unpack/unpack_101_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
@@ -43,8 +44,8 @@ The second group of pipelines is a bit more interesting. Each of the utilities p
 Each smoke test performs a minor task, serving as a &ldquo;smoke test&rdquo; inasmuch as its only aim is to determine whether a simple representative process completes successfully. (When we plug in the board, can we see and smell smoke?)
 
 * [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl) amounts to an XProc &ldquo;Hello World&rdquo;. In that spirit, feel free to edit and adjust this file.
-* [smoketest/SMOKETEST-XSLT.xpl](../../../smoketest/SMOKETEST-XSLT.xpl) tests Saxon, an XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same data model) developed with XML processing in mind, but in recent years generalized to a wider range of data structures.
-* [smoketest/SMOKETEST-SCHEMATRON.xpl](../../../smoketest/SMOKETEST-SCHEMATRON.xpl) tests SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology. Schematron relies on XSLT, so this library requires Saxon.
+* [smoketest/TEST-XSLT.xpl](../../../smoketest/TEST-XSLT.xpl) tests Saxon, an XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same data model) developed with XML processing in mind, but in recent years generalized to a wider range of data structures.
+* [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology. Schematron relies on XSLT, so this library requires Saxon.
 * [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec, an XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.
 
 All these together comprise more than can be learned in an afternoon, or even a week. Any and each of them can nonetheless be used as a &ldquo;black box&rdquo; by any competent operator, even without understanding about internals.

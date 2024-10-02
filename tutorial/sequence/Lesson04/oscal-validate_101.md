@@ -1,4 +1,5 @@
 
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-validate/oscal-validate_101_src.html](../../../tutorial/source/oscal-validate/oscal-validate_101_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
@@ -38,11 +39,11 @@ The project contains pipelines that perform validation. Any description that app
 
 There are those who will look at a screen with a traceback with equanimity and dispassion - and those who will recoil. Maybe you are one of the fearless, maybe even one of the curious. Open the pipeline code in a programmer's text editor or IDE (integrated development environment) and get a sense of just how malleable it is.
 
-XML comment syntax takes the form of angle-bracketed text with dashes (hyphens) and a bang: `<!â€“ -->`. You will see comments throughout the code examples, sometimes as inline documentation, and sometimes for entire blocks of inactive code.
+XML comment syntax takes the form of angle-bracketed text with dashes (hyphens) and a bang: `<!– -->`. You will see comments throughout the code examples, sometimes as inline documentation, and sometimes for entire blocks of inactive code.
 
 The intrepid explorer will try both *tweaking*, around the edges, then *adapting*, with new ideas.
 
-The best of it is, as you learn how **a traceback is a tasty treat**, you enter a virtuous learning cycle. Repair a few bugs and you might get a taste for it. (Try the [102 Lesson unit ](oscal-validate_102_src.html))
+The best of it is, as you learn how **a traceback is a tasty treat**, you enter a virtuous learning cycle. Repair a few bugs and you might get a taste for it. (Try the [102 Lesson unit ](oscal-validate_102.md))
 
 If you'd rather keep your feet dry, advance to the next Lesson.
 
@@ -76,7 +77,7 @@ For the same reason, this class of problems is usually found early in pipeline d
 
 The more interesting class of problems is what are called &ldquo;validation errors&rdquo;, which somewhat confusingly represents that class of problems that result not from files that are syntactically erroneous and therefore cannot be read, but more subltly, in data instances that can be read, but that when read, are found to fail to conform to expectations, as expressed in an applicable rules set.
 
-Such a rules set is called a &ldquo;schema&rdquo; and deploying a schema to impose regularity and predictability over an open-ended body of data â€“ including data that has not yet been created â€“ is a primary responsibility of an entity that seeks to define an interoperable language, supporting robust data interchange across organizational boundaries.
+Such a rules set is called a &ldquo;schema&rdquo; and deploying a schema to impose regularity and predictability over an open-ended body of data – including data that has not yet been created – is a primary responsibility of an entity that seeks to define an interoperable language, supporting robust data interchange across organizational boundaries.
 
 ### When you know your schema
 

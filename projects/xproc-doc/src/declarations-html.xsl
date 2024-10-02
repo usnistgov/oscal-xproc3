@@ -159,6 +159,7 @@
       <a class="steplink speclink" target="spec" href="https://spec.xproc.org/3.0/steps/#c.{ox:step-name(.)}">
          <xsl:sequence select="$linktext"/>
       </a>
+      <xsl:call-template name="xprecref-link"/>
    </xsl:template>
    
    <xsl:template match="declare-step" mode="specification-link">
@@ -166,8 +167,15 @@
       <a class="steplink speclink" target="spec" href="https://spec.xproc.org/master/head/{@library}/#c.{ox:step-name(.)}">
          <xsl:sequence select="$linktext"/>
       </a>
+      <xsl:call-template name="xprecref-link"/>
    </xsl:template>  
-   
+
+   <xsl:template name="xprecref-link">
+      <!--Still getting some 404s -->
+      <!--<a class="steplink speclink" target="spec" href="https://xprocref.org/3.0/p.{ox:step-name(.)}.html">XProcRef description</a>-->
+   </xsl:template>
+      
+
    <xsl:template match="declare-step" mode="internal-link">      
       <a href="#{ox:step-name(.)}" class="steplink internal{ @library[.='standard']/' standard-step' } {
          if (ox:morgana-supports(.)) then 'supported' else 'unsupported' }">{ @type }</a>

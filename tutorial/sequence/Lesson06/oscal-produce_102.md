@@ -1,4 +1,5 @@
 
+
 > *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/oscal-produce/oscal-produce_102_src.html](../../../tutorial/source/oscal-produce/oscal-produce_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
@@ -15,11 +16,11 @@ See an example of how an XProc pipeline can integrate validation to provide runt
 
 ## Prerequisites
 
-Run the pipelines described in [the 101 Lesson](oscal-produce_101_src.html)
+Run the pipelines described in [the 101 Lesson](oscal-produce_101.md)
 
 ## Resources
 
-Like the [101 lesson](oscal-produce_101_src.html), this lesson unit uses the [oscal-import project](../../../projects/oscal-import/readme.md) in this repo.
+Like the [101 lesson](oscal-produce_101.md), this lesson unit uses the [oscal-import project](../../../projects/oscal-import/readme.md) in this repo.
 
 ## Step one: run the pipeline in diagnostic mode
 
