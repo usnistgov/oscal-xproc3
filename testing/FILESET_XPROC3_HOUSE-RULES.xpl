@@ -56,7 +56,9 @@
       <p:document href="../projects/oscal-publish/publish-oscal-catalog.xpl"/>
       
       <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
-      <p:document href="../projects/oscal-convert/CONVERT-XML-DATA.xpl"/>
+      <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"/>
+      <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-FOLDER.xpl"/>
+      <p:document href="../projects/oscal-convert/IDENTITY_.xpl"/>
       
       <p:document href="../projects/oscal-import/PRODUCE_FM6-22-chapter4.xpl"/>
       <p:document href="../projects/oscal-import/GRAB-RESOURCES.xpl"/>

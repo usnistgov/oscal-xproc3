@@ -24,6 +24,31 @@
          <p>Same as the <a href="oscal-convert_101_src.html" class="LessonUnit">101 lesson</a>.</p>
       </section>
       <section>
+         <h2>Identity pipeline testbed</h2>
+         <p>An identity or <q>near-identity</q> or modified-identity pipeline has its uses, including diagnostics. Since
+            inputs and outputs are supposed to look the same, any changes they show between inputs and outputs can be
+            revealing.</p>
+         <p>They are also useful for testing features, for example features for resource acquisition and disposition.
+            These are fancy ways to describe how you get data into your pipeline and then out again.</p>
+         <p>Additionally, there are actually useful operations supported by a pipeline that pretends to change nothing.
+            For example, it can transcode a file from one encoding to another – changing nothing in the data, but
+            rewriting it into a different character set.</p>
+         <p>Any reader who feels a 599 lesson would be useful covering encodings and XProc should pipe up! (Feel free to
+            post an Issue, Discussion, or PR with a draft.)</p>
+         <section>
+            <h3>0.01 - what is a <q>document</q></h3>
+            <h3>0.1 - loading documents known or determinable in advance</h3>
+            <p>The XProc step <code>p:load</code> can be used to load the resource indicated into the pipeline.</p>
+            <p>Watch out, since <code>p:load</code> with <code>href=''</code> – loading the resource at the location
+               indicated by the empty string, <code>""</code> – will load the XProc file itself. This is conformant with
+               rules for URL resolution.</p>
+            <h3>0.2 - binding a document to an input port</h3>
+            <h3>0.3 - loading documents dynamically on discovery with <code>p:directory-list</code></h3>
+            <h3>0.4 - saving results to the file system</h3>
+            <h3>0.5 - exposing results on an output port</h3>
+         </section>
+      </section>
+      <section>
          <h2>Probing error space - data conversions</h2>
          <p>Broadly speaking, problems encountered running these conversions fall into two categories, the distinction
             being simple, namely whether a bad outcome is due to an error in the processor and its logic, or in the data
@@ -58,7 +83,7 @@
       </section>
       <section>
          <h2>for 599: XProc for JSON</h2>
-         <p>map objects; steps for working with them; interim p:store as debug method</p>
+         <p>map objects; steps for working with them; interim p:store as debug method; output ports to see results (final and intermediate) or bind them</p>
       </section>
       <section>
          <h2>for 599: YAML TODO</h2>

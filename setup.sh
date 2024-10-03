@@ -11,7 +11,14 @@ mkdir -p lib
 
 pushd lib > /dev/null
 
-morgana=MorganaXProc-IIIse-1.3.7
+# To upgrade Morgana:
+# - update references in these files:
+#   - xp3.sh
+#   - xp3.bat
+#   - lib/GRAB-SAXON.xpl
+# - change reference string in next line
+
+morgana=MorganaXProc-IIIse-1.4
 
 morgana_download="https://sourceforge.net/projects/morganaxproc-iiise/files/${morgana}/${morgana}.zip/download"
 

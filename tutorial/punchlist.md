@@ -62,6 +62,8 @@ Lesson_02 - 'unpack' Setup and smoke test pipelines - a look inside - what to lo
 Lesson_03 - 'oscal-convert' An OSCAL XML-to-JSON conversion pipeline [slides on XML and JSON in XPath 3.1] - show rendering btw JSON and XML step by step
 
 102 - debugging by writing intermediates
+       p:store
+      exposing on output ports
 599 bonus exercise: convert JSON into XML, then apply a Schematron
       running a p:compare step - look-see
       introducing normalizers to isolate converter deltas

@@ -11,13 +11,12 @@
    <p:variable name="download-path" select="'https://www.saxonica.com/download'"/>
    <!--<p:variable name="download-path" select="'.'"/>-->
    <p:variable name="archive-basename"  select="''"/>
-   <p:variable name="jarfile" select="'saxon-he-12.3.jar'"/>
+   <p:variable name="jarfile" select="'saxon-he-12.5.jar'"/>
    
-   <p:variable name="zip-name"  select="'SaxonHE12-3J.zip'"/>
+   <p:variable name="zip-name"  select="'SaxonHE12-5J.zip'"/>
    
-   <p:variable name="target-dir" select="'MorganaXProc-IIIse-1.3.7/MorganaXProc-IIIse_lib'"/>
-   <p:variable name="whither" select="resolve-uri($target-dir, static-base-uri())"/>
-
+   <p:variable name="target-dir" select="'MorganaXProc-IIIse-1.4/MorganaXProc-IIIse_lib' => resolve-uri()"/>
+   
    <p:variable name="prefix" select="'[' || 'GRAB-SAXON' || ']'"/>
    
    <!-- It beginneth -->
@@ -28,10 +27,10 @@
    
    <!-- see p:unarchive here: https://spec.xproc.org/3.0/steps/#c.unarchive -->
    <p:unarchive message="{$prefix} Unzipping { $zip-name }"
-      include-filter="saxon-he-12.3.jar"/>
+      include-filter="{ $jarfile }"/>
       
-   <p:store href="{ $whither }/{ $jarfile }" message="{$prefix} Saving { $whither }/{ $jarfile }"/>
+   <p:store href="{ $target-dir }/{ $jarfile }" message="{$prefix} Saving { $target-dir }/{ $jarfile }"/>
    
-   <p:identity message="{ $prefix } Test your XSLT transformation capability using ../smoketest/SMOKETEST-XSLT.xpl"/>
+   <p:identity message="{ $prefix } Test your XSLT transformation capability using ../smoketest/TEST-XSLT.xpl"/>
    
 </p:declare-step>

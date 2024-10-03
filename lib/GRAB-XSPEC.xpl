@@ -14,10 +14,10 @@
    <!-- /end prologue -->
    <!-- start subpipeline -->
    
-   <p:variable name="download" select="'https://github.com/xspec/xspec/archive/refs/tags/v3.0.3.zip'"/>
-   <!--<p:variable name="download" select="'xspec-3.0.3.zip'"/>-->
+   <p:variable name="archive-basename"  select="'xspec-3.1.2'"/>
    
-   <p:variable name="archive-basename"  select="'xspec-3.0.3'"/>
+   <p:variable name="download" select="'https://github.com/xspec/xspec/archive/refs/tags/v3.1.2.zip'"/>
+   <!--<p:variable name="download" select="'xspec-3.0.3.zip'"/>-->
    
    <p:variable name="zip-name"  select="$archive-basename || '.zip'"/>
    
@@ -44,6 +44,6 @@
       <p:store href="{ $path-here }" message="{$prefix} Saving { $path-here }"/>
    </p:for-each>
    
-   <p:identity message="{ $prefix } Test your XSpec capability using ../smoketest/SMOKETEST-XSPEC.xpl"/>
+   <p:identity message="{ $prefix } Test your XSpec capability using ../smoketest/TEST-XSPEC.xpl"/>
    
 </p:declare-step>

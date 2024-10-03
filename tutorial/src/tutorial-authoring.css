@@ -2,6 +2,11 @@
 
 @namespace oxy "http://www.oxygenxml.com/extensions/author";
 
+meta:before{
+	    content:"Meta: charset=" attr(charset);
+	    font-weight:bold;
+	}
+	
 body { font-family: Cambria; line-height: 135% }
 
 section { margin: 0.4em; padding: 0.3em; outline: thin solid black }

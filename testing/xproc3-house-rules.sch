@@ -2,7 +2,8 @@
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
+   xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+   xmlns:p="http://www.w3.org/ns/xproc">
 
    <!-- Purpose:: Schematron rule set for XProc 3 authors to provide write-time support for pesky rules
         including help with local rules -->
@@ -73,7 +74,7 @@
    
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or comment()[1]/(contains(.,'HALL PASS') and contains(.,'HOUSE RULES') )">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be? (But expect CI/CD errors if a listed XProc is not also committed to the branch. To exempt, mention BOTH keywords "HALL PASS" and "HOUSE RULES" (upper case)</sch:assert>
+         <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or exists(p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')])">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be?</sch:assert>
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
@@ -144,9 +145,14 @@
       
       <sqf:fix id="sqf-exempt-from-houserules-check">
          <sqf:description>
-            <sqf:title>Exempt the file from house rules checking by adding a comment to be removed later.</sqf:title>
+            <sqf:title>Declare an exemption for this file from house rules checking</sqf:title>
          </sqf:description>
-         <sqf:add match="/*" node-type="comment" select="'&#xa;=+=+=+=+= HOUSE RULES HALL PASS - remove this comment when the file is committed to the repo =+=+=+=+=  '"/>
+         <sqf:add match="/*" position="first-child">
+            <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+         </sqf:add>
+         <!--<sqf:add match="/*" node-type="comment" select="' =+=+=+=+= HOUSE RULES HALL PASS - remove this comment
+            when the file is added to files listed in ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl =+=+=+=+=  '"/>-->
+         
       </sqf:fix>
       
       <sqf:fix id="sqf-repair-step-type">

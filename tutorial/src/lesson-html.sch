@@ -6,6 +6,34 @@
    <sch:ns prefix="html" uri="http://www.w3.org/1999/xhtml"/>
    
    <sch:pattern>
+      <sch:rule context="html:html">
+         <sch:assert sqf:fix="add-head" test="html:head">HTML requires a 'head'</sch:assert>
+         <sqf:fix id="add-head">
+            <sqf:description>
+               <sqf:title>Add a stub head</sqf:title>
+            </sqf:description>
+            <sqf:add position="first-child">
+               <head>
+                  <title>Lesson: ...</title>
+                  <meta charset="utf-8"/>
+               </head>
+            </sqf:add>
+         </sqf:fix>  
+      </sch:rule>
+      <sch:rule context="html:head">
+         <sch:assert sqf:fix="add-meta" test="html:meta/@charset='utf-8'">Document character set should be marked UTF-8</sch:assert>
+         <sqf:fix id="add-meta">
+            <sqf:description>
+               <sqf:title>Add a meta charset='utf-8'</sqf:title>
+            </sqf:description>
+            <sqf:add position="last-child">
+               <meta charset="utf-8"/>
+            </sqf:add>
+         </sqf:fix>  
+      </sch:rule>
+   </sch:pattern>
+   
+   <sch:pattern>
       <sch:rule context="html:html | html:head | html:meta | html:title | html:body | html:section |
          html:p | html:ul | html:ol | html:li | html:pre | html:details | html:summary"/>
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6"/>
@@ -45,11 +73,11 @@
       </sch:rule>
    </sch:pattern>
    
-   
-   
    <sch:pattern>
       <sch:rule context="html:a">
          <sch:let name="internal" value="not(matches(@href,'^https?:/')) and matches(@href,'_src\.html$')"/>
+         
+            <sch:assert test="matches(@href,'^https?:') or unparsed-text-available(resolve-uri(@href,base-uri(.)))">Not seeing anything at href <sch:value-of select="@href"/></sch:assert>
          <sch:assert test="not(matches(.,'\.\S{2,4}$')) or (replace(.,'^.*/','') = replace(@href,'^.*/',''))">Internal link is misdirected - href does not match element content</sch:assert>
          
          <sch:assert sqf:fix="tag-lessonUnit-link" test="@class='LessonUnit' or not($internal)">Link to lesson should be given @class='LessonUnit'</sch:assert>
@@ -61,5 +89,6 @@
          </sqf:fix>  
       </sch:rule>
    </sch:pattern>
+
 
 </sch:schema>
