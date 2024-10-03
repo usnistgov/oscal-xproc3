@@ -14,7 +14,7 @@ XProc conformance testing is [documented for Morgana on its site](https://test-s
 
 Java is a requirement. For setup instructions, see the [README.md](README.md), the [more detailed setup notes](setup-notes.md), or try the bash script, `./setup.sh`.
 
-Test the operation of an XProc3 pipeline with the [Smoke test](smoketest/POWER-UP.xpl) pipeline. You should see no figurative smoke:
+Test the operation of an XProc3 pipeline with the [Smoke test](smoketest/TEST-XPROC3.xpl) pipeline. You should see no figurative smoke:
 
 ```
 > ./xp3.sh XPROC3-SMOKETEST.xpl
@@ -24,11 +24,11 @@ Windows users with no `bash` can use the `xp3.bat` utility instead.
 
 ### Assorted smoke tests
 
-In addition to [smoketest/POWER-UP.xpl](smoketest/POWER-UP.xpl)
+In addition to [smoketest/TEST-XPROC3.xpl](smoketest/TEST-XPROC3.xpl)
 
-[smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl) tests XSLT transformations (requires Saxon installation)
+[smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl) tests XSLT transformations (requires Saxon installation)
 
-[smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl) tests Schematron validation (requires Saxon and SchXSLT installation) - returning SVRL code.
+[smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl) tests Schematron validation (requires Saxon and SchXSLT installation) - returning SVRL code.
 
 Beginning developers might take the time to inspect and edit this smoke test and the Schematron it uses, as it can show the different behaviors when (a) the document is valid or invalid to the Schematron (as written, all documents are always valid), or (b) the pipeline is set to *require* validity or not (`assert-valid='true'`).
 

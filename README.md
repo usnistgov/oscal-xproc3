@@ -36,18 +36,20 @@ These are open-source projects in support of W3C- and ISO-standardized technolog
 
 If this software is as easy, securable and performant as we hope to show, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
 
-### Currently planned projects
+### Projects -- current and conceived
 
-Projects currently planned for deployment in this repository include:
+See the [Projects folder](./projects/) for current projects. Projects now planned for deployment in this repository include:
 
-  - [schema-field-tests](./schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
+   - [`oscal-convert`](projects/oscal-convert/) - convert OSCAL XML into JSON and OSCAL JSON into XML
+  - [`oscal-publish`](projects/oscal-publish/) - convert OSCAL catalogs (including resolved profiles) into HTML (and with XProc support, PDF)
+  - [`profile-resolution`](projects/profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
+  - [`xproc-doc`](projects/xproc-doc) XProc 3.0 documentation produced using XProc, often from the specifications
+ - [`schema-field-tests`](projects/schema-field-tests) OSCAL "validation validation" test harness (you read that right) - validating the validator or testing the examiner: does an OSCAL schema validator test what you think it tests? (try it and see)
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
-  - [profile-resolution](./profile-resolution) - run and test NIST XSLTs for rendering a profile into its catalog of controls
+  - [`oscal-import`](projects/oscal-import/) - produce OSCAL from PDF via HTML and NIST STS formats - a demonstration showing conversion of a 'high-touch' document into OSCAL, mapping its structures
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
-  - `data-convert` - convert OSCAL XML into JSON and OSCAL JSON into XML
-  - `display-render` - convert OSCAL catalogs (including resolved profiles) into HTML and PDF
   - `index-oscal` - produce indexes to information encoded in OSCAL  
 
 TODO: update this list
@@ -57,19 +59,25 @@ Applications in this repository may occasionally have general use outside OSCAL;
 
 ### Organization
 
-`lib`, `template`, `testing`, `icons` and (hidden) `.github` folders are special; others represent projects.
+Folders outside `projects` including `lib`, `smoketest`, `project-template`, `testing`, `icons` and (hidden) `.github` folders serve the repository as a whole; specific applications are all to be found among [projects](./projects).
 
 [The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by running the pipelines.
 
 `lib` can be cleaned up, and restored, more or less with impunity, but if it disappears or its contents are renamed, rearranged or altered, things will cease working - see its [readme](./lib/readme.md) for more information.
 
-Next to `lib`, each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered to be discrete and independent from others unless and except where noted otherwise.
+Within  [projects](./projects), each project is kept in its own separate folder. There, the project will have its own **readme.md**. While projects may rely on the shared libraries, each one is considered as its own starting point. As projects can not only 'cross-pollinate', but also call one another's logic directly as long as all resources are available), experiment is easy - so care must be taken.
 
-One such project is [smoketest](./smoketest), devoted to testing the software installation both in its basic and fully configured forms.
+At the top level (not stored as a project), pipelines in [smoketest](./smoketest) are devoted to testing the software installation both in its basic installation and fully configured and equipped.
+
+[The `project-template` directory](./project-template) contains a blank project template. Copy and rename this folder for a quick start on XProc infrastructure for your project. It contains boilerlate documentation and logic ready for rewriting.
+
+(TODO: instead of hand copy/paste, XProc for this can generate a customized copy.)
 
 [The `testing` directory](./testing) contains tests and logic applicable to the repository or its contents, such as Schematron governing usage of XProc or other formats - XML-based code introspection. As this is still in development, it can be expected to change and grow.
 
-[The `template` directory](./template) contains a blank project template. Copy and rename this folder for a quick start on XProc infrastructure for your project. It contains boilerlate documentation and logic ready for rewriting.
+[`tutorial`](./tutorial) contains a tutorial (work in progress at time of writing) based on project walkthroughs.
+
+The [`xspec` directory](./xspec) contains pipeline support for XSpec, the unit testing framework for XSLT and XQyery. This is saved here inasmuch as it is considered intfrastructure, not a project.
 
 Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that can be associated with scripts or file types.
 
@@ -77,7 +85,7 @@ Finally, the [`icons` directory](./icons) holds SVG and Windows icon files that 
 
 The software in this repository is at varying levels of maturity. Many stylesheets are fairly mature, having been developed and tested in other contexts. Yet work here also includes job configuration (XProc itself) and testing, which is to say on tools to determine correctness and reliability, therefore (by implication) maturity. These may be experimental, not mature.
 
-At the same time, the libraries we use (Morgana, Saxon and others) are themselves at various levels of maturity (Saxon in particular having been field-tested for over 20 years). And both particular initiatives and the code repository as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal.
+At the same time, the libraries we use (Morgana, Saxon and others) are themselves at various levels of maturity (Saxon in particular having been field-tested for over 20 years). And both particular initiatives and the code repository as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal. New contrivances are made of old and reliable parts.
 
 Assume the worst, hope for the best, and test.
 
@@ -96,7 +104,7 @@ TODO: Anything else to make the project more FAIR
 
 <details><summary>House rules</summary>
 
-Contributors are expected to follow [CONTRIBUTORS](./CONTRIBUTORS.md) guidelines and to try to [be FAIR](fair-software.md); additionally there are some [house rules](house-rules.md). Since there is a house rule against making rules with no mechanism for enforcement or amelioration, constraints are light and mainly regard coding conventions.
+Contributors are expected to follow [CONTRIBUTORS](./CONTRIBUTORS.md) guidelines and to try to [be FAIR](fair-software.md); additionally there are some [house rules](./testing/house-rules.md). Since there is a house rule against making rules with no mechanism for enforcement or amelioration, constraints are light and mainly regard coding conventions.
 
 </details>
 <details><summary>`TODO` annotation convention</summary>
@@ -108,7 +116,8 @@ Project contributors can see them as either indicators that someone is paying at
 Assuming 'TODO' items are addressed and these markers disappear, the git history for edited files will reflect this.
 </details>
 
-### Innovations
+<details>
+<summary>Innovations</summary>
 
 As of mid-2024, we believe some aspects of this initiative are innovative or unusual, even as it stands on foundations laid by others. Please let us know of relevant prior art, or independent invention, especially if it anticipates the work here.
 
@@ -152,6 +161,8 @@ Projects each have their own libraries and dependencies in addition to the commo
 
 This makes cloning and further development easier.
 
+</details>
+
 ## Where to start
 
 <details>
@@ -176,6 +187,13 @@ After installation and testing, you can start anywhere &mdash; you have already 
 
 </details>
 
+<details>
+<summary>Tutorial</summary>
+
+An [XProc tutorial](tutorial/sequence/lesson-sequence.md) is offered on this site - it provides an introduction to XProc aimed at a range of users at different levels, with walkthroughs of the project pipelines with detailed explanations of features, methods and techniques they illustrate.
+</details>
+
+
 ### Installation instructions
 
 Note: if you already have Morgana XProc III installed, you should be able to use it, appropriately configured, to run any pipeline in the repository. But local installation is also easy and clean.
@@ -194,23 +212,23 @@ The [setup-notes](./setup-notes.md) file provides a walkthrough of what this scr
 
 After setup, you should now be able to run bare-bones XProc using a pipeline processor (Morgana) with rudimentary capabilities. How to run any of these pipelines is [detailed below](#running-the-software).
 
-If impatient to test, review **Does It Work?** below before proceeding. But expect errors with many pipelines if you forget to finish the installation.
+A simple pipeline, [smoketest/TEST-XPROC3.xpl](smoketest/TEST-XPROC3.xpl) can be used to verify your installation works. More details are given below. (**Does It Work?**)
 
-The next steps both test the runtime, and provide Morgana with more power, namely XSLT for transformations (using Saxon), and Schematron for query-based validation (using SchXLST).
+The next steps both help to accustom you to the engine, and provide Morgana with more power, namely XSLT for transformations (using Saxon), and Schematron for query-based validation (using SchXLST).
 
 SchXSLT is written in XSLT and requires Saxon, so run (and test) the Saxon pipeline first.
 
 II. To install Saxon: [lib/GRAB-SAXON.xpl](lib/GRAB-SAXON.xpl)
 
-To test Saxon: [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl)
+To test Saxon: [smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl)
 
 III. To install SchXSLT: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl)
 
-To test SchXSLT: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
+To test SchXSLT: [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl)
 
-IV. To install XSpec: [lib/GRAB-SCHXSLT.xpl](lib/GRAB-XSPEC.xpl)
+IV. To install XSpec: [lib/GRAB-XSPEC.xpl](lib/GRAB-XSPEC.xpl)
 
-To test XSPec: [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-XSPEC.xpl)
+To test XSPec: [smoketest/TEST-XSPEC.xpl](smoketest/TEST-XSPEC.xpl)
 
 <details><summary><bold>Does it work?</bold></summary>
 
@@ -229,13 +247,13 @@ TODO - tip for anyone with no Java?
 To test Morgana, try the [Smoke test application](./smoketest):
 
 ```bash
-./xp3.sh smoketest/POWER-UP.xpl
+./xp3.sh smoketest/TEST-XPROC3.xpl
 ```
 
 or (Windows users, from a command line or Powershell window)
 
 ```bash
-.\xp3 smoketest\POWER-UP.xpl
+.\xp3 smoketest\TEST-XPROC3.xpl
 ```
 
 Again you should see fine-looking results, this time in XML.
@@ -244,11 +262,11 @@ Again you should see fine-looking results, this time in XML.
 
 **Other smoke tests**
 
-After installing Saxon, the smoke test [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl) will function, returning sensible outputs.
+After installing Saxon, the smoke test [smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl) will function, returning sensible outputs.
 
-After installing SchXSLT, the smoke test [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl) will function, returning sensible outputs.
+After installing SchXSLT, the smoke test [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl) will function, returning sensible outputs.
 
-After installing XSpec, the smoke test [smoketest/SMOKETEST-XSPEC.xpl](smoketest/SMOKETEST-XSPEC.xpl) will function, returning sensible outputs.
+After installing XSpec, the smoke test [smoketest/TEST-XSPEC.xpl](smoketest/TEST-XSPEC.xpl) will function, returning sensible outputs.
 
 [Another page offers help](./setup-notes.md) with details on manual setup.
 
@@ -258,11 +276,15 @@ After installing XSpec, the smoke test [smoketest/SMOKETEST-XSPEC.xpl](smoketest
 
 If Morgana is installed with Saxon-HE you should be good to go running any pipeline. See project readme documents for details on each project.
 
+See the [projects/](./projects/) directory with a list of projects - each should have a readme.
+
+Or jump to these projects:
+
 - [Schema Field Tests](./schema-field-tests) - Testing whether OSCAL schemas correctly enforce rules over data (with surprises)
 - [OSCAL Profile Resolution](./profile-resolution) - converting an OSCAL profile (representing a baseline or overlay) into its catalog of controls
+- [./projects/oscal-import/](./projects/oscal-import/) - Produce OSCAL from a PDF source via HTML and XML conversions
 
-TODO: keep this list up to date
-
+ 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
 ```bash

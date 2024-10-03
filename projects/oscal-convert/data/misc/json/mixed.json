@@ -1,0 +1,8 @@
+{
+	"a_string": "A string value",
+	"an_object": { "one": 1, "two": 2 },
+	"an_array": [
+	   { "A": "a", "B": "b" },
+	   "string"
+	   ]
+}

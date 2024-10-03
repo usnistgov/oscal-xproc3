@@ -1,0 +1,4 @@
+# Everything inside lib
+lib/*
+# except keep the readme
+!lib/readme.md

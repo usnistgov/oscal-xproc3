@@ -15,7 +15,7 @@
    <p:import href="../lib/schxslt-1.9.5/xproc/3.0/library.xpl"/>
    
    <!-- Providing a relative path to XSpec (top-level directory) on this system. with trailing slash -->   
-   <p:option name="xspec-home" select="'../lib/xspec-3.0.3/'" static="true"/>
+   <p:option name="xspec-home" select="'../lib/xspec-3.1.2/'" static="true"/>
    
    <p:declare-step name="execute-xslt-xspec" type="ox:execute-xslt-xspec">      
       <p:input port="xspec-source"        primary="true"  content-types="application/xml"/>      

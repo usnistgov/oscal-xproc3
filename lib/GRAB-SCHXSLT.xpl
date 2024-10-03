@@ -7,10 +7,10 @@
 
 
    <!-- SchXSLT is at https://github.com/schxslt/schxslt
-      
-      It is an XSLT-based Schematron processor
-      
-   -->
+        It is an XSLT-based Schematron processor -->
+   
+   <!-- /end prologue -->
+   <!-- start subpipeline -->
    
    <p:variable name="download-path" select="'https://github.com/schxslt/schxslt/releases/download/v1.9.5'"/>
    <!--<p:variable name="download-path" select="'.'"/>-->

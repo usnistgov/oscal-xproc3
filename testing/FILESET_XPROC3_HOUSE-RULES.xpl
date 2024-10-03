@@ -22,34 +22,62 @@
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XSPEC.xpl"/>
+      <p:document href="VALIDATION-FILESET-READYCHECK.xpl"/>
 
-      <p:document href="../template/GRAB-RESOURCES.xpl"/>
+      <p:document href="../project-template/GRAB-RESOURCES.xpl"/>
+      <p:document href="../project-template/MINIMAL.xpl"/>
+      
+      <p:document href="../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
+      <p:document href="../projects/schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
+      <p:document href="../projects/schema-field-tests/GRAB-OSCAL.xpl"/>
+      <p:document href="../projects/schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
+      <p:document href="../projects/schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
 
-      <p:document href="../schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl"/>
-      <p:document href="../schema-field-tests/GRAB-OSCAL-CLI.xpl"/>
-      <p:document href="../schema-field-tests/GRAB-OSCAL.xpl"/>
-      <p:document href="../schema-field-tests/PROVE-JSON-VALIDATIONS.xpl"/>
-      <p:document href="../schema-field-tests/PROVE-XSD-VALIDATIONS.xpl"/>
-
-      <p:document href="../smoketest/POWER-UP.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-XSLT.xpl"/>
-      <p:document href="../smoketest/SMOKETEST-XSPEC.xpl"/>
+      <p:document href="../projects/xproc-doc/COLLECT-XPROC-STEPS.xpl"/>
+      <p:document href="../projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl"/>
+      <p:document href="../projects/xproc-doc/REPOSITORY-STEP-INDEX-HTML.xpl"/>
+      <!--<p:document href="../xproc-doc/xproc-paint-html.xpl"/>-->
+      
+      <p:document href="../tutorial/GRAB-OSCAL-RESOURCES.xpl"/>
+      <p:document href="../tutorial/GRAB-XPROC-RESOURCES.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
+      <p:document href="../tutorial/SOURCES-PREVIEW.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
+      
+      <p:document href="../smoketest/TEST-XPROC3.xpl"/>
+      <p:document href="../smoketest/TEST-SCHEMATRON.xpl"/>
+      <p:document href="../smoketest/TEST-XSLT.xpl"/>
+      <p:document href="../smoketest/TEST-XSPEC.xpl"/>
 
       <p:document href="../xspec/xspec-execute.xpl"/>
       
-      <p:document href="../oscal-publish/setup/GRAB-OSCAL-CATALOG-SCHEMA.xpl"/>
-      <p:document href="../oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
-      <p:document href="../oscal-publish/publish-oscal-catalog.xpl"/>
+      <p:document href="../projects/oscal-publish/setup/GRAB-OSCAL-CATALOG-SCHEMA.xpl"/>
+      <p:document href="../projects/oscal-publish/setup/GRAB-OSCAL-XSLT.xpl"/>
+      <p:document href="../projects/oscal-publish/publish-oscal-catalog.xpl"/>
       
-      <p:document href="../profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
-      <p:document href="../profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>
-      <p:document href="../profile-resolution/src/apply-profile-resolver-remotely.xpl"/>
-      <p:document href="../profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
-      <p:document href="../profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>
-      <p:document href="../profile-resolution/resolve-profile-and-save.xpl"/>
+      <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"/>
+      <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-FOLDER.xpl"/>
+      <p:document href="../projects/oscal-convert/IDENTITY_.xpl"/>
+      
+      <p:document href="../projects/oscal-import/PRODUCE_FM6-22-chapter4.xpl"/>
+      <p:document href="../projects/oscal-import/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-import/GRAB-FM6-22.xpl"/>
+      <p:document href="../projects/oscal-import/GRAB-NISO_STS-RNG.xpl"/>
+      
+      <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
+      <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>
+      <p:document href="../projects/oscal-validate/XSD-VALIDATE-OFFSITE.xpl"/>
+      <p:document href="../projects/oscal-validate/REPORT-VALIDATION-EXAMPLE.xpl"/>
+      
+      <p:document href="../projects/profile-resolution/setup/ACQUIRE-OSCAL-DATA.xpl"/>
+      <p:document href="../projects/profile-resolution/setup/GRAB-PROFILE-RESOLVER-XSLT.xpl"/>
+      <p:document href="../projects/profile-resolution/src/apply-profile-resolver.xpl"/>
+      <p:document href="../projects/profile-resolution/src/apply-profile-resolver-stepwise.xpl"/>
+      <p:document href="../projects/profile-resolution/src/apply-profile-resolver-remotely.xpl"/>
+      <p:document href="../projects/profile-resolution/RESOLVE-FISMA-PROFILES.xpl"/>
+      <p:document href="../projects/profile-resolution/RESOLVE-KITTEN-CONTROLS.xpl"/>
+      <p:document href="../projects/profile-resolution/resolve-profile-and-save.xpl"/>
    </p:input>
  
    <p:output port="xproc-files" sequence="true"/>

@@ -18,10 +18,11 @@
       <p:document href="../smoketest/src/doing-well-schematron.xspec" content-type="application/xml"/>
       <p:document href="../smoketest/src/shout-xquery.xspec" content-type="application/xml"/>
       
+      <p:document href="../tutorial/src/testing/xhtml-to-md.xspec" content-type="application/xml"/>
    </p:input>
  
    <p:output port="xspec-files" sequence="true"/>
    
    <p:identity/>
-   
+  
 </p:declare-step>
