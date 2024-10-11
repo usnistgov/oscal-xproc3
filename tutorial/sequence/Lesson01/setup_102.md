@@ -46,13 +46,13 @@ The second group of pipelines also has a single purpose, namely to exercise and 
 * [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT
 * [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec
 
-Take a look at these. If it is helpful, try to see the XML syntax as a set of nested frames with labels and connectors.
+Take a look at these. It may be helpful to envision the XML syntax as a set of nested frames with labels and connectors.
 
 Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in a plain text editor, in an XML editor.
 
 ## Step Two: Modify the pipelines
 
-Use a text editor or IDE for this exercise.
+Use a text editor or software development application for this exercise.
 
 If you have any concepts for improvements to the pipelines, or other resources that might be acquired this way, copy and modify one of the pipelines given to achieve those results.
 

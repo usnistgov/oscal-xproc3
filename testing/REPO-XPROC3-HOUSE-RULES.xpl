@@ -33,7 +33,7 @@
          <p:group name="validation">
             <p:variable name="base" select="base-uri(/*)"/>
             <!-- assert-valid='true' presents c:errors results when validation fails as 'no failed assertions or successful reports' -->
-            <p:validate-with-schematron assert-valid="true"  message="[REPO-XPROC3-HOUSE-RULES] Validating { $path } against { $schematron-path }">
+            <p:validate-with-schematron assert-valid="true" message="[REPO-XPROC3-HOUSE-RULES] Validating { $path } against { $schematron-path }">
                <p:with-input port="schema" href="{$schematron-path}"/>
             </p:validate-with-schematron>
             

@@ -22,6 +22,8 @@ To add to the production pipeline, edit PRODUCE-TUTORIAL-MARKDOWN.xpl
 ## End to end dependencies
 
 - review phase:
+  - Commends Day? (week?) go through all the comments
+      consider factoring out into p:documentation / tooling
   - 101 sequence is inspection and observation (only)
   - 102 sequence is hands-on
   -  all 'Goals' in sequence, all 'Resources' in sequence, etc

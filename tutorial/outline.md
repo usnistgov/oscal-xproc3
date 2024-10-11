@@ -23,9 +23,9 @@ Provide useful information to readers at different levels, whether it be technic
 
 This tutorial is designed to offer a self-guided tour for those unable to get live help. By following instructions carefully (and assuming requisite background), you should be able to make things work, understand the moving parts, and determine what to research next.
 
-However, the resources offered are also intended to be available for discussion, whether in formal or informal training sessions among professionals, academics or amateur/freelancers. In development, we will be keeping the solo autodidact in mind -- but we also take note when we see opportunities for discussion and consideration of differing perspectives.
+However, the resources offered are also intended to be available for discussion, whether in formal or informal training sessions among professionals, academics or amateur/freelancers. In development, we will be keeping the solo autodidact in mind. But we also take note when we see opportunities for discussion and consideration of differing perspectives.
 
-Not only is there no rule against 'borrowing' from or adapting this tutorial or part of it -- that is part of the idea. (Credit your sources as always.)
+Not only is there no rule against 'borrowing' from or adapting this tutorial or part of it: that is part of the idea. (Credit your sources as always.)
 
 As noted in the readme, there are several ways to work the sequence.
 
@@ -47,7 +47,9 @@ Files in this folder are overwritten by the tutorial production sequence, so kee
 
 [A directory to the lesson sequence is updated dynamically (using XProc)](sequence/lesson-sequence.md)
 
-A provisional working sequence appears below. While lessons build from one to the next they are designed for a certain degree of mix-and-match.
+A provisional working plan for the sequence appears below. (The current sequence published can be compared to discern the gap between actuality and aspiration.) While lessons build from one to the next they are designed for a certain degree of mix-and-match, like the projects themselves.
+
+For convenience, each lesson unit focuses on a project (as noted).
 
 - setup
 - unpack (survey of files used in setup)
