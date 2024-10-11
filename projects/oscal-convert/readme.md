@@ -1,49 +1,27 @@
-# OSCAL XProc3 Project Template
+# OSCAL XML to OSCAL JSON and back
 
-Use this file to document the project in the containing folder.
+Following is work in progress! Be cautioned accordingly.
 
-For an outline of full (minimal) project documentation, see the [NIST Open-Source Software Repository Template](https://github.com/usnistgov/opensource-repo/blob/main/README.md).
+Pipelines for converting XML to JSON and back again
 
-The repository [README](../README.md) addresses all these points on a general level (repository-wide). Given the assumption that all projects are abiding by [repository guidelines](../CODE_OF_CONDUCT.md), each project readme (this file) is available for documenting its specifics.
+A mapping between XML and JSON forms of OSCAL is defined by OSCAL's underlying specification in its [set of metaschemas](https://github.com/usnistgov/OSCAL/tree/main/src/metaschema). For OSCAL (at least through v1.1.2) These source files have been used to produce XSLT transformations using the [metaschema-xslt](https://github.com/usnistgov/metaschema-xslt) processing framework.
 
-Consider describing the following here:
+See the GRAB-RESOURCES.xpl pipeline for paths to these resources.
 
-## Project purpose, scope and goals
+Run the pipeline to acquire these stylesheets. They should be copied into your `lib` folder.
 
-## Who might find this useful
+## Converting between JSON and XML
 
-The project is centered on an application or family of applications. Who will use it?
+[XPath 3.0 defines a mapping](https://www.w3.org/TR/xpath-functions-31/#json-to-xml-mapping) between an XML-based syntax for JSON (JavaScript) object structures, and JSON syntax. This mapping is supported by functions in XPath, namely [json-to-xml()](https://www.w3.org/TR/xpath-functions-31/#func-json-to-xml) and [xml-to-json()](https://www.w3.org/TR/xpath-functions-31/#func-xml-to-json)
 
-## What is provided
+XProc 3.0 offers the same functionality by means of the `p:cast-content-type` step.
 
-Describe, with supporting links, the software, data sets or other assets provided with the project.
+Pipelines in this directory support both generic conversions (JSON to XML is possible generically, while XML to JSON is not) and OSCAL-specific conversions as supported by transformations offered by OSCAL.
 
-## How to use it
+See and try the pipelines to determine what they do and how well they work.
 
-With links. (If help is extensive consider maintaining it outside the readme.)
+At time of writing, building out this functionality to a stable state is a project priority - but not the first! Write us if more support in this area would be welcome.
 
-## Credits for contributors
-
-And don't forget contact information, form for citation, etc.
-
-# Checklist checklist
-
-To use this template for a new project &mdash;
-
-- [ ] Copy this folder
-- [ ] Rename the copy for your project
-- [ ] Is [GRAB-RESOURCES.xpl](GRAB-RESOURCES.xpl) useful, or something like it?
-   - **yes** Rename, comment and edit
-     - Validate your new pipeline using the [House Rules Schematron](../testing/xproc3-house-rules.sch)
-
-   - **no** Delete
-- [ ] (If 'no' and even if 'yes' on last question) Do you need a `lib` folder?
-   - **yes** All is fine
-   - **no** Delete and clean up [.gitignore](.gitignore)
-- [ ] Update [TESTING.md](TESTING.md)
-- [ ] Update [this file](readme.md) including the date at the bottom
-
-started 20240522
 
 ---
 

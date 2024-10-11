@@ -22,6 +22,32 @@ Run the pipelines described in [the 101                Lesson](https://github.co
 
 Same as the [101 lesson](oscal-convert_101.md).
 
+## Identity pipeline testbed
+
+An identity or &ldquo;near-identity&rdquo; or modified-identity pipeline has its uses, including diagnostics. Since inputs and outputs are supposed to look the same, any changes they show between inputs and outputs can be revealing.
+
+They are also useful for testing features, for example features for resource acquisition and disposition. These are fancy ways to describe how you get data into your pipeline and then out again.
+
+Additionally, there are actually useful operations supported by a pipeline that pretends to change nothing. For example, it can transcode a file from one encoding to another – changing nothing in the data, but rewriting it into a different character set.
+
+Any reader who feels a 599 lesson would be useful covering encodings and XProc should pipe up! (Feel free to post an Issue, Discussion, or PR with a draft.)
+
+### 0.01 - what is a &ldquo;document&rdquo;
+
+### 0.1 - loading documents known or determinable in advance
+
+The XProc step `p:load` can be used to load the resource indicated into the pipeline.
+
+Watch out, since `p:load` with `href=''` – loading the resource at the location indicated by the empty string, `""` – will load the XProc file itself. This is conformant with rules for URL resolution.
+
+### 0.2 - binding a document to an input port
+
+### 0.3 - loading documents dynamically on discovery with `p:directory-list`
+
+### 0.4 - saving results to the file system
+
+### 0.5 - exposing results on an output port
+
 ## Probing error space - data conversions
 
 Broadly speaking, problems encountered running these conversions fall into two categories, the distinction being simple, namely whether a bad outcome is due to an error in the processor and its logic, or in the data inputs provided. The term &ldquo;error&rdquo; here hides a great deal. So does &ldquo;bad outcome&rdquo;. One type of bad outcome takes the form of failures at runtime - the term &ldquo;failure&rdquo; again leaving questions open. Other bad outcomes are not detectable at runtime. If inputs are bad (inconsistent with stated contracts such as data validation), processes can run *correctly* and deliver incorrect results: correctly representing inputs, in their incorrectness. Again, the term *correct* here is underspecified and underdefined, except in the case.
@@ -44,7 +70,7 @@ Broadly speaking, problems encountered running these conversions fall into two c
 
 ## for 599: XProc for JSON
 
-map objects; steps for working with them; interim p:store as debug method
+map objects; steps for working with them; interim p:store as debug method; output ports to see results (final and intermediate) or bind them
 
 ## for 599: YAML TODO
 

@@ -18,14 +18,15 @@
    </p:input>
 
    <p:for-each>
-      <p:variable name="base" select="p:document-property(.,'base-uri')"/>
-      <p:variable name="result-xml-file" select="replace($base,'data/','out/') => replace('json','xml')"/>
+      <!-- plain base-uri(.) doesn't work since the JSON is not a node -->
+      <p:variable name="filename" select="p:document-property(.,'base-uri')"/>
+      <p:variable name="xml-file" select="replace($filename,'json$','xml')"/>
       
       <!-- A generic conversion presents the JSON data in XML syntax using the XPath vocabulary -->
       <p:cast-content-type content-type="application/xml"/>
       
       <!--<p:identity message="[BASIC_JSON-TO-XML] Writing XML file {$json-file} -\-"/>-->
-      <p:store href="{$result-xml-file}" message="[BASIC_JSON-TO-XML] writing XML file {$result-xml-file} --" serialization="map{ 'indent': true() }"/>      
+      <p:store href="{$xml-file}" message="[BASIC_JSON-TO-XML] writing XML file {$xml-file} --" serialization="map{ 'indent': true() }"/>      
    </p:for-each>
    
 </p:declare-step>

@@ -21,14 +21,25 @@ To add to the production pipeline, edit PRODUCE-TUTORIAL-MARKDOWN.xpl
 
 ## End to end dependencies
 
+- review phase:
+  - 101 sequence is inspection and observation (only)
+  - 102 sequence is hands-on
+  -  all 'Goals' in sequence, all 'Resources' in sequence, etc
+  - Review and normalize usage of 'i', 'b', 'em' and other inline elements?
+- Top level Overview page about
+  - Strategies for learning (breadth-first or depth-first)
+  - **Tools** - editor, XML IDE?
+  - House rules; project and tutorial conventions
+    - file naming, all-caps names for 'nullary' XProc
+    - XPath syntax for references to XML, e.g. '@href'
 - find and fix all TODO
-- link checking? how to streamline page linking
 - update / finish / close
    - `tutorial/outline.md`
    - `tutorial/readme.md`
    - `./README.md`
    - this file and any other .md files in `tutorial`
    - conclude this punchlist
+- rewrite outline.md
 - delete this file
 
 ---
@@ -178,19 +189,6 @@ Each lesson
   XProc specifications - source
   https://github.com/xproc/3.0-steps/blob/master/steps/src/main/xml/specification.xml
 
-#### XProc self-runners? XProc spelunking
-
-Concept: generate a suite of XProc step definitions as demo tests
-
-Each drops a different step into a boilerplate XProc, for execution, to test that step with default settings.
-
-Then we try running them and diffing the results with the inputs.
-
-We document outputs and problems encountered.
-
-In a second pass we can mitigate known issues for example providing schemas to schema validation steps.
-
-Over time this can be built into demonstrations.
 
 ### XProc for users
 

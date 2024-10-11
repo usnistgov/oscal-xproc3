@@ -5,10 +5,10 @@
             
 	<p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
 
-
    <!-- /end prologue -->
    
-   <!-- assert-valid='false' returns the input document with SVRL on another port
+   <!-- assert-valid='false' returns the input document
+        with validation messages (SVRL) on another port
         see https://spec.xproc.org/master/head/validation/#c.validate-with-schematron
    -->
    <p:validate-with-schematron assert-valid="true"

@@ -8,8 +8,8 @@
 
    <!--
       
-   This XProc pipeline consumes an HTML document it expects to find at path 'source/export/fm6_22.html'
-   Expect failures if this file is missing or changed
+   This XProc pipeline consumes an HTML document it expects to find at path 'source/export/fm6_22.html'.
+   Expect failures if this file is missing or changed.
    
    It saves outputs to a temp directory:
      Two result files
@@ -69,7 +69,7 @@
                   <xsl:apply-templates/>
                </xsl:template>
                <xsl:template match="li">
-                  <bullet  xmlns="http://www.w3.org/1999/xhtml"/>
+                  <bullet xmlns="http://www.w3.org/1999/xhtml"/>
                   <xsl:apply-templates/>
                </xsl:template>
             </xsl:stylesheet>

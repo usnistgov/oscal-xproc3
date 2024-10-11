@@ -3,5 +3,11 @@ lib/*
 # except keep the readme
 !lib/readme.md
 
-# Everything inside out
+# Everything inside 'out'
 out/*
+
+# Any purported JSON in an XML directory - these are conversion artifacts
+**/xml/*.json
+
+# Any purported XML in a JSON directory (similar)
+**/json/*.xml

@@ -38,6 +38,6 @@
       <p:store href="{ $path-here }" message="{$prefix} Saving { $path-here }"/>
    </p:for-each>
    
-   <p:identity message="{ $prefix } Test your Schematron capability using ../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
+   <p:identity message="{ $prefix } Test your Schematron capability using ../smoketest/TEST-SCHEMATRON.xpl"/>
    
 </p:declare-step>

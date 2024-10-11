@@ -2,8 +2,11 @@
 <LESSON_PLAN>
    <Lesson key="setup"/>
    <Lesson key="unpack"/>            
+   <!--
+   Intended coverage - please let us know if you need more
+     (to help make it a priority)   
    <Lesson key="oscal-convert"/>
    <Lesson key="oscal-validate"/>
    <Lesson key="oscal-publish"/>
-   <Lesson key="oscal-produce"/>
+   <Lesson key="oscal-produce"/>-->
 </LESSON_PLAN>

@@ -45,7 +45,7 @@
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-TOC] Loading {$path}"/>
          <p:filter select="descendant::h1[1]"/>
          <p:rename new-name="file"/>
-         <p:add-attribute attribute-name="href" attribute-value="{replace($path,'.*/','') => replace('_src\.html$','.md')  }"/>
+         <p:add-attribute attribute-name="href" attribute-value="{ replace($path,'.*/','') => replace('_src\.html$','.md') }"/>
       </p:viewport>
    </p:for-each>
    
@@ -55,6 +55,8 @@
    
    <p:xslt>
       <p:with-input port="stylesheet">
+         <!-- Break out 101 sequence and 102 sequences separately -->
+         <!-- Or: make this a matrix -->
          <p:inline expand-text="false">
             <xsl:stylesheet version="3.0">
                <xsl:template match="LESSONPLAN">
@@ -90,7 +92,7 @@
    </p:xslt>
    
    <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
-      message="[PRODUCE-TUTORIAL-TOC] [PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>
+      message="[PRODUCE-TUTORIAL-TOC] Storing { $result-md-path }"/>
    <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
    
 </p:declare-step>

@@ -37,7 +37,7 @@
       <sch:rule context="html:html | html:head | html:meta | html:title | html:body | html:section |
          html:p | html:ul | html:ol | html:li | html:pre | html:details | html:summary"/>
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6"/>
-      <sch:rule context="html:b | html:i | html:code | html:a | html:q"/>
+      <sch:rule context="html:b | html:i | html:code | html:a | html:q | html:em"/>
       <sch:rule context="html:table | html:thead | html:tbody | html:tr | html:th | html:td"/>
       <sch:rule context="html:body/html:img | html:section/html:img"/>
       <sch:rule context="*">
@@ -79,7 +79,7 @@
          
             <sch:assert test="matches(@href,'^https?:') or unparsed-text-available(resolve-uri(@href,base-uri(.)))">Not seeing anything at href <sch:value-of select="@href"/></sch:assert>
          <sch:assert test="not(matches(.,'\.\S{2,4}$')) or (replace(.,'^.*/','') = replace(@href,'^.*/',''))">Internal link is misdirected - href does not match element content</sch:assert>
-         
+         <sch:assert test="normalize-space(.) => boolean()">Anchor is missing link contents</sch:assert>
          <sch:assert sqf:fix="tag-lessonUnit-link" test="@class='LessonUnit' or not($internal)">Link to lesson should be given @class='LessonUnit'</sch:assert>
          <sqf:fix id="tag-lessonUnit-link">
             <sqf:description>

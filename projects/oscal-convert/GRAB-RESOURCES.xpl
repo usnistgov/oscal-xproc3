@@ -9,7 +9,6 @@
    
    <p:variable name="download-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2'"/>
    
-  
    <!-- A $prefix is used to tag messages, expected to match the process type -->
    <p:variable name="prefix" select="'[' || 'GRAB-RESOURCES' || ']'"/>
    

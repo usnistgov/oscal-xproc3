@@ -24,6 +24,30 @@ Also like other projects, there are preliminaries for acquiring resources, along
 
 ## Step zero: an identity pipeline
 
+To verify syntactic correctness (well-formedness) - does it parse?
+
+To transcode a file from one encoding to another
+
+### 0.01 - what is a &ldquo;document&rdquo;
+
+### 0.1 - loading documents known in advance
+
+### 0.2 - binding a document to an input port
+
+### 0.3 - loading documents dynamically on discovery with `p:directory-list`
+
+### 0.4 - saving results to the file system
+
+### 0.5 - exposing results on an output port
+
+## Step zero-point-five: XML to JSON and back
+
+XML and JSON are both *data serializations*, a term that designates how each of them is to be considered and treated – irrespective of any questions of information storage – as a *sequence of characters*. This is a very important commonality, which makes it possible to bring them together in a single processing environment such as XProc.
+
+Along with *plain text*, perhaps the most important data serialization or &ldquo;format&rdquo; as we call them, of the three.
+
+A simple XProc pipeline can be used to demonstrate this. While doing so, it shows also while this is not as simple a process as it seems. Merely to convert from format to format is not enough.
+
 ## Step one: convert some OSCAL XML into OSCAL JSON
 
 [An acquisition pipeline](../../../projects/oscal-convert/GRAB-RESOURCES.xpl) in the project folder collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and edited if necessary.
@@ -32,9 +56,9 @@ TBD / this all incoherent so far
 
 ### The playing field is the internet
 
-Keep in mind that XProc in theory, and your XProc engine in practice, may read its inputs using whatever protocols it supports, while the `file` and `http` protocols are required for conformance, and work as they do on the Worldwide Web. Of course, permissions must be in place to read and write files from and into file system locations. But when authentication is configured or resources are openly available, using `http` to reach resources or sources can be a very convenient option.
+Keep in mind that XProc in theory, and your XProc engine in practice, may read its inputs using whatever protocols it supports, while the `file` and `http` protocols are required for conformance, and work as they do on the Worldwide Web. Of course, permissions must be in place to read files from system locations, or save files to them. But when authentication is configured or resources are openly available, using `http` to reach resources or sources can be a very convenient option.
 
-Keep in mind that where resources take the form of serializations of structured data such as XML or JSON, what is &ldquo;read&rdquo; (in the sense of presented to a consuming application) may not be quite exactly the same data serialization, since as a serialization, it is parsed into an object or representation of some kind, 
+### Consider the options
 
 TBD - TODO - question - how many and of what sort of source data files - so far there is only the cat catalog
 
@@ -60,7 +84,7 @@ When coping with errors, syntax errors are relatively easy. But anomalous inputs
 
 Generally speaking, OSCAL maintains &ldquo;validation parity&rdquo; between its XML and JSON formats with respect to their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for OSCAL XML data as the JSON Schema does for OSCAL JSON data, accounting for differences between the two notations, the data models and how information is mapped into them. A consequence of this is that valid OSCAL data, either XML or JSON, can reliably be converted to valid data in the other notation, while invalid data may not be converted at all, resulting in gaps or empty results.
 
-For this and related reasons on open systems, the working principle in XML is often to formalize a model (to write and deploy a schema) as early as possible - or adopt a model already built - as a way to institute and enforce schema validation as a **prerequisite** and **primary requirement** for working with any data set. Validation against schemas is covered in a subsequent lesson unit (coming soon near you).
+For this and related reasons on open systems, the working principle in XML is often to formalize a model (typically by writing and deploying a schema) as early as possible - or adopt a model already built - as a way to institute and enforce schema validation as a **prerequisite** and **primary requirement** for working with any data set. Validation against schemas is covered in a subsequent lesson unit (coming soon near you).
 
 ### Intercepting errors
 

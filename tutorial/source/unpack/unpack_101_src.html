@@ -5,18 +5,26 @@
    <meta charset="utf-8"/>    </head>
    <body>
       <h1>101: Unpacking XProc 3.0</h1>
-      <p></p>
       <section><h2>Goals</h2>
       <ul>
          <li>More familiarity with XProc 3.0: some syntax</li>
-         <li>History, concepts and resources</li>
+         <li>Some awareness of background history, concepts and resources</li>
       </ul>
       </section>
-      <section><h2>Resources</h2>
-         <p>The same pipelines you ran in setup: <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 101</a>.</p>
-         <p>Also, <a href="https://xproc.org">XProc.org dashboard page</a></p>
-         <p>Also, XProc index materials produced in this repository: <a href="../../../projects/xproc-doc/readme.md">XProc
-               docs</a></p>
+      <section>
+         <h2>Resources</h2>
+         <p>This lesson discusses, in more depth, the same pipelines you ran in setup: <a
+               href="../setup/setup_101_src.html" class="LessonUnit">Setup 101</a>, in particular <a
+               href="../../../smoketest/readme.md">the smoke test pipelines</a>.</p>
+         <p>Also, this lesson discusses a pipeline used for producing this tutorial: <a
+               href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">PRODUCE-TUTORIAL-ELEMENTLIST.xpl</a> generates an <a
+               href="../../sequence/element-directory.md">index to XProc in this repository</a></p>
+         <section>
+            <h3>For reference</h3>
+            <p>The <a href="https://xproc.org">XProc.org 3.0 dashboard page</a> offers a hub for reference materials and
+               community contributions.</p>
+            <p>The last section of this lesson unit describes more reference materials as well.</p>
+         </section>
       </section>
       <section>
          <h2>Prerequisites</h2>
@@ -28,90 +36,202 @@
       <section>
          <h2>A closer look</h2>
          <p>If you have completed <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 102</a> you have
-            already glanced at the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md"
-               >smoketest</a> folders, and run pipelines you have found therein. To edit these files, use any
-            XML-capable plain text editor (that is, with care, any editor at all that save text files as UTF-8).</p>
+            already inspected the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md"
+               >smoketest</a> folders, and run pipelines you have found there.</p>
          <p>Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a
             copy.</p>
          <p>A quick summary of what these pipelines do:</p>
-            <ul>
-               <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a> downloads a zip file from a <a
+         <ul>
+            <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a> downloads a zip file from a <a
                   href="https://www.saxonica.com/download">Saxonica download site</a>, saves it, and extracts a
                   <code>jar</code> (Java library) file, which it places in the Morgana library directory</li>
-               <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a> downloads a zip file from Github and
+            <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a> downloads a zip file from Github and
                unzips it into a directory where Morgana can find it.</li>
-               <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and <q>unarchives</q> a
-               zip file resource, this time a copy of <a href="https://github.com/xspec/xspec">an XSpec
+            <li><a href="../../../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and <q>unarchives</q> a zip
+               file resource, this time a copy of <a href="https://github.com/xspec/xspec">an XSpec
                distribution</a>.</li>
-               </ul>
+         </ul>
          <p>Essentially, these all replicate and capture the work a developer must do to identify and acquire libraries.
-            Maintaining our dependencies this way - not quite, but almost <q>by hand</q>, -- appears to have benefits
-            for system transparency and robustness.</p>
+            Maintaining our dependencies this way - not quite, but almost <q>by hand</q> -- appears to have benefits for
+            system transparency and robustness.</p>
          <p>The second group of pipelines is a bit more interesting. Each of the utilities provided for in packages just
             downloaded is tested by running a smoke test.</p>
          <p>Each smoke test performs a minor task, serving as a <q>smoke test</q> inasmuch as its only aim is to
             determine whether a simple representative process completes successfully. (When we plug in the board, can we
             see and smell smoke?)</p>
-            <ul>
+         <ul>
             <li><a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> amounts to an XProc <q>Hello
-                  World</q>. In that spirit, feel free to edit and adjust this file.</li>
-            <li><a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a> tests Saxon, an
-               XSLT/XQuery transformation engine. XSLT and XQuery are related technologies (different languages, same
-               data model) developed with XML processing in mind, but in recent years generalized to a wider range of
-               data structures.</li>
-               <li><a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a> tests
-               SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology.
-               Schematron relies on XSLT, so this library requires Saxon.</li>
-               <li><a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec, an
-               XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.</li>
-            </ul>
-         <p>All these together comprise more than can be learned in an afternoon, or even a week. Any and each of them
-            can nonetheless be used as a <q>black box</q> by any competent operator, even without understanding about
-            internals.</p>
+                  World</q>. In that spirit, feel free to write your own version.</li>
+            <li><a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a> tests Saxon, an XSLT/XQuery
+               transformation engine. XSLT and XQuery are related technologies (different languages, same data model)
+               developed with XML processing in mind, but in recent years generalized to a wider range of data
+               structures.</li>
+            <li><a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a> tests SchXSLT.
+               SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology. As this
+               implementation relies on XSLT, this library also requires Saxon.</li>
+            <li><a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec, an XSLT-based
+               testing framework useful for testing deployments of XSLT, XQuery and Schematron.</li>
+         </ul>
+         <p>Any and each of these can be used as a <q>black box</q> by any competent operator, even without
+            understanding the internals. But this simplicity masks and manages complexity. XProc is XProc but its
+            capabilities are limited without XSLT, XQuery, Schematron, XSpec and others, an open-ended set of compatible
+            and complimentary technologies.</p>
          <p>At the same time, common foundations make it possible to learn these technologies together and in
             tandem.</p>
-         <p>In particular, they all share a syntax for interrogating (querying) the structure of an XML document and
-            returning its data: the XPath expression language.</p>
       </section>
       <section>
-         <h2>Messing around</h2>
-         <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
-            it behaves.</p>
-         <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
-            modify the copy. Modifying one of the smoketest pipelines, see what happens when:</p>
+         <h2>Walkthrough</h2>
+         <p>Each of the test pipelines exercises a simple sequence of operations. Open the XSpec file in an editor or
+            viewer where you can see the tags.</p>
+         <section>
+            <h3>TEST-XPROC3</h3>
+            <p>Examine the pipeline <a href="../../../smoketest/TEST-XPROC3.xpl">TEST-XPROC3.xpl</a>. It breaks down as
+               follows:</p>
+            <ul>
+               <li><code>p:output</code> – An <em>output port</em> is defined. It specifies that when the process
+                  results are delivered, a couple of serialization rules are followed: the text is indented and written
+                  without an XML declaration at the top. With this port, the process outputs can be captured by the
+                  calling process (such as your script), or simply echoed to the console.</li>
+               <li><code>p:identity</code> – An <em>identity step</em> does nothing with its input but simply passes it
+                  along. This one is a little different from usual in that its inputs are given as literal (XML)
+                  contents in the pipeline. Essentially, because this pipeline has this step, it does not need to load
+                  or rely on any inputs, because its inputs are given here. The input is a single line of XML.</li>
+               <li><code>p:namespace-delete</code> – A <em>namespace-delete</em> step is used to strip an XML namespace
+                  definition from the document bound to the identity step. This XML inherits namespaces from the
+                  pipeline itself, but it has no elements or attributes that use it, so the namespace is unneeded and
+                  its declaration comes through as noise. With this step the pipeline results are clean and simple.</li>
+            </ul>
+            <p>When you run this pipeline, the <code>CONGRATULATIONS</code> document given in line will be echoed to the
+               console, where designated outputs will appear if not otherwise directed.</p>
+         </section>
+         <section>
+            <h3>TEST-XSLT</h3>
+            <p><a href="../../../smoketest/TEST-XSLT.xpl">This pipeline</a> executes a simple XSLT transformation, in
+               order to test that XSLT transformations can be successfully executed.</p>
+            <ul>
+               <li><code>p:output</code> – An output port is designated with <code>p:output</code> as in the <a
+                     href="../../../smoketest/TEST-XPROC3.xpl">TEST-XPROC3 pipeline</a>.</li>
+               <li><code>p:xslt</code> – Instead of providing a literal document in an <em>identity</em> step, this
+                  pipeline performs an XSLT transformation. The input to this transformation is given as a literal XML
+                  in the same way, except this time it is provided as input to a transformation process defined by an <a
+                     href="../../../smoketest/src/congratulations.xsl">XSLT stylesheet</a> called in by the
+                  pipeline.</li>
+               <li><code>p:namespace-delete</code> – The <code>ox</code> namespace is stripped from the result as in <a
+                     href="../../../smoketest/TEST-XPROC3.xpl">TEST-XPROC3 pipeline</a>. This could have been done in
+                  the XSLT as well, but this way the transformation has one less thing to do or go wrong. More simpler
+                  steps being better than fewer complicated ones.</li>
+            </ul>
+            <p>Like the <a href="../../../smoketest/TEST-XPROC3.xpl">TEST-XPROC3 pipeline</a> this pipeline shows its
+               results in the console. This time the result is not just the XML given in the pipeline, but that XML as
+               modified by the transformation.</p>
+            <p>If your pipeline execution can't process the XSLT (perhaps Saxon is not installed, or the XSLT itself has
+               a problem) you will get an error to say so.</p>
+            <p>Errors in XProc are reported by the Morgana engine using XML syntax. Among other things, this means they
+               can be captured and processed in pipelines.</p>
+         </section>
+         <section>
+            <h3>TEST-SCHEMATRON</h3>
+            <p>Schematron is a language used to specify rules to apply to XML documents. In this case a small Schematron
+               is applied to a small XML.</p>
+            <ul>
+               <li><code>p:output</code> – An output port is designated for the results with the same settings.</li>
+               <li><code>p:validate-with-schematron</code> – This is an XProc step specifically for evaluating an XML
+                  document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT` pipelines, this
+                  one presents its own input, given as a literal XML document given in the pipeline document (using
+                     <code>p:inline</code>). A setting on this step provides for it to throw an error if the document
+                  does not conform to the rules. The Schematron file provided as input to this step, <a
+                     href="../../../smoketest/src/doing-well.sch">src/doing-well.sch</a>, gives the rules. This flexible
+                  technology enables easy testing of XML against rule sets defined either for particular cases in
+                  particular workflows, or for entire classes or sets of documents.</li>
+               <li><code>p:namespace-delete</code> – This step is used here as in the other tests for final cleanup of
+                  the information produced.</li>
+            </ul>
+         </section>
+         <section>
+            <h3>TEST-XSPEC</h3>
+            <p><a href="https://github.com/xspec/xspec">XSpec</a> is a testing framework for XSLT, XQuery and
+               Schematron. It takes the form of a vocabulary and a process (inevitably implemented in XSLT and XQuery)
+               for executing queries, transformations, and validations, by running them over known inputs, comparing the
+               results to expected results, and reporting the results of this comparison. XProc, built to orchestrate
+               manipulations of XML contents, is well suited for running XSpec with no additional overhead.</p>
+            <p>An XSpec instance (or <q>document</q>) defines a set of tests for a transformation or query module using
+               the XSpec vocabulary. An XSpec implementation executes the tests and delivers the results. Since XSpec,
+               like Schematron, reports its findings in XML, XProc can be useful both to manage the inputs and outputs,
+               and to process the XSpec reports.</p>
+            <ul>
+               <li><code>p:import</code> – calls to an external XProc file to make its step definitions available.</li>
+               <li><code>p:input</code> – works as it does elsewhere, to declare inputs for the pipeline. In this case,
+                  the inputs must be XSpec documents using the XSpec vocabulary. You can expect errors when they are
+                  not. This testing pipeline offers three different XSpecs to be run, one each for XSLT, XQuery and
+                  Schematron.</li>
+               <li><code>p:for-each</code> – defines a step or sequence of steps to be applied to each input,
+                  separately.</li>
+               <li><code>p:identity</code> – simply passes through the previous step's result. While this is a
+                     <q>no-op</q> in the XProc itself, it provides an occasion for a message to help trace the XProc
+                  execution.</li>
+            </ul>
+         </section>
+      </section>
+      <section>
+         <h2>A not-so-simple pipeline</h2>
+         <p>These simple pipelines show how useful things can be done simply, while the pipeline architecture allows for
+            great flexibility.</p>
+         <p>Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be
+            managed and deployed just like asimple one, its internal complexities being masked by a simple and
+            predictable interface.</p>
+         <p>Next, take a look at a more complex example, the prototype pipeline <a
+               href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">PRODUCE-TUTORIAL-ELEMENTLIST.xpl</a>. Like the setup and
+            smoke-test pipelines, this is a standalone pipeline that acquires inputs and produces results and writes
+            those results to the file system. The output it generates is stored as <a
+               href="../../sequence/element-directory.md">element-directory.md</a>, a Markdown file.</p>
+         <p>This result presents an index of XProc elements used in pipelines described in this tutorial. For any XProc
+            element used anywhere, the listing shows the pipelines where it appears. It also shows a list of project
+            folders in the order they are treated by this tutorial, showing for each one the XProc files found there
+            along with whatever XProc elements appear <i>first</i> (within the tutorial sequence) within that
+            pipeline.</p>
+         <p>Delete or rename this result file and run the pipeline to confirm it functions properly.</p>
+         <p>The Markdown file produced may be useful for finding XPoc examples in the repository. Consider also what
+            other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines to the project
+            folders, consider running this pipeline again to update the indexes.</p>
+         <p>Open the file and inspect it to get a sense of what it does. The XML syntax is verbose, but not really all
+            that frightening. The pipeline is described in more detail in the <a href="unpack_102_src.html"
+               class="LessonUnit">102 Lesson unit</a> in this lesson.</p>
+         <section>
+            <h3>What do we see</h3>
+            <p>There are two significant differences between this pipeline and the small ones we have looked at so
+               far.</p>
+            <ul>
+               <li>Of course, it is longer and more complex, reflecting the complexity of the operations it
+                  performs.</li>
+               <li>Unlike the test pipelines, this XProc has no input port, hence no documents considered as input.
+                  Instead, it collects data to process by <i>reading the file system</i> and loading files directly.
+                  This is especially useful here as it includes everything it finds – meaning we can extend or update
+                  the index by adding files and running the pipeline again, without altering any pipeline logic.</li>
+            </ul>
+         </section>
+      </section>
+      <section>
+         <h2>XML syntax, XPath and XProc</h2>
+         <p>Newcomers to XML may feel they are in the deep water with XML syntax.</p>
+         <p>In the context of XProc, this is actually not as hard as it looks:</p>
          <ul>
-            <li>An <code>href</code> points to a location on the system where there is no file</li>
-            <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
-               formed)</li>
-            <li>Individual steps are excluded</li>
-            <li>New elements are renamed (etc.)</li>
+            <li>All XML files follow the same syntax rules with respect to tags, elements and attributes (names and
+               syntax), namespaces, comments etc.</li>
+            <li>XML vocabularies are typically qualified with namespaces to show, and disambiguate, which XML
+               application or language they belong to. The namespaces are indicated by name prefixes. So in this
+               repository (and conventionally for XProc), any element prefixed <code>p:</code> is an XProc element, and
+               another prefix or none indicates an extension or another vocabulary, such as appears in XML being
+               processed.</li>
+            <li>Embedded in the syntax is another syntax, <em>XPath</em>. This lightweight but powerful query language
+               is a formal subset of XQuery. XPath is ubiquitous in XProc, XSLT, Schematron, XSpec etc. In XProc, the
+               XPath will ordinarily be given in attributes.</li>
+            <li>Learn more about this in the <a href="unpack_102_src.html" class="LessonUnit">102 Lesson unit</a> – or
+               plunge on, and pick up what you need as you go.</li>
          </ul>
-         <p>When changes introduce errors, runtime failures and tracebacks will <i>sometimes</i> appear. The indicated
-            problem or the source of the reported problem must be repaired. And sometimes a process will run
-            successfully. Whether it is in error then depends on how well it conforms to its requirements. Does it
-            deliver the results we want and expect?</p>
-         <p>As an exercise, make some changes in copies of the test pipelines. Make at least one change that produces
-            outputs (such as echoing a document to the console) that are visibly different from the results of the
-            original pipeline.</p>
       </section>
       <section>
-         <h2>XProc coverage index</h2>
-         <p>While they are sometimes rudimentary, the pipelines in this repository address realistic requirements, and
-            as such, offer examples of XProc usage.</p>
-         <p>A pipeline can process the XProc files in the projects and report where and how they use XProc. <a
-               href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">An available prototype</a> does this in two forms:</p>
-         <ul>
-            <li>Assuming the projects are sequenced with the lessons that discuss them, the pipeline gives a listing of
-                  <i>first appearances</i> of XProc elements among the examples</li>
-            <li>With this, it gives a comprehensive index of XProc elements by name, appearing in the projects covered
-               by the lessons</li>
-         </ul>
-         <p>The Markdown results are written to the file <a href="../../sequence/element-directory.md"></a>. It can be
-            refreshed by running <a href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">the pipeline</a>again.</p>
-      </section>
-      <section>
-         <h2>Learning about XProc</h2>
-         <p>This tutorial has a handmade<a href="../../xproc-dashboard.md">XProc dashboard page</a> with links.</p>
+         <h2>Learning more about XProc</h2>
+         <p>This tutorial has a handmade<a href="../../xproc-links.md">XProc links page</a> with links.</p>
          <p>Also, see the official <a href="https://xproc.org">XProc.org dashboard page</a>.</p>
          <p>Also, check out XProc index materials (with code snips) produced in this repository: <a
                href="../../../projects/xproc-doc/readme.md">XProc docs</a>. Produced using XProc, these

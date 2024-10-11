@@ -51,7 +51,10 @@
    <p:for-each>
       <p:with-input select="/descendant::c:file"/>
       
-      <p:variable name="json-file" select="replace(/*/@path,'data/','out/') => replace('xml','json')"/>
+      <p:variable name="base" select="@path"/>
+      <p:variable name="basename" select="replace($base,'.*/','')"/>
+      <p:variable name="basedir" select="substring-before($base,$basename)"/>
+      <p:variable name="json-file" select="$basedir || replace($basename,'xml$','json')"/>
       
       <p:load message="[CONVERT-OSCAL-XML-FOLDER] Loading { /*/@path } ..." href="{ /*/@path }"/>
       
@@ -61,8 +64,8 @@
          <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
       </p:xslt>
       
-      <!--<p:identity message="[CONVERT-XML-FOLDER] Writing JSON file {$json-file} -\-"/>-->
-      <p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-FOLDER] Writing JSON file {$json-file} --"/>      
+      <p:identity message="[CONVERT-OSCAL-XML-FOLDER] [CONVERT-XML-FOLDER] Writing JSON file {$json-file} --"/>
+      <!--<p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-FOLDER] Writing JSON file {$json-file} -\-"/>-->      
    </p:for-each>
    
    

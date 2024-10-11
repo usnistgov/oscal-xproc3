@@ -4,7 +4,7 @@
    
 <!-- Effectively a no-op Schematron, as written this Schematron will pass everything
       
-      But it can easily be adjusted to show validation behaviors with @assert-valid='true|false' in the XProc
+     But it can easily be adjusted to show validation behaviors with @assert-valid='true|false' in the XProc
  -->
 
    

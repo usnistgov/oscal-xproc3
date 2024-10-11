@@ -20,14 +20,14 @@
             <project dir="../projects/oscal-convert/"/>
             <project dir="../projects/oscal-validate/"/>
             <project dir="../projects/oscal-publish/"/>
-            <project dir="../projects/oscal-from-pdf/"/>
+            <project dir="../projects/oscal-import/"/>
             <project dir="../projects/profile-resolution/"/>
             <project dir="../projects/xproc-doc/"/>
          </SEQUENCE>
       </p:inline>
    </p:input>
    
-   <!--<p:output serialization="map{'indent': true(), 'method': 'text' }" sequence="true"/>-->
+   <!-- /prologue -->
    
    <p:variable name="result-md-path" select="resolve-uri('sequence/element-directory.md')"/>
    
@@ -103,9 +103,13 @@
             <xsl:stylesheet version="3.0" expand-text="true">
                <xsl:template match="SEQUENCE">
                   <body>
-                     <xsl:apply-templates/>
-                     <section>
-                        <h1>Index to XProc elements</h1>
+                     <section style="border: thin solid black; padding: 0.4em">
+                        <h1>XProc pipelines with first appearances</h1>
+                        <p>Projects in this tutorial include the following pipelines. Each is listed here with the XProc elements that appear in that pipeline first, in the sequence given.</p>
+                        <xsl:apply-templates/>
+                     </section>
+                     <section style="border: thin solid black; padding: 0.4em">
+                        <h1>Index to XProc elements appearing</h1>
                         <xsl:for-each-group select="//c:file" group-by="@elements/tokenize(.,'\s+')">
                            <xsl:sort select="current-grouping-key()"/>
                            <div>

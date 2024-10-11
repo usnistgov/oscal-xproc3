@@ -15,15 +15,15 @@
    <p:variable name="converter-xslt" select="'lib/oscal_catalog_xml-to-json-converter.xsl'"/>
    
    <p:for-each>
-      <p:variable name="base" select="base-uri(.)"/>
-      <p:variable name="json-file" select="replace($base,'data/','out/') => replace('xml','json')"/>
+      <p:variable name="json-file" select="replace(base-uri(.),'xml$','json')"/>
+      
       <p:xslt>
          <p:with-input port="stylesheet" href="{$converter-xslt}"/>
          <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
       </p:xslt>
       
-      <!--<p:identity message="[CONVERT-OSCAL-XML-DATA] Writing JSON file {$json-file} -\-"/>-->
-      <p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-DATA] writing JSON file {$json-file} --"/>      
+      <p:identity message="[CONVERT-OSCAL-XML-DATA] Writing JSON file {$json-file} --"/>
+      <!--<p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-DATA] writing JSON file {$json-file} -\-"/>-->      
    </p:for-each>
    
 </p:declare-step>

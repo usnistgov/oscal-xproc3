@@ -24,6 +24,40 @@
          <p>Same as the <a href="oscal-convert_101_src.html" class="LessonUnit">101 lesson</a>.</p>
       </section>
       <section>
+         <h2>Some breaking and making</h2>
+         <p>Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded
+            correctly – when <q>broken</q>, any way we can think of breaking them. Then build good habits by repairing
+            the damage. Experiment and observation bring learning.</p>
+         <p>After reading this page, perform some more disassembly / reassembly. Here are a few ideas:</p>
+         <ul>
+            <li>Switch out the value of an <code>@href</code> on a <code>p:document</code> or <code>p:load</code> step.
+               See what happens when the file it points to is not actually there.</li>
+            <li>There is a difference between <code>p:input</code>, used to configure a pipeline in its prologue, and
+                  <code>p:load</code>, a step that loads data. Ponder what these differences are. Try changing a
+               pipeline that uses one into a pipeline that uses the other.</li>
+            <li>Similarly, there is a difference between a <code>p:output</code> configuration for a pipeline, and a
+                  <code>p:store</code> step executed by that pipeline. Consider this difference and how we might define
+               a rule for when to prefer one or the other. How is the pipeline used - is it called directly, or intended
+               for use as a step in other pipelines? How is it to be controlled at runtime?</li>
+            <li>Try inserting <code>p:store</code> steps into a pipeline to capture intermediate results, that is, the
+               output of any step before they are processed by the next step. Such steps can aid in debugging, among
+               other uses.</li>
+            <li><code>@message</code> attributes on steps provide messages for the runtime traceback. They are optional
+               but this repo follows a rule that any <code>p:load</code> or <code>p:store</code> should be provided with
+               a message. Why?</li>
+            <li>A <code>p:identity</code> step passes its input unchanged to the next step. But can also be provided
+               with a <code>@message</code>.</li>
+         </ul>
+         <p>After breaking anything, restore it to working order. Create modified copies of any pipelines for further
+            analysis and discussion.</p>
+         <ul>
+            <li>
+               <p>Concept: copy and change one of the pipelines provided to acquire a software library or resource of
+                  your choice.</p>
+            </li>
+         </ul>
+      </section>
+      <section>
          <h2>Identity pipeline testbed</h2>
          <p>An identity or <q>near-identity</q> or modified-identity pipeline has its uses, including diagnostics. Since
             inputs and outputs are supposed to look the same, any changes they show between inputs and outputs can be

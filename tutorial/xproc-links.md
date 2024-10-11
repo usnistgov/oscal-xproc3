@@ -1,4 +1,4 @@
-# XProc Dashboard
+# XProc Links
 
 Keeping a list of resources for XProc 3.0.
 
@@ -23,7 +23,7 @@ The pipelines to produce these:
 
 The additional community steps are defined by documents linked from the [XProc Specification landing page](https://xproc.org/specifications.html).
 
-XProc is defined by a [https://www.w3.org/community/xproc-next/](W3C community group).
+XProc is defined by a [W3C community group](https://www.w3.org/community/xproc-next/).
 
 ### Schemas for XProc 3.0
 
@@ -43,6 +43,10 @@ Fore more information:
 
 - [Morgana support page](https://www.xml-project.com/morganaxproc-iiise.html)
 - [Documentation](https://www.xml-project.com/manual/index.html)
+
+## Projects using XProc 3.0
+
+From Erik Siegel and Xatapult XML: [XML processing library](https://www.xtpxlib.org/) including especially [Word and Excel Conversions](https://xoffice.xtpxlib.org/) for creating "somewhat more manageable XML formats" from Word (`docx`) and Excel (`xlsx`) documents.
 
 ## XProc historical
 
