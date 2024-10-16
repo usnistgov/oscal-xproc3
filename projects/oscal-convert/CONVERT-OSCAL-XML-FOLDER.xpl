@@ -5,8 +5,7 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
    type="ox:CONVERT-OSCAL-XML-FOLDER" name="CONVERT-OSCAL-XML-FOLDER">
-   
-   <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+
    
    <!-- Note: requires XSLT at $converter-xslt (provided by ../../GRAB-OSCAL.xpl) -->
    

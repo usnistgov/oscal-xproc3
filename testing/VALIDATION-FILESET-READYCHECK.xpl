@@ -9,7 +9,11 @@ name="VALIDATION-FILESET-READYCHECK">
    <!--This XProc echoes Schematron validation findings (failed assertions and successful reports)
        to the console - *without erroring*
        
-       For checking the FILESET listings for XProc validation and XSpec execution
+       Accordingly it does not defend against errors in next steps, for example if resources are not found.
+       
+       Hence under CI/CD we are now using REPO-FILESET-CHECK.xpl -
+         
+       Use this pipeline for a hand pre-check
    -->
 
    <!-- Schematron will alert if either of these point to resources unavailable - this gives early

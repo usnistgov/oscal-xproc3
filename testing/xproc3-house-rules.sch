@@ -79,6 +79,9 @@
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
       </sch:rule>
+      <sch:rule context="p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')]">
+         <sch:assert test="not(base-uri(/*) = $listed-uris)" role="warning">Hall pass is not needed: this file is listed in ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl</sch:assert>
+      </sch:rule>
       
       <sch:rule context="*[exists(@message)]">
          <sch:let name="parent-label" value="'[' || ../@name || ']'"/>
@@ -123,8 +126,9 @@
    <sch:let name="all-hrefs" value="//*[matches(@href, '^[^\}\{]+$')]/resolve-uri(@href, base-uri(.))"/>
    
    <sch:pattern>
-      <!-- Pre-empting for p:store -->
+      <!-- Pre-empting for p:store and anything inside p:documentation -->
       <sch:rule context="p:store"/>
+      <sch:rule context="p:documentation//*"/>
       <!-- Not matching elements with href that contain { or } -->
       <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
          <sch:let name="exception" value="(/*/@name = $unlinked-xproc) or (tokenize(@href,'/')='lib')"/>
@@ -147,12 +151,16 @@
          <sqf:description>
             <sqf:title>Declare an exemption for this file from house rules checking</sqf:title>
          </sqf:description>
-         <sqf:add match="/*" position="first-child">
-            <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+         <sqf:add match="/*" position="first-child" xml:space="preserve">
+
+<p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+<p:documentation>
+   <p:document href="../{ substring-after(base-uri(),'file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/') }"/>
+</p:documentation>
          </sqf:add>
          
          <!--<sqf:add match="/*" position="first-child" node-type="text" target="'&#xA;'"/>-->
-         <sqf:add match="/*" node-type="comment" select="'&#xA;'"/>
+         <!--<sqf:add match="/*" node-type="comment" select="'&#xA;'"/>-->
          
       </sqf:fix>
       

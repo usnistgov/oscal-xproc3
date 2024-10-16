@@ -12,7 +12,7 @@
    
    We get an early clean fail if any files listed in a file set are not here in the repo
    
-   As a bonues (not an error condition) we get a listing of XProc and XSpec files in the repository
+   As a bonus (not an error condition) we get a listing of XProc and XSpec files in the repository
    that are *not* in the file list - this does not error, only echoes
    
    Running this in the local repository we can keep track
@@ -20,16 +20,9 @@
      i.e. no longer have to blow up for a file missing
    This is second-best to aligning with git directly
    -->
-   
-   
-   
-   <!-- Input: a set of files is collected dynamically via p:directory - all *.xpr files outside a directory named 'no_test' or 'no-test' -->
-   <!--<p:output port="result" sequence="true" serialization="map{'indent' : true()}">
-      <!-\-<p:pipe step="house-rules-check-fileset"/>
-      <p:pipe step="xspec-fileset"/>-\->
-      <!-\-<p:pipe step="final"/>-\->
-   </p:output>-->
 
+  <!-- <p:output port="result" serialization="map{ 'indent': true() }"/> -->
+   
 <!-- /prologue -->
 <!-- INCIPIT  -->
 
@@ -62,85 +55,36 @@
       <p:with-input port="stylesheet" href="src/filter-directory.xsl"/>
    </p:xslt>
    
-   
-   
-   <!--<p:add-attribute 
-      attribute-name="house-rules-checking"
-      attribute-value="{ @path }"
-      match="file"/>-->
-   
-   <!--<p:add-attribute 
-      attribute-name="house-rules-checking"
-      attribute-value="{ if (=$house-rules-hrefs) then 'true' else 'false' }"
-      match="file"/>
-   -->
-   <!--<p:add-attribute 
-      attribute-name="xspec-execution"
-      attribute-value="true"
-      match="file[@path=$xspec-hrefs]"/>-->
-   
-   <!--<p:variable name="house-rule-check-fileset" select="descendant::p:document">
-         <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
-   </p:variable>-->
-   
-   <!--<p:variable name="xspec-fileset" select="descendant::p:document">
-      <p:with-input name="source">
-         <p:document href="FILESET_XSPEC.xpl"/>
-      </p:with-input>
-   </p:variable>-->
-   <!--
-   To list files on system not named in fileset (info) read 
-     $file-list 
-     checking against filesets provided as paramaters
-     
-     results
-     
-   To list files in fileset not present in info
-   -->
-   
-   <!--Make this an XQuery?-->
-   
-<!--  
-   declare variable $house-rule-check-fileset as element(p:document)*;
-   declare variable $xspec-fileset as element(p:document)*;
-   
-   
-   <h>Files not checked for house rules under CI/CD</h>
-   <ul>
-   <li>{
-   //c:file ! <li>{ @path }</li> 
-   }</li>
-   </ul>
-   
-   -->
+
+   <!-- Next step annotates the directory structure based on findings passed in -->
    <p:xslt name="path-list">
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
             <xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-               >
-               <xsl:param name="for-house-rules" select="()"/>
-               <xsl:param name="for-xspec" select="()"/>
+               xmlns:map="http://www.w3.org/2005/xpath-functions/map">
+               <xsl:param name="file-lists" select="()" as="map(*)?"/>
                
                <xsl:mode on-no-match="shallow-copy"/>
                <xsl:variable name="file-paths" select="//@path"/>
                <xsl:template match="/">
-                  <house-rules-file-set>
-                     <xsl:apply-templates select="$for-house-rules"/>
-                  </house-rules-file-set>
-                  <xspec-fileset>
-                     <xsl:apply-templates select="$for-xspec"/>
-                  </xspec-fileset>
-                  <xsl:apply-templates/>
+                  <SURVEY>
+                     <xsl:for-each select="map:keys($file-lists)">
+                        <document-set name="{ . }">
+                           <xsl:apply-templates select="$file-lists(.)"/>
+                        </document-set>
+                     </xsl:for-each>
+                     <xsl:apply-templates/>
+                  </SURVEY>
                </xsl:template>
                <xsl:template match="file">
+                  <xsl:variable name="here" select="."/>
                   <xsl:copy>
                      <xsl:copy-of select="@*"/>
-                     <xsl:if test="@path = $for-house-rules/@href">
-                        <xsl:attribute name="house-rules-check">true</xsl:attribute>
-                     </xsl:if>
-                     <xsl:if test="@path = $for-xspec/@href">
-                        <xsl:attribute name="xspec-execute">true</xsl:attribute>
-                     </xsl:if>
+                     <xsl:iterate select="map:keys($file-lists)">
+                        <xsl:if test="$here/@path = $file-lists(.)/@href">
+                           <xsl:attribute name="{ . }">true</xsl:attribute>
+                        </xsl:if>
+                     </xsl:iterate>
                   </xsl:copy>
                </xsl:template>
                <xsl:template match="p:document">
@@ -151,8 +95,10 @@
             </xsl:stylesheet>
          </p:inline>
       </p:with-input>
-      <p:with-option name="parameters" select="map{'for-house-rules': $house-rules-files,
-                                                   'for-xspec': $xspec-files }"/>
+      <p:with-option name="parameters" select="map{
+         
+         'file-lists': map{ 'house-rules': $house-rules-files,
+                         'xspec': $xspec-files } }"/>
    </p:xslt>
       
    <p:namespace-delete prefixes="c p ox"/>
