@@ -150,8 +150,9 @@
          <sqf:add match="/*" position="first-child">
             <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
          </sqf:add>
-         <!--<sqf:add match="/*" node-type="comment" select="' =+=+=+=+= HOUSE RULES HALL PASS - remove this comment
-            when the file is added to files listed in ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl =+=+=+=+=  '"/>-->
+         
+         <!--<sqf:add match="/*" position="first-child" node-type="text" target="'&#xA;'"/>-->
+         <sqf:add match="/*" node-type="comment" select="'&#xA;'"/>
          
       </sqf:fix>
       

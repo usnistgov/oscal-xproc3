@@ -42,9 +42,9 @@ jobs:
         id: exec_smoketests
       - name: Run tests
         run: |
-          ./xp3.sh testing/VALIDATION-FILESET-READYCHECK.xpl -silent
-          ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl   -silent
-          ./xp3.sh testing/RUN_XSPEC-JUNIT_BATCH.xpl         -silent
+          ./xp3.sh testing/REPO-FILESET-CHECK.xpl          -silent
+          ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl -silent
+          ./xp3.sh testing/RUN_XSPEC-JUNIT_BATCH.xpl       -silent
         id: exec_tests
       - name: Upload test results
         if: always()

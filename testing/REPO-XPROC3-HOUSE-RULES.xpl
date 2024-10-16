@@ -28,7 +28,7 @@
       <p:with-input select="descendant::file"/>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
       <p:variable name="path" select="/*/@path"/>
-      <p:load href="../{$path}" message="[REPO-XPROC3-HOUSE-RULES] Loading { $path }"/>
+      <p:load href="{ $path }" message="[REPO-XPROC3-HOUSE-RULES] Loading { $path }"/>
       <p:try>
          <p:group name="validation">
             <p:variable name="base" select="base-uri(/*)"/>
