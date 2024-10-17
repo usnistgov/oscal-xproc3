@@ -31,6 +31,16 @@
             </sqf:add>
          </sqf:fix>  
       </sch:rule>
+      <sch:rule context="html:body">
+         <sch:let name="tracks" value="'observer','maker','learner'"/>
+         <sch:assert sqf:fix="assign-track" test="@data-track=$tracks">Please assign this page to a track</sch:assert>
+         <sqf:fix id="assign-track">
+            <sqf:description>
+               <sqf:title>Assign to Observer track</sqf:title>
+            </sqf:description>
+            <sqf:add node-type="attribute" select="'observer'" target="data-track"/>
+         </sqf:fix>  
+      </sch:rule>
    </sch:pattern>
    
    <sch:pattern>

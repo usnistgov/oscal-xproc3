@@ -4,8 +4,9 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:REPO-FILESET-CHECK"
    name="REPO-FILESET-CHECK"
-   ><!--
-   --><p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+   >
+
+   
    
    <!--
    High-level validation pipeline for checking the repository against the file sets
@@ -27,7 +28,7 @@
 <!-- INCIPIT  -->
 
 <p:group name="house-rules-check-fileset">
-   <p:load href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
+   <p:load href="FILESET_XPROC3_HOUSE-RULES.xpl" message="[REPO-FILESET-CHECK] SEEING XProc3 House Rules fileset at FILESET_XPROC3_HOUSE-RULES.xpl"/>
    <!--<p:filter select="descendant::p:document"/>-->
    <p:make-absolute-uris match="@href"/>
 </p:group>
@@ -38,7 +39,7 @@
    <!-- -->
    
    <p:group name="xspec-fileset">
-      <p:load href="FILESET_XSPEC.xpl"/>
+      <p:load href="FILESET_XSPEC.xpl" message="[REPO-FILESET-CHECK] SEEING XSpec execution file set at FILESET_XSPEC.xpl"/>
       <!--<p:filter select="descendant::p:document"/>-->
       <p:make-absolute-uris match="@href"/>
    </p:group>
@@ -112,7 +113,7 @@
          </p:error>
       </p:when>
       <p:otherwise>
-         <p:identity message="[REPO-FILESET-CHECK.xpl] File sets for validation check out on this system - TESTING SYSTEMS GO"/>
+         <p:identity message="[REPO-FILESET-CHECK] File sets for validation check out on this system - TESTING SYSTEMS GO"/>
       </p:otherwise>
    </p:choose>
                

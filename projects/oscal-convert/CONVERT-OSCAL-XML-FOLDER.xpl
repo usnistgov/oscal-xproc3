@@ -18,15 +18,24 @@
      
    -->
    
-   <p:variable name="directory-path" select="'data/catalog-model/xml'"/>
-
-   <p:variable name="converter-xslt" select="'lib/oscal_catalog_xml-to-json-converter.xsl'"/>
+   <p:import href="CONVERT-OSCAL-XML-DATA.xpl"/>
    
-   <!-- possible to-do - an XProc step to produce and annotate a directory-->   
+   <p:option name="directory-path" select="'data/catalog-model/xml'"/>
+
+   <!-- We strip XML and deliver plain text to the output port, since the main results are side effects
+        (files written by the imported pipeline) -->
+   <p:output port="result" sequence="true"
+      serialization="map{ 'omit-xml-declaration': true(), 'method': 'text' }"/>
+   
+   <!-- /prologue -->
+   
+   <!-- INCIPIT!--> 
    
    <p:directory-list path="{ $directory-path }" max-depth="unbounded" include-filter="\.xml$"/>
 
-   <p:xslt>
+   <p:label-elements match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
+   
+   <!-- the p:label-elements replaces this entire thing! <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
             <xsl:stylesheet version="3.0">
@@ -35,37 +44,36 @@
                <xsl:template match="c:file">
                   <xsl:copy>
                      <xsl:copy-of select="@*"/>
-                     <!-- showing the full path to each file listed in the directory -->
+                     <!-\- showing the full path to each file listed in the directory -\->
                      <xsl:attribute name="path" select="string-join(ancestor-or-self::*/@xml:base,'')"/>
                   </xsl:copy>
                </xsl:template>
             </xsl:stylesheet>
          </p:inline>
       </p:with-input>
-   </p:xslt>
+   </p:xslt>-->
    
-   
-   <!--<p:store href="directory-list.xml"/>-->
-   
-   <p:for-each>
+   <p:for-each name="found-xml">
       <p:with-input select="/descendant::c:file"/>
-      
-      <p:variable name="base" select="@path"/>
-      <p:variable name="basename" select="replace($base,'.*/','')"/>
-      <p:variable name="basedir" select="substring-before($base,$basename)"/>
-      <p:variable name="json-file" select="$basedir || replace($basename,'xml$','json')"/>
-      
-      <p:load message="[CONVERT-OSCAL-XML-FOLDER] Loading { /*/@path } ..." href="{ /*/@path }"/>
-      
-      <!-- The XSLT produces JSON ... -->
-      <p:xslt>
-         <p:with-input port="stylesheet" href="{$converter-xslt}"/>
-         <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
-      </p:xslt>
-      
-      <p:identity message="[CONVERT-OSCAL-XML-FOLDER] [CONVERT-XML-FOLDER] Writing JSON file {$json-file} --"/>
-      <!--<p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-FOLDER] Writing JSON file {$json-file} -\-"/>-->      
+      <!-- By trying one at a time we can convert the ones that pass, catching the ones that do not -->
+      <p:try>
+         <p:group>
+            <p:variable name="path" select="/*/@path"/>
+            <p:load message="[CONVERT-OSCAL-XML-FOLDER] Loading { /*/@path } ..." href="{ /*/@path }"/>
+            <ox:CONVERT-OSCAL-XML-DATA/>
+            <p:identity name="success" message="[CONVERT-OSCAL-XML-FOLDER] Successfully converted { $path }">
+               <p:with-input><p:empty/></p:with-input>
+            </p:identity>
+         </p:group>
+         <p:catch name="conversion-error">
+            <p:identity>
+               <p:with-input pipe="error@conversion-error" select="//c:error/*"/>
+            </p:identity>
+         </p:catch>
+      </p:try>
+            
    </p:for-each>
+   
    
    
 </p:declare-step>

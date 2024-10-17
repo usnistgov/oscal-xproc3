@@ -1,10 +1,10 @@
 # OSCAL XML to OSCAL JSON and back
 
-Following is work in progress! Be cautioned accordingly.
+**This project includes work in progress!** Be cautioned accordingly.
 
-Pipelines for converting XML to JSON and back again
+It has pipelines for converting XML to JSON and back again, including 'OSCAL-aware' pipelines that produce OSCAL-conformant JSON from OSCAL XML.
 
-A mapping between XML and JSON forms of OSCAL is defined by OSCAL's underlying specification in its [set of metaschemas](https://github.com/usnistgov/OSCAL/tree/main/src/metaschema). For OSCAL (at least through v1.1.2) These source files have been used to produce XSLT transformations using the [metaschema-xslt](https://github.com/usnistgov/metaschema-xslt) processing framework.
+These pipelines use XSLT transformations produced using the [metaschema-xslt](https://github.com/usnistgov/metaschema-xslt) processing framework and distributed with the OSCAL release. 
 
 See the GRAB-RESOURCES.xpl pipeline for paths to these resources.
 
@@ -21,6 +21,12 @@ Pipelines in this directory support both generic conversions (JSON to XML is pos
 See and try the pipelines to determine what they do and how well they work.
 
 At time of writing, building out this functionality to a stable state is a project priority - but not the first! Write us if more support in this area would be welcome.
+
+## 'OSCAL-aware' conversions
+
+A mapping between XML and JSON forms of OSCAL is defined by OSCAL's underlying specification in its [set of metaschemas](https://github.com/usnistgov/OSCAL/tree/main/src/metaschema). The deterministic mapping implied by its metaschema can be (and is) distributed with the release in the form of the transformations downloaded for this project.
+
+Take appropriate care to ensure compatibility between versions. An XSLT distributed for any OSCAL version 1.n should serve to convert data conformant to that version and earlier versions (1.x up to n), but not later ones.
 
 
 ---

@@ -22,6 +22,7 @@
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
       <p:document href="FILESET_XSPEC.xpl"/>
+      <p:document href="REPO-FILESET-CHECK.xpl"/>
       <p:document href="VALIDATION-FILESET-READYCHECK.xpl"/>
 
       <p:document href="../project-template/GRAB-RESOURCES.xpl"/>

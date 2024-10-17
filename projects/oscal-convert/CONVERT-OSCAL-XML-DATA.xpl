@@ -15,15 +15,38 @@
    <p:variable name="converter-xslt" select="'lib/oscal_catalog_xml-to-json-converter.xsl'"/>
    
    <p:for-each>
-      <p:variable name="json-file" select="replace(base-uri(.),'xml$','json')"/>
+      <p:variable name="content-type" select="p:document-property(.,'content-type')"/>
+      <p:variable name="filepath" select="p:document-property(.,'base-uri')"/>
       
-      <p:xslt>
-         <p:with-input port="stylesheet" href="{$converter-xslt}"/>
-         <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
-      </p:xslt>
-      
-      <p:identity message="[CONVERT-OSCAL-XML-DATA] Writing JSON file {$json-file} --"/>
-      <!--<p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-DATA] writing JSON file {$json-file} -\-"/>-->      
+      <p:choose>
+         <p:when test="not($content-type='application/xml')">
+            <p:error code="ox:source-validation-fail">
+               <p:with-input port="source">
+                  <message>Input file { $filepath } has content type '{ $content-type }' so it fails XML to JSON conversion</message>
+               </p:with-input>
+            </p:error>
+         </p:when>
+         <!-- a real test would validate against a schema ... we only look at the namespace at the root -->
+         <p:when test="empty(/oscal:catalog)" xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
+            <p:error code="ox:source-validation-fail">
+               <p:with-input port="source">
+                  <message>XML at file { $filepath } is not an OSCAL catalog ... not attempting conversion</message>
+               </p:with-input>
+            </p:error>
+         </p:when>
+         <p:otherwise>
+            <p:variable name="json-file"  select="replace($filepath,'\.xml$','') || '.json'"/>
+            
+            <p:xslt>
+               <p:with-input port="stylesheet" href="{$converter-xslt}"/>
+               <p:with-option name="parameters" select="map{'json-indent': 'yes'}"/>
+            </p:xslt>
+            
+            <!--<p:identity message="[CONVERT-OSCAL-XML-DATA] Writing JSON file {$json-file} -\-"/>-->
+            <p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-DATA] writing JSON file {$json-file} --"/>  
+         </p:otherwise>
+      </p:choose>
+          
    </p:for-each>
    
 </p:declare-step>

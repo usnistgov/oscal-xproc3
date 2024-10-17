@@ -9,6 +9,19 @@ meta:before{
 	
 body { font-family: Cambria; line-height: 135% }
 
+body:before { font-weight: bold;
+   content: "Track: " oxy_combobox( 
+     columns, 16,
+     edit, "@data-track",
+     editable, false,
+     values, "observer, maker, learner",
+     labels, "Observer, Maker, Learner" ) }
+
+body[data-track=observer] { background-color: honeydew }
+body[data-track=maker]    { background-color: seashell }
+body[data-track=learner]  { background-color: aliceblue }
+
+
 section { margin: 0.4em; padding: 0.3em; outline: thin solid black }
 
 h1 { color: #003311 }

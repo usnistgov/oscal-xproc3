@@ -15,13 +15,17 @@ or post to a file with -output:result="destination.xml"
 
    -->
 
-   <p:input port="source"/>
+   <!--<p:input port="source"/>-->
 
    <!-- with no pipe attachment, the output port captures the final result -->
-   <p:output port="result"/>
+   <p:output port="result" serialization="map{ 'indent': true() }"/>
 
 <!-- /end prologue -->
 
+   <p:directory-list path="." max-depth="unbounded" include-filter="\.xml$"/>
+   
+   
+   
    <p:identity/>
 
 </p:declare-step>

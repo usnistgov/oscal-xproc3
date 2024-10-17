@@ -4,7 +4,7 @@
       <title>101: OSCAL from XML to JSON and back</title>
       <meta charset="utf-8" />
    </head>
-   <body>
+   <body data-track="observer">
       <h1>101: OSCAL from XML to JSON and back</h1>
       <section>
          <h2>Goals</h2>
@@ -49,9 +49,9 @@
       </section>
       <section>
          <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
-         <p><a href="../../../projects/oscal-convert/GRAB-RESOURCES.xpl">An acquisition pipeline</a> in the project folder
-            collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and edited
-            if necessary.</p>
+         <p><a href="../../../projects/oscal-convert/GRAB-RESOURCES.xpl">An acquisition pipeline</a> in the project
+            folder collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and
+            edited if necessary.</p>
          <p>TBD / this all incoherent so far</p>
          <section>
             <h3>The playing field is the internet</h3>
@@ -64,15 +64,15 @@
          </section>
          <section>
             <h3>Consider the options</h3>
-         <p>TBD - TODO - question - how many and of what sort of source data files - so far there is only the cat
-            catalog</p>
-         <ul>
-            <li>Converting local XML to JSON with a local XSLT</li>
-            <li>Converting local data using a remote XSLT</li>
-            <li>Remote data with a local XSLT, writing locally - you could try <a
+            <p>TBD - TODO - question - how many and of what sort of source data files - so far there is only the cat
+               catalog</p>
+            <ul>
+               <li>Converting local XML to JSON with a local XSLT</li>
+               <li>Converting local data using a remote XSLT</li>
+               <li>Remote data with a local XSLT, writing locally - you could try <a
                      href="https://github.com/GSA/fedramp-automation/blob/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml"
                      >https://github.com/GSA/fedramp-automation/blob/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml</a></li>
-         </ul>
+            </ul>
          </section>
       </section>
       <section>
@@ -87,8 +87,8 @@
             should be able to say <q>run this pipeline, but this time with this input</q>.</p>
          <p>The input ports for a pipeline, specified using <code>p:input</code> within the prologue, provide for
             this.</p>
-         <p>For example, the <a href="../../../projects/oscal-convert/BASIC_JSON-TO-XML.xpl">BASIC_JSON-TO-XML</a>
-            pipeline defines an input port:</p>
+         <p>For example, the <a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"
+               >CONVERT-OSCAL-XML-DATA</a> pipeline defines an input port:</p>
          <pre>&lt;p:input port="source" sequence="true">
     &lt;p:document href="data/catalog-model/xml/cat_catalog.xml"/>
 &lt;/p:input></pre>
@@ -100,7 +100,7 @@
             repository):</p>
          <pre>$ ../xp3.sh <i>PIPELINE.xpl</i> -input:<i>portname=path/to/a-document.xml</i> -input:<i>portname=path/to/another-document.xml</i></pre>
          <p>Here, two different <code>-input</code> arguments are given for the same port. You can have as many as
-            needed if the port, like this one, has <code>sequence="true"</code>,  meaning any number of documents (from
+            needed if the port, like this one, has <code>sequence="true"</code>, meaning any number of documents (from
             zero to many) can be bound to the port, and the pipeline will accommodate. When more than one port is
             defined, one (only) can be designated as <code>primary="true"</code>, meaning it will be provided implicitly
             when a port connection is required (by a step) but not given in the pipeline. Notice that the name of the
@@ -212,7 +212,7 @@
                   href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">prologue</a>.</p>
             <p>The prologue is used to define ports and options for the pipeline. It can be thought of as the definition
                of the interface for the step as a whole. Defining ports and options is how you give the users of the
-               step with the affordances or control points they need to use it.  If only a single input is needed, a
+               step with the affordances or control points they need to use it. If only a single input is needed, a
                single input port (named <code>source</code>) can be assumed (XXX is this so?), so prologues can be empty
                (and invisible, or not there).</p>
             <p>Following the prologue, a step may also have local step definitions (<code>p:declare-step</code>). One
@@ -344,30 +344,38 @@
             <ul>
                <li><a href="https://spec.xproc.org/3.0/xproc/#p.group"
                      style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
-                     ><code class="tag-element language-construct" style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:group</code></a>
-                  - group a subpipeline (step sequence) into a single logical step</li>
+                        ><code class="tag-element language-construct"
+                        style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;"
+                        >p:group</code></a> - group a subpipeline (step sequence) into a single logical step</li>
                <li><a href="https://spec.xproc.org/3.0/xproc/#p.if"
                      style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
-                     ><code class="tag-element language-construct" style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:if</code></a>
-                  - execute a subpipeline conditionally</li>
+                        ><code class="tag-element language-construct"
+                        style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;"
+                        >p:if</code></a> - execute a subpipeline conditionally</li>
                <li><a href="https://spec.xproc.org/3.0/xproc/#p.choose"
                      style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
-                     ><code class="tag-element language-construct" style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:choose</code></a>
-                  - execute a subpipeline conditionally (<code>switch/case</code> operator)</li>
+                        ><code class="tag-element language-construct"
+                        style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;"
+                        >p:choose</code></a> - execute a subpipeline conditionally (<code>switch/case</code>
+                  operator)</li>
                <li><a href="https://spec.xproc.org/3.0/xproc/#p.for-each"
                      style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
-                     ><code class="tag-element language-construct" style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:for-each</code></a>
-                  - produce subpipeline results for each member of a sequence of inputs (documents or nodes)</li>
+                        ><code class="tag-element language-construct"
+                        style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;"
+                        >p:for-each</code></a> - produce subpipeline results for each member of a sequence of inputs
+                  (documents or nodes)</li>
                <li><a href="https://spec.xproc.org/3.0/xproc/#p.viewport"
                      style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
-                     ><code class="tag-element language-construct" style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:viewport</code></a>
-                  - reproduce outputs, except splicing subpipeline results in place of matched nodes (elements) in the
-                  input</li>
+                        ><code class="tag-element language-construct"
+                        style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;"
+                        >p:viewport</code></a> - reproduce outputs, except splicing subpipeline results in place of
+                  matched nodes (elements) in the input</li>
                <li><a href="https://spec.xproc.org/3.0/xproc/#p.try"
                      style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
-                     ><code class="tag-element language-construct" style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:try</code></a>
-                  - execute a subpipeline, and deliver its results, or if it fails, a fallback subpipeline given in a
-                     <code>p:catch</code></li>
+                        ><code class="tag-element language-construct"
+                        style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;"
+                        >p:try</code></a> - execute a subpipeline, and deliver its results, or if it fails, a fallback
+                  subpipeline given in a <code>p:catch</code></li>
             </ul>
             <p>Additionally to these elements, XProc subpipelines may contain variable declarations and documentation,
                as noted.</p>
@@ -395,7 +403,6 @@
                   unit</a> for a discussion of the schema for XProc.</p>
          </section>
       </section>
-      
       <section>
          <h2>Some breaking and making</h2>
          <p>Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded
@@ -478,12 +485,13 @@
                dependent (prerequisite) process, or built into a pipeline. Whatever you want to do with invalid inputs,
                including ignoring them and producing warnings or runtime exceptions, can be defined in a pipeline much
                like anything else.</p>
-            <p>In the <a href="../../../projects/oscal-publish/publish-oscal-catalog.xpl">publishing demonstration project
-                  folder</a> is an XProc that valides XML against an OSCAL schema, before formatting it. The same could
-               be done for an XProc that converts the data into JSON - either or both before or after conversion.</p>
-            <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html" class="LessonUnit">Lesson
-                  102</a>, or continue on to the next project, oscal-validate, for more on validation of documents and
-               sets of documents.</p>
+            <p>In the <a href="../../../projects/oscal-publish/publish-oscal-catalog.xpl">publishing demonstration
+                  project folder</a> is an XProc that valides XML against an OSCAL schema, before formatting it. The
+               same could be done for an XProc that converts the data into JSON - either or both before or after
+               conversion.</p>
+            <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html"
+                  class="LessonUnit">Lesson 102</a>, or continue on to the next project, oscal-validate, for more on
+               validation of documents and sets of documents.</p>
          </section>
       </section>
    </body>
