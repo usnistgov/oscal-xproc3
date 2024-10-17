@@ -8,6 +8,7 @@
    
    <!-- Note: requires XSLT at $converter-xslt (provided by ../../GRAB-OSCAL.xpl) -->
    
+   <!-- We'll try any content-type -->
    <p:input port="source" sequence="true">
       <p:document href="data/catalog-model/xml/cat_catalog.xml"/>
    </p:input>
