@@ -33,9 +33,10 @@
    
    <p:directory-list path="{ $directory-path }" max-depth="unbounded" include-filter="\.xml$"/>
 
+   <!-- directory list path writing step annotates c:file with full path to resource -->
    <p:label-elements match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
    
-   <!-- the p:label-elements replaces this entire thing! <p:xslt>
+   <!-- that p:label-elements replaces this entire thing! <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
             <xsl:stylesheet version="3.0">

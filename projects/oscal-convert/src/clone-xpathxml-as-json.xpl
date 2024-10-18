@@ -9,9 +9,6 @@
       Defending if the input is already named this way (to avoid stepping on it)
       Not defending against casting errors - we let XProc do that -->
 
-   <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove
-      this element</p:documentation>
-
    <p:import href="single_xml-to-json.xpl"/>
       
    <p:input port="source">

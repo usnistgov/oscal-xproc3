@@ -3,14 +3,13 @@
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   type="ox:BASIC_XML-TO-JSON"
-   name="BASIC_XML-TO-JSON">
+   type="ox:BATCH_XML-TO-JSON"
+   name="BATCH_XML-TO-JSON">
+
    
-   <!-- This pipeline produces an error since XML can't cast 'blank' into JSON, with no mapping -->
-   
-   <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
-   
-   <!-- Note: requires XSLT at $converter-xslt (provided by ../../GRAB-OSCAL.xpl) -->
+   <!-- This pipeline most likely produces an error since XML can't cast 'blank' into JSON, with no mapping
+        It *happens* to work on inputs given in the XPath vocabulary ('map') for object notations
+   in namespace http://www.w3.org/2005/xpath-functions -->
    
    <p:import href="src/single_xml-to-json.xpl"/>
    
@@ -22,22 +21,23 @@
    <!--<p:output port="result" sequence="true"/>-->
    
    <p:for-each>
-      <p:variable name="json-file" select="replace(base-uri(.),'xml$','json')"/>
+      <p:variable name="json-file" select="replace(base-uri(.),'\.xml$','') || '.json'"/>
    
       <p:choose>
          <!-- a real test would validate against a schema ... we only look at the namespace at the root -->
          <p:when test="ends-with(base-uri(.),'xml') => not()">
-            <p:error>
+            <p:error code="ox:renaming-failsafe">
                <p:with-input port="source">
                   <message>Can't convert { base-uri(.) } to JSON - we need the filename to end in 'xml' to make a safe name for the result</message>
                </p:with-input>
             </p:error>
          </p:when>
          <p:otherwise>
-            <p:cast-content-type content-type="application/json"/>
+            <!-- included pipeline has a try/catch -->
+            <ox:single_xml-to-json/>
             
             <!--<p:identity message="[BASIC_XML-TO-JSON] Writing JSON file {$json-file} -\-"/>-->
-            <p:store href="{$json-file}" message="[BASIC_XML-TO-JSON] Writing JSON file {$json-file} --"/>
+            <p:store href="{$json-file}" message="[BATCH_XML-TO-JSON] Writing JSON file {$json-file} --"/>
          </p:otherwise>
       </p:choose>
       <p:sink/>

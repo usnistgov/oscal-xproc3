@@ -60,11 +60,19 @@
       <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"/>
       <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-FOLDER.xpl"/>
       <p:document href="../projects/oscal-convert/IDENTITY_.xpl"/>
+      <p:document href="../projects/oscal-convert/BATCH_XML-TO-JSON.xpl"/>
+      <p:document href="../projects/oscal-convert/BATCH_JSON-TO-XML.xpl"/>
+      
+      <p:document href="../projects/oscal-convert/src/clone-json-as-xpathxml.xpl"/>
+      <p:document href="../projects/oscal-convert/src/clone-xpathxml-as-json.xpl"/>
+      <p:document href="../projects/oscal-convert/src/single_json-to-xml.xpl"/>
+      <p:document href="../projects/oscal-convert/src/single_xml-to-json.xpl"/>
       
       <p:document href="../projects/oscal-import/PRODUCE_FM6-22-chapter4.xpl"/>
       <p:document href="../projects/oscal-import/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/oscal-import/GRAB-FM6-22.xpl"/>
       <p:document href="../projects/oscal-import/GRAB-NISO_STS-RNG.xpl"/>
+      
       
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>

@@ -3,15 +3,14 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    type="ox:clone-json-as-xpathxml" name="clone-json-as-xpathxml">
 
+
    <!-- 
       This pipeline produces an XML file for any provided JSON 
       Writing the JSON next to the source file with a name $basename.json 
       Defending if the input is already named this way (to avoid stepping on it)
       Not defending against casting errors - we let XProc do that -->
 
-   <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove
-      this element</p:documentation>
-
+   
    <p:import href="single_json-to-xml.xpl"/>
    
    <p:input port="source">

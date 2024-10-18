@@ -70,17 +70,43 @@
 
    -->
    
-   <sch:let name="listed-uris" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
+   <sch:let name="fileset-doc" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')"/>
+   <sch:let name="listed-uris" value="$fileset-doc/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
+   
+   
+   <!--file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3
+   testing/FILESET_XPROC3_HOUSE-RULES.xpl
+   ../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl
+   -->
+   
+   <xsl:variable name="resource-baseURI"  select="base-uri(/*)"/>
+   <xsl:variable name="fileset-path"      select="base-uri($fileset-doc)"/>
+   <xsl:variable name="repo-path"         select="resolve-uri('..', $fileset-path)"/>
+   <xsl:variable name="resource-repoPath" select="substring-after($resource-baseURI, $repo-path)"/>
+   <xsl:variable name="fileset-relPath"   select="substring-after($fileset-path, $repo-path)"/>
+
+   <xsl:variable name="resource-fileset-path" select="( (tokenize($fileset-relPath,'/')[position() ne last()] ! '../') => string-join('') ) || $resource-repoPath"/>
+   <xsl:variable name="fileset-resource-path" select="( (tokenize($resource-repoPath,'/')[position() ne last()] ! '../') => string-join('') ) || $fileset-relPath"/>
    
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or exists(p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')])">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in FILESET_XPROC3_HOUSE-RULES.xpl - should it be?</sch:assert>
+         <sch:report test="false()">
+           resource at: <sch:value-of select="$resource-baseURI"/>
+           fileset seen at: <sch:value-of select="$fileset-path"/>
+           repo path: <sch:value-of select="$repo-path"/>
+           resource path (in repo): <sch:value-of select="$resource-repoPath"/>
+           fileset relative path: <sch:value-of select="$fileset-relPath"/>
+           resource-fileset-path: <sch:value-of select="$resource-fileset-path"/>
+           fileset-resource-path: <sch:value-of select="$fileset-resource-path"/>
+         </sch:report>
+         
+         <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or exists(p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')])">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in <sch:value-of select="$fileset-resource-path"/> - should it be?</sch:assert>
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl'))]"/>
          <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
       </sch:rule>
       <sch:rule context="p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')]">
-         <sch:assert test="not(base-uri(/*) = $listed-uris)" role="warning">Hall pass is not needed: this file is listed in ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl</sch:assert>
+         <sch:assert test="not(base-uri(/*) = $listed-uris)" role="warning">Hall pass is not needed: this file is listed in the testing file set <sch:value-of select="$fileset-resource-path"/></sch:assert>
       </sch:rule>
       
       <sch:rule context="*[exists(@message)]">
@@ -153,15 +179,11 @@
          </sqf:description>
          <sqf:add match="/*" position="first-child" xml:space="preserve">
 
-<p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+<p:documentation>HOUSE RULES HALL PASS - add this file to <sch:value-of select="$fileset-resource-path"/> and remove this element</p:documentation>
 <p:documentation>
-   <p:document href="../{ substring-after(base-uri(),'file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/') }"/>
+   <p:document href="{ $resource-fileset-path }"/>
 </p:documentation>
-         </sqf:add>
-         
-         <!--<sqf:add match="/*" position="first-child" node-type="text" target="'&#xA;'"/>-->
-         <!--<sqf:add match="/*" node-type="comment" select="'&#xA;'"/>-->
-         
+</sqf:add>
       </sqf:fix>
       
       <sqf:fix id="sqf-repair-step-type">
