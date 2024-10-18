@@ -79,11 +79,11 @@
    ../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl
    -->
    
-   <xsl:variable name="resource-baseURI"  select="base-uri(/*)"/>
-   <xsl:variable name="fileset-path"      select="base-uri($fileset-doc)"/>
-   <xsl:variable name="repo-path"         select="resolve-uri('..', $fileset-path)"/>
-   <xsl:variable name="resource-repoPath" select="substring-after($resource-baseURI, $repo-path)"/>
-   <xsl:variable name="fileset-relPath"   select="substring-after($fileset-path, $repo-path)"/>
+   <sch:let name="resource-baseURI"  value="base-uri(/*)"/>
+   <sch:let name="fileset-path"      value="base-uri($fileset-doc)"/>
+   <sch:let name="repo-path"         value="resolve-uri('..', $fileset-path)"/>
+   <sch:let name="resource-repoPath" value="substring-after($resource-baseURI, $repo-path)"/>
+   <sch:let name="fileset-relPath"   value="substring-after($fileset-path, $repo-path)"/>
 
    <xsl:variable name="resource-fileset-path" select="( (tokenize($fileset-relPath,'/')[position() ne last()] ! '../') => string-join('') ) || $resource-repoPath"/>
    <xsl:variable name="fileset-resource-path" select="( (tokenize($resource-repoPath,'/')[position() ne last()] ! '../') => string-join('') ) || $fileset-relPath"/>

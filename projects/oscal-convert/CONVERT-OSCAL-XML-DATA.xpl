@@ -27,7 +27,7 @@
                </p:with-input>
             </p:error>
          </p:when>
-         <!-- a real test would validate against a schema ... we only look at the namespace at the root -->
+         <!-- a real test might validate against a schema ... we only look at the namespace at the root -->
          <p:when test="empty(/oscal:catalog)" xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
             <p:error code="ox:source-validation-fail">
                <p:with-input port="source">
@@ -36,6 +36,7 @@
             </p:error>
          </p:when>
          <p:otherwise>
+            <!-- Writing the new name a little defensively, so it appends '.json' no matter what --> 
             <p:variable name="json-file"  select="replace($filepath,'\.xml$','') || '.json'"/>
             
             <p:xslt>
