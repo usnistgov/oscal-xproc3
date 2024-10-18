@@ -85,12 +85,12 @@
    <sch:let name="resource-repoPath" value="substring-after($resource-baseURI, $repo-path)"/>
    <sch:let name="fileset-relPath"   value="substring-after($fileset-path, $repo-path)"/>
 
-   <xsl:variable name="resource-fileset-path" select="( (tokenize($fileset-relPath,'/')[position() ne last()] ! '../') => string-join('') ) || $resource-repoPath"/>
-   <xsl:variable name="fileset-resource-path" select="( (tokenize($resource-repoPath,'/')[position() ne last()] ! '../') => string-join('') ) || $fileset-relPath"/>
+   <sch:let name="resource-fileset-path" value="( (tokenize($fileset-relPath,'/')  [position() ne last()] ! '../') => string-join('') ) || $resource-repoPath"/>
+   <sch:let name="fileset-resource-path" value="( (tokenize($resource-repoPath,'/')[position() ne last()] ! '../') => string-join('') ) || $fileset-relPath"/>
    
    <sch:pattern>
       <sch:rule context="/*">
-         <sch:report test="false()">
+         <!--<sch:report test="false()">
            resource at: <sch:value-of select="$resource-baseURI"/>
            fileset seen at: <sch:value-of select="$fileset-path"/>
            repo path: <sch:value-of select="$repo-path"/>
@@ -98,7 +98,7 @@
            fileset relative path: <sch:value-of select="$fileset-relPath"/>
            resource-fileset-path: <sch:value-of select="$resource-fileset-path"/>
            fileset-resource-path: <sch:value-of select="$fileset-resource-path"/>
-         </sch:report>
+         </sch:report>-->
          
          <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or exists(p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')])">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in <sch:value-of select="$fileset-resource-path"/> - should it be?</sch:assert>
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl'))]"/>
