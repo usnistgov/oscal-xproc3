@@ -12,36 +12,26 @@
    
    <!-- Note: requires XSLT at $converter-xslt (provided by ../../GRAB-OSCAL.xpl) -->
    
+   <p:import href="src/single_xml-to-json.xpl"/>
+   
    <p:input port="source" sequence="true">
-      
       <p:document href="data/misc/xml/hello.xml"/>
       <p:document href="data/misc/xml/mixed.xml"/>
    </p:input>
 
    <!--<p:output port="result" sequence="true"/>-->
    
-   <p:variable name="converter-xslt" select="'lib/oscal_catalog_xml-to-json-converter.xsl'"/>
-   
    <p:for-each>
       <p:variable name="json-file" select="replace(base-uri(.),'xml$','json')"/>
    
       <p:choose>
          <!-- a real test would validate against a schema ... we only look at the namespace at the root -->
-         <p:when test="empty(/xp:*)" xmlns:xp="http://www.w3.org/2005/xpath-functions">
-            <p:identity>
-               <p:with-input port="source">
-                  <SORRY>Can't convert { base-uri(.) } to JSON - expecting input in namespace
-                     'http://www.w3.org/2005/xpath-functions'</SORRY>
-               </p:with-input>
-            </p:identity>
-         </p:when>
          <p:when test="ends-with(base-uri(.),'xml') => not()">
-            <p:identity>
+            <p:error>
                <p:with-input port="source">
-                  <SORRY>Can't convert { base-uri(.) } to JSON - we need the filename to end in 'xml' to make a safe
-                     name for the result</SORRY>
+                  <message>Can't convert { base-uri(.) } to JSON - we need the filename to end in 'xml' to make a safe name for the result</message>
                </p:with-input>
-            </p:identity>
+            </p:error>
          </p:when>
          <p:otherwise>
             <p:cast-content-type content-type="application/json"/>

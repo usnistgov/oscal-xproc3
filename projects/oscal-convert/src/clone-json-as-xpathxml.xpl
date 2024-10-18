@@ -15,7 +15,7 @@
    <p:import href="single_json-to-xml.xpl"/>
    
    <p:input port="source">
-      <p:document href="data/misc/json/hello.json"/>
+      <p:document href="../data/misc/json/hello.json"/>
    </p:input>
 
    <!--<p:output port="result" serialization="map { 'indent': true() }"/>-->

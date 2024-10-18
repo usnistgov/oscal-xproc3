@@ -16,7 +16,7 @@
       
    <p:input port="source">
       <!--<p:document href="data/misc/json/hello.json"/>-->
-      <p:document href="data/misc/xml/hello.xml"/>
+      <p:document href="../data/misc/xml/hello.xml"/>
    </p:input>
 
    <!-- Result is XML with base-uri as modified, or an error  -->

@@ -10,7 +10,7 @@
    
    <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
    
-   <!-- Note: requires XSLT at $converter-xslt (provided by ../../GRAB-OSCAL.xpl) -->
+   <p:import href="src/single_json-to-xml.xpl"/>
    
    <p:input port="source" sequence="true">
       <p:document href="data/misc/json/hello.json"/>
@@ -22,6 +22,7 @@
       <p:variable name="filename" select="p:document-property(.,'base-uri')"/>
       <p:variable name="xml-file" select="replace($filename,'json$','xml')"/>
       
+      <ox:single_json-to-xml/>
       <!-- A generic conversion presents the JSON data in XML syntax using the XPath vocabulary -->
       <p:cast-content-type content-type="application/xml"/>
       

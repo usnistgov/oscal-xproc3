@@ -3,16 +3,20 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:single_xml-to-json" name="single_xml-to-json">
 
+<p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove this element</p:documentation>
+<p:documentation>
+   <p:document href="../projects/oscal-convert/src/single_xml-to-json.xpl"/>
+</p:documentation>
+         
+
 <!-- Experimental! like single_json-to-xml.xpl this is intended as a 'wrapper pipeline'
      Maybe useful to defend batch processors from erroring on a single bad input?
      
    -->
    
-   <p:documentation>HOUSE RULES HALL PASS - add this file to ../../testing/FILESET_XPROC3_HOUSE-RULES.xpl and remove
-      this element</p:documentation>
-
+   
    <p:input port="source" content-types="application/xml">
-      <p:document href="data/misc/xml/hello.xml"/>
+      <p:document href="../data/misc/xml/hello.xml"/>
    </p:input>
 
    <p:output port="result"/>

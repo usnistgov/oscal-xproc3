@@ -10,7 +10,7 @@
 
    <!-- Errors if we don't see JSON -->
    <p:input port="source" content-types="application/json">
-      <p:document href="data/misc/json/hello.json"/>
+      <p:document href="../data/misc/json/hello.json"/>
    </p:input>
 
    <p:output port="result" serialization="map { 'indent': true() }"/>
