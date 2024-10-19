@@ -73,7 +73,6 @@
    <sch:let name="fileset-doc" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')"/>
    <sch:let name="listed-uris" value="$fileset-doc/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
    
-   
    <!--file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3
    testing/FILESET_XPROC3_HOUSE-RULES.xpl
    ../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl
@@ -102,7 +101,7 @@
          
          <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or exists(p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')])">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in <sch:value-of select="$fileset-resource-path"/> - should it be?</sch:assert>
          <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl'))]"/>
-         <sch:report test="$unexpected-prefixes => exists()">We want to see only 'p', 'c' and 'ox', 'xsl' and 'x' namespace prefixes assigned at the top of an XProc (so far, for this repository): this file has <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
+         <sch:report test="$unexpected-prefixes => exists()">This repo is keeping a list of recognized namespace prefixes, which does not include <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
       </sch:rule>
       <sch:rule context="p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')]">

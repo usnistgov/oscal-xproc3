@@ -2,11 +2,10 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" 
    version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:TUTORIAL-PAGE"
+   type="ox:PRODUCE-TUTORIAL-PREVIEW"
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:html="http://www.w3.org/1999/xhtml"
-   
-   name="TUTORIAL-PAGE">
+   name="PRODUCE-TUTORIAL-PREVIEW">
 
 
    <!--<p:output port="tutorial-singlepage" serialization="map{'indent': true() }" sequence="true"/>-->
@@ -67,7 +66,7 @@
          <p:variable name="project-uri" select="p:urify('.')"/>
          <p:variable name="lesson-no" select="format-number(p:iteration-position(),'01')"/>
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
-         <p:load href="{$path}" message="[TUTORIAL-PAGE] Loading {$path} "/>
+         <p:load href="{$path}" message="[PRODUCE-TUTORIAL-PREVIEW] Loading {$path} "/>
 
          <p:filter select="//body"/>
          <p:add-attribute attribute-name="id"
@@ -153,6 +152,6 @@
    
    <p:namespace-delete prefixes="xsl ox c"/>
    
-   <p:store href="tutorial-preview.html" message="[TUTORIAL-PAGE] Storing tutorial-preview.html" serialization="map{ 'method': 'html', 'indent': true() }"/>
+   <p:store href="tutorial-preview.html" message="[PRODUCE-TUTORIAL-PREVIEW] Storing tutorial-preview.html" serialization="map{ 'method': 'html', 'indent': true() }"/>
    
 </p:declare-step>

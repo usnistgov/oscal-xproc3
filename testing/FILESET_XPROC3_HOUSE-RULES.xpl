@@ -44,6 +44,8 @@
       <p:document href="../tutorial/PRODUCE-TUTORIAL-MARKDOWN.xpl"/>
       <p:document href="../tutorial/SOURCES-PREVIEW.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
+      <p:document href="../tutorial/PRODUCE-TUTORIAL-ELEMENTLIST.xpl"/>
       
       <p:document href="../smoketest/TEST-XPROC3.xpl"/>
       <p:document href="../smoketest/TEST-SCHEMATRON.xpl"/>
