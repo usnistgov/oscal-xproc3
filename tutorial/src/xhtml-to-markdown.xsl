@@ -19,7 +19,7 @@
    <xsl:output omit-xml-declaration="true"/>
    <xsl:strip-space elements="*"/>
    
-    <xsl:preserve-space elements="p li pre td th
+   <xsl:preserve-space elements="p li pre td th
        h1 h2 h3 h4 h5 h6
        i b a code span strong em q"/>
 

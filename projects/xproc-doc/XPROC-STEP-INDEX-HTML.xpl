@@ -18,12 +18,9 @@
    
 <!-- Before we splice in foreign contents, we rewrite a little - adding a/@target enabling links
      open in a target window ... we could do this with XSLT but the XProc step is easier. -->
-   <p:add-attribute name="links-rewritten"
-      attribute-name="target"
-      attribute-value="specs"
-      match="a"
-      xmlns="http://www.w3.org/1999/xhtml">
-      <p:with-input port="source" pipe="spec-doc@XPROC-STEP-INDEX-HTML"/>
+   <p:add-attribute name="links-rewritten"  match="a" xmlns="http://www.w3.org/1999/xhtml"
+      attribute-name="target" attribute-value="specs">
+      <p:with-input pipe="spec-doc@XPROC-STEP-INDEX-HTML"/>
    </p:add-attribute> 
    
    <!-- nb  the sink is optional but clarifies the pipeline - the next step picks up its own inputs -->

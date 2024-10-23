@@ -32,7 +32,7 @@
    <p:variable name="error-count" select="count($validation-errors)"/>
    
    <p:identity>
-      <p:with-input port="source">
+      <p:with-input>
          <p:inline xml:space="preserve">
 { if (empty($validation-errors)) then 'CONGRATULATIONS!!! ' else 'Uhoh . . .' }            
 Validating { $baseURI } - { if ($error-count eq 0) then 'no' else $error-count } {

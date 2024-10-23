@@ -168,7 +168,7 @@
          <p:identity
             message="{$label} Not validating STS - no schema found at { $sts-rng } - try running pipeline GRAB-NISO_STS-RNG.xpl"
             name="no-rng">
-            <p:with-input port="source">
+            <p:with-input>
                <p:inline>
                   <ox:message>Schema { $sts-rng } not found - try running pipeline
                      GRAB-NISO_STS-RNG.xpl</ox:message>
@@ -264,7 +264,7 @@
       <p:otherwise>
          <p:output port="report" pipe="result@no-xsd"/>
          <p:identity message="{$label} Not validating OSCAL - no schema found at { $oscal-xsd }" name="no-xsd">
-            <p:with-input port="source">
+            <p:with-input>
                <p:inline>
                   <ox:message>Schema { $oscal-xsd } not found - try running pipeline GRAB-RESOURCES.xpl</ox:message>
                </p:inline>
@@ -294,7 +294,7 @@
    
    <!-- Now done with validation, we aggregate all the validation reports into one -->
    <p:wrap-sequence wrapper="ox:REPORTS" name="validation-reports">
-      <p:with-input port="source">
+      <p:with-input>
          <p:pipe step="summarize-sts-validation"   port="summary"/>
          <p:pipe step="summarize-oscal-validation" port="summary"/>
          <p:pipe step="summarize-oscal-schematron" port="summary"/>

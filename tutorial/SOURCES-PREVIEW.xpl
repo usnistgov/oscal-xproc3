@@ -45,7 +45,7 @@
    </p:for-each>
 
    <p:wrap-sequence wrapper="body" name="full-body">
-      <p:with-input port="source" select="descendant::body/*"/>
+      <p:with-input select="descendant::body/*"/>
    </p:wrap-sequence>
 
    <!--A cleaner preview production would push it all through an XSLT, but we are learning XProc so let's do it by steps -->

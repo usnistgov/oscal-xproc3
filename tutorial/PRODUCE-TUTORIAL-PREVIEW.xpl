@@ -71,7 +71,7 @@
          <p:filter select="//body"/>
          <p:add-attribute attribute-name="id"
             attribute-value="{ substring-before($path,'_src.html') => replace('.*/','')}"/>
-         <p:add-attribute attribute-name="class" attribute-value="unit"/>
+         <p:add-attribute attribute-name="class" attribute-value="unit { /*/@data-track }"/>
          <p:rename match="body" new-name="section"/>
       </p:viewport>
 
@@ -103,6 +103,7 @@
                   <xsl:template match="*:section" expand-text="true">
                      <div>
                         <xsl:copy-of select="@*"/>
+                        <xsl:attribute name="class">{ @class } { @data-track }</xsl:attribute>
                         <xsl:apply-templates/>
                      </div>
                   </xsl:template>
@@ -129,20 +130,23 @@
          <p:inline expand-text="false">
             <head>
                <title>TUTORIAL PREVIEW</title>
-               <style type="text/css">
-                  .toc { font-size: 80%; padding: 0.4em; outline: thin solid black; margin: 0.4em 0em; width: fit-content;
-                    counter-reset: lessonNo 0 }
-                  .toc * { margin: 0em; font-weight: normal }
-                  .toc div { margin: 0.2em; margin-left: 1em; outline: thin solid grey }
-                  .toc .lesson { display: flex; counter-increment: lessonNo 1; padding: 0.8em }
-                  .toc .lesson:nth-child(even) { background-color: lightsteelblue }
-                  .toc div.lesson:before { content: attr(class) '&#xa0;' counter(lessonNo); background-color: lavender; color: midnightblue; padding: 0.2em; font-family: sans-serif
-                    display: inline-block; height: fit-content }
-                  .toc .unit { width: 30vw; background-color: whitesmoke }
-                  section section section { margin: 0.2em; margin-left: 1em; padding-left: 0.6em; border-left: medium solid grey }
+               <style type="text/css" xml:space="preserve">
+.toc { font-size: 80%; padding: 0.4em; outline: thin solid black; margin: 0.4em 0em; width: fit-content; counter-reset: lessonNo 0 }
+.toc * { margin: 0em; font-weight: normal }
+.toc div { margin: 0.2em; margin-left: 1em; outline: thin solid grey }
+.toc .lesson { display: flex; counter-increment: lessonNo 1; padding: 0.8em }
+.toc .lesson:nth-child(even) { background-color: lightsteelblue }
+.toc div.lesson:before { content: attr(class) '&#xa0;' counter(lessonNo); background-color: lavender; color: midnightblue; padding: 0.2em; font-family: sans-serif; display: inline-block; height: fit-content }
+.toc .unit { width: 23vw }
+section section section { margin: 0.2em; margin-left: 1em; padding-left: 0.6em; border-left: medium solid grey }
+
+section.unit   { max-width: 60em; padding: 0.8em; outline: thin solid black; margin: 0.6em 0em }
+section.unit h1:first-child { margin-top: 0em }
+.observer { background-color: honeydew }
+.maker    { background-color: seashell }
+.learner  { background-color: aliceblue }                 
                   
-                  
-               </style>
+</style>
             </head>
          </p:inline>
       </p:with-input>

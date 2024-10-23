@@ -4,7 +4,7 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
    type="ox:GRAB-OSCAL"
    name="GRAB-OSCAL">
-   
+
    <!-- Purpose: update local copies of some OSCAL resources from its release repository -->
    
    <!--

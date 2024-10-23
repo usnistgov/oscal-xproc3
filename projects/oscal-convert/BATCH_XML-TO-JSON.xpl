@@ -21,14 +21,15 @@
    <!--<p:output port="result" sequence="true"/>-->
    
    <p:for-each>
-      <p:variable name="json-file" select="replace(base-uri(.),'\.xml$','') || '.json'"/>
+      <p:variable name="baseURI" select="p:document-property(.,'base-uri')"/>
+      <p:variable name="json-file" select="replace($baseURI,'\.xml$','') || '.json'"/>
    
       <p:choose>
          <!-- a real test would validate against a schema ... we only look at the namespace at the root -->
-         <p:when test="ends-with(base-uri(.),'xml') => not()">
+         <p:when test="ends-with($baseURI,'xml') => not()">
             <p:error code="ox:renaming-failsafe">
-               <p:with-input port="source">
-                  <message>Can't convert { base-uri(.) } to JSON - we need the filename to end in 'xml' to make a safe name for the result</message>
+               <p:with-input>
+                  <message>Can't convert { $baseURI } to JSON - we need the filename to end in 'xml' to make a safe name for the result</message>
                </p:with-input>
             </p:error>
          </p:when>

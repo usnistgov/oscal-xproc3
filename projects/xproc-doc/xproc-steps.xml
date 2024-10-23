@@ -250,7 +250,7 @@
              sequence="true"
              content-types="xml html text"/>
       <output port="result"
-              content-types="xml html"/>
+              content-types="xml html text"/>
       <option name="match"
               as="xs:string"
               select="'/*'"
@@ -686,6 +686,8 @@
               xmlns:e="http://www.w3.org/1999/XSL/Spec/ElementSyntax"/>
       <option name="version"
               as="xs:integer?"/>
+      <option name="parameters"
+              as="map(xs:QName, item()*)?"/>
    </declare-step>
    <declare-step library="standard"
                  type="p:wrap-sequence">
@@ -801,14 +803,15 @@
               as="xs:string?"/>
    </declare-step>
    <declare-step library="ixml"
-                 type="p:ixml">
+                 type="p:invisible-xml">
       <input port="grammar"
              sequence="true"
-             content-types="any"/>
+             content-types="text xml"/>
       <input port="source"
              primary="true"
              content-types="any -xml -html"/>
       <output port="result"
+              sequence="true"
               content-types="any"/>
       <option name="parameters"
               as="map(xs:QName, item()*)?"/>
@@ -1049,5 +1052,25 @@
       <option name="report-format"
               select="'xvrl'"
               as="xs:string"/>
+   </declare-step>
+   <declare-step library="validation"
+                 type="p:validate-with-dtd">
+      <input port="source"
+             primary="true"
+             content-types="xml html"/>
+      <output port="result"
+              primary="true"
+              content-types="xml html"/>
+      <output port="report"
+              sequence="true"
+              content-types="xml json"/>
+      <option name="report-format"
+              select="'xvrl'"
+              as="xs:string"/>
+      <option name="serialization"
+              as="map(xs:QName,item()*)?"/>
+      <option name="assert-valid"
+              select="true()"
+              as="xs:boolean"/>
    </declare-step>
 </library>

@@ -2,6 +2,8 @@
 <LESSON_PLAN>
    <Lesson key="setup"/>
    <Lesson key="unpack"/>            
+   <Lesson key="oscal-convert"/>
+   <Lesson key="practicum"/>            
    <!--
    Intended coverage - please let us know if you need more
      (to help make it a priority)   

@@ -27,6 +27,7 @@ To add to the production pipeline, edit PRODUCE-TUTORIAL-MARKDOWN.xpl
   - 101 sequence is inspection and observation (only)
   - 102 sequence is hands-on
   -  all 'Goals' in sequence, all 'Resources' in sequence, etc
+  - where can we default e.g. `with-input` in place of `with-input[@port='source']` ? test all these ...
   - Review and normalize usage of 'i', 'b', 'em' and other inline elements?
 - Top level Overview page about
   - Strategies for learning (breadth-first or depth-first)

@@ -31,7 +31,7 @@
       <!-- Not defending if content-type is not json - we'll do our best anyhow -->
       <p:when test="not($suffix = 'json')">
          <p:error code="ox:filename-collision">
-            <p:with-input port="source">
+            <p:with-input>
                <message>Refusing to overwrite { $filename } with { replace($newpath,'.*/','') } - we expect a file name matching *.json</message>
             </p:with-input>
          </p:error>

@@ -142,6 +142,11 @@
            <sqf:add node-type="attribute" select="$tag || ' ' || name() || ': ' || @href || ' ...'" target="message"/>
         </sqf:fix>         
      </sch:rule>
+      
+      <sch:rule context="p:with-input">
+         <sch:assert sqf:fix="sqf-remove-port" test="(count(../p:with-input) gt 1) or not(@port='source')">p:with-input can be anonymous when it binds to the primary input: no @port designation is needed.</sch:assert>
+      </sch:rule>
+            
    </sch:pattern>
    
    <!-- Any files to be reprieved from linking rules should be listed here, by /*/@name  -->
@@ -198,6 +203,14 @@
             <sqf:title>Assign the file base name '<sch:value-of select="$basename"/>' as the step name</sqf:title>
          </sqf:description>
          <sqf:add match="/*" node-type="attribute" select="$basename" target="name"/>
+      </sqf:fix>
+      
+      <sqf:fix id="sqf-remove-port">
+         <sqf:description>
+            <sqf:title>Remove the port binding on p:with-input</sqf:title>
+         </sqf:description>
+         <sqf:delete match="@port"/>
+         
       </sqf:fix>
    </sqf:fixes>
 </sch:schema>

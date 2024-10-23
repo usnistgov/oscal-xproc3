@@ -22,7 +22,7 @@
       <p:choose>
          <p:when test="not($content-type='application/xml')">
             <p:error code="ox:source-validation-fail">
-               <p:with-input port="source">
+               <p:with-input>
                   <message>Input file { $filepath } has content type '{ $content-type }' so it fails XML to JSON conversion</message>
                </p:with-input>
             </p:error>
@@ -30,7 +30,7 @@
          <!-- a real test might validate against a schema ... we only look at the namespace at the root -->
          <p:when test="empty(/oscal:catalog)" xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
             <p:error code="ox:source-validation-fail">
-               <p:with-input port="source">
+               <p:with-input>
                   <message>XML at file { $filepath } is not an OSCAL catalog ... not attempting conversion</message>
                </p:with-input>
             </p:error>

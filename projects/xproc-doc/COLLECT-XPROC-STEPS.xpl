@@ -65,7 +65,7 @@
    </p:for-each>
    
    <p:wrap-sequence wrapper="library">
-      <p:with-input port="source" pipe="@required-steps @optional-steps"/>
+      <p:with-input pipe="@required-steps @optional-steps"/>
       <!--<p:with-input port="source" pipe="@optional-steps"/>-->
    </p:wrap-sequence>
    

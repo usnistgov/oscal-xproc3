@@ -23,14 +23,13 @@
 
    <p:output port="result" serialization="map{ 'indent': true(), 'method': 'text' }"/> 
    
-<!-- /prologue -->
-<!-- INCIPIT  -->
-
-<p:group name="house-rules-check-fileset">
-   <p:load href="FILESET_XPROC3_HOUSE-RULES.xpl" message="[REPO-FILESET-CHECK] SEEING XProc3 House Rules file set at FILESET_XPROC3_HOUSE-RULES.xpl"/>
-   <!--<p:filter select="descendant::p:document"/>-->
-   <p:make-absolute-uris match="@href"/>
-</p:group>
+   <!-- /prologue -->
+   <!-- INCIPIT  -->
+   
+   <p:group name="house-rules-check-fileset">
+      <p:load href="FILESET_XPROC3_HOUSE-RULES.xpl" message="[REPO-FILESET-CHECK] SEEING XProc3 House Rules file set at FILESET_XPROC3_HOUSE-RULES.xpl"/>
+      <p:make-absolute-uris match="@href"/>
+   </p:group>
 
    <p:variable name="house-rules-files" select="//@href/..">
       <p:pipe step="house-rules-check-fileset"/>
@@ -39,7 +38,6 @@
    
    <p:group name="xspec-fileset">
       <p:load href="FILESET_XSPEC.xpl" message="[REPO-FILESET-CHECK] SEEING XSpec execution file set at FILESET_XSPEC.xpl"/>
-      <!--<p:filter select="descendant::p:document"/>-->
       <p:make-absolute-uris match="@href"/>
    </p:group>
    
@@ -47,21 +45,20 @@
       <p:pipe step="xspec-fileset"/>
    </p:variable>
    
-   
+   <!-- main action starts here -->
    <p:directory-list name="dir-list" path=".." max-depth="unbounded" include-filter="\.x(pl|spec)$" exclude-filter=".*no[-_]test.*"/>
    
    <!-- filter directory step flattens everything and excludes files in top-level /lib  -->
    <p:xslt name="file-list">
       <p:with-input port="stylesheet" href="src/filter-directory.xsl"/>
    </p:xslt>
-   
 
    <!-- Next step annotates the directory structure based on findings passed in -->
    <p:xslt name="path-list">
       <!-- Map within a map lets us configure the containers dynamically -->
       <p:with-option name="parameters" select="map{
          'file-lists': map{ 'house-rules': $house-rules-files,
-         'xspec': $xspec-files } }"/>
+                            'xspec':       $xspec-files } }"/>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
             <xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

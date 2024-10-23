@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <p:library xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:xvrl="http://www.xproc.org/ns/xvrl"
-   xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-   type="ox:MINIMAL"
-   name="MINIMAL">
-
+   xmlns:svrl="http://purl.oclc.org/dsdl/svrl">
 
    <!-- For samples and boilerplate see file ../../projects/xproc-doc/xproc-snippets.xml -->
+   <!-- Simple steps for summarizing and reporting results of validations
+        producing SVRL or XVRL
+        - These REQUIRE REFINEMENT AND TESTING
+        e.g. throw p:error on bad inputs?
+             locate schema away from source documents? -->
    
    
    <!-- An XSLT is the other obvious way to do this, but XProc! --> 
@@ -25,27 +28,29 @@
       <p:choose>
          <p:when test="empty(/xvrl:report)">
             <p:identity>
-               <p:with-input port="source">
+               <p:with-input>
                   <p:empty/>
                </p:with-input>
             </p:identity>
          </p:when>
          <p:when test="empty($validation-errors)">
             <p:identity>
-               <p:with-input port="source">
+               <p:with-input>
                      <message>CONGRATULATIONS! No validation errors are reported against { substring-after($schema, $here) }</message>
                </p:with-input>
             </p:identity>
          </p:when>
          <p:otherwise>
             <p:identity>
-               <p:with-input port="source">
+               <p:with-input>
                   <message>Uhoh . . . Validating result with { $schema } - { $error-count } {
             if ($error-count eq 1) then 'error' else 'errors' } reported</message>
                </p:with-input>
             </p:identity>
+            
          </p:otherwise>
       </p:choose>
+      <p:namespace-delete prefixes="c ox xsl xvrl svrl"/>
    </p:declare-step>
    
    <p:declare-step name="svrl-summarize" type="ox:svrl-summarize">
@@ -67,20 +72,21 @@
          </p:when>-->
          <p:when test="empty($validation-errors)">
             <p:identity>
-               <p:with-input port="source">
+               <p:with-input>
                      <message>CONGRATULATIONS! No validation errors are reported from Schematron checking OSCAL</message>
                </p:with-input>
             </p:identity>
          </p:when>
          <p:otherwise>
             <p:identity>
-               <p:with-input port="source">
+               <p:with-input>
                   <message>Uhoh . . .  Validating result with Schematron - { $error-count } {
             if ($error-count eq 1) then 'error' else 'errors' } reported</message>
                </p:with-input>
             </p:identity>
          </p:otherwise>
       </p:choose>
+      <p:namespace-delete prefixes="c ox xsl xvrl svrl"/>
    </p:declare-step>
    
 </p:library>

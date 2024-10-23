@@ -34,7 +34,7 @@ name="VALIDATION-FILESET-READYCHECK">
          <p:with-input port="schema" href="{$schematron-path}"/>
       </p:validate-with-schematron>
       <p:filter select="//svrl:failed-assert/svrl:text | //svrl:successful-report/svrl:text" >
-         <p:with-input port="source" pipe="report@fileset-validate"/>
+         <p:with-input pipe="report@fileset-validate"/>
       </p:filter>
    </p:for-each>
 

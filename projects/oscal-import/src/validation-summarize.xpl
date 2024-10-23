@@ -9,7 +9,10 @@
    name="validation-summarize" type="ox:validation-summarize"
    >
    
-   <!-- Expecting any of
+   <!-- 
+      Ad hoc validation summary pipeline for data import demo -
+
+      Expecting any of
          ox:NO_REPORT
          
          xvrl:report or xvrl:NO_REPORT on the primary input port 
@@ -47,14 +50,14 @@
       </p:when>
       <p:when test="empty($validation-errors)">
          <p:identity>
-            <p:with-input port="source">
+            <p:with-input>
                <ox:message>CONGRATULATIONS! No errors are reported for { $doc-name } validating against { $schema-name }</ox:message>
             </p:with-input>
          </p:identity>
       </p:when>
       <p:otherwise>
          <p:identity>
-            <p:with-input port="source">
+            <p:with-input>
                <ox:message>Uhoh . . . Validating { $doc-name } with { $schema-name } - { $error-count } {
             if ($error-count eq 1) then 'error' else 'errors' } reported</ox:message>
             </p:with-input>

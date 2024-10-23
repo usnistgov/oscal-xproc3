@@ -45,7 +45,7 @@
       <p:document href="../tutorial/SOURCES-PREVIEW.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-TOC.xpl"/>
       <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
-      <p:document href="../tutorial/PRODUCE-TUTORIAL-ELEMENTLIST.xpl"/>
+      <p:document href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl"/>
       
       <p:document href="../smoketest/TEST-XPROC3.xpl"/>
       <p:document href="../smoketest/TEST-SCHEMATRON.xpl"/>
@@ -74,8 +74,10 @@
       <p:document href="../projects/oscal-import/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/oscal-import/GRAB-FM6-22.xpl"/>
       <p:document href="../projects/oscal-import/GRAB-NISO_STS-RNG.xpl"/>
+      <p:document href="../projects/oscal-import/src/validation-summarize.xpl"/>
+      <p:document href="../projects/oscal-import/src/validation-summaries.xpl"/>
       
-      
+      <p:document href="../projects/oscal-validate/GRAB-OSCAL.xpl"/>
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-OFFSITE.xpl"/>

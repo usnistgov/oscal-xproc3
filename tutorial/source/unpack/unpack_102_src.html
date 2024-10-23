@@ -15,6 +15,12 @@
          </ul>
       </section>
       <section>
+         <h2>Prerequisites</h2>
+         <p>You have done <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 101</a>, <a
+               href="../setup/setup_101_src.html" class="LessonUnit">Setup 102</a> and <a href="unpack_101_src.html"
+               class="LessonUnit">Unpack 101</a>.</p>
+      </section>
+      <section>
          <h2>Resources</h2>
          <p>Take a quick look <i>now</i> (and a longer look later):</p>
          <p>This tutorial's handmade <a href="../../xproc-links.md">XProc links page</a></p>
@@ -23,12 +29,6 @@
                href="../../../projects/xproc-doc/readme.md">XProc docs</a></p>
          <p>And the same pipelines you ran in setup: <a href="../setup/setup_101_src.html" class="LessonUnit">Setup
                101</a>.</p>
-      </section>
-      <section>
-         <h2>Prerequisites</h2>
-         <p>You have done <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 101</a>, <a
-               href="../setup/setup_101_src.html" class="LessonUnit">Setup 102</a> and <a href="unpack_101_src.html"
-               class="LessonUnit">Unpack 101</a>.</p>
       </section>
       <section>
          <h2>Learning more about XProc</h2>
@@ -53,10 +53,11 @@
                <li>Where XSpec documents are bound to the input port <code>source</code>, they have
                      <code>content-type='application/xml'</code> given. This is because with the unconventional file
                   suffix <code>xspec</code> (useful for other reasons), the XProc engine needs extra information to know
-                  they should be read as XML, not some other data format. Try removing the <code>content-type</code> to </li>
+                  they should be read as XML, not some other data format. Try removing the <code>content-type</code> to
+                  see what happens when the engine does not know an XML file is XML.</li>
                <li>The step <code>p:for-each</code> is not just a step: it also contains steps. It is a <em>compound
-                     step</em>, described further below. You would be correct to infer this step enables us to perform
-                  operations on several inputs in parallel: just what this pipeline needs.</li>
+                     step</em>. You would be correct to infer this step enables us to perform operations on several
+                  inputs in parallel: just what this pipeline needs.</li>
                <li>Within the <code>p:for-each</code>, the step <code>ox:execute-xspec</code> is named in the
                      <code>ox</code> namespace, which resolves to the string
                      <code>http://csrc.nist.gov/ns/oscal-xproc3</code>, a value assigned for this project. This step is
@@ -84,8 +85,8 @@
             </ul>
          </section>
          <section>
-            <h3>PRODUCE-TUTORIAL-ELEMENTLIST.xpl</h3>
-            <p>The pipeline <a href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">PRODUCE-TUTORIAL-ELEMENTLIST.xpl</a> has
+            <h3>PRODUCE-PROJECTS-ELEMENTLIST.xpl</h3>
+            <p>The pipeline <a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> has
                   <q>real-world complexity</q>. Reviewing its steps can give a sense of how XProc combines simple
                capabilities into complex operations. Notwithstanding the title of this section, it is not important to
                understand every detail – knowing they are there is enough.</p>
@@ -102,7 +103,7 @@
          <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
             it behaves.</p>
          <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
-            modify the copy. Modifying one of the smoketest pipelines, see what happens when:</p>
+            modify the copy. Modifying any of the pipelines presented so far, see what happens when:</p>
          <ul>
             <li>An <code>@href</code> points to a location on the system where there is no file</li>
             <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
@@ -129,7 +130,8 @@
             <p>A code editor that supports XML might let you do this with a keystroke, for example <code>ctrl-,</code>
                (Control key plus comma), after selecting the text you wish to include in the comment.</p>
             <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful
-               technique for rapidly and interactively testing your pipelines.</p>
+               technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks
+               of code.</p>
          </section>
       </section>
       <section>

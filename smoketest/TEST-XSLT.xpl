@@ -9,9 +9,7 @@
    
    <p:xslt name="smoketest" message="[TEST-XSLT] XPROC 3 SMOKE TEST - - - Applying transformation ...">
       <p:with-input port="source">
-         <p:inline>
-            <CONGRATULATIONS>Congratulations on running an XProc 3 pipeline.</CONGRATULATIONS>
-         </p:inline>
+         <CONGRATULATIONS>Congratulations on running an XProc 3 pipeline.</CONGRATULATIONS>
       </p:with-input>
       <p:with-input port="stylesheet" href="src/congratulations.xsl"/>
    </p:xslt>

@@ -4,7 +4,7 @@
       <title>102: Hands on data conversions</title>
       <meta charset="utf-8" />
    </head>
-   <body>
+   <body data-track="maker">
       <h1>102: Hands on data conversions</h1>
       <section>
          <h2>Goals</h2>
@@ -28,7 +28,9 @@
          <p>Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded
             correctly – when <q>broken</q>, any way we can think of breaking them. Then build good habits by repairing
             the damage. Experiment and observation bring learning.</p>
-         <p>After reading this page, perform some more disassembly / reassembly. Here are a few ideas:</p>
+         <p>After reading this page and <a href="../../../projects/oscal-convert/readme.md">the project readme</a>, run
+            the pipelines while performing some more disassembly / reassembly. Here are a few ideas (including a few you
+            may have already done):</p>
          <ul>
             <li>Switch out the value of an <code>@href</code> on a <code>p:document</code> or <code>p:load</code> step.
                See what happens when the file it points to is not actually there.</li>
@@ -51,11 +53,88 @@
          <p>After breaking anything, restore it to working order. Create modified copies of any pipelines for further
             analysis and discussion.</p>
          <ul>
-            <li>
-               <p>Concept: copy and change one of the pipelines provided to acquire a software library or resource of
-                  your choice.</p>
-            </li>
+            <li>Concept: copy and change one of the pipelines provided to acquire a software library or resource of your
+               choice.</li>
          </ul>
+      </section>
+      <section>
+         <h2>Value templates in attributes and text: { expr }</h2>
+      </section>
+      <section>
+         <h2>Designating an input at runtime by binding input ports</h2>
+         <p>One potential problem with the pipelines we have looked at so far is that their inputs are hard-wired. While
+            this is sometimes helpful, it should also be possible to apply a pipeline to an XML document (or other
+            input) without having to designate the document inside the pipeline itself. The user or calling application
+            should be able to say <q>run this pipeline, but this time with this input</q>.</p>
+         <p>The input ports for a pipeline, specified using <code>p:input</code> within the prologue, provide for
+            this.</p>
+         <p>For example, the <a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"
+               >CONVERT-OSCAL-XML-DATA</a> pipeline defines an input port:</p>
+         <pre>&lt;p:input port="source" sequence="true">
+    &lt;p:document href="data/catalog-model/xml/cat_catalog.xml"/>
+&lt;/p:input></pre>
+         <p>By default, this pipeline will pick up and process the data it finds at path
+               <code>data/catalog-model/xml/cat_catalog.xml</code>, relative to the stylesheet. But any call to this
+            pipeline, whether directly or as a step in another pipeline, can override this.</p>
+         <p>The Morgana processor defines <a href="https://www.xml-project.com/manual/ch01.html#R_ch1_s1_2">a command
+               syntax for binding inputs to ports</a>. It looks like this (when used with the script deployed with this
+            repository):</p>
+         <pre>$ ../xp3.sh <i>PIPELINE.xpl</i> -input:<i>portname=path/to/a-document.xml</i> -input:<i>portname=path/to/another-document.xml</i></pre>
+         <p>Here, two different <code>-input</code> arguments are given for the same port. You can have as many as
+            needed if the port, like this one, has <code>sequence="true"</code>, meaning any number of documents (from
+            zero to many) can be bound to the port, and the pipeline will accommodate. When more than one port is
+            defined, one (only) can be designated as <code>primary="true"</code>, meaning it will be provided implicitly
+            when a port connection is required (by a step) but not given in the pipeline. Notice that the name of the
+            port must also appear, as in <code>-input:portname</code>, since pipelines can have ports supporting
+            sequences, but also as many input ports as it needs, named differently, for documents playing different
+            roles in the pipeline. In place of <code>portname</code> here, a common name for a port (conventional when
+            it is the pipeline's only or primary input) is <code>source</code>.</p>
+         <section>
+            <h3>Binding to input ports vs p:load steps</h3>
+            <p>XProc offers two ways to acquire data from outside the pipeline: by using <code>p:load</code> or by
+               binding inputs to an input port using p:input/p:document. These are somewhat different in operation -
+               errors produced by p:load cannot be detected until the pipeline is run, whereas failures with p:input
+               should be detected when the pipeline itself is loaded and compiled (i.e. during <em>static analysis</em>).
+               Apart from this distinction the two
+               approaches have similar effects – whether to use one or the other depends often on how you expect the pipeline to
+               be used and distributed, not on whether it works.</p>
+            <p>For example, if you wish to acquire more than a single document that the caller cannot override, make a
+               step like this:</p>
+            <pre>&lt;p:identity>
+  &lt;p:with-input>
+    &lt;p:document href="..."/>
+    &lt;p:document href="..."/>
+    ...
+  &lt;/p:with-input>
+&lt;p:identity></pre>
+            <p>This binds the documents to the input of an <b>identity</b> step (which supports a sequence), without
+               exposing an input port in the main pipeline.</p>
+            <p>A more dynamic approach would be to acquire a list of file names, for example:</p>
+            <pre>&lt;p:input port="source">
+   &lt;p:inline>
+      &lt;FILELIST>
+         &lt;FILE>A&lt;/FILE>
+         &lt;FILE>B&lt;/FILE>
+      &lt;/FILELIST>
+   &lt;/p:inline>
+&lt;/p:input></pre>
+            <p>Then in our subpipeline we use the compound step <code>p:for-each</code> to process each FILE element in
+               the list:</p>
+            <pre>&lt;p:for-each>
+   &lt;p:with-input select="//FILE"/>
+   &lt;p:load href="{ string(.) }"/>
+&lt;/p:for-each>   </pre>
+            <p>This has the effect of traversing the document given in line (the file list) and for each of its FILE
+               elements, loading the document named as the FILE element's string value, that is <q>A</q>, <q>B</q> and
+               so on. This is just as if A and B had been bound directly to the port. In either case, what we get is a
+               sequence of XDM <em>document</em> objects, one for each of the resources parsed.</p>
+            <p>One tradeoff is that the override mechanism will be different. We override the first approach by binding
+               the pipeline's <code>source</code> port directly to whatever documents we want in place of A and B. We
+               override the second approach by providing a different FILELIST document. Alternatively such a FILELIST
+               can be referenced instead of included … <code>p:document href="the-filelist.xml</code>, providing us a
+               resource that we can maintain separately.</p>
+            
+         </section>
       </section>
       <section>
          <h2>Identity pipeline testbed</h2>
@@ -67,8 +146,6 @@
          <p>Additionally, there are actually useful operations supported by a pipeline that pretends to change nothing.
             For example, it can transcode a file from one encoding to another – changing nothing in the data, but
             rewriting it into a different character set.</p>
-         <p>Any reader who feels a 599 lesson would be useful covering encodings and XProc should pipe up! (Feel free to
-            post an Issue, Discussion, or PR with a draft.)</p>
          <section>
             <h3>0.01 - what is a <q>document</q></h3>
             <h3>0.1 - loading documents known or determinable in advance</h3>
@@ -114,30 +191,6 @@
       </section>
       <section>
          <h2>Validate early and often</h2>
-      </section>
-      <section>
-         <h2>for 599: XProc for JSON</h2>
-         <p>map objects; steps for working with them; interim p:store as debug method; output ports to see results (final and intermediate) or bind them</p>
-      </section>
-      <section>
-         <h2>for 599: YAML TODO</h2>
-         <p>map objects; steps for working with them</p>
-      </section>
-      <section>
-         <h2>for 599: XProc port bindings</h2>
-         <p>This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime
-            argument</p>
-         <p>Thus, a script <code>convert-oscal-catalog-xml.sh mycatalog.xml</code> could produce
-               <code>mycatalog.json</code> from <code>mycatalog.xml</code> etc.</p>
-         <p>Such a script could live in the project directory - do we want an Issue for this work item? </p>
-      </section>
-      <section>
-         <h2>for 599: URIs and URI schemes</h2>
-         <p>see <a href="https://spec.xproc.org/master/head/xproc/#err.inline.D0012"></a> it is up to implementations to
-            define supported URI schemes  - also XML catalogs</p>
-      </section>
-      <section>
-         <h2>for 599: round tripping as process test</h2>
       </section>
    </body>
 </html>

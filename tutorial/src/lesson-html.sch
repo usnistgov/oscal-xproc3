@@ -44,6 +44,9 @@
    </sch:pattern>
    
    <sch:pattern>
+      <sch:rule context="html:li/html:p">
+         <sch:report test="true()">p cannot appear inside li - only single-line list items are supported</sch:report>
+      </sch:rule>
       <sch:rule context="html:html | html:head | html:meta | html:title | html:body | html:section |
          html:p | html:ul | html:ol | html:li | html:pre | html:details | html:summary"/>
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6"/>

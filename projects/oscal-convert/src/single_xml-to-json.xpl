@@ -25,7 +25,7 @@
    <p:choose>
       <p:when test="empty(/xp:*)" xmlns:xp="http://www.w3.org/2005/xpath-functions">
          <p:error code="ox:source-validation-fail">
-            <p:with-input port="source">
+            <p:with-input>
                <message>XML is not in the XPath namespace and cannot be cast to JSON using generic logic</message>
             </p:with-input>
          </p:error>

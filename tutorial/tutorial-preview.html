@@ -3,210 +3,418 @@
    <head>
       <meta http-equiv="Content-Type" content="application/xml; charset=UTF-8">
       <title>TUTORIAL PREVIEW</title>
-      <style type="text/css">
-                  .toc { font-size: 80%; padding: 0.4em; outline: thin solid black; margin: 0.4em 0em; width: fit-content;
-                    counter-reset: lessonNo 0 }
-                  .toc * { margin: 0em; font-weight: normal }
-                  .toc div { margin: 0.2em; margin-left: 1em; outline: thin solid grey }
-                  .toc .lesson { display: flex; counter-increment: lessonNo 1; padding: 0.8em }
-                  .toc .lesson:nth-child(even) { background-color: lightsteelblue }
-                  .toc div.lesson:before { content: attr(class) ' ' counter(lessonNo); background-color: lavender; color: midnightblue; padding: 0.2em; font-family: sans-serif
-                    display: inline-block; height: fit-content }
-                  .toc .unit { width: 30vw; background-color: whitesmoke }
-                  section section section { margin: 0.2em; margin-left: 1em; padding-left: 0.6em; border-left: medium solid grey }
+      <style xml:space="preserve" type="text/css">
+.toc { font-size: 80%; padding: 0.4em; outline: thin solid black; margin: 0.4em 0em; width: fit-content; counter-reset: lessonNo 0 }
+.toc * { margin: 0em; font-weight: normal }
+.toc div { margin: 0.2em; margin-left: 1em; outline: thin solid grey }
+.toc .lesson { display: flex; counter-increment: lessonNo 1; padding: 0.8em }
+.toc .lesson:nth-child(even) { background-color: lightsteelblue }
+.toc div.lesson:before { content: attr(class) ' ' counter(lessonNo); background-color: lavender; color: midnightblue; padding: 0.2em; font-family: sans-serif; display: inline-block; height: fit-content }
+.toc .unit { width: 23vw }
+section section section { margin: 0.2em; margin-left: 1em; padding-left: 0.6em; border-left: medium solid grey }
+
+section.unit   { max-width: 60em; padding: 0.8em; outline: thin solid black; margin: 0.6em 0em }
+section.unit h1:first-child { margin-top: 0em }
+.observer { background-color: honeydew }
+.maker    { background-color: seashell }
+.learner  { background-color: aliceblue }                 
                   
-                  
-               </style>
+</style>
    </head>
    <body>
       <div class="toc">
          <div class="lesson">
-            <div class="unit">
+            <div class="unit observer"
+                 data-track="observer">
                <h1>101: Project setup and installation</h1>
-               <div>
+               <div class=" ">
                   <h2>Goals</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Prerequisites</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Resources</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Step One: Setup</h2>
-                  <div>
+                  <div class=" ">
                      <h3>Shortcut</h3>
                   </div>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Step Two: Confirm</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Comments / review</h2>
-                  <div>
+                  <div class=" ">
                      <h3>Tweaks</h3>
                   </div>
                </div>
             </div>
-            <div class="unit">
+            <div class="unit maker"
+                 data-track="maker">
                <h1>102: Examining the setup</h1>
-               <div>
+               <div class=" ">
                   <h2>Goals</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Resources</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Prerequisites</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Step One: Inspect the pipelines</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Step Two: Modify the pipelines</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>For consideration</h2>
                </div>
             </div>
-            <div class="unit">
+            <div class="unit learner"
+                 data-track="learner">
                <h1>599: Meeting XProc</h1>
-               <div>
+               <div class=" ">
                   <h2>Some observations</h2>
                </div>
             </div>
          </div>
          <div class="lesson">
-            <div class="unit">
+            <div class="unit observer"
+                 data-track="observer">
                <h1>101: Unpacking XProc 3.0</h1>
-               <div>
+               <div class=" ">
                   <h2>Goals</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Resources</h2>
-                  <div>
+                  <div class=" ">
                      <h3>For reference</h3>
                   </div>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Prerequisites</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>A closer look</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Walkthrough</h2>
-                  <div>
+                  <div class=" ">
                      <h3>TEST-XPROC3</h3>
                   </div>
-                  <div>
+                  <div class=" ">
                      <h3>TEST-XSLT</h3>
                   </div>
-                  <div>
+                  <div class=" ">
                      <h3>TEST-SCHEMATRON</h3>
                   </div>
-                  <div>
+                  <div class=" ">
                      <h3>TEST-XSPEC</h3>
                   </div>
                </div>
-               <div>
+               <div class=" ">
                   <h2>A not-so-simple pipeline</h2>
-                  <div>
+                  <div class=" ">
                      <h3>What do we see</h3>
                   </div>
                </div>
-               <div>
+               <div class=" ">
                   <h2>XML syntax, XPath and XProc</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Learning more about XProc</h2>
                </div>
             </div>
-            <div class="unit">
+            <div class="unit maker"
+                 data-track="maker">
                <h1>102: XProc fundamentals</h1>
-               <div>
+               <div class=" ">
                   <h2>Goals</h2>
                </div>
-               <div>
-                  <h2>Resources</h2>
-               </div>
-               <div>
+               <div class=" ">
                   <h2>Prerequisites</h2>
                </div>
-               <div>
+               <div class=" ">
+                  <h2>Resources</h2>
+               </div>
+               <div class=" ">
                   <h2>Learning more about XProc</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Details details!</h2>
-                  <div>
+                  <div class=" ">
                      <h3>TEST-XSPEC</h3>
                   </div>
-                  <div>
-                     <h3>PRODUCE-TUTORIAL-ELEMENTLIST.xpl</h3>
+                  <div class=" ">
+                     <h3>PRODUCE-PROJECTS-ELEMENTLIST.xpl</h3>
                   </div>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Messing around</h2>
-                  <div>
+                  <div class=" ">
                      <h3>Disabling your code</h3>
                   </div>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Take note</h2>
-                  <div>
+                  <div class=" ">
                      <h3>Where are these downloads coming from?</h3>
                   </div>
-                  <div>
+                  <div class=" ">
                      <h3>Syntax tips</h3>
                   </div>
                </div>
             </div>
-            <div class="unit">
-               <h1>599: More context</h1>
-               <div>
+            <div class="unit learner"
+                 data-track="learner">
+               <h1>399: XProc, XML and XDM  (the XML Data Model)</h1>
+               <div class=" ">
                   <h2>Goals</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Resources</h2>
                </div>
-               <div>
+               <div class=" ">
                   <h2>Prerequisites</h2>
                </div>
-               <div>
-                  <h2>XProc schema</h2>
-               </div>
-               <div>
-                  <h2>XPath</h2>
-                  <div>
-                     <h3>Documents and data</h3>
+               <div class=" ">
+                  <h2>XProc as XML</h2>
+                  <div class=" ">
+                     <h3>Survey of XProc elements</h3>
                   </div>
                </div>
-               <div>
-                  <h2>Survey of XProc elements</h2>
-               </div>
-               <div>
-                  <h2>XML time line</h2>
-               </div>
-               <div>
-                  <h2>XPath illustrative examples</h2>
-               </div>
-               <div>
+               <div class=" ">
                   <h2>XML and the XDM: context and rationale</h2>
                </div>
-               <div>
+               <div class=" ">
+                  <h2>Snapshot history: an XML time line</h2>
+               </div>
+               <div class=" ">
+                  <h2>XPath</h2>
+                  <div class=" ">
+                     <h3>Documents and data</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>XPath illustrative examples</h3>
+                  </div>
+               </div>
+               <div class=" ">
                   <h2>Exercise: Discussion board</h2>
+               </div>
+            </div>
+         </div>
+         <div class="lesson">
+            <div class="unit observer"
+                 data-track="observer">
+               <h1>101: OSCAL from XML to JSON and back</h1>
+               <div class=" ">
+                  <h2>Goals</h2>
+               </div>
+               <div class=" ">
+                  <h2>Prerequisites</h2>
+               </div>
+               <div class=" ">
+                  <h2>Resources</h2>
+               </div>
+               <div class=" ">
+                  <h2>Step zero: an identity pipeline</h2>
+               </div>
+               <div class=" ">
+                  <h2>Step zero-point-five: XML to JSON and back</h2>
+               </div>
+               <div class=" ">
+                  <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
+                  <div class=" ">
+                     <h3>The playing field is the internet</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>Consider the options</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>Step two: return trip</h2>
+               </div>
+               <div class=" ">
+                  <h2>What is this XSLT?</h2>
+               </div>
+               <div class=" ">
+                  <h2>What could possibly go wrong?</h2>
+                  <div class=" ">
+                     <h3>Intercepting errors</h3>
+                  </div>
+               </div>
+            </div>
+            <div class="unit maker"
+                 data-track="maker">
+               <h1>102: Hands on data conversions</h1>
+               <div class=" ">
+                  <h2>Goals</h2>
+               </div>
+               <div class=" ">
+                  <h2>Prerequisites</h2>
+               </div>
+               <div class=" ">
+                  <h2>Resources</h2>
+               </div>
+               <div class=" ">
+                  <h2>Some breaking and making</h2>
+               </div>
+               <div class=" ">
+                  <h2>Designating an input at runtime by binding input ports</h2>
+                  <div class=" ">
+                     <h3>XXX edit this and move</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>Identity pipeline testbed</h2>
+                  <div class=" ">
+                     <h3>0.01 - what is a <q>document</q>
+                     </h3>
+                     <h3>0.1 - loading documents known or determinable in advance</h3>
+                     <h3>0.2 - binding a document to an input port</h3>
+                     <h3>0.3 - loading documents dynamically on discovery with <code>p:directory-list</code>
+                     </h3>
+                     <h3>0.4 - saving results to the file system</h3>
+                     <h3>0.5 - exposing results on an output port</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>Probing error space - data conversions</h2>
+                  <div class=" ">
+                     <h3>Converting broken XML or JSON</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>Converting broken OSCAL</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>Converting not-OSCAL</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>XProc diagnostic how-to</h2>
+                  <div class=" ">
+                     <h3>Emitting runtime messages</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>Saving out interim results</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>Validate early and often</h2>
+               </div>
+            </div>
+            <div class="unit learner"
+                 data-track="learner">
+               <h1>399: OSCAL from XML to JSON and back</h1>
+               <div class=" ">
+                  <h2>Goals</h2>
+               </div>
+               <div class=" ">
+                  <h2>Prerequisites</h2>
+               </div>
+               <div class=" ">
+                  <h2>Resources</h2>
+               </div>
+               <div class=" ">
+                  <h2>Overview: the anatomy of an XProc pipeline</h2>
+                  <div class=" ">
+                     <h3>XProc files</h3>
+                     <div class=" ">
+                        <h4>XProc document element</h4>
+                     </div>
+                     <div class=" ">
+                        <h4>Namespaces</h4>
+                     </div>
+                     <div class=" ">
+                        <h4>@name and @type</h4>
+                     </div>
+                  </div>
+                  <div class=" ">
+                     <h3>Prologue and body</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>XProc steps</h3>
+                     <div class=" ">
+                        <h4>XProc as an XML document</h4>
+                     </div>
+                     <div class=" ">
+                        <h4>XProc embedded documentation</h4>
+                     </div>
+                  </div>
+                  <div class=" ">
+                     <h3>Atomic and compound steps</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>Namespaces and extension steps</h3>
+                  </div>
+                  <div class=" ">
+                     <h3>Schema for XProc 3.0</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>Some breaking and making</h2>
+               </div>
+               <div class=" ">
+                  <h2>What could possibly go wrong?</h2>
+                  <div class=" ">
+                     <h3>Intercepting errors</h3>
+                  </div>
+               </div>
+               <div class=" ">
+                  <h2>for 599: XProc for JSON</h2>
+               </div>
+               <div class=" ">
+                  <h2>for 599: YAML TODO</h2>
+               </div>
+               <div class=" ">
+                  <h2>for 599: XProc port bindings</h2>
+               </div>
+               <div class=" ">
+                  <h2>for 599: URIs and URI schemes</h2>
+               </div>
+               <div class=" ">
+                  <h2>for 599: round tripping as process test</h2>
+               </div>
+            </div>
+         </div>
+         <div class="lesson">
+            <div class="unit maker"
+                 data-track="maker">
+               <h1>Practicum: Learn by Teaching</h1>
+               <div class=" ">
+                  <h2>Goals</h2>
+               </div>
+               <div class=" ">
+                  <h2>Prerequisites</h2>
+               </div>
+               <div class=" ">
+                  <h2>Resources</h2>
+               </div>
+               <div class=" ">
+                  <h2>Improve or enhance a lesson or lesson unit</h2>
+               </div>
+               <div class=" ">
+                  <h2>Create a new lesson unit ('area')</h2>
+               </div>
+               <div class=" ">
+                  <h2>Produce a new project and document it with a tutorial</h2>
                </div>
             </div>
          </div>
       </div>
       <section class="lesson"
                id="setup">
-         <section class="unit"
-                  id="setup_101">
+         <section class="unit observer"
+                  id="setup_101"
+                  data-track="observer">
             <h1>101: Project setup and installation</h1>
             <section>
                <h2>Goals</h2>
-               <p>Run an XProc 3.0 pipeline in an XProc 3.0 engine. See the results.</p>
+               <p>Set up and run an XProc 3.0 pipeline in an XProc 3.0 engine. See the results.</p>
                <p>With a little practice, become comfortable running XProc pipelines, seeing results on a console (command
             line) window as well as in the file system.</p>
                <p>After the first script to get the XProc engine, we use XProc for subsequent downloads. Finishing the setup
@@ -216,10 +424,10 @@
                <h2>Prerequisites</h2>
                <p>You have Java installed with a JVM (Java Virtual Machine) available on the command line (a JRE or JDK),
             version 8 (and later).</p>
-               <p>You have a live Internet connection and the capability to download and save resources (binaries and code
-            libraries) for local use.</p>
                <p>
                   <b>Tip:</b> check your Java version from the console using <code>java --version</code>.</p>
+               <p>Also, you have a live Internet connection and the capability to download and save resources (binaries and
+            code libraries) for local use.</p>
                <p>You are comfortable entering commands on the command line. For installation, you want a <code>bash</code>
             shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use
                <code>bash</code>, the setup can be done by hand (downloading and unpacking a package from
@@ -231,10 +439,15 @@
             </section>
             <section>
                <h2>Resources</h2>
-               <p>The setup script is a <code>bash</code> script: <a href="../../../setup.sh">./setup.sh</a>, to be run with no arguments.</p>
-               <p>For XProc runtime — to execute pipelines — use either of the scripts <a href="../../../xp3.sh">./xp3.sh</a> (under <code>bash</code>) or <a href="../../../xp3.bat">./xp3.bat</a> (for Windows). These scripts are
-            used for all pipelines (basically, for everything) unless otherwise noted.</p>
-               <p>The following pipelines will be run. They are described in top-level <a href="../../../README.md">README</a> documentation and the expected places.</p>
+               <p>The setup script is a <code>bash</code> script: <a href="../../../setup.sh">./setup.sh</a>, to be run with
+            no arguments. See <a href="../../../setup-notes.md">top-level documentation</a> if you can't use this script
+            or if you prefer to download and unzip the dependencies by hand.</p>
+               <p>For XProc runtime — to execute pipelines — use either of the scripts <a href="../../../xp3.sh">./xp3.sh</a>
+            (under <code>bash</code>) or <a href="../../../xp3.bat">./xp3.bat</a> (for Windows). These scripts are used
+            for all pipelines (basically, for everything) unless otherwise noted.</p>
+               <p>To perform the setup: first, you download an XProc engine; then you complete setup and testing by running
+            these pipelines. They are described in top-level <a href="../../../README.md">README</a> documentation and
+            the expected places.</p>
                <ul>
                   <li>
                      <a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a>
@@ -261,16 +474,17 @@
             </section>
             <section>
                <h2>Step One: Setup</h2>
-               <p>Find setup instructions for the repository in the <a href="../../../README.md">Project README</a> and in the linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
-               <p>After reading and reviewing these documents, perform the setup as instructed. To do this you can either
-            fork or clone the repository in GitHub or simply download and decompress a zip of the <a href="https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip">current
+               <p>Find setup instructions for the repository in the <a href="../../../README.md">Project README</a> and in the
+            linked <a href="../../../setup-notes.md">Setup Notes</a>.</p>
+               <p>After reading and reviewing these documents, perform the setup on your system as instructed. To do this you
+            can either fork or clone the repository in GitHub or simply download and decompress a zip of the <a href="https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip">current
             distribution</a>.</p>
                <p>After running the setup script, or performing the installation by hand, make sure you can run all the smoke
             tests successfully.</p>
                <p>As noted in the docs, if you happen already to have <a href="https://www.xml-project.com/morganaxproc-iiise.html">Morgana XProc III</a>, you do not need to
-            download it again. Try skipping straight to the smoke tests. (You can use a runtime script
+            download it again. Try skipping straight to the smoke tests. You can use a runtime script
                <code>xp3.sh</code> or <code>xp3.bat</code> as a model for your own, and adjust. Any reasonably recent
-            version of Morgana should function if configured correctly, and we are interested if it does not.) </p>
+            version of Morgana should function if configured correctly, and we are interested if it does not. </p>
                <section>
                   <h3>Shortcut</h3>
                   <p>If you want to run through the tutorial exercises but you are unsure of how deeply you will delve, you
@@ -280,8 +494,8 @@
                      <li>You will need SchXSLT only when you want to run Schematron (or XSpec tests of Schematron)</li>
                   </ul>
                   <p>When you see tracebacks suggesting one of these is not supported, you can return to setup.</p>
-                  <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0 with XPath 3.1), consider
-               the Saxon installation an essential requirement.</p>
+                  <p>Since almost any pipeline will use XSLT and since we do use the latest version (XSLT 3.0 with XPath 3.1),
+               consider the Saxon installation an essential requirement.</p>
                </section>
             </section>
             <section>
@@ -295,21 +509,20 @@
                <p>Both of those will occur with this lesson. The files produced by downloading scripts are written into the
             project <code>lib</code> directory, as documented. Refresh or restore by deleting the downloaded files and
             running the pipelines to acquire them again.</p>
-               <p>Note: you need a live Internet connection for your http requests to go through.</p>
+               <p>Note: you need a live Internet connection for your <code>http</code> requests to go through.</p>
                <p>When you can run all the smoke tests without ugly tracebacks, this lesson is complete.</p>
             </section>
             <section>
                <h2>Comments / review</h2>
                <p>Within this project as a whole, and within its subprojects, everything is done with XProc 3.0, meaning
             everything can be done using a single script, which invokes an XProc processor to read and execute a
-            pipeline. This simplicity is at the center of the argument for XProc. The counter argument is that the world
-            is never like that. This project is based on the premise that a lab environment can be useful even for
-            studying things more commonly encountered in the real world.</p>
+            pipeline. This simplicity is at the center of the argument for XProc. </p>
                <p>Effectively (and much more could be said about the processing stack, dependency management and so forth)
             what this means is that XProc offers the user and the developer (in either or both roles) with focused and
-            concentrated points of control or points of adjustment. In the field -- where software is deployed and
-            used -- things almost never just <q>drop in</q>. User interfaces, APIs, dependencies and platform quirks: all these 
-            constrain what users can do, and even developers are rarely free to just mess around, as it might be thought of.</p>
+            concentrated points of control or points of adjustment. In the field – where software is deployed and used –
+            things almost never just <q>drop in</q>. User interfaces, APIs, dependencies and platform quirks: all these
+            constrain what users can do, and even developers are rarely free to just mess around, as it might be thought
+            of.</p>
                <p>To the extent this is the case, this project only works if things are actually simple enough to pick up,
             use, learn and adapt.</p>
                <p>
@@ -323,8 +536,8 @@
             designated. XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data
             processing, both XML-based and using other formats such as JSON and plain text. It is the intent of this
             project not to explore and map this space – which is vast – but to show off enough XProc and related logic
-            (XSLT, XSpec) to show how this exploration can be done. We are an outfitter at the beginning of what
-            we hope will be a long and profitable voyage.</p>
+            (XSLT, XSpec) to show how this exploration can be done. We are an outfitter at the beginning of what we hope
+            will be a long and profitable voyage.</p>
                <section>
                   <h3>Tweaks</h3>
                   <p>As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple
@@ -337,8 +550,8 @@
                   <p>This works the same ways on Windows, with adjustments: </p>
                   <pre>&gt; ..\xp3 TEST-XPROC3.xpl </pre>
                   <p>(On Windows a <code>bat</code> file suffix marks it as executable and does not have to be given
-               explicitly when calling.)</p>
-                  <p>Windows users (and others to varying degrees) can set up a drag-and-drop based workflow - using your
+               explicitly when called.)</p>
+                  <p>Windows users (and others to varying degrees) can set up a drag-and-drop based workflow – using your
                mouse or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows
                batch file). A command window opens to show the operation of the pipeline. See the <a href="../../README.md">README</a> for more information.</p>
                   <p>It is important to try things out since any of these methods can be the basis of a workflow. </p>
@@ -350,14 +563,15 @@
                </section>
             </section>
          </section>
-         <section class="unit"
-                  id="setup_102">
+         <section class="unit maker"
+                  id="setup_102"
+                  data-track="maker">
             <h1>102: Examining the setup</h1>
             <section>
                <h2>Goals</h2>
                <ul>
                   <li>Look at some pipeline organization and syntax on the inside</li>
-                  <li>Success and failure invoking XProc pipelines: an early chance to "learn to die" gracefully (to use the
+                  <li>Success and failure invoking XProc pipelines: an early chance to <q>learn to die</q> gracefully (to use the
                gamers' idiom).</li>
                </ul>
             </section>
@@ -384,8 +598,8 @@
                <p>The two groupings of pipelines used in setup and testing can be considered separately.</p>
                <p>The key to understanding both groups is to know that once the initial <a href="../../../setup.sh">Setup
                script</a> is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing
-            so – before extension libraries are in place – it can use only basic XProc steps, but those are enough for
-            these purposes.</p>
+            so – before extension libraries are in place – it can use only basic XProc steps, but those are enough to
+            start with.</p>
                <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
             unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
             (Morgana) can use to do more.</p>
@@ -414,8 +628,8 @@
                   <li>
                      <a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec</li>
                </ul>
-               <p>Take a look at these. It may be helpful to envision the XML syntax as a set of nested frames with labels and
-            connectors.</p>
+               <p>Take a look at these files. It may be helpful to envision the XML syntax as a set of nested frames with
+            labels and connectors.</p>
                <p>Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in
             a plain text editor, in an XML editor.</p>
             </section>
@@ -423,8 +637,8 @@
                <h2>Step Two: Modify the pipelines</h2>
                <p>Use a text editor or software development application for this exercise.</p>
                <p>If you have any concepts for improvements to the pipelines, or other resources that might be acquired this way, copy and modify one of the pipelines given to achieve those results.</p>
-               <p>Even if not - be sure to break the pipelines given -- or copies under new names -- in any of several ways.
-            Then run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
+               <p>Even if not: be sure to break the pipelines given – or copies under new names – in any of several ways. Then
+            run the modified pipelines, as a <i>safe way</i> to familiarize yourself with error messages:</p>
                <ul>
                   <li>Break the XML syntax of a pipeline and try to run it</li>
                   <li>Leave XML syntax intact (well-formed), but break something in the XProc <ul>
@@ -434,7 +648,8 @@
                   </li>
                   <li>Try to retrieve something from a broken link</li>
                </ul>
-               <p>Make sure that pipelines are back in working order when this exercise is complete.</p>
+               <p>Having introduced an error, reverse the damage. Make sure your pipelines are back in working order when this
+            exercise is complete.</p>
             </section>
             <section>
                <h2>For consideration</h2>
@@ -445,33 +660,41 @@
                <p>Key to this question is not only whether attractive and capable user interfaces (or other mediators) can be
             developed (this is a known problem) but more importantly whether the systems themselves are adaptable enough
             so they can be deployed, used, refitted and maintained not just for repetitive generic tasks, but for
-               <i>particular</i>, <i>special</i> and <i>local</i> problems discovered only at the points where
-            information is gathered and codified.</p>
+               <i>particular</i>, <i>special</i> and <i>local</i> problems, especially those discoverable only at the
+            points where information is gathered and codified.</p>
                <p>This larger fitting of solutions to problems is a responsibility for both SMEs (subject matter experts) and
-            developers together, who must define problems to be solved before approaches to them can be found.</p>
+            software developers together, who must define problems to be solved before approaches to them can be
+            found.</p>
                <p>The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions
             come up in an OSCAL context or any context where XML is demonstrably capable.</p>
+               <p>Having completed and tested the setup you are ready for work with XProc: proceed to the next lesson.</p>
             </section>
          </section>
-         <section class="unit"
-                  id="setup_599">
+         <section class="unit learner"
+                  id="setup_599"
+                  data-track="learner">
             <h1>599: Meeting XProc</h1>
             <section>
                <h2>Some observations</h2>
                <p>Because it is now centered on <i>pipelines</i> as much as on files and software packages, dependency
-            management is different from other technologies including Java and NodeJS - how so?</p>
+            management is different from other technologies including Java and NodeJS –  how so?</p>
                <p>MorganaXProc-III is implemented in Scala, and Saxon is built in Java, but otherwise distributions including
             the SchXSLT and XSpec distributions consist mainly of XSLT. This is either very good (with development and
             maintenance requirements in view), or not good at all.</p>
-               <p>How much of this is due to the high-level, abstracted nature of <a href="https://en.wikipedia.org/wiki/Fourth-generation_programming_language">4GLs</a> including both XSLT
-            3.1 and XProc 3.0?</p>
+               <p>Which is it, and what are the determining variables that tell you XProc is a good fit? How much of this is
+            due to the high-level, abstracted nature of <a href="https://en.wikipedia.org/wiki/Fourth-generation_programming_language">4GLs</a> including both XSLT
+            3.1 and XProc 3.0? Prior experience with XML-based systems and the problem domains in which they work well
+            is probably a factor. How much are the impediments technical, and how much are they due to culture?</p>
+               <p>The next lesson unit includes more information on where to learn about XProc and how to become familiar not
+            only with its uses in connection with OSCAL, but in general.</p>
             </section>
          </section>
       </section>
       <section class="lesson"
                id="unpack">
-         <section class="unit"
-                  id="unpack_101">
+         <section class="unit observer"
+                  id="unpack_101"
+                  data-track="observer">
             <h1>101: Unpacking XProc 3.0</h1>
             <section>
                <h2>Goals</h2>
@@ -484,7 +707,7 @@
                <h2>Resources</h2>
                <p>This lesson discusses, in more depth, the same pipelines you ran in setup: <a href="../setup/setup_101_src.html"
                      class="LessonUnit">Setup 101</a>, in particular <a href="../../../smoketest/readme.md">the smoke test pipelines</a>.</p>
-               <p>Also, this lesson discusses a pipeline used for producing this tutorial: <a href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">PRODUCE-TUTORIAL-ELEMENTLIST.xpl</a> generates an <a href="../../sequence/element-directory.md">index to XProc in this repository</a>
+               <p>Also, this lesson discusses a pipeline used for producing this tutorial: <a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> generates an <a href="../../sequence/element-directory.md">index to XProc in this repository</a>
                </p>
                <section>
                   <h3>For reference</h3>
@@ -502,9 +725,10 @@
                <h2>A closer look</h2>
                <p>If you have completed <a href="../setup/setup_101_src.html"
                      class="LessonUnit">Setup 102</a> you have
-            already inspected the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md">smoketest</a> folders, and run pipelines you have found there.</p>
-               <p>Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a
-            copy.</p>
+            already inspected the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md">smoketest</a> folders, and run pipelines you have found there. If you haven't, now is the moment to
+            catch up.</p>
+               <p>Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a copy
+            of the distribution.</p>
                <p>A quick summary of what these pipelines do:</p>
                <ul>
                   <li>
@@ -594,7 +818,7 @@
                      <li>
                         <code>p:namespace-delete</code> – The <code>ox</code> namespace is stripped from the result as in <a href="../../../smoketest/TEST-XPROC3.xpl">TEST-XPROC3 pipeline</a>. This could have been done in
                   the XSLT as well, but this way the transformation has one less thing to do or go wrong. More simpler
-                  steps being better than fewer complicated ones.</li>
+                  steps prove more legible and tractable than fewer complicated ones.</li>
                   </ul>
                   <p>Like the <a href="../../../smoketest/TEST-XPROC3.xpl">TEST-XPROC3 pipeline</a> this pipeline shows its
                results in the console. This time the result is not just the XML given in the pipeline, but that XML as
@@ -631,7 +855,7 @@
                Schematron. It takes the form of a vocabulary and a process (inevitably implemented in XSLT and XQuery)
                for executing queries, transformations, and validations, by running them over known inputs, comparing the
                results to expected results, and reporting the results of this comparison. XProc, built to orchestrate
-               manipulations of XML contents, is well suited for running XSpec with no additional overhead.</p>
+               manipulations of XML contents, is well suited for running XSpec.</p>
                   <p>An XSpec instance (or <q>document</q>) defines a set of tests for a transformation or query module using
                the XSpec vocabulary. An XSpec implementation executes the tests and delivers the results. Since XSpec,
                like Schematron, reports its findings in XML, XProc can be useful both to manage the inputs and outputs,
@@ -652,6 +876,10 @@
                      <q>no-op</q> in the XProc itself, it provides an occasion for a message to help trace the XProc
                   execution.</li>
                   </ul>
+                  <p>
+                     <a href="unpack_102_src.html"
+                        class="LessonUnit">The next lesson</a> offers more detail about this
+               pipeline.</p>
                </section>
             </section>
             <section>
@@ -659,20 +887,24 @@
                <p>These simple pipelines show how useful things can be done simply, while the pipeline architecture allows for
             great flexibility.</p>
                <p>Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be
-            managed and deployed just like asimple one, its internal complexities being masked by a simple and
+            managed and deployed just like a simple one, with its internal complexities masked by a simple and
             predictable interface.</p>
-               <p>Next, take a look at a more complex example, the prototype pipeline <a href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">PRODUCE-TUTORIAL-ELEMENTLIST.xpl</a>. Like the setup and
+               <p>Next, take a look at a more complex example, the prototype pipeline <a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a>. Like the setup and
             smoke-test pipelines, this is a standalone pipeline that acquires inputs and produces results and writes
-            those results to the file system. The output it generates is stored as <a href="../../sequence/element-directory.md">element-directory.md</a>, a Markdown file.</p>
+            those results to the file system. The output it generates is stored as <a href="../../sequence/element-directory.md">element-directory.md</a>, a Markdown file (find the
+               <code>p:store</code> step).</p>
                <p>This result presents an index of XProc elements used in pipelines described in this tutorial. For any XProc
             element used anywhere, the listing shows the pipelines where it appears. It also shows a list of project
             folders in the order they are treated by this tutorial, showing for each one the XProc files found there
             along with whatever XProc elements appear <i>first</i> (within the tutorial sequence) within that
             pipeline.</p>
                <p>Delete or rename this result file and run the pipeline to confirm it functions properly.</p>
-               <p>The Markdown file produced may be useful for finding XPoc examples in the repository. Consider also what
-            other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines to the project
-            folders, consider running this pipeline again to update the indexes.</p>
+               <p>The Markdown file produced may be useful for finding XPoc examples in the repository. First, an ordered list
+            of pipelines indicates which XProc steps are used <q>first</q> (i.e., within the sequence, which parallels
+            the lesson sequence). Following this is a list of all steps with all pipelines containing them. For example,
+            looking up <code>p:store</code> you can see all the pipelines that contain this common step.</p>
+               <p>Consider also what other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines
+            to the project folders, consider running this pipeline again to update the indexes.</p>
                <p>Open the file and inspect it to get a sense of what it does. The XML syntax is verbose, but not really all
             that frightening. The pipeline is described in more detail in the <a href="unpack_102_src.html"
                      class="LessonUnit">102 Lesson unit</a> in this lesson.</p>
@@ -683,10 +915,11 @@
                   <ul>
                      <li>Of course, it is longer and more complex, reflecting the complexity of the operations it
                   performs.</li>
-                     <li>Unlike the test pipelines, this XProc has no input port, hence no documents considered as input.
-                  Instead, it collects data to process by <i>reading the file system</i> and loading files directly.
-                  This is especially useful here as it includes everything it finds – meaning we can extend or update
-                  the index by adding files and running the pipeline again, without altering any pipeline logic.</li>
+                     <li>Unlike the test pipelines, this XProc has no input port, hence no way to provide documents to be
+                  considered as input. Instead, it collects data to process by <i>reading the file system</i> and
+                  loading files directly. This is especially useful here as it includes everything it finds – meaning we
+                  can extend or update the index by adding files and running the pipeline again, without altering any
+                  pipeline logic.</li>
                   </ul>
                </section>
             </section>
@@ -714,15 +947,19 @@
                <h2>Learning more about XProc</h2>
                <p>This tutorial has a handmade<a href="../../xproc-links.md">XProc links page</a> with links.</p>
                <p>Also, see the official <a href="https://xproc.org">XProc.org dashboard page</a>.</p>
-               <p>Also, check out XProc index materials (with code snips) produced in this repository: <a href="../../../projects/xproc-doc/readme.md">XProc docs</a>. Produced using XProc, these
-            can be covered in detail in a later lesson unit.</p>
+               <p>Also, check out indexing logic offered in the <a href="../../../projects/xproc-doc/readme.md">xproc-doc
+               project folder</a>. It has pipelines producing useful indexes to XProc in this repository and in general,
+            including one producing an <a href="XPROC-STEP-INDEX-HTML.xpl">index to XProc simple steps</a>, with code
+            snips.</p>
                <p>There is <a href="https://xmlpress.net/publications/xproc-3-0/">a book, Erik Siegel's <i>XProc 3.0
                   Programmer's Reference</i>
-                  </a> (2020).</p>
+                  </a> (2020) and an <a href="https://xprocref.org/index.html">excellent
+               reference site</a> by the same author.</p>
             </section>
          </section>
-         <section class="unit"
-                  id="unpack_102">
+         <section class="unit maker"
+                  id="unpack_102"
+                  data-track="maker">
             <h1>102: XProc fundamentals</h1>
             <p>
             </p>
@@ -735,6 +972,13 @@
                </ul>
             </section>
             <section>
+               <h2>Prerequisites</h2>
+               <p>You have done <a href="../setup/setup_101_src.html"
+                     class="LessonUnit">Setup 101</a>, <a href="../setup/setup_101_src.html"
+                     class="LessonUnit">Setup 102</a> and <a href="unpack_101_src.html"
+                     class="LessonUnit">Unpack 101</a>.</p>
+            </section>
+            <section>
                <h2>Resources</h2>
                <p>Take a quick look <i>now</i> (and a longer look later):</p>
                <p>This tutorial's handmade <a href="../../xproc-links.md">XProc links page</a>
@@ -744,14 +988,8 @@
                <p>Also, check out XProc index materials produced in this repository: <a href="../../../projects/xproc-doc/readme.md">XProc docs</a>
                </p>
                <p>And the same pipelines you ran in setup: <a href="../setup/setup_101_src.html"
-                     class="LessonUnit">Setup 101</a>.</p>
-            </section>
-            <section>
-               <h2>Prerequisites</h2>
-               <p>You have done <a href="../setup/setup_101_src.html"
-                     class="LessonUnit">Setup 101</a>, <a href="../setup/setup_101_src.html"
-                     class="LessonUnit">Setup 102</a> and <a href="unpack_101_src.html"
-                     class="LessonUnit">Unpack 101</a>.</p>
+                     class="LessonUnit">Setup
+               101</a>.</p>
             </section>
             <section>
                <h2>Learning more about XProc</h2>
@@ -777,10 +1015,11 @@
                      <li>Where XSpec documents are bound to the input port <code>source</code>, they have
                      <code>content-type='application/xml'</code> given. This is because with the unconventional file
                   suffix <code>xspec</code> (useful for other reasons), the XProc engine needs extra information to know
-                  they should be read as XML, not some other data format. Try removing the <code>content-type</code> to </li>
+                  they should be read as XML, not some other data format. Try removing the <code>content-type</code> to
+                  see what happens when the engine does not know an XML file is XML.</li>
                      <li>The step <code>p:for-each</code> is not just a step: it also contains steps. It is a <em>compound
-                     step</em>, described further below. You would be correct to infer this step enables us to perform
-                  operations on several inputs in parallel: just what this pipeline needs.</li>
+                     step</em>. You would be correct to infer this step enables us to perform operations on several
+                  inputs in parallel: just what this pipeline needs.</li>
                      <li>Within the <code>p:for-each</code>, the step <code>ox:execute-xspec</code> is named in the
                      <code>ox</code> namespace, which resolves to the string
                      <code>http://csrc.nist.gov/ns/oscal-xproc3</code>, a value assigned for this project. This step is
@@ -807,8 +1046,8 @@
                   </ul>
                </section>
                <section>
-                  <h3>PRODUCE-TUTORIAL-ELEMENTLIST.xpl</h3>
-                  <p>The pipeline <a href="../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl">PRODUCE-TUTORIAL-ELEMENTLIST.xpl</a> has
+                  <h3>PRODUCE-PROJECTS-ELEMENTLIST.xpl</h3>
+                  <p>The pipeline <a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> has
                   <q>real-world complexity</q>. Reviewing its steps can give a sense of how XProc combines simple
                capabilities into complex operations. Notwithstanding the title of this section, it is not important to
                understand every detail – knowing they are there is enough.</p>
@@ -825,7 +1064,7 @@
                <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
             it behaves.</p>
                <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
-            modify the copy. Modifying one of the smoketest pipelines, see what happens when:</p>
+            modify the copy. Modifying any of the pipelines presented so far, see what happens when:</p>
                <ul>
                   <li>An <code>@href</code> points to a location on the system where there is no file</li>
                   <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
@@ -852,7 +1091,8 @@
                   <p>A code editor that supports XML might let you do this with a keystroke, for example <code>ctrl-,</code>
                (Control key plus comma), after selecting the text you wish to include in the comment.</p>
                   <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful
-               technique for rapidly and interactively testing your pipelines.</p>
+               technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks
+               of code.</p>
                </section>
             </section>
             <section>
@@ -889,16 +1129,17 @@
                </section>
             </section>
          </section>
-         <section class="unit"
-                  id="unpack_599">
-            <h1>599: More context</h1>
+         <section class="unit learner"
+                  id="unpack_399"
+                  data-track="learner">
+            <h1>399: XProc, XML and XDM  (the XML Data Model)</h1>
             <p>More in depth.</p>
             <section>
                <h2>Goals</h2>
                <ul>
                   <li>Consider XProc in its operational context including available <b>standards</b> and applicable
                   <b>requirements</b>, both generalized and local</li>
-                  <li>Learn or relearn some deep XML history including alternative approaches</li>
+                  <li>Consider the context of XProc by learning or relearning some deep XML history</li>
                   <li>Inform your capability to assess the utility and appropriateness of XProc in particular and XML in
                general, for a given problem or domain</li>
                </ul>
@@ -906,205 +1147,207 @@
             <section>
                <h2>Resources</h2>
                <p>The same pipelines you ran in setup: <a href="../setup/setup_101_src.html"
-                     class="LessonUnit">Setup 101</a>.</p>
+                     class="LessonUnit">Setup
+            101</a>.</p>
                <p>Also, <a href="https://xproc.org">XProc.org dashboard page</a>
                </p>
-               <p>Also, XProc index materials produced in this repository: <a href="../../../projects/xproc-doc/readme.md">XProc
-               docs</a>
+               <p>Also, XProc index materials produced in this repository: <a href="../../../projects/xproc-doc/readme.md">XProc docs</a>
                </p>
             </section>
             <section>
                <h2>Prerequisites</h2>
-               <p>Same as <a href="../setup/setup_101_src.html"
-                     class="LessonUnit">Setup 101</a>. Prior exercises, or the practical equivalent, are
-            assumed.</p>
+               <p>Coverage here provides background information; there are no prerequisites. Prior exercises, or the practical
+            equivalent, are assumed.</p>
             </section>
             <section>
-               <h2>XProc schema</h2>
-               <p>A schema for the XProc language, considered as core steps (compound and atomic) plus optional
-            community-defined steps, is referenced from the <a href="https://spec.xproc.org/3.0/xproc/#ancillary-files">XProc Specification</a>. <a href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is
-            very useful.</p>
+               <h2>XProc as XML</h2>
+               <p>XProc is defined as an XML vocabulary. A schema for the XProc language, considered as core steps (compound
+            and atomic) plus optional community-defined steps, is referenced from the <a href="https://spec.xproc.org/3.0/xproc/#ancillary-files">XProc Specification</a>. <a href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is very useful.</p>
                <p>It may often be considered gratuitous to validate XProc files against a schema, when the application (for
             us, Morgana) must in any case take responsibility for conformance issues, as it sees fit. The reference
             schema becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role
             in any runtime operation.</p>
-               <p>Nevertheless the RNG schema still serves as a reference and an object for querying -- queries whose results
-            tell us about XProc. <a href="../../GRAB-XPROC-RESOURCES.xpl">A pipeline</a> for acquiring both RNG schema
-            and its RNC (compact syntax) variant is provided for interest and possible later use.</p>
-            </section>
-            <section>
-               <h2>XPath</h2>
-               <p>Like other XDM-based technologies, XProc embeds and incorporates XPath, an expression language for XML.
-            XPath 3.0 is a functional language in its own right, although not designed for end-to-end processing of
-            encoded source data into encoded results, but only for certain critical operations that ordinarily need to
-            be performed within such end-to-end processing. Importantly, XPath is defined not in terms of any data
-            notation (such as XML syntax or any other) but rather against an <i>abstract data object</i>, namely an <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model), a putative information
-            object that may be provided to the system by parsing an XML (syntax) instance, or by other means. As the
-            query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the basis for XQuery, <a href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data model, which any
-            architect of a system using this technology must know. Learning XPath equips you mentally for dealing with
-            the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
-               <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips XPath 1.0 in many important respects.</p>
+               <p>Nevertheless, since XProc is XML, its schema still serves as a reference and an object for querying –
+            queries whose results tell us about XProc. <a href="../../GRAB-XPROC-RESOURCES.xpl">A pipeline</a> for
+            acquiring both the RNG schema and its RNC (compact syntax) variant is provided for interest and possible
+            later use.</p>
                <section>
-                  <h3>Documents and data</h3>
-                  <p>One of the more important features of XPath and the XDM is that they are designed not only to meet needs
-               for the representation and transmission of structured data. A specialized class of data formats has
-               evolved that represent information in ways that are not <q>unstructured</q>, but that contrast with more
-               common or usual structures of data formats, whether they be tabular data, serialization formats for
-               object models, or some other regular (formalized and codified) arrangement. One might say <q>common</q>
-               or <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
-                  <p>We see a great deal of structured data these days if only because it is so easy to make structured data
-               with machines, and we now have the machines. What remains difficult is to translate what has not been
-               created by a machine, into a form that a machine can <q>recognize</q>, or rather into a form we can
-               recognize in and with the machine, without destroying it.</p>
-                  <p>So documents are called <q>unstructured</q> but they might better be called <q>relatively irregular</q>,
-               meaning not that they have no structure, but that each one is structured in itself, and moreover, likely
-               to be incompatible or not fully compatible with encodings designed to capture other structures.</p>
-                  <p>And to the extent this is the case, any encoding capable of describing documents must have the capability
-               of supporting each document's own distinctive structure and organization, whether that be due to its
-               family (what is called a <b>document type</b>) or an expression of its own intrinsic logic. The format
-               must be not only structured, but <i>structurable</i>, and its structures must to some extent be capable
-               of self-description – combining data with metadata.</p>
-                  <p>And this is to give no consideration to the fact that these structures can be described at <i>multiple
-                  levels</i> of generality or specificity with regard to either their supposed semantics, or their
-               configuration in operation.</p>
-                  <p>Documentary data formats especially markup formats are designed to work in this in-between space.</p>
-                  <p>And so we get XPath - a query syntax which permits working with an organized structure of a particular kind
-               (an <i>XDM document tree</i>), which in turn is designed for handling the combination of <i>highly
-                  regular</i> and <i>quite irregular</i> data structures that characterize information sets we (loosely)
-               call <b>documentary</b>.</p>
-                  <p>A definition for what is a document is out of scope for this tutorial – an interesting topic but not only a
-               technical one.</p>
+                  <h3>Survey of XProc elements</h3>
+                  <p>All elements defined by XProc (at time of writing) are listed in this analytical breakout.</p>
+                  <p>
+                     <i>However</i>, this list is provisional and intended only to offer a wider view. For the most up to date
+               information, refer to specifications. In particular, XProc 3.1 makes this list a moving target. This may
+               be out of date by the time you are able to read it.</p>
+                  <p> NB also – see Erik Siegel's <a href="https://xprocref.org/index.html">XProcRef</a> indexing project for
+               more detailed summaries.</p>
+                  <table>
+                     <tbody>
+                        <tr>
+                           <th>Function</th>
+                           <th>XProc elements / p: namespace</th>
+                        </tr>
+                        <tr>
+                           <td>Documentation</td>
+                           <td>
+                              <code>p:documentation</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Top-level</td>
+                           <td>
+                              <code>p:declare-step</code>, <code>p:library</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Imports</td>
+                           <td>
+                              <code>p:import</code>, <code>p:import-functions</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Prologue</td>
+                           <td>
+                              <code>p:input</code>, <code>p:output</code>, <code>p:option</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Compound steps</td>
+                           <td>
+                              <code>p:group</code>, <code>p:for-each</code>, <code>p:viewport</code>, <code>p:if</code>,
+                        <code>p:choose</code> (with <code>p:when</code> and <code>p:otherwise</code>),
+                        <code>p:try</code> (with <code>p:catch</code> and <code>p:finally)</code>, <code>p:run</code>
+                     (with <code>p:run-input</code>, <code>p:run-option</code>)</td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - core - XML</td>
+                           <td>
+                              <code>p:add-attribute</code>, <code>p:add-xml-base</code>, <code>p:delete</code>,
+                        <code>p:filter</code>, <code>p:identity</code>, <code>p:insert</code>,
+                        <code>p:label-elements</code>, <code>p:make-absolute-uris</code>,
+                        <code>p:namespace-delete</code>, <code>p:namespace-rename</code>, <code>p:pack</code>,
+                        <code>p:rename</code>, <code>p:replace</code>, <code>p:set-attributes</code>,
+                        <code>p:uuid</code>, <code>p:unwrap</code>, <code>p:wrap-sequence</code>, <code>p:wrap</code>,
+                        <code>p:xinclude</code>, <code>p:xquery</code>, <code>p:xslt</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - core - zipping</td>
+                           <td>
+                              <code>p:archive</code>, <code>p:archive-manifest</code>, <code>p:unarchive</code>,
+                        <code>p:uncompress</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - core - JSON</td>
+                           <td>
+                              <code>p:json-join</code>, <code>p:json-merge</code>, <code>p:set-properties</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - core - plain text</td>
+                           <td>
+                              <code>p:string-replace</code>, <code>p:text-count</code>, <code>p:text-head</code>,
+                        <code>p:text-join</code>, <code>p:text-replace</code>, <code>p:text-sort</code>,
+                        <code>p:text-tail</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - core - utility</td>
+                           <td>
+                              <code>p:cast-content-type</code>, <code>p:compare</code>, <code>p:compress</code>,
+                        <code>p:count</code>, <code>p:error</code>, <code>p:hash</code>, <code>p:http-request</code>,
+                        <code>p:load</code>, <code>p:sink</code>, <code>p:split-sequence</code>, <code>p:store</code>,
+                        <code>p:www-form-urldecode</code>, <code>p:www-form-urlencode</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - optional - file system</td>
+                           <td>
+                              <code>p:directory-list</code>, <code>p:file-copy</code>, <code>p:file-delete</code>,
+                        <code>p:file-info</code>, <code>p:file-mkdir</code>, <code>p:file-move</code>,
+                        <code>p:file-create-tempfile</code>, <code>p:file-touch</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Atomic steps - optional - validation</td>
+                           <td>
+                              <code>p:validate-with-nvdl</code>, <code>p:validate-with-relax-ng</code>,
+                        <code>p:validate-with-schematron</code>, <code>p:validate-with-xml-schema</code>,
+                        <code>p:validate-with-json-schema</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Other optional steps</td>
+                           <td>
+                              <code>p:os-info</code>, <code>p:os-exec</code>, <code>p:css-formatter</code>,
+                        <code>p:xsl-formatter</code>, <code>p:markdown-to-html</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Variable declaration</td>
+                           <td>
+                              <code>p:variable</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Connectors</td>
+                           <td>
+                              <code>p:with-input</code>, <code>p:with-option</code>, <code>p:pipe</code>,
+                        <code>p:pipeinfo</code>, <code>p:document</code>, <code>p:inline</code>,
+                     <code>p:empty</code>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
                </section>
             </section>
             <section>
-               <h2>Survey of XProc elements</h2>
-               <p>All elements defined by XProc are listed in this analytical breakout.</p>
-               <p>TODO - tbd - reformat this table for legibility (CSS grids); validate its completeness against XProc
-            RNG?</p>
-               <p>NB - XProc 3.1 makes this a moving target.</p>
-               <p>NB also – see Erik Siegel's <a href="https://xprocref.org/index.html">XProcRef</a> indexing project for more
-            detailed summaries.</p>
-               <table>
-                  <tbody>
-                     <tr>
-                        <th>Function</th>
-                        <th>XProc elements / p: namespace</th>
-                     </tr>
-                     <tr>
-                        <td>Documentation</td>
-                        <td>
-                           <code>p:documentation</code>, , </td>
-                     </tr>
-                     <tr>
-                        <td>Top-level</td>
-                        <td>
-                           <code>p:declare-step</code>, <code>p:library</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Imports</td>
-                        <td>
-                           <code>p:import</code>, <code>p:import-functions</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Prologue</td>
-                        <td>
-                           <code>p:input</code>, <code>p:output</code>, <code>p:option</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Compound steps</td>
-                        <td>
-                           <code>p:for-each</code>, <code>p:viewport</code>, <code>p:choose</code>, <code>p:when</code>,
-                     <code>p:otherwise</code>, <code>p:if</code>, <code>p:group</code>, <code>p:try</code>,
-                     <code>p:catch</code>, <code>p:finally</code>, <code>p:run</code>, <code>p:run-input</code>,
-                     <code>p:run-option</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - XML</td>
-                        <td>
-                           <code>p:add-attribute</code>, <code>p:add-xml-base</code>, <code>p:delete</code>,
-                     <code>p:filter</code>, <code>p:identity</code>, <code>p:insert</code>,
-                     <code>p:label-elements</code>, <code>p:make-absolute-uris</code>, <code>p:namespace-delete</code>,
-                     <code>p:namespace-rename</code>, <code>p:pack</code>, <code>p:rename</code>,
-                  <code>p:replace</code>, <code>p:set-attributes</code>, <code>p:uuid</code>, <code>p:unwrap</code>,
-                     <code>p:wrap-sequence</code>, <code>p:wrap</code>, <code>p:xinclude</code>, <code>p:xquery</code>,
-                     <code>p:xslt</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - zipping</td>
-                        <td>
-                           <code>p:archive</code>, <code>p:archive-manifest</code>, <code>p:unarchive</code>,
-                     <code>p:uncompress</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - JSON</td>
-                        <td>
-                           <code>p:json-join</code>, <code>p:json-merge</code>, <code>p:set-properties</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - plain text</td>
-                        <td>
-                           <code>p:string-replace</code>, <code>p:text-count</code>, <code>p:text-head</code>,
-                     <code>p:text-join</code>, <code>p:text-replace</code>, <code>p:text-sort</code>,
-                     <code>p:text-tail</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - core - utility</td>
-                        <td>
-                           <code>p:cast-content-type</code>, <code>p:compare</code>, <code>p:compress</code>,
-                     <code>p:count</code>, <code>p:error</code>, <code>p:hash</code>, <code>p:http-request</code>,
-                     <code>p:load</code>, <code>p:sink</code>, <code>p:split-sequence</code>, <code>p:store</code>,
-                     <code>p:www-form-urldecode</code>, <code>p:www-form-urlencode</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - optional - file system</td>
-                        <td>
-                           <code>p:directory-list</code>, <code>p:file-copy</code>, <code>p:file-delete</code>,
-                     <code>p:file-info</code>, <code>p:file-mkdir</code>, <code>p:file-move</code>,
-                     <code>p:file-create-tempfile</code>, <code>p:file-touch</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Atomic steps - optional - validation</td>
-                        <td>
-                           <code>p:validate-with-nvdl</code>, <code>p:validate-with-relax-ng</code>,
-                     <code>p:validate-with-schematron</code>, <code>p:validate-with-xml-schema</code>,
-                     <code>p:validate-with-json-schema</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Other optional steps</td>
-                        <td>
-                           <code>p:os-info</code>, <code>p:os-exec</code>, <code>p:css-formatter</code>,
-                     <code>p:xsl-formatter</code>, <code>p:markdown-to-html</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Variable declaration</td>
-                        <td>
-                           <code>p:variable</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>Connectors</td>
-                        <td>
-                           <code>p:with-input</code>, <code>p:with-option</code>, <code>p:pipe</code>, <code>p:pipeinfo</code>,
-                     <code>p:document</code>, <code>p:inline</code>, <code>p:empty</code>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
+               <h2>XML and the XDM: context and rationale</h2>
+               <p>The technologies we rely on share a common foundation in XML and XDM (the XML data model), technologies
+            developed under the auspices of the World Wide Web Consortium (W3C). For stability over a long term (years
+            and decades rather than months), we require solutions that are:</p>
+               <ul>
+                  <li>Standard, non-proprietary and freely available without restriction</li>
+                  <li>Consistently and repeatedly shown to be capable at scale (size/complexity)</li>
+                  <li>Supported by commodity tools, easing problem of proprietary product dependencies</li>
+               </ul>
+               <p>Importantly, we need tools that are freely available to use without restriction, an important qualification
+            for this distribution, which has a prior commitment <i>not to endorse particular technological solutions to
+               any problem</i>, however posed or circumscribed. Accordingly, solutions here are not offered as
+            recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities, and
+            not only using tools as <q>black boxes</q>, but under control and conformant to external specifications –
+            i.e., standards.</p>
+               <p>Users should keep in mind the model whereby we imagine the viability of a tools market and ecosystem that
+            enables both large and small software developers – including independent developers, academic researchers,
+            and students – to participate meaningfully, finding an appropriate value or service proposition to support
+            immediate and long-term goals. Translated, this means the tools must be capable enough for industrial use at
+            scale, while they must also <q>scale down</q> to demonstration or classroom use.</p>
+               <p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
+            ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and
+            intersecting with the web, the XML family of standards arguably provides the best demonstration of complete
+            or near-complete capabilities at least with respect to the harder problems of document processing.</p>
+               <ul>
+                  <li>XSLT up to <a href="https://www.w3.org/TR/xslt-30/">XSLT 3.0</a> (in <a href="https://www.saxonica.com/welcome/welcome.xml">Saxon</a>)</li>
+                  <li>
+                     <a href="https://www.w3.org/TR/xquery-31/">XQuery</a> (in Saxon)</li>
+                  <li>
+                     <a href="https://github.com/Schematron">Schematron</a> (in <a href="https://github.com/schxslt/schxslt">SchXSLT</a>, an open-source implementation in XSLT of <a href="https://schematron.com/">Schematron</a> including the <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:19757:-3:ed-3:v1:en">ISO/IEC 19757-3</a>
+               specification</li>
+                  <li>
+                     <a href="https://github.com/xspec/xspec">XSpec</a>, a community-maintained XSLT-based framework for
+               test-driven development, supporting testing XSLT, XQuery and Schematron</li>
+               </ul>
+               <p>Since they are known to be highly conformant to their respective specifications as well as well tested,
+            these tools provide a useful functional baseline for evaluating other tooling that addresses the same
+            functional requirements.</p>
+               <p>They are also, relatively speaking, <i>mature</i> technologies, at least in comparison to similar
+            offerings.</p>
+               <p>And when XProc works, we also have the functional underpinnings we need for comparing - for example -
+            different XSLT implementations.</p>
+               <p>Initiated in 1996, XML continues to be generative in 2024.</p>
             </section>
             <section>
-               <h2>XML time line</h2>
+               <h2>Snapshot history: an XML time line</h2>
                <p>[TODO: complete this, or move it, or both]</p>
                <table>
                   <thead>
@@ -1126,14 +1369,6 @@
                         <td>Mainframes, workstations</td>
                      </tr>
                      <tr>
-                        <td>1998</td>
-                        <td>XML 1.0</td>
-                        <td>standard syntax</td>
-                        <td>Batch processing, shell scripts, <code>make</code>
-                        </td>
-                        <td>Mainframes, workstations, PCs (x86 generation)</td>
-                     </tr>
-                     <tr>
                         <td>1996</td>
                         <td>Unicode 2.0</td>
                         <td>standard character sets</td>
@@ -1142,10 +1377,18 @@
                         </td>
                      </tr>
                      <tr>
+                        <td>1998</td>
+                        <td>XML 1.0</td>
+                        <td>standard syntax</td>
+                        <td>Batch processing, shell scripts, <code>make</code>
+                        </td>
+                        <td>Mainframes, workstations, PCs (x86 generation), shell, sed/awk, Perl</td>
+                     </tr>
+                     <tr>
                         <td>1999</td>
                         <td>XPath 1.0, XSLT 1.0</td>
-                        <td>basic tree querying and transformations (down hill); functional support for namespaces</td>
-                        <td>Web browsers? (some, sort of)</td>
+                        <td>basic tree querying and transformations (<q>down hill</q>); functional support for namespaces</td>
+                        <td>Web browsers? (some, sort of); standalone XSLT processors</td>
                         <td>
                         </td>
                      </tr>
@@ -1160,10 +1403,22 @@
                      <tr>
                         <td>
                         </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>Perl, Python</td>
+                     </tr>
+                     <tr>
+                        <td>
+                        </td>
                         <td>XQuery 1.0</td>
                         <td>
                         </td>
-                        <td>Perl, Python, Java APIs / integration</td>
+                        <td>
+                        </td>
                         <td>
                         </td>
                      </tr>
@@ -1188,6 +1443,14 @@
                         </td>
                      </tr>
                      <tr>
+                        <td>2003</td>
+                        <td>
+                        </td>
+                        <td>Pipelining as a build process</td>
+                        <td>Apache Ant</td>
+                        <td>Java</td>
+                     </tr>
+                     <tr>
                         <td>2003-2004</td>
                         <td>W3C Document Object Model (DOM)</td>
                         <td>API for HTML and XML documents</td>
@@ -1207,22 +1470,20 @@
                         </td>
                      </tr>
                      <tr>
+                        <td>2006</td>
+                        <td>XProc 1.0 Requirements</td>
                         <td>
                         </td>
                         <td>
                         </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
+                        <td>Proof-of-concept demonstrations</td>
                      </tr>
                      <tr>
                         <td>2007</td>
                         <td>XSLT 2.0</td>
-                        <td>transformations (up hill)</td>
-                        <td>XProc 1.0</td>
+                        <td>Transformations (<q>up hill</q>) including grouping, string processing, pipelining</td>
+                        <td>
+                        </td>
                         <td>
                         </td>
                      </tr>
@@ -1230,7 +1491,7 @@
                         <td>
                         </td>
                         <td>XDM (XPath/XQuery data model)</td>
-                        <td>unification</td>
+                        <td>Unifying a data model for XPath, XSLT and XQuery</td>
                         <td>
                         </td>
                         <td>Client- and server-side XML processing stacks</td>
@@ -1261,15 +1522,14 @@
                         <td>
                         </td>
                         <td>XPath 3.1</td>
-                        <td>higher-order functions, map and array objects</td>
+                        <td>Higher-order functions, map and array objects</td>
                         <td>
                         </td>
                         <td>
                         </td>
                      </tr>
                      <tr>
-                        <td>
-                        </td>
+                        <td>2010</td>
                         <td>XProc 1.0</td>
                         <td>
                         </td>
@@ -1291,8 +1551,7 @@
                         <td>
                         </td>
                         <td>XProc 3.0</td>
-                        <td>
-                        </td>
+                        <td>Easier syntax, plus adding support for JSON and other content types</td>
                         <td>
                         </td>
                         <td>
@@ -1316,150 +1575,919 @@
             a publishing framework can be considered as a <q>documentary build</q> at a higher level.</p>
             </section>
             <section>
-               <h2>XPath illustrative examples</h2>
-               <p>This is not the place to learn XPath, but a selection of XPath expressions can offer a hint of its
-            capabilities.</p>
-               <table>
-                  <thead>
-                     <tr>
-                        <th>XPath</th>
-                        <th>Returns</th>
-                        <th>XPath long (explicit) notation</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                        <td>
-                           <code>/html</code>
-                        </td>
-                        <td>An XML document root (top-level) element named <code>html</code> (subject to namespace
-                     resolution)</td>
-                        <td>
-                           <code>/child::html</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>//p</code>
-                        </td>
-                        <td>All the elements named <code>p</code> in the document</td>
-                        <td>
-                           <code>/descendant-or-self::element()/child::p</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>//seg[@type='null']</code>
-                        </td>
-                        <td>All the elements named <code>seg</code> with an attribute <code>type</code> with value
-                        <code>null</code>
-                        </td>
-                        <td>
-                           <code>/descendant-or-self::element()/child::seg[attribute::type='null']</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>/*</code>
-                        </td>
-                        <td>Any document (rather, any element at the top of a document) - <code>*</code> is a wildcard
-                     character</td>
-                        <td>
-                           <code>/child::element()</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>/section[exists(.//table)]</code>
-                        </td>
-                        <td>An element inside the top-level element, named <code>section</code>, that contains a
-                        <code>table</code> element anywhere inside it</td>
-                        <td>
-                           <code>/child::section[exists(self::node()/descendant-or-self::element()/child::table)]</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>/descendant::p[10]</code>
-                        </td>
-                        <td>The tenth <code>p</code> element in the document</td>
-                        <td>
-                           <code>/descendant::p[position() eq 10]</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>//p[10]</code>
-                        </td>
-                        <td>All <code>p</code> elements, that are the tenth <code>p</code> inside their respective
-                     parents</td>
-                        <td>
-                           <code>/descendant-or-self::element()/child::p[position() eq 10]</code>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <code>//section[count(.//p) gt 10]</code>
-                        </td>
-                        <td>All <code>section</code> elements that contain more than 10 <code>p</code> elements, at any
-                     depth</td>
-                        <td>
-                           <code>/child::section[count(self::node()/descendant-or-self::element()/child::p) gt
-                     10]</code>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </section>
-            <section>
-               <h2>XML and the XDM: context and rationale</h2>
-               <ul>
-                  <li>Standard, non-proprietary and freely available without restriction</li>
-                  <li>Consistently and repeatedly shown to be capable at scale (size/complexity)</li>
-                  <li>Supported by commodity tools, easing problem of proprietary product dependencies</li>
-               </ul>
-               <p>The technologies we rely on share a common foundation in XML and XDM  (the XML data model), technologies
-            developed under the auspices of the World Wide Web Consortium. </p>
-               <p>These are supported by commodity tools that are freely available to use without restriction, an important
-            qualification for this distribution, which has a prior commitment <i>not to endorse particular technological
-               solutions to any problem</i>, however posed or circumscribed. Accordingly, solutions here are not offered
-            as recommendations, but rather as stipulations of (minimum) viable functionality in tools or capabilities,
-            and not only using tools as <q>black boxes</q>, but under control and conformant to external specifications
-            – i.e., standards.</p>
-               <p>Users of these tools should keep in mind the model whereby we imagine the viability of a tools market and
-            ecosystem that enables both large and small software developers – including independent developers, academic
-            researchers, and students – to participate meaningfully, finding an appropriate value or service proposition
-            to support immediate and long-term goals. Translated, this means the tools must be capable enough for
-            industrial use at scale, while they must also <q>scale down</q> to demonstration or classroom use.</p>
-               <p>In web standards including HTML and Javascript (ECMAScript) we arguably have the beginnings of such an
-            ecosystem, while it is also contested and turbulent. Within the publishing sector more broadly and
-            intersecting with the web, the XML family of standards arguably provides the best demonstration of complete
-            or near-complete capabilities at least with respect to the harder problems of document processing.</p>
-               <ul>
-                  <li>XSLT up to <a href="https://www.w3.org/TR/xslt-30/">XSLT 3.0</a> (in <a href="https://www.saxonica.com/welcome/welcome.xml">Saxon</a>)</li>
-                  <li>
-                     <a href="https://www.w3.org/TR/xquery-31/">XQuery</a> (in Saxon)</li>
-                  <li>
-                     <a href="https://github.com/Schematron">Schematron</a> (in <a href="https://github.com/schxslt/schxslt">SchXSLT</a>, an open-source implementation
-               in XSLT of <a href="https://schematron.com/">Schematron</a> including the <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:19757:-3:ed-3:v1:en">ISO/IEC 19757-3</a>
-               specification</li>
-                  <li>
-                     <a href="https://github.com/xspec/xspec">XSpec</a>, a community-maintained XSLT-based framework for
-               test-driven development, supporting testing XSLT, XQuery and Schematron</li>
-               </ul>
-               <p>Since they are known to be highly conformant to their respective specifications as well as well tested,
-            these tools provide a useful functional baseline for evaluating other tooling that addresses the same
-            functional requirements.</p>
-               <p>They are also, relatively speaking, <i>mature</i> technologies, at least in comparison to similar
-            offerings.</p>
-               <p>And when XProc works, we also have the functional underpinnings we need for comparing - for example -
-            different XSLT implementations.</p>
-               <p>Initiated in 1996, XML continues to be generative in 2024.</p>
+               <h2>XPath</h2>
+               <p>Like other XDM-based technologies, XProc embeds and incorporates XPath, an expression language for XML.
+            XPath 3.0 is a functional language in its own right, although not designed for end-to-end processing of
+            encoded source data into encoded results, but only for certain critical operations that ordinarily need to
+            be performed within such end-to-end processing. Importantly, XPath is defined not in terms of any data
+            notation (such as XML syntax or any other) but rather against an <i>abstract data object</i>, namely an <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> instance (XML data model), a putative information
+            object that may be provided to the system by parsing an XML (syntax) instance, or by other means. As the
+            query language for <a href="https://www.w3.org/TR/xpath-datamodel/">XDM</a> and the basis for XQuery, <a href="https://www.w3.org/TR/xpath-31/">XPath</a> is the <q>other half</q> of the data model, which any
+            architect of a system using this technology must know. Learning XPath equips you mentally for dealing with
+            the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
+               <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips XPath 1.0 in many important respects.</p>
+               <section>
+                  <h3>Documents and data</h3>
+                  <p>One of the more important features of XPath and the XDM is that they are designed not only to meet needs
+               for the representation and transmission of structured data. A specialized class of data formats has
+               evolved that represent information in ways that are not <q>unstructured</q>, but that contrast with more
+               common or usual structures of data formats, whether they be tabular data, serialization formats for
+               object models, or some other regular (formalized and codified) arrangement. One might say <q>common</q>
+               or <q>usual</q> with reservation, since of course documents are not uncommon where they are common.</p>
+                  <p>We see a great deal of structured data these days if only because it is so easy to make structured data
+               with machines, and we now have the machines. What remains difficult is to translate what has not been
+               created by a machine, into a form that a machine can <q>recognize</q>, or rather into a form we can
+               recognize in and with the machine, without destroying it. Since machines do not recognize anything, what
+               this actually means is deciding how to agree on a <b>representation</b> for information that any creator
+               and any consumer can recognize and work with, without seeing the information first.</p>
+                  <p>So documents are called <q>unstructured</q> but they might better be called <q>relatively irregular</q>,
+               meaning not that they have no structure, but that each one is structured in itself, and moreover, likely
+               to be incompatible or not fully compatible with encodings designed to capture other structures.</p>
+                  <p>And to the extent this is the case, any encoding capable of describing documents must have the capability
+               of supporting each document's own distinctive structure and organization, whether that be due to its
+               family (what is called a <b>document type</b>) or an expression of its own intrinsic logic. The format
+               must be not only structured, but <i>structurable</i>, and its structures must to some extent be capable
+               of self-description – combining data with metadata.</p>
+                  <p>And this is to give no consideration to the fact that these structures can be described at <i>multiple
+                  levels</i> of generality or specificity with regard to either their supposed semantics, or their
+               configuration in operation.</p>
+                  <p>Documentary data formats especially markup formats are designed to work in this in-between space.</p>
+                  <p>And so we get XPath - a query syntax which permits working with an organized structure of a particular
+               kind (an <i>XDM document tree</i>), which in turn is designed for handling the combination of <i>highly
+                  regular</i> and <i>quite irregular</i> data structures that characterize information sets we (loosely)
+               call <b>documentary</b>.</p>
+                  <p>A definition for what is a document is out of scope for this tutorial – an interesting topic but not only
+               a technical one.</p>
+               </section>
+               <section>
+                  <h3>XPath illustrative examples</h3>
+                  <p>This is not the place to learn XPath, but a selection of XPath expressions can offer a hint of its
+               capabilities.</p>
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>XPath</th>
+                           <th>Returns</th>
+                           <th>XPath long (explicit) notation</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>
+                              <code>/html</code>
+                           </td>
+                           <td>An XML document root (top-level) element named <code>html</code> (subject to namespace
+                        resolution)</td>
+                           <td>
+                              <code>/child::html</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>//p</code>
+                           </td>
+                           <td>All the elements named <code>p</code> in the document</td>
+                           <td>
+                              <code>/descendant-or-self::element()/child::p</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>//seg[@type='null']</code>
+                           </td>
+                           <td>All the elements named <code>seg</code> with an attribute <code>type</code> with value
+                           <code>null</code>
+                           </td>
+                           <td>
+                              <code>/descendant-or-self::element()/child::seg[attribute::type='null']</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>/*</code>
+                           </td>
+                           <td>Any document (rather, any element at the top of a document) - <code>*</code> is a wildcard
+                        character</td>
+                           <td>
+                              <code>/child::element()</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>/section[exists(.//table)]</code>
+                           </td>
+                           <td>An element inside the top-level element, named <code>section</code>, that contains a
+                           <code>table</code> element anywhere inside it</td>
+                           <td>
+                              <code>/child::section[exists(self::node()/descendant-or-self::element()/child::table)]</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>/descendant::p[10]</code>
+                           </td>
+                           <td>The tenth <code>p</code> element in the document</td>
+                           <td>
+                              <code>/descendant::p[position() eq 10]</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>//p[10]</code>
+                           </td>
+                           <td>All <code>p</code> elements, that are the tenth <code>p</code> inside their respective
+                        parents</td>
+                           <td>
+                              <code>/descendant-or-self::element()/child::p[position() eq 10]</code>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <code>//section[count(.//p) gt 10]</code>
+                           </td>
+                           <td>All <code>section</code> elements that contain more than 10 <code>p</code> elements, at any
+                        depth</td>
+                           <td>
+                              <code>/child::section[count(self::node()/descendant-or-self::element()/child::p) gt
+                        10]</code>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <p>Where do you find XPath? Any <code>select</code> or <code>match</code> expression in XSLT or XProc shows
+               an example. XPath also constitutes the core of XQuery.</p>
+               </section>
             </section>
             <section>
                <h2>Exercise: Discussion board</h2>
                <p>Create or contribute to a Github discussion board offering perspective or (especially!) relevant information
             or experience on any of the larger questions.</p>
+            </section>
+         </section>
+      </section>
+      <section class="lesson"
+               id="oscal-convert">
+         <section class="unit observer"
+                  id="oscal-convert_101"
+                  data-track="observer">
+            <h1>101: OSCAL from XML to JSON and back</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn how OSCAL data can be converted between JSON and XML formats, using XProc.</p>
+               <p>Learn something about potential problems and limitations when doing this, and about how to detect, avoid,
+            prevent or mitigate them.</p>
+               <p>Become familiar with the idea of generic conversions between syntaxes such as XML and JSON (not always
+            possible), versus conversions designed to handle a single class or type of documents, such as OSCAL format
+            conversions.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>This unit relies on the <a href="../../../projects/oscal-convert/readme.md">oscal-convert project</a> in
+            this repository, with its files. Like all projects in the repo, it aims to be reasonably self-contained and
+            self-explanatory. Use your search engine and XProc resources to learn background and terminology.</p>
+               <p>Also like other projects, there are preliminaries for acquiring resources, along with pipelines to run.</p>
+            </section>
+            <section>
+               <h2>Step zero: an identity pipeline</h2>
+               <p>To verify syntactic correctness (well-formedness) - does it parse?</p>
+               <p>To transcode a file from one encoding to another</p>
+            </section>
+            <section>
+               <h2>Step zero-point-five: XML to JSON and back</h2>
+               <p>XML and JSON are both <i>data serializations</i>, a term that designates how each of them is to be
+            considered and treated – irrespective of any questions of information storage – as a <i>sequence of
+               characters</i>. This is a very important commonality, which makes it possible to bring them together in a
+            single processing environment such as XProc.</p>
+               <p>Along with <i>plain text</i>, perhaps the most important data serialization or <q>format</q> as we call
+            them, of the three.</p>
+               <p>A simple XProc pipeline can be used to demonstrate this. While doing so, it shows also while this is not as
+            simple a process as it seems. Merely to convert from format to format is not enough.</p>
+            </section>
+            <section>
+               <h2>Step one: convert some OSCAL XML into OSCAL JSON</h2>
+               <p>
+                  <a href="../../../projects/oscal-convert/GRAB-RESOURCES.xpl">An acquisition pipeline</a> in the project
+            folder collects some OSCAL onto the local system, where it can be managed, easily inspected, controlled, and
+            edited if necessary.</p>
+               <p>TBD / this all incoherent so far</p>
+               <section>
+                  <h3>The playing field is the internet</h3>
+                  <p>Keep in mind that XProc in theory, and your XProc engine in practice, may read its inputs using whatever
+               protocols it supports, while the <code>file</code> and <code>http</code> protocols are required for
+               conformance, and work as they do on the Worldwide Web.</p>
+                  <p>Of course, permissions must be in place to read files from system locations, or save files to them.</p>
+                  <p>But when authentication is configured or resources are openly available, using <code>http</code> to reach
+               resources or sources can be a very convenient option.</p>
+               </section>
+               <section>
+                  <h3>Consider the options</h3>
+                  <p>TBD - TODO - question - how many and of what sort of source data files - so far there is only the cat
+               catalog</p>
+                  <ul>
+                     <li>Converting local XML to JSON with a local XSLT</li>
+                     <li>Converting local data using a remote XSLT</li>
+                     <li>Remote data with a local XSLT, writing locally - you could try <a href="https://github.com/GSA/fedramp-automation/blob/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml">https://github.com/GSA/fedramp-automation/blob/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml</a>
+                     </li>
+                  </ul>
+               </section>
+            </section>
+            <section>
+               <h2>Step two: return trip</h2>
+               <p>Two ways: separate pipeline; and single pipeline; also a 'switcher' pipeline?</p>
+            </section>
+            <section>
+               <h2>What is this XSLT?</h2>
+               <p>If your criticism of XProc so far is that it makes it look easy when it isn't, you have a point.</p>
+               <p>Conversion from XML to JSON isn't free, assuming it works at all.</p>
+               <p>In this case, the heavy lifting is done by the XSLT component - the Saxon engine invoked by the
+               <code>p:xslt</code> step, applying logic defined in an XSLT stylesheet (aka transformation) stored
+            elsewhere. It happens that a converter for OSCAL data is available in XSLT, so rather than having to
+            confront this considerable problem ourselves, we drop in the solution we have at hand.</p>
+               <p>In later units we will see how using the XProc steps described, rudimentary data manipulations can be done
+            using XProc by itself, without entailing the use of either XSLT or XQuery (another capability invoked with a
+            different step).</p>
+               <p>At the same time, while pipelines are based on the idea of passing data through a series of processes, there
+            are many cases where logic is sufficiently complex that it becomes essential to maintain – and test – that
+            logic externally from the XProc. At what point it becomes more efficient to encapsulate logic separately
+            (whether by XSLT, XQuery or other means), depends very much on the case.</p>
+               <p>The <code>p:xslt</code> pipeline step in particular is so important for real-world uses of XProc that it is
+            introduced early, to show such a black-box application.</p>
+               <p>XProc also makes a fine environment for testing XSLT developed or acquired to handle specific tasks, a topic
+            covered in more depth later.</p>
+               <p>Indeed XSLT and XQuery being, like XProc itself, declarative languages, it makes sense to factor them out
+            while maintaining easy access and transparency for analysis and auditing purposes.</p>
+            </section>
+            <section>
+               <h2>What could possibly go wrong?</h2>
+               <p>When coping with errors, syntax errors are relatively easy. But anomalous inputs, especially invalid inputs,
+            can result in lost data. (A common reason data is not valid even when it appears to be is that it has
+            foreign unknown contents, or contents out of place - the kinds of things that might fail to be converted.)
+            The most important concern when engineering a pipeline is to see to it that no data quality problems are
+            introduced inadvertantly. While in comparison to syntax or configuration problems, data quality issues can
+            be subtle, there is also good news: the very same tools we use to process inputs into outputs, can also be
+            used to test and validate data to both applicable standards and local rules.</p>
+               <p>Generally speaking, OSCAL maintains <q>validation parity</q> between its XML and JSON formats with respect
+            to their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for OSCAL
+            XML data as the JSON Schema does for OSCAL JSON data, accounting for differences between the two notations,
+            the data models and how information is mapped into them. A consequence of this is that valid OSCAL data,
+            either XML or JSON, can reliably be converted to valid data in the other notation, while invalid data may
+            not be converted at all, resulting in gaps or empty results.</p>
+               <p>For this and related reasons on open systems, the working principle in XML is often to formalize a model
+            (typically by writing and deploying a schema) as early as possible - or adopt a model already built - as a
+            way to institute and enforce schema validation as a <b>prerequisite</b> and <b>primary requirement</b> for
+            working with any data set. Validation against schemas is covered in a subsequent lesson unit (coming soon
+            near you).</p>
+               <section>
+                  <h3>Intercepting errors</h3>
+                  <p>One way to manage the problem of ensuring input quality is to validate on the way in, either as a
+               dependent (prerequisite) process, or built into a pipeline. Whatever you want to do with invalid inputs,
+               including ignoring them and producing warnings or runtime exceptions, can be defined in a pipeline much
+               like anything else.</p>
+                  <p>In the <a href="../../../projects/oscal-publish/publish-oscal-catalog.xpl">publishing demonstration
+                  project folder</a> is an XProc that valides XML against an OSCAL schema, before formatting it. The
+               same could be done for an XProc that converts the data into JSON - either or both before or after
+               conversion.</p>
+                  <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html"
+                        class="LessonUnit">Lesson 102</a>, or continue on to the next project, oscal-validate, for more on
+               validation of documents and sets of documents.</p>
+               </section>
+            </section>
+         </section>
+         <section class="unit maker"
+                  id="oscal-convert_102"
+                  data-track="maker">
+            <h1>102: Hands on data conversions</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn how OSCAL data can be converted between JSON and XML formats, using XProc.</p>
+               <p>Learn something about potential problems and limitations when doing this, and about how to detect, avoid,
+            prevent or mitigate them.</p>
+               <p>Work with XProc features designed for handling JSON data (XDM <b>map</b> objects that can be cast to
+            XML).</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>Run the pipelines described in <a href="https://github.com/usnistgov/oscal-xproc3/discussions/18">the 101
+               Lesson</a>
+               </p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Same as the <a href="oscal-convert_101_src.html"
+                     class="LessonUnit">101 lesson</a>.</p>
+            </section>
+            <section>
+               <h2>Some breaking and making</h2>
+               <p>Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded
+            correctly – when <q>broken</q>, any way we can think of breaking them. Then build good habits by repairing
+            the damage. Experiment and observation bring learning.</p>
+               <p>After reading this page and <a href="../../../projects/oscal-convert/readme.md">the project readme</a>, run
+            the pipelines while performing some more disassembly / reassembly. Here are a few ideas (including a few you
+            may have already done):</p>
+               <ul>
+                  <li>Switch out the value of an <code>@href</code> on a <code>p:document</code> or <code>p:load</code> step.
+               See what happens when the file it points to is not actually there.</li>
+                  <li>There is a difference between <code>p:input</code>, used to configure a pipeline in its prologue, and
+                  <code>p:load</code>, a step that loads data. Ponder what these differences are. Try changing a
+               pipeline that uses one into a pipeline that uses the other.</li>
+                  <li>Similarly, there is a difference between a <code>p:output</code> configuration for a pipeline, and a
+                  <code>p:store</code> step executed by that pipeline. Consider this difference and how we might define
+               a rule for when to prefer one or the other. How is the pipeline used - is it called directly, or intended
+               for use as a step in other pipelines? How is it to be controlled at runtime?</li>
+                  <li>Try inserting <code>p:store</code> steps into a pipeline to capture intermediate results, that is, the
+               output of any step before they are processed by the next step. Such steps can aid in debugging, among
+               other uses.</li>
+                  <li>
+                     <code>@message</code> attributes on steps provide messages for the runtime traceback. They are optional
+               but this repo follows a rule that any <code>p:load</code> or <code>p:store</code> should be provided with
+               a message. Why?</li>
+                  <li>A <code>p:identity</code> step passes its input unchanged to the next step. But can also be provided
+               with a <code>@message</code>.</li>
+               </ul>
+               <p>After breaking anything, restore it to working order. Create modified copies of any pipelines for further
+            analysis and discussion.</p>
+               <ul>
+                  <li>Concept: copy and change one of the pipelines provided to acquire a software library or resource of your
+               choice.</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Designating an input at runtime by binding input ports</h2>
+               <p>One potential problem with the pipelines we have looked at so far is that their inputs are hard-wired. While
+            this is sometimes helpful, it should also be possible to apply a pipeline to an XML document (or other
+            input) without having to designate the document inside the pipeline itself. The user or calling application
+            should be able to say <q>run this pipeline, but this time with this input</q>.</p>
+               <p>The input ports for a pipeline, specified using <code>p:input</code> within the prologue, provide for
+            this.</p>
+               <p>For example, the <a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl">CONVERT-OSCAL-XML-DATA</a> pipeline defines an input port:</p>
+               <pre>&lt;p:input port="source" sequence="true"&gt;
+    &lt;p:document href="data/catalog-model/xml/cat_catalog.xml"/&gt;
+&lt;/p:input&gt;</pre>
+               <p>By default, this pipeline will pick up and process the data it finds at path
+               <code>data/catalog-model/xml/cat_catalog.xml</code>, relative to the stylesheet. But any call to this
+            pipeline, whether directly or as a step in another pipeline, can override this.</p>
+               <p>The Morgana processor defines <a href="https://www.xml-project.com/manual/ch01.html#R_ch1_s1_2">a command
+               syntax for binding inputs to ports</a>. It looks like this (when used with the script deployed with this
+            repository):</p>
+               <pre>$ ../xp3.sh <i>PIPELINE.xpl</i> -input:<i>portname=path/to/a-document.xml</i> -input:<i>portname=path/to/another-document.xml</i>
+               </pre>
+               <p>Here, two different <code>-input</code> arguments are given for the same port. You can have as many as
+            needed if the port, like this one, has <code>sequence="true"</code>, meaning any number of documents (from
+            zero to many) can be bound to the port, and the pipeline will accommodate. When more than one port is
+            defined, one (only) can be designated as <code>primary="true"</code>, meaning it will be provided implicitly
+            when a port connection is required (by a step) but not given in the pipeline. Notice that the name of the
+            port must also appear, as in <code>-input:portname</code>, since pipelines can have ports supporting
+            sequences, but also as many input ports as it needs, named differently, for documents playing different
+            roles in the pipeline. In place of <code>portname</code> here, a common name for a port (conventional when
+            it is the pipeline's only or primary input) is <code>source</code>.</p>
+               <section>
+                  <h3>XXX edit this and move</h3>
+                  <p>XProc offers two ways to acquire data from outside the pipeline: by using <code>p:load</code> or by
+               binding inputs to an input port using p:input/p:document. These are somewhat different in operation -
+               errors produced by p:load cannot be detected until the pipeline is run, whereas failures with p:input
+               should be detected when the pipeline itself is loaded and compiled. Despite this distinction the two
+               approaches are similar – whether to use one or the other depends often on how you expect the pipeline to
+               be used and distributed, not on whether it works.</p>
+                  <p>For example, if you wish to acquire more than a single document that the caller cannot override, make a
+               step like this:</p>
+                  <pre>&lt;p:identity&gt;
+  &lt;p:with-input&gt;
+    &lt;p:document href="..."/&gt;
+    &lt;p:document href="..."/&gt;
+    ...
+  &lt;/p:with-input&gt;
+&lt;p:identity&gt;</pre>
+                  <p>This binds the documents to the input of an <b>identity</b> step (which supports a sequence), without
+               exposing an input port in the main pipeline.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Identity pipeline testbed</h2>
+               <p>An identity or <q>near-identity</q> or modified-identity pipeline has its uses, including diagnostics. Since
+            inputs and outputs are supposed to look the same, any changes they show between inputs and outputs can be
+            revealing.</p>
+               <p>They are also useful for testing features, for example features for resource acquisition and disposition.
+            These are fancy ways to describe how you get data into your pipeline and then out again.</p>
+               <p>Additionally, there are actually useful operations supported by a pipeline that pretends to change nothing.
+            For example, it can transcode a file from one encoding to another – changing nothing in the data, but
+            rewriting it into a different character set.</p>
+               <section>
+                  <h3>0.01 - what is a <q>document</q>
+                  </h3>
+                  <h3>0.1 - loading documents known or determinable in advance</h3>
+                  <p>The XProc step <code>p:load</code> can be used to load the resource indicated into the pipeline.</p>
+                  <p>Watch out, since <code>p:load</code> with <code>href=''</code> – loading the resource at the location
+               indicated by the empty string, <code>""</code> – will load the XProc file itself. This is conformant with
+               rules for URL resolution.</p>
+                  <h3>0.2 - binding a document to an input port</h3>
+                  <h3>0.3 - loading documents dynamically on discovery with <code>p:directory-list</code>
+                  </h3>
+                  <h3>0.4 - saving results to the file system</h3>
+                  <h3>0.5 - exposing results on an output port</h3>
+               </section>
+            </section>
+            <section>
+               <h2>Probing error space - data conversions</h2>
+               <p>Broadly speaking, problems encountered running these conversions fall into two categories, the distinction
+            being simple, namely whether a bad outcome is due to an error in the processor and its logic, or in the data
+            inputs provided. The term <q>error</q> here hides a great deal. So does <q>bad outcome</q>. One type of bad
+            outcome takes the form of failures at runtime - the term <q>failure</q> again leaving questions open. Other
+            bad outcomes are not detectable at runtime. If inputs are bad (inconsistent with stated contracts such as
+            data validation), processes can run <i>correctly</i> and deliver incorrect results: correctly representing
+            inputs, in their incorrectness. Again, the term <i>correct</i> here is underspecified and underdefined,
+            except in the case.</p>
+               <section>
+                  <h3>Converting broken XML or JSON</h3>
+               </section>
+               <section>
+                  <h3>Converting broken OSCAL</h3>
+               </section>
+               <section>
+                  <h3>Converting not-OSCAL</h3>
+               </section>
+            </section>
+            <section>
+               <h2>XProc diagnostic how-to</h2>
+               <section>
+                  <h3>Emitting runtime messages</h3>
+               </section>
+               <section>
+                  <h3>Saving out interim results</h3>
+                  <p>
+                     <code>p:store</code>
+                  </p>
+               </section>
+            </section>
+            <section>
+               <h2>Validate early and often</h2>
+            </section>
+         </section>
+         <section class="unit learner"
+                  id="oscal-convert_399"
+                  data-track="learner">
+            <h1>399: OSCAL from XML to JSON and back</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Get more in-depth information about XProc internals.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You have succeeded in prior exercises, including tools installation and setup. You have seen enough XProc to
+            be impressed, but possibly also a little intimidated.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Again, reference is made to pipelines and processes defined for the <a href="../../../projects/oscal-convert/readme.md">oscal-convert project</a>.</p>
+            </section>
+            <section>
+               <h2>Overview: the anatomy of an XProc pipeline</h2>
+               <p>Experts in XML can read this section quickly. Newcomers will find some of the concepts here (such as
+            namespaces) also apply across XML- and XDM-based technologies including XSLT and Schematron. XDM is the <a href="https://www.w3.org/TR/xpath-datamodel/">XQuery and XPath Data Model</a>, the foundation of XPath,
+            XQuery and XSLT.</p>
+               <section>
+                  <h3>XProc files</h3>
+                  <p>An XProc pipeline takes the form of an XML <q>document entity</q>. Unless you are concerned to write an
+               XML parser (which is not very likely for XProc's natural constituency), this typically means an XML file,
+               that is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or
+               alternatively another form of <q>plain text</q> supported by your toolkit), and following the rules of
+               XML syntax. These rules include how elements and attributes and other XML features are encoded in
+                  <b>tags</b> that</p>
+                  <ul>
+                     <li>Follow the rules with respect to naming, whitespace, delimiters and reserved characters</li>
+                     <li>Are correctly balanced, with an end tag for every start tag – for a <code>&lt;start&gt;</code> there
+                  must be a <code>&lt;/start&gt;</code> (an end to the start).</li>
+                     <li>Are cleanly nested with no overlap: end tags always close the most recently opened element, so no
+                  element ever extends beyond the boundaries of its <q>ancestor</q> or containing elements</li>
+                  </ul>
+                  <p>These rules are fairly simple, and they are well supported by tools designed to read and write XML – to
+               respect, follow and enforce the rules on our behalf.</p>
+                  <p>Thus they are also quickly and easily internalized, often in only a few minutes of working with XML.</p>
+                  <p>Over and above being XML, XProc has some rules of its own ...</p>
+                  <section>
+                     <h4>XProc document element</h4>
+                     <pre>&lt;p:declare-step version="3.0"
+   xmlns:p="http://www.w3.org/ns/xproc"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   type="ox:TEST-XPROC3"
+   name="TEST-XPROC3"&gt;
+...
+&lt;/p:declare-step&gt;</pre>
+                  </section>
+                  <section>
+                     <h4>Namespaces</h4>
+                     <pre>   xmlns:p="http://www.w3.org/ns/xproc"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"</pre>
+                  </section>
+                  <section>
+                     <h4>@name and @type</h4>
+                     <p>On <code>p:declare-step</code>, whether at the top or in a step definition within a pipeline, either
+                  or both a <code>@name</code> and a <code>@type</code> are permitted.</p>
+                     <pre>   type="ox:TEST-XPROC3"
+   name="TEST-XPROC3"&gt;</pre>
+                     <p>The name makes it possible to reference the step by name. This is often useful and sometimes more or
+                  less essential, for example for providing input to one step from another step's output. (We say
+                     <q>more or less essential</q> because the processor will produce names for itself as a fallback, if
+                  it needs them, but these are brittle, somewhat opaque – such as <code>!1.2.3</code> – and more
+                  difficult to use than the names a developer gives.)</p>
+                     <p>Understandably, the name of an XProc must be different from the names given to all the steps in the
+                  XProc (which must also be distinct). </p>
+                     <p>This repository follows a rule that a step name should correspond to its file base name (i.e., without
+                  a filename suffix), so <code>identity_</code> for <code>identity_.xproc</code>, etc. But that is a
+                  rule for us, not for XProc in general.</p>
+                     <p>A step may also have an assigned <code>@type</code>. Unlike the name, which can be in any namespace or
+                  none, the <code>@type</code> must be assigned to a namespace.</p>
+                  </section>
+               </section>
+               <section>
+                  <h3>Prologue and body</h3>
+                  <p>Keep in mind that to build a pipeline is also to design and deploy a step, since any pipeline can be used
+               as a step, and any step may comprise, internally, a pipeline.</p>
+                  <p>Since step definitions are more often <q>out of line</q> (in an external file) than inline (in the XProc
+               itself), </p>
+                  <p>As described in the <a href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">XProc 3.0
+                  specification</a>, XProc step declarations can be divided into an initial set of elements for setup
+               and configuration, followed by what the specification calls a <i>subpipeline</i>, consisting of a
+               sequence of steps to be executed – any steps available, which could be anything. Think of the subpipeline
+               as the working parts of the pipeline, while the rest is all about how it is set up.</p>
+                  <p>The list of elements that come before the subpipeline is short, which helps: <code>p:import</code>,
+                  <code>p:import-functions</code>, <code>p:input</code>, <code>p:output</code>, <code>p:option</code> or
+                  <code>p:declare-step</code>. Everything coming after is a step.</p>
+                  <p>Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes
+               between the <b>imports</b> for steps and functions, appearing first (elements <code>p:import</code> and
+                  <code>p:import-functions</code>), to be followed by elements configuring the step:
+                  <code>p:input</code>, <code>p:output</code>, <code>p:option</code> – elements together called the <a href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">prologue</a>.</p>
+                  <p>The prologue is used to define ports and options for the pipeline. It can be thought of as the definition
+               of the interface for the step as a whole. Defining ports and options is how you give the users of the
+               step with the affordances or control points they need to use it. If only a single input is needed, a
+               single input port (named <code>source</code>) can be assumed (XXX is this so?), so prologues can be empty
+               (and invisible, or not there).</p>
+                  <p>Following the prologue, a step may also have local step definitions (<code>p:declare-step</code>). One
+               might think of these as macros: maybe they are never used by another pipeline (XXX test: is this even
+               possible?), but these locally-defined pipelines can be used internally for logic that is used repeatedly,
+               or that warrants separating from the main pipeline for some other reason.</p>
+                  <p>After imports, prologue and (optional) step declarations, the step sequence that follows comprises the <a href="https://spec.xproc.org/3.0/xproc/#dt-subpipeline">subpipeline</a>.</p>
+                  <p>One other complication: among the steps in the subpipeline, <code>p:variable</code> (a variable
+               declaration) and <code>p:documentation</code> (for out-of-band documentation) are also permitted – these
+               are not properly steps, but can be useful to have with them.</p>
+                  <p>In summary: any XProc pipeline, viewed as a step declaration, can have the following --</p>
+                  <ul>
+                     <li>Pipeline name and type assignment (if needed), given as attributes at the top</li>
+                     <li>
+                        <b>Imports</b>: step declarations, step libraries and functions to make available</li>
+                     <li>The pipeline <b>prologue</b>: any of the elements named <code>p:input</code>, <code>p:output</code>
+                  and <code>p:option</code>, defining this pipeline's ports and options<ul>
+                           <li>If no ports are named, assume a single <code>source</code> primary input port, permitting a
+                        single document</li>
+                        </ul>
+                     </li>
+                     <li>Optionally (and not common): step declarations for local steps, appearing at
+                     <code>p:declare-step</code>. Each of these will have its own name, type, prologue and steps</li>
+                     <li>For this pipeline, one or more steps, called the <a href="https://spec.xproc.org/3.0/xproc/#dt-subpipeline">subpipeline</a>
+                        <ul>
+                           <li>Standard atomic and compound steps in XProc namespace (probably prefixed <code>p:</code>)</li>
+                           <li>Imported steps - in their own namespaces (in this repository, prefixed <code>ox:</code>)</li>
+                           <li>Variable declarations - <code>p:variable</code>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>Finally, as noted above, <code>p:documentation</code> can appear anywhere in a pipeline, but it will
+                  be ignored except when appearing inside <code>p:inline</code>. What to do with these is a topic to be
+                  covered later.</li>
+                  </ul>
+                  <p>NB: the pipelines run so far have XML comments demarcating the prologue from the steps.</p>
+               </section>
+               <section>
+                  <h3>XProc steps</h3>
+                  <p>The <i>step</i> is the core conceptual unit of XProc. An XProc processing pipeline is composed of steps.
+               But a pipeline is also considered as a step in itself. As such it can be used in other pipelines, and so
+               on.</p>
+                  <p>In other words, steps in XProc are <i>compositional</i>. They are building block assemblies made out of
+               smaller building block assemblies. A step is a way to process data. A pipeline is a way of orchestrating
+               and arranging such processes.</p>
+                  <p>The distinction between pipelines and steps is relative and provisional, but important and useful. The
+               pipeline is the logical and actual definition of how your data is to be processed. Every pipeline is
+               composed of an arrangement, often a series, of operations. These operations – the steps – include
+                  <q>primitives</q>, being designed for generality and reusability for the most common operations. But
+               they can also include new steps we have written, as pipelines, and such custom-designed steps can be used
+               in combination with the primitives or core compound steps of the language.</p>
+                  <p>At a higher level, defining new steps with new step declarations, and using them in combination with
+               other steps, is how we manage complexity and change in processing requirements. This strategy maximizes
+               adaptability, while also supporting an <q>incremental maturity model</q>, in which all defined processes
+               can be improved with reuse, building and testing over time. Careful use and deployment of new steps is
+               how we save work, by focusing optimization and making it possible to scale up to address data processing
+               requirement sets that are both large and complex.</p>
+                  <p>Accommodating this design, an XProc <i>file</i> considered as an XML instance is either of two things: a
+                  <i>step declaration</i>, or a collection of such declarations, a <i>library</i>. At the top level,
+               recognize an XProc step declaration by the element, <code>p:declare-step</code> (in the XProc namespace)
+               and a library by the element <code>p:library</code>.</p>
+                  <pre>&lt;p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0" 
+    name="a-first-step"&gt;
+...
+&lt;/p:declare-step&gt;</pre>
+                  <p>Additionally, step declarations can include their own pipeline (step) declarations, making a hybrid
+               architecture: the pipeline comprises a step, with its own library not imported but in line. This can also
+               be useful.</p>
+                  <p>An example of a step library in this repository is <a href="../../../xspec/xspec-execute.xpl">xspec-execute.xpl</a>, which collects several steps supporting XSpec, one each for supporting the
+               XSpec testing framework for XSLT, XQuery and Schematron respectively.</p>
+                  <p>The advantage of defining a step at the top level, rather than putting all steps into libraries, is that
+               such a step can be invoked without prior knowledge of its type name, which is used by XProc to
+               distinguish it from other steps. The pipeline simply needs to be presented to the processor, which does
+               the rest.</p>
+                  <section>
+                     <h4>XProc as an XML document</h4>
+                     <p>Like any language using XML syntax, XProc depends on a conceptual relation between primitive
+                  constructs of the language, and XML syntax, a relation that is ordinarily (and usefully) mediated by
+                  means of an (actual or putative) XML <i>data model</i> including elements, attributes, comment nodes,
+                  text nodes and so forth. XSLT is such a language, for example: it has its top-level
+                     <i>declarations</i>, its <i>template rules</i> and its <i>instructions</i>, all of which are
+                  represented using elements in the (standard and most commonly used) XML syntax. Thus, part of learning
+                  XSLT is learning that <code>xsl:key</code> is syntax for a <q>key declaration</q> while
+                     <code>xsl:template</code> is a <q>template rule</q>.</p>
+                     <p>In the same way, elements in XProc's XML vocabulary correspond to structures in XProc - structures
+                  which developers and users rely on, as they define both the internals and the <q>control interface</q>
+                  for the language as a semantic construct - something that <q>does something</q>. In XProc, those
+                  structures include things like <b>documents</b>, <b>content-types</b> (think of <q>formats</q> such as
+                  XML and JSON), <b>ports</b> and <b>steps</b>. Some XProc elements represent steps, others do not. (In
+                  the same way as an XSLT key declaration is not a template rule.) Learning this difference among others
+                  is how you learn XProc.</p>
+                     <p>Fortunately, the vocabulary of the language is not very large. Core XProc 3.0 has only 95 elements
+                  defined in its namespace (or 99, if you are strictly counting all element types defined, not just the
+                  names those elements are given). XProc 3.1 adds a few more. This includes elements for all the core
+                  and community-defined steps (recognizable by the prefix <code>p:</code>). Additional to these 95 might
+                  be other steps you acquire or define. As with any language, there are parts you will hardly ever use,
+                  while other parts are used routinely.</p>
+                  </section>
+                  <section>
+                     <h4>XProc embedded documentation</h4>
+                     <p>An example of this is the XProc <code>p:documentation</code> element. This element is designed to
+                  carry documentation to a consuming application. Rather than mandate some kind of behavior for
+                     <code>p:documentation</code> – something difficult or impossible to do for the general case, or to
+                  test –- the XProc rule is <q>anything marked as documentation is for some other consumer</q>, i.e. a
+                  documentation engine, not the XProc processor. In other words, a conformant processor <a href="https://spec.xproc.org/3.0/xproc/#documentation">
+                           <i>must ignore</i> anything it sees</a>
+                  inside <code>p:documentation</code>.</p>
+                     <p>There is a small loophole, namely that the effect of <code>p:inline</code> for capturing XML overrides
+                  this provision, so if you put <code>p:documentation</code> inside <code>p:inline</code>, it <q>becomes
+                     visible</q> as inline content, not as XProc to be operated on (or not).</p>
+                     <p>As always it is up to the developer how thoroughly and in what form to include inline documentation.
+                  And short of managing a corpus of code documentation along with the code, placing explanatory remarks
+                  and code snippets into comments is a widely followed practice, and recommended for its combination of
+                  ease and usefulness.</p>
+                  </section>
+               </section>
+               <section>
+                  <h3>Atomic and compound steps</h3>
+                  <p>Given an understanding of the organization of an XProc pipeline, the focus shifts to the steps
+               themselves, which follow a common pattern. Briefly put, an atomic step is any step you use by simply
+               invoking it with inputs and options: its logic is self-contained, and the operation it carries out is (at
+               least conceptually) <q>single</q> and unified. A compound step, in contrast, combines one or more other
+               steps in a <em>subpipeline</em> and manages these together through a single interface.</p>
+                  <p>XProc keeps things workable by providing only a few compound steps supporting the identified range of
+               needs. This does not prove to be a practical limitation, since all steps including atomic steps can have
+               multiple inputs and outputs, distinguished by type and role. (For example, a validation step might output
+               both a copy of the input, potentially annotated, along with a validation report.) Atomic steps are not
+               necessarily simple, and may include compound steps in their own subpipelines, either externally or even
+               within the same step declaration. Accordingly, compound steps are not necessarily more complex than
+               atomic steps: they are useful because they handle common contingencies such as splicing (with
+                  <code>p:viewport</code>), splitting (with <code>p:for-each</code>, perform an operation in parallel
+               over a set of inputs, not a single document), conditionals (<code>p:if</code>, <code>p:choose</code>) and
+               exception handling (<code>p:try</code> with <code>p:catch</code> and <code>p:finally</code>).</p>
+                  <p>Here are all the compound steps. All others are atomic steps.</p>
+                  <ul>
+                     <li>
+                        <a href="https://spec.xproc.org/3.0/xproc/#p.group"
+                           style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;">
+                           <code class="tag-element language-construct"
+                                 style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:group</code>
+                        </a>
+                  - group a subpipeline (step sequence) into a single logical step</li>
+                     <li>
+                        <a href="https://spec.xproc.org/3.0/xproc/#p.if"
+                           style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;">
+                           <code class="tag-element language-construct"
+                                 style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:if</code>
+                        </a>
+                  - execute a subpipeline conditionally</li>
+                     <li>
+                        <a href="https://spec.xproc.org/3.0/xproc/#p.choose"
+                           style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;">
+                           <code class="tag-element language-construct"
+                                 style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:choose</code>
+                        </a>
+                  - execute a subpipeline conditionally (<code>switch/case</code> operator)</li>
+                     <li>
+                        <a href="https://spec.xproc.org/3.0/xproc/#p.for-each"
+                           style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;">
+                           <code class="tag-element language-construct"
+                                 style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:for-each</code>
+                        </a>
+                  - produce subpipeline results for each member of a sequence of inputs (documents or nodes)</li>
+                     <li>
+                        <a href="https://spec.xproc.org/3.0/xproc/#p.viewport"
+                           style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;">
+                           <code class="tag-element language-construct"
+                                 style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:viewport</code>
+                        </a>
+                  - reproduce outputs, except splicing subpipeline results in place of matched nodes (elements) in the
+                  input</li>
+                     <li>
+                        <a href="https://spec.xproc.org/3.0/xproc/#p.try"
+                           style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;">
+                           <code class="tag-element language-construct"
+                                 style="font-family: Consolas, Monaco, &#34;Andale Mono&#34;, monospace; font-size: 16px; break-inside: avoid; hyphens: none; text-transform: none; text-align: left; white-space: pre; color: black; text-shadow: white 0px 1px; direction: ltr; word-spacing: normal; word-break: normal; tab-size: 4; padding: 0.1em; border-radius: 0.3em;">p:try</code>
+                        </a>
+                  - execute a subpipeline, and deliver its results, or if it fails, run a fallback subpipeline given in
+                  a <code>p:catch</code>
+                     </li>
+                  </ul>
+                  <p>Additionally to these elements, XProc subpipelines may contain variable declarations
+                  (<code>p:variable</code>) and documentation (<code>p:documentation</code>), as noted.</p>
+               </section>
+               <section>
+                  <h3>Namespaces and extension steps</h3>
+                  <p>We recognize steps because we either recognize them by name - for standard steps in the <code>p:</code>
+               (XProc) namespace such as <code>p:filter</code> and <code>p:add-attribute</code> - or sometimes by
+               process of elimination – because they cannot be anything else. This is because extension steps, whether
+               written or acquired, can be named anything. Fortunately, extension steps in XProc take the form of
+               elements in an <em>extension namespace</em>. Generally speaking, that is, any element not prefixed with
+                  <code>p:</code> is treated as out of scope for XProc and to be ignored, while subject to evaluation as
+               an extension.</p>
+                  <p>But this is an important category, since such extensions may include XProc steps whose functioning is
+               core to the pipeline as a whole.</p>
+                  <details>
+                     <summary>Question: Where are extension steps used in the XProcs run so far?</summary>
+                     <p>One answer:
+                  The <a href="./../../../smoketest/TEST-XSPEC.xpl">XSpec smoke test</a> calls an extension step named
+                     <code>ox:execute-xspec</code>, defined in an imported pipeline. In this document, the prefix
+                     <code>ox</code> is bound to a utility namespace,
+                  <code>http://csrc.nist.gov/ns/oscal-xproc3</code>.</p>
+                     <p>In an XProc pipeline (library or step
+                  declaration) one may also see additional namespaces, including</p>
+                     <ul>
+                        <li>The namespaces needed for XSLT, XSD, or other supported technology</li>
+                        <li>One or more namespaces deployed by the XProc author to support either steps or internal operations
+                     (for example, XSLT functions)</li>
+                        <li>The namespace <code>http://www.w3.org/ns/xproc-step</code>, usually associated with the name
+                     prefix <code>c:</code>. This namespace is designated by XProc in order to help standardize the
+                     interfaces (inputs and outputs) supported by standard steps.</li>
+                        <li>The namespace <code>http://www.w3.org/ns/xproc-error</code>, for XProc's error reporting</li>
+                     </ul>These declarations (often but not always at the top of the document) are critically important for
+               XPath and hence for the correct operation of your pipelines. See <a href="https://spec.xproc.org/3.0/xproc/#namespaces">the specification</a> for more
+               information.</details>
+               </section>
+               <section>
+                  <h3>Schema for XProc 3.0</h3>
+                  <p>See coverage of <a href="../unpack/unpack_399_src.html"
+                        class="LessonUnit">XProc, XML and XDM (the XML
+                  Data Model)</a> in the prior lesson unit for a link to the schema for XProc.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Some breaking and making</h2>
+               <p>Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded
+            correctly – when <q>broken</q>, any way we can think of breaking them. Then build good habits by repairing
+            the damage. Experiment and observation bring learning.</p>
+               <p>After reading this page, perform some more disassembly / reassembly. Here are a few ideas:</p>
+               <ul>
+                  <li>Switch out the value of an <code>@href</code> on a <code>p:document</code> or <code>p:load</code> step.
+               See what happens when the file it points to is not actually there.</li>
+                  <li>There is a difference between <code>p:input</code>, used to configure a pipeline in its prologue, and
+                  <code>p:load</code>, a step that loads data. Ponder what these differences are. Try changing a
+               pipeline that uses one into a pipeline that uses the other.</li>
+                  <li>Similarly, there is a difference between a <code>p:output</code> configuration for a pipeline, and a
+                  <code>p:store</code> step executed by that pipeline. Consider this difference and how we might define
+               a rule for when to prefer one or the other. How is the pipeline used - is it called directly, or intended
+               for use as a step in other pipelines? How is it to be controlled at runtime?</li>
+                  <li>Try inserting <code>p:store</code> steps into a pipeline to capture intermediate results, that is, the
+               output of any step before they are processed by the next step. Such steps can aid in debugging, among
+               other uses.</li>
+                  <li>
+                     <code>@message</code> attributes on steps provide messages for the runtime traceback. They are optional
+               but this repo follows a rule that any <code>p:load</code> or <code>p:store</code> should be provided with
+               a message. Why?</li>
+                  <li>A <code>p:identity</code> step passes its input unchanged to the next step. But can also be provided
+               with a <code>@message</code>.</li>
+               </ul>
+               <p>After breaking anything, restore it to working order. Create modified copies of any pipelines for further
+            analysis and discussion.</p>
+               <ul>
+                  <li>Concept: copy and change one of the pipelines provided to acquire a software library or resource of your
+               choice.</li>
+               </ul>
+            </section>
+            <section>
+               <h2>What could possibly go wrong?</h2>
+               <p>When coping with errors, syntax errors are relatively easy. But anomalous inputs, especially invalid inputs,
+            can result in lost data. (A common reason data is not valid even when it appears to be is that it has
+            foreign unknown contents, or contents out of place - the kinds of things that might fail to be converted.)
+            The most important concern when engineering a pipeline is to see to it that no data quality problems are
+            introduced inadvertantly. While in comparison to syntax or configuration problems, data quality issues can
+            be subtle, there is also good news: the very same tools we use to process inputs into outputs, can also be
+            used to test and validate data to both applicable standards and local rules.</p>
+               <p>Generally speaking, OSCAL maintains <q>validation parity</q> between its XML and JSON formats with respect
+            to their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for OSCAL
+            XML data as the JSON Schema does for OSCAL JSON data, accounting for differences between the two notations,
+            the data models and how information is mapped into them. A consequence of this is that valid OSCAL data,
+            either XML or JSON, can reliably be converted to valid data in the other notation, while invalid data may
+            not be converted at all, resulting in gaps or empty results.</p>
+               <p>For this and related reasons on open systems, the working principle in XML is often to formalize a model
+            (typically by writing and deploying a schema) as early as possible - or adopt a model already built - as a
+            way to institute and enforce schema validation as a <b>prerequisite</b> and <b>primary requirement</b> for
+            working with any data set. Validation against schemas is covered in a subsequent lesson unit (coming soon
+            near you).</p>
+               <section>
+                  <h3>Intercepting errors</h3>
+                  <p>One way to manage the problem of ensuring input quality is to validate on the way in, either as a
+               dependent (prerequisite) process, or built into a pipeline. Whatever you want to do with invalid inputs,
+               including ignoring them and producing warnings or runtime exceptions, can be defined in a pipeline much
+               like anything else.</p>
+                  <p>In the <a href="../../../projects/oscal-publish/publish-oscal-catalog.xpl">publishing demonstration
+                  project folder</a> is an XProc that valides XML against an OSCAL schema, before formatting it. The
+               same could be done for an XProc that converts the data into JSON - either or both before or after
+               conversion.</p>
+                  <p>Learn more about recognizing and dealing with errors in <a href="oscal-convert_102_src.html"
+                        class="LessonUnit">Lesson 102</a>, or continue on to the next project, oscal-validate, for more on
+               validation of documents and sets of documents.</p>
+               </section>
+            </section>
+            <section>
+               <h2>for 599: XProc for JSON</h2>
+               <p>map objects; steps for working with them; interim p:store as debug method; output ports to see results
+            (final and intermediate) or bind them</p>
+            </section>
+            <section>
+               <h2>for 599: YAML TODO</h2>
+               <p>map objects; steps for working with them</p>
+            </section>
+            <section>
+               <h2>for 599: XProc port bindings</h2>
+               <p>This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime
+            argument</p>
+               <p>Thus, a script <code>convert-oscal-catalog-xml.sh mycatalog.xml</code> could produce
+               <code>mycatalog.json</code> from <code>mycatalog.xml</code> etc.</p>
+               <p>Such a script could live in the project directory - do we want an Issue for this work item? </p>
+            </section>
+            <section>
+               <h2>for 599: URIs and URI schemes</h2>
+               <p>As described in <a href="https://spec.xproc.org/master/head/xproc/#err.inline.D0012">the XProc
+               specification</a>, it is up to implementations to define supported URI schemes and data retrieval
+            mechanics, including XML catalogs to support resource caching and indirection, etc.</p>
+            </section>
+            <section>
+               <h2>for 599: round tripping as process test</h2>
+            </section>
+         </section>
+      </section>
+      <section class="lesson"
+               id="practicum">
+         <section class="unit maker"
+                  id="practicum_219"
+                  data-track="maker">
+            <h1>Practicum: Learn by Teaching</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Help your team and allies.</p>
+               <p>Produce a useful spin-off from a task or problem you need to master anyway.</p>
+               <p>Learn not only by doing but by writing it down for yourself and others</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>Those with no prior experience in XSLT or declarative markup might think about that before venturing into
+            these waters. This is an awesome exercise but you can't really fake it.</p>
+               <p>Of course there is no rule that says you have to share your results. As always you are welcome to explore
+            with no prior commitments, and if writing a lesson plan for no one is useful to you, go for it.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <ul>
+                  <li>Everything in the course you have seen so far</li>
+                  <li>Everything else you have seen relating to XProc</li>
+                  <li>Your own problems</li>
+                  <li>Your own examples</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Improve or enhance a lesson or lesson unit</h2>
+               <p>Astute readers will have observed that a markup-based deployment invites editing. But the authoring or data
+            acquisition model of this tutorial is not Markdown-based - Markdown is paradoxically not used for its
+            intended purpose but as one of several <b>publication</b> formats for this data set, which is currently
+            written in an XML-based HTML5 tag set defined for the project. By writing, querying and indexing in XHTML we
+            can use XProc from the start. Extensibility and flexibility in publication is one of the strengths - to
+            publish a new or rearranged tutorial sequence can be done with a few lines and commands. A drag and drop
+            interface supporting XProc makes this even easier, while it is already installed and running under CI/CD,
+            meaning both editorial and code quality checks can be done with every commit.</p>
+               <p>Improving a page is as simple as editing the copy found in XXX and XXX</p>
+               <p>Making and deploying a new pages is a little harder: XXX</p>
+            </section>
+            <section>
+               <h2>Create a new lesson unit ('area')</h2>
+            </section>
+            <section>
+               <h2>Produce a new project and document it with a tutorial</h2>
             </section>
          </section>
       </section>

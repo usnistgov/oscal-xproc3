@@ -38,7 +38,7 @@
    </p:for-each>
    
    <p:wrap-sequence wrapper="full_report">
-      <p:with-input port="source" pipe="report"/>
+      <p:with-input pipe="report"/>
    </p:wrap-sequence>
    
    <p:namespace-delete prefixes="xvrl"/>

@@ -29,10 +29,11 @@
       <ox:execute-xspec name="xspec-execution"/>
       
       <p:store message="[RUN_XSPEC_BATCH] storing HTML report in {$outdir}/{$html-report-path}"   href="{$outdir}/{$html-report-path}">
-         <p:with-input port="source" pipe="xspec-html-report@xspec-execution"/>
+         <p:with-input pipe="xspec-html-report@xspec-execution"/>
       </p:store>
+      
       <p:store message="[RUN_XSPEC_BATCH] storing JUnit report in {$outdir}/{$junit-report-path}" href="{$outdir}/{$junit-report-path}">
-         <p:with-input port="source" pipe="xspec-junit-report@xspec-execution"/>
+         <p:with-input pipe="xspec-junit-report@xspec-execution"/>
       </p:store>
    </p:for-each>
       

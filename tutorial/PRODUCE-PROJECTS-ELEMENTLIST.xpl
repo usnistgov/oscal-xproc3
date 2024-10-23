@@ -3,7 +3,7 @@
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:html="http://www.w3.org/1999/xhtml"
-   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-TUTORIAL-ELEMENTLIST" name="PRODUCE-TUTORIAL-ELEMENTLIST">
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-PROJECTS-ELEMENTLIST" name="PRODUCE-PROJECTS-ELEMENTLIST">
 
    <!-- PRODUCE-TUTORIAL-ELEMENTLIST produces an XML file
 
@@ -170,7 +170,7 @@
    </p:xslt>
    
    <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
-      message="[PRODUCE-TUTORIAL-ELEMENTLIST] Storing { $result-md-path }"/>
+      message="[PRODUCE-PROJECTS-ELEMENTLIST] Storing { $result-md-path }"/>
    
    <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
    
