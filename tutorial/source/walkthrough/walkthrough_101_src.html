@@ -15,7 +15,7 @@
       <section>
          <h2>Resources</h2>
          <p>This lesson discusses, in more depth, the same pipelines you ran in setup: <a
-               href="../setup/setup_101_src.html" class="LessonUnit">Setup 101</a>, in particular <a
+               href="../acquire/acquire_101_src.html" class="LessonUnit">Setup 101</a>, in particular <a
                href="../../../smoketest/readme.md">the smoke test pipelines</a>.</p>
          <p>Also, this lesson discusses a pipeline used for producing this tutorial: <a
                href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> generates an <a
@@ -29,14 +29,31 @@
       </section>
       <section>
          <h2>Prerequisites</h2>
-         <p>Same as <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 101</a>.</p>
+         <p>No prerequisites. The commentary assumes, however:</p>
+         <ul>
+            <li>You have run the acquisition, setup and test pipelines <a href="../acquire/acquire_101_src.html"
+                  class="LessonUnit">described in the first lesson set</a>, or you are willing to pretend you have done
+               so for our purposes here</li>
+            <li>You have some prior experience with either XML technologies, web publishing technologies, data modeling
+               and data exchange, or (again) you are open to learning or at least thinking about it</li>
+         </ul>
+         <p>If you fall into neither of these categories – welcome, and congratulations on your perseverence at least.
+            These pages are certainly available to be read and referenced even if you are not running any of the
+            software: as part of the resource provided (repository), they are open to anyone who finds them to be
+            useful, including for specialized purposes.</p>
+         <p>So you are also welcome to read what follows if this is your first look at XProc, or if you are not after
+            the runtime, only the ideas, or if you have some other use in mind (such as perhaps testing an XProc
+            engine?).</p>
+         <p>If you fall into this category, however, you should (one last time!) consider running some of the code after
+            all. You might be surprised at how easy and not-so-scary it really is.</p>
       </section>
       <section>
          <h2>A closer look</h2>
-         <p>If you have completed <a href="../setup/setup_101_src.html" class="LessonUnit">Setup 102</a> you have
+         <p>If you have completed <a href="../acquire/acquire_101_src.html" class="LessonUnit">Acquire 102</a> you have
             already inspected the <a href="../../../lib/readme.md">lib</a> and <a href="../../../smoketest/readme.md"
-               >smoketest</a> folders, and run pipelines you have found there. If you haven't, now is the moment to
-            catch up.</p>
+               >smoketest</a> folders, and run pipelines you have found there. If you haven't, now is a moment to catch
+            up. Even if you have decided not to install any software, please look at the pipelines we are using for the
+            purpose here.</p>
          <p>Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a copy
             of the distribution.</p>
          <p>A quick summary of what these pipelines do:</p>
@@ -56,8 +73,8 @@
          <p>The second group of pipelines is a bit more interesting. Each of the utilities provided for in packages just
             downloaded is tested by running a smoke test.</p>
          <p>Each smoke test performs a minor task, serving as a <q>smoke test</q> inasmuch as its only aim is to
-            determine whether a simple representative process completes successfully. (When we plug in the board, can we
-            see and smell smoke?)</p>
+            determine whether a simple representative process completes successfully. (When we plug the unit in and
+            switch on the power, can we see and smell smoke?)</p>
          <ul>
             <li><a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> amounts to an XProc <q>Hello
                   World</q>. In that spirit, feel free to write your own version.</li>
@@ -80,7 +97,7 @@
       </section>
       <section>
          <h2>Walkthrough</h2>
-         <p>Each of the test pipelines exercises a simple sequence of operations. Open the XSpec file in an editor or
+         <p>Each of the test pipelines exercises a simple sequence of operations. Open any XProc file in an editor or
             viewer where you can see the tags.</p>
          <section>
             <h3>TEST-XPROC3</h3>
@@ -169,7 +186,7 @@
                      <q>no-op</q> in the XProc itself, it provides an occasion for a message to help trace the XProc
                   execution.</li>
             </ul>
-            <p><a href="unpack_102_src.html" class="LessonUnit">The next lesson</a> offers more detail about this
+            <p><a href="walkthrough_102_src.html" class="LessonUnit">The next lesson</a> offers more detail about this
                pipeline.</p>
          </section>
       </section>
@@ -183,16 +200,17 @@
          <p>Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be
             managed and deployed just like a simple one, with its internal complexities masked by a simple and
             predictable interface.</p>
-         <p>One other important feature of XProc must be kept in mind: so far at least, it is all XML. We haven't seen
-            pipelines that work directly with XML data yet, much, except in the most rudimentary form (the smoke tests).
-            But most of the time that is what XProc is for. Moreover, XProc is itself in XML syntax, which makes it
-            possible to work XProc with XProc. XProc folding over on itself. Even short of of dynamically generating and
-            executing XProc (and yes that is a thing), the common ground of XML format means that with XProc working XML
-            tools, XML is always available as a force magnifier or power tool, something we can put to work again and
-            again. In XProc, errors are reported in XML. So we can capture, aggregate and index error messages in XProc.
-            In XProc, a directory file listing is provided in XML. So we have a ready way to present views of file
-            systems – the XML shows all the names and structures – as well as analyze them and access the files in them.
-            Etc.</p>
+         <p>One other important feature of XProc must be kept in mind: so far at least, it is all XML. Not yet haven't
+            looked at any real-world problems, we haven't seen pipelines that work directly with XML data yet, much,
+            except in the most rudimentary form (the smoke tests). But most of the time that is what XProc is for.
+            Moreover, XProc is itself in XML syntax, which makes it possible to work XProc with XProc. XProc folding
+            over on itself. Even short of of dynamically generating and executing XProc (and yes that can be done), the
+            common ground of XML format means that with XProc working XML tools, XML and its related ecosystem (most
+            significantl but not only XPath) is always available as a force magnifier or power tool, something we can
+            put to work again and again. In XProc, errors are reported in XML. So we can capture, aggregate and index
+            error messages in XProc. In XProc, a directory file listing is provided in XML. So we have a ready way to
+            present views of file systems – the XML shows all the names and structures – as well as analyze them and
+            access the files in them. Etc.</p>
          <p>Next, take a look at a more complex example, the prototype pipeline <a
                href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a>. Like the setup and
             smoke-test pipelines, this is a standalone pipeline: it acquires inputs, produces results and writes those
@@ -201,16 +219,17 @@
                <code>p:store</code> step).</p>
          <p>The result is a reference resource: an index of XProc elements used in pipelines described in this tutorial.
             For any XProc element used anywhere, the listing shows the pipelines where it appears. It also shows a list
-            of project folders in the order they are treated by this tutorial, their XProc files and with these, with
-            whatever XProc elements appear <i>first</i> (within the tutorial sequence) within that file. (Among other
-            uses this is helpful for assessing coverage of lessons.)</p>
+            of (repository) project folders in an order corresponding to their treatment (if any) in this tutorial, with
+            their XProc files. Along with these are listed whatever XProc elements appear <i>first</i> (within the
+            entire sequence up to to point) within that file. Among other uses this is helpful for assessing coverage of
+            lessons.</p>
          <p>For example, looking up <code>p:store</code> you can see all the pipelines that contain this common step. Or
             looking at the <code>oscal-convert</code> listing you can see the XProc steps introduced in that lesson.</p>
          <p>Delete or rename this result file and run the pipeline to confirm it functions properly.</p>
          <p>Consider also what other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines
             to the project folders, consider running this pipeline again to update the indexes.</p>
          <p>Open the file and inspect it to get a sense of what it does. The XML syntax is verbose, but not really all
-            that frightening. The pipeline is described in more detail in the <a href="unpack_102_src.html"
+            that frightening. The pipeline is described in more detail in the <a href="walkthrough_102_src.html"
                class="LessonUnit">102 Lesson unit</a> segment.</p>
          <section>
             <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
@@ -250,7 +269,7 @@
             <li>Embedded in the syntax is another syntax, <em>XPath</em>. This lightweight but powerful query language
                is a formal subset of XQuery. XPath is ubiquitous in XProc, XSLT, Schematron, XSpec etc. In XProc, the
                XPath will ordinarily be given in attributes.</li>
-            <li>Learn more about this in the <a href="unpack_102_src.html" class="LessonUnit">102 Lesson unit</a> – or
+            <li>Learn more about this in the <a href="walkthrough_102_src.html" class="LessonUnit">102 Lesson unit</a> – or
                plunge on, and pick up what you need as you go.</li>
          </ul>
       </section>

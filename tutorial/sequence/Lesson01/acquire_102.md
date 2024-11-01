@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/setup/setup_102_src.html](../../../tutorial/source/setup/setup_102_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/acquire/acquire_102_src.html](../../../tutorial/source/acquire/acquire_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -33,20 +33,20 @@ The key to understanding both groups is to know that once the initial [Setup    
 
 Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 
-Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) directory has a single purpose, namely (together and separately) to download software for Morgana.
+Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) directory has a single purpose, namely (together and separately) to download software to augment Morgana's feature set.
 
 * [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
 * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
 * [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl)
 
-The second group of pipelines also has a single purpose, namely to exercise and test the capabilities provided by the software downloaded by the first group.
+Pipelines in a second group work similarly in that each one exercises and tests capabilities provided by software downloaded by a member of the first group.
 
 * [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl) tests MorganaXProc-III
 * [smoketest/TEST-XSLT.xpl](../../../smoketest/TEST-XSLT.xpl) tests Saxon
 * [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT
 * [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec
 
-Take a look at these files. It may be helpful to envision the XML syntax as a set of nested frames with labels and connectors.
+Take a look at these files. It may be helpful (for those getting used to it) to envision the XML syntax as a set of nested frames with labels and connectors.
 
 Try more than one way of looking at the XProc source code: in the Github repository, on your file system, in a plain text editor, in an XML editor.
 

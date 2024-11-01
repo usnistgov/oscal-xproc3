@@ -68,6 +68,7 @@ For convenience, each lesson unit focuses on a project (as noted).
 
 ### Equipment
 
+
 You will be happy to have a developer's or data analyst's setup:
 
 - Command line with bash or Windows (cmd/Powershell)

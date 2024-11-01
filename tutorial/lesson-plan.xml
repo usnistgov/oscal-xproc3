@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LESSON_PLAN>
-   <Lesson key="setup"/>
-   <Lesson key="unpack"/>            
+   <Lesson key="acquire"/>
+   <Lesson key="walkthrough"/>            
    <Lesson key="oscal-convert"/>
    <Lesson key="practicum"/>            
    <!--

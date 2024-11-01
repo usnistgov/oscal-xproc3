@@ -22,9 +22,10 @@
       <p:directory-list path="source/{ $lesson_key }" max-depth="unbounded" include-filter="_src\.html$"/>
       <p:add-attribute attribute-name="position" attribute-value="{p:iteration-position()}"/>      
 
+      <p:label-elements match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
    <!-- is there a better way to annotate a directory list with full paths?
         or: make a step out of this and import it -->
-      <p:xslt>
+      <!--<p:xslt>
          <p:with-input port="stylesheet">
             <p:inline expand-text="false">
                <xsl:stylesheet version="3.0">
@@ -39,13 +40,16 @@
                </xsl:stylesheet>
             </p:inline>
          </p:with-input>
-      </p:xslt>
+      </p:xslt>-->
       <p:viewport match="c:file">
          <p:variable name="path" select="/*/@path"/>
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-TOC] Loading {$path}"/>
+         <p:variable name="track" select="/*/*/@data-track"/>
+         
          <p:filter select="descendant::h1[1]"/>
          <p:rename new-name="file"/>
          <p:add-attribute attribute-name="href" attribute-value="{ replace($path,'.*/','') => replace('_src\.html$','.md') }"/>
+         <p:add-attribute attribute-name="track" attribute-value="{ $track }"/>
       </p:viewport>
    </p:for-each>
    
@@ -66,7 +70,7 @@
                </xsl:template>
                <xsl:template match="directory" expand-text="true">
                   <div>
-                     <h3>Lesson unit { format-number(@position,'01') }</h3>
+                     <h3>Lesson set { format-number(@position,'01') } - { @name }</h3>
                      <ul>
                         <xsl:apply-templates/>
                      </ul>
@@ -80,7 +84,8 @@
                <xsl:template match="file" mode="link">
                   <a href="Lesson{ format-number(parent::*/@position,'01') }/{@href}">
                      <xsl:apply-templates/>
-                  </a>
+                  </a>                  
+                  <xsl:text expand-text="true"> ({ upper-case(@track) })</xsl:text>
                </xsl:template>
             </xsl:stylesheet>
          </p:inline>

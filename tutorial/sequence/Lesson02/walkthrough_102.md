@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/unpack/unpack_102_src.html](../../../tutorial/source/unpack/unpack_102_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/walkthrough/walkthrough_102_src.html](../../../tutorial/source/walkthrough/walkthrough_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -16,7 +16,7 @@
 
 ## Prerequisites
 
-You have done [Setup 101](../setup/setup_101.md), [Setup 102](../setup/setup_101.md) and [Unpack 101](unpack_101.md).
+You have done [Setup 101](../acquire/acquire_101.md), [Setup 102](../acquire/acquire_101.md) and [Unpack 101](walkthrough_101.md).
 
 ## Resources
 
@@ -28,7 +28,7 @@ Also, the official [XProc.org dashboard page](https://xproc.org)
 
 Also, check out XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md)
 
-And the same pipelines you ran in setup: [Setup                101](../setup/setup_101.md).
+And the same pipelines you ran in setup: [Setup                101](../acquire/acquire_101.md).
 
 ## Learning more about XProc
 
@@ -41,7 +41,7 @@ A partial list of ways to learn more about XProc:
 
 ## Details details!
 
-XProc pipelines described in [the previous lesson unit](unpack_101.md) contain a few noteworthy features.
+XProc pipelines described in [the previous lesson unit](walkthrough_101.md) contain a few noteworthy features.
 
  To edit these files, use any XML-capable plain text editor (that is, with care, any editor at all that saves text files as UTF-8).
 

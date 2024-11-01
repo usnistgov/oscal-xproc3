@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/setup/setup_101_src.html](../../../tutorial/source/setup/setup_101_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/acquire/acquire_101_src.html](../../../tutorial/source/acquire/acquire_101_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -67,12 +67,12 @@ Since almost any pipeline will use XSLT and since we do use the latest version (
 
 The top-level README and setup notes also describe testing your installation. Do this next.
 
-You know things are working in your XProc when either or both of two things are happening:
+You know things are working in your XProc when two things are happening:
 
 * On the console, notifications show up with reassuring messages announcing progress
-* When you expect files to be produced, they appear, or are updated, as expected
+* When you expect files to be produced for you, they appear, or are updated, as expected
 
-Both of those will occur with this lesson. The files produced by downloading scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
+Both of those will occur with this lesson. The files produced by downloading pipelines are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
 
 Note: you need a live Internet connection for your `http` requests to go through.
 
@@ -82,13 +82,13 @@ When you can run all the smoke tests without ugly tracebacks, this lesson is com
 
 Within this project as a whole, and within its subprojects, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline. This simplicity is at the center of the argument for XProc. 
 
-Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc offers the user and the developer (in either or both roles) with focused and concentrated points of control or points of adjustment. In the field – where software is deployed and used – things almost never just &ldquo;drop in&rdquo;. User interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even developers are rarely free to just mess around, as it might be thought of.
+Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc offers the user and the developer (in either or both roles) with focused and concentrated points of control or points of adjustment. In the field – where software is deployed and used – things almost never just &ldquo;drop in&rdquo;. User interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even developers are rarely free to experiment and explore.
 
 To the extent this is the case, this project only works if things are actually simple enough to pick up, use, learn and adapt.
 
 `xp3.sh` and `xp3.bat` represent attempts at this. Each of them (on its execution platform) enables a user to run, without further configuration, the [Morgana XProcIIIse](https://www.xml-project.com/morganaxproc-iiise.html) processor on any XProc 3.0 pipeline, assuming the appropriate platform for each (`bash` in the case of the shell script, Windows batch command syntax for the `bat` file). Other platforms supporting Java (and hence Morgana with its libraries) could be provided with similar scripts.
 
-Such a script itself must be &ldquo;vanilla&rdquo; and generic: it simply invokes the processor with the designated pipeline, and stands back. The logic of operations is entirely encapsulated in the XProc pipeline designated. XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing, both XML-based and using other formats such as JSON and plain text. It is the intent of this project not to explore and map this space – which is vast – but to show off enough XProc and related logic (XSLT, XSpec) to show how this exploration can be done. We are an outfitter at the beginning of what we hope will be a long and profitable voyage.
+Such a script itself must be &ldquo;vanilla&rdquo; and generic: it simply invokes the processor with the designated pipeline, and stands back. The logic of operations is entirely encapsulated in the XProc pipeline designated. XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing, both XML-based and using other formats such as JSON and plain text. It is the intent of this project not to explore and map this space – which is vast – but to show off enough XProc and related logic (XSLT, XSpec) to show how this exploration can be done. We are an outfitter at the beginning of what we hope will be many profitable voyages to places we have never been.
 
 ### Tweaks
 

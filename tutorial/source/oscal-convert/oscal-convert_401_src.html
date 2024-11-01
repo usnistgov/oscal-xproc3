@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>401: XProc, XML, JSON and content types</title>
+      <meta charset="utf-8" />
+   </head>
+   <body data-track="learner">
+      <h1>401: XProc, XML, JSON and content types</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Understand a little more about JSON and other data formats in an XML processing environment</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>See links given in the remarks below. This is a topic you can also learn by through trial and error.</p>
+      </section>
+      <section>
+         <h2>File formats and XProc content type</h2>
+         <p>Media types or what XProc calls <em>content types</em> is a concept XProc inherits from Internet standards
+            such as RFC 2045 (1996) and subsequent specifications for file and attachment types on the Internet.
+            Naturally, since a file's nominal format is scoped to its extent (while we have nominally multi-part formats
+            such as <code>multipart/x-zip</code>, each media type descriptor is assigned to a file, giving us a single
+            media type per file), this becomes the most useful and transparent way to manage file format distinctions.
+            Names may <i>mostly</i> indicate file types, as we conventionally suffix both XML and JSON (<code>xml</code>
+            and <code>json</code> respectively) if only to keep ourselves sane. But when the system reports a file as
+               <code>application/xml</code> we should be inclined to believe it, unless we have better information to
+            the contrary.</p>
+         <p>Because an XProc processor comes ready to recognize a range of content types, this becomes an indispensable
+            point of control for managing our information across the variety of formats in which we find it. XML is a
+            meta-language, and describes a syntax while not prescribing any semantics beyond the structural semantics
+            implied in element and attribute naming and containment – this proves to be a very useful in the XProc
+            context, since it means that semantics can be abstracted out – the further the better – into externalized
+            transformations and processes (often, XSLTs) that become black boxes and resources to manage, rather than
+            more code in the code base. But the world deals in much more than XML, and XProc makes the same layering and
+            separation of concerns possible with JSON and other standardized or codified serialization formats.</p>
+      </section>
+      <section>
+         <h2>Content type 'application/json'</h2>
+         <p>XProc follows the lead of XPath in offering two distinct but complementary ways of handling JSON.</p>
+         <section>
+            <h3>JSON as XPath <code>map</code> object</h3>
+            <p>With XPath 3.1 the language now supports arrays and maps as first-class objects. These are an interesting
+               addition to XPath, among other reasons because JSON object types now all have natural equivalents within
+               XDM. Strings, numeric types, Boolean values, and now arrays and maps can be represented and processed
+               natively in XPath. These objects are supported with operations appropriate to them - such that, for
+               example, <code>$map('field')</code> or more succinctly <code>$map?field</code> will return the value of
+               the <code>field</code> field on the map object. Since map keys do not duplicate, they essentially
+               correspond exactly with JSON objects.</p>
+            <p>XPath maps are <a href="https://www.w3.org/TR/xpath-31/#id-maps">described in full in the XPath
+                  specification</a>. Acquire a map object (or array object, if appropriate) by interpreting a string
+               using the XPath function <a href="https://www.w3.org/TR/xpath-functions-31/#func-parse-json"
+                     ><code>parse-json()</code></a>, or alternatively reading a JSON file using the <a
+                  href="https://www.w3.org/TR/xpath-functions-31/#func-json-doc"><code>json-doc()</code></a>. The
+               pipeline <a href="../../../projects/oscal-convert/src/read-json-map.xpl"
+                  >oscal-convert/src/read-json-map.xpl</a> provides an experimental surface for working this
+               functionality.</p>
+            <p>Much more natural than using an XPath function to acquire a map object, XProc will simply read a JSON
+               file for you, using the same <code>p:document</code> or <code>p:load</code> as used everywhere else. The
+               processor is able to do the right thing in this case as well, namely read the file input and cast the
+               data into an XDM map structure.</p>
+            <p>A pipeline with a simple binding to a JSON file, using <code>p:load</code> or <code>p:document</code>, is
+               enough to demonstrate this.</p>
+         </section>
+         <section>
+            <h3>Your JSON, as XML</h3>
+            <p>Map objects have the advantage of efficiency but some disadvantages for transparency. They are great for
+               querying, but not necessarily as easy as node trees to see, write in and out (as XML), transform and
+               debug. Because the JSON object structure reduces into a few rudiments, an XML representation of any JSON
+               input is straightforward to produce, as long as names in XML are suitably generic as to type (like
+                  <code>number</code> and <code>string</code>, for example), and correspond to types known in JSON. A
+               vocabulary for doing so is also well defined, quite concise and even reasonably efficient (for processing
+               if not storage). <a href="https://www.w3.org/TR/xpath-functions-31/#json-to-xml-mapping"> This
+                  vocabulary</a> is defined in XPath 3.0.</p>
+            <p>This XML is easy to see: all it requires is the XProc <code>p:cast-content-type</code> step with
+                  <code>content-type="application/xml"</code>, applied to your map object (JSON) input.</p>
+            <p>If your system already has such XML, you can cast it back to JSON (map or array) using the same step,
+               with <code>content-type="application/json"</code>.</p>
+         </section>
+      </section>
+      <section>
+         <h2>Other content types</h2>
+         <p>Important content types besides XML and JSON include <code>plain/text</code> for plain text and two types
+            for HTML: <code>text/html</code> (for less rigorous flavors of HTML) and <code>application/xhtml+xml</code>. </p>
+         <p>These are most important on the input side, because they provide XProc with information it needs to parse
+            the data reliably. They are also useful to specify on outputs. Making them explicit on either input or
+            output ports is a good practice for both documentation and error detection. The XProc Specification gives
+            some information about <a href="https://spec.xproc.org/master/head/xproc/#specified-content-types">how
+               content type settings can be abbreviated</a> in some circumstances.</p>
+         <p>In XProc it is useful to distinguish between content types and serializations – inasmuch as it is only the
+            latter being, for example, that constitute something like strings of text. Content types, in contrast, are
+            more like species of data object, albeit within or accommodated to XDM, as for example HTML content types
+            must be. On the serialization side: XSLT or XQuery users familiar with the output methods <code>text</code>,
+               <code>xml</code> and <code>html</code> should be able to make these work; and serialization settings when
+            XProc writes out its content types to files are indeed guided by <a
+               href="https://www.w3.org/TR/xslt-xquery-serialization-31/">applicable standards</a></p>
+      </section>
+   </body>
+</html>
