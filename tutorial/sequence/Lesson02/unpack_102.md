@@ -14,6 +14,10 @@
 * Get hands a little dirty – and practice washing up
 * First look at XProc pipeline organization
 
+## Prerequisites
+
+You have done [Setup 101](../setup/setup_101.md), [Setup 102](../setup/setup_101.md) and [Unpack 101](unpack_101.md).
+
 ## Resources
 
 Take a quick look *now* (and a longer look later):
@@ -24,11 +28,7 @@ Also, the official [XProc.org dashboard page](https://xproc.org)
 
 Also, check out XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md)
 
-And the same pipelines you ran in setup: [Setup 101](../setup/setup_101.md).
-
-## Prerequisites
-
-You have done [Setup 101](../setup/setup_101.md), [Setup 102](../setup/setup_101.md) and [Unpack 101](unpack_101.md).
+And the same pipelines you ran in setup: [Setup                101](../setup/setup_101.md).
 
 ## Learning more about XProc
 
@@ -47,17 +47,17 @@ XProc pipelines described in [the previous lesson unit](unpack_101.md) contain a
 
 ### TEST-XSPEC
 
-* Where XSpec documents are bound to the input port `source`, they have `content-type='application/xml'` given. This is because with the unconventional file suffix `xspec` (useful for other reasons), the XProc engine needs extra information to know they should be read as XML, not some other data format. Try removing the `content-type` to 
-* The step `p:for-each` is not just a step: it also contains steps. It is a *compound step*, described further below. You would be correct to infer this step enables us to perform operations on several inputs in parallel: just what this pipeline needs.
+* Where XSpec documents are bound to the input port `source`, they have `content-type='application/xml'` given. This is because with the unconventional file suffix `xspec` (useful for other reasons), the XProc engine needs extra information to know they should be read as XML, not some other data format. Try removing the `content-type` to see what happens when the engine does not know an XML file is XML.
+* The step `p:for-each` is not just a step: it also contains steps. It is a *compound step*. You would be correct to infer this step enables us to perform operations on several inputs in parallel: just what this pipeline needs.
 * Within the `p:for-each`, the step `ox:execute-xspec` is named in the `ox` namespace, which resolves to the string `http://csrc.nist.gov/ns/oscal-xproc3`, a value assigned for this project. This step is defined in the [imported pipeline](../../../xspec/xspec-execute.xpl). XProc is indefinitely extensible: the namespace feature allows us to create new steps without fear of name clashes with old steps – or steps that are still uninvented and unnamed. We can develop and name steps in our own namespace, while also acquiring and using steps in other namespaces.
 * The `p:identity` step is used twice in this pipeline for one purpose only: to indicate messages the XProc engine should deliver. In the normal configuration, you should see these messages in the console when the pipeline runs. This is a common use for `p:identity`.
 * The repository observes a couple of conventions with regard to steps and messages. For example: any `p:load` or `p:save` step should have a message; and messages should always be prefixed with a bracketed indicator of the pipeline that issues them, for example the `[TEST-XSPEC]` messages that are emitted here, once for each input and again once when the pipeline finishes.
 * Yes, those conventions are enforced in the repository by [a Schematron](../../../testing/xproc3-house-rules.sch) that can be applied to any pipeline, both in development and when it is committed to the repository under CI/CD (continuous integration / continous development). Assuming we take care to run our tests and validations, this does most of the difficult work maintaining consistency, namely detecting the inconsistency.
 * Reassuring messages aside, no XSpec reports are actually captured by this XProc! With nothing bound to an output port, it *sinks* by default. That is because it is a smoke test, and we care only to see that it runs and completes without error. The inputs are all controlled, so we know what those reports say. Or we can find out.
 
-### PRODUCE-TUTORIAL-ELEMENTLIST.xpl
+### PRODUCE-PROJECTS-ELEMENTLIST.xpl
 
-The pipeline [PRODUCE-TUTORIAL-ELEMENTLIST.xpl](../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl) has &ldquo;real-world complexity&rdquo;. Reviewing its steps can give a sense of how XProc combines simple capabilities into complex operations. Notwithstanding the title of this section, it is not important to understand every detail – knowing they are there is enough.
+The pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl) has &ldquo;real-world complexity&rdquo;. Reviewing its steps can give a sense of how XProc combines simple capabilities into complex operations. Notwithstanding the title of this section, it is not important to understand every detail – knowing they are there is enough.
 
 * The prologue here contains a single `p:input` configuration. This one gives the input in line, as an XML document. Within this XML, all the project folders to be covered by the index are listed. Their order also matters since one of the two indexes built works incrementally, prior elements affecting what happens with later elements.
 
@@ -65,7 +65,7 @@ The pipeline [PRODUCE-TUTORIAL-ELEMENTLIST.xpl](../../PRODUCE-TUTORIAL-ELEMENTLI
 
 Taking some time to make and test small adjustments to working code is a great way to develop a sense of how it behaves.
 
-An easy way to do this without perturbing the working code in the repository is to copy a pipeline and modify the copy. Modifying one of the smoketest pipelines, see what happens when:
+An easy way to do this without perturbing the working code in the repository is to copy a pipeline and modify the copy. Modifying any of the pipelines presented so far, see what happens when:
 
 * An `@href` points to a location on the system where there is no file
 * A file is there, but it is not what is expected (for example: XML is expected but the file is not well formed)
@@ -95,7 +95,7 @@ becomes
 
 A code editor that supports XML might let you do this with a keystroke, for example `ctrl-,` (Control key plus comma), after selecting the text you wish to include in the comment.
 
-Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful technique for rapidly and interactively testing your pipelines.
+Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks of code.
 
 ## Take note
 

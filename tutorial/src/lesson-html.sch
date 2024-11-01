@@ -80,9 +80,19 @@
       </sch:rule>
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6">
          <sch:let name="deep" value="count(ancestor::html:body | ancestor::html:section)"/>
-         <sch:assert test="number(replace(local-name(), '\D', '')) = $deep"><sch:name/> found out of place - try
-               h<sch:value-of select="$deep"/></sch:assert>
+         <sch:let name="fixup" value="'h' || $deep"/>
+         <sch:assert sqf:fix="retag-header" test="number(replace(local-name(), '\D', '')) = $deep"><sch:name/> found out of place - try
+               <sch:value-of select="$fixup"/></sch:assert>
          <sch:assert test="empty(parent::* except (parent::html:body|parent::html:section))">Not expecting to see <name/> here</sch:assert>
+         
+         <sqf:fix id="retag-header">
+            <sqf:description>
+               <sqf:title>Retag the section head as <sch:value-of select="$fixup"/></sqf:title>
+            </sqf:description>
+            <sqf:replace node-type="element" target="html:{$fixup}">
+               <sqf:copy-of select="child::node()"/>
+            </sqf:replace>
+         </sqf:fix>  
       </sch:rule>
    </sch:pattern>
    

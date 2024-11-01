@@ -12,6 +12,8 @@
      
    -->
 
+   <!-- Our source is a controlled list of directories wherein to find our files
+        we assume alphabetical order within each subdirectory is fine -->
    <p:input port="source" primary="true">
       <p:inline>
          <SEQUENCE><!-- should align with lesson-plan.xml -->
@@ -42,37 +44,24 @@
       <p:add-attribute attribute-name="position" attribute-value="{p:iteration-position()}"/>      
       <p:add-attribute attribute-name="dir"      attribute-value="{$lesson_dir}"/>
       
-   <!-- is there a better way to annotate a directory list with full paths?
-        or: make a step out of this and import it -->
-      <p:xslt>
-         <p:with-input port="stylesheet">
-            <p:inline expand-text="true">
-               <xsl:stylesheet version="3.0">
-                  <xsl:mode on-no-match="shallow-copy"/>
-                  <xsl:template match="c:file">
-                     <xsl:copy>
-                        <xsl:copy-of select="@*"/>
-                        <xsl:attribute name="path"
-                           select="string-join((/*/@dir,'..',ancestor-or-self::c:*/@name),'/') => resolve-uri()"/>
-                     </xsl:copy>
-                  </xsl:template>
-               </xsl:stylesheet>
-            </p:inline>
-         </p:with-input>
-      </p:xslt>
+      <!-- directory list path writing step annotates c:file with full path to resource -->
+      <p:label-elements match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
       <p:delete match="c:directory[@name='lib']/c:directory"/>
       <p:viewport match="c:file">
          <p:variable name="path" select="/*/@path"/>
+         <!-- Names are grabbed from the documents loaded dynamically, whee -->
          <p:variable name="names" select="//p:*/name() => distinct-values()">
             <p:document href="{ $path }"/>
          </p:variable>
-         <!--<p:load href="{$path}" message="[PRODUCE-TUTORIAL-ELEMENTLIST] Loading {$path}"/>-->
+         <!-- Adding this list of names to the c:file element -->
          <p:add-attribute attribute-name="elements" attribute-value="{ $names }"/>
       </p:viewport>
    </p:for-each>
    
    <p:wrap-sequence wrapper="SEQUENCE"/>
 
+   <!-- XSLT uses an accumulator to collect element names provided per XProc file,
+        annotating the c:file elements further -->
    <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="true">
@@ -97,6 +86,7 @@
       </p:with-input>
    </p:xslt>
    
+   <!-- Now all this information is available we can display it via another XSLT -->
    <p:xslt>
       <p:with-input port="stylesheet">
          <p:inline expand-text="false">
@@ -163,12 +153,15 @@
       </p:with-input>
    </p:xslt>
    
+   <!-- Cleanup -->
    <p:namespace-delete prefixes="xsl ox c"/>
    
+   <!-- Making Markdown -->
    <p:xslt name="make-markdown">
       <p:with-input port="stylesheet" href="src/xhtml-to-markdown.xsl"/>
    </p:xslt>
    
+   <!-- Saving that -->
    <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
       message="[PRODUCE-PROJECTS-ELEMENTLIST] Storing { $result-md-path }"/>
    

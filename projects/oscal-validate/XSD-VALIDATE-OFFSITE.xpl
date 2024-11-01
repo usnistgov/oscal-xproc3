@@ -7,8 +7,6 @@
    type="ox:XSD-VALIDATE-OFFSITE"
    name="XSD-VALIDATE-OFFSITE">
 
-   <!-- STOP VALIDATION HALLPASS FILESET_XPROC3_HOUSE-RULES.xpl -->
-   
    <p:import href="xsd-validate-catalog.xpl"/><!-- Encapsulates validation for all pipelines that use it -->
    
    <p:input port="source" primary="true" sequence="true">
@@ -43,7 +41,7 @@
    
    <p:namespace-delete prefixes="xvrl"/>
    
-<!-- XSLT is the most comprehensive and capable way to trim down the validation report ...
+   <!-- XSLT is the most comprehensive and capable way to trim down the validation report ...
      ... but YMMV - YOUR LOCAL REQUIREMENTS MATTER
      see the pipelines in project ../schema-field-tests/ for an approach more thoroughly worked out -->
    <p:xslt>

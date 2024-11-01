@@ -10,10 +10,6 @@
    
    <p:input port="source" primary="true" href="lesson-plan.xml"/>
    
-   <p:variable name="ox:normalize-uri" as="function(*)"  
-      xmlns:xs="http://www.w3.org/2001/XMLSchema"
-      select="function($u as xs:anyURI) as xs:anyURI { xs:anyURI( replace($u,'^file:///','file:/') ) }"/>
-   
    <p:for-each name="lessons">
       <p:with-input select="descendant::Lesson"/>
       <p:variable name="lesson_key" select="/*/@key"/>

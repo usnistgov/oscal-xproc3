@@ -8,7 +8,7 @@
 
 ## Goals
 
-Run an XProc 3.0 pipeline in an XProc 3.0 engine. See the results.
+Set up and run an XProc 3.0 pipeline in an XProc 3.0 engine. See the results.
 
 With a little practice, become comfortable running XProc pipelines, seeing results on a console (command line) window as well as in the file system.
 
@@ -18,9 +18,9 @@ After the first script to get the XProc engine, we use XProc for subsequent down
 
 You have Java installed with a JVM (Java Virtual Machine) available on the command line (a JRE or JDK), version 8 (and later).
 
-You have a live Internet connection and the capability to download and save resources (binaries and code libraries) for local use.
-
 **Tip:** check your Java version from the console using `java --version`.
+
+Also, you have a live Internet connection and the capability to download and save resources (binaries and code libraries) for local use.
 
 You are comfortable entering commands on the command line. For installation, you want a `bash` shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use `bash`, the setup can be done by hand (downloading and unpacking a package from SourceForge).
 
@@ -28,11 +28,11 @@ After installation, subsequent work on Windows does not require `bash` unless yo
 
 ## Resources
 
-The setup script is a `bash` script: [./setup.sh](../../../setup.sh), to be run with no arguments.
+The setup script is a `bash` script: [./setup.sh](../../../setup.sh), to be run with no arguments. See [top-level documentation](../../../setup-notes.md) if you can't use this script or if you prefer to download and unzip the dependencies by hand.
 
 For XProc runtime — to execute pipelines — use either of the scripts [./xp3.sh](../../../xp3.sh) (under `bash`) or [./xp3.bat](../../../xp3.bat) (for Windows). These scripts are used for all pipelines (basically, for everything) unless otherwise noted.
 
-The following pipelines will be run. They are described in top-level [README](../../../README.md) documentation and the expected places.
+To perform the setup: first, you download an XProc engine; then you complete setup and testing by running these pipelines. They are described in top-level [README](../../../README.md) documentation and the expected places.
 
 * [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
 * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
@@ -46,11 +46,11 @@ The following pipelines will be run. They are described in top-level [README](..
 
 Find setup instructions for the repository in the [Project README](../../../README.md) and in the linked [Setup Notes](../../../setup-notes.md).
 
-After reading and reviewing these documents, perform the setup as instructed. To do this you can either fork or clone the repository in GitHub or simply download and decompress a zip of the [current             distribution](https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip).
+After reading and reviewing these documents, perform the setup on your system as instructed. To do this you can either fork or clone the repository in GitHub or simply download and decompress a zip of the [current             distribution](https://github.com/usnistgov/oscal-xproc3/archive/refs/heads/main.zip).
 
 After running the setup script, or performing the installation by hand, make sure you can run all the smoke tests successfully.
 
-As noted in the docs, if you happen already to have [Morgana XProc III](https://www.xml-project.com/morganaxproc-iiise.html), you do not need to download it again. Try skipping straight to the smoke tests. (You can use a runtime script `xp3.sh` or `xp3.bat` as a model for your own, and adjust. Any reasonably recent version of Morgana should function if configured correctly, and we are interested if it does not.) 
+As noted in the docs, if you happen already to have [Morgana XProc III](https://www.xml-project.com/morganaxproc-iiise.html), you do not need to download it again. Try skipping straight to the smoke tests. You can use a runtime script `xp3.sh` or `xp3.bat` as a model for your own, and adjust. Any reasonably recent version of Morgana should function if configured correctly, and we are interested if it does not. 
 
 ### Shortcut
 
@@ -74,15 +74,15 @@ You know things are working in your XProc when either or both of two things are 
 
 Both of those will occur with this lesson. The files produced by downloading scripts are written into the project `lib` directory, as documented. Refresh or restore by deleting the downloaded files and running the pipelines to acquire them again.
 
-Note: you need a live Internet connection for your http requests to go through.
+Note: you need a live Internet connection for your `http` requests to go through.
 
 When you can run all the smoke tests without ugly tracebacks, this lesson is complete.
 
 ## Comments / review
 
-Within this project as a whole, and within its subprojects, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline. This simplicity is at the center of the argument for XProc. The counter argument is that the world is never like that. This project is based on the premise that a lab environment can be useful even for studying things more commonly encountered in the real world.
+Within this project as a whole, and within its subprojects, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline. This simplicity is at the center of the argument for XProc. 
 
-Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc offers the user and the developer (in either or both roles) with focused and concentrated points of control or points of adjustment. In the field -- where software is deployed and used -- things almost never just &ldquo;drop in&rdquo;. User interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even developers are rarely free to just mess around, as it might be thought of.
+Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc offers the user and the developer (in either or both roles) with focused and concentrated points of control or points of adjustment. In the field – where software is deployed and used – things almost never just &ldquo;drop in&rdquo;. User interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even developers are rarely free to just mess around, as it might be thought of.
 
 To the extent this is the case, this project only works if things are actually simple enough to pick up, use, learn and adapt.
 
@@ -112,9 +112,9 @@ This works the same ways on Windows, with adjustments:
 > ..\xp3 TEST-XPROC3.xpl 
 ```
 
-(On Windows a `bat` file suffix marks it as executable and does not have to be given explicitly when calling.)
+(On Windows a `bat` file suffix marks it as executable and does not have to be given explicitly when called.)
 
-Windows users (and others to varying degrees) can set up a drag-and-drop based workflow - using your mouse or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows batch file). A command window opens to show the operation of the pipeline. See the [README](../../README.md) for more information.
+Windows users (and others to varying degrees) can set up a drag-and-drop based workflow – using your mouse or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows batch file). A command window opens to show the operation of the pipeline. See the [README](../../README.md) for more information.
 
 It is important to try things out since any of these methods can be the basis of a workflow. 
 

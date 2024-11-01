@@ -22,10 +22,6 @@ or post to a file with -output:result="destination.xml"
 
 <!-- /end prologue -->
 
-   <p:directory-list path="." max-depth="unbounded" include-filter="\.xml$"/>
-   
-   
-   
    <p:identity/>
 
 </p:declare-step>

@@ -15,19 +15,15 @@
    
    -->
 
-   <!-- Drilling into the retrieved Docbook file for the XIncludes in the Required Steps section,
-        then pulling p:declare step from the linked files -->
+
    <p:for-each name="required-steps" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns="http://docbook.org/ns/docbook">
-      <p:with-input select="//section[@xml:id='req-steps']/xi:include">
-         <p:document href="https://raw.githubusercontent.com/xproc/3.0-steps/master/steps/src/main/xml/specification.xml"
+      <p:with-input select="//section[@xml:id='req-steps']//p:declare-step">
+         <p:document href="https://spec.xproc.org/lastcall-2024-08/head/steps/specification.xml"
             content-type="text/xml"/>
       </p:with-input>
-      <p:variable name="step-location" select="resolve-uri(/*/@href,base-uri(.))"/>
-      <p:load content-type="text/xml" href="{ $step-location }" message="[COLLECT-XPROC-STEPS] Loading { $step-location }"/>
-      <p:filter select="//p:declare-step"/>
       <p:add-attribute match="p:declare-step" attribute-name="library" attribute-value="standard"/> 
    </p:for-each>
-
+   
    <!-- we don't need to sink since the next step ignores the primary results anyway -->
    <p:sink/>
 
@@ -73,7 +69,7 @@
    <p:namespace-delete prefixes="p"/>
    
    <p:store href="xproc-steps.xml"  serialization="map{'indent' : true()}"
-      message="[COLLECT-XPROC-STEPS] Storing out/xproc-steps.xml"/>
+      message="[COLLECT-XPROC-STEPS] Storing Sxproc-steps.xml"/>
    
    <p:sink message="[COLLECT-XPROC-STEPS] To produce HTML from this XML, run pipeline XPROC-STEP-INDEX-HTML.xpl"/>
    

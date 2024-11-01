@@ -159,8 +159,9 @@
       <!-- Pre-empting for p:store and anything inside p:documentation -->
       <sch:rule context="p:store"/>
       <sch:rule context="p:documentation//*"/>
+      <sch:rule context="p:*[starts-with(@href,'http')]"/>
       <!-- Not matching elements with href that contain { or } -->
-      <sch:rule context="*[matches(@href, '^[^\}\{]+$')]">
+      <sch:rule context="p:*[matches(@href, '^[^\}\{]+$')]">
          <sch:let name="exception" value="(/*/@name = $unlinked-xproc) or (tokenize(@href,'/')='lib')"/>
          <sch:let name="expanded-uri" value="resolve-uri(@href, base-uri(.))"/>
          <sch:assert test="$exception or ($expanded-uri => unparsed-text-available())">No resource found at <sch:value-of

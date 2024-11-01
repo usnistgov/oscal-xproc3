@@ -15,7 +15,7 @@
 
 This lesson discusses, in more depth, the same pipelines you ran in setup: [Setup 101](../setup/setup_101.md), in particular [the smoke test pipelines](../../../smoketest/readme.md).
 
-Also, this lesson discusses a pipeline used for producing this tutorial: [PRODUCE-TUTORIAL-ELEMENTLIST.xpl](../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl) generates an [index to XProc in this repository](../../sequence/element-directory.md)
+Also, this lesson discusses a pipeline used for producing this tutorial: [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl) generates an [index to XProc in this repository](../../sequence/element-directory.md)
 
 ### For reference
 
@@ -29,9 +29,9 @@ Same as [Setup 101](../setup/setup_101.md).
 
 ## A closer look
 
-If you have completed [Setup 102](../setup/setup_101.md) you have already inspected the [lib](../../../lib/readme.md) and [smoketest](../../../smoketest/readme.md) folders, and run pipelines you have found there.
+If you have completed [Setup 102](../setup/setup_101.md) you have already inspected the [lib](../../../lib/readme.md) and [smoketest](../../../smoketest/readme.md) folders, and run pipelines you have found there. If you haven't, now is the moment to catch up.
 
-Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a copy.
+Routine code inspection can also be done on Github as well (not a bad idea in any case), not just in a copy of the distribution.
 
 A quick summary of what these pipelines do:
 
@@ -74,7 +74,7 @@ When you run this pipeline, the `CONGRATULATIONS` document given in line will be
 
 * `p:output` – An output port is designated with `p:output` as in the [TEST-XPROC3 pipeline](../../../smoketest/TEST-XPROC3.xpl).
 * `p:xslt` – Instead of providing a literal document in an *identity* step, this pipeline performs an XSLT transformation. The input to this transformation is given as a literal XML in the same way, except this time it is provided as input to a transformation process defined by an [XSLT stylesheet](../../../smoketest/src/congratulations.xsl) called in by the pipeline.
-* `p:namespace-delete` – The `ox` namespace is stripped from the result as in [TEST-XPROC3 pipeline](../../../smoketest/TEST-XPROC3.xpl). This could have been done in the XSLT as well, but this way the transformation has one less thing to do or go wrong. More simpler steps being better than fewer complicated ones.
+* `p:namespace-delete` – The `ox` namespace is stripped from the result as in [TEST-XPROC3 pipeline](../../../smoketest/TEST-XPROC3.xpl). This could have been done in the XSLT as well, but this way the transformation has one less thing to do or go wrong. More simpler steps prove more legible and tractable than fewer complicated ones.
 
 Like the [TEST-XPROC3 pipeline](../../../smoketest/TEST-XPROC3.xpl) this pipeline shows its results in the console. This time the result is not just the XML given in the pipeline, but that XML as modified by the transformation.
 
@@ -92,7 +92,7 @@ Schematron is a language used to specify rules to apply to XML documents. In thi
 
 ### TEST-XSPEC
 
-[XSpec](https://github.com/xspec/xspec) is a testing framework for XSLT, XQuery and Schematron. It takes the form of a vocabulary and a process (inevitably implemented in XSLT and XQuery) for executing queries, transformations, and validations, by running them over known inputs, comparing the results to expected results, and reporting the results of this comparison. XProc, built to orchestrate manipulations of XML contents, is well suited for running XSpec with no additional overhead.
+[XSpec](https://github.com/xspec/xspec) is a testing framework for XSLT, XQuery and Schematron. It takes the form of a vocabulary and a process (inevitably implemented in XSLT and XQuery) for executing queries, transformations, and validations, by running them over known inputs, comparing the results to expected results, and reporting the results of this comparison. XProc, built to orchestrate manipulations of XML contents, is well suited for running XSpec.
 
 An XSpec instance (or &ldquo;document&rdquo;) defines a set of tests for a transformation or query module using the XSpec vocabulary. An XSpec implementation executes the tests and delivers the results. Since XSpec, like Schematron, reports its findings in XML, XProc can be useful both to manage the inputs and outputs, and to process the XSpec reports.
 
@@ -101,19 +101,23 @@ An XSpec instance (or &ldquo;document&rdquo;) defines a set of tests for a trans
 * `p:for-each` – defines a step or sequence of steps to be applied to each input, separately.
 * `p:identity` – simply passes through the previous step's result. While this is a &ldquo;no-op&rdquo; in the XProc itself, it provides an occasion for a message to help trace the XProc execution.
 
+[The next lesson](unpack_102.md) offers more detail about this pipeline.
+
 ## A not-so-simple pipeline
 
 These simple pipelines show how useful things can be done simply, while the pipeline architecture allows for great flexibility.
 
-Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be managed and deployed just like asimple one, its internal complexities being masked by a simple and predictable interface.
+Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be managed and deployed just like a simple one, with its internal complexities masked by a simple and predictable interface.
 
-Next, take a look at a more complex example, the prototype pipeline [PRODUCE-TUTORIAL-ELEMENTLIST.xpl](../../PRODUCE-TUTORIAL-ELEMENTLIST.xpl). Like the setup and smoke-test pipelines, this is a standalone pipeline that acquires inputs and produces results and writes those results to the file system. The output it generates is stored as [element-directory.md](../../sequence/element-directory.md), a Markdown file.
+Next, take a look at a more complex example, the prototype pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl). Like the setup and smoke-test pipelines, this is a standalone pipeline that acquires inputs and produces results and writes those results to the file system. The output it generates is stored as [element-directory.md](../../sequence/element-directory.md), a Markdown file (find the `p:store` step).
 
 This result presents an index of XProc elements used in pipelines described in this tutorial. For any XProc element used anywhere, the listing shows the pipelines where it appears. It also shows a list of project folders in the order they are treated by this tutorial, showing for each one the XProc files found there along with whatever XProc elements appear *first* (within the tutorial sequence) within that pipeline.
 
 Delete or rename this result file and run the pipeline to confirm it functions properly.
 
-The Markdown file produced may be useful for finding XPoc examples in the repository. Consider also what other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines to the project folders, consider running this pipeline again to update the indexes.
+The Markdown file produced may be useful for finding XPoc examples in the repository. First, an ordered list of pipelines indicates which XProc steps are used &ldquo;first&rdquo; (i.e., within the sequence, which parallels the lesson sequence). Following this is a list of all steps with all pipelines containing them. For example, looking up `p:store` you can see all the pipelines that contain this common step.
+
+Consider also what other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines to the project folders, consider running this pipeline again to update the indexes.
 
 Open the file and inspect it to get a sense of what it does. The XML syntax is verbose, but not really all that frightening. The pipeline is described in more detail in the [102 Lesson unit](unpack_102.md) in this lesson.
 
@@ -122,7 +126,7 @@ Open the file and inspect it to get a sense of what it does. The XML syntax is v
 There are two significant differences between this pipeline and the small ones we have looked at so far.
 
 * Of course, it is longer and more complex, reflecting the complexity of the operations it performs.
-* Unlike the test pipelines, this XProc has no input port, hence no documents considered as input. Instead, it collects data to process by *reading the file system* and loading files directly. This is especially useful here as it includes everything it finds – meaning we can extend or update the index by adding files and running the pipeline again, without altering any pipeline logic.
+* Unlike the test pipelines, this XProc has no input port, hence no way to provide documents to be considered as input. Instead, it collects data to process by *reading the file system* and loading files directly. This is especially useful here as it includes everything it finds – meaning we can extend or update the index by adding files and running the pipeline again, without altering any pipeline logic.
 
 ## XML syntax, XPath and XProc
 
@@ -141,6 +145,6 @@ This tutorial has a handmade[XProc links page](../../xproc-links.md) with links.
 
 Also, see the official [XProc.org dashboard page](https://xproc.org).
 
-Also, check out XProc index materials (with code snips) produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md). Produced using XProc, these can be covered in detail in a later lesson unit.
+Also, check out indexing logic offered in the [xproc-doc                project folder](../../../projects/xproc-doc/readme.md). It has pipelines producing useful indexes to XProc in this repository and in general, including one producing an [index to XProc simple steps](XPROC-STEP-INDEX-HTML.xpl), with code snips.
 
-There is [a book, Erik Siegel's XProc 3.0                   Programmer's Reference](https://xmlpress.net/publications/xproc-3-0/) (2020).
+There is [a book, Erik Siegel's XProc 3.0                   Programmer's Reference](https://xmlpress.net/publications/xproc-3-0/) (2020) and an [excellent                reference site](https://xprocref.org/index.html) by the same author.

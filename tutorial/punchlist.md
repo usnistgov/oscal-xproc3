@@ -49,6 +49,27 @@ To add to the production pipeline, edit PRODUCE-TUTORIAL-MARKDOWN.xpl
 
 # notes
 
+XProc/XML intensives - specialized topics
+  Namespaces in XML and XProc
+  Pipes and ports: XProc connectors
+  HREFs and file retrieval
+    p:urify
+    document-properties(.,'base-uri') and base-uri(.)
+  How to Learn XPath
+  XSLT Processing Model Quick Summary
+  XQuery with XProc
+  XProc and testing
+    Smoke testing
+    XSpec
+  XProc-based TDD
+    1. Analyze problem
+    1. Patch using XProc to develop solution
+    1. Migrate patch into codebase after testing
+  "XProc style" and local rules
+  XProc Quizzes
+    Read an XProc and predict what it will do when run
+    XProc harness for learning XSLT and XQuery?
+
 Lesson_01 - 'setup' Setup and smoke tests [slides on XProc background and context]
 
 Lesson_02 - 'unpack' Setup and smoke test pipelines - a look inside - what to look for inside a pipeline, how to research XProc [slides, also step indexes]
