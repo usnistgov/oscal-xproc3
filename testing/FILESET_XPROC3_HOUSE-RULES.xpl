@@ -47,6 +47,9 @@
       <p:document href="../tutorial/PRODUCE-TUTORIAL-PREVIEW.xpl"/>
       <p:document href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl"/>
       
+      <p:document href="../tutorial/worksheets/READ-JSON-TESTING.xpl"/>
+      <p:document href="../tutorial/worksheets/CONTENT-TYPE_worksheet.xpl"/>
+      
       <p:document href="../smoketest/TEST-XPROC3.xpl"/>
       <p:document href="../smoketest/TEST-SCHEMATRON.xpl"/>
       <p:document href="../smoketest/TEST-XSLT.xpl"/>

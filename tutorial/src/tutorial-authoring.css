@@ -50,3 +50,6 @@ a:after {
         edit, "href",
         columns 25);
 }
+
+q { font-style: inherit }
+em { font-style: inherit; font-weight: bold; color: midnightblue }

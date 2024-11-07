@@ -62,9 +62,8 @@
       <sch:rule context="html:section | html:body">
          <sch:assert test="text()[matches(., '\S')] => empty()">Element <name/> has loose text contents.</sch:assert>
       </sch:rule>
-      <sch:rule context="html:a[not(matches(@href,'^https?:'))]">
-         <sch:assert test="unparsed-text-available(resolve-uri(@href,base-uri(.)))">Not seeing anything at href <sch:value-of select="@href"/></sch:assert>
-      </sch:rule>
+      
+      
    </sch:pattern>
    
    <sch:pattern>
@@ -98,9 +97,12 @@
    
    <sch:pattern>
       <sch:rule context="html:a">
-         <sch:let name="internal" value="not(matches(@href,'^https?:/')) and matches(@href,'_src\.html$')"/>
          
-            <sch:assert test="matches(@href,'^https?:') or unparsed-text-available(resolve-uri(@href,base-uri(.)))">Not seeing anything at href <sch:value-of select="@href"/></sch:assert>
+         <!--<sch:rule context="html:a[matches(@href,'^https?:')] | html:a[matches(@href,'/$')]"/>-->
+         <sch:let name="internal" value="not(matches(@href,'^https?:/')) and matches(@href,'_src\.html$')"/>
+         <sch:let name="excepting" value="matches(@href,'^https?:') or matches(@href,'/$')"/>
+         <sch:assert test="$excepting or unparsed-text-available(resolve-uri(@href,base-uri(.)))">Not seeing anything at href <sch:value-of select="@href"/></sch:assert>
+            
          <sch:assert test="not(matches(.,'\.\S{2,4}$')) or (replace(.,'^.*/','') = replace(@href,'^.*/',''))">Internal link is misdirected - href does not match element content</sch:assert>
          <sch:assert test="normalize-space(.) => boolean()">Anchor is missing link contents</sch:assert>
          <sch:assert sqf:fix="tag-lessonUnit-link" test="@class='LessonUnit' or not($internal)">Link to lesson should be given @class='LessonUnit'</sch:assert>

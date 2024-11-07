@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>401: XProc, XML, JSON and content types</title>
+      <meta charset="utf-8" />
+   </head>
+   <body data-track="learner">
+      <h1>402: XProc, XML, JSON and content types</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Understand a little more about JSON and other data formats in an XML processing environment</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>A <a href="../../worksheets/CONTENT-TYPE_worksheet.xpl">content-types worksheet XProc</a> is offered for
+            trying out content-type options on XProc inputs and outputs. If you only have thirty minutes, consider
+            looking at it before reading further.</p>
+         <p>XProc content types are closely tied to its definition of a <em>document</em>, an object for which a string
+            property <code>content-type</code> indicates the expected or nominal content type.See links given in the
+            remarks below. This is a topic you can also learn by through trial and error.</p>
+      </section>
+      <section>
+         <h2>XProc documents and content types</h2>
+         <p>XProc needs a contract or working agreement with the world at large regarding how to refer to the various
+            kinds of things XProc consumes and produces. The XProc concept and deployment of <code>content-type</code>
+            properties is one of the main ways it does this. Read about XProc's content types<a
+               href="https://spec.xproc.org/3.0/xproc/#documents"> in the specification, which normatively defines all
+               the terms</a>.</p>
+         <p>The short and easier story is that XProc's content types are aligned closely with media types or <q>file
+               types</q> as they are defined broadly across Internet standards and protocols. Web developers will have a
+            head start if they know how tools already distinguish between file and application formats in web
+            technologies using identifiers such as <code>text/html</code> or <code>application/svg+xml</code>.</p>
+         <p>The longer story is that by relying on content types, XProc can effectively divide the world, like Gaul,
+            into three parts, thereby making it possible to divide and conquer – or at least to recognize and negotiate
+            with.</p>
+         <section>
+            <h3>XML and XML-like content</h3>
+            <p>Always our first choice for working with in XProc, this category include these content types:</p>
+            <ul>
+               <li><code>text/html</code> and <code>application/xhtml+xml</code> are the <a
+                     href="https://spec.xproc.org/3.0/xproc/#html-documents">HTML media types</a></li>
+               <li><code>application/xml</code>, <code>text/xml</code>, and all types matching
+                        <code><i>something</i>/<i>something</i>+xml</code> except <code>application/xhtml+xml</code>
+                  constitute the <a href="https://spec.xproc.org/3.0/xproc/#xml-documents">XML media types</a></li>
+            </ul>
+            <p>Since XProc has XPath, XML is entirely transparent and natural to work with. XSLT and XQuery give us
+               optimized methods for transformations and queries at scale, as soon as the source is recognizable as some
+               kind of XML.</p>
+            <p>Since it is either XML or has well-defined mappings into XML, HTML can count as a specialized form of XML
+               for XProc purposes. This is a joy:  it means HTML is no different except in how it is read and written,
+               and sometimes not even then. In particular, within XProc, XPath and other XML tools (such as XSLT and
+               Schematron) both work with HTML the same as they do with XML.</p>
+         </section>
+         <section>
+            <h3>JSON and other text-based formats</h3>
+            <ul>
+               <li><code>text/<i>something</i></code> including <code>text/plain</code>, except for
+                     <code>text/xml</code> and <code>text/html</code> are the <a
+                     href="https://spec.xproc.org/3.0/xproc/#text-documents">text media types</a></li>
+               <li><code>application/json</code> and any <code>application/<i>something</i>+json</code> are the <a
+                     href="https://spec.xproc.org/3.0/xproc/#json-documents">JSON media types</a></li>
+            </ul>
+            <p>Both these types are accommodated straightforwardly as XDM objects: in the case of plain text, we have
+               what amounts to a string, while JSON becomes an appropriate XDM type, most often a map, which is
+               isomorphic to a JSON object with properties.</p>
+            <p>The <a href="https://spec.xproc.org/lastcall-2024-08/head/ixml/">XProc step <code>p:ixml</code></a> is
+               provided to processors supporting <a href="https://invisiblexml.org/">Invisible XML</a>. It enables
+               parsing of text strings according to a grammar and delivering the resulting parse tree in an XML
+               representation.</p>
+            <p>As for JSON, it can conveniently be cast into an XML vocabulary defined by XPath, using the same
+               semantics as XPath 3.1 <code>fn:json-to-xml($json-string)</code>, which produces XML using a vocabulary
+               for map objects defined by XPath. One way to do this is with the <code>p:cast-content-type</code> step,
+               designed for the purpose, indicating an XML content type <a
+                  href="https://spec.xproc.org/3.0/xproc/#specified-content-types">or the shortcut <code>xml</code></a>. </p>
+            <p>Yet it is also important and useful to keep in mind how an <a
+                  href="https://spec.xproc.org/3.0/xproc/#documents">XProc document</a> does not have to be XML, or
+               indeed any XDM document (node) or element. The XProc concept is general enough to allow for any XDM data
+               object can be provided with properties in XProc (base URI, content-type and when applicable serialization
+               settings) that enable it to be passed through an XProc pipeline, operated on by steps and made available
+               on their ports. At all times, a serialization for such a document – even a value or fragment of XDM such
+               as a map, as distinct from an XML element tree we can easily serialize as XML – is nevertheless available
+               as long as it is regarded as JSON, because XDM objects, with some limitations, are readily expressible as
+               JSON, and conversely JSON objects of whatever identified (primitive) type (object, array, string, number,
+               boolean etc.) can be considered <q>at home</q> within the XProc context if only they have an XDM analog,
+               as they mainly do. Significantly, as XPath map objects, arbitrary JSON objects of whatever size and
+               extent can now be queried using XPath – a feature that XProc can take advantage of.</p>
+            <p>See also: <a href="https://www.w3.org/TR/xpath-functions-31/#json-to-maps-and-arrays">XPath 3.1 on maps,
+                  arrays and JSON</a>.</p>
+            <section>
+               <h4>XPath maps, with operators and functions</h4>
+               <p>Readers who have no prior experience with XPath 3.1 (or later) may never have seen the XPath
+                     <em>map</em> and <em>array</em> objects or the functions and operations associated with them. Some
+                  syntax might look like (and it is no mistake if this is familiar to JSON users):</p>
+               <table>
+                  <tr>
+                     <th>XPath expression</th>
+                     <th>Explanation</th>
+                  </tr>
+                  <tr>
+                     <td>map { "a": "A", "b": "B" }</td>
+                     <td>A map with two entries, with keys "a" and "b" </td>
+                  </tr>
+                  <tr>
+                     <td>map { "a": "A", "b": "B" }?a</td>
+                     <td>The value "a" returned from a map, using lookup operator</td>
+                  </tr>
+                  <tr>
+                     <td>map { "a": "A", "b": "B" } return $m('b')</td>
+                     <td>The value "b" returned using function call syntax</td>
+                  </tr>
+               </table>
+               <p>In XPath, a map's keys (keywords for its entries) can be any atomic value, and an entry's value can be
+                  anything, including nodes (roots of trees) or arbitrary sequences. The subset of XPath maps whose keys
+                  are strings and whose values, roughly, are amenable to serialization (so strings and numbers and
+                  arrays and maps, but not node trees), aligns with JSON.</p>
+               <p>For the word on XPath maps, see the <a href="https://www.w3.org/TR/xpath-31/#id-maps">XPath 3.1
+                     Recommendation on the topic</a>.</p>
+            </section>
+         </section>
+         <section>
+            <h3>Binaries and <q>other</q></h3>
+            <p>Support for any content types not named above (and thus in a recognizable category for purposes of
+               parsing strategy) must necessarily fall on implementors. Certain standard steps such as
+                  <code>p:unarchive</code> and its relatives are useful to define for certain at-large binary file
+               types, with effective standardization for certain content types (compressed files i.e. zips and the
+               like); handling for arbitrary or unknown files and file types is a different matter.</p>
+            <p>Depending on your processor some binary formats such as raster image formats might be effectively opaque,
+               with only some metadata readable; other formats such as compression formats are simply wrappers for other
+               resources. The semantics will vary according to the processor and file type(s) implicated.</p>
+            <p>This does not mean that such content types cannot be effectively standardized and supported as such. One
+               important member of this category is a file representing a zipped or compressed file set, as defined for
+               the three steps <code>p:archive</code>, <code>p:archive-manifest</code>, and <code>p:unarchive</code>.
+               Due to felicitous choices by early engineers, common word processor and spreadsheet formats including
+                  <code>docx</code>, <code>xlsx</code>, <code>odt</code> and <code>ods</code> can all be uncompressed to
+               reveal sets of files including legible XML files – making these formats at least relatively accessible
+               for XProc.</p>
+            <p><code>content-type="*/*</code> is a match for <q>any content type</q>, very useful for handling arbitrary
+               inputs, to the extent the processor supports them (for example moving and copying even if not
+               reading).</p>
+         </section>
+      </section>
+   </body>
+</html>

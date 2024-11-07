@@ -18,9 +18,11 @@
 
 * [101: OSCAL from XML to JSON and back](Lesson03/oscal-convert_101.md) (OBSERVER)
 * [102: Hands on data conversions](Lesson03/oscal-convert_102.md) (MAKER)
+* [350: Namespaces in XML and XProc](Lesson03/oscal-convert_350.md) (LEARNER)
 * [399: XProc in more depth](Lesson03/oscal-convert_399.md) (LEARNER)
 * [401: XProc, XML, JSON and content types](Lesson03/oscal-convert_401.md) (LEARNER)
 
-### Lesson set 04 - practicum
+### Lesson set 04 - courseware
 
-* [Practicum: Learn by Teaching](Lesson04/practicum_219.md) (MAKER)
+* [Courseware 101: Producing this tutorial](Lesson04/courseware_101.md) (OBSERVER)
+* [Courseware 219: Learn by Teaching](Lesson04/courseware_219.md) (MAKER)
