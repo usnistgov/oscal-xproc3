@@ -90,16 +90,23 @@
    
    <!--<A.03.15.03.ODP[01]: frequency>-->
    
-   <p:string-replace match="cprt:text/text()[contains(.,'&lt;A')]" replace="replace(.,'&lt;([^&lt;]*)&gt;','&lt;odp-ref>$1&lt;/odp-ref>')"/>
-   
-   <p:string-replace match="cprt:text/text()[contains(.,'[')]" replace="replace(.,'\[','&lt;bracketed>')"/>
-   
-   <p:string-replace match="cprt:text/text()[contains(.,']')]" replace="replace(.,'\]','&lt;/bracketed>')"/>
-   
+   <!-- Picks up ODP reference codes as well as escaped markup -->
    <p:viewport match="cprt:text[contains(.,'&lt;')]">
       <p:variable name="me" select="/*"/>
+      <!--<p:identity message="[PRODUCE_SP800-171-OSCAL]]] { replace(.,
+         '&lt;([^&lt;a-z]+):\s+([^&lt;&gt;]*)&gt;',
+         '&lt;odp-ref ref-id=&quot;$1&quot;&gt;$2&lt;/odp-ref&gt;') }"/>  -->          
       <p:try>
          <p:group>
+            <!--<p:error code="boo"/>-->
+            <p:string-replace match="text()[contains(.,'&lt;A')]" replace="replace(.,
+               '&lt;([^&lt;a-z]+):\s+([^&lt;&gt;]*)&gt;',
+               '&lt;odp-ref ref-id=&quot;$1&quot;&gt;$2&lt;/odp-ref&gt;')"
+               message="[PRODUCE_SP800-171-OSCAL]]] { replace(.,
+               '&lt;([^&lt;a-z]+):\s+([^&lt;&gt;]*)&gt;',
+               '&lt;odp-ref ref-id=&quot;$1&quot;&gt;$2&lt;/odp-ref&gt;') }"/>            
+            <!--<p:string-replace match="text()[contains(.,'[')]" replace="replace(.,'\[','&lt;bracketed>')"/>
+            <p:string-replace match="text()[contains(.,']')]" replace="replace(.,'\]','&lt;/bracketed>')"/>-->
             <p:replace match="text()">
                <p:with-input port="replacement">
                   <p:inline>{ string(.) => parse-xml-fragment() }</p:inline>
@@ -113,18 +120,32 @@
       </p:try>
    </p:viewport>
    
+   <!-- Picks up bracketed expressions when well nested, errors when not -->
+   <p:viewport match="cprt:text[contains(.,'[')]">
+      <p:variable name="me" select="/*"/>
+      <p:try>
+         <p:group>
+            <!-- not replacing except in direct children - they had better match across element boundaries -->
+            <p:string-replace match="cprt:text/text()[contains(.,'[')]" replace="replace(.,'\[','&lt;bracketed>')"/>
+            <p:string-replace match="cprt:text/text()[contains(.,']')]" replace="replace(.,'\]','&lt;/bracketed>')"/>
+            <p:replace match="text()">
+               <p:with-input port="replacement">
+                  <p:inline>{ string(.) => parse-xml-fragment() }</p:inline>
+               </p:with-input>
+            </p:replace>
+            <p:namespace-rename apply-to="elements" to="http://csrc.nist.gov/ns/cprt"/>
+         </p:group>
+         <p:catch name="parse-error">
+            <p:identity message="[PRODUCE_SP800-171-OSCAL] Warning: XML not parsed: '{ string($me) }'"/>
+         </p:catch>
+      </p:try>
+   </p:viewport>
+   
+   
    <!-- Restoring brackets where they actually belong -->
-   <p:string-replace match="cprt:odp-ref/cprt:bracketed" replace="'[' || . || ']'"/>
-   
-   
-   <!--<p:variable name="ox:no-param" as="function(*)"  
-      select="function($n as node()) as xs:boolean { every $s in ('Assignment:','SELECT FROM:','Selection (one or more):')
-      satisfies (string($n) => starts-with($s) => not()) }"/>-->
-   
    <p:string-replace match="cprt:bracketed[every $s in ('Assignment:','SELECT FROM:','Selection (one or more):')
       satisfies (string(.) => starts-with($s) => not())]" replace="'[' || . || ']'"/>
-   
-   
+      
    <p:store href="temp/{ $doc-code }-04-enriched.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }-04_enriched.xml"/>
    

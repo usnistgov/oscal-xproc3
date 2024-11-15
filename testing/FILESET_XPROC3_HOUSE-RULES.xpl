@@ -73,12 +73,12 @@
       <p:document href="../projects/oscal-convert/src/single_json-to-xml.xpl"/>
       <p:document href="../projects/oscal-convert/src/single_xml-to-json.xpl"/>
       
-      <p:document href="../projects/oscal-import/PRODUCE_FM6-22-chapter4.xpl"/>
-      <p:document href="../projects/oscal-import/GRAB-RESOURCES.xpl"/>
-      <p:document href="../projects/oscal-import/GRAB-FM6-22.xpl"/>
-      <p:document href="../projects/oscal-import/GRAB-NISO_STS-RNG.xpl"/>
-      <p:document href="../projects/oscal-import/src/validation-summarize.xpl"/>
-      <p:document href="../projects/oscal-import/src/validation-summaries.xpl"/>
+      <p:document href="../projects/FM6-22-import/PRODUCE_FM6-22-chapter4.xpl"/>
+      <p:document href="../projects/FM6-22-import/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/FM6-22-import/GRAB-FM6-22.xpl"/>
+      <p:document href="../projects/FM6-22-import/GRAB-NISO_STS-RNG.xpl"/>
+      <p:document href="../projects/FM6-22-import/src/validation-summarize.xpl"/>
+      <p:document href="../projects/FM6-22-import/src/validation-summaries.xpl"/>
       
       <p:document href="../projects/oscal-validate/GRAB-OSCAL.xpl"/>
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
