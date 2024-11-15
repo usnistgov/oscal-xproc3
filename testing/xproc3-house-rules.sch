@@ -87,6 +87,8 @@
    <sch:let name="resource-fileset-path" value="( (tokenize($fileset-relPath,'/')  [position() ne last()] ! '../') => string-join('') ) || $resource-repoPath"/>
    <sch:let name="fileset-resource-path" value="( (tokenize($resource-repoPath,'/')[position() ne last()] ! '../') => string-join('') ) || $fileset-relPath"/>
    
+   <sch:let name="okay-ns-prefixes" value="'','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl','cprt'"/>
+   
    <sch:pattern>
       <sch:rule context="/*">
          <!--<sch:report test="false()">
@@ -100,7 +102,7 @@
          </sch:report>-->
          
          <sch:assert sqf:fix="sqf-exempt-from-houserules-check" role="warning" test="base-uri(.) = $listed-uris or exists(p:documentation[contains(.,'HALL PASS') and contains(.,'HOUSE RULES')])">file <sch:value-of select="$filename"/> isn't listed in validation set maintained in <sch:value-of select="$fileset-resource-path"/> - should it be?</sch:assert>
-         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=('','p','c','ox','xml','xsl','x','xs','html','svrl','xvrl'))]"/>
+         <sch:let name="unexpected-prefixes" value="in-scope-prefixes(.)[not(.=$okay-ns-prefixes)]"/>
          <sch:report test="$unexpected-prefixes => exists()">This repo is keeping a list of recognized namespace prefixes, which does not include <sch:value-of select="$unexpected-prefixes => string-join(', ')"/></sch:report>
          <sch:assert sqf:fix="sqf-make-version-3"   test="@version = '3.0'">Expecting XProc 3.0, not <sch:value-of select="@version"/></sch:assert>
       </sch:rule>

@@ -2,7 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:READ-JSON-TESTING" name="READ-JSON-TESTING">
 
-
+<!-- A worksheet for messing a bit more with XDM map objects
+     (accommodating JSON object morphology and syntax) -->
    
    <p:input port="source">
          <p:inline  content-type="application/json" expand-text="false">{
@@ -40,7 +41,7 @@
    <!--<p:variable name="target" select="map:get($json-map,'message')" xmlns:map="http://www.w3.org/2005/xpath-functions/map"/>-->
    
    
-   <!--Alteratively, skip the p:load and go straight to (same effect)
+   <!--Alternatively, skip the p:load and go straight to (same effect)
    <p:variable name="json-map" select="json-doc('../data/misc/json/mixed.json')"/>
    This demonstrates how either way, we load into an XDM map object
    -->
