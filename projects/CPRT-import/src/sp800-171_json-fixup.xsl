@@ -14,6 +14,8 @@
       <xsl:message terminate="true" expand-text="true">Not supposed to see { name() } here...</xsl:message>
    </xsl:template>
    
+   <xsl:template match="@type"/>
+   
    <xsl:template match="/*">
       <CPRT>
          <xsl:apply-templates/>

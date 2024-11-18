@@ -31,4 +31,13 @@
       <xsl:copy>{ @dest }</xsl:copy>
    </xsl:template>
    
+   <!--<xsl:template match="odp">
+      <xsl:copy>
+         <xsl:copy-of select="@*"/>
+         <xsl:for-each select="odp_type/text">
+            <xsl:attribute name="type">{ lower-case(.) </xsl:attribute>
+         </xsl:for-each>
+      </xsl:copy>
+   </xsl:template>-->
+         
 </xsl:stylesheet>

@@ -1,86 +1,98 @@
 default namespace = "http://csrc.nist.gov/ns/cprt"
 
 start =
-  element CPRT {
-    element documents {
-      element document {
-        attribute id { xsd:NCName },
-        element name { text },
-        element version { xsd:NMTOKEN },
-        element website { xsd:anyURI }
+   element CPRT {
+      element documents {
+         element document {
+            attribute id { xsd:NCName },
+            element name { text },
+            element version { xsd:NMTOKEN },
+            element website { xsd:anyURI }
+         }
+      },
+      element relationship_types {
+         element relationship_type {
+            attribute id { xsd:NCName },
+            text
+         }+
+      },
+      element elements {
+         element family {
+            attribute id { xsd:decimal },
+            title
+         }*,
+         element security_requirement {
+            attribute id { xsd:NCName },
+            title?,
+            \text?
+         }*,
+         element requirement {
+            attribute id { xsd:NMTOKEN },
+            title?
+         }*,
+         element discussion {
+            attribute id { xsd:NCName },
+            \text
+         }*,
+         element reference {
+            attribute id { text },
+            title,
+            \text
+         }*,
+         element withdraw_reason {
+            attribute id { xsd:NCName },
+            \text
+         }*,
+         element examine {
+            attribute id { xsd:NCName },
+            \text
+         }*,
+         element interview {
+            attribute id { xsd:NCName },
+            \text
+         }*,
+         element test {
+            attribute id { xsd:NCName },
+            \text
+         }*,
+         element determination {
+            attribute id { text },
+            \text
+         }*,
+         element odp {
+            attribute id { text },
+            title?,
+            \text
+         }*,
+         element odp_statement {
+            attribute id { text },
+            \text
+         }*,
+         element odp_type {
+            attribute id { xsd:NCName },
+            title
+         }*
+      },
+      element relationships {
+         (element external_reference { source, dest }
+          | element addressed_by { source, dest }
+          | element incorporated_into { source, dest }
+          | element projection { source, dest })+
       }
-    },
-    element relationship_types {
-      element relationship_type {
-        attribute id { xsd:NCName },
-        text
-      }+
-    },
-    element elements {
-      element family {
-        attribute id { xsd:decimal },
-        title
-      }*,
-      element security_requirement {
-        attribute id { xsd:NCName },
-        title?,
-        \text?
-      }*,
-      element requirement {
-        attribute id { xsd:NMTOKEN },
-        title?
-      }*,
-      element discussion {
-        attribute id { xsd:NCName },
-        \text
-      }*,
-      element reference {
-        attribute id { text },
-        title,
-        \text
-      }*,
-      element withdraw_reason {
-        attribute id { xsd:NCName },
-        \text
-      }*,
-      element examine {
-        attribute id { xsd:NCName },
-        \text
-      }*,
-      element interview {
-        attribute id { xsd:NCName },
-        \text
-      }*,
-      element test {
-        attribute id { xsd:NCName },
-        \text
-      }*,
-      element determination {
-        attribute id { text },
-        \text
-      }*,
-      element odp {
-        attribute id { text },
-        title?,
-        \text
-      }*,
-      element odp_statement {
-        attribute id { text },
-        \text
-      }*,
-      element odp_type {
-        attribute id { xsd:NCName },
-        title
-      }*
-    },
-    element relationships {
-      (element external_reference { source, dest }
-       | element addressed_by { source, dest }
-       | element incorporated_into { source, dest }
-       | element projection { source, dest })+
-    }
-  }
-title = element title { text }
-\text = element text { text }
-source = element source { text }
-dest = element dest { text }
+   }
+title =
+   element title {
+      text
+   }
+\text =
+   element text {
+      text
+   }
+source =
+   element source {
+      text
+   }
+dest =
+   element dest {
+      text
+   }

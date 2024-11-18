@@ -80,6 +80,8 @@
       <p:document href="../projects/FM6-22-import/src/validation-summarize.xpl"/>
       <p:document href="../projects/FM6-22-import/src/validation-summaries.xpl"/>
       
+      <p:document href="../projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl"/>
+      
       <p:document href="../projects/oscal-validate/GRAB-OSCAL.xpl"/>
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>

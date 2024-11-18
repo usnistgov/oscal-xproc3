@@ -12,6 +12,7 @@
    
    <xsl:template match="map/*">
       <xsl:element name="{ @key }">
+         <xsl:attribute name="type" select="local-name()"/>
          <xsl:apply-templates/>
       </xsl:element>
    </xsl:template>
@@ -21,6 +22,7 @@
          <xsl:apply-templates select="parent::array" mode="member-key"/>
       </xsl:variable>
       <xsl:element name="{ $n }">
+         <xsl:attribute name="type" select="local-name()"/>
          <xsl:apply-templates/>
       </xsl:element>
    </xsl:template>

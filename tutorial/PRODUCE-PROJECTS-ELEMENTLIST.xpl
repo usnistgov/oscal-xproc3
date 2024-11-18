@@ -22,7 +22,8 @@
             <project dir="../projects/oscal-convert/"/>
             <project dir="../projects/oscal-validate/"/>
             <project dir="../projects/oscal-publish/"/>
-            <project dir="../projects/oscal-import/"/>
+            <project dir="../projects/FM6-22-import/"/>
+            <project dir="../projects/CPRT-import/"/>
             <project dir="../projects/profile-resolution/"/>
             <project dir="../projects/xproc-doc/"/>
          </SEQUENCE>
