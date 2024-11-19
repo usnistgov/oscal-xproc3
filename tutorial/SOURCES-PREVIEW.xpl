@@ -16,23 +16,9 @@
         or: make a step out of this and import it -->
    <!--<p:add-attribute match="//c:file" attribute-name="path" attribute-value="{ base-uri(.) }"/>-->
    
-   <p:xslt>
-      <p:with-input port="stylesheet">
-         <p:inline expand-text="false">
-            <xsl:stylesheet version="3.0">
-               <xsl:mode on-no-match="shallow-copy"/>
-               <xsl:template match="c:file">
-                  <xsl:copy>
-                     <xsl:copy-of select="@*"/>
-                     <xsl:attribute name="path"
-                        select="(string-join(ancestor-or-self::c:*/@name,'/')) => resolve-uri()"/>
-                  </xsl:copy>
-               </xsl:template>
-            </xsl:stylesheet>
-         </p:inline>
-      </p:with-input>
-   </p:xslt>
-
+   <p:label-elements name="directory"
+      match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
+   
    <p:for-each name="files">
       <p:with-input select="descendant::c:file"/>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->

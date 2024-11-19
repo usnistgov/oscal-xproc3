@@ -20,8 +20,11 @@
       <p:directory-list  path="source/{ $lesson_key }" max-depth="unbounded" include-filter="(_src\.html|png)$"/>
 
       <!-- is there a better way to annotate a directory list with full paths?
-        or: make a step out of this and import it -->
-      <p:xslt name="directory">
+        or: make a step out of this and import it XXXX -->
+      <p:label-elements name="directory"
+         match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
+      
+      <!--<p:xslt name="directory">
          <p:with-input port="stylesheet">
             <p:inline expand-text="false">
                <xsl:stylesheet version="3.0">
@@ -36,13 +39,14 @@
                </xsl:stylesheet>
             </p:inline>
          </p:with-input>
-      </p:xslt>
+      </p:xslt>-->
 
+      
       <p:for-each name="files">
          <p:with-input select="descendant::c:file[ends-with(@path,'_src.html')]"/>
          <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-         <p:variable name="path" select="/*/@path => p:urify()"/>
-         <p:variable name="project-uri" select="p:urify('.')"/>
+         <p:variable name="path" select="/*/@path => resolve-uri()"/>
+         <p:variable name="project-uri" select="resolve-uri('.')"/>
          
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>

@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/acquire/acquire_102_src.html](../../../tutorial/source/acquire/acquire_102_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [](../../..).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -13,11 +13,11 @@
 
 ## Resources
 
-Same as [Setup 101](setup_101.md).
+Same as [Setup 101](acquire_101.md).
 
 ## Prerequisites
 
-Please complete the repository setup and smoke tests as described in the [101 lesson](setup_101.md). In this lesson, we will run these pipelines with adjustments, or similar pipelines.
+Please complete the repository setup and smoke tests as described in the [101 lesson](acquire_101.md). In this lesson, we will run these pipelines with adjustments, or similar pipelines.
 
 This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via `file` and `http` protocols), and web-based technologies including HTML.
 

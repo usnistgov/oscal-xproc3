@@ -21,7 +21,7 @@ No [Assign or [Select substrings remain
       <sch:rule context="cprt:select_from">
          <sch:assert test="empty(../* except .)">Expecting <sch:name/> here to be a singleton.</sch:assert>
       </sch:rule>
-      <sch:rule context="cprt:text | cprt:title | cprt:external_reference | cprt:a | cprt:assignment | cprt:selection | cprt:odp-ref | cprt:choice | cprt:incorporated_into">
+      <sch:rule context="cprt:text | cprt:title | cprt:external_reference | cprt:a | cprt:assignment | cprt:selection | cprt:odp-ref | cprt:choice | cprt:incorporated_into | cprt:label">
          <sch:report test="matches(.,'\[Assign','i')">Parameter assignment appears in plain text.</sch:report>
          <sch:report test="matches(.,'\[Select','i')">Parameter value selection appears in plain text.</sch:report>
       </sch:rule>

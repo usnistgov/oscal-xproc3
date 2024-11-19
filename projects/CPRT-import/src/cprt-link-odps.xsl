@@ -40,11 +40,10 @@
       </xsl:copy>
    </xsl:template>
 
-
-   <!-- A few pointers are misdirected ... -->
+   <!-- A few pointers are misdirected, so we direct them properly here ... -->
    <xsl:template priority="11" match="security_requirement[@id=('SR-03.04.06.c','SR-03.11.02.b','SR-03.11.02.c')]//assignment">
       <xsl:copy>
-         <xsl:attribute name="odp-ref-id" select="../../determination/odp/@id"/>
+         <xsl:attribute name="odp-ref-id" select="ancestor::security_requirement/determination/odp/@id"/>
          <xsl:apply-templates/>
       </xsl:copy>
    </xsl:template>

@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/acquire/acquire_599_src.html](../../../tutorial/source/acquire/acquire_599_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [](../../..).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 

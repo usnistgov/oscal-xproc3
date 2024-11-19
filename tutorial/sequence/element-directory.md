@@ -144,7 +144,7 @@ Projects in this tutorial include the following pipelines. Each is listed here w
 
 #### p:insert
 
-[PRODUCE_FM6-22-chapter4.xpl](file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/projects/FM6-22-import/PRODUCE_FM6-22-chapter4.xpl), [XPROC-STEP-INDEX-HTML.xpl](file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl)
+[PRODUCE_FM6-22-chapter4.xpl](file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/projects/FM6-22-import/PRODUCE_FM6-22-chapter4.xpl), [PRODUCE_SP800-171-OSCAL.xpl](file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl), [XPROC-STEP-INDEX-HTML.xpl](file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3/projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl)
 
 #### p:label-elements
 

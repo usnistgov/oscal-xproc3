@@ -55,6 +55,7 @@
    <p:store href="temp/{ $doc-code }_01_extracted.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_01_extracted.xml"/>
    
+   
    <p:validate-with-relax-ng assert-valid="true" message="[PRODUCE_SP800-171-OSCAL] Validating JSON extract against reduced schema">
       <p:with-input port="schema">
          <!-- @content-type text/plain triggers RNC evaluation -->
@@ -73,13 +74,15 @@
    <p:store href="temp/{ $doc-code }_02_expanded.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_02_expanded.xml"/>
 
+
    <p:xslt>
       <p:with-input port="stylesheet" href="src/cprt-reduce.xsl"/>
    </p:xslt>
    
    <p:store href="temp/{ $doc-code }_03_declarative.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_03_declarative.xml"/>
-   
+
+
    <!-- Next step: convert all brackets in //text to <bracket>...</bracket> and try parsing ... -->
    
    <!-- Picks up implicit 'selection' markup; ODP reference codes, and escaped markup (<a href=" etc.) -->
@@ -136,9 +139,14 @@
    <p:store href="temp/{ $doc-code }_04-enhanced.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_04_enhanced.xml"/>
 
+
    <p:xslt>
       <p:with-input port="stylesheet" href="src/cprt-link-odps.xsl"/>
    </p:xslt>
+   
+   <p:validate-with-schematron assert-valid="true" message="[PRODUCE_SP800-171-OSCAL] Validating CPRT XML for referential integrity">
+      <p:with-input port="schema" href="src/cprt-ready.sch"/>
+   </p:validate-with-schematron>
    
    <p:insert match="/*" position="before">
       <p:with-input port="insertion">
@@ -147,21 +155,24 @@
       </p:with-input>
    </p:insert>
    
+   <p:xslt>
+      <p:with-input port="stylesheet" href="src/cprt-group-references.xsl"/>
+   </p:xslt>
+   
    <p:store href="temp/{ $doc-code }_05-linked.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_05-linked.xml"/>
 
-   <!-- Next: Schematron the CPRT data set for link integrity -
-        things nested properly? starts-with(@id,../@id)
-        do parameters line up?
-        are [Assignment: ] and [SELECT strings accounted for?
-        
-   -->
-   
-   <!--<p:xslt>
-      <p:with-input port="stylesheet" href="src/crpt-to-oscal.xsl"/>
+
+   <p:xslt>
+      <p:with-input port="stylesheet" href="src/cprt-to-oscal.xsl"/>
    </p:xslt>
    
-   <p:store href="{ $doc-code }_oscal.xml" serialization="map{ 'indent': true() }"
-      message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result { $doc-code }_oscal.xml"/>-->
+   <p:xslt>
+      <p:with-input port="stylesheet" href="src/cprt-oscal-finish.xsl"/>
+   </p:xslt>
+   
+   <p:variable name="hash" select="/*/@uuid/tokenize(.,'-')[1]"/>
+   <p:store href="{ $doc-code }_{ $hash }_xp3-oscal.xml" serialization="map{ 'indent': false() }"
+      message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result { $doc-code }_{ $hash }_xp3-oscal.xml"/>
    
 </p:declare-step>

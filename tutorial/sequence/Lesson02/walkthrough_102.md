@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [/tutorial/source/walkthrough/walkthrough_102_src.html](../../../tutorial/source/walkthrough/walkthrough_102_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [](../../..).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -60,6 +60,8 @@ XProc pipelines described in [the previous lesson unit](walkthrough_101.md) cont
 The pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl) has &ldquo;real-world complexity&rdquo;. Reviewing its steps can give a sense of how XProc combines simple capabilities into complex operations. Notwithstanding the title of this section, it is not important to understand every detail – knowing they are there is enough.
 
 * The prologue here contains a single `p:input` configuration. This one gives the input in line, as an XML document. Within this XML, all the project folders to be covered by the index are listed. Their order also matters since one of the two indexes built works incrementally, prior elements affecting what happens with later elements.
+
+This pipeline exploits one other important feature of XProc: so far at least, it is all XML. Even short of of dynamically generating and executing XProc (a feature the language [provides for](https://spec.xproc.org/lastcall-2024-08/head/run/)), the common ground of XML format means that with XProc working XML tools, XML and its related ecosystem (most significantly but not only XPath) is always available as an instrumental force magnifier or power tool, something we can put to work again and again. In XProc, errors are reported in XML. So we can capture, aggregate and index error messages in XProc. In XProc, a directory file listing is provided in XML. So we have a ready way to present views of file systems – the XML shows all the names and structures – as well as analyze them and access the files in them. Etc.
 
 ## Messing around
 
