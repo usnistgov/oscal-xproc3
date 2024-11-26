@@ -7,24 +7,16 @@
  
    <p:option name="doc-code" as="xs:string" select="'sp800-171'"/>
    
-   <!-- with no pipe attachment, the output port captures the final result -->
-   <!--<p:output port="result" serialization="map{ 'indent': true() }" pipe="result@cast"/>-->
-
-<!-- /end prologue -->
-
-   <!-- This chooser is a little cumbersome but permits us to bind arbitrary ID values (as found in the sources)
-   with the files in their locations, while naming them properly -->
-   <p:variable name="document-map" as="map(*)"
-      select="map {
-        'sp800-171':  map { 'doc-id': 'SP_800_171_3_0_0',
-                            'path':   'data/cprt/cprt_SP_800_171_3_0_0_11-12-2024.json' },
-        'sp800-171A': map { 'doc-id': 'SP_800_171_A_3_0_0',
-                            'path':   'data/cprt/cprt_SP_800_171_A_3_0_0_11-12-2024.json' }                     
-      }"/>
-      
-   <p:variable name="doc-id" select="$document-map($doc-code)?doc-id"/>
+   <p:option name="doc-id" select="'SP_800_171_3_0_0'"/>
+   <!-- SP_800_171_A_3_0_0 for 171/A subset -->
    
-   <p:load href="{ $document-map($doc-code)?path => resolve-uri() }" message="[PRODUCE_SP800-171-OSCAL] Loading { $document-map($doc-code)?path }"/>
+   <p:input port="source">
+      <p:document href="data/cprt/cprt_SP_800_171_3_0_0_11-12-2024.json"/>
+   </p:input>
+
+   <!-- /end prologue -->
+
+   <!-- incipit -->
    
    <p:cast-content-type content-type="application/xml"/>
 
@@ -67,6 +59,10 @@
       <p:with-input port="schema" href="src/json-extract.sch"/>
    </p:validate-with-schematron>
    
+   <!-- This XSLT expands JSON links into hierarchy - very literal, for easier checking
+        (nodes are expanded which will be collapsed again; elements retaining
+        the expanded link relations are left in place, for transparency)
+   -->
    <p:xslt>
       <p:with-input port="stylesheet" href="src/cprt-structure.xsl"/>
    </p:xslt>
@@ -74,7 +70,7 @@
    <p:store href="temp/{ $doc-code }_02_expanded.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_02_expanded.xml"/>
 
-
+   <!--Now dropping the extra infrastructure showing the links, and streamlining overall -->
    <p:xslt>
       <p:with-input port="stylesheet" href="src/cprt-reduce.xsl"/>
    </p:xslt>
@@ -83,14 +79,13 @@
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_03_declarative.xml"/>
 
 
-   <!-- Next step: convert all brackets in //text to <bracket>...</bracket> and try parsing ... -->
+   <!-- Next step: convert patterned strings into markup and try parsing ... -->
    
    <!-- Picks up implicit 'selection' markup; ODP reference codes, and escaped markup (<a href=" etc.) -->
    <p:viewport match="cprt:text[contains(.,'&lt;') or contains(.,'{')]">
       <p:variable name="me" select="/*"/>
       <p:try>
          <p:group>
-            <!--<p:error code="boo"/>-->
             <!-- {a; b; c} becomes <choice>a</choice><choice>b</choice><choice>c</choice> note this is quite fragile -->
             <!-- brace characters { must be escaped for XProc -->
             <p:string-replace match="text()[contains(.,'{{')]" 
@@ -113,7 +108,7 @@
       </p:try>
    </p:viewport>
    
-   <!-- Picks up bracketed expressions when well nested, erroring when not -->
+   <!-- Picks up bracketed expressions within text nodes, erroring when not -->
    <p:viewport match="cprt:text[contains(.,'[')]">
       <p:variable name="me" select="/*"/>
       <p:try>
@@ -138,7 +133,6 @@
    
    <p:store href="temp/{ $doc-code }_04-enhanced.xml" serialization="map{ 'indent': true() }"
       message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result temp/{ $doc-code }_04_enhanced.xml"/>
-
 
    <p:xslt>
       <p:with-input port="stylesheet" href="src/cprt-link-odps.xsl"/>
@@ -173,6 +167,6 @@
    
    <p:variable name="hash" select="/*/@uuid/tokenize(.,'-')[1]"/>
    <p:store href="{ $doc-code }_{ $hash }_xp3-oscal.xml" serialization="map{ 'indent': false() }"
-      message="[PRODUCE_SP800-171-OSCAL] Saving intermediate result { $doc-code }_{ $hash }_xp3-oscal.xml"/>
+      message="[PRODUCE_SP800-171-OSCAL] Saving OSCAL { $doc-code }_{ $hash }_xp3-oscal.xml"/>
    
 </p:declare-step>

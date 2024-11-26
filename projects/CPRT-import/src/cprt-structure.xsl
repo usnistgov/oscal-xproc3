@@ -41,7 +41,7 @@
       </xsl:copy>
    </xsl:template>
    
-   <xsl:template match="relationships/external_reference | relationships/incorporated_into | relationships/addressed_by" priority="10" mode="build">
+   <xsl:template mode="build" priority="10" match="relationships/external_reference | relationships/incorporated_into | relationships/addressed_by">
       <xsl:copy>
          <xsl:call-template name="link-attributes"/>
       </xsl:copy>
@@ -52,7 +52,7 @@
          <xsl:attribute name="dest" select="dest"/>
    </xsl:template>
    
-   <xsl:template match="relationships/*" mode="build">
+   <xsl:template mode="build" match="relationships/*">
       <xsl:param name="here" required="true"/>
       <xsl:param name="so-far" tunnel="true" as="xs:string*" select="()"/>
       <xsl:copy>

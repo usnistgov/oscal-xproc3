@@ -16,9 +16,9 @@
    
    <p:variable name="download-path" select="'https://spec.xproc.org/3.0/xproc'"/>
   
-  <!--https://spec.xproc.org/3.0/xproc/xproc30.rnc
-  https://spec.xproc.org/3.0/xproc/xproc30.rng-->
-  
+   <!--https://spec.xproc.org/3.0/xproc/xproc30.rnc
+       https://spec.xproc.org/3.0/xproc/xproc30.rng-->
+
    <!-- A $prefix is used to tag messages, expected to match the process type -->
    <p:variable name="prefix" select="'[' || 'GRAB-RESOURCES' || ']'"/>
    

@@ -1,6 +1,6 @@
 # House Rules 
 
-While not all submissions or contributions will always follow all house rules, any violations can be regarded as fair game for correction.
+While perfection is probably impossible, any violations of House Rules can be regarded as fair game for correction.
 
 Developers should always observe and follow the rules. Assessors can expect them to be followed, and make judgements accordingly.
 
@@ -21,8 +21,7 @@ Schematron for checking XProc pipelines is here: [testing/xproc3-house-rules.sch
 Please check the [testing](./testing) folder also for Schematrons for other formats including XSpec. Its readme provides more details.
 
 Schematron tests can be applied either interactively, or in CI/CD. Check CI/CD settings.
-
-Additionally, individual projects may provide additional Schematrons enforcing rules and regularities that are considered preconditions for processing there.
+Additionally, individual projects may provide additional Schematrons enforcing rules and regularities that are considered preconditions for processing there. I.e., do not expect because there are House Rules, that there are not others also applicable. Read the documentation.
 
 PRs supporting any Schematrons are welcome when due diligence has been performed.
 

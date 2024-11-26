@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:sqf="http://www.schematron-quickfix.com/validator/process">
    
    <!-- Binding XHTML namespace to 'html' prefix -->
@@ -18,9 +19,8 @@
                   <meta charset="utf-8"/>
                </head>
             </sqf:add>
-         </sqf:fix>  
-      </sch:rule>
-      <sch:rule context="html:head">
+         </sqf:fix> </sch:rule>
+      <sch:rule context="html:head"> 
          <sch:assert sqf:fix="add-meta" test="html:meta/@charset='utf-8'">Document character set should be marked UTF-8</sch:assert>
          <sqf:fix id="add-meta">
             <sqf:description>
@@ -30,6 +30,16 @@
                <meta charset="utf-8"/>
             </sqf:add>
          </sqf:fix>  
+      </sch:rule>
+      <sch:rule context="html:head/html:title">
+         <sch:let name="nominal-title" value="/*/html:body/$header(.)"/>
+         <sch:assert sqf:fix="retag-pagetitle" test=". = $nominal-title">Page title looks wrong: expecting '<sch:value-of select="$nominal-title"/>'</sch:assert>
+         <sqf:fix id="retag-pagetitle">
+            <sqf:description>
+               <sqf:title>Make the title '<sch:value-of select="$nominal-title"/>'</sqf:title>
+            </sqf:description>
+            <sqf:replace target="title" node-type="element" select="$nominal-title/string(.)"/>
+         </sqf:fix> 
       </sch:rule>
       <sch:rule context="html:body">
          <sch:let name="tracks" value="'observer','maker','learner'"/>
@@ -58,12 +68,19 @@
       </sch:rule>
    </sch:pattern>
    
+   <xsl:variable name="header" as="function(*)"  
+      select="function($e as element()) as element()?
+              { $e ! (html:h1, html:h2, html:h3, html:h4, html:h5, html:h6)[1] }"/>
+   
    <sch:pattern id="errant-text">
       <sch:rule context="html:section | html:body">
          <sch:assert test="text()[matches(., '\S')] => empty()">Element <name/> has loose text contents.</sch:assert>
+         <sch:assert test="exists(self::html:section) or child::html:section[$header(.)='Goals']">Body must have a "Goals" section</sch:assert>
+         <sch:assert test="not($header(.)='Goals') or empty(preceding-sibling::html:section)">A (single) "Goals" section should come first</sch:assert>
+         <sch:assert test="not($header(.)='Prerequisites') or empty(preceding-sibling::html:section[not($header(.)='Goals')])">A "Prerequisites" section can come only directly after "Goals"</sch:assert>
+         <sch:assert test="not($header(.)='Resources') or empty(preceding-sibling::html:section[not($header(.)=('Goals','Prerequisites'))])">A "Resources" section can come after only "Goals" and "Prerequisites"</sch:assert>
+         
       </sch:rule>
-      
-      
    </sch:pattern>
    
    <sch:pattern>
@@ -93,6 +110,7 @@
             </sqf:replace>
          </sqf:fix>  
       </sch:rule>
+      
    </sch:pattern>
    
    <sch:pattern>

@@ -1,6 +1,6 @@
 
 
-# OSCAL from PDF
+# FM-22 import
 
 In this project we acquire PDF documents and cast them into OSCAL.
 

@@ -15,18 +15,6 @@ If you read only a single page from this tutorial, and you know nothing about XP
 
 But a further goal is to stimulate a reader's curiosity along with their awareness.
 
-## Resources
-
-This lesson discusses, in more depth, the same pipelines you ran in setup: [Setup 101](../acquire/acquire_101.md), in particular [the smoke test pipelines](../../../smoketest/readme.md).
-
-Also, this lesson discusses a pipeline used for producing this tutorial: [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl) generates an [index to XProc in this repository](../../sequence/element-directory.md). It is offered as a first demonstration (among other things) of XProc applied to XProc.
-
-### For reference
-
-The [XProc.org 3.0 dashboard page](https://xproc.org) is maintained by XProc community organizers. It offers a hub for reference materials and community contributions.
-
-The last section of this lesson unit describes more reference materials as well.
-
 ## Prerequisites
 
 **No prerequisites.** The commentary assumes, however:
@@ -39,6 +27,18 @@ If you fall into neither of these categories – welcome, and congratulations on
 So you are also welcome to read what follows if this is your first look at XProc, or if you are not after the runtime, only the ideas, or if you have some other use in mind (such as perhaps testing an XProc engine?).
 
 If you fall into this category, however, you should also (one last time!) consider running some of the code after all. You might be surprised at how easy and not-so-scary it really is.
+
+## Resources
+
+This lesson discusses, in more depth, the same pipelines you ran in setup: [Setup 101](../acquire/acquire_101.md), in particular [the smoke test pipelines](../../../smoketest/readme.md).
+
+Also, this lesson discusses a pipeline used for producing this tutorial: [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl) generates an [index to XProc in this repository](../../sequence/element-directory.md). It is offered as a first demonstration (among other things) of XProc applied to XProc.
+
+### For reference
+
+The [XProc.org 3.0 dashboard page](https://xproc.org) is maintained by XProc community organizers. It offers a hub for reference materials and community contributions.
+
+The last section of this lesson unit describes more reference materials as well.
 
 ## A closer look
 

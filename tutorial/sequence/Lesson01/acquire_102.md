@@ -11,10 +11,6 @@
 * Look at some pipeline organization and syntax on the inside
 * Success and failure invoking XProc pipelines: an early chance to &ldquo;learn to die&rdquo; gracefully (to use the gamers' idiom).
 
-## Resources
-
-Same as [Setup 101](acquire_101.md).
-
 ## Prerequisites
 
 Please complete the repository setup and smoke tests as described in the [101 lesson](acquire_101.md). In this lesson, we will run these pipelines with adjustments, or similar pipelines.
@@ -24,6 +20,10 @@ This discussion assumes basic knowledge of coding, the Internet (including retri
 XML knowledge is also assumed. In particular, XProc uses [XPath                3.1](https://www.w3.org/TR/xpath-31/), the query language for XML. This latest version of XPath builds on XPath 1.0, so any XPath experience will help. In general, any XSLT or XQuery experience will be invaluable.
 
 You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development environment) for more interactive testing of the code.
+
+## Resources
+
+Same as [Setup 101](acquire_101.md).
 
 ## Step One: Inspect the pipelines
 

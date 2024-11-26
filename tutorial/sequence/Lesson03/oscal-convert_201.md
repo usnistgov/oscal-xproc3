@@ -4,11 +4,13 @@
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
-# 201: XProc in more depth
+# 201: Survey of XProc
 
 ## Goals
 
 Get more in-depth information about XProc internals.
+
+See the entire thing from above.
 
 ## Prerequisites
 
@@ -16,7 +18,7 @@ You have succeeded in prior exercises, including tools installation and setup. Y
 
 ## Resources
 
-Again, reference is made to pipelines and processes defined for the [oscal-convert project](../../../projects/oscal-convert/readme.md).
+Pipelines throughout the repository serve as examples for the description that follows.
 
 ## Overview: the anatomy of an XProc pipeline
 
@@ -24,7 +26,7 @@ Experts in XML can read this section quickly. Newcomers will find some of the co
 
 ### XProc files
 
-An XProc pipeline takes the form of an XML &ldquo;document entity&rdquo;. Unless you are concerned to write an XML parser (which is not very likely for XProc's natural constituency), this typically means an XML file, that is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or alternatively another form of &ldquo;plain text&rdquo; supported by your toolkit), and following the rules of XML syntax. These rules include how elements and attributes and other XML features are encoded in **tags** that
+An XProc pipeline takes the form of an XML &ldquo;document entity&rdquo;. Unless you are concerned to write an XML parser (which is not very likely for XProc's natural constituency), this typically means an XML file, that is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or alternatively another form of &ldquo;plain text&rdquo; supported by your system or environment), and following the rules of XML syntax. These rules include how elements and attributes and other XML features are encoded in **tags** that
 
 * Follow the rules with respect to naming, whitespace, delimiters and reserved characters
 * Are correctly balanced, with an end tag for every start tag – for a `<start>` there must be a `</start>` (an end to the start).
@@ -48,12 +50,18 @@ Over and above being XML, XProc has some rules of its own ...
 </p:declare-step>
 ```
 
+At the top, an XProc file will be either of `p:declare-step` or `p:library`. XProc in this repository includes at least one `p:library`, and it might be nice to have more. More on this below.
+
+As noted next, the element at the top ordinarily provides namespace prefix bindings (namespace declaration attributes) along with a `name` and a `type` for the step.
+
 #### Namespaces
 
 ```
    xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
 ```
+
+Namespaces are discussed in a different lesson unit. Here it is enough to repeat that XProc needs its own namespaces (typically p at the very minimum), while namespaces also serve to support extensibility. Accordingly you will probably also want a namespace (or more than one) whose prefix and URI bindings you control. Since namespaces declared at the top of the document will apply throughout the document (except when they are specifically switched off or around), this is a good place to put namespace declaration attributes to keep them out of the way.
 
 #### @name and @type
 
@@ -76,17 +84,24 @@ A step may also have an assigned `@type`. Unlike the name, which can be in any n
 
 Keep in mind that to build a pipeline is also to design and deploy a step, since any pipeline can be used as a step, and any step may comprise, internally, a pipeline.
 
-Since step definitions are more often &ldquo;out of line&rdquo; (in an external file) than inline (in the XProc itself), 
+Since step definitions are more often &ldquo;out of line&rdquo; (in an external file) than inline (in the XProc itself), learning XProc soon becomes an exercise in learning to use a toolkit of standard steps provided by the standard vocabulary. The power of these steps comes not just through what they do as single operations – which can be simple or complex – but in what they do when combined. Learning is accelerated by diving in.
 
-As described in the [XProc 3.0                   specification](https://spec.xproc.org/3.0/xproc/#declare-pipelines), XProc step declarations can be divided into an initial set of elements for setup and configuration, followed by what the specification calls a *subpipeline*, consisting of a sequence of steps to be executed – any steps available, which could be anything. Think of the subpipeline as the working parts of the pipeline, while the rest is all about how it is set up.
+As described in the [XProc 3.0                   specification](https://spec.xproc.org/3.0/xproc/#declare-pipelines), XProc step declarations can be divided into an initial set of elements for setup and configuration, followed by a *subpipeline*, consisting of a sequence of steps to be executed – any steps available, which could be anything. Think of the subpipeline as the working parts of the pipeline, while the rest is all about how it is set up.
 
-The list of elements that come before the subpipeline is short, which helps: `p:import`, `p:import-functions`, `p:input`, `p:output`, `p:option` or `p:declare-step`. Everything coming after is a step.
+At a high level:
 
-Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes between the **imports** for steps and functions, appearing first (elements `p:import` and `p:import-functions`), to be followed by elements configuring the step: `p:input`, `p:output`, `p:option` – elements together called the [prologue](https://spec.xproc.org/3.0/xproc/#declare-pipelines).
+* Imports (optional) - configuring where the processor can find logic to be called from external pipelines: `p:import`, `p:import-functions`
+* Prologue - configuring inputs, outputs and options for the pipeline, if any - the prologue can be empty: , `p:input`, `p:output`, `p:option`
+* Local step definitions, if any: `p:declare-step` 
+* Subpipeline - step invocations, connected implicitly or explicitly, with supporting variable declarations and documentation
 
-The prologue is used to define ports and options for the pipeline. It can be thought of as the definition of the interface for the step as a whole. Defining ports and options is how you give the users of the step with the affordances or control points they need to use it. If only a single input is needed, a single input port (named `source`) can be assumed (XXX is this so?), so prologues can be empty (and invisible, or not there).
+The list of elements that come in the three groups before the subpipeline is short, which helps: six in total between `p:import` and `p:declare-step`. Everything coming after is part of the subpipeline.
 
-Following the prologue, a step may also have local step definitions (`p:declare-step`). One might think of these as macros: maybe they are never used by another pipeline (XXX test: is this even possible?), but these locally-defined pipelines can be used internally for logic that is used repeatedly, or that warrants separating from the main pipeline for some other reason.
+Within this set of elements (all preceding, none following the subpipeline) XProc further distinguishes between the **imports** for steps and functions, appearing first (elements `p:import` and `p:import-functions`), followed by the [prologue](https://spec.xproc.org/3.0/xproc/#declare-pipelines) (`p:input`, `p:output`, `p:option`).
+
+The prologue is used to define ports and options for the pipeline. It can be thought of as the definition of the interface for the step as a whole. Defining ports and options is how you give the users of the step with the affordances or control points they need to use it. If only a single input is needed, a single input port (named `source`) can be defined. But some pipelines require no input bindings since the acquire data in other ways. If your pipeline is self-contained, its prologue can be empty.
+
+Following the prologue, a step may also have local step definitions (`p:declare-step`). One might think of these as an XProc equivalent of a &ldquo;macro&rdquo;: these locally-defined pipelines can be used internally for logic that is used repeatedly, or that warrants separating from the main pipeline for some other reason.
 
 After imports, prologue and (optional) step declarations, the step sequence that follows comprises the [subpipeline](https://spec.xproc.org/3.0/xproc/#dt-subpipeline).
 
@@ -97,7 +112,6 @@ In summary: any XProc pipeline, viewed as a step declaration, can have the follo
 * Pipeline name and type assignment (if needed), given as attributes at the top
 * **Imports**: step declarations, step libraries and functions to make available
 * The pipeline **prologue**: any of the elements named `p:input`, `p:output` and `p:option`, defining this pipeline's ports and options
-  * If no ports are named, assume a single `source` primary input port, permitting a single document
 * Optionally (and not common): step declarations for local steps, appearing at `p:declare-step`. Each of these will have its own name, type, prologue and steps
 * For this pipeline, one or more steps, called the [subpipeline](https://spec.xproc.org/3.0/xproc/#dt-subpipeline)
   * Standard atomic and compound steps in XProc namespace (probably prefixed `p:`)
@@ -105,7 +119,7 @@ In summary: any XProc pipeline, viewed as a step declaration, can have the follo
   * Variable declarations - `p:variable`
 * Finally, as noted above, `p:documentation` can appear anywhere in a pipeline, but it will be ignored except when appearing inside `p:inline`. What to do with these is a topic to be covered later.
 
-NB: the pipelines run so far have XML comments demarcating the prologue from the steps.
+A useful exercise can be to open a few pipelines and distinguish its internal boundaries.
 
 ### XProc steps
 
@@ -116,6 +130,8 @@ In other words, steps in XProc are *compositional*. They are building block asse
 The distinction between pipelines and steps is relative and provisional, but important and useful. The pipeline is the logical and actual definition of how your data is to be processed. Every pipeline is composed of an arrangement, often a series, of operations. These operations – the steps – include &ldquo;primitives&rdquo;, being designed for generality and reusability for the most common operations. But they can also include new steps we have written, as pipelines, and such custom-designed steps can be used in combination with the primitives or core compound steps of the language.
 
 At a higher level, defining new steps with new step declarations, and using them in combination with other steps, is how we manage complexity and change in processing requirements. This strategy maximizes adaptability, while also supporting an &ldquo;incremental maturity model&rdquo;, in which all defined processes can be improved with reuse, building and testing over time. Careful use and deployment of new steps is how we save work, by focusing optimization and making it possible to scale up to address data processing requirement sets that are both large and complex.
+
+Thus a kind of &ldquo;recursive orderability&rdquo;, wherein encapsulation itself is scaled up and out arbitrarily but only as much as needed, is a secret to XProc. As a pipeline, a step definition may include only a single step (a pipeline can be an interface or wrapper to another pipeline, or to a simple operation), or a long sequence or complex choreography of steps. In either case it can become a relatively self-contained &ldquo;black box&rdquo; process available to other processes.
 
 Accommodating this design, an XProc *file* considered as an XML instance is either of two things: a *step declaration*, or a collection of such declarations, a *library*. At the top level, recognize an XProc step declaration by the element, `p:declare-step` (in the XProc namespace) and a library by the element `p:library`.
 
@@ -130,7 +146,7 @@ Additionally, step declarations can include their own pipeline (step) declaratio
 
 An example of a step library in this repository is [xspec-execute.xpl](../../../xspec/xspec-execute.xpl), which collects several steps supporting XSpec, one each for supporting the XSpec testing framework for XSLT, XQuery and Schematron respectively.
 
-The advantage of defining a step at the top level, rather than putting all steps into libraries, is that such a step can be invoked without prior knowledge of its type name, which is used by XProc to distinguish it from other steps. The pipeline simply needs to be presented to the processor, which does the rest.
+The advantage of defining a step at the top level, rather than putting all steps into libraries, is that such a step can be invoked without prior knowledge of its type name, which is used by XProc to distinguish it from other steps. The pipeline simply needs to be presented to the processor, which does the rest. Your library of steps then looks very similar to your directory full of XProc files.
 
 #### XProc as an XML document
 
@@ -189,7 +205,7 @@ See coverage of [XProc, XML and XDM (the XML                   Data Model)](../w
 
 Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded correctly – when &ldquo;broken&rdquo;, any way we can think of breaking them. Then build good habits by repairing the damage. Experiment and observation bring learning.
 
-After reading this page, perform some more disassembly / reassembly. Here are a few ideas:
+After reading this page, perform some disassembly / reassembly. Here are a few ideas:
 
 * Switch out the value of an `@href` on a `p:document` or `p:load` step. See what happens when the file it points to is not actually there.
 * There is a difference between `p:input`, used to configure a pipeline in its prologue, and `p:load`, a step that loads data. Ponder what these differences are. Try changing a pipeline that uses one into a pipeline that uses the other.
@@ -201,41 +217,3 @@ After reading this page, perform some more disassembly / reassembly. Here are a 
 After breaking anything, restore it to working order. Create modified copies of any pipelines for further analysis and discussion.
 
 * Concept: copy and change one of the pipelines provided to acquire a software library or resource of your choice.
-
-## What could possibly go wrong?
-
-When coping with errors, syntax errors are relatively easy. But anomalous inputs, especially invalid inputs, can result in lost data. (A common reason data is not valid even when it appears to be is that it has foreign unknown contents, or contents out of place - the kinds of things that might fail to be converted.) The most important concern when engineering a pipeline is to see to it that no data quality problems are introduced inadvertantly. While in comparison to syntax or configuration problems, data quality issues can be subtle, there is also good news: the very same tools we use to process inputs into outputs, can also be used to test and validate data to both applicable standards and local rules.
-
-Generally speaking, OSCAL maintains &ldquo;validation parity&rdquo; between its XML and JSON formats with respect to their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for OSCAL XML data as the JSON Schema does for OSCAL JSON data, accounting for differences between the two notations, the data models and how information is mapped into them. A consequence of this is that valid OSCAL data, either XML or JSON, can reliably be converted to valid data in the other notation, while invalid data may not be converted at all, resulting in gaps or empty results.
-
-For this and related reasons on open systems, the working principle in XML is often to formalize a model (typically by writing and deploying a schema) as early as possible - or adopt a model already built - as a way to institute and enforce schema validation as a **prerequisite** and **primary requirement** for working with any data set. Validation against schemas is covered in a subsequent lesson unit (coming soon near you).
-
-### Intercepting errors
-
-One way to manage the problem of ensuring input quality is to validate on the way in, either as a dependent (prerequisite) process, or built into a pipeline. Whatever you want to do with invalid inputs, including ignoring them and producing warnings or runtime exceptions, can be defined in a pipeline much like anything else.
-
-In the [publishing demonstration                   project folder](../../../projects/oscal-publish/publish-oscal-catalog.xpl) is an XProc that valides XML against an OSCAL schema, before formatting it. The same could be done for an XProc that converts the data into JSON - either or both before or after conversion.
-
-Learn more about recognizing and dealing with errors in [Lesson 102](oscal-convert_102.md), or continue on to the next project, oscal-validate, for more on validation of documents and sets of documents.
-
-## for 599: XProc for JSON
-
-map objects; steps for working with them; interim p:store as debug method; output ports to see results (final and intermediate) or bind them
-
-## for 599: YAML TODO
-
-map objects; steps for working with them
-
-## for 599: XProc port bindings
-
-This is actually a .bat or .sh exercise - write a script that invokes XProc with a binding to a runtime argument
-
-Thus, a script `convert-oscal-catalog-xml.sh mycatalog.xml` could produce `mycatalog.json` from `mycatalog.xml` etc.
-
-Such a script could live in the project directory - do we want an Issue for this work item? 
-
-## for 599: URIs and URI schemes
-
-As described in [the XProc                specification](https://spec.xproc.org/master/head/xproc/#err.inline.D0012), it is up to implementations to define supported URI schemes and data retrieval mechanics, including XML catalogs to support resource caching and indirection, etc.
-
-## for 599: round tripping as process test

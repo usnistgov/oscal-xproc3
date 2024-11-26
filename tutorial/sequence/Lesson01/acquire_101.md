@@ -16,15 +16,19 @@ After the first script to get the XProc engine, we use XProc for subsequent down
 
 ## Prerequisites
 
-You have Java installed with a JVM (Java Virtual Machine) available on the command line (a JRE or JDK), version 8 (and later).
+If you have not done so, scan the [tutorial readme file](../../readme.md) for some helpful background and ideas on how tutorial materials are arranged.
+
+If ready to proceed, **you have a system with Java installed** offering a JVM (Java Virtual Machine) available on the command line (a JRE or JDK), version 8 (and later).
 
 **Tip:** check your Java version from the console using `java --version`.
 
-Also, you have a live Internet connection and the capability to download and save resources (binaries and code libraries) for local use.
+Also, **you have a live Internet connection** and the capability to download and save resources (binaries and code libraries) for local use.
 
-You are comfortable entering commands on the command line. For installation, you want a `bash` shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use `bash`, the setup can be done by hand (downloading and unpacking a package from SourceForge).
+**You are comfortable entering commands on the command line** (i.e. terminal or console window). For installation, you want a `bash` shell if available. On Windows, both WSL (Ubuntu) and Git Bash have been found to work. If you cannot use `bash`, the setup can be done by hand (downloading and unpacking a package from SourceForge).
 
 After installation, subsequent work on Windows does not require `bash` unless you choose to use it – a Windows `CMD` or Powershell can serve as your environment and the processor invoked with a Windows `bat` file (as described in the documentation). Mac and Linux (and WSL) users can continue to use `bash`.
+
+If you have already performed the setup as described in [README](../../../README.md) and [setup notes](../../../setup-notes.md), this lesson unit will be a breeze.
 
 ## Resources
 
@@ -80,9 +84,9 @@ When you can run all the smoke tests without ugly tracebacks, this lesson is com
 
 ## Comments / review
 
-Within this project as a whole, and within its subprojects, everything is done with XProc 3.0, meaning everything can be done using a single script, which invokes an XProc processor to read and execute a pipeline. This simplicity is at the center of the argument for XProc. 
+Within this project as a whole, and within its subprojects, everything is done with XProc 3.0. The aim is to make it possible to do anything needed with XProc, and moreover to make any one thing needed with a single XProc pipeline, using a single script, which invokes an XProc processor to read and execute. This simplicity, with the replicability that goes with it, is at the center of the argument for XProc.
 
-Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc offers the user and the developer (in either or both roles) with focused and concentrated points of control or points of adjustment. In the field – where software is deployed and used – things almost never just &ldquo;drop in&rdquo;. User interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even developers are rarely free to experiment and explore.
+Effectively (and much more could be said about the processing stack, dependency management and so forth) what this means is that XProc promises the user and the developer (in either or both roles) with focused and concentrated points of control or points of adjustment. In the field – where software is deployed and used – things almost never just &ldquo;drop in&rdquo;. User interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even developers are rarely as free as they would like to experiment and explore.
 
 To the extent this is the case, this project only works if things are actually simple enough to pick up, use, learn and adapt.
 
@@ -90,7 +94,7 @@ To the extent this is the case, this project only works if things are actually s
 
 Such a script itself must be &ldquo;vanilla&rdquo; and generic: it simply invokes the processor with the designated pipeline, and stands back. The logic of operations is entirely encapsulated in the XProc pipeline designated. XProc 3.0 is both scalable and flexible enough to open a wide range of possibilities for data processing, both XML-based and using other formats such as JSON and plain text. It is the intent of this project not to explore and map this space – which is vast – but to show off enough XProc and related logic (XSLT, XSpec) to show how this exploration can be done. We are an outfitter at the beginning of what we hope will be many profitable voyages to places we have never been.
 
-### Tweaks
+### When running from a command line
 
 As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple scripts can be used in more than one way. 
 
@@ -118,4 +122,4 @@ Windows users (and others to varying degrees) can set up a drag-and-drop based w
 
 It is important to try things out since any of these methods can be the basis of a workflow. 
 
-For the big picture, keep in mind that while the command line is useful for development and demonstration – and however familiar XProc itself may become to the developer – to the uninitiated it remains obscure and cryptic. XProc-based systems, when integrated into tools or developer editors and environments, can look much nicer than tracebacks in a console window. The beauty we are looking for here is in a different kind of elegance and power.
+For the big picture, keep in mind that while the command line is useful for development and demonstration – and however familiar XProc itself may become to the developer – to a great number of people it remains obscure, cryptic and intimidating if not forbidding. Make yourself comfortable at the command line! Meanwhile XProc-based systems, when integrated into tools or developer editors and environments, can look much nicer than tracebacks in a console window. The beauty we are looking for here is in a different kind of elegance and power.

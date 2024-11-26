@@ -171,6 +171,7 @@
          <xsl:if test="odp_type/@id='single_entry' and empty(title)">
             <label>{ replace(odp_statement/text,'^organization-defined\s*','') }</label>
          </xsl:if>
+         <prop name="label" value="{@id}"/>
          <xsl:apply-templates/>
       </param>
    </xsl:template>

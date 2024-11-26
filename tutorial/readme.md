@@ -6,42 +6,51 @@ Tutorial exercises can be centered on OSCAL-oriented applications but the learni
 
 We need to be modest and realistic in our goals, in proportion to the great potentials.
 
-Pages show only snapshots of process - no live demo
-Each page comes with links to repo
-Students are invited to read up ahead of time with other materials
+## How to Work
 
-We need to send this out two weeks early? Or anyone who registers late should be urged to dive in.
+The tutorial is designed to support multiple different approaches suitable for different learners and needs. Use the approach that works for you by mixing and matching your attention to appropriate coverage.
 
-For preparation:
-  - Take your pick: slides, repository or both
-  - Start at the top with Lesson 0 and proceed from there
-    - They all involve a hands-on component
-  - Take notes
-  - Get as far as you can - extra points for finishing the course
+Each topic ("Lesson") in a sequence offers a set of Lesson Units around a common problem area or theme.
 
-We will start with a poll - how far did you get?
+The first two topics cover setup and overview ("walkthrough"), while later topics delve into specific problem areas or application domains.
 
-# Architecture
+The important problem of data conversion between XML and JSON is the first topic explored in depth. Later topics (not yet developed) will cover XML-based publication, validation against schemas and rule sets (both standard and locally-defined), data acquisition from PDF and JSON; OSCAL profile resolution (rendition of control sets defined by profiles in catalog form); processing XProc itself; and others.
 
-The course contains a sequence of hands-on lessons of increasing depth and complexity.
+Since the topics each build on the previous topics, considering them in the given order will be least confusing. However, if it makes sense to cover only one or two tracks within each topic, lesson units can also be skimmed or skipped.
 
-See the [outline.md](outline.md) for an overview of current plans.
+### Observer Track
 
-They are to be centered on a short sequence of applications, mostly OSCAL applications (one XProc applicationn at the end). Each of these is presented in a Lesson with a curriculum (slides/writeup) offered at three levels:
+For subject experts, managers and programmers who want to see how XProc works and understand its capabilities, without planning to develop XProc pipelines or requiring hands-on knowledge.
 
-**101** - Beginners - anyone - presumes only the preceding Lessons
+In this track you will inspect pipelines, run pipelines, and inspect their inputs and outputs. But you need not fear introducing errors or exceptions, as that's what the Maker track is for.
 
-You can use the command line to accomplish tasks, but do not expect to be coding.
+### Maker Track
 
-**102** - Developers - presumes deeper interest, but at an intro level
+The coverage here parallels the Observer track, but provides exposition appropriate to newcomers to XProc who wish to accelerate learning by 'hands on' experimentation.
 
-Tutorial tasks may involve editing code and providing your own OSCAL examples.
+The biggest challenge to developers learning XProc is how much XML, XPath, XQuery, or XSLT do you know. Even developers who have no prior exposure to the XML stack should be able to use the Maker track to test and develop skills. Those who do have prior experience will, it is hoped, find it to be an accelerant, while XProc itself is a launchpad.
 
-**599** - Advanced
+The expectation is that unlike Observers, Makers will enjoy seeing tracebacks for errors you have introduced on purpose, just out of curiosity and need-to-know. You are confident that you can put things back well enough or that any damage is well contained.
 
-Proceeding through the lessons you can choose how deeply to go with each, and also whether and when to come back.
+Makers can also expect the gratification of making things work in new ways.
 
-## Production
+If you are a hands-on learner with no patience for reading, you can skim through the Observer and Maker tracks together quickly and focus on the examples, to try things out. Within topics, all tracks sometimes offer useful context, while the Maker track is specifically streamlined. (But maybe you have found that out for yourself and will never read these words to say so!)
+
+### Learner Track
+
+Paralleling the other two tracks, the Learner track offers all readers more explanation and commentary, in greater depth and with more links.
+
+## Editing the lessons
+
+The lessons are published in Markdown, which invites you to edit them, at least in your copies.
+When you do so, however, you should take care:
+
+- To see to it that your edits or annotations are easily distinguishable
+- To save your edited copy out, lest it be written over inadvertantly as a publishing artifact (see next section) 
+
+All work product here in in the Public Domain, so no worries there. Of course this means you can't claim copyright either: *caveat scriptor*.
+
+# Production
 
 Source files are maintained in a reduced HTML format.
 
@@ -53,101 +62,32 @@ At a future point we can also opt to do something better with this HTML.
 
 ### Requirements
 
-For the lesson set:
-
-- Schematron
-- Markdown XSLT
-- Production pipeline
-
 See the top-level pipelines for current capabilities. At time of writing:
 
 [PRODUCE-TUTORIAL-MARKDOWN.xpl](PRODUCE-TUTORIAL-MARKDOWN.xpl) produces a set of Markdown files, writing them to the `sequence` directory.
 
 These files are not retained by git, being regarded instead as production artifacts. Run the pipeline when you want to refresh them.
 
-[PRODUCE-TUTORIAL-PREVIEW.xpl](PRODUCE-TUTORIAL-PREVIEW.xpl)
+[PRODUCE-TUTORIAL-PREVIEW.xpl](PRODUCE-TUTORIAL-PREVIEW.xpl) produces a single [Preview HTML version[(tutorial-preview.html)
 
-## XProc 101 - What Is XProc
+[PRODUCE-TUTORIAL-TOC.xpl]() produces the [Tutorial Table of Contents](sequence/lesson-sequence.md)
 
-Developers, users and decision-makers
-
-- What problems does it solve
-- XProc 'barn raising' - getting started
-- Hands on practice running some pipelines
-- 'Insider tour' shows some XProc internals
-- Resources
-
-### Tasks
-
-- XML OSCAL Catalog Validation
-  - sample data, your data
-  - extra: other models
-- JSON Validation
-  - sample data, your data
-- JSON to XML and XML to JSON conversion
-  - sample data, your data
-- Catalog to HTML
-- Profile resolution
-
-### Follow on
-
-OSCAL activities, XProc activities or both?
-
-OSCAL sample data - more and better
-
-If you make a fork of this repository, let us know - also be aware we may use your name (unless you tell us not to).
-
-If you copy or use anything from the repository also feel free to let us know.
-
-## XProc 102 - Intro for developers
-
-Assumes XSLT / regards it as a black box
-Assumes *some* XML
-Assumes you have completed 101 and all its exercises (could be on your own)
-
-Provides a more detailed survey and more exercises
-
-Included will be:
-
-Pipelines and pipeline architectures - theory and practice
-
-Setting up and running pipelines
-  - standalone
-  - with port bindings at runtime
-  - local and remote resources (http: and file: URIs)
-  - (scripted)
-  - (via APIs)
-
-Diagnostic methods
-- Rewiring inputs and outputs (setting @sequence to true)
-- Writing intermediate results
-- `@message` and `p:identity/@message`
-- Variables and AVTs in messages and paths
-
-`@content-type` options including plain text, XML and JSON
-
-## XProc 599-600 - Advanced Practicum
-
-Writing your own steps
-- Names and @type
-- Namespaces
-
-Inline XSLT or XQuery
-
-Local function libraries?
-
-iXML for other notations
+[PRODUCE-PROJECTS-ELEMENTLIST.xpl] produces an [index to XProc elements appearing in pipelines](sequence/element-directory.md) under discussion - read about it in the lessons
 
 ## Leave your tracks
 
+### Follow up
+
+If you make a fork of this repository, let us know - also be aware we may use your name (unless you request we not do so).
+
+If you copy or use anything from the repository also feel free to let us know.
+
 ### Discussion board
 
-The Github repository Discussion Board is a worthwhile place to browse or to pose questions, whether directly about the tutorial or exercises, or more broadly.
+The [Github repository Discussion Board](https://github.com/usnistgov/oscal-xproc3/discussions) is a worthwhile place to browse or to pose questions, whether directly about the tutorial or exercises, or more broadly.
 
-### Github Issues
+### Github PRs
 
+Consider making a [pull request](https://github.com/usnistgov/oscal-xproc3/pulls) with an enhancement to the repository. If there are no corrections or improvements to suggest, sample files are always welcome. Future users can have the benefit of your experience.
 
-
-
-Consider making a pull request with an enhancement to the repository. If there are no corrections or improvements to suggest, sample files are always welcome. Future users can have the benefit of your experience.
-
+---

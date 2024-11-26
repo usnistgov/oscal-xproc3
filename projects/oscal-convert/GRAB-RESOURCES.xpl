@@ -2,6 +2,7 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
    type="ox:GRAB-RESOURCES"
    name="GRAB-RESOURCES">
    
@@ -11,6 +12,7 @@
    
    <!-- A $prefix is used to tag messages, expected to match the process type -->
    <p:variable name="prefix" select="'[' || 'GRAB-RESOURCES' || ']'"/>
+   
    
    <p:for-each message="{$prefix} Saving resources in ./lib ...">
       <!-- iterating over each 'resource' as a discrete document node -->
@@ -24,7 +26,6 @@
            making it difficult to anticipate what a failure looks like - -->
       <!-- NB - A Schematron error comes back as soon as this is out of line with /*/@type i.e. the file name
            - starting the @message with { $prefix } silences the error, but please reset $prefix -->
-      
       <p:store message="{$prefix} ... saving { $filename }"
          href="lib/{ $filename }"  serialization="map{'indent' : true() }"/>
    </p:for-each>

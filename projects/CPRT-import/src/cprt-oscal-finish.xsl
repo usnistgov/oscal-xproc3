@@ -20,11 +20,12 @@
    <xsl:function name="cprt:uuid-map" as="map(*)">
       <xsl:param name="seed" as="xs:string"/>
       <xsl:param name="seq" as="item()*"/>
-      <xsl:variable name="uuid-sequence" select="x3f:make-uuid-sequence( $seed, count($seq))"/>
+      <xsl:variable name="values" select="$seq/string(.) => distinct-values()"/>
+      <xsl:variable name="uuid-sequence" select="x3f:make-uuid-sequence( $seed, count($values) )"/>
       <xsl:map>
-         <xsl:for-each select="$seq">
+         <xsl:for-each select="$values">
             <xsl:variable name="p" select="position()"/>
-            <xsl:map-entry key="string(.)" select="$uuid-sequence[$p]"/>
+            <xsl:map-entry key="." select="$uuid-sequence[$p]"/>
          </xsl:for-each>
       </xsl:map>
    </xsl:function>
