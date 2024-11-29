@@ -122,4 +122,6 @@ Windows users (and others to varying degrees) can set up a drag-and-drop based w
 
 It is important to try things out since any of these methods can be the basis of a workflow. 
 
-For the big picture, keep in mind that while the command line is useful for development and demonstration – and however familiar XProc itself may become to the developer – to a great number of people it remains obscure, cryptic and intimidating if not forbidding. Make yourself comfortable at the command line! Meanwhile XProc-based systems, when integrated into tools or developer editors and environments, can look much nicer than tracebacks in a console window. The beauty we are looking for here is in a different kind of elegance and power.
+For the big picture, keep in mind that while the command line is useful for development and demonstration – and however familiar XProc itself may become to the developer – to a great number of people it remains obscure, cryptic and intimidating if not forbidding. Make yourself comfortable at the command line!
+
+Then too, if you have something better, by all means use it. XProc-based systems, when integrated into tools or developer editors and environments, can look much nicer than tracebacks in a console window. The elegance and power we are trying to cultivate are at a deeper level. First and last, the focus must be on the data.

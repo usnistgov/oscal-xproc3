@@ -2,6 +2,17 @@
 
 @namespace oxy "http://www.oxygenxml.com/extensions/author";
 
+head {
+  display: block;
+  border: solid white 1pt;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+head title { font-size: 80%; font-family: monospace }
+
 meta:before{
 	    content:"Meta: charset=" attr(charset);
 	    font-weight:bold;

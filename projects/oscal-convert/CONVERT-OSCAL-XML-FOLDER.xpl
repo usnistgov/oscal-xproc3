@@ -36,24 +36,6 @@
    <!-- directory list path writing step annotates c:file with full path to resource -->
    <p:label-elements match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
    
-   <!-- that p:label-elements replaces this entire thing! <p:xslt>
-      <p:with-input port="stylesheet">
-         <p:inline expand-text="false">
-            <xsl:stylesheet version="3.0">
-               <xsl:mode on-no-match="shallow-copy"/>
-               
-               <xsl:template match="c:file">
-                  <xsl:copy>
-                     <xsl:copy-of select="@*"/>
-                     <!-\- showing the full path to each file listed in the directory -\->
-                     <xsl:attribute name="path" select="string-join(ancestor-or-self::*/@xml:base,'')"/>
-                  </xsl:copy>
-               </xsl:template>
-            </xsl:stylesheet>
-         </p:inline>
-      </p:with-input>
-   </p:xslt>-->
-   
    <p:for-each name="found-xml">
       <p:with-input select="/descendant::c:file"/>
       <!-- By trying one at a time we can convert the ones that pass, catching the ones that do not -->

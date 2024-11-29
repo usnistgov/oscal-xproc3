@@ -27,7 +27,8 @@
                </p:with-input>
             </p:error>
          </p:when>
-         <!-- a real test might validate against a schema ... we only look at the namespace at the root -->
+         <!-- a real test might validate against a schema ... we only look at the document element
+              for name and namespace -->
          <p:when test="empty(/oscal:catalog)" xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
             <p:error code="ox:source-validation-fail">
                <p:with-input>
@@ -47,8 +48,7 @@
             <!--<p:identity message="[CONVERT-OSCAL-XML-DATA] Writing JSON file {$json-file} -\-"/>-->
             <p:store href="{$json-file}" message="[CONVERT-OSCAL-XML-DATA] writing JSON file {$json-file} --"/>  
          </p:otherwise>
-      </p:choose>
-          
+      </p:choose>          
    </p:for-each>
    
 </p:declare-step>

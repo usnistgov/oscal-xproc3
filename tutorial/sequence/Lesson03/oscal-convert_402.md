@@ -4,7 +4,7 @@
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
-# 402: XProc, XML, JSON and content types
+# 402: What is an XProc document anyway
 
 ## Goals
 
@@ -14,11 +14,23 @@ Understand a little more about JSON and other data formats in an XML processing 
 
 A [content-types worksheet XProc](../../worksheets/CONTENT-TYPE_worksheet.xpl) is offered for trying out content-type options on XProc inputs and outputs. If you only have thirty minutes, consider looking at it before reading further.
 
-XProc content types are closely tied to its definition of a *document*, an object for which a string property `content-type` indicates the expected or nominal content type.See links given in the remarks below. This is a topic you can also learn by through trial and error.
+XProc content types are closely tied to its definition of a *document*, an object for which a string property `content-type` indicates the expected or nominal content type. See links given in the remarks below. This is a topic you can also learn by through trial and error.
+
+## What is an XProc document
+
+XProc has a concept of a document that permits just about any digital object or encoded entity to be considered and handled as such. XProc manages this by dividing its world into precincts (more on this below), which may be relatively well-known and well-specified, or the opposite. Well-known things can be handled in well known ways. Things not so well known might still be handled by an extension (not yet standardized). Because the boundaries are not fixed, more kinds of things can be rendered as documents over time, assuming we can find ways to represent them using the data model at hand (XDM).
+
+For an XProc engine to read XML, JSON, HTML and plain text is expected; for it to read (for example) metadata from inside image formats is a feature your XProc engine *may* offer. What XProc &ldquo;sees&rdquo; in either case is a **document**. XML or HTML files make documents &ldquo;naturally&rdquo;, of course (though there is not much natural about it). No surprise there, as XDM was designed for this purpose. But the tree-shaped element structure and data typing system of XDM can also be generalized.
+
+So any JSON file can also be a document, with the stipulation that like other inputs, it will be rendered (internally) by the XProc engine as an XDM object corresponding to this JSON. XDM - not a language or a syntax, but a data model – becomes the shared assumption across formats. Passed between steps in a pipeline, an XDM map is a document. At the end of the pipeline or at any interim point, an XDM map object can readily be saved out as JSON. An XDM element tree can be saved out as XML.
+
+Core to thinking about XProc is this notion that there are **documents**, and then there are **serializations** of documents - the way documents are encoded as character streams in editing applications or persistent storage – and these are not the same, albeit one may be a representation of the other. An XML document stored in a system and an XML document as processed by XProc are related and isomorphic, but not necessary identical. An [XProc                document as defined formally](https://spec.xproc.org/3.0/xproc/#documents) comprises an XDM (in this context called the **representation**) with certain properties for XProc's convenience such as a base URI (actual or nominal) and a content type (for disambiguation).
+
+Anything that can be rendered into XDM can be a document for XProc. XML and JSON come for free; other formats take more effort, or specialized steps (such as [a step used to uncompress archive file formats](https://spec.xproc.org/3.0/steps/#c.unarchive), thus converting one &ldquo;document&rdquo; into many). An XProc step supporting [Invisible XML](https://spec.xproc.org/master/head/ixml/#c.invisible-xml), provided with a grammar, can be deployed to write specialized steps that are able to handle and render the format described by such a grammar.
 
 ## XProc documents and content types
 
-XProc needs a contract or working agreement with the world at large regarding how to refer to the various kinds of things XProc consumes and produces. The XProc concept and deployment of `content-type` properties is one of the main ways it does this. Read about XProc's content types[ in the specification, which normatively defines all                the terms](https://spec.xproc.org/3.0/xproc/#documents).
+XProc needs a contract or working agreement with the world at large regarding how to refer to the various kinds of things XProc consumes and produces. The XProc concept and deployment of `content-type` properties is one of the main ways it does this. Read about more about XProc's content types[ in the specification](https://spec.xproc.org/3.0/xproc/#documents).
 
 The short and easier story is that XProc's content types are aligned closely with media types or &ldquo;file types&rdquo; as they are defined broadly across Internet standards and protocols. Web developers will have a head start if they know how tools already distinguish between file and application formats in web technologies using identifiers such as `text/html` or `application/svg+xml`.
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>401 - XSLT, forward and back</title>
+      <title>401: XSLT Forward and Back</title>
    <meta charset="utf-8"/>    </head>
    <body data-track="learner">
-      <h1>401 - XSLT Forward and Back</h1>
+      <h1>401: XSLT Forward and Back</h1>
       <p>What is this XSLT?</p>
       <p>Read this page if you are a beginner, or an expert in XSLT, or if you plan never to use it.</p>
       <section>
@@ -16,68 +16,129 @@
       </section>
       <section>
          <h2>Prerequisites</h2>
-         <p>You have run and inspected pipelines mentioned earlier, most especially <a
+         <p>Possibly, you have run and inspected pipelines mentioned earlier, most especially <a
                href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a>, which contains
                <code>p:xslt</code> steps.</p>
-         <p>You have inspected XSLT files (standalone transformations or <em>stylesheets</em>), to be found more or less
-            anywhere in this repository, especially directories named <code>src</code>.</p>
+         <p>Possibly, you have inspected XSLT files (standalone transformations or <em>stylesheets</em>), to be found
+            more or less anywhere in this repository, especially directories named <code>src</code>.</p>
       </section>
       <section>
          <h2>Resources</h2>
          <p>XSLT links!</p>
          <section>
             <h3>XSLT 1.0 and XPath 1.0</h3>
+            <ul>
+               <li><a href="https://www.w3.org/TR/1999/REC-xpath-19991116/">XML Path  Language (XPath) Version 1.0</a> W3C Recommendation 16 November 1999</li>
+               <li><a href="https://www.w3.org/TR/xslt-10/">XSL Transformations (XSLT) Version 1.0</a> W3C Recommendation 16 November 1999</li>
+            </ul>
          </section>
          <section>
             <h3>XSLT 2.0 and XQuery 1.0</h3>
+            <ul>
+               <li><a href="https://www.w3.org/TR/xslt20/">XSL Transformations (XSLT) Version 2.0 (Second Edition)</a>
+                  W3C Recommendation 30 March 2021 (Amended by W3C)</li>
+               <li><a href="https://www.w3.org/TR/xquery-10/">XQuery 1.0: An XML Query Language (Second Edition)</a> W3C
+                  Recommendation 14 December 2010</li>
+               <li
+                  >World Wide Web Consortium. <em>XQuery 1.0 and XPath 2.0 Data Model (XDM) (Second Edition)</em>. W3C
+                  Recommendation, 14 December 2010. See <a href="https://www.w3.org/TR/xpath-datamodel/"
+                     style="color: rgb(0, 0, 204); background: transparent;"
+                     >http://www.w3.org/TR/xpath-datamodel/</a>.</li>
+               <li
+                  >World Wide Web Consortium. <em>XQuery 1.0 and XPath 2.0 Formal Semantics (Second Edition)</em>. W3C
+                  Recommendation, 14 December 2010. See <a href="https://www.w3.org/TR/xquery-semantics/"
+                     style="color: rgb(0, 0, 204); background: transparent;"
+                     >http://www.w3.org/TR/xquery-semantics/</a>.</li>
+               <li
+                  >World Wide Web Consortium. <em>XQuery 1.0 and XPath 2.0 Functions and Operators (Second
+                  Edition)</em> W3C Recommendation, 14 December 2010. See <a
+                     href="https://www.w3.org/TR/xquery-operators/"
+                     style="color: rgb(0, 0, 204); background: transparent;"
+                     >http://www.w3.org/TR/xpath-functions/</a>.</li>
+               <li
+                  >World Wide Web Consortium. <em>XSLT 2.0 and XQuery 1.0 Serialization (Second Edition)</em>. W3C
+                  Recommendation, 14 December 2010. See <a href="https://www.w3.org/TR/xslt-xquery-serialization/"
+                     style="color: rgb(0, 0, 204); background: transparent;"
+                     >http://www.w3.org/TR/xslt-xquery-serialization/</a>.</li>
+            </ul>
          </section>
          <section>
             <h3>XSLT 3.0, XQuery 3.0, XPath 3.1</h3>
+            <ul>
+               <li><a href="https://www.w3.org/TR/xslt-30/">XSL Transformations (XSLT) Version 3.0</a> W3C
+                  Recommendation 8 June 2017</li>
+               <li><a href="https://www.w3.org/TR/xslt-30/#normative-references">Normative references</a> for XSLT 3.0 -
+                  data model, functions and operators, etc., including <b>XPath 3.1</b></li>
+               <li><a href="https://www.w3.org/TR/xquery-30/">XQuery 3.0: An XML Query Language</a> W3C Recommendation
+                  08 April 2014</li>
+            </ul>
          </section>
       </section>
       <section>
          <h2>XSLT: XSL (XML Stylesheet Language) Transformations</h2>
-         <p>XSLT has a long and checkered reputation and a history that may be even more amazing.</p>
-         <p>Chances are good that if you are not current on the latest version of this technology, you have little idea
-            of what we are talking about, as it may have changed quite a bit (and even despite external appearances)
-            since you last saw it.</p>
+         <p>XSLT has a long and amazing history to go with its checkered reputation. Its role in XProc is similarly
+            ambiguous: in one sense it is an optional power feature: a nice-to-have. In another sense it can be regarded
+            as foundational. XSLT is the reason to have XProc.</p>
+         <p>Chances are good that if you are not current on the latest XSLT version, you have little idea of what we are
+            talking about, as it may have changed quite a bit (and even despite external appearances) since you last saw
+            it. You may think you know it but you might have to reconsider.</p>
          <p>Users who last used XSLT 1.0 and even 2.0, in particular, can consider their knowledge out of date until
             they have taken a look at XSLT 3.0.</p>
-         <p>Programmers can think of XSLT as a domain-specific language (DSL) or fourth-generation language (4GL)
-            designed for the purpose of manipulating data structures suitable for documents and messages as well as for
-            structured data sets. As such, XSLT is highly generalized and abstract and can be applied to a very broad
-            range of problems. Its main distinguishing feature among similar languages (which tend to be functional
-            languages such as Scala and Scheme) is that it is optimized for use specifically with XML-based data
-            formats, offering well-defined handling of information sets expressed in XML, while the language itself uses
-            XML syntax, affording nice composability, reflection and code generation capabilities. XSLT's processing
-            model is both broadly applicable, and workable in a range of environments including client software or
-            within encapsulated, secure software configurations and deployments.</p>
-         <p>If your XSLT is strong enough, you don't need XProc, or not much. But as a functional language, XSLT is best
-            used in a functionally pure, <q>stateless</q> way that does not interact with the system: no <q>side
-               effects</q>. This is related to its definitions of conformant processing (X inputs produce Y outputs) and
-            the determinism, based in mathematical formalisms, that underlies its idea of conformance. However one cost
-            of mathematical purity is that operations that do interact with stateful externalities – things such as
-            reading and writing files – are not in XSLT's <q>comfort zone</q>. It easily defines what a new structure A'
-            should look like for any given structure A. But how A is first acquired or what we do once we have
-            determined A', is less clear, and left up to the processor to handle, as an interface, starting with an XSLT
-            transformation's nominal <em>source</em> and (primary) <em>result</em>. Often, this gap has been bridged by
-            extended functionality in processors. Does your processor read and parse XML files off the file system? Can
-            it be connected to upstream data producers in different ways? Can it use HTTP <code>GET</code> and
-               <code>PUT</code>? The answer may be Yes to any or all of these. Throughout its history, XSLT in later
-            versions was also extended in this direction, with features such as the <code>collection()</code> function,
-               <code>xsl:result-document</code>, <code>doc-available()</code> and other features we may not need if we
-            are using XProc.</p>
-         <p>XSLT is commonly run from scripts, in web hosting environments and XQuery databases. Or you might be able to
-            configure your desktop software (Editor or IDE) to run your XSLT, or acquire specialized software just for
-            reading and filtering collections or managing sets of file outputs in XSLT-based workflows.</p>
-         <p>Yet XProc may offer a gentler approach, while it enables XSLT on the one hand when needed, while on the
-            other enables us largely to do without it, offering both a useful feature set and the flexibility we need,
-            but with less overhead, especially with regard to routine chores like designating sets of inputs and
-            outputs, or sequencing operations. The principle of Least Power may well apply here: it saves our present
-            and our future selves effort if we can arrange and manage to do things less. XProc lets us do less.</p>
+         <p>Moreover, within the context of XProc, experienced users of XSLT should also consider it may take a
+            different form, as it is unburdened of some operations that better belong outside it - operations such as
+            those provided by XProc itself. Within XProc, XSLT may often be simpler than out in systems where it has to
+            do more work.</p>
+         <p>Over time, the principle of pipelining, iterative amelioration (as it might be described) or <q>licking into
+               shape</q> has been repeatedly demonstrated. Of course it proves easier to do a complicated task when
+            broken into a series of simpler tasks. On Java alone, ways of deploying operations in sequence include at
+            least <a href="https://ant.apache.org/">Apache Ant</a>, Apache Tomcat/<a href="https://cocoon.apache.org/"
+               >Cocoon</a> (a web processing framework), XQuery (such as <a href="https://basex.org/">BaseX</a> or <a
+               href="https://exist-db.org/exist/apps/homepage/index.html">eXist-db</a> engines) and XSLT (<a
+               href="https://www.saxonica.com/documentation12/index.html#!functions/fn/transform">Saxon</a>) to say
+            nothing of batch scripts, shell scripts and <q>transformation scenarios</q> or the like, as offered by XML
+            tools and toolkits.</p>
+         <p>All can be disturbingly haphazard. In contrast to the varied stopgap solutions, XProc helps quite a bit by
+            taking over from XSLT, to whatever extent necessary and useful, any aspects of processing that require any
+            sort of interaction with the wider system. This way XSLT plays to its strengths, while XProc standardizes
+            and simplifies how it works. On one hand, XProc enables XSLT when needed, while on the other XProc may
+            enable us largely to do without it, offering both a useful feature set and the flexibility we need, but with
+            less overhead, especially with regard to routine chores like designating sets of inputs and outputs, or
+            sequencing operations. The principle of Least Power may well apply here: it saves our present and our future
+            selves effort if we can arrange and manage to do fewer things less. XProc lets us do less.</p>
+         <p>With XSLT together, this effect is magnified. XSLT lets us write less XProc, and XProc lets us write less
+            XSLT. Together they are easier than either would be without the other to lighten the lift.</p>
          <p>XProc lets us use XSLT when we must, but also keeps routine and simple things both simple and consistent.
             And it adapts itself well to new requirements as they become more complicated. Ultimately, it spares the
             XSLT developer the problem of having to design, build and test something like XProc.</p>
+         <section>
+            <h3>Reflecting on XSLT</h3>
+            <p>Programmers can think of XSLT as a domain-specific language (DSL) or fourth-generation language (4GL)
+               designed for the purpose of manipulating data structures suitable for documents and messages as well as
+               for structured data sets. As such, XSLT is highly generalized and abstract and can be applied to a very
+               broad range of problems. Its main distinguishing feature among similar languages (which tend to be
+               functional languages such as Scala and Scheme) is that it is optimized for use specifically with
+               XML-based data formats, offering well-defined handling of information sets expressed in XML, while the
+               language itself uses XML syntax, affording nice composability, reflection and code generation
+               capabilities. XSLT's processing model is both broadly applicable, and workable in a range of environments
+               including client software or within encapsulated, secure software configurations and deployments.</p>
+            <p>If your XSLT is strong enough, you don't need XProc, or not much. But as a functional language, XSLT is
+               best used in a functionally pure, <q>stateless</q> way that does not interact with the system: no <q>side
+                  effects</q>. This is related to its definitions of conformant processing (X inputs produce Y outputs)
+               and the determinism, based in mathematical formalisms, that underlies its idea of conformance. However
+               one cost of mathematical purity is that operations that do interact with stateful externalities – things
+               such as reading and writing files – are not in XSLT's <q>comfort zone</q>. XSLT works by defining what a
+               new structure A' should look like for any given structure A, using such terms as a conformant XSLT engine
+               can then effectuate. But to turn an actual A into an actual A' we must first acquire A – or an effective
+               surrogate thereof – and moreover make our A' available, in some form. XSLT leaves it up to its processor
+               and <q>calling application</q> to handle this aspect of the problem – which they typically do by offering
+               interfaces for an XSLT transformation's nominal <em>source</em> and (primary) <em>result</em>. Often,
+               this gap has been bridged by extended functionality in processors. Does your processor read and parse XML
+               files off the file system? Can it be connected to upstream data producers in different ways? Can it use
+               HTTP <code>GET</code> and <code>PUT</code>? The answer may be Yes to any or all of these. Throughout its
+               history, XSLT in later versions was also extended in this direction, with features such as the
+                  <code>collection()</code> function, <code>xsl:result-document</code>, <code>doc-available()</code> and
+               other features we may not need if we are using XProc.</p>
+         </section>
          <section>
             <h3>Running XSLT without XProc</h3>
             <p>As a standard and an externally-specified technology, XSLT can in principle be implemented on any
@@ -90,7 +151,7 @@
          </section>
       </section>
       <section>
-         <h2>Using XSLT in XProc: avoiding annoyances XXX</h2>
+         <h2>Using XSLT in XProc: avoiding annoyances</h2>
          <p>If you are an experienced XSLT user, congratulations! The power XProc puts into your hands is everything you
             might think and hope.</p>
          <p>There are a couple of small but potentially annoying considerations when embedding XSLT literals in your
@@ -99,15 +160,37 @@
             XSLT code in your XProc, that eliminates the syntax-level clashes at the roots of both these problems.</p>
          <section>
             <h3>Text and attribute value syntax in embedded XSLT</h3>
+            <p>XSLT practitioners know that within XSLT, in attributes and (in XSLT 3.0) within text (as directed), the
+               curly brace signs <code>{</code> and <code>}</code> have special semantics as <a
+                  href="https://www.w3.org/TR/xslt-30/#attribute-value-templates">attribute</a> or <a
+                  href="https://www.w3.org/TR/xslt-30/#text-value-templates">text value templates</a>. In the latter
+               case, the operation can be controlled with an <code>xsl:expand-text</code> setting. When effective as
+               template delimiters, these characters can be escaped and hidden from processing by doubling them:
+                  <code>{{</code> for <code>{</code> etc.</p>
+            <p>XProc offers a similar feature for expanding expressions dynamically, indicated with a
+                  <code>p:expand-text</code> setting much like XSLT's.</p>
+            <p>Because they both operate, an XSLT author must take care to provide for the correct escaping (sometimes
+               more than one level) or settings on either language's <code>expand-text</code> option. Searching the
+               repository for the string value <code>{{</code> (two open curlies together) will turn up instances of
+               this – or try <a href="../../worksheets/NAMESPACE_worksheet.xpl">a worksheet XProc with XSLT
+               embedded</a>.</p>
          </section>
          <section>
             <h3>Namespaces in and for your XSLT</h3>
+            <p><a href="../oscal-convert/oscal-convert_350_src.html" class="LessonUnit">A lesson unit on namespaces in
+                  XProc</a> may help newcomers or anyone mystified by XML namespaces. They are worth mentioning here
+               because everything tricky in XProc regarding namespaces is doubly tricky with XSLT in the picture.</p>
+            <p>In brief: keep in mind XSLT has its own features for both configuring namespace-based matching on
+               elements by name (such as <code>xpath-default-namespace</code>), and for managing namespaces in
+               serialization (<code>exclude-namespace-prefixes</code>). In the XProc context, however, your XSLT will
+               typically not be writing results directly, instead only producing the same kind of (XDM) tree as is
+               emitted and consumed by other steps.</p>
          </section>
       </section>
       <section>
          <h2>Learning XSLT the safer way</h2>
-         <p>If setting out to learn XSLT, pause to read the following list of things to which you should give early
-            attention, in order:</p>
+         <p>If setting out to learn XSLT, pause to read the following <i>short</i> list of things to which you should
+            give early attention, in order:</p>
          <ol>
             <li>Namespaces in XML and XSLT: names, name prefixes, unprefixed names and the
                   <code>xpath-default-namespace</code> setting (not available until XSLT 2.0)</li>
@@ -115,11 +198,11 @@
                and using modes to configure default behaviors when no template matches</li>
             <li>XPath, especially absolute and relative location paths: start easy and work up</li>
          </ol>
-         <p>Only one of these topics does not also apply to XProc.</p>
+         <p>Understanding each of these will provide useful insights into XProc.</p>
       </section>
       <section>
          <h2>XProc without XSLT?</h2>
-         <p>XProc does not require XSLT absolutely, even if XSLT is indispensable for some of XProc libraries, including
+         <p>XProc does not require XSLT absolutely, even if XSLT is indispensable for some XProc libraries, including
             those in this repository.</p>
          <p>How could we do without it?</p>
          <ul>
@@ -134,25 +217,28 @@
          <p>So not only creating, but also consuming HTML, is the place we begin with XSLT. But since it is also very
             fine for other vocabulary mappings in the middle and back, it becomes indispensable almost as soon as it is
             available for use.</p>
+         <p>An XSLT that is used repeatedly can of course always be encapsulated as an XProc step.</p>
       </section>
       <section>
          <h2>XProc, XDM (the XML data model) and the standards stack</h2>
          <p>Another critical consideration is whether and to what extent XProc and XSLT introduce unwanted dependencies,
             which make them strategically not a good choice (or not a good choice for everyone) at least in comparison
-            to alternatives. These are standards in every way including nominally - emerging as the work of
-            organizations such as W3C and ISO, while not escaping a reputation as <q>boutique</q> or <q>niche</q>
-            technologies. Yet alternative models – whether to go with the big guys, or rely on forests of Javascript
-            libraries, or support a bespoke Markdown-based stack – have not all fared very well either. Often scorned,
-            XSLT has a reputation for projects migrating away from it as much as towards it. Yet look closely, and when
-            problems arise, XSLT is never the issue by itself. Often the question is, were you even using the right
-            tool? one way is to be in the sweet spot (and there is a sweet spot) of document processing at scale, but
-            this is not definitive. Sometimes the question is, are you actually fitting the capabilities of the
-            processing model to the problem at hand. Too often, that fit happens by accident.</p>
+            to alternatives. These are standards in every way including nominally, emerging as the work of organizations
+            such as W3C and ISO, while not escaping a reputation as <q>boutique</q> or <q>niche</q> technologies. Yet
+            alternative models – whether offered by large software vendors and service providers, or by forests of
+            Javascript libraries, or a bespoke stack using a developers' favorite flavor of Markdown or microformats –
+            have not all fared very well either. Often scorned, XSLT has a reputation for projects migrating away from
+            it as much as towards it. Yet look closely, and when problems arise, XSLT is never the issue by itself. (A
+            project choosing not to use XSLT because of a lack of understanding or skills is something differet.) Often
+            the question is, were you even using the right tool? It helps when your application is within the sweet spot
+            of document processing at scale (and there is a sweet spot), but even this is not an absolute rule.
+            Sometimes the question is, are you actually fitting the capabilities of the processing model to the problem
+            at hand. Too often, that fit happens by accident. Too often, other considerations prevail and compromises
+            are made - then the resulting system is blamed.</p>
          <p>So where has XML-based processing been not only tenable but rewarding over the long term? Interestingly, its
             success is to be found often in projects that have survived across more than one system over time, that have
-            grown from one system into another, and that have morphed and adapted and grown new limbs. (Pubmed Central
-            comes to mind. But what about Optical Society? PLOS?) In other words, look at them today and you do not see
-            the same system as you would have only five years ago.</p>
+            grown from one system into another, and that have morphed and adapted and grown new limbs. In many cases,
+            look at them today and you do not see the same system as you would have only five years ago.</p>
       </section>
    </body>
 </html>

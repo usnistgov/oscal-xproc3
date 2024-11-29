@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>301: Automated XProc</title>
+      <meta charset="utf-8" />
+   </head>
+   <body data-track="observer">
+      <h1>301: Automated XProc</h1>
+      <section>
+         <h2>Goals</h2>
+         <ul>
+            <li>See how XProc supports software testing, including testing itself, supportive of a test-driven
+               development</li>
+            <li>Exposure to the configuration of the Github repository supporting dynamic testing on Pull Requests and
+               releases, subject to extension</li>
+         </ul>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p><b>No prerequisites</b></p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>Prepare to run pipelines in the <a href="../../../testing/readme.md">testing directory</a> as described
+            below.</p>
+         <ul>
+            <li><a href="../../../testing/REPO-FILESET-CHECK.xpl">Repository file set check XProc</a></li>
+            <li><a href="../../../testing/VALIDATION-FILESET-READYCHECK.xpl">Validation file set ready check
+               XProc</a></li>
+            <li><a href="../../../testing/RUN_XPROC3-HOUSE-RULES_BATCH.xpl">House Rules check on defined XProc3
+                  FILESET</a>
+            </li>
+            <li><a href="../../../testing/REPO-XPROC3-HOUSE-RULES.xpl">House Rules check on all XProc3 files, found
+                  dynamically</a></li>
+            <li><a href="../../../testing/RUN_XSPEC_BATCH.xpl">Run all XSpecs listed in the XSpec FILESET</a></li>
+         </ul>
+         <p>Additionally, the <a href="../../../.github/workflows/test.yml">testing configuration file</a> configured to
+            run under Github Actions will potentially be of interest.</p>
+      </section>
+      <section>
+         <h2>XProc for quality testing</h2>
+         <p>As currently configured, the repository provides two kinds of testing, both supported under XProc 3.0:</p>
+         <ul>
+            <li>Schematron validations providing quality checks are applied to XProcs - the so-called <em>House
+                  Rules</em> for XProc files in this repository.</li>
+            <li><em>XSpec tests</em> are run to provide functional testing, unit testing and regression testing for
+               XSLT, Schematron or XQuery, as needed</li>
+         </ul>
+         <p>Both kinds of tests can be configured and executed using XProc. Pipelines here provide for such executions
+            in useful ways, both in local copies of the repository under development, and under automation, such as by
+            Github Actions in this repository.</p>
+         <p>Specifically, tests that are run anytime a Pull Request is updated against the home repository serve to
+            guard against accepting non-functional code into the repository code base.</p>
+         <p>The tests themselves are so far fairly rudimentary – while paying for themselves in the consistency and
+            quality they help enforce.</p>
+         <section>
+            <p>Pipelines useful for the developer</p>
+            <ul>
+               <li><a href="../../../testing/VALIDATION-FILESET-READYCHECK.xpl">VALIDATION-FILESET-READYCHECK.xpl</a>
+                  runs a pre-check to validate that files referenced in FILESET Xprocs are in place</li>
+               <li><a href="../../../testing/REPO-FILESET-CHECK.xpl">REPO-FILESET-CHECK.xpl</a> for double checking the
+                  listed FILESET pipelines against the repository itself - run this preventatively to ensure files are
+                  not left off either list inadvertantly</li>
+               <li><a href="../../../testing/RUN_XPROC3-HOUSE-RULES_BATCH.xpl">RUN_XPROC3-HOUSE-RULES_BATCH.xpl</a>
+                  applies House Rules Schematron to all XProcs listed in the House Rules FILESET - just like the
+                  HARDFAIL House Rules pipeline except ending gracefully with error reports</li>
+               <li><a href="../../../testing/REPO-XPROC3-HOUSE-RULES.xpl">REPO-XPROC3-HOUSE-RULES.xpl</a> applies House
+                  Rules Schematron to all XProc documents in the repository</li>
+               <li><a href="../../../testing/RUN_XSPEC_BATCH.xpl">RUN_XSPEC_BATCH.xpl</a> runs all XSpecs listed in the
+                  XSpec FILESET, in a single batch, saving HTML and JUnit test results</li>
+            </ul>
+         </section>
+         <section>
+            <p>Pipelines run under CI/CD</p>
+            <ul>
+               <li><a href="../../../testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl">HARDFAIL-XPROC3-HOUSE-RULES.xpl</a> runs a
+                  pipeline enforcing the House Rules Schematron to every XProc listed in the imported FILESET pipeline,
+                  bombing (erroring out) if an error is found - useful when we want to ensure an ERROR condition comes
+                  back on an error reported by a <i>successful</i> Schematron run</li>
+               <li><a href="../../../testing/RUN_XSPEC-JUNIT_BATCH.xpl">RUN_XSPEC-JUNIT_BATCH.xpl</a> runs all XSpecs
+                  listed in the XSpec FILESET, saving only JUnit results (no HTML reports)</li>
+            </ul>
+         </section>
+         <section>
+            <p>Additionally</p>
+            <ul>
+               <li><a href="../../../testing/FILESET_XPROC3_HOUSE-RULES.xpl">FILESET_XPROC3_HOUSE-RULES.xpl</a> provides
+                  a list of resources (documents) to be made accessible to importing pipelines</li>
+               <li><a href="../../../testing/FILESET_XSPEC.xpl">FILESET_XSPEC.xpl</a> provides a list of XSpec files to
+                  be run under CI/CD</li>
+            </ul>
+         </section>
+         <section>
+            <h3>About the XProc House Rules</h3>
+            <p>Read more about this in <a href="../../../testing/house-rules.md">project documentation</a>, and check
+               out the <a href="../../../testing/xproc3-house-rules.sch">Schematron source code</a>. This set of rules
+               helps to ensure smooth operations across projects.</p>
+            <p>A good example of a rule enforced over the XProc with this rules set: we never use XProc
+                  <code>p:store</code> without emitting a message to the console (or runtime) announcing it. This aids
+               in transparency by alerting operators when files are produced and written. As a courtesy, the same rule
+               is applied to <code>p:load</code> so that an operator knows when data sets are loaded dynamically (as
+               opposed to bound to an input port).</p>
+            <p>More routinely, the House Rules checks include some very useful link integrity checks, making it possible
+               to detect and correct broken links as soon as they appear.</p>
+         </section>
+         <section>
+            <h3>About XSpec testing in this repository</h3>
+            <p>XSpec testing in this repository is quite minimal at the moment, but <q>aspirational</q>. We wholly
+               endorse the goals of test-driven development and consider automated testing including functional testing
+               and unit testing to be essential to the successful development and maintenance of pipelines with
+               real-world complexity.</p>
+            <p>Testing a pipeline is what makes it real. Without testing, any pipeline might be a spoof or put-up
+               job.</p>
+            <p>At the same time since the focus of development is on XProc, testing of subordinate XSLT and Schematron
+               logic has often been neglected in favor of priorities.</p>
+            <p>This does not mean that deploying more XSpecs is not a goal.</p>
+            <p>Demonstrating the capability is a more important goal, and XSpecs can and are easily deployed and run -
+               just take a look.</p>
+            <p>The <a href="../../../testing/FILESET_XSPEC.xpl">XSpec FILESET</a> will show XSpecs run under CI/CD but
+               not all XSpecs in the repository will be listed there.</p>
+         </section>
+      </section>
+      <section>
+         <h2>XProc running under continuous integration</h2>
+         <p>Any XProc pipelines designed, like the smoke tests or validations just described, to provide for quality
+            checking over carefully maintained code bases, are natural candidates for running dynamically and on demand,
+            for example when file change commits are made to git repositories under CI/CD (continuous integration /
+            continuous deployment).</p>
+         <p>Consider this a ready-made framework for all kinds of testing including functional unit testing, regression
+            testing and conformance testing as defined by traceable inputs and outputs, especially well suited for
+            testing XSLT-, XQuery/XPath- or XProc-based solutions as well – to say nothing of testing and validation of
+            applications (including validation applications!) provided as parts of such solutions.</p>
+         <p>The <a href="../../../.github/workflows/test.yml">Github Actions file configuring testing</a> in this repo
+            show how this can be done.</p>
+         <p>At this time, there are no immediate plans to use this feature for its most obvious purpose, namely dynamic
+            publishing-of edited and curated source contents into readable results (such as HTML, SVG, PDF or other).
+            Putting the tutorial production XProc pipelines into the Github Actions command sequence would have this
+            effect.</p>
+      </section>
+      
+</body>
+</html>

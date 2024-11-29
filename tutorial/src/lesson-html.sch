@@ -38,7 +38,7 @@
             <sqf:description>
                <sqf:title>Make the title '<sch:value-of select="$nominal-title"/>'</sqf:title>
             </sqf:description>
-            <sqf:replace target="title" node-type="element" select="$nominal-title/string(.)"/>
+            <sqf:replace target="html:title" node-type="element" select="$nominal-title/string(.)"/>
          </sqf:fix> 
       </sch:rule>
       <sch:rule context="html:body">

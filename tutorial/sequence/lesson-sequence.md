@@ -12,17 +12,17 @@
 * [101: Unpacking XProc 3.0](Lesson02/walkthrough_101.md) (OBSERVER)
 * [102: XProc fundamentals](Lesson02/walkthrough_102.md) (MAKER)
 * [219: XProc, XML and XDM  (the XML Data Model)](Lesson02/walkthrough_219.md) (LEARNER)
-* [301: XProc automated](Lesson02/walkthrough_301.md) (OBSERVER)
-* [401 - XSLT Forward and Back](Lesson02/walkthrough_401.md) (LEARNER)
+* [301: Automated XProc](Lesson02/walkthrough_301.md) (OBSERVER)
+* [401: XSLT Forward and Back](Lesson02/walkthrough_401.md) (LEARNER)
 
 ### Lesson set 03 - oscal-convert
 
-* [101: OSCAL from XML to JSON and back](Lesson03/oscal-convert_101.md) (OBSERVER)
+* [101: Converting OSCAL ? XML to JSON and JSON to XML](Lesson03/oscal-convert_101.md) (OBSERVER)
 * [102: Hands on data conversions](Lesson03/oscal-convert_102.md) (MAKER)
-* [201: Survey of XProc](Lesson03/oscal-convert_201.md) (LEARNER)
+* [201: Anatomy of an XProc pipeline](Lesson03/oscal-convert_201.md) (LEARNER)
 * [350: Namespaces in XML and XProc](Lesson03/oscal-convert_350.md) (MAKER)
 * [401: XProc, XML, JSON and content types](Lesson03/oscal-convert_401.md) (MAKER)
-* [402: XProc, XML, JSON and content types](Lesson03/oscal-convert_402.md) (LEARNER)
+* [402: What is an XProc document anyway](Lesson03/oscal-convert_402.md) (LEARNER)
 
 ### Lesson set 04 - courseware
 
