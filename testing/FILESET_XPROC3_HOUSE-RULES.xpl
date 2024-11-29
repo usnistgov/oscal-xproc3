@@ -64,7 +64,6 @@
       <p:document href="../projects/oscal-convert/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"/>
       <p:document href="../projects/oscal-convert/CONVERT-OSCAL-XML-FOLDER.xpl"/>
-      <p:document href="../projects/oscal-convert/IDENTITY_.xpl"/>
       <p:document href="../projects/oscal-convert/BATCH_XML-TO-JSON.xpl"/>
       <p:document href="../projects/oscal-convert/BATCH_JSON-TO-XML.xpl"/>
       
