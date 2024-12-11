@@ -9,15 +9,15 @@
       <section>
          <h2>Goals</h2>
          <ul>
-            <li>See how XProc supports software testing, including testing itself, supportive of a test-driven
-               development</li>
+            <li>See how XProc supports software testing, including testing itself, supportive of test-driven development
+               (TDD)</li>
             <li>Exposure to the configuration of the Github repository supporting dynamic testing on Pull Requests and
                releases, subject to extension</li>
          </ul>
       </section>
       <section>
          <h2>Prerequisites</h2>
-         <p><b>No prerequisites</b></p>
+         <p>You have made it this far.</p>
       </section>
       <section>
          <h2>Resources</h2>
@@ -54,7 +54,7 @@
          <p>The tests themselves are so far fairly rudimentary – while paying for themselves in the consistency and
             quality they help enforce.</p>
          <section>
-            <p>Pipelines useful for the developer</p>
+            <p>Pipelines useful for the developer:</p>
             <ul>
                <li><a href="../../../testing/VALIDATION-FILESET-READYCHECK.xpl">VALIDATION-FILESET-READYCHECK.xpl</a>
                   runs a pre-check to validate that files referenced in FILESET Xprocs are in place</li>
@@ -71,7 +71,7 @@
             </ul>
          </section>
          <section>
-            <p>Pipelines run under CI/CD</p>
+            <p>Pipelines run under CI/CD:</p>
             <ul>
                <li><a href="../../../testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl">HARDFAIL-XPROC3-HOUSE-RULES.xpl</a> runs a
                   pipeline enforcing the House Rules Schematron to every XProc listed in the imported FILESET pipeline,
@@ -82,7 +82,7 @@
             </ul>
          </section>
          <section>
-            <p>Additionally</p>
+            <p>Additionally:</p>
             <ul>
                <li><a href="../../../testing/FILESET_XPROC3_HOUSE-RULES.xpl">FILESET_XPROC3_HOUSE-RULES.xpl</a> provides
                   a list of resources (documents) to be made accessible to importing pipelines</li>
@@ -121,7 +121,7 @@
          </section>
       </section>
       <section>
-         <h2>XProc running under continuous integration</h2>
+         <h2>XProc running under continuous integration and development (CI/CD)</h2>
          <p>Any XProc pipelines designed, like the smoke tests or validations just described, to provide for quality
             checking over carefully maintained code bases, are natural candidates for running dynamically and on demand,
             for example when file change commits are made to git repositories under CI/CD (continuous integration /

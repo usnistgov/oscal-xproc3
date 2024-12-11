@@ -42,13 +42,12 @@
    <p:group name="full-body">
       <p:viewport match="c:file">
          <p:variable name="path" select="/*/@path"/>
-         <p:variable name="project-uri" select="p:urify('.')"/>
          <p:variable name="lesson-no" select="format-number(p:iteration-position(),'01')"/>
 
          <!-- Each file is resolved and its contents (body) loaded -->
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-PREVIEW] Loading {$path} "/>
          <p:filter select="descendant::body"/>
-         
+         <p:make-absolute-uris match="a/@href"/>
          <p:add-attribute match="/*" attribute-name="id"
             attribute-value="{ substring-before($path,'_src.html') => replace('.*/','')}"/>
          <p:add-attribute attribute-name="class" attribute-value="unit { /*/@data-track }"/>
@@ -108,6 +107,7 @@
       <!--<p:add-attribute match="div" attribute-name="id" attribute-value="toc-{ /*/@id }"/>--><!-- not getting attributes to match in my embedded XSLT ...? -->
    </p:group>
    
+   
    <!-- Now having an 'overview' div albeit without links, we splice back in -->
    <p:insert position="first-child">
       <p:with-input port="source" pipe="@full-body"/>
@@ -155,9 +155,24 @@ span.wordcount.over { color: darkred }
       </p:with-input>
    </p:insert>
    
-   <p:namespace-rename to="http://www.w3.org/1999/xhtml"/>
+   <!-- apply-to="elements" prevents attributes being cast -->
+   <p:namespace-rename to="http://www.w3.org/1999/xhtml" apply-to="elements"/>
    
    <p:namespace-delete prefixes="xsl ox c"/>
+   
+   <p:variable name="project-uri" select="resolve-uri('..', static-base-uri()) => replace('/+','/')"/>
+
+   <!--Doing this with a viewport so XPath context will be each 'a'
+       not the document (on default readable port) -->
+   <p:viewport match="a">
+      <p:variable name="file-href" select="/*/@href"/>
+      <p:variable name="relative-href" select="substring-after($file-href,$project-uri)"/>
+      <p:add-attribute match="/*" attribute-name="href" attribute-value="../{ $relative-href }"/>
+   </p:viewport>
+   
+   <!--
+      Not working in Morgana - replace='true' a no-op? 
+      <p:label-elements match="a" attribute="href" replace="true" label="'../' || substring-after(@href,'{$project-uri}')"/>-->
    
    <p:store href="tutorial-preview.html" message="[PRODUCE-TUTORIAL-PREVIEW] Storing tutorial-preview.html" serialization="map{ 'method': 'html', 'indent': true() }"/>
    

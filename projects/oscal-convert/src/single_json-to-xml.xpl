@@ -4,15 +4,15 @@
    type="ox:single_json-to-xml" name="single_json-to-xml">
 
    <!-- Errors if we don't see JSON -->
-   <p:input port="source" content-types="application/json">
-      <p:document href="../data/misc/json/hello.json"/>
-   </p:input>
+   <p:input port="source" content-types="application/json"/>
+      <!--<p:document href="../data/misc/json/hello.json"/>
+   </p:input>-->
 
    <p:output port="result" serialization="map { 'indent': true() }"/>
 
    <!-- /prologue  -->
    <!-- INCIPIT  -->
-
+   
    <p:cast-content-type content-type="application/xml"/>
-
+   
 </p:declare-step>

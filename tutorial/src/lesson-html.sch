@@ -114,8 +114,11 @@
    </sch:pattern>
    
    <sch:pattern>
-      <sch:rule context="html:a">
-         
+      <sch:rule context="html:p">
+         <sch:assert test="matches(.,'[!?\.:\)]$')">Paragraph should be punctuated</sch:assert>
+      </sch:rule>
+      
+      <sch:rule context="html:a">        
          <!--<sch:rule context="html:a[matches(@href,'^https?:')] | html:a[matches(@href,'/$')]"/>-->
          <sch:let name="internal" value="not(matches(@href,'^https?:/')) and matches(@href,'_src\.html$')"/>
          <sch:let name="excepting" value="matches(@href,'^https?:') or matches(@href,'/$')"/>
