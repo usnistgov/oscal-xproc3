@@ -8,8 +8,7 @@
       <section><h2>Goals</h2>
       <ul>
          <li>Look at some pipeline organization and syntax on the inside</li>
-         <li>Success and failure invoking XProc pipelines: an early chance to <q>learn to die</q> gracefully (to use the
-               gamers' idiom).</li>
+         <li>Success and failure invoking XProc pipelines: making friends with tracebacks</li>
       </ul>
       </section>
       <section>
@@ -19,9 +18,12 @@
             similar pipelines.</p>
          <p>This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via
                <code>file</code> and <code>http</code> protocols), and web-based technologies including HTML.</p>
-         <p>XML knowledge is also assumed. In particular, XProc uses <a href="https://www.w3.org/TR/xpath-31/">XPath
-               3.1</a>, the query language for XML. This latest version of XPath builds on XPath 1.0, so any XPath
-            experience will help. In general, any XSLT or XQuery experience will be invaluable.</p>
+         <p>XML knowledge is <i>not</i> assumed. This poses a special challenge since in addition to its XML-based
+            syntax, XProc uses the <a href="https://www.w3.org/TR/xpath-datamodel/">XML Data Model (XDM)</a> along with
+               <a href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a>, the query language for XML: together, a deep
+            topic. We make the assumption that if you already know XML, XPath, XSLT or XQuery, much will be familiar,
+            but you will be tolerant of some restatement for the sake of those who do not. (As we all start somewhere,
+            why not here.)</p>
          <p>You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development
             environment) for more interactive testing of the code.</p>
       </section>
@@ -33,15 +35,17 @@
          <h2>Step One: Inspect the pipelines</h2>
          <p>The two groupings of pipelines used in setup and testing can be considered separately.</p>
          <p>The key to understanding both groups is to know that once the initial <a href="../../../setup.sh">Setup
-               script</a> is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing
-            so – before extension libraries are in place – it can use only basic XProc steps, but those are enough to
-            start with.</p>
+               script</a> is run, your processor or <q>engine</q> (such as Morgana) can be invoked directly, as paths
+            and scripts are already in place. In doing so – before extension libraries are in place – it can use only
+            basic XProc steps, but those are enough to start with.</p>
          <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
             unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
             (Morgana) can use to do more.</p>
             <p>Accordingly, the first group of pipelines (in the <a href="../../../lib/readme.md">lib</a> directory has
             a single purpose, namely (together and separately) to download software to augment Morgana's feature
             set.</p>
+         <p>If not using the open-source Morgana distribution, you can skip to smoke tests below, and see how far you
+            get.</p>
             <ul>
                <li><a href="../../../lib/GRAB-SAXON.xpl">lib/GRAB-SAXON.xpl</a></li>
                <li><a href="../../../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a></li>
@@ -50,11 +54,13 @@
          <p>Pipelines in a second group work similarly in that each one exercises and tests capabilities provided by
             software downloaded by a member of the first group.</p>
             <ul>
-            <li><a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> tests MorganaXProc-III</li>
+            <li><a href="../../../smoketest/TEST-XPROC3.xpl">smoketest/TEST-XPROC3.xpl</a> tests the execution runtime
+               (MorganaXProc-III or other engine)</li>
             <li><a href="../../../smoketest/TEST-XSLT.xpl">smoketest/TEST-XSLT.xpl</a> tests Saxon</li>
-               <li><a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a> tests
-               SchXSLT</li>
-               <li><a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec</li>
+               <li><a href="../../../smoketest/TEST-SCHEMATRON.xpl">smoketest/TEST-SCHEMATRON.xpl</a> tests SchXSLT
+               (using <code>p:validate-with-schematron</code> step)</li>
+               <li><a href="../../../smoketest/TEST-XSPEC.xpl">smoketest/TEST-XSPEC.xpl</a> tests XSpec (using locally
+               defined steps)</li>
             </ul>
          <p>Take a look at these files. It may be helpful (for those getting used to it) to envision the XML syntax as a
             set of nested frames with labels and connectors.</p>
@@ -93,7 +99,12 @@
             software developers together, who must define problems to be solved before approaches to them can be
             found.</p>
          <p>The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions
-            come up in an OSCAL context or any context where XML is demonstrably capable.</p>
+            come up in an OSCAL context or any context where XML is demonstrably capable, or indeed anywhere we find the
+            necessity of handling data with digital tools has become inescapable.</p>
+         <p>In order to help answer this question, actual experience will be invaluable – part of our motive here.
+            Unless we can make the demonstration pipelines in this repository accessible, they cannot be reasoned about.
+            That accessibility requires not only open publication, but also use cases and  user bases ready to take
+            advantage.</p>
          <p>Having completed and tested the setup you are ready for work with XProc: proceed to the next lesson.</p>
       </section>
    </body>

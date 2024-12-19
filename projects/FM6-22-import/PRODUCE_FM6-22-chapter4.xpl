@@ -29,8 +29,9 @@
        for demonstration or diagnostics -->
    <p:option name="writing-all" static="true" select="true()"/>
    
-   <!-- Main output port captures validation summary messages -->   
-   <p:output port="validation-reports" sequence="true"
+   <!-- Main output port captures validation summary messages
+        wrapped as a single document at result@validation-reports -->   
+   <p:output port="validation-reports" sequence="false"
       serialization="map{'omit-xml-declaration': true(), 'method': 'text', 'indent': true() }"/>
    
    <!-- These schemas must be in place for validations to be performed -->

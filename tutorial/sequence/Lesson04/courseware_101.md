@@ -8,9 +8,9 @@
 
 ## Goals
 
-Understand better how this tutorial is produced
+Understand better how this tutorial is produced.
 
-See an example of a small but lightweight and scalable publishing system can be implemented in XProc and XSLT
+See an example of a small but lightweight and scalable publishing system can be implemented in XProc and XSLT.
 
 ## Prerequisites
 

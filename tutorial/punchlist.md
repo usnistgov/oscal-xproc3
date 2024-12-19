@@ -24,8 +24,8 @@ To add to the production pipeline, edit PRODUCE-TUTORIAL-MARKDOWN.xpl
 - review phase:
   - Commends Day? (week?) go through all the comments
       consider factoring out into p:documentation / tooling
-  - 101 sequence is inspection and observation (only)
-  - 102 sequence is hands-on
+  - Observer sequence is inspection and observation (only)
+  - Maker sequence is hands-on
   -  all 'Goals' in sequence, all 'Resources' in sequence, etc
   - where can we default e.g. `with-input` in place of `with-input[@port='source']` ? test all these ...
   - Review and normalize usage of 'i', 'b', 'em' and other inline elements?
@@ -336,6 +336,21 @@ Note - in some places there may be 'road work' going on
 
 
 Here we should start with a proposed visiting order?
+
+### XProc Synopsis
+
+Input ports bound - p:document | p:inline
+  top-level
+  per step
+  inlines
+Output ports defined
+Options defined
+Imports
+
+At a glance:
+- all load and document/@href
+- all store/@href
+
 
 
 

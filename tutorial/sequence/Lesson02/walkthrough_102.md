@@ -6,8 +6,6 @@
 
 # 102: XProc fundamentals
 
-
-
 ## Goals
 
 * More familiarity with XProc 3.0, with more syntax
@@ -22,13 +20,10 @@ You have done [Setup 101](../acquire/acquire_101.md), [Setup 102](../acquire/acq
 
 Take a quick look *now* (and a longer look later):
 
-This tutorial's handmade [XProc links page](../../xproc-links.md)
-
-Also, the official [XProc.org dashboard page](https://xproc.org)
-
-Also, check out XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md)
-
-And the same pipelines you ran in setup: [Setup                101](../acquire/acquire_101.md).
+* This tutorial's handmade [XProc links page](../../xproc-links.md)
+* Also, the official [XProc.org dashboard page](https://xproc.org)
+* If interested, check out XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md)
+* In any case, the same pipelines you ran in setup: [Setup 101](../acquire/acquire_101.md).
 
 ## Learning more about XProc
 
@@ -55,7 +50,7 @@ XProc pipelines described in [the previous lesson unit](walkthrough_101.md) cont
 * Yes, those conventions are enforced in the repository by [a Schematron](../../../testing/xproc3-house-rules.sch) that can be applied to any pipeline, both in development and when it is committed to the repository under CI/CD (continuous integration / continous development). Assuming we take care to run our tests and validations, this does most of the difficult work maintaining consistency, namely detecting the inconsistency.
 * Reassuring messages aside, no XSpec reports are actually captured by this XProc! With nothing bound to an output port, it *sinks* by default. That is because it is a smoke test, and we care only to see that it runs and completes without error. The inputs are all controlled, so we know what those reports say. Or we can find out.
 
-### PRODUCE-PROJECTS-ELEMENTLIST.xpl
+### PRODUCE-PROJECTS-ELEMENTLIST
 
 The pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl) has &ldquo;real-world complexity&rdquo;. Reviewing its steps can give a sense of how XProc combines simple capabilities into complex operations. Notwithstanding the title of this section, it is not important to understand every detail – knowing they are there is enough.
 
@@ -89,7 +84,7 @@ For newcomers to XML coding – you can &ldquo;comment out&rdquo; code in any XM
 <tagged>Text</tagged>
 ```
 
-becomes
+becomes:
 
 ```
 <!--  <tagged>Text</tagged> -->

@@ -73,7 +73,7 @@ Each of the test pipelines exercises a simple sequence of operations. Open any X
 
 The aim here is demystification. Understand the parts to understand the whole. Reading the element names also inscribes them in memory circuits where they can be recovered.
 
-### TEST-XPROC3
+### [TEST-XPROC3](../../../smoketest/TEST-XPROC3.xpl)
 
 Examine the pipeline [TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl). It breaks down as follows:
 
@@ -83,7 +83,7 @@ Examine the pipeline [TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl). It b
 
 When you run this pipeline, the `CONGRATULATIONS` document given in line will be echoed to the console, where designated outputs will appear if not otherwise directed.
 
-### TEST-XSLT
+### [TEST-XSLT](../../../smoketest/TEST-XSLT.xpl)
 
 [This pipeline](../../../smoketest/TEST-XSLT.xpl) executes a simple XSLT transformation, in order to test that XSLT transformations can be successfully executed.
 
@@ -97,7 +97,7 @@ If your pipeline execution can't process the XSLT (perhaps Saxon is not installe
 
 Errors in XProc are reported by the Morgana engine using XML syntax. Among other things, this means they can be captured and processed in pipelines.
 
-### TEST-SCHEMATRON
+### [TEST-SCHEMATRON](../../../smoketest/TEST-SCHEMATRON.xpl)
 
 Schematron is a language used to specify rules to apply to XML documents. In this case a small Schematron is applied to a small XML.
 
@@ -105,7 +105,7 @@ Schematron is a language used to specify rules to apply to XML documents. In thi
 * `p:validate-with-schematron` – This is an XProc step specifically for evaluating an XML document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT` pipelines, this one presents its own input, given as a literal XML document given in the pipeline document (using `p:inline`). A setting on this step provides for it to throw an error if the document does not conform to the rules. The Schematron file provided as input to this step, [src/doing-well.sch](../../../smoketest/src/doing-well.sch), gives the rules. This flexible technology enables easy testing of XML against rule sets defined either for particular cases in particular workflows, or for entire classes or sets of documents.
 * `p:namespace-delete` – This step is used here as in the other tests for final cleanup of the information produced.
 
-### TEST-XSPEC
+### [TEST-XSPEC](../../../smoketest/TEST-XSPEC.xpl)
 
 [XSpec](https://github.com/xspec/xspec) is a testing framework for XSLT, XQuery and Schematron. It takes the form of a vocabulary and a process (inevitably implemented in XSLT and XQuery) for executing queries, transformations, and validations, by running them over known inputs, comparing the results to expected results, and reporting the results of this comparison. XProc, built to orchestrate manipulations of XML contents, is well suited for running XSpec.
 

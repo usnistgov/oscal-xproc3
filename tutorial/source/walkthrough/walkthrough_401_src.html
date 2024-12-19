@@ -190,9 +190,11 @@
          </section>
          <section>
             <h3>Text and attribute value syntax in embedded XSLT</h3>
-            <p>If not yet conversant with XSLT, you can read more about this in an <a
+            <p>If not yet conversant with XSLT, you can read more about this topic in an <a
                   href="../oscal-convert/oscal-convert_102_src.html" class="LessonUnit">upcoming Lesson Unit</a> on data
-               conversion.</p>
+               conversion. Or you can avoid the problem by always using a <code>p:document/@href</code> to refer to XSLT
+               kept out of line. If you like XSLT and are prone to plant it into your XProc (it is an excellent golden
+               hammer), this applies to you.</p>
             <p>XSLT practitioners know that within XSLT, in attributes and (in XSLT 3.0) within text (as directed), the
                curly brace signs <code>{</code> and <code>}</code> have special semantics as <a
                   href="https://www.w3.org/TR/xslt-30/#attribute-value-templates">attribute</a> or <a
@@ -206,7 +208,7 @@
                more than one level) or settings on either language's <code>expand-text</code> option. Searching the
                repository for the string value <code>{{</code> (two open curlies together) will turn up instances of
                this – or skip ahead and try <a href="../../worksheets/NAMESPACE_worksheet.xpl">a worksheet XProc with
-                  XSLT embedded</a>.</p>
+                  some XSLT embedded</a>.</p>
          </section>
       </section>
       <section>

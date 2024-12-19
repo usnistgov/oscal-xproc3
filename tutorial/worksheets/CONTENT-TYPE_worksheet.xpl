@@ -44,11 +44,6 @@
    <p:variable name="ox:document-info" as="function(*)"  
       select="function($d as item()) as xs:string { p:document-property($d,'content-type') || ' at ' || p:document-property($d,'base-uri') }"/>
    
-   <!--Use identity step to report out properties ... -->
-   <!--<p:identity message="[CONTENT-TYPE_worksheet] Seeing document at base uri { p:document-property(.,'base-uri') }"/>
-   <p:identity message="[CONTENT-TYPE_worksheet] Looking like content type { p:document-property(.,'content-type') }"/>-->
-   
-   <!--<p:identity message="[CONTENT-TYPE_worksheet] Seeing '{ p:document-property(.,'content-type') }' at base uri { p:document-property(.,'base-uri') }"/>-->
    <p:identity message="[CONTENT-TYPE_worksheet] Seeing { $ox:document-info(.) }"/>
    
    <!-- An XDM map object is cast into an XPath map (vocabulary) -->

@@ -22,7 +22,7 @@ Pipelines throughout the repository serve as examples for the description that f
 
 ## XProc as XML
 
-An XProc pipeline takes the form of an XML &ldquo;document entity&rdquo;. Unless you are concerned to write an XML parser (which is not very likely for XProc's natural constituency), this typically means an XML file, that is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or alternatively another form of &ldquo;plain text&rdquo; supported by your system or environment), and following the rules of XML syntax. These rules include how elements and attributes and other XML features are encoded in **tags** that
+An XProc pipeline takes the form of an XML &ldquo;document entity&rdquo;. Unless you are concerned to write an XML parser (which is not very likely for XProc's natural constituency), this typically means an XML file, that is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or alternatively another form of &ldquo;plain text&rdquo; supported by your system or environment), and following the rules of XML syntax. These rules include how elements and attributes and other XML features are encoded in **tags** that:
 
 * Follow the rules with respect to naming, whitespace, delimiters and reserved characters
 * Are correctly balanced, with an end tag for every start tag – for a `<start>` there must be a `</start>` (an end to the start).
@@ -74,7 +74,7 @@ On `p:declare-step`, whether at the top or in a step definition within a pipelin
 
 The name makes it possible to reference the step by name. This is often useful and sometimes more or less essential, for example for providing input to one step from another step's output. (We say &ldquo;more or less essential&rdquo; because the processor will produce names for itself as a fallback, if it needs them, but these are brittle, somewhat opaque – such as `!1.2.3` – and more difficult to use than the names a developer gives.)
 
-Understandably, the name of an XProc must be different from the names given to all the steps in the XProc (which must also be distinct). 
+Understandably, the name of an XProc must be different from the names given to all the steps in the XProc (which must also be distinct).
 
 This repository follows a rule that a step name should correspond to its file base name (i.e., without a filename suffix), so `identity_` for `identity_.xproc`, etc. But that is a rule for us, not for XProc in general.
 
@@ -107,7 +107,7 @@ After imports, prologue and (optional) step declarations, the step sequence that
 
 One other complication: among the steps in the subpipeline, `p:variable` (a variable declaration) and `p:documentation` (for out-of-band documentation) are also permitted – these are not properly steps, but can be useful to have with them.
 
-In summary: any XProc pipeline, viewed as a step declaration, can have the following --
+In summary: any XProc pipeline, viewed as a step declaration, can have the following:
 
 * Pipeline name and type assignment (if needed), given as attributes at the top
 * **Imports**: step declarations, step libraries and functions to make available
@@ -190,7 +190,7 @@ But this is an important category, since such extensions may include XProc steps
 
 One answer: The [XSpec smoke test](./../../../smoketest/TEST-XSPEC.xpl) calls an extension step named `ox:execute-xspec`, defined in an imported pipeline. In this document, the prefix `ox` is bound to a utility namespace, `http://csrc.nist.gov/ns/oscal-xproc3`.
 
-In an XProc pipeline (library or step declaration) one may also see additional namespaces, including
+In an XProc pipeline (library or step declaration) one may also see additional namespaces, including:
 
 * The namespaces needed for XSLT, XSD, or other supported technology
 * One or more namespaces deployed by the XProc author to support either steps or internal operations (for example, XSLT functions)

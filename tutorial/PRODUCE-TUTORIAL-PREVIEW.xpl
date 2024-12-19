@@ -140,7 +140,7 @@ tr:nth-child(even) { background-color: gainsboro }
 th { width: clamp(10em, auto, 40em) }
 td { width: clamp(10em, auto, 40em); border-top: thin solid grey }
 
-section.unit   { width: clamp(45ch, 50%, 75ch); padding: 0.8em; outline: thin solid black; margin: 0.6em 0em }
+section.unit   { width: clamp(45ch, 100%, 75ch); padding: 0.8em; outline: thin solid black; margin: 0.6em 0em }
 section.unit h1:first-child { margin-top: 0em }
 .observer { background-color: honeydew ; grid-column: 2 }
 .maker    { background-color: seashell ; grid-column: 3 }
@@ -160,19 +160,22 @@ span.wordcount.over { color: darkred }
    
    <p:namespace-delete prefixes="xsl ox c"/>
    
-   <p:variable name="project-uri" select="resolve-uri('..', static-base-uri()) => replace('/+','/')"/>
 
+   <!-- Rewriting @href from absolute to relative -->
+
+   <p:variable name="project-uri" select="resolve-uri('..', static-base-uri()) => replace('/+','/')"/>
+   
    <!--Doing this with a viewport so XPath context will be each 'a'
        not the document (on default readable port) -->
-   <p:viewport match="a">
+   <!--<p:viewport match="a">
       <p:variable name="file-href" select="/*/@href"/>
       <p:variable name="relative-href" select="substring-after($file-href,$project-uri)"/>
       <p:add-attribute match="/*" attribute-name="href" attribute-value="../{ $relative-href }"/>
-   </p:viewport>
+   </p:viewport>-->
    
-   <!--
-      Not working in Morgana - replace='true' a no-op? 
-      <p:label-elements match="a" attribute="href" replace="true" label="'../' || substring-after(@href,'{$project-uri}')"/>-->
+   <!--Alternatively, constructing an XPath for the new value -->
+   <p:label-elements match="a" attribute="href" replace="true"
+      label="('..', substring-after(@href,'{$project-uri}')) => string-join('/')"/>
    
    <p:store href="tutorial-preview.html" message="[PRODUCE-TUTORIAL-PREVIEW] Storing tutorial-preview.html" serialization="map{ 'method': 'html', 'indent': true() }"/>
    

@@ -9,7 +9,7 @@
 ## Goals
 
 * Look at some pipeline organization and syntax on the inside
-* Success and failure invoking XProc pipelines: an early chance to &ldquo;learn to die&rdquo; gracefully (to use the gamers' idiom).
+* Success and failure invoking XProc pipelines: making friends with tracebacks.
 
 ## Prerequisites
 

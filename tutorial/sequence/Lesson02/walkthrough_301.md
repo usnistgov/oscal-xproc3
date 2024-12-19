@@ -8,12 +8,12 @@
 
 ## Goals
 
-* See how XProc supports software testing, including testing itself, supportive of a test-driven development
+* See how XProc supports software testing, including testing itself, supportive of test-driven development (TDD)
 * Exposure to the configuration of the Github repository supporting dynamic testing on Pull Requests and releases, subject to extension
 
 ## Prerequisites
 
-**No prerequisites**
+You have made it this far.
 
 ## Resources
 
@@ -39,18 +39,21 @@ Both kinds of tests can be configured and executed using XProc. Pipelines here p
 Specifically, tests that are run anytime a Pull Request is updated against the home repository serve to guard against accepting non-functional code into the repository code base.
 
 The tests themselves are so far fairly rudimentary – while paying for themselves in the consistency and quality they help enforce.
-Pipelines useful for the developer
+
+### Pipelines useful for the developer:
 
 * [VALIDATION-FILESET-READYCHECK.xpl](../../../testing/VALIDATION-FILESET-READYCHECK.xpl) runs a pre-check to validate that files referenced in FILESET Xprocs are in place
 * [REPO-FILESET-CHECK.xpl](../../../testing/REPO-FILESET-CHECK.xpl) for double checking the listed FILESET pipelines against the repository itself - run this preventatively to ensure files are not left off either list inadvertantly
 * [RUN_XPROC3-HOUSE-RULES_BATCH.xpl](../../../testing/RUN_XPROC3-HOUSE-RULES_BATCH.xpl) applies House Rules Schematron to all XProcs listed in the House Rules FILESET - just like the HARDFAIL House Rules pipeline except ending gracefully with error reports
 * [REPO-XPROC3-HOUSE-RULES.xpl](../../../testing/REPO-XPROC3-HOUSE-RULES.xpl) applies House Rules Schematron to all XProc documents in the repository
 * [RUN_XSPEC_BATCH.xpl](../../../testing/RUN_XSPEC_BATCH.xpl) runs all XSpecs listed in the XSpec FILESET, in a single batch, saving HTML and JUnit test results
-Pipelines run under CI/CD
+
+### Pipelines run under CI/CD:
 
 * [HARDFAIL-XPROC3-HOUSE-RULES.xpl](../../../testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl) runs a pipeline enforcing the House Rules Schematron to every XProc listed in the imported FILESET pipeline, bombing (erroring out) if an error is found - useful when we want to ensure an ERROR condition comes back on an error reported by a *successful* Schematron run
 * [RUN_XSPEC-JUNIT_BATCH.xpl](../../../testing/RUN_XSPEC-JUNIT_BATCH.xpl) runs all XSpecs listed in the XSpec FILESET, saving only JUnit results (no HTML reports)
-Additionally
+
+### Additionally:
 
 * [FILESET_XPROC3_HOUSE-RULES.xpl](../../../testing/FILESET_XPROC3_HOUSE-RULES.xpl) provides a list of resources (documents) to be made accessible to importing pipelines
 * [FILESET_XSPEC.xpl](../../../testing/FILESET_XSPEC.xpl) provides a list of XSpec files to be run under CI/CD
@@ -77,7 +80,7 @@ Demonstrating the capability is a more important goal, and XSpecs can and are ea
 
 The [XSpec FILESET](../../../testing/FILESET_XSPEC.xpl) will show XSpecs run under CI/CD but not all XSpecs in the repository will be listed there.
 
-## XProc running under continuous integration
+## XProc running under continuous integration and development (CI/CD)
 
 Any XProc pipelines designed, like the smoke tests or validations just described, to provide for quality checking over carefully maintained code bases, are natural candidates for running dynamically and on demand, for example when file change commits are made to git repositories under CI/CD (continuous integration / continuous deployment).
 

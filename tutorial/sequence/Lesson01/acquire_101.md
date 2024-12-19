@@ -54,7 +54,7 @@ After reading and reviewing these documents, perform the setup on your system as
 
 After running the setup script, or performing the installation by hand, make sure you can run all the smoke tests successfully.
 
-As noted in the docs, if you happen already to have [Morgana XProc III](https://www.xml-project.com/morganaxproc-iiise.html), you do not need to download it again. Try skipping straight to the smoke tests. You can use a runtime script `xp3.sh` or `xp3.bat` as a model for your own, and adjust. Any reasonably recent version of Morgana should function if configured correctly, and we are interested if it does not. 
+As noted in the docs, if you happen already to have [Morgana XProc III](https://www.xml-project.com/morganaxproc-iiise.html), you do not need to download it again. Try skipping straight to the smoke tests. You can use a runtime script `xp3.sh` or `xp3.bat` as a model for your own, and adjust. Any reasonably recent version of Morgana should function if configured correctly, and we are interested if it does not.
 
 ### Shortcut
 
@@ -96,7 +96,7 @@ Such a script itself must be &ldquo;vanilla&rdquo; and generic: it simply invoke
 
 ### When running from a command line
 
-As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple scripts can be used in more than one way. 
+As simple examples, these scripts show only one way of running XProc. Keep in mind that even simple scripts can be used in more than one way.
 
 For example, a pipeline can be executed from the project root:
 
@@ -104,13 +104,13 @@ For example, a pipeline can be executed from the project root:
 $ ./xp3.sh smoketest/TEST-XPROC3.xpl
 ```
 
-Alternatively, a pipeline can be executed from its home directory, for example if currently in the `smoketest` directory (note the path to the script): 
+Alternatively, a pipeline can be executed from its home directory, for example if currently in the `smoketest` directory (note the path to the script):
 
 ```
 $ ../xp3.sh TEST-XPROC3.xpl
 ```
 
-This works the same ways on Windows, with adjustments: 
+This works the same ways on Windows, with adjustments:
 
 ```
 > ..\xp3 TEST-XPROC3.xpl 
@@ -120,7 +120,7 @@ This works the same ways on Windows, with adjustments:
 
 Windows users (and others to varying degrees) can set up a drag-and-drop based workflow – using your mouse or pointer, select an XProc pipeline file and drag it to a shortcut for the executable (Windows batch file). A command window opens to show the operation of the pipeline. See the [README](../../README.md) for more information.
 
-It is important to try things out since any of these methods can be the basis of a workflow. 
+It is important to try things out since any of these methods can be the basis of a workflow.
 
 For the big picture, keep in mind that while the command line is useful for development and demonstration – and however familiar XProc itself may become to the developer – to a great number of people it remains obscure, cryptic and intimidating if not forbidding. Make yourself comfortable at the command line!
 

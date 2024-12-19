@@ -32,9 +32,17 @@ Enabling these lightweight, transparent and declarative "logical layers" written
 - [SchXSLT][schxslt] - ISO Schematron / community enhancements
 - [XSpec][xspec] - XSpec - XSLT/XQuery unit testing
 
+As an alternative to Morgana, users are also invited to test [XML Calabash 3][xmlcalabash3]. At time of writing, this release is too new to be incorporated into the project, but appears promising as an alternative platform for everything demonstrated here. 
+
 These are open-source projects in support of W3C- and ISO-standardized technologies. Helping to install, configure, and make these work seamlessly, so users do not have to notice, is a goal of this project.
 
 If this software is as easy, securable and performant as we hope to show, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
+
+### XProc testbed
+
+XProc developers, similarly, may be interested in this project as a testbed for performance and conformance testing.
+
+This deployment is also intended to demonstrate conformance to relevant standards and external specifications, not just to APIs and interfaces defined by tool sets.
 
 ### Projects -- current and conceived
 
@@ -48,18 +56,22 @@ See the [Projects folder](./projects/) for current projects. Projects now planne
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
-  - [`oscal-import`](projects/oscal-import/) - produce OSCAL from PDF via HTML and NIST STS formats - a demonstration showing conversion of a 'high-touch' document into OSCAL, mapping its structures
+  - [`cprt-import`](projects/cprt-import/) - produce OSCAL from a raw JSON feed (not OSCAL) - demonstrating conversion of NIST CPRT [NIST SP 800-171](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_171_3_0_0/home) into OSCAL
+  - [`FM6-22-import`](projects/FM6-22-import/) - produce OSCAL from PDF via HTML and NIST STS formats - a demonstration showing conversion of a 'high-touch' document into OSCAL, namely US Army Field Manual 6-22 Chapter 4 "Developing Leadership", mapping its structures into STS and OSCAL formats
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
   - `index-oscal` - produce indexes to information encoded in OSCAL  
 
 TODO: update this list
+
 READERS: [anything to add?][repo-issues]
 
 Applications in this repository may occasionally have general use outside OSCAL; users who find any of its capabilities should be generalized and published separately please [create a Github Issue][repo-issues].
 
 ### Organization
 
-Folders outside `projects` including `lib`, `smoketest`, `project-template`, `testing`, `icons` and (hidden) `.github` folders serve the repository as a whole; specific applications are all to be found among [projects](./projects).
+Folders outside `projects` including `lib`, `smoketest`, `project-template`, `testing`, `icons` and (hidden) `.github` folders serve the repository as a whole; specific applications are all to be found among [projects](./projects/).
+
+An exception to this is the [tutorial](./tutorial/), which is a project, but also uses the projects as its source, so is kept apart from the other applications as a "global" project.
 
 [The `lib` directory](./lib) comes bare bones - it has only its readme, a configuration file and a couple of utility pipelines. This library is populated by the [installation script](./setup.sh), and (once the basic setup is done) by running the pipelines.
 
@@ -87,7 +99,7 @@ The software in this repository is at varying levels of maturity. Many styleshee
 
 At the same time, the libraries we use (Morgana, Saxon and others) are themselves at various levels of maturity (Saxon in particular having been field-tested for over 20 years). And both particular initiatives and the code repository as a whole follow an incremental development model. Things left as good-enough-for-now are regarded as being good enough, until experience shows us it is no longer so. Punctuated equilibrium is normal. New contrivances are made of old and reliable parts.
 
-Assume the worst, hope for the best, and test.
+*Assume the worst, hope for the best, and test.*
 
 Cloning the repository is encouraged and taken as a sign of success. So is any participation in testing and development activities.
 
@@ -119,7 +131,7 @@ Assuming 'TODO' items are addressed and these markers disappear, the git history
 <details>
 <summary>Innovations</summary>
 
-As of mid-2024, we believe some aspects of this initiative are innovative or unusual, even as it stands on foundations laid by others. Please let us know of relevant prior art, or independent invention, especially if it anticipates the work here.
+As of mid-2024, we believe some aspects of this initiative are innovative or unusual, even as it stands on foundations laid by others. Please let us know of relevant prior art, or independent invention, especially if it anticipates the work here. It is to be hoped that some of these applications are "obvious" and not as new as we think at least in conception.
 
 #### Pipelines for &ldquo;self setup&rdquo;
 
@@ -165,6 +177,8 @@ This makes cloning and further development easier.
 
 ## Where to start
 
+One way to start is to dive into the [Tutorial](tutorial/readme.md). This introduction to XProc does not assume prior XML expertise, only a willingness to learn.
+
 <details>
 <summary>OSCAL developers</summary>
 
@@ -196,7 +210,9 @@ An [XProc tutorial](tutorial/sequence/lesson-sequence.md) is offered on this sit
 
 ### Installation instructions
 
-Note: if you already have Morgana XProc III installed, you should be able to use it, appropriately configured, to run any pipeline in the repository. But local installation is also easy and clean.
+Needed only if you do not already have an XProc 3 engine such as Morgana or XML Calabash. If you already have support for XProc 3, consider using your available tooling, instead or in addition to the runtime offered.
+
+(Any bugs you find in doing so can be addressed and the entire repository "hardened" thereby -- one of the beneficial network effects of multiple implementations of a standard.)
 
 *Platform requirements*: Java, with a `bash` shell for automated installation. Only Java is required if you can install manually.
 
@@ -280,11 +296,11 @@ See the [projects/](./projects/) directory with a list of projects - each should
 
 Or jump to these projects:
 
+- [XProc Tutorial](tutorial/readme.md) provides step-by-step instructions and play-by-play commentary. 
 - [Schema Field Tests](./schema-field-tests) - Testing whether OSCAL schemas correctly enforce rules over data (with surprises)
 - [OSCAL Profile Resolution](./profile-resolution) - converting an OSCAL profile (representing a baseline or overlay) into its catalog of controls
-- [./projects/oscal-import/](./projects/oscal-import/) - Produce OSCAL from a PDF source via HTML and XML conversions
+- Produce OSCAL from other data formats: from raw JSON source in [CPRT import](projects/CPRT-import/); or from PDF source via HTML and XML conversions[FM6-22 import](projects/FM6-22-import)
 
- 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 
 ```bash
@@ -309,14 +325,14 @@ See the [House Rules](./house-rules.md) for more information.
 
 <details><summary>Drag and drop (Windows only)</summary>
 
-Optionally, Windows users can use a batch file command interface, with drag-and-drop functionality in the GUI (graphical user interface, your 'Desktop').
+[Optionally, Windows users can use a batch file command interface](https://github.com/usnistgov/oscal-xproc3/discussions/18), with drag-and-drop functionality in the GUI (graphical user interface, your 'Desktop').
 
 In the File Explorer, try dragging an icon for an XPL file onto the icon for `xp3.bat`. (Tip: choose a pipeline whose name is in all capitals, as in 'ALL-CAPS.xpl' &mdash; explanation below.)
 
 Gild the lily by creating a Windows shortcut to the 'bat' file. This link can be placed on your Desktop or in another folder, ready to run any pipelines that happen to be dropped onto it. Renaming the shortcut and changing its icon are also options. Some icons for this purpose are provided [in the repository](./icons/).
 
-TODO: Develop and test [./xp3.sh](./xp3.sh) so it too offers this or equivalent functionality on \*nix or Mac platforms - AppleScript! - lettuce know &#x1F96C; if you want or can do this
-  
+TODO: Develop and test [./xp3.sh](./xp3.sh) (or scripts to come) so it too offers this or equivalent functionality on \*nix or Mac platforms - AppleScript! - lettuce know &#x1F96C; if you want or can do this
+
 </details>
 
 ## Testing
@@ -375,11 +391,23 @@ Morgana and Saxon both require Java, as detailed on their support pages. SchXSLT
 
 See [THIRD_PARTY_LICENSES.md](./THIRD_PARTY_LICENSES.md) for more.
 
+As noted above, however, all software is also conformant with relevant open-source language specifications, and should deliver the same results, verifiably, using other software that follows the same specifications, including XProc and XSLT processors yet to be developed.
+
 XProc 3.0 aims to be platform- and application-independent, so one use of this project will be to test and assess portability across environments supporting XProc. 
 
 ## XProc platform acknowledgements
 
-With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include Norman Walsh, Achim Berndzen and the developers of XProc versions 1.0 and 3.0; developers of embedded commodity parsers and processers such as Java Xerces, Trang, and Apache FOP (to mention only three); and all developers of XML, XSLT, and XQuery especially unencumbered and open-source. Only an open, dedicated and supportive community could prove capable of such a collective achievement.
+With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include
+
+- [Henry Thompson](https://www.xml.com/pub/a/ws/2001/02/21/devcon1.html) and other pioneers of XML pipelining on a standards basis
+- Norman Walsh
+- Norm's fellow committee members and developers of XProc versions 1.0 and 3.0
+- Developers of embedded commodity parsers and processers such as Java Xerces, Trang, and Apache FOP (to mention only three)
+- All developers of XML, XSLT, and XQuery technologies and applications, especially unencumbered and open-source
+ 
+Only an open, dedicated and supportive community could prove capable of such a collective achievement.
+
+This work is dedicated to the memory of Michael Sperberg-McQueen and to all his students, past and future.
 
 ---
 
@@ -400,8 +428,8 @@ This README was composed starting from the [NIST Open Source Repository template
 [oscal-xslt]: https://github.com/usnistgov/oscal-xslt
 [oscal-cli]: https://github.com/usnistgov/oscal-cli
 [xslt3-functions]: https://github.com/usnistgov/xslt3-functions
-
 [xdm3]: https://www.w3.org/TR/xpath-datamodel/
+[xmlcalabash]: https://github.com/xmlcalabash/xmlcalabash3 
 [xslt3]: https://www.w3.org/TR/xslt-30/
 [xproc]: https://xproc.org/
 [xproc-specs]: https://xproc.org/specifications.html

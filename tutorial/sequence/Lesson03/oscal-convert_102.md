@@ -10,13 +10,13 @@
 
 Learn how OSCAL data can be converted between JSON and XML formats, using XProc.
 
-Learn something about potential problems and limitations when doing this, and about how to detect, avoid, prevent or mitigate them.
+Learn about potential problems and limitations when doing this, and about how to detect, avoid, prevent or mitigate them.
 
-Work with XProc features designed for handling JSON data (XDM **map** objects that can be cast to XML).
+Learn something about XProc features designed for handling JSON data (XDM **map** objects that can be cast to XML).
 
 ## Prerequisites
 
-Run the pipelines described in [the 101                Lesson](https://github.com/usnistgov/oscal-xproc3/discussions/18)
+Run the pipelines described in [the 101 Lesson                Unit](oscal-convert_101.md) in this topic.
 
 ## Resources
 
@@ -26,24 +26,24 @@ Same as the [101 lesson](oscal-convert_101.md).
 
 Every project you examine provides an opportunity to alter pipelines and see how they fail when not encoded correctly – when &ldquo;broken&rdquo;, any way we can think of breaking them. Then build good habits by repairing the damage. Experiment and observation bring learning.
 
-After reading this page and [the project readme](../../../projects/oscal-convert/readme.md), run the pipelines while performing some more disassembly / reassembly. Here are a few ideas (including a few you may have already done):
+After reading this page and [the project readme](../../../projects/oscal-convert/readme.md), run the pipelines while performing some more disassembly / reassembly. Here are a few ideas:
 
 * Switch out the value of an `@href` on a `p:document` or `p:load` step. See what happens when the file it points to is not actually there.
 * There is a difference between `p:input`, used to configure a pipeline in its prologue, and `p:load`, a step that loads data. Ponder what these differences are. Try changing a pipeline that uses one into a pipeline that uses the other.
-* Similarly, there is a difference between a `p:output` configuration for a pipeline, and a `p:store` step executed by that pipeline. Consider this difference and how we might define a rule for when to prefer one or the other. How is the pipeline used - is it called directly, or intended for use as a step in other pipelines? How is it to be controlled at runtime?
+* Similarly, there is a difference between a `p:output` configuration for a pipeline, and a `p:store` step executed by that pipeline. Consider this difference and how we might define a rule for when to prefer one or the other. How is the pipeline used – is it called directly, or intended for use as a step in other pipelines? How is it to be controlled at runtime?
 * Try inserting `p:store` steps into a pipeline to capture intermediate results, that is, the output of any step before they are processed by the next step. Such steps can aid in debugging, among other uses.
 * `@message` attributes on steps provide messages for the runtime traceback. They are optional but this repo follows a rule that any `p:load` or `p:store` should be provided with a message. Why?
-* A `p:identity` step passes its input unchanged to the next step. But can also be provided with a `@message`.
+* A `p:identity` step passes its input unchanged to the next step. It can also be provided with a `@message`. The two commonest uses of `p:identity` are probably to provide for a &ldquo;no-op&rdquo; option, for example within a conditional or try/catch – and to provide runtime messages to the console.
 
 After breaking anything, restore it to working order. Create modified copies of any pipelines for further analysis and discussion.
 
 * Concept: copy and change one of the pipelines provided to acquire a software library or resource of your choice.
 
-## Value templates in attributes and text: { expr }
+## Value templates in attributes and text: { XPath-expr }
 
-Practitioners of XQuery, XSLT and related technologies will recognize the curly-bracket characters (U+007B and U+007D) as indicators of [attribute                value templates](https://www.w3.org/TR/xslt-10/#dt-attribute-value-template), [text value                templates](https://www.w3.org/TR/xslt-30/#text-value-templates), or [enclosed expressions](https://www.w3.org/TR/xquery-31/#id-enclosed-expr). The expression within the braces is to be evaluated dynamically by the processor. This is one of the most useful convenience features in the language.
+Practitioners of XQuery, XSLT and related technologies will recognize the curly-bracket characters (U+007B and U+007D) as indicators of [attribute                value templates](https://www.w3.org/TR/xslt-10/#dt-attribute-value-template), [text value                templates](https://www.w3.org/TR/xslt-30/#text-value-templates), or [enclosed expressions](https://www.w3.org/TR/xquery-31/#id-enclosed-expr). The expression within the brackets is to be evaluated dynamically by the processor. This is one of the most useful convenience features in the language.
 
-These quickly become invisible. Upon seeing
+[This syntax](https://spec.xproc.org/3.0/xproc/#value-templates) is concise, but expressive. Upon seeing:
 
 ```
 <p:identity message="Processing { $filename } at { current-date() }"/>
@@ -51,16 +51,18 @@ These quickly become invisible. Upon seeing
 
 the XProc developer understands:
 
-* The date, in some form (try it and see) should be written into the message
-* The variable reference `$filename` is defined somewhere, and here will expand to a string
+* The date, in some form should be written into the message. (Try it and see.) The XPath function [format-date](https://www.w3.org/TR/xpath-functions-31/#func-format-date) can also be used if we want a different format: for example, `current-date() => format-date('[D] [MNn] [Y]')`.
+* The variable reference `$filename` is defined somewhere, and here will expand to a string value due to the operation of the (attribute value) template.
 
-If you need to see actual curly braces, escape by doubling: `{{` for the single open and `}}` for the single close.
+If you need to see actual curly brackets, escape by doubling: `{{` for the single open and `}}` for the single close.
 
-Extra care must be taken with embedded XSLT and XQuery due to this feature, since their functioning will depend on correctly interpreting these within literal code. Yes, double escaping is sometimes necessary. (This can be tried with [a worksheet XProc](../../worksheets/NAMESPACE_worksheet.xpl).)
+One complication arises: because XSLT and XQuery support similar syntax, clashes can occur, since their functioning will depend on correctly interpreting the syntax within literal code. Yes, this means double escaping is sometimes necessary. (This can be tried with [a worksheet XProc](../../worksheets/NAMESPACE_worksheet.xpl).)
 
-Setting `expand-text` to `false` on an XProc element turns this behavior off: the braces become regular braces again. [The                spec also describes](https://spec.xproc.org/3.0/xproc/#expand-text-attribute) a `p:inline-expand-text` attribute that can be used in places (namely inside literal XML provided in your XProc using `p:inline`) where the regular expand-text has no effect. Either setting can be used inside elements already set, resulting in &ldquo;toggling&rdquo; behavior (it can be turned on and off), as any `expand-text` applies to override settings on its ancestors.
+Alternatively, setting `expand-text` to `false` on an XProc element turns this behavior off: the brackets become regular brackets again. [The spec also describes](https://spec.xproc.org/3.0/xproc/#expand-text-attribute) an attribute `p:inline-expand-text` that can be used in places where the regular `expand-text` would interfere with a functional requirement (namely the representation of literal XML provided in your XProc using `p:inline`). Either of these settings can be used inside elements already set, resulting in &ldquo;toggling&rdquo; behavior (it can be turned on and off), as any `expand-text`, by applying to descendants, overrides settings on its ancestors.
 
-## Designating an input at runtime by binding input ports
+For the most part it is enough to know that the `expand-text` setting is &ldquo;on&rdquo; (`true`) by default, but it can be turned off (`false`) – and (for handling edge cases) back on, lower down in the hierarchy.
+
+## Designating inputs
 
 One potential problem with the pipelines we have looked at so far is that their inputs are hard-wired. While this is sometimes helpful, it should also be possible to apply a pipeline to an XML document (or other input) without having to designate the document inside the pipeline itself. The user or calling application should be able to say &ldquo;run this pipeline, but this time with this input&rdquo;.
 
@@ -74,7 +76,7 @@ For example, the [CONVERT-OSCAL-XML-DATA](../../../projects/oscal-convert/CONVER
 </p:input>
 ```
 
-By default, this pipeline will pick up and process the data it finds at path `data/catalog-model/xml/cat_catalog.xml`, relative to the stylesheet. But any call to this pipeline, whether directly or as a step in another pipeline, can override this.
+By default, this pipeline will pick up and process the data it finds at path `data/catalog-model/xml/cat_catalog.xml`, relative to the pipeline instance (XProc file). But any call to this pipeline, whether directly or as a step in another pipeline, can override this.
 
 The Morgana processor defines [a command                syntax for binding inputs to ports](https://www.xml-project.com/manual/ch01.html#R_ch1_s1_2). It looks like this (when used with the script deployed with this repository):
 
@@ -82,13 +84,19 @@ The Morgana processor defines [a command                syntax for binding input
 $ ../xp3.sh *PIPELINE.xpl* -input:*portname=path/to/a-document.xml* -input:*portname=path/to/another-document.xml*
 ```
 
-Here, two different `-input` arguments are given for the same port. You can have as many as needed if the port, like this one, has `sequence="true"`, meaning any number of documents (from zero to many) can be bound to the port, and the pipeline will accommodate. When more than one port is defined, one (only) can be designated as `primary="true"`, meaning it will be provided implicitly when a port connection is required (by a step) but not given in the pipeline. Notice that the name of the port must also appear, as in `-input:portname`, since pipelines can have ports supporting sequences, but also as many input ports as it needs, named differently, for documents playing different roles in the pipeline. In place of `portname` here, a common name for a port (conventional when it is the pipeline's only or primary input) is `source`.
+Here, two different `-input` arguments are given for the same port. You can have as many as needed if the port, like this one, has `sequence="true"`, meaning any number of documents (zero, one or more) can be bound to the port, and the pipeline will accommodate. When more than one port is defined for a pipeline, one (only) can be designated as `primary="true"`, allowing it to be provided implicitly when a port connection is required (by a step) but not given in the pipeline. Notice that the name of the port must also appear in the command argument, as in `-input:portname`, since while pipelines can have ports supporting sequences, they will also have different ports, named differently, for documents playing different roles in the pipeline.
 
-### Binding to input ports vs p:load steps
+In place of `portname` here, a common name for a port (conventional when it is the pipeline's only or primary input) is `source`. But you can also expect to see ports (especially secondary ports) with names like `schema`, `stylesheet` and `insertion`: port names that offer hints as to what the step does.
 
-XProc offers two ways to acquire data from outside the pipeline: by using `p:load` or by binding inputs to an input port using `p:input/p:document`. These are somewhat different in operation - errors produced by `p:load` cannot be detected until the pipeline is run, whereas failures with `p:input` should be detected when the pipeline itself is loaded and compiled (i.e. during *static analysis*), and processors may be able to apply different kinds of exception handling, fallbacks or support for redirects. (As always you can try, test and determine for yourself.) Apart from this distinction the two approaches have similar effects – whether to use one or the other depends often on how you expect the pipeline to be used and distributed, not on whether it works.
+A port designated with `sequence="true"` can be empty (no documents at all) and a process will run. But by default a single document is both expected and required.
 
-Although one distinction is that p:document appears on input ports, which can be overridden, this does not mean that p:document can't be essentially &ldquo;private&rdquo; to a pipeline or pipeline step. For example, if you wish to acquire more than a single document, without p:load, known in advance (i.e. the file names can be hard-coded), make a step like this:
+Among other things, this means that a pipeline that has `<p:input name="x" primary="true"/>`, since it is not a sequence but also has no document, cannot be run unless a (single) document for the `x` port (as it is named here) is provided when it is invoked.
+
+### Lightening the `p:load`
+
+As an alternative to binding inputs to using `p:input/p:document` (on a pipeline definition) or `p:with-input` (on a step invocation), XProc offers another way to acquire data from outside the pipeline: by using a `p:load` step. This is somewhat different in operation: as it is a step in itself, errors produced by `p:load` cannot be detected until the pipeline is run, whereas failures with `p:input` should be detected when the pipeline itself is loaded and compiled (i.e. during *static analysis*), and processors may be able to apply different kinds of exception handling, fallbacks or support for redirects. (As always you can try, test and determine for yourself.) Apart from this distinction the two approaches have similar effects – whether to use one or the other depends often on how you expect the pipeline to be used, distributed, and maintained, since either can work in operation.
+
+Although one distinction is that `p:document` appears on input ports, which can be overridden (or rather, set dynamically), this does not mean that `p:document` cannott be essentially &ldquo;private&rdquo; to a pipeline or pipeline step. For example, if you wish to acquire, without `p:load`, more than a single document known in advance (i.e. the file names can be hard-coded), provide your step (`p:identity` in this case) with inputs like so:
 
 ```
 <p:identity>
@@ -100,9 +108,9 @@ Although one distinction is that p:document appears on input ports, which can be
 <p:identity>
 ```
 
-This binds the documents to the input of an **identity** step (which supports a sequence), without exposing an input port in the main pipeline.
+This binds the documents to the input of the step (as `p:identity` supports a sequence, more than one is fine), without exposing an input port in the main pipeline.
 
-A more dynamic approach is sometimes useful: first, acquire a list of file names, for example:
+Combining the approaches permits another useful capability: first, acquire a list of file names, for example (here using `p:input/p:inline)`:
 
 ```
 <p:input port="source">
@@ -130,37 +138,25 @@ One tradeoff is that the override mechanism will be different. We override the f
 
 This makes the second approach especially appealing if the file list can be derived from some kind of metadata resource or, indeed, `p:directory-list`….
 
-## Identity pipeline testbed
+## Warning: do you know where your source files are?
 
-An identity or &ldquo;near-identity&rdquo; or modified-identity pipeline has its uses, including diagnostics. Since inputs and outputs are supposed to look the same, any changes they show between inputs and outputs can be revealing.
+As noted in the [101 Lesson Unit](oscal-convert_101.md), one of the advantages of using URIs, over and above the Internet itself, is that systems can support URI redirection when appropriate. This will ordinarily be in order to provide local (cached) copies of standard resources, thereby mitigating the need for copying files over the Internet. While this is a powerful and useful feature – arguably essential for systems at scale – it can present problems for transparency and debugging if the resource obtained by reference to a URI is not the same as the developer (or &ldquo;contract&rdquo;) expects.
 
-They are also useful for testing features in your environment or setup, for example features for resource acquisition and disposition, that is, how you get data into your pipeline and then out again.
+A similar problem results from variations in URI syntax, both due to syntax itself and due to the fact that URIs can be relative file paths, so `file.xml` and `../file.xml` could be the same file, or not, depending on the context of evaluation.
 
-Additionally, there are actually useful operations supported by a pipeline that presents its input unchanged with respect to its model. For example, it can be used to transcode a file from one encoding to another – changing nothing in the data, but rewriting it into a different character set. This is because with XProc, transcoding does not actually happen within the pipeline, but on its boundaries - when a file is read, or written (aka serialized). So internally, a pipeline set up to do this doesn't have any action to take.
+To help avoid or manage problems resulting from this (i.e., from features as bugs), XPath and XProc offer some useful functions:
 
-### 0.01 - what is a &ldquo;document&rdquo;
+* XPath [resolve-uri()](https://www.w3.org/TR/xpath-functions-31/#func-resolve-uri) can be used to expand a relative URI into an absolute URI
+* XProc [p:urify](https://spec.xproc.org/3.0/xproc/#f.urify) will normalize URIs and rewrite file system paths as URIs – very useful.
+* In XProc 3.1, a new function [p:lookup-uri](https://spec.xproc.org/lastcall-2024-08/head/xproc/#f.lookup-uri) can query the processor's URI resolver regarding a URI, without actually retrieving its resource. This makes available to the developer what address is actually to be used when a URI is followed – detecting any redirection – and permits defensive code to be written when appropriate.
 
-Just about any kind of digital input can be an XProc document. Keeping things simple and regular, XProc's concept of document is broad enough to encompass XML, HTML, JSON and other kinds of inputs including plain text and binaries. [Read more here](oscal-convert_402.md).
+## Probing error space – data conversions
 
-### 0.1 - loading documents known or discovered in advance
+Broadly speaking, problems encountered running these conversions (or indeed, transformations in general) fall into two categories, the distinction being simple, namely whether a bad outcome is due to an error in the processor and its logic, or in the data inputs provided. The term &ldquo;error&rdquo; here hides a great deal. So does &ldquo;bad outcome&rdquo;. One type of bad outcome takes the form of failures at runtime – the term &ldquo;failure&rdquo; again leaving questions open, while at the same time it seems fair to assume that not being able to conclude successfully is a bad thing. But other bad outcomes are not detectable at runtime. If inputs are bad (inconsistent with stated contracts such as data validation), processes can run *correctly* and deliver incorrect results: correctly representing inputs, in their incorrectness. Again, the term *correct* here is underspecified and underdefined, except in the case.
 
-The XProc step `p:load` can be used to load the resource indicated into the pipeline.
+For these and other reasons we sometimes prefer to call them &ldquo;exceptions&rdquo;, while at the same time we know many errors are not actually errors in the process but in the inputs. We need reliable ways to tell this difference. A library of reliable source examples -- a test suite – is one asset that helps a great deal. Even short of unit tests, however, a great deal can be discovered when working with &ldquo;bad inputs&rdquo; interactively. This knowledge is especially valuable once we are dealing with examples that are only &ldquo;normally bad&rdquo;.
 
-Watch out, since `p:load` with `href=""` – loading the resource at the location indicated by the empty string, `""` – will load the XProc file itself. This is conformant with rules for URL resolution.
-
-### 0.2 - binding a document to an input port
-
-### 0.3 - loading documents discovered dynamically with `p:directory-list`
-
-### 0.4 - saving results to the file system
-
-### 0.5 - exposing results on an output port
-
-## Probing error space - data conversions
-
-Broadly speaking, problems encountered running these conversions fall into two categories, the distinction being simple, namely whether a bad outcome is due to an error in the processor and its logic, or in the data inputs provided. The term &ldquo;error&rdquo; here hides a great deal. So does &ldquo;bad outcome&rdquo;. One type of bad outcome takes the form of failures at runtime - the term &ldquo;failure&rdquo; again leaving questions open, while at the same time it seems fair to assume that not being able to conclude successfully, is bad. But other bad outcomes are not detectable at runtime. If inputs are bad (inconsistent with stated contracts such as data validation), processes can run *correctly* and deliver incorrect results: correctly representing inputs, in their incorrectness. Again, the term *correct* here is underspecified and underdefined, except in the case.
-
-For these and other reasons we sometimes prefer to call them &ldquo;exceptions&rdquo;, while at the same time we know many errors are not actually errors in the process but in the inputs. We need reliable ways to tell this difference. A library of reliable source examples -- a test suite – is one asset that helps a great deal. Even short of unit tests, however, a great deal can be discovered when working with &ldquo;bad inputs&rdquo; interactively.
+Some ideas on how to do this appear below.
 
 ### Converting broken XML or JSON
 
@@ -170,30 +166,58 @@ Create a syntactically-invalid (not **well-formed**) XML or JSON document - or r
 
 ### Converting not-OSCAL
 
-XML practitioners understand how XML can be well-formed and therefore legible for processing, without being a valid instance of a specific markup vocabulary. You can have XML, for example, without having OSCAL.
+XML practitioners understand how XML can be well-formed and therefore legible for processing, without being a valid instance of a specific markup vocabulary. You can have XML, for example, without having OSCAL. This was discussed in [the previous lesson                   unit](oscal-convert_101.md).
 
-When providing XML that is not OSCAL to a process that expects OSCAL inputs, you should properly see either errors (exceptions), or bad results (outputs missing or wrongly expressed) or both. *Experiment and see!*
+But a hands-on appreciation, through experience, of how this actually looks, is better than a merely intellectual understanding of why it must be.
 
-Detection of bad results is an important capability - why we have validation against external constraint sets such as schemas. A later unit will cover this – meanwhile, inquiries on the topic are welcome.
+When providing XML that is not OSCAL to a process that expects OSCAL inputs, you should properly see either errors (exceptions), or bad results (outputs missing or wrongly expressed) or both. *A tutorial is the perfect opportunity to experiment and see.*
+
+For example, try using the OSCAL XML-to-JSON pipeline on an XProc document (which is XML, but not OSCAL).
+
+The interesting thing here is how permissive XProc is, unless we code it to be jealous. Detection of bad results is an important capability, which is why we also need to be able to *validate* data against external constraint sets such as schemas, also covered in more detail later.
 
 ### Converting broken OSCAL
 
 The same thing applies to attempting to process inputs when OSCAL is expected, yet the data sources fail to meet requirements in some important respect, sometimes even a subtle requirement, depending on the case. The more fundamental problem here is the definition of &ldquo;correct&rdquo; versus &ldquo;broken&rdquo;.
 
-We begin generally with the stipulation that by &ldquo;OSCAL&rdquo; what we mean is, any XML (or JSON or YAML) instance conformant to an OSCAL schema, and thereby defined in such a manner as to enable their convertibility. The reasoning is thus somewhat circular. If we can convert it successfully, we can claim to know it as OSCAL (by virtue of the knowledge we demonstrate in the conversion). If we know it to be OSCAL by virtue of schema validation, we have assurances also regarding its convertibility.
+We begin generally with the stipulation that by &ldquo;OSCAL&rdquo; what we mean is, any XML (or JSON or YAML) instance conformant to an OSCAL schema, and thereby defined in such a manner as to enable their convertibility. The reasoning is thus somewhat circular. If we can convert it successfully, we have a basis to claim it is OSCAL, by virtue of its *evident* conformance to OSCAL models in operation. If we know it to be OSCAL by virtue of schema validation, we have assurances also regarding its convertibility.
 
-This is because with respect to these model-based conversions, the OSCAL project also offers tools that can convert any schema-valid OSCAL XML into equivalent schema-valid JSON, while doing the same the other way, making OSCAL XML from OSCAL JSON. In either case, schema validation is invaluable for defining the boundaries of the conversion itself. Data that is not schema-valid, it is reasoned, cannot be qualified or described at all, so no straightforward mapping from arbitrary inputs can be specified. But a mapping can be specified for inputs that are known, namely OSCAL inputs. The converter respects the validation rule not by enforcing it directly, but rather by depending on it.
+In contrast, data that is not schema-valid (as can be reasoned) cannot be *confidently* and *completely* qualified or described at all, so only very simple (&ldquo;global&rdquo;, generic or &ldquo;wildcard&rdquo;) mappings from arbitrary inputs can be specified. But a mapping can be specified for inputs that are known, such as OSCAL inputs. An OSCAL converter respects the validation rules not by enforcing them directly, but rather by depending on the consistency they describe and constrain.
 
-Fortunately, by means of Schematron and transformations, XProc is an excellent tool not only for altering data sets, but also for detecting variances, either in inputs or its results, from any specifications that can be expressed in XPath. These capabilities – detection and amelioration – can be used together, and separately. When a pipeline cannot guarantee correct outputs, it can at least provide feedback.
+Fortunately, by means of Schematron and transformations, XProc is an excellent tool not only for altering data sets, but also for imposing such validation rules, by detecting variances, either in inputs or its results. XPath, the query language, becomes key. With XPath to identify features (both good and bad), and XProc for modifications, these capabilities – detection and amelioration – can be used together, and separately. When a pipeline cannot guarantee correct outputs, it can at least provide feedback.
 
-Altering XML to &ldquo;break&rdquo; it in various subtle ways is likely to happen by accident. Get used to the feeling by *making it happen* on purpose.
+Depending on the application and data sources, XML that is &ldquo;broken&rdquo; in various subtle ways is more or less inevitable. See what it looks like by making this happen on purpose.
 
 ## XProc diagnostic how-to
 
+These methods are noted above, but they are so important they should not be skipped.
+
 ### Emitting runtime messages
+
+Most XProc steps support a `message` attribute for designating a message to be emitted to the console or log. As shown, these also support Attribute Value Syntax for dynamic evaluation of XPath.
+
+For example, again using `p:identity`:
+
+```
+<p:identity message="Processing { p:document-property(.,'base-uri') } with content-type { p:document-property(.,'content-type') }"/>
+```
+
+This step does not change the document, but reports its current Base URI and content-type at that point in the pipeline.
+
+This can be useful information since both those properties can (and should) change based on your pipeline's operations.
 
 ### Saving out interim results
 
-`p:store`
+Learn to use the `p:store` step, if only because it is so useful for saving interim pipeline results to a place where they can be inspected.
+
+[Produce-FM6-22-chapter4](../../../projects/FM6-22-import/PRODUCE_FM6-22-chapter4.xpl) is a demonstration pipeline in this repo with a switch at the top level, in the form of an option named `writing-all`. When set to `true()`, it has the effect of activating a set of `p:store` steps within the pipeline using the XProc [use-when feature](https://spec.xproc.org/3.0/xproc/#use-when) feature, to write intermediate results. The resulting set of files is written into a `temp` directory to keep them separate from final results: they show the changes being made over the input data set, at useful points for tracing the pipeline's progress.
 
 ## Validate early and often
+
+One way to manage the problem of ensuring quality is to validate the inputs before processing, either as a dependent (prerequisite) process, or built into a pipeline. This enables a useful separation between problems resulting from bad inputs, and problems within the pipeline. Whatever you want to do with invalid inputs, including skipping or ignoring them, producing warnings or runtime exceptions, or even making corrections when possible and practical – all this can be defined in a pipeline much like anything else.
+
+Keep in mind that since XProc brings support for multiple schema languages plus XPath, &ldquo;validation&rdquo; could mean almost anything. This must be determined for the case.
+
+In the [publishing demonstration project                folder](../../../projects/oscal-publish/publish-oscal-catalog.xpl) is an XProc that valides XML against an OSCAL schema, before running steps to convert it to HTML, for display in a browser. The same could be done for an XProc that converts OSCAL data into JSON -- since OSCAL has both XSD for XML, and JSON Schema for JSON, this could be done before the conversion, after, or both.
+
+Two projects in this repository (at time of writing) deal extensively with validation: [oscal-validate](../../../projects/oscal-validate/) and [schema-field-tests](../../../projects/schema-field-tests/).

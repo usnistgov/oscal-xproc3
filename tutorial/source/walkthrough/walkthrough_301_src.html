@@ -54,7 +54,7 @@
          <p>The tests themselves are so far fairly rudimentary – while paying for themselves in the consistency and
             quality they help enforce.</p>
          <section>
-            <p>Pipelines useful for the developer:</p>
+            <h3>Pipelines useful for the developer:</h3>
             <ul>
                <li><a href="../../../testing/VALIDATION-FILESET-READYCHECK.xpl">VALIDATION-FILESET-READYCHECK.xpl</a>
                   runs a pre-check to validate that files referenced in FILESET Xprocs are in place</li>
@@ -71,7 +71,7 @@
             </ul>
          </section>
          <section>
-            <p>Pipelines run under CI/CD:</p>
+            <h3>Pipelines run under CI/CD</h3>
             <ul>
                <li><a href="../../../testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl">HARDFAIL-XPROC3-HOUSE-RULES.xpl</a> runs a
                   pipeline enforcing the House Rules Schematron to every XProc listed in the imported FILESET pipeline,
@@ -82,7 +82,11 @@
             </ul>
          </section>
          <section>
-            <p>Additionally:</p>
+            <h3>File set listings as step declarations</h3>
+            <p>These pipelines are used only as components in other pipelines, which import them. They are used to
+               provide central control of file listings for batching purposes (process or validation) - i.e., other
+               pipelines can access these steps to get to the named resources. They can also be validated externally,
+               for early detection of broken links.</p>
             <ul>
                <li><a href="../../../testing/FILESET_XPROC3_HOUSE-RULES.xpl">FILESET_XPROC3_HOUSE-RULES.xpl</a> provides
                   a list of resources (documents) to be made accessible to importing pipelines</li>

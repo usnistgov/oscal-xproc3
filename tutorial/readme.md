@@ -4,7 +4,7 @@ This is work in progress towards an XProc 3.0 (and 3.1) tutorial or set of tutor
 
 Coverage here is not a substitute for project documentation - the tutorial relies on projects in the repo for its treatments - but an adjunct to it for beginners and new users who wish for guidance and information on XProc that they are not likely to find for themselves.
 
-In its current form, only introductory materials are offered. The framework is easily extensible to cover more topics, and an XProc-based tutorial production system is part of the demonstration. 
+In its current form, only the first introductory materials are offered. The framework is easily extensible to cover more topics, and an XProc-based tutorial production system is part of the demonstration. But the approach needs to be tested more before it is extended.
 
 Tutorial exercises can be centered on OSCAL-oriented applications but the learning focus will be XProc 3.0/3.1.
 
@@ -20,7 +20,7 @@ Follow the tutorial by reading the files published in the repository, or by copy
 
 First and foremost this is a "practicum" or *hands-on* introduction that encourages readers not only to follow along, but to try things out, practice and learn by interactive observation.
 
-Otherwise, the tutorial is designed to support multiple different approaches suitable for different learners and needs - both learning styles, and use cases ("user stories") as described below. Develop an approach that works for you by moving at your own speed and skipping, skimming or delving more deeply into topics and problems of interest.
+Otherwise, the tutorial is designed to support multiple different approaches suitable for different learners and needs - both learning styles and goals as described below. Develop an approach that works for your case by moving at your own speed and skipping, skimming or delving more deeply into topics and problems of interest.
 
 Each topic ("Lesson") in a sequence offers a set of Lesson Units around a common problem area or theme, leveraging projects in the repository to provide problems and solutions with working pipelines to run and analyze.
 
@@ -53,9 +53,9 @@ To enable readers to cater to their own needs, the tutorial offers these **track
 
 Since the different tracks are arranged along the same topics, the treatments are also suitable for groups who wish to work any or all tracks collaboratively.
 
-If you want a no-code experience, skip the Maker track and skim the Observer track, but do not skip looking at the code base, accepting that much will remain mysterious.
+If you want a no-code experience, read the Learner track, skip the Maker track and skim the Observer track. Keep in mind that you might have to run pipelines, if only to see their outputs.
 
-If security concerns preclude you from running locally, post us an Issue and the dev team will investigate options including a container-based distribution of some nature. The beauty and simplicity of 'bare bones' however is what recommends it to us and you.
+If for any reason you can't run XProc or Java, post us an Issue and the dev team will investigate options including a container-based distribution of some nature. The simplicity of 'bare bones' however recommends it to us and you.
 
 ### Observer Track
 
@@ -83,7 +83,7 @@ If you are a tactile learner with no patience for reading, you can skim through 
 
 In parallel with the other two tracks, the Learner track offers all readers more explanation and commentary, in greater depth and with more links.
 
-Note that the Learner track represents the views of one still learning, so it is subject to change and refinement - most especially if you find things in it that are in need of clarification or correction.
+Note that the Learner track itself represents the views of one still learning, so it is subject to change and refinement - most especially if you find things in it that are in need of clarification or correction.
 
 ### Easter eggs
 
@@ -134,11 +134,11 @@ See the top-level pipelines for current capabilities. At time of writing:
 
 [PRODUCE-TUTORIAL-MARKDOWN.xpl](PRODUCE-TUTORIAL-MARKDOWN.xpl) produces a set of Markdown files, writing them to the `sequence` directory.
 
-[PRODUCE-TUTORIAL-TOC.xpl]() produces the [Tutorial Table of Contents](sequence/lesson-sequence.md)
+[PRODUCE-TUTORIAL-TOC.xpl](PRODUCE-TUTORIAL-TOC.xpl) produces the [Tutorial Table of Contents](sequence/lesson-sequence.md)
 
 [PRODUCE-TUTORIAL-PREVIEW.xpl](PRODUCE-TUTORIAL-PREVIEW.xpl) produces a single [preview tutorial on one HTML page](tutorial-preview.html)
 
-[PRODUCE-PROJECTS-ELEMENTLIST.xpl] produces an [index to XProc elements appearing in pipelines](sequence/element-directory.md) under discussion - read about it in the lessons
+[PRODUCE-PROJECTS-ELEMENTLIST.xpl](PRODUCE-PROJECTS-ELEMENTLIST.xpl) produces an [index to XProc elements appearing in pipelines](sequence/element-directory.md) under discussion - read about it in the lessons
 
 # Leave your tracks
 

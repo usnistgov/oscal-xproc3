@@ -18,9 +18,9 @@ More in depth.
 
 The same pipelines you ran in setup: [Setup             101](../acquire/acquire_101.md).
 
-Also, [XProc.org dashboard page](https://xproc.org)
+Also, [XProc.org dashboard page](https://xproc.org).
 
-Also, XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md)
+Also, XProc index materials produced in this repository: [XProc docs](../../../projects/xproc-doc/readme.md).
 
 ## XProc as XML
 
@@ -84,7 +84,7 @@ Initiated in 1996, XML continues to be generative in 2024.
 
 ## Snapshot history: an XML time line
 
-[TODO: complete this, or move it, or both]
+[TODO: complete this, or move it, or both] ...
 
 | Year | Publication | Capabilities | Processing frameworks | Platforms |
 | --- | --- | --- | --- | --- |
