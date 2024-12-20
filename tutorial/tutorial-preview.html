@@ -32,8 +32,8 @@ span.wordcount.over { color: darkred }
 </style>
    </head>
    <body>
-      <h1>XProc in Action: an Immersive Tutorial</h1>
-      <h3>version 1.0_draft PREVIEW : December 20 2024</h3>
+      <h1>XProc in Action: an Immersive Introduction</h1>
+      <h3>version 1.0_draft PREVIEW December 20 2024</h3>
       <div class="toc">
          <div class="lesson"
               id="toc-acquire"
@@ -218,7 +218,7 @@ span.wordcount.over { color: darkred }
             <div class="unit learner"
                  id="toc-walkthrough_219"
                  data-track="learner">
-               <h1>219: XProc, XML and XDM  (the XML Data Model)<span class="wordcount over"> (~2217)</span>
+               <h1>219: XProc, XML and XDM  (the XML Data Model)<span class="wordcount over"> (~2214)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -458,7 +458,7 @@ span.wordcount.over { color: darkred }
             <div class="unit learner"
                  id="toc-oscal-convert_201"
                  data-track="learner">
-               <h1>201: Anatomy of an XProc pipeline<span class="wordcount over"> (~3158)</span>
+               <h1>201: Anatomy of an XProc pipeline<span class="wordcount over"> (~2779)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -470,7 +470,7 @@ span.wordcount.over { color: darkred }
                   <h2>Resources</h2>
                </div>
                <div>
-                  <h2>XProc as XML</h2>
+                  <h2>XProc as XML (redux)</h2>
                   <div>
                      <h3>XProc at the top</h3>
                   </div>
@@ -486,12 +486,6 @@ span.wordcount.over { color: darkred }
                </div>
                <div>
                   <h2>XProc steps</h2>
-                  <div>
-                     <h3>Implications of XProc as XML</h3>
-                  </div>
-                  <div>
-                     <h3>XProc embedded documentation</h3>
-                  </div>
                </div>
                <div>
                   <h2>Atomic and compound steps</h2>
@@ -506,7 +500,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-oscal-convert_350"
                  data-track="maker">
-               <h1>350: Namespaces in XML and XProc<span class="wordcount okay"> (~399)</span>
+               <h1>350: Namespaces in XML and XProc<span class="wordcount okay"> (~724)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -524,7 +518,7 @@ span.wordcount.over { color: darkred }
                   <h2>Namespace fixup and namespace cleanup steps</h2>
                </div>
                <div>
-                  <h2>Namespace tips and tricks XXX</h2>
+                  <h2>Namespace tips and tricks</h2>
                   <div>
                      <h3>Coining new namespaces</h3>
                   </div>
@@ -542,7 +536,7 @@ span.wordcount.over { color: darkred }
             <div class="unit learner"
                  id="toc-oscal-convert_400"
                  data-track="learner">
-               <h1>400: What is an XProc document<span class="wordcount okay"> (~1589)</span>
+               <h1>400: Documents in XProc<span class="wordcount okay"> (~1750)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -569,7 +563,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-oscal-convert_401"
                  data-track="maker">
-               <h1>401: XProc, XML, JSON and content types<span class="wordcount okay"> (~275)</span>
+               <h1>401: XProc, XML, JSON and content types<span class="wordcount okay"> (~274)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -626,7 +620,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-courseware_219"
                  data-track="maker">
-               <h1>Courseware 219: Learn by Teaching<span class="wordcount okay"> (~703)</span>
+               <h1>Courseware 219: Learn by Teaching<span class="wordcount okay"> (~754)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -644,7 +638,7 @@ span.wordcount.over { color: darkred }
                   </div>
                </div>
                <div>
-                  <h2>Create a new lesson unit (<q>area</q>)</h2>
+                  <h2>Create a new set of lessons</h2>
                </div>
                <div>
                   <h2>Produce a new project and document it with a tutorial</h2>
@@ -1567,7 +1561,6 @@ span.wordcount.over { color: darkred }
                   id="walkthrough_219"
                   data-track="learner">
             <h1>219: XProc, XML and XDM  (the XML Data Model)</h1>
-            <p>More in depth.</p>
             <section>
                <h2>Goals</h2>
                <ul>
@@ -3179,6 +3172,7 @@ span.wordcount.over { color: darkred }
                <h2>Prerequisites</h2>
                <p>You have succeeded in prior exercises, including tools installation and setup. You have seen enough XProc to
             be impressed, at least, by the concept.</p>
+               <p>While concepts here are basic, what is presented is not always obvious.</p>
             </section>
             <section>
                <h2>Resources</h2>
@@ -3188,19 +3182,17 @@ span.wordcount.over { color: darkred }
                (XDM) as it relates to XProc </a> can also be kept in mind.</p>
             </section>
             <section>
-               <h2>XProc as XML</h2>
-               <p>An XProc pipeline itself takes the form of an XML <q>document entity</q>. Unless you are concerned to write
-            an XML parser (which is not very likely for XProc's natural constituency), this typically means an XML file,
-            that is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or alternatively
-            another form of <q>plain text</q> supported by your system or environment), and following the rules of XML
-            syntax. These rules include how elements and attributes and other XML features are encoded in <b>tags</b>
-            that:</p>
+               <h2>XProc as XML (redux)</h2>
+               <p>Recall that an XProc pipeline itself takes the form of an XML <a href="../">document entity</a>. Put less mysteriously, this
+            means that XProc is designed to be written and maintained in XML syntax, and most XProc systems will be
+            reliant on XProc kept in XML files (in a file server or database). We recognize XProc by its XML
+               <em>vocabulary</em> expressed using <em>tags</em> that follow the XML tagging rules:</p>
                <ul>
-                  <li>Follow the rules with respect to naming, whitespace, delimiters and reserved characters</li>
-                  <li>Are correctly balanced, with an end tag for every start tag – for a <code>&lt;start&gt;</code> there must
-               be a <code>&lt;/start&gt;</code> (an end to the start).</li>
-                  <li>Are cleanly nested with no overlap: end tags always close the most recently opened element, so no
-               element ever extends beyond the boundaries of its <q>ancestor</q> or containing elements</li>
+                  <li>They follow XML's rules with respect to naming, whitespace, delimiters and reserved characters</li>
+                  <li>They are correctly balanced, with an end tag for every start tag – for a <code>&lt;start&gt;</code>
+               there must be a <code>&lt;/start&gt;</code> (an end to the start).</li>
+                  <li>They are cleanly nested with no overlap: end tags always close the most recently opened element, so no
+               element ever extends beyond the boundaries of its <q>ancestors</q> or containing elements</li>
                </ul>
                <p>These rules are fairly simple, and they are well supported by tools designed to read and write XML – to
             respect, follow and enforce the rules on our behalf.</p>
@@ -3244,11 +3236,9 @@ span.wordcount.over { color: darkred }
                both a <code>@name</code> and a <code>@type</code> are permitted.</p>
                   <pre>   type="ox:TEST-XPROC3"
    name="TEST-XPROC3"</pre>
-                  <p>The name makes it possible to reference the step by name. This is often useful and sometimes more or less
-               essential, for example for providing input to one step from another step's output. (We say <q>more or
-                  less essential</q> because the processor will produce names for itself as a fallback, if it needs
-               them, but these are brittle, somewhat opaque – such as <code>!1.2.3</code> – and more difficult to use
-               than the names a developer gives.)</p>
+                  <p>The name makes it possible to reference the pipeline itself by name, as a step. This makes it possible to
+               create bindings inside the pipeline to the pipeline's own ports, when implicit (i.e., defaulted) bindings
+               are not sufficient.</p>
                   <p>Understandably, the name of an XProc must be different from the names given to all the steps in the XProc
                (which must also be distinct).</p>
                   <p>This repository follows a rule that a step name should correspond to its file base name (i.e., without a
@@ -3256,24 +3246,28 @@ span.wordcount.over { color: darkred }
                us, not for XProc in general.</p>
                   <p>A step may also have an assigned <code>@type</code>. Unlike the name, which can be in any namespace or
                none, the <code>@type</code> must be assigned to a namespace.</p>
+                  <p>The assigned typed is just as important as the name, as a step is called by its <em>type name</em>.
+               Decoupling the name from the type name provides useful flexibility, as both can be important but they do
+               not need to be the same.</p>
                </section>
             </section>
             <section>
                <h2>Prologue and body</h2>
                <p>A pipeline will typically be a collection or sequence of steps, of arbitrary complexity. By this we mean
             that any step might be simple or complex in its operations; and the sequence may be short or long, or simple
-            and singular or branching, multiple (with respect to inputs or outputs) and conditional. A pipeline provides
-            such a collection of steps with an interface, indeed (if one dare say) <q>semantics</q> in the form of a
+            and singular or branching, multiple (with respect to inputs or outputs) and conditional. In addition to this
+            orchestration, simple or complex, a pipeline must have one other thing, namely an interface or
+               <em>signature</em>. This is what gives the pipeline (if one dare say) <q>semantics</q> in the form of a
             specification, whether explicit or implicit, of what constitute valid inputs, expected outputs, and
             recognized runtime options. This interface is defined in the pipeline's <em>prologue</em>. The sequence or
             arrangement of steps, however long or short, constitutes the pipeline's <em>body</em> and serve as the
             pipeline's <a href="../">subpipeline</a> .</p>
-               <p>Think of the subpipeline as the working parts of the pipeline, while the prologue dictates how they, as a
-               <q>body</q>, are to be invoked, and with what kinds of results exposed to the calling system – that is,
-            what kinds of information (<em>results</em>) are made available for disposition (as opposed to simply being
-            visible as messages or result artifacts).</p>
-               <p>Before the prologue, of course, we see optional import declarations. Add to these any local step definitions
-            (not common but not unheard of), and at a high level we see these element groups:</p>
+               <p>Think of the subpipeline as the working components of the pipeline, while the prologue defines its interface
+            or <q>control surface</q>, as on a black box. That is, what kinds of inputs need to be provided to it (if
+            any), what kinds of results it exposes (apart from outputs it has taken on itself to produce), and what
+            kinds of options or configurations are available.</p>
+               <p>But even before the prologue we may see import declarations. Add to these any local step definitions for
+            embedded pipelines (not common but not unheard of), and at a high level we see these element groups:</p>
                <ul>
                   <li>Imports (optional) - configuring where the processor can find logic to be called from external
                pipelines: <code>p:import</code>, <code>p:import-functions</code>
@@ -3299,8 +3293,8 @@ span.wordcount.over { color: darkred }
                <p>Keep in mind that just because a pipeline has no exposed ports for inputs or outputs, does not mean it does
             nothing. Among other things, pipelines can read and write (or be asked to write) arbitrary resources to a
             file system. Its exposed interfaces provide for functional composition: since they have inputs and outputs,
-            pipelines can be used as steps in pipelines. But those do not in any way preclude its operations. XProc is
-               <i>not</i> side-effect free.</p>
+            pipelines can be used as steps in pipelines. But those do not in any way preclude its operations. Unlike the
+            functional languages it embeds (XSLT and XQuery), XProc does <i>not</i> seek to be side-effect free.</p>
                <p>Following the prologue, a step may also have local step definitions (<code>p:declare-step</code>). One might
             think of these as an XProc equivalent of a <q>macro</q>: these locally-defined pipelines can be used
             internally for logic that is used repeatedly, or that warrants separating from the main pipeline for some
@@ -3347,15 +3341,15 @@ span.wordcount.over { color: darkred }
             combination with the primitives or core compound steps of the language.</p>
                <p>At a higher level, defining new steps with new step declarations, and using them in combination with other
             steps, is how we manage complexity and change in processing requirements. This strategy maximizes
-            adaptability, while also supporting an <q>incremental maturity model</q>, in which all defined processes can
-            be improved with reuse, building and testing over time. Careful use and deployment of new steps is how we
-            save work, by focusing optimization and making it possible to scale up to address data processing
-            requirement sets that are both large and complex.</p>
+            adaptability, while also supporting an incremental maturity model, in which all defined processes can be
+            improved with reuse, building and testing over time. Careful use and deployment of new steps is how we save
+            work, by focusing optimization and making it possible to scale up to address data processing requirement
+            sets that are both large and complex.</p>
                <p>Thus a kind of <q>recursive orderability</q>, wherein encapsulation itself is scaled up and out arbitrarily
-            but only as much as needed, is a secret to XProc. As a pipeline, a step definition may include only a single
-            step (a pipeline can be an interface or wrapper to another pipeline, or to a simple operation), or a long
-            sequence or complex choreography of steps. In either case it can become a relatively self-contained <q>black
-               box</q> process available to other processes.</p>
+            but only as much as needed, can be a working principle with XProc. As a pipeline, a step definition may
+            include only a single step (a pipeline can be an interface or wrapper to another pipeline, or to a simple
+            operation), or a long sequence or complex choreography of steps. In either case it can become a relatively
+            self-contained black box process available to other processes.</p>
                <p>Accommodating this design, an XProc <i>file</i> considered as an XML instance (as noted) is either of two
             things: a <i>step declaration</i>, or a collection of such declarations, a <i>library</i>. At the top level
             (as noted), recognize an XProc step declaration by the element, <code>p:declare-step</code> (in the XProc
@@ -3374,46 +3368,6 @@ span.wordcount.over { color: darkred }
             it from other steps. The pipeline simply needs to be presented to the processor, which does the rest. Your
             library of steps then looks very similar to your directory full of XProc files – and can be treated, where
             appropriately, as self-contained scripts encapsulating everything they need for a given runtime.</p>
-               <section>
-                  <h3>Implications of XProc as XML</h3>
-                  <p>Like any language using XML syntax, XProc depends on a conceptual relation between primitive constructs
-               of the language, and XML syntax, a relation that is ordinarily (and usefully) mediated by means of an
-               (actual or putative) XML <i>data model</i> including elements, attributes, comment nodes, text nodes and
-               so forth. XSLT is such a language, for example: it has its top-level <i>declarations</i>, its <i>template
-                  rules</i> and its <i>instructions</i>, all of which are represented using elements in the (standard
-               and most commonly used) XML syntax. Thus, part of learning XSLT is learning that <code>xsl:key</code> is
-               syntax for a <em>key declaration</em> while <code>xsl:template</code> is a <em>template rule</em>.</p>
-                  <p>In the same way, elements in XProc's XML vocabulary correspond to structures in XProc - structures which
-               developers and users rely on, as they define both the internals and the control interface for the
-               language as a semantic construct - something that does something. In XProc, those structures include
-               things like <b>documents</b>, <b>content-types</b> (think of <q>formats</q> such as XML and JSON),
-                  <b>ports</b> and <b>steps</b>. Some XProc elements represent steps, others do not. (In the same way as
-               an XSLT key declaration is not a template rule.) Learning this difference among others is how you learn
-               XProc.</p>
-                  <p>Fortunately, the vocabulary of the language is not very large. Core XProc 3.0 has only 95 elements
-               defined in its namespace (or 99, if you are strictly counting all element types defined, not just the
-               names those elements are given). XProc 3.1 adds a few more. This includes elements for all the core and
-               community-defined steps (recognizable by the prefix <code>p:</code>). Additional to these 95 might be
-               other steps you acquire or define. As with any language, there are parts you will hardly ever use, while
-               other parts are used routinely.</p>
-               </section>
-               <section>
-                  <h3>XProc embedded documentation</h3>
-                  <p>An example of this is the XProc <code>p:documentation</code> element. This element is designed to carry
-               documentation to a consuming application. Rather than mandate some kind of behavior for
-                  <code>p:documentation</code> – something difficult or impossible to do for the general case, or to
-               test –- the XProc rule is <q>anything marked as documentation is for some other consumer</q>, i.e. a
-               documentation engine, not the XProc processor. In other words, a conformant processor <a href="../">
-                        <i>must ignore</i> anything it sees</a> inside
-                  <code>p:documentation</code>.</p>
-                  <p>There is a small loophole, namely that the effect of <code>p:inline</code> for capturing XML overrides
-               this provision, so if you put <code>p:documentation</code> inside <code>p:inline</code>, it <q>becomes
-                  visible</q> as inline content, not as XProc to be operated on (or not).</p>
-                  <p>As always it is up to the developer how thoroughly and in what form to include inline documentation. And
-               short of managing a corpus of code documentation along with the code, placing explanatory remarks and
-               code snippets into comments is a widely followed practice, and recommended for its combination of ease
-               and usefulness.</p>
-               </section>
             </section>
             <section>
                <h2>Atomic and compound steps</h2>
@@ -3433,7 +3387,7 @@ span.wordcount.over { color: darkred }
                <code>p:for-each</code>, perform an operation in parallel over a set of inputs, not a single document),
             conditionals (<code>p:if</code>, <code>p:choose</code>) and exception handling (<code>p:try</code> with
                <code>p:catch</code> and <code>p:finally</code>).</p>
-               <p>Here are all the compound steps. All others are atomic steps.</p>
+               <p>Here are all the compound steps:</p>
                <ul>
                   <li>
                      <a href="../"
@@ -3482,11 +3436,16 @@ span.wordcount.over { color: darkred }
                   <code>p:catch</code>
                   </li>
                </ul>
+               <p>All other steps are atomic steps. A survey of built-in atomic steps <a href="../tutorial/source/walkthrough/walkthrough_219_src.html">has been offered earlier</a>; additionally they are
+            well-indexed <a href="../projects/xproc-doc/out/repository-step-list.html">in this repository</a>
+            (generated with <a href="../projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl">XProc</a>) and <a href="../">on line</a> (by Erik Siegel). But of course the atomic steps
+            include steps you write and deploy yourself, or acquire from external libraries.</p>
                <p>Additionally to these elements, XProc subpipelines may contain variable declarations
                (<code>p:variable</code>) and documentation (<code>p:documentation</code>), as noted.</p>
             </section>
             <section>
                <h2>Namespaces and extension steps</h2>
+               <p>XML Namespaces is <a href="../tutorial/source/oscal-convert/oscal-convert_350_src.html">the topic that will not go away</a>.</p>
                <p>We recognize steps because we either recognize them by name - for standard steps in the <code>p:</code>
             (XProc) namespace such as <code>p:filter</code> and <code>p:add-attribute</code> - or sometimes by process
             of elimination – because they cannot be anything else. This is because extension steps, whether written or
@@ -3530,7 +3489,7 @@ span.wordcount.over { color: darkred }
                <h2>Goals</h2>
                <p>Learn enough about namespaces in XML to be able to make sense of XProc's handling of embedded vocabularies,
             whether extending its capabilities or for the purpose of embedding (literal) data sets.</p>
-               <p>Be no longer mystified by prefixed names such as <code>p:sleep</code>, <code>xsl:template</code> or
+               <p>Become comfortable with prefixed names such as <code>p:sleep</code>, <code>xsl:template</code> or
                <code>ox:oscal-xml-as-json</code> as a technology-wide convention for helping to disambiguate the
             semantics of different vocabularies, when mixed and in general.</p>
             </section>
@@ -3540,9 +3499,11 @@ span.wordcount.over { color: darkred }
             </section>
             <section>
                <h2>Resources</h2>
-               <p>A <a href="../">technical specification</a> of this mechanism was published
-            by W3C in 2009, and remains the authoritative source.</p>
-               <p>XXX A namespaces worksheet XProc provides a place to experiment....</p>
+               <p>The <a href="../">Namespaces in XML Recommendation</a> was published by W3C
+            in 2009, and remains the authoritative source.</p>
+               <p>
+                  <a href="../tutorial/worksheets/NAMESPACE_worksheet.xpl">A namespaces worksheet XProc</a>provides a place to
+            experiment with namespaces in XProc.</p>
             </section>
             <section>
                <h2>XML and namespaces</h2>
@@ -3561,62 +3522,110 @@ span.wordcount.over { color: darkred }
             </section>
             <section>
                <h2>Namespace fixup and namespace cleanup steps</h2>
-               <p>XProc specifies a process called <em>namespace fixup</em> that constitutes essentially a set of rewrite
-            rules for a tree of elements and attributes with qualified names, in order to normalize and streamline the
-            deployment of namespaces, with benefits in file size and legibility. You should think of namespace fixup as
-            something the processor might do on your behalf at any time, and a good thing. Minimize its impacts by
-            avoiding new namespaces where possible, and controlling namespaces in use.</p>
+               <p>Because they are heavily used in XSD and XPath for data typing, in XPath, XSLT and XQuery for extension
+            functionality, XProc itself, and all its XML-based inputs and outputs, namespaces are inescapable – and they
+            can be messy.</p>
+               <p>To help, XProc specifies a process called <em>namespace fixup</em> that constitutes essentially a set of
+            rewrite rules for a tree of elements and attributes with qualified names, in order to normalize and
+            streamline the deployment of namespaces, with benefits in file size and legibility. You should think of
+            namespace fixup as something the processor might do on your behalf at any time, and a good thing. Minimize
+            its impacts by avoiding new namespaces where possible, and controlling namespaces in use.</p>
                <p>While namespace fixup will help, it cannot optimize for your case. The step <code>p:delete-namespace</code>
             is a common remedy for <em>inflamed namespaces</em>, a condition that happens to XML that has been handled
             recklessly by too many handlers with too many namespaces. Also, <code>p:namespace-rename</code>.</p>
             </section>
             <section>
-               <h2>Namespace tips and tricks XXX</h2>
+               <h2>Namespace tips and tricks</h2>
+               <p>A few small points to make namespace handling easier.</p>
                <section>
                   <h3>Coining new namespaces</h3>
+                  <p>Do not be misled by the fact that namespaces are defined by means of URIs. The URIs point to pages that
+               often do not exist. Making new namespaces to provide a rational scope for a new set of elements or
+               functions is normal, and nothing needs to appear at that URI.</p>
+                  <p>Developers may have non-technical reasons for using or avoiding certain URIs when doing so, but creating
+               new XML namespaces is something that simply has to be done, if we are to use them as intended and
+               consistently.</p>
                </section>
                <section>
                   <h3>On-the-fly namespace declarations</h3>
+                  <p>When doing so, or when deploying any namespace declarations (the HTML namespace
+                  <code>http://www.w3.org/1999/xhtml</code> is a frequent offender), the associated <code>xmlns:</code>
+               attribute does <i>not</i> have to be placed only at the document root. Pipelines in the repository
+               sometimes show namespaces declared internally, especially when their scope of application is limited.</p>
                </section>
                <section>
                   <h3>Overloading prefixes</h3>
+                  <p>One problem presented by namespaces is the flip side of one of their most important features, that
+               prefixes can be bound to names dynamically.</p>
+                  <p>Consider this XML start tag for an XProc pipeline:</p>
+                  <pre>&lt;p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   type="ox:a-step" name="a-step"&gt;</pre>
+                  <p>Within the scope of this element, both unprefixed names such as <code>div</code> or <code>p</code> will
+               identify the same elements as <code>ox:div</code> and <code>ox:p</code>. None of these elements are the
+               familiar HTML <code>div</code> and <code>p</code> since the namespace is wrong – for HTML we would expect
+               the HTML namespace, or none.</p>
+                  <p>This pipeline might wish to scrub its namespaces with a <a href="../">p:namespace-delete</a> XProc step.
+               Declarations are provided for the XSLT and XSD namespaces, which will accordingly appear (and be
+               propagated) into literal elements given in the pipeline and hence, pipeline results.</p>
                </section>
                <section>
                   <h3>Matching with namespace wildcard</h3>
-                  <p>For example, <code>match="*:p"</code> will match any <code>p</code> element in any namespace.</p>
+                  <p>In XPath since version 2.0, <code>*:p</code> will identify any <code>p</code> element in any namespace –
+               not always pretty, but useful.</p>
                </section>
             </section>
          </section>
          <section class="unit learner"
                   id="oscal-convert_400"
                   data-track="learner">
-            <h1>400: What is an XProc document</h1>
+            <h1>400: Documents in XProc</h1>
             <section>
                <h2>Goals</h2>
-               <p>Learn how XProc seeks to process just about any kind of digital information.</p>
+               <p>Learn how XProc's conception of a <em>document</em> can accommodate just about any kind of digital
+            information.</p>
+               <p>This is especially important with respect to XProc's handling of formats beyond XML, including HTML, JSON,
+            plain text, text-based syntaxes and binaries.</p>
             </section>
             <section>
                <h2>Resources</h2>
                <p>A <a href="../tutorial/worksheets/CONTENT-TYPE_worksheet.xpl">content-types worksheet XProc</a> is offered for
-            trying out content-type options on XProc inputs and outputs. If you only have thirty minutes, consider
-            looking at it before reading further.</p>
+            trying out <em>content-type</em> options on XProc inputs and outputs.</p>
                <p>XProc content types are closely tied to its definition of a <em>document</em>, an object for which a string
             property <code>content-type</code> indicates the expected or nominal content type. See links given in the
             remarks below. This is a topic you can also learn by through trial and error.</p>
+               <p>For those who want the authoritative word on this topic, <a href="../">the XProc Specification</a> is open and available.
+            This coverage also dovetails with what has already been presented on <a href="../tutorial/source/walkthrough/walkthrough_219_src.html"
+                     class="LessonUnit">the XML Data Model (XDM) and XProc
+            </a>.</p>
             </section>
             <section>
                <h2>What is an XProc document</h2>
                <p>XProc has a concept of a document that permits just about any digital object or encoded entity to be
             considered and handled as such. XProc manages this by dividing its world into precincts (more on this
             below), which may be relatively well-known and well-specified, or the opposite. Well-known things can be
-            handled in well known ways. Things not so well known might still be handled by an extension (not yet
-            standardized). Because the boundaries are not fixed, more kinds of things can be rendered as documents over
-            time, assuming we can find ways to represent them using the data model at hand (XDM).</p>
+            handled in well known ways. Things not so well known might still be handled by an extension – making them
+            tractable without a standardized approach). Because the boundaries are not fixed, more kinds of things can
+            be rendered as documents over time, assuming we can find ways to represent them using the data model at
+            hand. The model, as noted, is provided by XDM.</p>
                <p>For an XProc engine to read XML, JSON, HTML and plain text is expected; for it to read (for example)
             metadata from inside image formats is a feature your XProc engine <i>may</i> offer. What XProc <q>sees</q>
-            in either case is a <b>document</b>. XML or HTML files make documents <q>naturally</q>, of course (though
-            there is not much natural about it). No surprise there, as XDM was designed for this purpose. But the
-            tree-shaped element structure and data typing system of XDM can also be generalized.</p>
+            in either case is a <b>document</b>. There is a certain circularity here, if a document is <q>what XProc
+               reads</q>, and what XProc reads are documents, but XProc is able to avoid this by saying, in effect:</p>
+               <ul>
+                  <li>Any XDM value can be a document in XProc, even values that are not <em>document nodes</em> in XDM. So an
+               XProc document might contain an XML element tree or it might be a simple string such as <q>Hello
+                  World</q>
+                  </li>
+                  <li>But anything else can also be a document in XProc, if a processor knows how to handle it in some way.
+               For example, a step might know how to open an image format and extract metadata from it.</li>
+               </ul>
+               <p>Accordingly, XML or HTML files make documents <q>naturally</q> – reflecting the fact that XDM was designed
+            for the purpose of representing them. But the tree-shaped element structure and data typing system of XDM
+            can also be generalized.</p>
                <p>So any JSON file can also be a document, with the stipulation that like other inputs, it will be rendered
             (internally) by the XProc engine as an XDM object corresponding to this JSON. XDM - not a language or a
             syntax, but a data model – becomes the shared assumption across formats. Passed between steps in a pipeline,
@@ -3624,12 +3633,11 @@ span.wordcount.over { color: darkred }
             be saved out as JSON. An XDM element tree can be saved out as XML.</p>
                <p>Core to thinking about XProc is this notion that there are <b>documents</b>, and then there are
                <b>serializations</b> of documents - the way documents are encoded as character streams in editing
-            applications or persistent storage – and these are not the same, albeit one may be a representation of the
-            other. An XML document stored in a system and an XML document as processed by XProc are related and
-            isomorphic, but not necessary identical. An <a href="../">XProc
-               document as defined formally</a> comprises an XDM (in this context called the <b>representation</b>) with
-            certain properties for XProc's convenience such as a base URI (actual or nominal) and a content type (for
-            disambiguation).</p>
+            applications or persistent storage – and these are not the same, albeit one may consdered as a
+            representation of the other. An XML document stored in a system and an XML document as processed by XProc
+            are related and isomorphic, but not necessary identical. An <a href="../">XProc document as defined formally</a> comprises an
+            XDM (in this context called the <b>representation</b>) with certain properties for XProc's convenience such
+            as a base URI (actual or nominal) and a content type (for disambiguation).</p>
                <p>Anything that can be rendered into XDM can be a document for XProc. XML and JSON come for free; other
             formats take more effort, or specialized steps (such as <a href="../">a step used to uncompress archive file formats</a>,
             thus converting one <q>document</q> into many). An XProc step supporting <a href="../">Invisible XML</a>, provided with a
@@ -3786,15 +3794,16 @@ span.wordcount.over { color: darkred }
                given in the Specification</a>. Note that for this step to work, both inputs and outputs must conform to
             certain requirements: not everything can be cast!</p>
                <ul>
-                  <li>Try specifying a content-type on input or outputs to constrain the inputs or outputs, producing errors
-               for mismatches</li>
-                  <li>Try using a cast-content-type step to explicitly cast between content types.</li>
+                  <li>Try specifying a <code>content-type</code> on input or outputs to constrain the inputs or outputs,
+               producing errors for mismatches</li>
+                  <li>Try using a <a href="../">p:cast-content-type</a> step
+               to convert between content types.</li>
                   <li>Use the function <code>p:document-properties(.,'content-type')</code> to bring back the content type of
                a document on a port or in a pipeline. In XPath, <code>.</code> refers to an designated as the (dynamic)
                processing context: so <code>p:document-properties($doc,'content-type')</code> works for any $doc
                considered by XProc to be or serve as a <em>document</em>.</li>
-                  <li>Interestingly, this means we can expect to find content-type='application/json' whenever an XProc
-               document is nothing more than an object or map – as can happen, by design.</li>
+                  <li>Interestingly, this means we can expect to find <code>content-type="application/json"</code> whenever an
+               XProc document is nothing more than an object or map – as can happen, by design.</li>
                </ul>
                <p>
                   <a href="../tutorial/worksheets/READ-JSON-TESTING.xpl">READ-JSON-TESTING.xpl</a> is a sandbox for playing with
@@ -3893,13 +3902,15 @@ span.wordcount.over { color: darkred }
             </section>
             <section>
                <h2>Prerequisites</h2>
-               <p>Those with no prior experience in XSLT or declarative markup might think about that before venturing into
-            these waters. This is an awesome exercise but faking it takes you only so far. This lesson segment assumes
-            you will write content in HTML as well as giving you the chance to extend XProc and XSLT as you see fit.</p>
+               <p>Those with no prior experience in XML-based publishing or declarative markup might be venturing into deep
+            waters. At the same time there is nothing here that will faze readers who have experience editing HTML or
+            XML.</p>
                <p>Writing HTML by hand can be arduous; accordingly, for producing tutorial pages we have used a structured XML
-            authoring environment (oXygen XML Author) with many features including styling in display; full control over
-            styling; Schematron rules in the background along with UI support for content corrections according to those
-            rules; etc. oXygen Author or its functional equivalent is highly recommended.</p>
+            authoring environment <a href="../">(oXygen XML Author)</a>. While
+            this excellent software is not necessary, it provides with many features including styling in display; full
+            control over styling; testing Schematron rules in the background along with UI support for content
+            corrections according to those rules; etc. A tool such as this or its functional equivalent is highly
+            recommended – again demonstrating the value of a standards-based encoding.</p>
                <p>However, any text editor or programmers' coding environment also works (to whatever extent generic HTML is
             supported), and Schematrons applied to HTML files can be run in XProc (as described).</p>
             </section>
@@ -3915,12 +3926,12 @@ span.wordcount.over { color: darkred }
             <section>
                <h2>Improve or enhance a lesson or lesson unit</h2>
                <p>Alert readers will have observed that a Markdown-based deployment invites editing. But the authoring or data
-            acquisition model of this tutorial is not Markdown-based - Markdown is paradoxically not used for its usual
-            purpose, but as one of several publication formats for this data set, which is currently written in an
-            XML-based HTML5 tag set defined for the project. By writing, querying and indexing in XHTML we can use XProc
-            from the start. The HTML dialect means things mostly <q>just work</q> using HTML tools such as web browsers,
-            while we have transformations (provided in pipelines) to render into any other publication format we may
-            happen to need: Markdown being only one of a range of choices.</p>
+            acquisition model of this tutorial is not Markdown-based - Markdown is being used here in its usual way,
+            instead serving as one of several publication formats for this data set. Source data itself is being written
+            and maintained in in an XML-based HTML5 tag set defined for the project. By writing, querying and indexing
+            in XHTML we can use XProc from the start. The HTML dialect means things <q>just work</q> using HTML tools
+            such as web browsers, while we have transformations (provided in pipelines) to render into any other
+            publication format we may happen to need. Markdown is one of a range of choices.</p>
                <p>Extensibility and flexibility is one of the strengths of this approach: to publish a new or rearranged
             tutorial sequence can be done with a few lines and commands. A drag and drop interface supporting XProc
             makes this even easier, while again XProc is already supported under CI/CD, meaning both editorial and code
@@ -3928,14 +3939,16 @@ span.wordcount.over { color: darkred }
                <p>The workflow supporting this publication model is simple. A set of lessons (lesson units) is gathered
             together in a single folder. That folder is listed in <a href="../tutorial/lesson-plan.xml">a directory file</a>.
             To publish the tutorial, an XProc pipeline is executed that polls these directories and produces Markdown
-            files corresponding to the inputs, only in a new sequence with links rewritten. Other pipelines can be run
-            to update the directory to lesson units and other higher-level production such as a single-page HTML reading
-            preview version. See <a href="../tutorial/source/courseware/courseware_101_src.html"
-                     class="LessonUnit">the earlier treatment</a> for more
-            details.</p>
-               <p>Improving a page is as simple as editing the HTML source in the folder. Adding a page is as simple as
-            copying and altering a page in place, and seeing to it the new page is valid to both HTML5 and project
-            requirements.</p>
+            files corresponding to the inputs, only in a new sequence with links rewritten.</p>
+               <p>Adding a page is as simple as copying and altering a page in place, and seeing to it the new page is valid
+            to both HTML5 and project requirements, and running the production pipeline with the new or edited
+            sources.</p>
+               <p>Other pipelines can be run to update the directory to lesson units and other higher-level production such as
+            a single-page HTML reading preview version. See <a href="../tutorial/source/courseware/courseware_101_src.html"
+                     class="LessonUnit">the
+               earlier treatment</a> for more details.</p>
+               <p>Improving a page is as simple as editing the HTML source in the folder and running pipelines to refresh its
+            results.</p>
                <section>
                   <h3>Apply Schematron to your edits</h3>
                   <p>
@@ -3946,11 +3959,13 @@ span.wordcount.over { color: darkred }
                </section>
             </section>
             <section>
-               <h2>Create a new lesson unit (<q>area</q>)</h2>
-               <p>Create a new folder and add it to <a href="../tutorial/lesson-plan.xml">the tutorial lesson plan XML</a>.</p>
+               <h2>Create a new set of lessons</h2>
+               <p>Create a new folder in the <code>tutorial/source</code> subdirectory, and list it in<a href="../tutorial/lesson-plan.xml">the tutorial lesson plan XML</a>. Provide your new lesson plan with a new
+            title and version.</p>
+               <p>(You may find other work-in-progress already there: feel free to help.)</p>
                <p>When production pipelines are run, all HTML files present in the newly-listed folders will be included to
             the tutorial as lesson units. Within the folder they will be listed alphabetically. Be sure that your new
-            HTML is also Schematron-valid.</p>
+            HTML is also Schematron-valid to <a href="../tutorial/src/lesson-html.sch">the Schematron here</a>.</p>
             </section>
             <section>
                <h2>Produce a new project and document it with a tutorial</h2>

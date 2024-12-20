@@ -1,7 +1,7 @@
 
 
 
-# XProc 3 in Action: an Immersive Tutorial
+# XProc in Action: an Immersive Introduction
 
 ### Lesson set 01 - acquire
 
@@ -23,7 +23,7 @@
 * [102: Hands on data conversions](Lesson03/oscal-convert_102.md) (MAKER)
 * [201: Anatomy of an XProc pipeline](Lesson03/oscal-convert_201.md) (LEARNER)
 * [350: Namespaces in XML and XProc](Lesson03/oscal-convert_350.md) (MAKER)
-* [400: What is an XProc document](Lesson03/oscal-convert_400.md) (LEARNER)
+* [400: Documents in XProc](Lesson03/oscal-convert_400.md) (LEARNER)
 * [401: XProc, XML, JSON and content types](Lesson03/oscal-convert_401.md) (MAKER)
 
 ### Lesson set 04 - courseware
