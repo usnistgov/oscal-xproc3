@@ -3,7 +3,6 @@
 With Java and `bash`, run `./setup.sh` to set up. `curl` and `unzip` must be available on your command line.
 
 See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for licensing information on these products and open-source initiatives.
-
 Or, by hand ...
 
 ## Set up Morgana XProc IIIse
@@ -59,13 +58,13 @@ See [Morgana documentation](https://www.xml-project.com/manual/index.html) for m
 
 ## Run the smoke tests
 
-Because it reduces to (nearly) the most minimal use of XProc, if the [smoke test](./smoketest/smoketest/POWER-UP.xpl) application doesn't work, nothing can be expected to work.
+Because it reduces to (nearly) the most minimal use of XProc, if the [smoke test](./smoketest/smoketest/TEST-XPROC3.xpl) application doesn't work, nothing can be expected to work.
 
 Likewise, tests are provided that can show that XSLT and Schematron capabilities are correctly provided for (by the Saxon and SchXSLT libraries). See [TESTING.md](TESTING.md) for more information.
 
-- [smoketest/SMOKETEST-XSLT.xpl](smoketest/SMOKETEST-XSLT.xpl)
-- [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-SCHEMATRON.xpl)
-- [smoketest/SMOKETEST-SCHEMATRON.xpl](smoketest/SMOKETEST-XSPEC.xpl)
+- [smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl)
+- [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl)
+- [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-XSPEC.xpl)
 
 Note that since Schematron and XSpec depend on XSLT and hence invoke Saxon, the Saxon-only smoketest can often be skipped.
 

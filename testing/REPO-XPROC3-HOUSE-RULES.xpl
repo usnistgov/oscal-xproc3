@@ -28,12 +28,12 @@
       <p:with-input select="descendant::file"/>
       <!-- Remember that each input node is a root for its own tree - hence XPath context -->
       <p:variable name="path" select="/*/@path"/>
-      <p:load href="../{$path}" message="[REPO-XPROC3-HOUSE-RULES] Loading { $path }"/>
+      <p:load href="{ $path }" message="[REPO-XPROC3-HOUSE-RULES] Loading { $path }"/>
       <p:try>
          <p:group name="validation">
             <p:variable name="base" select="base-uri(/*)"/>
             <!-- assert-valid='true' presents c:errors results when validation fails as 'no failed assertions or successful reports' -->
-            <p:validate-with-schematron assert-valid="true"  message="[REPO-XPROC3-HOUSE-RULES] Validating { $path } against { $schematron-path }">
+            <p:validate-with-schematron assert-valid="true" message="[REPO-XPROC3-HOUSE-RULES] Validating { $path } against { $schematron-path }">
                <p:with-input port="schema" href="{$schematron-path}"/>
             </p:validate-with-schematron>
             

@@ -54,10 +54,23 @@ Naturally the application of all these rules can be altered by editing the Schem
 
 ### Pipelines (summary)
 
-- [TEST-XPROC-SET.xpl](TEST-XPROC-SET.xpl) lists XProc files to be tested
-- [BATCH-XPROC3-HOUSE-RULES.xpl](BATCH-XPROC3-HOUSE-RULES.xpl) runs the House Rules Schematron on those files, producing an aggregated report
-- [HARDFAIL-XPROC3-HOUSE-RULES.xpl](HARDFAIL-XPROC3-HOUSE-RULES.xpl) does the same, except failing on error (useful for CI/CD)
-- [REPO-XPROC3-HOUSE-RULES.xpl](REPO-XPROC3-HOUSE-RULES.xpl) produces an aggregated report, but from all XProcs not just those listed in `TEST-XPROC-SET.xpl`
+Pipelines useful for the developer
+
+* [VALIDATION-FILESET-READYCHECK.xpl](VALIDATION-FILESET-READYCHECK.xpl) runs a pre-check to validate that files referenced in FILESET Xprocs are in place
+* [REPO-FILESET-CHECK.xpl](REPO-FILESET-CHECK.xpl) for double checking the listed FILESET pipelines against the repository itself - run this preventatively to ensure files are not left off either list inadvertantly
+* [RUN_XPROC3-HOUSE-RULES_BATCH.xpl](RUN_XPROC3-HOUSE-RULES_BATCH.xpl) applies House Rules Schematron to all XProcs listed in the House Rules FILESET - just like the HARDFAIL House Rules pipeline except ending gracefully with error reports
+* [REPO-XPROC3-HOUSE-RULES.xpl](REPO-XPROC3-HOUSE-RULES.xpl) applies House Rules Schematron to all XProc documents in the repository
+* [RUN_XSPEC_BATCH.xpl](RUN_XSPEC_BATCH.xpl) runs all XSpecs listed in the XSpec FILESET, in a single batch, saving HTML and JUnit test results
+
+Pipelines run under CI/CD
+
+* [HARDFAIL-XPROC3-HOUSE-RULES.xpl](HARDFAIL-XPROC3-HOUSE-RULES.xpl) runs a pipeline enforcing the House Rules Schematron to every XProc listed in the imported FILESET pipeline, bombing (erroring out) if an error is found - useful when we want to ensure an ERROR condition comes back on an error reported by a *successful* Schematron run
+* [RUN_XSPEC-JUNIT_BATCH.xpl](RUN_XSPEC-JUNIT_BATCH.xpl) runs all XSpecs listed in the XSpec FILESET, saving only JUnit results (no HTML reports)
+
+Additionally
+
+* [FILESET_XPROC3_HOUSE-RULES.xpl](FILESET_XPROC3_HOUSE-RULES.xpl) provides a list of resources (documents) to be made accessible to importing pipelines
+* [FILESET_XSPEC.xpl](FILESET_XSPEC.xpl) provides a list of XSpec files to be run under CI/CD
 
 
 ---

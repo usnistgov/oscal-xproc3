@@ -20,11 +20,11 @@
       </xsl:where-populated>
    </xsl:template>
    
-   <!-- excluding XProcs inside /lib -->
-   <xsl:template match="c:file[exists(ancestor::*[@name='lib']/parent::c:directory[empty(parent::*)])]"/>
+   <!-- excluding XProcs deep inside /lib -->
+   <xsl:template match="c:file[exists(parent::*/ancestor::*[@name='lib']/parent::c:directory[empty(parent::*)])]"/>
       
    <xsl:template match="c:file">
-      <file path="{ancestor-or-self::*[exists(parent::*)]/@name => string-join('/') }"/>
+      <file path="{ ancestor-or-self::*/@xml:base => string-join('') }"/>
    </xsl:template>
    
 </xsl:stylesheet>

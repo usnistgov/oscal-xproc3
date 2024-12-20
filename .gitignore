@@ -1,6 +1,10 @@
 # IDE project file
 *.xpr
 
+# Local working files
+working/
+scratch/
+
 # contents of lib
 lib/*
 # except for important items

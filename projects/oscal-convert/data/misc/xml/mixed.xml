@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns="http://www.w3.org/2005/xpath-functions">
+   <string key="a_string">A string value</string>
+   <map key="an_object">
+      <number key="one">1</number>
+      <number key="two">2</number>
+   </map>
+   <array key="an_array">
+      <map>
+         <string key="A">a</string>
+         <string key="B">b</string>
+      </map>
+      <string>string</string>
+   </array>
+</map>

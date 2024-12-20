@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>401: XProc, XML, JSON and content types</title>
+      <meta charset="utf-8" />
+   </head>
+   <body data-track="maker">
+      <h1>401: XProc, XML, JSON and content types</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Understand a little more about JSON and other data formats in an XML processing environment.</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>A <a href="../../worksheets/CONTENT-TYPE_worksheet.xpl">content-types worksheet XProc</a> is offered for
+            trying out content-type options on XProc inputs and outputs.</p>
+         <p>The pipeline <a href="../../worksheets/READ-JSON-TESTING.xpl">READ-JSON-TESTING.xpl</a> provides an
+            experimental surface for working functionality specifically related to JSON and XDM map objects.</p>
+      </section>
+      <section>
+         <h2>Exercise some options</h2>
+         <p>The worksheets just cited provide an opportunity to try out <code>content-type</code> configuration options.
+            Note how you can specify a content type that will serve as a constraint on inputs and outputs, analogous in
+            some ways to the type signature on a function. And the step <code>p:content-type</code> serves to cast one
+            content type to another, according to <a href="https://spec.xproc.org/3.0/steps/#c.cast-content-type">rules
+               given in the Specification</a>. Note that for this step to work, both inputs and outputs must conform to
+            certain requirements: not everything can be cast!</p>
+         <ul>
+            <li>Try specifying a <code>content-type</code> on input or outputs to constrain the inputs or outputs,
+               producing errors for mismatches</li>
+            <li>Try using a <a href="https://spec.xproc.org/3.0/steps/#c.cast-content-type">p:cast-content-type</a> step
+               to convert between content types.</li>
+            <li>Use the function <code>p:document-properties(.,'content-type')</code> to bring back the content type of
+               a document on a port or in a pipeline. In XPath, <code>.</code> refers to an designated as the (dynamic)
+               processing context: so <code>p:document-properties($doc,'content-type')</code> works for any $doc
+               considered by XProc to be or serve as a <em>document</em>.</li>
+            <li>Interestingly, this means we can expect to find <code>content-type="application/json"</code> whenever an
+               XProc document is nothing more than an object or map – as can happen, by design.</li>
+         </ul>
+         <p><a href="../../worksheets/READ-JSON-TESTING.xpl">READ-JSON-TESTING.xpl</a> is a sandbox for playing with
+            JSON objects as XDM maps. The <a href="../../worksheets/CONTENT-TYPE_worksheet.xpl">content-types
+               worksheet</a> is set up for trying content-type options on inputs and outputs.</p>
+      </section>
+   </body>
+</html>

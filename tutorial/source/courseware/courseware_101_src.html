@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Courseware 101: Producing this tutorial</title>
+      <meta charset="utf-8"/>
+   </head>
+   <body data-track="observer">
+      <h1>Courseware 101: Producing this tutorial</h1>
+      <section>
+         <h2>Goals</h2>
+         <p>Understand better how this tutorial is produced.</p>
+         <p>See an example of a small but lightweight and scalable publishing system can be implemented in XProc and
+            XSLT.</p>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p>None.</p>
+         <p>Readers who wish not only to inspect and refresh tutorial contents, but also to edit or extend, or alter the
+            tutorial pipelines, are invited to look at <a href="courseware_219_src.html" class="LessonUnit">the next
+               exercise (lesson unit)</a>.</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <ul>
+            <li>Everything in the course you have seen so far</li>
+            <li>Everything else you have seen relating to XProc</li>
+            <li>Your own problems</li>
+            <li>Your own examples</li>
+         </ul>
+      </section>
+      <section>
+         <h2>Tutorial production pipelines</h2>
+         <p>The source files for these tutorials are all stored in the repository in a source directory, and maintained
+            in HTML format. The expectation is that all files will be represented as valid and complete HTML 5 in XML
+            syntax, i.e. XHTML to be treated as an HTML document type. However, not all files in this subdirectory are
+            used as source materials; this is only where they are stored and maintained.</p>
+         <p>At the top of the tutorial structure, a file <a href="../../lesson-plan.xml">lesson-plan.xml</a> is used as
+            a publication driver or configuration file, when read as a sequence of links back to folders. Each folder
+            named as a <code>Lesson/@key</code> is read, with all HTML files surnamed <code>_src.html</code> from that
+            folder considered to be tutorial source materials, in nominally alphabetic order. The tutorial as a whole is
+            built by reading each of these files, converting it to Markdown (with adjustments), and producing indexes to
+            the entire set, all done by writing files into the <a href="sequence/">sequence directory</a>. Such a
+            Markdown file set can be read and edited in Github in the usual way, or refreshed by running a production
+            pipeline again.</p>
+         <p>The authoring model and its design rationales as well as its tooling support, including automated proof
+            checking under CI/CD, is described in a <a href="courseware_219_src.html" class="LessonUnit">subsequent
+               lesson unit</a>. Authoring in HTML rather than Markdown provides all kinds of leverage for ad-hoc
+               <q>tutorial semantics</q> especially with the help of a structured (tagless) editor.</p>
+         <p>Each of the pipelines at the top performs a specific task with respect to tutorial production.</p>
+         <p>As always, pipelines should be provided with explanatory comments.</p>
+         <p>When reading and writing files to file systems, the usual security considerations apply.</p>
+         <section>
+            <h3><a href="../../PRODUCE-TUTORIAL-PREVIEW.xpl">PRODUCE-TUTORIAL-PREVIEW</a></h3>
+            <p>Generates a preview (reading) version of the tutorial, for proofing.</p>
+         </section>
+         <section>
+            <h3><a href="../../PRODUCE-TUTORIAL-MARKDOWN.xpl">PRODUCE-TUTORIAL-MARKDOWN</a></h3>
+            <p>Generates Markdown from the HTML source data, populating an output folder with these results.</p>
+         </section>
+         <section>
+            <h3><a href="../../PRODUCE-TUTORIAL-TOC.xpl">PRODUCE-TUTORIAL-TOC</a></h3>
+            <p>Generates a Table of Contents in Markdown, saving it as <a href="../../sequence/lesson-sequence.md"
+                  >lesson-sequence.md</a> in a location where it will function on publication (by the repository).</p>
+         </section>
+         <section>
+            <h3><a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a></h3>
+            <p>Generates an index of XProc elements used in projects in the repository, stored as<a
+                  href="../../sequence/element-directory.md">element-directory.md</a>.</p>
+         </section>
+      </section>
+   </body>
+</html>

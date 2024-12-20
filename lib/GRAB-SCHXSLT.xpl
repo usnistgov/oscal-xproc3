@@ -7,10 +7,10 @@
 
 
    <!-- SchXSLT is at https://github.com/schxslt/schxslt
-      
-      It is an XSLT-based Schematron processor
-      
-   -->
+        It is an XSLT-based Schematron processor -->
+   
+   <!-- /end prologue -->
+   <!-- start subpipeline -->
    
    <p:variable name="download-path" select="'https://github.com/schxslt/schxslt/releases/download/v1.9.5'"/>
    <!--<p:variable name="download-path" select="'.'"/>-->
@@ -38,6 +38,6 @@
       <p:store href="{ $path-here }" message="{$prefix} Saving { $path-here }"/>
    </p:for-each>
    
-   <p:identity message="{ $prefix } Test your Schematron capability using ../smoketest/SMOKETEST-SCHEMATRON.xpl"/>
+   <p:identity message="{ $prefix } Test your Schematron capability using ../smoketest/TEST-SCHEMATRON.xpl"/>
    
 </p:declare-step>

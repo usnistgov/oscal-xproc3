@@ -1,0 +1,66 @@
+@namespace "http://www.w3.org/1999/xhtml";
+
+@namespace oxy "http://www.oxygenxml.com/extensions/author";
+
+head {
+  display: block;
+  border: solid white 1pt;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+}
+
+head title { font-size: 80%; font-family: monospace }
+
+meta:before{
+	    content:"Meta: charset=" attr(charset);
+	    font-weight:bold;
+	}
+	
+body { font-family: Cambria; line-height: 135% }
+
+body:before { font-weight: bold;
+   content: "Track: " oxy_combobox( 
+     columns, 16,
+     edit, "@data-track",
+     editable, false,
+     values, "observer, maker, learner",
+     labels, "Observer, Maker, Learner" ) }
+
+body[data-track=observer] { background-color: honeydew }
+body[data-track=maker]    { background-color: seashell }
+body[data-track=learner]  { background-color: aliceblue }
+
+
+section { margin: 0.4em; padding: 0.3em; outline: thin solid black }
+
+h1 { color: #003311 }
+h2 { color: #006622 }
+h3 { color: #009933 }
+h4 { color: #00cc44 }
+h5 { color: #00ff55 }
+h6 { color: #33ff77 }
+
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  float: left; clear: both; font-family: sans-serif; outline: thin solid blue;
+  color: steelblue; margin-right: 0.2rem; padding: 0.3em; font-size: 40%;
+   vertical-align: text-top;
+content: oxy_name() }
+
+a.LessonUnit { background-color: pink }
+
+a:after {
+    content: 
+        oxy_urlChooser(        
+        edit, "href",
+        columns 25);
+}
+
+q { font-style: inherit }
+em { font-style: inherit; font-weight: bold; color: midnightblue }

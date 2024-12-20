@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>102: XProc fundamentals</title>
+   <meta charset="utf-8"/>    </head>
+   <body data-track="maker">
+      <h1>102: XProc fundamentals</h1>
+      <section>
+         <h2>Goals</h2>
+         <ul>
+            <li>More familiarity with XProc 3.0, with more syntax</li>
+            <li>Get hands a little dirty – and practice washing up</li>
+            <li>First look at XProc pipeline organization</li>
+         </ul>
+      </section>
+      <section>
+         <h2>Prerequisites</h2>
+         <p>You have done <a href="../acquire/acquire_101_src.html" class="LessonUnit">Setup 101</a>, <a
+               href="../acquire/acquire_101_src.html" class="LessonUnit">Setup 102</a> and <a href="walkthrough_101_src.html"
+               class="LessonUnit">Unpack 101</a>.</p>
+      </section>
+      <section>
+         <h2>Resources</h2>
+         <p>Take a quick look <i>now</i> (and a longer look later):</p>
+         <ul>
+            <li>This tutorial's handmade <a href="../../xproc-links.md">XProc links page</a></li>
+            <li>Also, the official <a href="https://xproc.org">XProc.org dashboard page</a></li>
+            <li>If interested, check out XProc index materials produced in this repository: <a
+                  href="../../../projects/xproc-doc/readme.md">XProc docs</a></li>
+            <li>In any case, the same pipelines you ran in setup: <a href="../acquire/acquire_101_src.html"
+                  class="LessonUnit">Setup 101</a>.</li>
+         </ul>
+      </section>
+      <section>
+         <h2>Learning more about XProc</h2>
+         <p>A partial list of ways to learn more about XProc:</p>
+         <ul>
+            <li>Search engines: use keywords <q>XProc3</q> or <q>XProc 3.0</q> to help distinguish from 1.0
+               technologies</li>
+            <li>Resources: <a href="../../xproc-links.md">links</a> here and elsewhere</li>
+            <li>Hands on exercises</li>
+            <li>Work the notes - save out and annotate these pages</li>
+         </ul>
+      </section>
+      <section>
+         <h2>Details details!</h2>
+         <p>XProc pipelines described in <a href="walkthrough_101_src.html" class="LessonUnit">the previous lesson unit</a>
+            contain a few noteworthy features.</p>
+         <p> To edit these files, use any XML-capable plain text editor (that is, with care, any editor at all that
+            saves text files as UTF-8).</p>
+         <section>
+            <h3>TEST-XSPEC</h3>
+            <ul>
+               <li>Where XSpec documents are bound to the input port <code>source</code>, they have
+                     <code>content-type='application/xml'</code> given. This is because with the unconventional file
+                  suffix <code>xspec</code> (useful for other reasons), the XProc engine needs extra information to know
+                  they should be read as XML, not some other data format. Try removing the <code>content-type</code> to
+                  see what happens when the engine does not know an XML file is XML.</li>
+               <li>The step <code>p:for-each</code> is not just a step: it also contains steps. It is a <em>compound
+                     step</em>. You would be correct to infer this step enables us to perform operations on several
+                  inputs in parallel: just what this pipeline needs.</li>
+               <li>Within the <code>p:for-each</code>, the step <code>ox:execute-xspec</code> is named in the
+                     <code>ox</code> namespace, which resolves to the string
+                     <code>http://csrc.nist.gov/ns/oscal-xproc3</code>, a value assigned for this project. This step is
+                  defined in the <a href="../../../xspec/xspec-execute.xpl">imported pipeline</a>. XProc is indefinitely
+                  extensible: the namespace feature allows us to create new steps without fear of name clashes with old
+                  steps – or steps that are still uninvented and unnamed. We can develop and name steps in our own
+                  namespace, while also acquiring and using steps in other namespaces.</li>
+               <li>The <code>p:identity</code> step is used twice in this pipeline for one purpose only: to indicate
+                  messages the XProc engine should deliver. In the normal configuration, you should see these messages
+                  in the console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
+               <li>The repository observes a couple of conventions with regard to steps and messages. For example: any
+                     <code>p:load</code> or <code>p:save</code> step should have a message; and messages should always
+                  be prefixed with a bracketed indicator of the pipeline that issues them, for example the
+                     <code>[TEST-XSPEC]</code> messages that are emitted here, once for each input and again once when
+                  the pipeline finishes.</li>
+               <li>Yes, those conventions are enforced in the repository by <a
+                     href="../../../testing/xproc3-house-rules.sch">a Schematron</a> that can be applied to any
+                  pipeline, both in development and when it is committed to the repository under <a
+                     href="walkthrough_301_src.html" class="LessonUnit">CI/CD (continuous integration / continous
+                     development)</a>. Assuming we take care to run our tests and validations, this does most of the
+                  difficult work maintaining consistency, namely detecting the inconsistency. The result, assuming we do
+                  things correctly, is a more-than-human level of consistency in error checking and correction. This is
+                  discussed again <a href="../courseware/courseware_101_src.html" class="LessonUnit">in a subsequent
+                     Lesson Unit</a>.</li>
+               <li>Reassuring messages aside, no XSpec reports are actually captured by this XProc! The
+                     <code>ox:execute-xspec</code> steps produces results – and produces its own runtime messages – but
+                  those results have no <a href="https://spec.xproc.org/3.0/xproc/#connections">connection</a> given in
+                  the main pipepline, and it has no output port (<code>p:output</code>). Accordingly the pipeline
+                     <em>sinks</em> by default – the documents delivered at the end are discarded. (For smoke test
+                  purposes, we care only to see that it runs and completes without error.) The inputs are all
+                  controlled, so we know what those reports say. (Or we can find out by altering the pipeline to capture
+                  the findings, not discard them.)</li>
+            </ul>
+         </section>
+         <section>
+            <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
+            <p>The pipeline <a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> has
+                  <q>real-world complexity</q>. Reviewing its steps can give a sense of how XProc combines simple
+               capabilities into complex operations. Notwithstanding the title of this section, it is not important to
+               understand every detail – knowing they are there is enough.</p>
+            <ul>
+               <li>The prologue here contains a single <code>p:input</code> configuration. This one gives the input in
+                  line, as an XML document. Within this XML, all the project folders to be covered by the index are
+                  listed. Their order also matters since one of the two indexes built works incrementally, prior
+                  elements affecting what happens with later elements.</li>
+            </ul>
+            <p>This pipeline exploits one other important feature of XProc: so far at least, it is all XML. Even short
+               of of dynamically generating and executing XProc (a feature the language  <a
+                  href="https://spec.xproc.org/lastcall-2024-08/head/run/">provides for</a>), the common ground of XML
+               format means that with XProc working XML tools, XML and its related ecosystem (most significantly but not
+               only XPath) is always available as an instrumental force magnifier or power tool, something we can put to
+               work again and again. In XProc, errors are reported in XML. So we can capture, aggregate and index error
+               messages in XProc. In XProc, a directory file listing is provided in XML. So we have a ready way to
+               present views of file systems – the XML shows all the names and structures – as well as analyze them and
+               access the files in them. Etc.</p>
+         </section>
+      </section>
+      <section>
+         <h2>Messing around</h2>
+         <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
+            it behaves.</p>
+         <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
+            modify the copy. Modifying any of the pipelines presented so far, see what happens when:</p>
+         <ul>
+            <li>An <code>@href</code> points to a location on the system where there is no file</li>
+            <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
+               formed)</li>
+            <li>A <code>p:namespace-delete</code> step is removed from the end of a pipeline – how does the result
+               change?</li>
+            <li>Other steps are excluded</li>
+            <li>New elements are renamed (etc.)</li>
+         </ul>
+         <p>When changes introduce errors, runtime failures and tracebacks will <i>sometimes</i> appear. The indicated
+            problem or the source of the reported problem must be repaired.</p>
+         <p>And sometimes a process will run successfully, despite an <q>error</q>. Whether it is in error then depends
+            on how well it conforms to its requirements. Does it deliver the results we want and expect?</p>
+         <p>As an exercise, make some changes in copies of the test pipelines. Make at least one change that produces
+            outputs (such as echoing a document to the console) that are visibly different from the results of the
+            original pipeline.</p>
+         <section>
+            <h3>Disabling your code</h3>
+            <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
+               syntax:</p>
+            <pre>&lt;tagged>Text&lt;/tagged></pre>
+            <p>becomes:</p>
+            <pre>&lt;!--  &lt;tagged>Text&lt;/tagged> --></pre>
+            <p>A code editor that supports XML might let you do this with a keystroke, for example <code>ctrl-,</code>
+               (Control key plus comma), after selecting the text you wish to include in the comment.</p>
+            <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful
+               technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks
+               of code.</p>
+         </section>
+      </section>
+      <section>
+         <h2>Take note</h2>
+         <section>
+            <h3>Where are these downloads coming from?</h3>
+            <p>Pipelines can use a few different strategies for resource acquisition, depending on the case, and on
+               where and in what form the resource is available. (Sometimes a file on Github is easiest to download
+               "raw", sometimes an archive is downloaded and opened, and so on.) For now, it is not necessary to
+               understand details in every case, only to observe the variation and range. (With more ideas welcome.
+               Could XProc be used to build a <q>secure downloader</q> that knows how, for example, to compare
+               hash-based signatures?)</p>
+            <p>Wherever you see <code>href</code> attributes, take note.</p>
+            <p>Since <code>href</code> is how XProc <q>sees</q> the world, either to read data in or to write data out,
+               this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For
+               example, a download will not succeed if the resource indicated by the <code>href</code> for the download
+               returns an error, or nothing. In XProc, <code>href</code> attribute settings become important <i>points
+                  of control</i> for interaction between an XProc pipeline, and its runtime environment.</p>
+            <p>Useful detail: where XProc has <code>p:store href="some-uri.file"</code>, the <code>href</code> is read
+               by the processor as the intended location for storage of pipeline data, that is, for a <i>write</i>
+               operation. In other cases <code>href</code> is always an argument for a <i>read</i> operation.</p>
+         </section>
+         <section>
+            <h3>Syntax tips</h3>
+            <p>In XPath syntax, <code>$foo</code> (a name with a <code>$</code> prefixed) indicates a <b>variable
+                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i>
+                  (either<i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such
+               as <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
+                  write] to the URI given by <code>$some-xml-uri</code></q>.</p>
+            <p>An XProc developer always knows where <code>href</code> is used in a pipeline, and how to test for and
+               update its use. As always with syntax, the easiest way to learn it is to try making changes and observing
+               outcomes.</p>
+         </section>
+      </section>
+   </body>
+</html>

@@ -36,12 +36,13 @@ jobs:
         id: setup
       - name: Run smoketests
         run: |
-          ./xp3.sh smoketest/POWER-UP.xpl
-          ./xp3.sh smoketest/SMOKETEST-SCHEMATRON.xpl -silent
-          ./xp3.sh smoketest/SMOKETEST-XSPEC.xpl      -silent
+          ./xp3.sh smoketest/TEST-XPROC3.xpl
+          ./xp3.sh smoketest/TEST-SCHEMATRON.xpl -silent
+          ./xp3.sh smoketest/TEST-XSPEC.xpl      -silent
         id: exec_smoketests
       - name: Run tests
         run: |
+          ./xp3.sh testing/REPO-FILESET-CHECK.xpl          -silent
           ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl -silent
           ./xp3.sh testing/RUN_XSPEC-JUNIT_BATCH.xpl       -silent
         id: exec_tests

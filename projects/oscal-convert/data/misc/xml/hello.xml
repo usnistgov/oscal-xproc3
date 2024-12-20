@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map xmlns="http://www.w3.org/2005/xpath-functions">
+   <string key="message">Hello!</string>
+   <string key="TO">World</string>
+</map>

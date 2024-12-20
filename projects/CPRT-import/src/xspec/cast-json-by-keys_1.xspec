@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec"
+   xmlns:xp="http://www.w3.org/2005/xpath-functions"
+   xmlns="http://csrc.nist.gov/ns/cprt"
+   stylesheet="../cast-jon-by-keys.xsl">
+   
+   <x:scenario label="Basic casting">
+      <x:context>
+         <xp:map>
+            <xp:array key="strings">
+               <xp:string>one</xp:string>
+               <xp:number>2</xp:number>
+               <xp:string>three</xp:string>
+            </xp:array>
+         </xp:map>
+      </x:context>
+      <x:expect label="Elements now named after keys, in cprt ns">
+         <xp:map>
+            <strings>
+               <string>one</string>
+               <string>2</string>
+               <string>three</string>
+            </strings>
+         </xp:map>
+      </x:expect>
+   </x:scenario>
+
+</x:description>

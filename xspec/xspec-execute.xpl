@@ -15,7 +15,7 @@
    <p:import href="../lib/schxslt-1.9.5/xproc/3.0/library.xpl"/>
    
    <!-- Providing a relative path to XSpec (top-level directory) on this system. with trailing slash -->   
-   <p:option name="xspec-home" select="'../lib/xspec-3.0.3/'" static="true"/>
+   <p:option name="xspec-home" select="'../lib/xspec-3.1.2/'" static="true"/>
    
    <p:declare-step name="execute-xslt-xspec" type="ox:execute-xslt-xspec">      
       <p:input port="xspec-source"        primary="true"  content-types="application/xml"/>      
@@ -45,14 +45,14 @@
       </p:xslt>
       <!-- Picking up this result and putting it back on the primary port. -->
       <p:identity name="xspec-report">
-         <p:with-input port="source" pipe="secondary@xslt-xspec-execution"/>
+         <p:with-input pipe="secondary@xslt-xspec-execution"/>
       </p:identity>
 
       <ox:produce-html-report name="html-report"/>
       <p:sink/>
       
       <ox:produce-junit-report name="junit-report">
-         <p:with-input port="source" pipe="result@xspec-report"/>
+         <p:with-input pipe="result@xspec-report"/>
       </ox:produce-junit-report>
    </p:declare-step>
    
@@ -80,7 +80,7 @@
       <p:sink/>
       
       <ox:produce-junit-report name="junit-report">
-         <p:with-input port="source" pipe="result@xspec-report"/>
+         <p:with-input pipe="result@xspec-report"/>
       </ox:produce-junit-report>
    </p:declare-step>
    
@@ -98,7 +98,7 @@
       <p:variable name="target-schematron-path" select="/*/@schematron"/>
       
       <schxslt:compile-schematron name="target-schematron-xslt" xmlns:schxslt="https://doi.org/10.5281/zenodo.1495494">
-         <p:with-input port="source" href="{ resolve-uri($target-schematron-path, $xspec-file-path) }"/>
+         <p:with-input href="{ resolve-uri($target-schematron-path, $xspec-file-path) }"/>
       </schxslt:compile-schematron>
       <p:sink/>
       
@@ -135,14 +135,14 @@
          <p:with-option name="template-name" select="'Q{http://www.jenitennison.com/xslt/xspec}main'"/>
       </p:xslt>
       <p:identity name="xspec-report">
-         <p:with-input port="source" pipe="secondary@schematron-xspec-execution"/>
+         <p:with-input pipe="secondary@schematron-xspec-execution"/>
       </p:identity>
       
       <ox:produce-html-report name="html-report"/>      
       <p:sink/>
       
       <ox:produce-junit-report name="junit-report">
-         <p:with-input port="source" pipe="result@xspec-report"/>
+         <p:with-input pipe="result@xspec-report"/>
       </ox:produce-junit-report>
    </p:declare-step>
    

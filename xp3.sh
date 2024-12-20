@@ -6,7 +6,7 @@
 # TODO: test in a GUI for drag-and-drop support on simple XProcs (no args)
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
-MORGANA="${SCRIPT_DIR}/lib/MorganaXProc-IIIse-1.3.7/Morgana.sh"
+MORGANA="${SCRIPT_DIR}/lib/MorganaXProc-IIIse-1.4/Morgana.sh"
 
 usage() {
     cat <<EOF

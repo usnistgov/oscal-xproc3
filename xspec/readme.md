@@ -9,7 +9,7 @@
   
 When working with this project take care, as pipelines defined here may be used to run XSpec in other project folders.
 
-Running the [XSpec smoke test](../smoketest/SMOKETEST-XSPEC.xpl) at regular intervals is a good idea to ensure the process continues to function.
+Running the [XSpec smoke test](../smoketest/TEST-XSPEC.xpl) at regular intervals is a good idea to ensure the process continues to function.
 
 ## Approach
 

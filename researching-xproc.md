@@ -23,6 +23,8 @@ XProc enthusiasts with current links or news should please [contact the project]
 
 ## Landing pages
 
+[XProcRef](https://xprocref.org/index.html) offers a comprehensive user-oriented directory of the built-in steps
+
 [XProc.org site](https://xproc.org/) - with links to specs and other resources
 
 [XProc 3.0 Overview](https://spec.xproc.org/master/head/) - with links to component specifications (important to have) such as the Standard Step Library and the additional steps
@@ -33,6 +35,10 @@ XProc enthusiasts with current links or news should please [contact the project]
 
 - [An accessible overview of XProc 3.0](https://www.xml.com/articles/2019/11/05/introduction-xproc-30/), by Erik Siegel, appears on [XML.com](https://www.xml.com/)
 - [XPorc.net](xporc.net) is a site run by Martin Kraetke with an [XProc tutorial](https://xporc.net/xproc-tutorial)
+
+## Articles
+
+Erik Siegel, "XProc as a command-line application engine" Markup UK 2023 https://markupuk.org/2023/webhelp/index.html#ar01.html
 
 ## Book
 
