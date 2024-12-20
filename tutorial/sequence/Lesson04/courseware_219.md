@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../../source/courseware/courseware_219_src.html](../../../source/courseware/courseware_219_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../source/courseware/courseware_219_src.html](../../source/courseware/courseware_219_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 

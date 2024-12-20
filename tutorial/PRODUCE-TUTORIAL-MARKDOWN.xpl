@@ -45,7 +45,7 @@
             <p:with-input port="insertion">
                <p:inline>
                <blockquote>
-                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../../{substring-after($path,$project-uri)}">../../../{ substring-after($path,$project-uri)}</a>.</p>
+                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../{substring-after($path,$project-uri)}">../../{ substring-after($path,$project-uri)}</a>.</p>
                   <p>Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).</p>
                </blockquote>
                </p:inline>

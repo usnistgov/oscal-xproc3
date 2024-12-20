@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="ssp-port-ranges.sch"
+   
+   xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+   >
+
+   <x:scenario label="Okay example - 80-80">
+      <x:context>
+         <port-range start="80" end="80" transport="TCP"/>
+      </x:context>
+      <x:scenario label="Nothing should fire">
+         <!--<x:expect-not-assert id="as-given-1" label="old missing either"/>
+         <x:expect-not-assert id="as-given-2" label="old missing end"/>
+         <x:expect-not-assert id="as-given-3" label="old missing start"/>
+         <x:expect-not-assert id="as-given-4" label="old out of order"/>-->
+         
+         <x:expect-not-assert id="proposed-2" label="new missing end"/>
+         <x:expect-not-assert id="proposed-3" label="new missing start"/>
+         <x:expect-not-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+   <x:scenario label="Okay example - 80-82">
+      <x:context>
+         <port-range start="80" end="82" transport="TCP"/>
+      </x:context>
+      <x:scenario label="Nothing should fire">
+         <!--<x:expect-not-assert id="as-given-1" label="old missing either"/>
+         <x:expect-not-assert id="as-given-2" label="old missing end"/>
+         <x:expect-not-assert id="as-given-3" label="old missing start"/>
+         <x:expect-not-assert id="as-given-4" label="old out of order"/>-->
+         
+         <x:expect-not-assert id="proposed-2" label="new missing end"/>
+         <x:expect-not-assert id="proposed-3" label="new missing start"/>
+         <x:expect-not-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+   <x:scenario label="Missing start example">
+      <x:context>
+         <port-range end="80" transport="TCP"/>
+      </x:context>
+      <x:scenario label="We should see warnings for missing start">
+         <!--<x:expect-assert id="as-given-1" label="old missing either"/>
+         <x:expect-not-assert id="as-given-2" label="old missing end"/>
+         <x:expect-assert id="as-given-3" label="old missing start"/>
+         <x:expect-not-assert id="as-given-4" label="old out of order"/>-->
+
+         <x:expect-assert id="proposed-2" label="new has start"/>
+         <x:expect-not-assert id="proposed-3" label="new has end"/>
+         <x:expect-not-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+   <x:scenario label="Missing @end">
+      <x:context>
+         <port-range start="80" transport="TCP"/>
+      </x:context>
+      <x:scenario label="We should see warnings for missing end">
+         <!--<x:expect-not-assert id="as-given-1" label="old missing either"/>
+         <x:expect-assert id="as-given-2" label="old missing end"/>
+         <x:expect-not-assert id="as-given-3" label="old missing start"/>
+         <x:expect-not-assert id="as-given-4" label="old out of order"/>-->
+
+         <x:expect-not-assert id="proposed-2" label="new has start"/>
+         <x:expect-assert id="proposed-3" label="new has end"/>
+         <x:expect-not-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+   <x:scenario label="Missing both">
+      <x:context>
+         <port-range star="80" en="80" transport="TCP"/>
+      </x:context>
+      <x:scenario label="We should see both warnings">
+         <!--<x:expect-assert id="as-given-1" label="old missing either"/>
+         <x:expect-assert id="as-given-2" label="old missing end"/>
+         <x:expect-assert id="as-given-3" label="old missing start"/>
+         <x:expect-not-assert id="as-given-4" label="old out of order"/>-->
+
+         <x:expect-assert id="proposed-2" label="new has start"/>
+         <x:expect-assert id="proposed-3" label="new has end"/>
+         <x:expect-not-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+   <x:scenario label="Out of order">
+      <x:context>
+         <port-range start="801" end="80" transport="TCP"/>
+      </x:context>
+      <x:scenario label="We should see a warning for out of order">
+         <!--<x:expect-not-assert id="as-given-1" label="old missing either"/>
+         <x:expect-not-assert id="as-given-2" label="old missing end"/>
+         <x:expect-not-assert id="as-given-3" label="old missing start"/>
+         <x:expect-assert id="as-given-4" label="old out of order"/>-->
+         
+         <x:expect-not-assert id="proposed-2" label="new missing end"/>
+         <x:expect-not-assert id="proposed-3" label="new missing start"/>
+         <x:expect-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+   <x:scenario label="Incommensurable - type error">
+      <x:context>
+         <port-range start="801x" end="80" transport="TCP"/>
+      </x:context>
+      <x:scenario label="We should see a warning for out of order (only) - nb type checking is left to schema validation">
+         <!--<x:expect-not-assert id="as-given-1" label="old missing either"/>
+         <x:expect-not-assert id="as-given-2" label="old missing end"/>
+         <x:expect-not-assert id="as-given-3" label="old missing start"/>
+         <x:expect-assert id="as-given-4" label="old out of order"/>-->
+         
+         <x:expect-not-assert id="proposed-2" label="new missing end"/>
+         <x:expect-not-assert id="proposed-3" label="new missing start"/>
+         <x:expect-assert id="proposed-4" label="new no @end is after @start"/>
+      </x:scenario>
+   </x:scenario>
+   
+</x:description>

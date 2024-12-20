@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../../source/oscal-convert/oscal-convert_101_src.html](../../../source/oscal-convert/oscal-convert_101_src.html).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../source/oscal-convert/oscal-convert_101_src.html](../../source/oscal-convert/oscal-convert_101_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
