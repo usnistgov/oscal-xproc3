@@ -12,9 +12,8 @@
          <p>Learn something about potential problems and limitations when doing this, and about how they can be detected
             and avoided, prevented or mitigated.</p>
          <p>Become familiar with the idea of generic conversions between syntaxes such as XML and JSON, versus
-            conversions capable of handling a single class or type of documents, such as OSCAL – a limitation that can
-            also provide, in a case such as OSCAL, for a fully defined mapping supporting lossless, error-free
-            translation across syntaxes.</p>
+            conversions capable of handling a single class or type of documents, such as OSCAL, which offers a fully
+            defined mapping supporting lossless, error-free translation across syntaxes.</p>
       </section>
       <section>
          <h2>Prerequisites</h2>
@@ -27,11 +26,10 @@
             this repository, with its files. Like all projects in the repo, it aims to be reasonably self-contained and
             self-explanatory. The pipelines there (described below) provide rudimentary support for data conversions,
             demonstrating simplicity and scalability.</p>
-         <p>As always, use your search engine and XProc resources to learn background and terminology.</p>
       </section>
       <section>
          <h2>Pipeline rundown</h2>
-         <p>The XProc pipelines don't do much, as they are wired up to work with minimalistic demonstration data sets.
+         <p>The XProc pipelines do not do much, as they are wired up to work with minimalistic demonstration data sets.
             This keeps them plain, simple and obvious in exposition, while at the same time it should be apparent how
             they can be readily reconfigured or customized to work on any suitable inputs that may be provided.</p>
          <p>The idea here is simple: run the pipeline and observe its behaviors, including not only the messages it
@@ -62,13 +60,15 @@
          </section>
          <section>
             <h3><a href="../../../projects/oscal-convert/BATCH_XML-TO-JSON.xpl">BATCH-XML-TO-JSON</a></h3>
-            <p>This pipeline performs the inverse of the JSON-to-XML batch pipeline. It loads XML files and converts
+            <p>This pipeline performs the reverse of the JSON-to-XML batch pipeline. It loads XML files and converts
                them into JSON.</p>
             <p>Note however how in this case, no guarantees can be made that any XML inputs will result in valid JSON.
-               Unless using the correct vocabulary, XML inputs will result in errors, as no comprehensive, rules-bound
-               cast can be defined across its variations. To alleviate this problem, exception handling logic in the
-               form of an XProc <code>p:try/p:catch</code> can be found in the imported pipeline step (which performs
-               the casting).</p>
+               Unless already in a form known in advance – <a
+                  href="https://www.w3.org/TR/xpath-functions-31/#json-to-xml-mapping">the same vocabulary</a> defined
+               by XPath –  XML inputs will typically result in errors, as no comprehensive, rules-bound cast can be
+               defined across its variations. To alleviate this problem, exception handling logic in the form of an
+               XProc <code>p:try/p:catch</code> can be found in the imported pipeline step (which performs the
+               casting).</p>
             <p>Additionally, this variant has a fail-safe (look for <code>p:choose</code>) that prevents the production
                of JSON from files not named <code>*.xml</code> – strictly speaking, this is only a naming convention,
                but respecting it prevents unseen and unwanted name collisions. It does <i>not</i> defend against
@@ -78,25 +78,26 @@
             <h3><a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl">CONVERT-OSCAL-XML-DATA</a></h3>
             <p>The requirement that any XML to be converted must already be JSON-ready by virtue of conforming to a
                JSON-descriptive vocabulary, is obviously an onerous one. To achieve a clean, complete and appropriate
-               recasting and relabeling of data, depending on its intended semantics, depends on those semantics being
-               defined in a way capable of a JSON expression.</p>
+               recasting and relabeling of data, depending on its intended semantics, the way those semantics are to be
+               expressed in JSON must be fully defined.</p>
             <p>OSCAL solves this problem by defining its XML and JSON formats in parity, such that a complete
                bidirectional conversion can be guaranteed over data sets already schema-valid. The bidirectional
                conversions themselves can be performed implicitly or overtly by tools that read and write OSCAL, or they
                can be deployed as XSLT transformations, providing for the conversion to be performed by any XSLT 3.0
                engine.</p>
-            <p>For XSLT 3.0, XProc has Saxon. The XSLTs in question can be acquired from an OSCAL release, as shown in
-               the <a href="../../../projects/oscal-convert/GRAB-RESOURCES.xpl">GRAB-RESOURCES</a> pipeline.</p>
+            <p>For XSLT 3.0, XProc has Saxon. The XSLTs in question can be acquired from an <a
+                  href="https://github.com/usnistgov/OSCAL/releases/latest">OSCAL release</a>, as shown in the <a
+                  href="../../../projects/oscal-convert/GRAB-RESOURCES.xpl">GRAB-RESOURCES</a> pipeline.</p>
             <p><a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl">CONVERT-OSCAL-XML-DATA</a> applies
                one of these XSLTS to a set of given OSCAL XML files, valid to the catalog model, to produce JSON. It
                works on any XML file that has <code>catalog</code> as its root element, in the OSCAL namespace. It does
-                  <i>not</i> provide for validation of the input against the schema:  Instead, the
-               garbage-in/garbage-out (GIGO) principle is respected. This means that some pipelines will run
-               successfully while producing defective outputs, which must be discovered in the result (via formal
-               validation and other checks). An XProc pipeline with a validation step preceding the conversion would
-               present such errors earlier.</p>
+                  <i>not</i> provide for validation of the input against the schema: Instead, the garbage-in/garbage-out
+               (GIGO) principle is respected. This means that some pipelines will run successfully while producing
+               defective outputs, which must be discovered in the result (via formal validation and other checks). An
+               XProc pipeline with a validation step preceding the conversion would show such errors earlier.</p>
             <p>The reverse pipeline is left as an exercise. Bring valid OSCAL JSON back into XML. Let us know if you
-               have prototyped this and wish for someone to check your work!</p>
+               have prototyped this and wish for someone to check your work! The task is not trivial because there are
+               several ways to use the conversion stylesheet, any of which should work.</p>
          </section>
          <section>
             <h3><a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-FOLDER.xpl">CONVERT-OSCAL-XML-FOLDER</a></h3>
@@ -111,13 +112,15 @@
          <p>Note in this context that comparing the inputs and results of a round-trip conversion is an excellent way of
             determining, to some base level, the correctness and validity of your data set. While converting it twice
             cannot guarantee that anything in your data is <q>true</q>, if having converted XML to JSON and back again
-            to XML, the result looks the same as the original, you can be sure that your information is <q>correctly
-               represented</q> in both formats.</p>
+            to XML, the result looks the same as the original, you can be sure that its <i>representation</i> is
+            consistent.</p>
          <p>Here's an idea: a single pipeline that would accept either XML or JSON inputs, and produce either, or both,
-            as outputs. Would that be useful?</p>
+            as outputs. Would that be useful? Should such an <q>OSCAL Army Knife</q> XProc also perform validation?</p>
       </section>
       <section>
          <h2>What is this XSLT?</h2>
+         <p>Readers of the prior Lesson Unit on the <a href="../walkthrough/walkthrough_401_src.html" class="LessonUnit"
+               > XSLT Factor</a>will already have seen XSLT.</p>
          <p>If your criticism of XProc so far is that it makes it look easy when it isn't, you have a point.</p>
          <p>Conversion from XML to JSON isn't free, assuming it works at all. The runtime might be effectively free, but
             developing it isn't.</p>
@@ -125,8 +128,8 @@
             step, applying logic defined in an XSLT stylesheet (aka <b>transformation</b>) stored elsewhere. It happens
             that a converter for OSCAL data is available in XSLT, so rather than having to confront this considerable
             problem ourselves, we drop in the solution we have at hand.</p>
-         <p>In later units we will see how using the XProc steps described, rudimentary data manipulations can be done
-            using XProc by itself, without entailing the use of either XSLT or XQuery.</p>
+         <p>In later units, more examples are shown of how using the XProc steps described, rudimentary data
+            manipulations can be done using XProc by itself, without entailing the use of either XSLT or XQuery.</p>
          <p>At the same time, while pipelines are based on the idea of passing data through a series of processes, there
             are many cases where logic is sufficiently complex that it becomes essential to maintain – and test – that
             logic externally from the XProc. At what point it becomes more efficient to encapsulate logic separately
@@ -134,12 +137,13 @@
          <p>The <code>p:xslt</code> pipeline step in particular is so important for real-world uses of XProc that it is
             introduced early, to show such a black-box application. There is also an <a
                href="https://spec.xproc.org/3.0/steps/#c.xquery">XQuery</a> step – for many purposes, functionally
-            equivalent.</p>
+            equivalent. Among all these – XSLT, XQuery and XProc itself – there is useful redundancy and often more than
+            one good way.</p>
          <p>XProc also makes a fine environment for testing XSLT developed or acquired to handle specific tasks – and it
             can support automated testing and test-driven development using <a
                href="https://github.com/xspec/xspec/wiki">XSpec</a>.</p>
-         <p>Indeed XSLT and XQuery being, like XProc itself, declarative languages, it makes sense to factor them out
-            while maintaining easy access and transparency for analysis and auditing purposes.</p>
+         <p>Indeed XSLT and XQuery being, like XProc itself, declarative languages, it makes sense to factor out where
+            we can while maintaining easy access and transparency for analysis and auditing purposes.</p>
       </section>
       <section>
          <h2>What could possibly go wrong?</h2>
@@ -151,8 +155,8 @@
             <li>The pipeline can run successfully and correctly</li>
          </ul>
          <p>Among the range of possible errors, those that show up in your console with error messages are the easy
-            ones. This will typically be a syntax error or error in usage (providing the wrong kind of input, etc.),
-            remediable by a developer. Sometimes it is an input resource, not the pipeline, that must be corrected, or a
+            ones. This will often be errors of <q>carelessness</q> (providing the wrong kind of input, etc.), easy to
+            repair once found. Sometimes it is an input resource, not the pipeline, that must be corrected, or a
             different pipeline developed for the different input. If XML is expected but not provided, a conforming
             processor must emit an error. Correct it or plan on processing plain text.</p>
          <p>The second category is much harder. The most important concern when engineering a pipeline is to see to it
@@ -160,11 +164,12 @@
             (for the input provided) but result in lost data or disordered results. Often this is obvious in testing,
             but not always. The key is defining and working within a scope of application (range of inputs) within which
                <q>correctness</q> can be specified, unambiguously and demonstrably, both with respect to the source
-            data, and the processing requirement. Given such a specification, testing is possible. While in comparison
-            to syntax or configuration problems, data quality issues can be subtle, there is also good news: the very
-            same tools we use to process inputs into outputs, can also be used to test and validate data to both
-            applicable standards and local rules.</p>
-         <p>Generally speaking, OSCAL maintains <q>validation parity</q> between its XML and JSON formats with respect
+            data, and the processing requirement. Given such a specification, testing is possible. Without testing,
+            things can be difficult or impossible to know, and evenif known, they can be difficult to demonstrate.</p>
+         <p>While in comparison to syntax or configuration problems, data quality issues can be subtle, there is also
+            good news: the very same tools we use to process inputs into outputs, can also be used to test and validate
+            data to both applicable standards and local rules.</p>
+         <p>Generally speaking, OSCAL maintains <em>validation parity</em> between its XML and JSON formats with respect
             to their schemas. That is to say, the XSD (XML schema) covers essentially the same set of rules for OSCAL
             XML data as the JSON Schema does for OSCAL JSON data, accounting for differences between the two notations,
             the data models and how information is mapped into them. A consequence of this is that valid OSCAL data,

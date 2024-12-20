@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
-      <title>400: What is an XProc document</title>
+      <title>400: Documents in XProc</title>
       <meta charset="utf-8" />
    </head>
    <body data-track="learner">
-      <h1>400: What is an XProc document</h1>
+      <h1>400: Documents in XProc</h1>
       <section>
          <h2>Goals</h2>
-         <p>Learn how XProc seeks to process just about any kind of digital information.</p>
+         <p>Learn how XProc's conception of a <em>document</em> can accommodate just about any kind of digital
+            information.</p>
+         <p>This is especially important with respect to XProc's handling of formats beyond XML, including HTML, JSON,
+            plain text, text-based syntaxes and binaries.</p>
       </section>
       <section>
          <h2>Resources</h2>
          <p>A <a href="../../worksheets/CONTENT-TYPE_worksheet.xpl">content-types worksheet XProc</a> is offered for
-            trying out content-type options on XProc inputs and outputs. If you only have thirty minutes, consider
-            looking at it before reading further.</p>
+            trying out <em>content-type</em> options on XProc inputs and outputs.</p>
          <p>XProc content types are closely tied to its definition of a <em>document</em>, an object for which a string
             property <code>content-type</code> indicates the expected or nominal content type. See links given in the
             remarks below. This is a topic you can also learn by through trial and error.</p>
+         <p>For those who want the authoritative word on this topic, <a
+               href="https://spec.xproc.org/3.0/xproc/#documents">the XProc Specification</a> is open and available.
+            This coverage also dovetails with what has already been presented on <a
+               href="../walkthrough/walkthrough_219_src.html" class="LessonUnit">the XML Data Model (XDM) and XProc
+            </a>.</p>
       </section>
       <section>
          <h2>What is an XProc document</h2>
          <p>XProc has a concept of a document that permits just about any digital object or encoded entity to be
             considered and handled as such. XProc manages this by dividing its world into precincts (more on this
             below), which may be relatively well-known and well-specified, or the opposite. Well-known things can be
-            handled in well known ways. Things not so well known might still be handled by an extension (not yet
-            standardized). Because the boundaries are not fixed, more kinds of things can be rendered as documents over
-            time, assuming we can find ways to represent them using the data model at hand (XDM).</p>
+            handled in well known ways. Things not so well known might still be handled by an extension – making them
+            tractable without a standardized approach). Because the boundaries are not fixed, more kinds of things can
+            be rendered as documents over time, assuming we can find ways to represent them using the data model at
+            hand. The model, as noted, is provided by XDM.</p>
          <p>For an XProc engine to read XML, JSON, HTML and plain text is expected; for it to read (for example)
             metadata from inside image formats is a feature your XProc engine <i>may</i> offer. What XProc <q>sees</q>
-            in either case is a <b>document</b>. XML or HTML files make documents <q>naturally</q>, of course (though
-            there is not much natural about it). No surprise there, as XDM was designed for this purpose. But the
-            tree-shaped element structure and data typing system of XDM can also be generalized.</p>
+            in either case is a <b>document</b>. There is a certain circularity here, if a document is <q>what XProc
+               reads</q>, and what XProc reads are documents, but XProc is able to avoid this by saying, in effect:</p>
+         <ul>
+            <li>Any XDM value can be a document in XProc, even values that are not <em>document nodes</em> in XDM. So an
+               XProc document might contain an XML element tree or it might be a simple string such as <q>Hello
+                  World</q></li>
+            <li>But anything else can also be a document in XProc, if a processor knows how to handle it in some way.
+               For example, a step might know how to open an image format and extract metadata from it.</li>
+         </ul>
+         <p>Accordingly, XML or HTML files make documents <q>naturally</q> – reflecting the fact that XDM was designed
+            for the purpose of representing them. But the tree-shaped element structure and data typing system of XDM
+            can also be generalized.</p>
          <p>So any JSON file can also be a document, with the stipulation that like other inputs, it will be rendered
             (internally) by the XProc engine as an XDM object corresponding to this JSON. XDM - not a language or a
             syntax, but a data model – becomes the shared assumption across formats. Passed between steps in a pipeline,
@@ -39,12 +56,12 @@
             be saved out as JSON. An XDM element tree can be saved out as XML.</p>
          <p>Core to thinking about XProc is this notion that there are <b>documents</b>, and then there are
                <b>serializations</b> of documents - the way documents are encoded as character streams in editing
-            applications or persistent storage – and these are not the same, albeit one may be a representation of the
-            other. An XML document stored in a system and an XML document as processed by XProc are related and
-            isomorphic, but not necessary identical. An <a href="https://spec.xproc.org/3.0/xproc/#documents">XProc
-               document as defined formally</a> comprises an XDM (in this context called the <b>representation</b>) with
-            certain properties for XProc's convenience such as a base URI (actual or nominal) and a content type (for
-            disambiguation).</p>
+            applications or persistent storage – and these are not the same, albeit one may consdered as a
+            representation of the other. An XML document stored in a system and an XML document as processed by XProc
+            are related and isomorphic, but not necessary identical. An <a
+               href="https://spec.xproc.org/3.0/xproc/#documents">XProc document as defined formally</a> comprises an
+            XDM (in this context called the <b>representation</b>) with certain properties for XProc's convenience such
+            as a base URI (actual or nominal) and a content type (for disambiguation).</p>
          <p>Anything that can be rendered into XDM can be a document for XProc. XML and JSON come for free; other
             formats take more effort, or specialized steps (such as <a
                href="https://spec.xproc.org/3.0/steps/#c.unarchive">a step used to uncompress archive file formats</a>,

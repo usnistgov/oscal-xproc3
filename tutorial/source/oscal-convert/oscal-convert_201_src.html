@@ -16,25 +16,27 @@
          <h2>Prerequisites</h2>
          <p>You have succeeded in prior exercises, including tools installation and setup. You have seen enough XProc to
             be impressed, at least, by the concept.</p>
+         <p>While concepts here are basic, what is presented is not always obvious.</p>
       </section>
       <section>
          <h2>Resources</h2>
          <p>Pipelines throughout the repository serve as examples for the description that follows.</p>
+         <p>Earlier coverage of  <a href="../walkthrough/walkthrough_219_src.html" class="LessonUnit">the XML Data Model
+               (XDM) as it relates to XProc </a> can also be kept in mind.</p>
       </section>
       <section>
-         <h2>XProc as XML</h2>
-         <p>An XProc pipeline takes the form of an XML <q>document entity</q>. Unless you are concerned to write an XML
-            parser (which is not very likely for XProc's natural constituency), this typically means an XML file, that
-            is to say a file encoded in plain text (typically the UTF-8 serialization of Unicode, or alternatively
-            another form of <q>plain text</q> supported by your system or environment), and following the rules of XML
-            syntax. These rules include how elements and attributes and other XML features are encoded in <b>tags</b>
-            that:</p>
+         <h2>XProc as XML (redux)</h2>
+         <p>Recall that an XProc pipeline itself takes the form of an XML <a
+               href="https://www.w3.org/TR/REC-xml/#sec-doc-entity">document entity</a>. Put less mysteriously, this
+            means that XProc is designed to be written and maintained in XML syntax, and most XProc systems will be
+            reliant on XProc kept in XML files (in a file server or database). We recognize XProc by its XML
+               <em>vocabulary</em> expressed using <em>tags</em> that follow the XML tagging rules:</p>
          <ul>
-            <li>Follow the rules with respect to naming, whitespace, delimiters and reserved characters</li>
-            <li>Are correctly balanced, with an end tag for every start tag – for a <code>&lt;start></code> there must
-               be a <code>&lt;/start></code> (an end to the start).</li>
-            <li>Are cleanly nested with no overlap: end tags always close the most recently opened element, so no
-               element ever extends beyond the boundaries of its <q>ancestor</q> or containing elements</li>
+            <li>They follow XML's rules with respect to naming, whitespace, delimiters and reserved characters</li>
+            <li>They are correctly balanced, with an end tag for every start tag – for a <code>&lt;start></code>
+               there must be a <code>&lt;/start></code> (an end to the start).</li>
+            <li>They are cleanly nested with no overlap: end tags always close the most recently opened element, so no
+               element ever extends beyond the boundaries of its <q>ancestors</q> or containing elements</li>
          </ul>
          <p>These rules are fairly simple, and they are well supported by tools designed to read and write XML – to
             respect, follow and enforce the rules on our behalf.</p>
@@ -65,11 +67,11 @@
                suffices to reiterate that XProc needs to be able to use its own namespace,
                   <code>http://www.w3.org/ns/xproc</code>) at the very minimum, as well as others, both for the data
                sets in scope (inputs and process results) and for processes: namespaces also serve to support
-               extensibility. Accordingly you will probably also want a namespace (or more than one) whose prefix and
-               URI bindings you control.</p>
-            <p>Since namespaces declared at the top of the document will apply throughout the document (except when they
-               are specifically switched off or around), this is a good place to put namespace declaration attributes to
-               keep them out of the way and make them easier to find.</p>
+               extensibility up and down the stack (in XProc, XSLT and XPath/XQuery). Accordingly you will probably also
+               want a namespace (or more than one) whose prefix and URI bindings you control.</p>
+            <p>Since namespaces declared at the top of the document will apply throughout the document, this is a good
+               (and conventional) place to put namespace declaration attributes, keeping them out of the way and make
+               them easier to find.</p>
          </section>
          <section>
             <h3>@name and @type</h3>
@@ -77,11 +79,9 @@
                both a <code>@name</code> and a <code>@type</code> are permitted.</p>
             <pre>   type="ox:TEST-XPROC3"
    name="TEST-XPROC3"</pre>
-            <p>The name makes it possible to reference the step by name. This is often useful and sometimes more or less
-               essential, for example for providing input to one step from another step's output. (We say <q>more or
-                  less essential</q> because the processor will produce names for itself as a fallback, if it needs
-               them, but these are brittle, somewhat opaque – such as <code>!1.2.3</code> – and more difficult to use
-               than the names a developer gives.)</p>
+            <p>The name makes it possible to reference the pipeline itself by name, as a step. This makes it possible to
+               create bindings inside the pipeline to the pipeline's own ports, when implicit (i.e., defaulted) bindings
+               are not sufficient.</p>
             <p>Understandably, the name of an XProc must be different from the names given to all the steps in the XProc
                (which must also be distinct).</p>
             <p>This repository follows a rule that a step name should correspond to its file base name (i.e., without a
@@ -89,24 +89,28 @@
                us, not for XProc in general.</p>
             <p>A step may also have an assigned <code>@type</code>. Unlike the name, which can be in any namespace or
                none, the <code>@type</code> must be assigned to a namespace.</p>
+            <p>The assigned typed is just as important as the name, as a step is called by its <em>type name</em>.
+               Decoupling the name from the type name provides useful flexibility, as both can be important but they do
+               not need to be the same.</p>
          </section>
       </section>
       <section>
          <h2>Prologue and body</h2>
          <p>A pipeline will typically be a collection or sequence of steps, of arbitrary complexity. By this we mean
             that any step might be simple or complex in its operations; and the sequence may be short or long, or simple
-            and singular or branching, multiple (with respect to inputs or outputs) and conditional. A pipeline provides
-            such a collection of steps with an interface, indeed (if one dare say) <q>semantics</q> in the form of a
+            and singular or branching, multiple (with respect to inputs or outputs) and conditional. In addition to this
+            orchestration, simple or complex, a pipeline must have one other thing, namely an interface or
+               <em>signature</em>. This is what gives the pipeline (if one dare say) <q>semantics</q> in the form of a
             specification, whether explicit or implicit, of what constitute valid inputs, expected outputs, and
             recognized runtime options. This interface is defined in the pipeline's <em>prologue</em>. The sequence or
             arrangement of steps, however long or short, constitutes the pipeline's <em>body</em> and serve as the
             pipeline's <a href="https://spec.xproc.org/3.0/xproc/#declare-pipelines">subpipeline</a> .</p>
-         <p>Think of the subpipeline as the working parts of the pipeline, while the prologue dictates how they, as a
-               <q>body</q>, are to be invoked, and with what kinds of results exposed to the calling system – that is,
-            what kinds of information (<em>results</em>) are made available for disposition (as opposed to simply being
-            visible as messages or result artifacts).</p>
-         <p>Before the prologue, of course, we see optional import declarations. Add to these any local step definitions
-            (not common but not unheard of), and at a high level we see these element groups:</p>
+         <p>Think of the subpipeline as the working components of the pipeline, while the prologue defines its interface
+            or <q>control surface</q>, as on a black box. That is, what kinds of inputs need to be provided to it (if
+            any), what kinds of results it exposes (apart from outputs it has taken on itself to produce), and what
+            kinds of options or configurations are available.</p>
+         <p>But even before the prologue we may see import declarations. Add to these any local step definitions for
+            embedded pipelines (not common but not unheard of), and at a high level we see these element groups:</p>
          <ul>
             <li>Imports (optional) - configuring where the processor can find logic to be called from external
                pipelines: <code>p:import</code>, <code>p:import-functions</code></li>
@@ -130,8 +134,8 @@
          <p>Keep in mind that just because a pipeline has no exposed ports for inputs or outputs, does not mean it does
             nothing. Among other things, pipelines can read and write (or be asked to write) arbitrary resources to a
             file system. Its exposed interfaces provide for functional composition: since they have inputs and outputs,
-            pipelines can be used as steps in pipelines. But those do not in any way preclude its operations. XProc is
-               <i>not</i> side-effect free.</p>
+            pipelines can be used as steps in pipelines. But those do not in any way preclude its operations. Unlike the
+            functional languages it embeds (XSLT and XQuery), XProc does <i>not</i> seek to be side-effect free.</p>
          <p>Following the prologue, a step may also have local step definitions (<code>p:declare-step</code>). One might
             think of these as an XProc equivalent of a <q>macro</q>: these locally-defined pipelines can be used
             internally for logic that is used repeatedly, or that warrants separating from the main pipeline for some
@@ -176,15 +180,15 @@
             combination with the primitives or core compound steps of the language.</p>
          <p>At a higher level, defining new steps with new step declarations, and using them in combination with other
             steps, is how we manage complexity and change in processing requirements. This strategy maximizes
-            adaptability, while also supporting an <q>incremental maturity model</q>, in which all defined processes can
-            be improved with reuse, building and testing over time. Careful use and deployment of new steps is how we
-            save work, by focusing optimization and making it possible to scale up to address data processing
-            requirement sets that are both large and complex.</p>
+            adaptability, while also supporting an incremental maturity model, in which all defined processes can be
+            improved with reuse, building and testing over time. Careful use and deployment of new steps is how we save
+            work, by focusing optimization and making it possible to scale up to address data processing requirement
+            sets that are both large and complex.</p>
          <p>Thus a kind of <q>recursive orderability</q>, wherein encapsulation itself is scaled up and out arbitrarily
-            but only as much as needed, is a secret to XProc. As a pipeline, a step definition may include only a single
-            step (a pipeline can be an interface or wrapper to another pipeline, or to a simple operation), or a long
-            sequence or complex choreography of steps. In either case it can become a relatively self-contained <q>black
-               box</q> process available to other processes.</p>
+            but only as much as needed, can be a working principle with XProc. As a pipeline, a step definition may
+            include only a single step (a pipeline can be an interface or wrapper to another pipeline, or to a simple
+            operation), or a long sequence or complex choreography of steps. In either case it can become a relatively
+            self-contained black box process available to other processes.</p>
          <p>Accommodating this design, an XProc <i>file</i> considered as an XML instance (as noted) is either of two
             things: a <i>step declaration</i>, or a collection of such declarations, a <i>library</i>. At the top level
             (as noted), recognize an XProc step declaration by the element, <code>p:declare-step</code> (in the XProc
@@ -204,46 +208,6 @@
             it from other steps. The pipeline simply needs to be presented to the processor, which does the rest. Your
             library of steps then looks very similar to your directory full of XProc files – and can be treated, where
             appropriately, as self-contained scripts encapsulating everything they need for a given runtime.</p>
-         <section>
-            <h3>Implications of XProc as XML</h3>
-            <p>Like any language using XML syntax, XProc depends on a conceptual relation between primitive constructs
-               of the language, and XML syntax, a relation that is ordinarily (and usefully) mediated by means of an
-               (actual or putative) XML <i>data model</i> including elements, attributes, comment nodes, text nodes and
-               so forth. XSLT is such a language, for example: it has its top-level <i>declarations</i>, its <i>template
-                  rules</i> and its <i>instructions</i>, all of which are represented using elements in the (standard
-               and most commonly used) XML syntax. Thus, part of learning XSLT is learning that <code>xsl:key</code> is
-               syntax for a <em>key declaration</em> while <code>xsl:template</code> is a <em>template rule</em>.</p>
-            <p>In the same way, elements in XProc's XML vocabulary correspond to structures in XProc - structures which
-               developers and users rely on, as they define both the internals and the control interface for the
-               language as a semantic construct - something that does something. In XProc, those structures include
-               things like <b>documents</b>, <b>content-types</b> (think of <q>formats</q> such as XML and JSON),
-                  <b>ports</b> and <b>steps</b>. Some XProc elements represent steps, others do not. (In the same way as
-               an XSLT key declaration is not a template rule.) Learning this difference among others is how you learn
-               XProc.</p>
-            <p>Fortunately, the vocabulary of the language is not very large. Core XProc 3.0 has only 95 elements
-               defined in its namespace (or 99, if you are strictly counting all element types defined, not just the
-               names those elements are given). XProc 3.1 adds a few more. This includes elements for all the core and
-               community-defined steps (recognizable by the prefix <code>p:</code>). Additional to these 95 might be
-               other steps you acquire or define. As with any language, there are parts you will hardly ever use, while
-               other parts are used routinely.</p>
-         </section>
-         <section>
-            <h3>XProc embedded documentation</h3>
-            <p>An example of this is the XProc <code>p:documentation</code> element. This element is designed to carry
-               documentation to a consuming application. Rather than mandate some kind of behavior for
-                  <code>p:documentation</code> – something difficult or impossible to do for the general case, or to
-               test –- the XProc rule is <q>anything marked as documentation is for some other consumer</q>, i.e. a
-               documentation engine, not the XProc processor. In other words, a conformant processor <a
-                  href="https://spec.xproc.org/3.0/xproc/#documentation"><i>must ignore</i> anything it sees</a> inside
-                  <code>p:documentation</code>.</p>
-            <p>There is a small loophole, namely that the effect of <code>p:inline</code> for capturing XML overrides
-               this provision, so if you put <code>p:documentation</code> inside <code>p:inline</code>, it <q>becomes
-                  visible</q> as inline content, not as XProc to be operated on (or not).</p>
-            <p>As always it is up to the developer how thoroughly and in what form to include inline documentation. And
-               short of managing a corpus of code documentation along with the code, placing explanatory remarks and
-               code snippets into comments is a widely followed practice, and recommended for its combination of ease
-               and usefulness.</p>
-         </section>
       </section>
       <section>
          <h2>Atomic and compound steps</h2>
@@ -263,7 +227,7 @@
                <code>p:for-each</code>, perform an operation in parallel over a set of inputs, not a single document),
             conditionals (<code>p:if</code>, <code>p:choose</code>) and exception handling (<code>p:try</code> with
                <code>p:catch</code> and <code>p:finally</code>).</p>
-         <p>Here are all the compound steps. All others are atomic steps.</p>
+         <p>Here are all the compound steps:</p>
          <ul>
             <li><a href="https://spec.xproc.org/3.0/xproc/#p.group"
                   style="color: rgb(3, 69, 117); text-decoration: none; border-bottom: 1px solid rgb(112, 112, 112); padding: 0px 1px; margin: 0px -1px; font-family: sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: -120px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal;"
@@ -293,11 +257,18 @@
                - execute a subpipeline and deliver its results, or if it fails, run a fallback subpipeline given in a
                   <code>p:catch</code></li>
          </ul>
+         <p>All other steps are atomic steps. A survey of built-in atomic steps <a
+               href="../walkthrough/walkthrough_219_src.html">has been offered earlier</a>; additionally they are
+            well-indexed <a href="../../../projects/xproc-doc/out/repository-step-list.html">in this repository</a>
+            (generated with <a href="../../../projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl">XProc</a>) and <a
+               href="https://xprocref.org/index.html">on line</a> (by Erik Siegel). But of course the atomic steps
+            include steps you write and deploy yourself, or acquire from external libraries.</p>
          <p>Additionally to these elements, XProc subpipelines may contain variable declarations
                (<code>p:variable</code>) and documentation (<code>p:documentation</code>), as noted.</p>
       </section>
       <section>
          <h2>Namespaces and extension steps</h2>
+         <p>XML Namespaces is <a href="oscal-convert_350_src.html">the topic that will not go away</a>.</p>
          <p>We recognize steps because we either recognize them by name - for standard steps in the <code>p:</code>
             (XProc) namespace such as <code>p:filter</code> and <code>p:add-attribute</code> - or sometimes by process
             of elimination – because they cannot be anything else. This is because extension steps, whether written or

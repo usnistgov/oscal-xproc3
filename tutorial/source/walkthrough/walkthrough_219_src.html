@@ -5,7 +5,6 @@
    <meta charset="utf-8"/>    </head>
    <body data-track="learner">
       <h1>219: XProc, XML and XDM  (the XML Data Model)</h1>
-      <p>More in depth.</p>
       <section>
          <h2>Goals</h2>
          <ul>
@@ -30,13 +29,13 @@
             and atomic) plus optional community-defined steps, is referenced from the <a
                href="https://spec.xproc.org/3.0/xproc/#ancillary-files">XProc Specification</a>. <a
                href="https://spec.xproc.org/3.0/xproc/xproc30.rng">This RNG schema</a> is very useful.</p>
-         <p>It may often be considered gratuitous to validate XProc files against a schema, when the application (for
-            us, Morgana) must in any case take responsibility for conformance issues, as it sees fit. The reference
-            schema becomes useful if we find or suspect bugs in Morgana, but until then it need not have any direct role
-            in any runtime operation.</p>
+         <p>It may often be considered gratuitous to validate XProc files against a schema, when the application
+            (whether it be Morgana, XML Calabash or other) must in any case take responsibility for conformance issues,
+            as it sees fit. The reference schema becomes useful if we find or suspect bugs in processor features, but
+            until then it need not have any direct role in any runtime operation.</p>
          <p>Nevertheless, since XProc is XML, its schema still serves as a reference and an object for querying –
             queries whose results tell us about XProc. <a href="../../GRAB-XPROC-RESOURCES.xpl">A pipeline</a> for
-            acquiring both the RNG schema and its RNC (compact syntax) variant is provided for interest and possible
+            acquiring both the RNG schema. and its RNC (compact syntax) variant. are provided for interest and possible
             later use.</p>
          <section>
             <h3>Survey of XProc elements</h3>
@@ -137,14 +136,18 @@
          </section>
       </section>
       <section>
-         <h2>XML and the XDM: context and rationale</h2>
-         <p>The technologies we rely on share a common foundation in XML and XDM (the XML data model), technologies
-            developed under the auspices of the World Wide Web Consortium (W3C). For stability over a long term (years
-            and decades rather than months), we require solutions that are:</p>
+         <h2>XML and the XML Data Model (XDM): context and rationale</h2>
+         <p>XML (Extensible Markup Language) is a text-based data format. XDM (the XML Data Model) is an abstract object
+            model defining types and interfaces. XDM is designed to provide tools that work with XML data with a common
+            model, permitting the description and specification of arbitrary operations of instances. XDM provides the
+            conceptual foundation of XPath, XSLT and XQuery.</p>
+         <p>These technologies have been developed under the auspices of the World Wide Web Consortium (W3C) and other
+            standards bodies since before the publication of XML in 1998. This longevity is not an accident: for
+            stability over a long term (years and decades rather than months), we have required solutions that are:</p>
          <ul>
             <li>Standard, non-proprietary and freely available without restriction</li>
             <li>Consistently and repeatedly shown to be capable at scale (size/complexity)</li>
-            <li>Supported by commodity tools, easing problem of proprietary product dependencies</li>
+            <li>Supported by commodity tools, easing problems of proprietary product dependencies</li>
          </ul>
          <p>Importantly, we need tools that are freely available to use without restriction, an important qualification
             for this distribution, which has a prior commitment <i>not to endorse particular technological solutions to
@@ -178,13 +181,13 @@
             functional requirements.</p>
          <p>They are also, relatively speaking, <i>mature</i> technologies, at least in comparison to similar
             offerings.</p>
-         <p>And when XProc works, we also have the functional underpinnings we need for comparing - for example -
+         <p>And when XProc works, we also have the functional underpinnings we need for comparing – for example –
             different XSLT implementations.</p>
          <p>Initiated in 1996, XML continues to be generative in 2024.</p>
       </section>
       <section>
          <h2>Snapshot history: an XML time line</h2>
-         <p>[TODO: complete this, or move it, or both] ...</p>
+         <p>[TODO] Evidently we could use help completing and fact checking all this...</p>
          <table>
             <thead>
                <tr>
@@ -262,6 +265,13 @@
                   <td></td>
                </tr>
                <tr>
+                  <td>2001-2003</td>
+                  <td>(Conference papers)</td>
+                  <td>Early pipelining demonstrations</td>
+                  <td></td>
+                  <td></td>
+               </tr>
+               <tr>
                   <td>2003</td>
                   <td></td>
                   <td>Pipelining as a build process</td>
@@ -278,7 +288,7 @@
                <tr>
                   <td>2005</td>
                   <td><q>The XML data model</q> (W3C)</td>
-                  <td>An essay</td>
+                  <td><a href="https://www.w3.org/XML/Datamodel.html">An essay</a></td>
                   <td></td>
                   <td></td>
                </tr>
@@ -311,37 +321,31 @@
                   <td></td>
                </tr>
                <tr>
-                  <td></td>
-                  <td>XPath 3.0</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-               </tr>
-               <tr>
-                  <td></td>
-                  <td>XPath 3.1</td>
-                  <td>Higher-order functions, map and array objects</td>
-                  <td></td>
-                  <td></td>
-               </tr>
-               <tr>
                   <td>2010</td>
                   <td>XProc 1.0</td>
+                  <td>Standard vocabulary for XDM-based pipelining</td>
                   <td></td>
+                  <td></td>
+               </tr>
+               <tr>
+                  <td>2014</td>
+                  <td>XPath 3.0</td>
+                  <td>JSON interchange support</td>
                   <td></td>
                   <td></td>
                </tr>
                <tr>
                   <td>2017</td>
                   <td>XSLT 3.0/3.1</td>
-                  <td>JSON harmonization, functions as arguments</td>
+                  <td>JSON harmonization; higher-order functions; map and array objects</td>
                   <td></td>
                   <td></td>
                </tr>
                <tr>
-                  <td></td>
+                  <td>2022</td>
                   <td>XProc 3.0</td>
-                  <td>Easier syntax, plus adding support for JSON and other content types</td>
+                  <td>Improves on XProc 1.0 with easier syntax, plus adding support for JSON and other content
+                     types</td>
                   <td></td>
                   <td></td>
                </tr>
@@ -374,8 +378,8 @@
             the XDM in XQuery, XSLT, XProc or anywhere you find it.</p>
          <p>For those not already familiar with XPath, on line resources can be helpful. Keep in mind that <a
                href="https://www.w3.org/TR/xpath-31/">XPath 3.1</a> outstrips earlier versions of the language in many
-            important respects (supporting map and function objects with higher-order functions, among other
-            features).</p>
+            important respects, supporting map and function objects with higher-order functions among other
+            features.</p>
          <section>
             <h3>Documents and data</h3>
             <p>One of the more important features of XPath and the XDM is that they are designed not only to meet needs
@@ -384,16 +388,20 @@
                common or usual structures of data formats, whether they be tabular data, serialization formats for
                object models, or some other regular (formalized and codified) arrangement for purposes of
                machine-readability. One might say <q>common</q> or <q>usual</q> with reservation, since of course
-               documents are not uncommon where they are common. The prevalence of so-called structured data in digital
-               systems may tell us more about the limits of those systems than it does about information in general.</p>
+               documents are not uncommon where they are common. The predominance of so-called <q>structured data</q> in
+               digital systems may tell us more about the limits of those systems, considered within their historical
+               and evolutionary context, than it does about information in general.</p>
+            <p>At the same time it does not seem like a mistake to identify <q>information</q> with <q>structure</q>, or
+               at least to observe there is a mutual and perhaps definitional interdependence there.</p>
             <p>We see a great deal of structured data these days if only because it is so easy to make structured data
-               with machines, and we now have the machines. What remains difficult is to translate what has not been
-               created by a machine, into a form that a machine can <q>recognize</q>, or rather into a form we can
-               recognize in and with the machine, without mishandling it and distorting it. Since machines do not
-               recognize anything (nothing is <q>mishandling</q> to them), what this often reduces to in practice is
-               deciding how to agree on a <b>representation</b> for information that any creator and any consumer can
-               recognize and work with, without seeing the information first. In itself this is a formidable
-               challenge.</p>
+               with machines, and we now have the machines. What remains difficult is to translate something that has
+                  <i>not</i> been created by (or only by) a machine – perhaps, for example, it results from a more
+                  <q>organic</q> process of development (maybe a Shakespeare play?) – into a form that a machine can
+                  <q>recognize</q>, or rather into a form we can recognize in and with the machine, without mishandling
+               it and distorting it. Since machines do not recognize anything (nothing is <q>mishandling</q> to them),
+               what this often reduces to in practice is deciding how to agree on a <b>representation</b> for
+               information that any creator and any consumer can recognize and work with, without seeing the information
+               first. In itself this is a formidable challenge.</p>
             <p>So documents are called <q>unstructured</q> but they might better be called <q>relatively irregular</q>,
                meaning not that they have no structure, but that each one is structured in itself, and moreover, likely
                to be incompatible or not fully compatible with encodings designed to capture other structures.</p>
@@ -405,13 +413,12 @@
             <p>And this is to give no consideration to the fact that these structures can be described at <i>multiple
                   levels</i> of generality or specificity with regard to either their supposed semantics, or their
                configuration in operation.</p>
-            <p>Documentary data formats especially markup formats are designed to work in this in-between space.</p>
+            <p>Documentary data formats, especially declarative markup formats, are designed to work in this in-between
+               space.</p>
             <p>And so we get XPath - a query syntax which permits working with an organized structure of a particular
                kind (an <i>XDM document tree</i>), which in turn is designed for handling the combination of <i>highly
                   regular</i> and <i>quite irregular</i> data structures that characterize information sets we (loosely)
                call <b>documentary</b>.</p>
-            <p>A definition for what is a document is out of scope for this tutorial – an interesting topic but not only
-               a technical one.</p>
          </section>
          <section>
             <h3>XPath illustrative examples</h3>

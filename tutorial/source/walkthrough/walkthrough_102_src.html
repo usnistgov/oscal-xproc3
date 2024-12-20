@@ -76,13 +76,21 @@
                   the pipeline finishes.</li>
                <li>Yes, those conventions are enforced in the repository by <a
                      href="../../../testing/xproc3-house-rules.sch">a Schematron</a> that can be applied to any
-                  pipeline, both in development and when it is committed to the repository under CI/CD (continuous
-                  integration / continous development). Assuming we take care to run our tests and validations, this
-                  does most of the difficult work maintaining consistency, namely detecting the inconsistency.</li>
-               <li>Reassuring messages aside, no XSpec reports are actually captured by this XProc! With nothing bound
-                  to an output port, it <em>sinks</em> by default. That is because it is a smoke test, and we care only
-                  to see that it runs and completes without error. The inputs are all controlled, so we know what those
-                  reports say. Or we can find out.</li>
+                  pipeline, both in development and when it is committed to the repository under <a
+                     href="walkthrough_301_src.html" class="LessonUnit">CI/CD (continuous integration / continous
+                     development)</a>. Assuming we take care to run our tests and validations, this does most of the
+                  difficult work maintaining consistency, namely detecting the inconsistency. The result, assuming we do
+                  things correctly, is a more-than-human level of consistency in error checking and correction. This is
+                  discussed again <a href="../courseware/courseware_101_src.html" class="LessonUnit">in a subsequent
+                     Lesson Unit</a>.</li>
+               <li>Reassuring messages aside, no XSpec reports are actually captured by this XProc! The
+                     <code>ox:execute-xspec</code> steps produces results – and produces its own runtime messages – but
+                  those results have no <a href="https://spec.xproc.org/3.0/xproc/#connections">connection</a> given in
+                  the main pipepline, and it has no output port (<code>p:output</code>). Accordingly the pipeline
+                     <em>sinks</em> by default – the documents delivered at the end are discarded. (For smoke test
+                  purposes, we care only to see that it runs and completes without error.) The inputs are all
+                  controlled, so we know what those reports say. (Or we can find out by altering the pipeline to capture
+                  the findings, not discard them.)</li>
             </ul>
          </section>
          <section>
@@ -153,13 +161,13 @@
                "raw", sometimes an archive is downloaded and opened, and so on.) For now, it is not necessary to
                understand details in every case, only to observe the variation and range. (With more ideas welcome.
                Could XProc be used to build a <q>secure downloader</q> that knows how, for example, to compare
-               hashes?)</p>
+               hash-based signatures?)</p>
             <p>Wherever you see <code>href</code> attributes, take note.</p>
             <p>Since <code>href</code> is how XProc <q>sees</q> the world, either to read data in or to write data out,
                this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For
                example, a download will not succeed if the resource indicated by the <code>href</code> for the download
-               returns an error, or nothing. In XProc, <code>href</code> attribute settings are the <i>points of
-                  control</i> for interaction between an XProc pipeline, and its runtime environment.</p>
+               returns an error, or nothing. In XProc, <code>href</code> attribute settings become important <i>points
+                  of control</i> for interaction between an XProc pipeline, and its runtime environment.</p>
             <p>Useful detail: where XProc has <code>p:store href="some-uri.file"</code>, the <code>href</code> is read
                by the processor as the intended location for storage of pipeline data, that is, for a <i>write</i>
                operation. In other cases <code>href</code> is always an argument for a <i>read</i> operation.</p>

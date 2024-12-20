@@ -18,6 +18,6 @@
       <ox:execute-xspec name="execute-xspec"/>
    </p:for-each>
 
-   <p:identity message="[TEST-XSPEC] All done, successful run"/>
+   <p:sink message="[TEST-XSPEC] All done, successful run"/>
 
 </p:declare-step>

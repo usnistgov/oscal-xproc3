@@ -1,8 +1,8 @@
 # OSCAL-XProc3
 
-[OSCAL][oscal] on an [XProc 3.0][xproc] platform
+**[OSCAL][oscal] on an [XProc 3.0][xproc] platform**
 
-OSCAL is the Open Security Controls Assessment Language. It is a domain-specific language supporting the field of systems security, security assessment and risk management (RMF), expressed in XML, JSON and other formats. This site supports primarily but *not exclusively* XML-formatted OSCAL.
+OSCAL is the [Open Security Controls Assessment Language][oscal]. It is a domain-specific language (DSL) supporting the field of systems security, security assessment and risk management (RMF), expressed in XML, JSON and other formats. This site supports primarily but *not exclusively* XML-formatted OSCAL.
 
 The XProc demonstrations and capabilities shown are not limited to OSCAL.
 
@@ -21,9 +21,9 @@ Learn more about XProc in [researching-xproc.md](./researching-xproc.md).
 
 *Process OSCAL (XML and JSON) easily on a standards-based, portable and open-source XML platform.*
 
-This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language][oscal], using community-standard [XProc 3.0][xproc] technology.
+This repository serves as a platform for demonstration and development of capabilities in information and data processing in support of [OSCAL, the Open Security Controls and Assessment Language][oscal], using publicly-specified [XProc 3.0][xproc] technology.
 
-This may include either OSCAL applications, or applications built to be used in OSCAL development. See below and project (folder) readme files for more details.
+This may include either OSCAL applications, or applications built to be used in OSCAL development such as production of OSCAL tools. See below and project (folder) readme files for more details.
 
 Enabling these lightweight, transparent and declarative "logical layers" written in XProc (pipeline step definitions), in XSLT (transformations) and in Schematron (query-based validations) are these excellent libraries (with their dependencies):
 
@@ -32,9 +32,9 @@ Enabling these lightweight, transparent and declarative "logical layers" written
 - [SchXSLT][schxslt] - ISO Schematron / community enhancements
 - [XSpec][xspec] - XSpec - XSLT/XQuery unit testing
 
-As an alternative to Morgana, users are also invited to test [XML Calabash 3][xmlcalabash3]. At time of writing, this release is too new to be incorporated into the project, but appears promising as an alternative platform for everything demonstrated here. 
+As an alternative to Morgana, users are also invited to test [XML Calabash 3][xmlcalabash3]. At time of writing, this release is too new to be incorporated into the project, but appears promising as an alternative platform for everything demonstrated here. Among the project goals is demonstrating portability in principle and fact - if only because at the extremes, the viability of a code base across implementations becomes a data security issue.
 
-These are open-source projects in support of W3C- and ISO-standardized technologies. Helping to install, configure, and make these work seamlessly, so users do not have to notice, is a goal of this project.
+These are open-source projects in support of W3C- and ISO-standardized technologies. Helping to install, configure, and make these work seamlessly, so users do not have to notice, is also a goal of this project.
 
 If this software is as easy, securable and performant as we hope to show, it might be useful not only to XML-stack developers but also to others who wish to cross-check their OSCAL data or software supporting OSCAL by comparison with another stack.
 
@@ -44,7 +44,7 @@ XProc developers, similarly, may be interested in this project as a testbed for 
 
 This deployment is also intended to demonstrate conformance to relevant standards and external specifications, not just to APIs and interfaces defined by tool sets.
 
-### Projects -- current and conceived
+### Projects
 
 See the [Projects folder](./projects/) for current projects. Projects now planned for deployment in this repository include:
 
@@ -400,14 +400,14 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include
 
 - [Henry Thompson](https://www.xml.com/pub/a/ws/2001/02/21/devcon1.html) and other pioneers of XML pipelining on a standards basis
-- Norman Walsh
+- Norman Walsh, exemplar of graceful persistence
 - Norm's fellow committee members and developers of XProc versions 1.0 and 3.0
 - Developers of embedded commodity parsers and processers such as Java Xerces, Trang, and Apache FOP (to mention only three)
 - All developers of XML, XSLT, and XQuery technologies and applications, especially unencumbered and open-source
  
 Only an open, dedicated and supportive community could prove capable of such a collective achievement.
 
-This work is dedicated to the memory of Michael Sperberg-McQueen and to all his students, past and future.
+This work is dedicated to the grateful memory of Michael Sperberg-McQueen and to all his students, past and future.
 
 ---
 
@@ -429,7 +429,7 @@ This README was composed starting from the [NIST Open Source Repository template
 [oscal-cli]: https://github.com/usnistgov/oscal-cli
 [xslt3-functions]: https://github.com/usnistgov/xslt3-functions
 [xdm3]: https://www.w3.org/TR/xpath-datamodel/
-[xmlcalabash]: https://github.com/xmlcalabash/xmlcalabash3 
+[xmlcalabash3]: https://github.com/xmlcalabash/xmlcalabash3 
 [xslt3]: https://www.w3.org/TR/xslt-30/
 [xproc]: https://xproc.org/
 [xproc-specs]: https://xproc.org/specifications.html

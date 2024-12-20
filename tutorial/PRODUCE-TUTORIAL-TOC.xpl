@@ -12,6 +12,8 @@
    
    <p:variable name="result-md-path" select="resolve-uri('sequence/lesson-sequence.md')"/>
    
+   <p:variable name="tutorial-title" select="/*/*:title"/>
+   
    <p:for-each name="lessons">
       <p:with-input select="descendant::*:Lesson"/>
       <p:variable name="lesson_key" select="/*/@key"/>
@@ -23,24 +25,6 @@
       <p:add-attribute attribute-name="position" attribute-value="{p:iteration-position()}"/>      
 
       <p:label-elements match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
-   <!-- is there a better way to annotate a directory list with full paths?
-        or: make a step out of this and import it -->
-      <!--<p:xslt>
-         <p:with-input port="stylesheet">
-            <p:inline expand-text="false">
-               <xsl:stylesheet version="3.0">
-                  <xsl:mode on-no-match="shallow-copy"/>
-                  <xsl:template match="c:file">
-                     <xsl:copy>
-                        <xsl:copy-of select="@*"/>
-                        <xsl:attribute name="path"
-                           select="('source/' || (string-join(ancestor-or-self::c:*/@name,'/'))) => resolve-uri()"/>
-                     </xsl:copy>
-                  </xsl:template>
-               </xsl:stylesheet>
-            </p:inline>
-         </p:with-input>
-      </p:xslt>-->
       <p:viewport match="c:file">
          <p:variable name="path" select="/*/@path"/>
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-TOC] Loading {$path}"/>
@@ -61,16 +45,17 @@
       <p:with-input port="stylesheet">
          <!-- Break out 101 sequence and 102 sequences separately -->
          <!-- Or: make this a matrix -->
-         <p:inline expand-text="false">
+         <p:inline>
             <xsl:stylesheet version="3.0">
                <xsl:template match="LESSONPLAN">
                   <body>
+                     <h1 p:expand-text="true">{ $tutorial-title }</h1>
                      <xsl:apply-templates/>
                   </body>
                </xsl:template>
                <xsl:template match="directory" expand-text="true">
                   <div>
-                     <h3>Lesson set { format-number(@position,'01') } - { @name }</h3>
+                     <h3>Lesson set {{ format-number(@position,'01') }} - {{ @name }}</h3>
                      <ul>
                         <xsl:apply-templates/>
                      </ul>
@@ -82,10 +67,10 @@
                   </li>
                </xsl:template>
                <xsl:template match="file" mode="link">
-                  <a href="Lesson{ format-number(parent::*/@position,'01') }/{@href}">
+                  <a href="Lesson{{ format-number(parent::*/@position,'01') }}/{{@href}}">
                      <xsl:apply-templates/>
                   </a>                  
-                  <xsl:text expand-text="true"> ({ upper-case(@track) })</xsl:text>
+                  <xsl:text expand-text="true"> ({{ upper-case(@track) }})</xsl:text>
                </xsl:template>
             </xsl:stylesheet>
          </p:inline>

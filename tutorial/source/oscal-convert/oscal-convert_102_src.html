@@ -60,12 +60,14 @@
       </section>
       <section>
          <h2>Value templates in attributes and text: { XPath-expr }</h2>
-         <p>Practitioners of XQuery, XSLT and related technologies will recognize the curly-bracket characters (U+007B
-            and U+007D) as indicators of <a href="https://www.w3.org/TR/xslt-10/#dt-attribute-value-template">attribute
-               value templates</a>, <a href="https://www.w3.org/TR/xslt-30/#text-value-templates">text value
-               templates</a>, or <a href="https://www.w3.org/TR/xquery-31/#id-enclosed-expr">enclosed expressions</a>.
-            The expression within the brackets is to be evaluated dynamically by the processor. This is one of the most
-            useful convenience features in the language.</p>
+         <p>A feature was <a href="../walkthrough/walkthrough_401_src.html" class="LessonUnit">mentioned earlier</a>
+            that warrants caution when embedding code in code: when producing string values dynamically (i.e., at
+            runtime), XProc supports a <em>template syntax</em> borrowed from XSLT and XQuery, as <a
+               href="https://www.w3.org/TR/xslt-10/#dt-attribute-value-template">attribute value templates</a>, <a
+               href="https://www.w3.org/TR/xslt-30/#text-value-templates">text value templates</a>, or <a
+               href="https://www.w3.org/TR/xquery-31/#id-enclosed-expr">enclosed expressions</a>. An XPath expression
+            within the brackets is to be evaluated dynamically by the processor. This is one of the most useful
+            convenience features in the language.</p>
          <p><a href="https://spec.xproc.org/3.0/xproc/#value-templates">This syntax</a> is concise, but expressive. Upon
             seeing:</p>
          <pre>&lt;p:identity message="Processing { $filename } at { current-date() }"/></pre>
@@ -80,73 +82,85 @@
          </ul>
          <p>If you need to see actual curly brackets, escape by doubling: <code>{{</code> for the single open and
                <code>}}</code> for the single close.</p>
-         <p>One complication arises: because XSLT and XQuery support similar syntax, clashes can occur, since their
-            functioning will depend on correctly interpreting the syntax within literal code. Yes, this means double
-            escaping is sometimes necessary. (This can be tried with <a href="../../worksheets/NAMESPACE_worksheet.xpl"
-               >a worksheet XProc</a>.)</p>
-         <p>Alternatively, setting <code>expand-text</code> to <code>false</code> on an XProc element turns this
-            behavior off: the brackets become regular brackets again. <a
-               href="https://spec.xproc.org/3.0/xproc/#expand-text-attribute">The spec also describes</a> an attribute
-               <code>p:inline-expand-text</code> that can be used in places where the regular <code>expand-text</code>
-            would interfere with a functional requirement (namely the representation of literal XML provided in your
-            XProc using <code>p:inline</code>). Either of these settings can be used inside elements already set,
-            resulting in <q>toggling</q> behavior (it can be turned on and off), as any <code>expand-text</code>, by
-            applying to descendants, overrides settings on its ancestors.</p>
+         <p>As mentioned earlier, one complication sometimes arises: because XSLT and XQuery support similar syntax,
+            clashes can occur, since their functioning will depend on correctly interpreting the syntax within literal
+            code. One solutions include using double escaping (see examples in <a
+               href="https://spec.xproc.org/3.0/xproc/#value-templates">the spec</a>). This can be tried with <a
+               href="../../worksheets/NAMESPACE_worksheet.xpl">a worksheet XProc</a>.</p>
+         <p>A more comprehensive solution is to use an XProc setting: an <code>expand-text</code> attribute, or
+               <code>p:expand-text</code> when appearing on an element not already bound to the <code>p</code>-prefixed
+            namespace, i.e. XProc). Setting this to <code>false</code> turns the templating feature off: the brackets
+            become regular brackets again. <a href="https://spec.xproc.org/3.0/xproc/#expand-text-attribute">The spec
+               also describes</a> an attribute <code>p:inline-expand-text</code> that can be used in places where the
+            regular <code>expand-text</code> would interfere with a functional requirement (namely the representation of
+            literal XML provided in your XProc using <code>p:inline</code>). Either of these settings can be used inside
+            elements already set, resulting in <q>toggling</q> behavior (it can be turned on and off), as any
+               <code>expand-text</code>, by applying to descendants, overrides settings on its ancestors.</p>
          <p>For the most part it is enough to know that the <code>expand-text</code> setting is <q>on</q>
                (<code>true</code>) by default, but it can be turned off (<code>false</code>) – and (for handling edge
-            cases) back on, lower down in the hierarchy.</p>
+            cases) back on, lower down in the hierarchy. And watch the curly brackets.</p>
       </section>
       <section>
          <h2>Designating inputs</h2>
-         <p>One potential problem with the pipelines we have looked at so far is that their inputs are hard-wired. While
-            this is sometimes helpful, it should also be possible to apply a pipeline to an XML document (or other
-            input) without having to designate the document inside the pipeline itself. The user or calling application
-            should be able to say <q>run this pipeline, but this time with this input</q>.</p>
-         <p>The input ports for a pipeline, specified using <code>p:input</code> within the prologue, provide for
-            this.</p>
+         <p>One feature of the pipelines we have looked at so far is that their inputs are hard-wired. While this is
+            sometimes helpful (such a pipeline can be nicely self-contained), it should also be possible to apply a
+            pipeline to an XML document (or other input) without having to designate the document inside the pipeline
+            itself. The user or calling application should be able to say <q>run this pipeline, but this time with this
+               input</q>.</p>
+         <p>This is important not only for itself but because it is the key to composability: reusing pipelines as steps
+            in other pipelines.</p>
+         <p>The input ports for a pipeline, specified using <a href="https://spec.xproc.org/3.0/xproc/#p.input"
+                  ><code>p:input</code></a> within the prologue, provide for this.</p>
          <p>For example, the <a href="../../../projects/oscal-convert/CONVERT-OSCAL-XML-DATA.xpl"
                >CONVERT-OSCAL-XML-DATA</a> pipeline defines an input port:</p>
          <pre>&lt;p:input port="source" sequence="true">
     &lt;p:document href="data/catalog-model/xml/cat_catalog.xml"/>
 &lt;/p:input></pre>
-         <p>By default, this pipeline will pick up and process the data it finds at path
+         <p>By default, this pipeline will pick up and process the data set (here, an XML document) it finds at path
                <code>data/catalog-model/xml/cat_catalog.xml</code>, relative to the pipeline instance (XProc file). But
-            any call to this pipeline, whether directly or as a step in another pipeline, can override this.</p>
-         <p>The Morgana processor defines <a href="https://www.xml-project.com/manual/ch01.html#R_ch1_s1_2">a command
-               syntax for binding inputs to ports</a>. It looks like this (when used with the script deployed with this
-            repository):</p>
+            any call to this pipeline, whether directly or as a step in another pipeline, can override this to provide a
+            different input.</p>
+         <p>An XProc processor defines a command syntax for binding inputs to ports, such as is described in<a
+               href="https://www.xml-project.com/manual/ch01.html#R_ch1_s1_2">Morgana documentation</a>. Morgana's looks
+            like this (when used with the script deployed with this repository):</p>
          <pre>$ ../xp3.sh <i>PIPELINE.xpl</i> -input:<i>portname=path/to/a-document.xml</i> -input:<i>portname=path/to/another-document.xml</i></pre>
+         <p>(<a href="https://docs.xmlcalabash.com/userguide/current/running.html#run-run">XML Calabash 3</a> has
+            analogous but not identical syntax.)</p>
          <p>Here, two different <code>-input</code> arguments are given for the same port. You can have as many as
             needed if the port, like this one, has <code>sequence="true"</code>, meaning any number of documents (zero,
             one or more) can be bound to the port, and the pipeline will accommodate. When more than one port is defined
             for a pipeline, one (only) can be designated as <code>primary="true"</code>, allowing it to be provided
-            implicitly when a port connection is required (by a step) but not given in the pipeline. Notice that the
-            name of the port must also appear in the command argument, as in <code>-input:portname</code>, since while
-            pipelines can have ports supporting sequences, they will also have different ports, named differently, for
-            documents playing different roles in the pipeline.</p>
+            implicitly when a port connection is required (by a step) but not designated. Notice that the name of the
+            port must also appear in the command argument, as in <code>-input:portname</code>, since while pipelines can
+            have ports supporting sequences, they can also have different ports, named differently, for documents
+            playing different roles in the pipeline.</p>
          <p>In place of <code>portname</code> here, a common name for a port (conventional when it is the pipeline's
             only or primary input) is <code>source</code>. But you can also expect to see ports (especially secondary
             ports) with names like <code>schema</code>, <code>stylesheet</code> and <code>insertion</code>: port names
             that offer hints as to what the step does.</p>
          <p>A port designated with <code>sequence="true"</code> can be empty (no documents at all) and a process will
-            run. But by default a single document is both expected and required.</p>
-         <p>Among other things, this means that a pipeline that has <code>&lt;p:input name="x" primary="true"/></code>,
-            since it is not a sequence but also has no document, cannot be run unless a (single) document for the
-               <code>x</code> port (as it is named here) is provided when it is invoked.</p>
+            run. But by default, <code>sequence="false"</code> is assumed, for a single document, or an error condition
+            when none is provided.</p>
+         <p>Among other things, this means that a pipeline that has <code>&lt;p:input name="x"/></code>  cannot be run
+            unless a (single) document for the <code>x</code> port (as it is named here) is provided with the
+            invocation.</p>
+         <p>For when an empty document binding is wanted (i.e., no document is fine), XProc offers <a
+               href="https://spec.xproc.org/3.0/xproc/#p.empty"><code>p:empty</code></a> to make this explicit. Use with
+               <code>sequence="true"</code>.</p>
          <section>
             <h3>Lightening the <code>p:load</code></h3>
             <p>As an alternative to binding inputs to using <code>p:input/p:document</code> (on a pipeline definition)
                or <code>p:with-input</code> (on a step invocation), XProc offers another way to acquire data from
                outside the pipeline: by using a <code>p:load</code> step. This is somewhat different in operation: as it
                is a step in itself, errors produced by <code>p:load</code> cannot be detected until the pipeline is run,
-               whereas failures with <code>p:input</code> should be detected when the pipeline itself is loaded and
+               whereas failures with <code>p:input</code> should be detected when the pipeline itself is parsed and
                compiled (i.e. during <em>static analysis</em>), and processors may be able to apply different kinds of
                exception handling, fallbacks or support for redirects. (As always you can try, test and determine for
                yourself.) Apart from this distinction the two approaches have similar effects – whether to use one or
                the other depends often on how you expect the pipeline to be used, distributed, and maintained, since
                either can work in operation.</p>
             <p>Although one distinction is that <code>p:document</code> appears on input ports, which can be overridden
-               (or rather, set dynamically), this does not mean that <code>p:document</code> cannott be essentially
+               (or rather, set dynamically), this does not mean that <code>p:document</code> cannot be essentially
                   <q>private</q> to a pipeline or pipeline step. For example, if you wish to acquire, without
                   <code>p:load</code>, more than a single document known in advance (i.e. the file names can be
                hard-coded), provide your step (<code>p:identity</code> in this case) with inputs like so:</p>
@@ -175,10 +189,11 @@
    &lt;p:with-input select="//FILE"/>
    &lt;p:load href="{ string(.) }"/>
 &lt;/p:for-each>   </pre>
-            <p>This has the effect of traversing the document given in line (the file list) and for each of its FILE
-               elements, loading the document named as the FILE element's string value, that is <q>A</q>, <q>B</q> and
-               so on. This is just as if A and B had been bound directly to the port. In either case, what we get is a
-               sequence of XDM <em>document</em> objects, one for each of the resources parsed.</p>
+            <p>This has the effect of traversing the document given in line (the file list) and for each of its
+                  <code>FILE</code> elements, loading the document named as the <code>FILE</code> element's string
+               value, that is <q>A</q>, <q>B</q> (in this example) and so on. This is just as if A and B had been bound
+               directly to the port. In either case, what we get is a sequence of XDM <em>document</em> objects, one for
+               each of the resources parsed.</p>
             <p>One tradeoff is that the override mechanism will be different. We override the first approach by binding
                the pipeline's <code>source</code> port directly to whatever documents we want in place of A and B. We
                override the second approach by providing a different FILELIST document. Alternatively such a FILELIST
@@ -203,6 +218,12 @@
          <p>To help avoid or manage problems resulting from this (i.e., from features as bugs), XPath and XProc offer
             some useful functions:</p>
          <ul>
+            <li>XPath <a href="https://www.w3.org/TR/xpath-functions-31/#func-base-uri">base-uri()</a> will return the
+               (nominal) base URI of a node in an XML document, regarded as an XDM property of nodes. Other XDM objects
+               including maps do not have base URIs, but XML documents do. This is an important and special property in
+               XProc, as it is the basis of its own resource management semantics. Expect to see more of
+                  <code>base-uri()</code> along with similar (and aligned) XProc functionality such as
+                  <code>document-property(.,'base-uri')</code>.</li>
             <li>XPath <a href="https://www.w3.org/TR/xpath-functions-31/#func-resolve-uri">resolve-uri()</a> can be used
                to expand a relative URI into an absolute URI</li>
             <li>XProc <a href="https://spec.xproc.org/3.0/xproc/#f.urify">p:urify</a> will normalize URIs and rewrite
@@ -215,6 +236,8 @@
       </section>
       <section>
          <h2>Probing error space – data conversions</h2>
+         <p>The topic here picks up from the earlier consideration of <a href="oscal-convert_101_src.html"
+               class="LessonUnit">What could possibly go wrong</a>.</p>
          <p>Broadly speaking, problems encountered running these conversions (or indeed, transformations in general)
             fall into two categories, the distinction being simple, namely whether a bad outcome is due to an error in
             the processor and its logic, or in the data inputs provided. The term <q>error</q> here hides a great deal.
@@ -247,8 +270,8 @@
             <p>But a hands-on appreciation, through experience, of how this actually looks, is better than a merely
                intellectual understanding of why it must be.</p>
             <p>When providing XML that is not OSCAL to a process that expects OSCAL inputs, you should properly see
-               either errors (exceptions), or bad results (outputs missing or wrongly expressed) or both. <i>A tutorial
-                  is the perfect opportunity to experiment and see.</i></p>
+               either errors (exceptions), or bad results (outputs missing or wrongly expressed) or both. A tutorial is
+               the perfect opportunity to experiment and see.</p>
             <p>For example, try using the OSCAL XML-to-JSON pipeline on an XProc document (which is XML, but not
                OSCAL).</p>
             <p>The interesting thing here is how permissive XProc is, unless we code it to be jealous. Detection of bad
@@ -268,9 +291,10 @@
                convertibility.</p>
             <p>In contrast, data that is not schema-valid (as can be reasoned) cannot be <i>confidently</i> and
                   <i>completely</i> qualified or described at all, so only very simple (<q>global</q>, generic or
-                  <q>wildcard</q>) mappings from arbitrary inputs can be specified. But a mapping can be specified for
-               inputs that are known, such as OSCAL inputs. An OSCAL converter respects the validation rules not by
-               enforcing them directly, but rather by depending on the consistency they describe and constrain.</p>
+                  <q>wildcard</q>) mappings from arbitrary inputs can be specified. Almost by definition, these will
+               usually be poor for actual cases. But a mapping can be specified for inputs that are known, such as OSCAL
+               inputs. An OSCAL converter respects the validation rules not by enforcing them directly, but rather by
+               depending on the consistency they describe and constrain.</p>
             <p>Fortunately, by means of Schematron and transformations, XProc is an excellent tool not only for altering
                data sets, but also for imposing such validation rules, by detecting variances, either in inputs or its
                results. XPath, the query language, becomes key. With XPath to identify features (both good and bad), and

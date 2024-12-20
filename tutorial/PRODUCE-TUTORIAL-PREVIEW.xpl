@@ -22,8 +22,11 @@
    
    <!--<p:output port="tutorial-singlepage" pipe="@full-body" serialization="map{'indent': true() }" sequence="true"/>-->
    
+   <p:variable name="lesson-plan" select="/*"/>
+   
    <p:for-each name="lessons">
-      <p:with-input select="descendant::*:Lesson"/><!-- Lesson map is in no namespace, while currently we are defaulting to XHTML, hence *:Lesson -->
+      <p:with-input select="descendant::*:Lesson"/>
+      <!-- Lesson map is in no namespace, while currently we are defaulting to XHTML, hence *:Lesson -->
       <p:variable name="lesson-key" select="/*/@key"/>
       <!-- Note use of p:iteration-position to produce a sequence number
            https://spec.xproc.org/master/head/xproc/#f.iteration-position -->
@@ -111,7 +114,14 @@
    <!-- Now having an 'overview' div albeit without links, we splice back in -->
    <p:insert position="first-child">
       <p:with-input port="source" pipe="@full-body"/>
-      <p:with-input port="insertion" pipe="@overview-div"/>
+      <!--<p:with-input port="insertion" pipe="@overview-div"/>-->
+      <p:with-input port="insertion">
+         <p:inline>
+            <h1>{ $lesson-plan/*:title/string(.) }</h1>
+            <h3>version { $lesson-plan/*:version/string(.) } PREVIEW { current-date() => format-date('[MNn] [D] [Y]') }</h3>
+         </p:inline>
+         <p:pipe step="overview-div"/>
+      </p:with-input>
    </p:insert>
    
    <p:wrap-sequence wrapper="html" />

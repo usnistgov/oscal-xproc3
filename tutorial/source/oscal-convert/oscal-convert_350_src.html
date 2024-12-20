@@ -10,7 +10,7 @@
          <h2>Goals</h2>
          <p>Learn enough about namespaces in XML to be able to make sense of XProc's handling of embedded vocabularies,
             whether extending its capabilities or for the purpose of embedding (literal) data sets.</p>
-         <p>Be no longer mystified by prefixed names such as <code>p:sleep</code>, <code>xsl:template</code> or
+         <p>Become comfortable with prefixed names such as <code>p:sleep</code>, <code>xsl:template</code> or
                <code>ox:oscal-xml-as-json</code> as a technology-wide convention for helping to disambiguate the
             semantics of different vocabularies, when mixed and in general.</p>
       </section>
@@ -20,9 +20,10 @@
       </section>
       <section>
          <h2>Resources</h2>
-         <p>A <a href="https://www.w3.org/TR/REC-xml-names">technical specification</a> of this mechanism was published
-            by W3C in 2009, and remains the authoritative source.</p>
-         <p>XXX A namespaces worksheet XProc provides a place to experiment....</p>
+         <p>The <a href="https://www.w3.org/TR/REC-xml-names">Namespaces in XML Recommendation</a> was published by W3C
+            in 2009, and remains the authoritative source.</p>
+         <p><a href="../../worksheets/NAMESPACE_worksheet.xpl">A namespaces worksheet XProc</a>provides a place to
+            experiment with namespaces in XProc.</p>
       </section>
       <section>
          <h2>XML and namespaces</h2>
@@ -41,29 +42,61 @@
       </section>
       <section>
          <h2>Namespace fixup and namespace cleanup steps</h2>
-         <p>XProc specifies a process called <em>namespace fixup</em> that constitutes essentially a set of rewrite
-            rules for a tree of elements and attributes with qualified names, in order to normalize and streamline the
-            deployment of namespaces, with benefits in file size and legibility. You should think of namespace fixup as
-            something the processor might do on your behalf at any time, and a good thing. Minimize its impacts by
-            avoiding new namespaces where possible, and controlling namespaces in use.</p>
+         <p>Because they are heavily used in XSD and XPath for data typing, in XPath, XSLT and XQuery for extension
+            functionality, XProc itself, and all its XML-based inputs and outputs, namespaces are inescapable – and they
+            can be messy.</p>
+         <p>To help, XProc specifies a process called <em>namespace fixup</em> that constitutes essentially a set of
+            rewrite rules for a tree of elements and attributes with qualified names, in order to normalize and
+            streamline the deployment of namespaces, with benefits in file size and legibility. You should think of
+            namespace fixup as something the processor might do on your behalf at any time, and a good thing. Minimize
+            its impacts by avoiding new namespaces where possible, and controlling namespaces in use.</p>
          <p>While namespace fixup will help, it cannot optimize for your case. The step <code>p:delete-namespace</code>
             is a common remedy for <em>inflamed namespaces</em>, a condition that happens to XML that has been handled
             recklessly by too many handlers with too many namespaces. Also, <code>p:namespace-rename</code>.</p>
       </section>
       <section>
-         <h2>Namespace tips and tricks XXX</h2>
+         <h2>Namespace tips and tricks</h2>
+         <p>A few small points to make namespace handling easier.</p>
          <section>
             <h3>Coining new namespaces</h3>
+            <p>Do not be misled by the fact that namespaces are defined by means of URIs. The URIs point to pages that
+               often do not exist. Making new namespaces to provide a rational scope for a new set of elements or
+               functions is normal, and nothing needs to appear at that URI.</p>
+            <p>Developers may have non-technical reasons for using or avoiding certain URIs when doing so, but creating
+               new XML namespaces is something that simply has to be done, if we are to use them as intended and
+               consistently.</p>
          </section>
          <section>
             <h3>On-the-fly namespace declarations</h3>
+            <p>When doing so, or when deploying any namespace declarations (the HTML namespace
+                  <code>http://www.w3.org/1999/xhtml</code> is a frequent offender), the associated <code>xmlns:</code>
+               attribute does <i>not</i> have to be placed only at the document root. Pipelines in the repository
+               sometimes show namespaces declared internally, especially when their scope of application is limited.</p>
          </section>
          <section>
             <h3>Overloading prefixes</h3>
+            <p>One problem presented by namespaces is the flip side of one of their most important features, that
+               prefixes can be bound to names dynamically.</p>
+            <p>Consider this XML start tag for an XProc pipeline:</p>
+            <pre>&lt;p:declare-step xmlns:p="http://www.w3.org/ns/xproc" version="3.0"
+   xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns="http://csrc.nist.gov/ns/oscal-xproc3"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+   type="ox:a-step" name="a-step"></pre>
+            <p>Within the scope of this element, both unprefixed names such as <code>div</code> or <code>p</code> will
+               identify the same elements as <code>ox:div</code> and <code>ox:p</code>. None of these elements are the
+               familiar HTML <code>div</code> and <code>p</code> since the namespace is wrong – for HTML we would expect
+               the HTML namespace, or none.</p>
+            <p>This pipeline might wish to scrub its namespaces with a <a
+                  href="https://spec.xproc.org/3.0/steps/#c.namespace-delete">p:namespace-delete</a> XProc step.
+               Declarations are provided for the XSLT and XSD namespaces, which will accordingly appear (and be
+               propagated) into literal elements given in the pipeline and hence, pipeline results.</p>
          </section>
          <section>
             <h3>Matching with namespace wildcard</h3>
-            <p>For example, <code>match="*:p"</code> will match any <code>p</code> element in any namespace.</p>
+            <p>In XPath since version 2.0, <code>*:p</code> will identify any <code>p</code> element in any namespace –
+               not always pretty, but useful.</p>
          </section>
       </section>
    </body>
