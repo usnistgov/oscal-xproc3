@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [](../../..).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../../source/walkthrough/walkthrough_102_src.html](../../../source/walkthrough/walkthrough_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -47,8 +47,8 @@ XProc pipelines described in [the previous lesson unit](walkthrough_101.md) cont
 * Within the `p:for-each`, the step `ox:execute-xspec` is named in the `ox` namespace, which resolves to the string `http://csrc.nist.gov/ns/oscal-xproc3`, a value assigned for this project. This step is defined in the [imported pipeline](../../../xspec/xspec-execute.xpl). XProc is indefinitely extensible: the namespace feature allows us to create new steps without fear of name clashes with old steps – or steps that are still uninvented and unnamed. We can develop and name steps in our own namespace, while also acquiring and using steps in other namespaces.
 * The `p:identity` step is used twice in this pipeline for one purpose only: to indicate messages the XProc engine should deliver. In the normal configuration, you should see these messages in the console when the pipeline runs. This is a common use for `p:identity`.
 * The repository observes a couple of conventions with regard to steps and messages. For example: any `p:load` or `p:save` step should have a message; and messages should always be prefixed with a bracketed indicator of the pipeline that issues them, for example the `[TEST-XSPEC]` messages that are emitted here, once for each input and again once when the pipeline finishes.
-* Yes, those conventions are enforced in the repository by [a Schematron](../../../testing/xproc3-house-rules.sch) that can be applied to any pipeline, both in development and when it is committed to the repository under CI/CD (continuous integration / continous development). Assuming we take care to run our tests and validations, this does most of the difficult work maintaining consistency, namely detecting the inconsistency.
-* Reassuring messages aside, no XSpec reports are actually captured by this XProc! With nothing bound to an output port, it *sinks* by default. That is because it is a smoke test, and we care only to see that it runs and completes without error. The inputs are all controlled, so we know what those reports say. Or we can find out.
+* Yes, those conventions are enforced in the repository by [a Schematron](../../../testing/xproc3-house-rules.sch) that can be applied to any pipeline, both in development and when it is committed to the repository under [CI/CD (continuous integration / continous                      development)](walkthrough_301.md). Assuming we take care to run our tests and validations, this does most of the difficult work maintaining consistency, namely detecting the inconsistency. The result, assuming we do things correctly, is a more-than-human level of consistency in error checking and correction. This is discussed again [in a subsequent                      Lesson Unit](../courseware/courseware_101.md).
+* Reassuring messages aside, no XSpec reports are actually captured by this XProc! The `ox:execute-xspec` steps produces results – and produces its own runtime messages – but those results have no [connection](https://spec.xproc.org/3.0/xproc/#connections) given in the main pipepline, and it has no output port (`p:output`). Accordingly the pipeline *sinks* by default – the documents delivered at the end are discarded. (For smoke test purposes, we care only to see that it runs and completes without error.) The inputs are all controlled, so we know what those reports say. (Or we can find out by altering the pipeline to capture the findings, not discard them.)
 
 ### PRODUCE-PROJECTS-ELEMENTLIST
 
@@ -98,11 +98,11 @@ Take care when doing this that the XML is still intact with all the tags balance
 
 ### Where are these downloads coming from?
 
-Pipelines can use a few different strategies for resource acquisition, depending on the case, and on where and in what form the resource is available. (Sometimes a file on Github is easiest to download "raw", sometimes an archive is downloaded and opened, and so on.) For now, it is not necessary to understand details in every case, only to observe the variation and range. (With more ideas welcome. Could XProc be used to build a &ldquo;secure downloader&rdquo; that knows how, for example, to compare hashes?)
+Pipelines can use a few different strategies for resource acquisition, depending on the case, and on where and in what form the resource is available. (Sometimes a file on Github is easiest to download "raw", sometimes an archive is downloaded and opened, and so on.) For now, it is not necessary to understand details in every case, only to observe the variation and range. (With more ideas welcome. Could XProc be used to build a &ldquo;secure downloader&rdquo; that knows how, for example, to compare hash-based signatures?)
 
 Wherever you see `href` attributes, take note.
 
-Since `href` is how XProc &ldquo;sees&rdquo; the world, either to read data in or to write data out, this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For example, a download will not succeed if the resource indicated by the `href` for the download returns an error, or nothing. In XProc, `href` attribute settings are the *points of control* for interaction between an XProc pipeline, and its runtime environment.
+Since `href` is how XProc &ldquo;sees&rdquo; the world, either to read data in or to write data out, this attribute is a reliable indicator of an assumed feature, often a dependency of some kind. For example, a download will not succeed if the resource indicated by the `href` for the download returns an error, or nothing. In XProc, `href` attribute settings become important *points of control* for interaction between an XProc pipeline, and its runtime environment.
 
 Useful detail: where XProc has `p:store href="some-uri.file"`, the `href` is read by the processor as the intended location for storage of pipeline data, that is, for a *write* operation. In other cases `href` is always an argument for a *read* operation.
 

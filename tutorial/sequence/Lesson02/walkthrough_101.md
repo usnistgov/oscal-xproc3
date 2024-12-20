@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [](../../..).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../../source/walkthrough/walkthrough_101_src.html](../../../source/walkthrough/walkthrough_101_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -20,13 +20,10 @@ But a further goal is to stimulate a reader's curiosity along with their awarene
 **No prerequisites.** The commentary assumes, however:
 
 * You have run the acquisition, setup and test pipelines [described in the first lesson set](../acquire/acquire_101.md), or you are willing to pretend you have done so for our purposes here
-* You have some prior experience with either XML technologies, web publishing technologies, data modeling and data exchange, or (again) you are open to learning or at least thinking about it
+* *Either*, you have some prior experience with XML technologies, web publishing technologies, data modeling and Internet-based data interchange
+* *Or* (again) you are open to learning or at least thinking about it
 
 If you fall into neither of these categories – welcome, and congratulations on your perseverence at least. These pages are certainly available to be read and referenced even if you are not running any of the software: as part of the resource provided (the repository as a whole), they are open to anyone who finds them to be useful, including for specialized purposes.
-
-So you are also welcome to read what follows if this is your first look at XProc, or if you are not after the runtime, only the ideas, or if you have some other use in mind (such as perhaps testing an XProc engine?).
-
-If you fall into this category, however, you should also (one last time!) consider running some of the code after all. You might be surprised at how easy and not-so-scary it really is.
 
 ## Resources
 
@@ -52,7 +49,7 @@ A quick summary of what these pipelines do:
 * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl) downloads a zip file from Github and unzips it into a directory where Morgana can find it.
 * [lib/GRAB-XSPEC.xpl](../../../lib/GRAB-XSPEC.xpl) also downloads and &ldquo;unarchives&rdquo; a zip file resource, this time a copy of [an XSpec                distribution](https://github.com/xspec/xspec).
 
-Essentially, these all replicate and capture the work a developer must do to identify and acquire libraries. Maintaining our dependencies this way - not quite, but almost &ldquo;by hand&rdquo; -- appears to have benefits for system transparency and robustness.
+Essentially, these all replicate and capture the work a developer must do to identify and acquire libraries. Maintaining our dependencies this way – not quite, but almost &ldquo;by hand&rdquo; – appears to have benefits for system transparency and robustness.
 
 The second group of pipelines is a bit more interesting. Each of the utilities provided for in packages just downloaded is tested by running a **smoke test**.
 
@@ -63,7 +60,7 @@ Each smoke test performs a minor task, with the aim of determining whether a sim
 * [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT. SchXSLT is an implementation of Schematron, an ISO-standard validation and reporting technology. As this implementation relies on XSLT, this library also requires Saxon.
 * [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec, an XSLT-based testing framework useful for testing deployments of XSLT, XQuery and Schematron.
 
-Any and each of these can be used as a &ldquo;black box&rdquo; by any competent operator, even without understanding the internals. But this simplicity masks and manages complexity. XProc is XProc but its capabilities are limited without XSLT, XQuery, Schematron, XSpec and others, an open-ended set of compatible and complimentary technologies.
+Any and each of these can be used as a &ldquo;black box&rdquo; by any competent operator, even without understanding the internals. But this simplicity masks and manages complexity. XProc is XProc but never just that, since its capabilities are also extended by XSLT, XQuery, Schematron, XSpec and others, an open-ended set of compatible and complimentary technologies that are even more powerful together than they are in particular.
 
 At the same time, common foundations make it possible to learn these technologies together and in tandem.
 
@@ -71,15 +68,15 @@ At the same time, common foundations make it possible to learn these technologie
 
 Each of the test pipelines exercises a simple sequence of operations. Open any XProc file in an editor or viewer where you can see the tags. Skim this section to get only a high-level view.
 
-The aim here is demystification. Understand the parts to understand the whole. Reading the element names also inscribes them in memory circuits where they can be recovered.
+The aim here is demystification. Understand the parts to understand the whole. Reading the element names also inscribes them in (metaphorical) memory circuits where they will resonate later.
 
 ### [TEST-XPROC3](../../../smoketest/TEST-XPROC3.xpl)
 
-Examine the pipeline [TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl). It breaks down as follows:
+Examine the pipeline [TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl). It is a short chain of two steps, with one output offered. It breaks down as follows:
 
 * `p:output` – An *output port* is defined. It specifies that when the process results are delivered, a couple of serialization rules are followed: the text is indented and written without an XML declaration at the top. With this port, the process outputs can be captured by the calling process (such as your script), or simply echoed to the console.
-* `p:identity` – An *identity step* does nothing with its input but simply passes it along. This one is a little different from usual in that its inputs are given as literal (XML) contents in the pipeline. Essentially, because this pipeline has this step, it does not need to load or rely on any inputs, because its inputs are given here. The input is a single line of XML.
-* `p:namespace-delete` – A *namespace-delete* step is used to strip an XML namespace definition from the document bound to the identity step. This XML inherits namespaces from the pipeline itself, but it has no elements or attributes that use it, so the namespace is unneeded and its declaration comes through as noise. With this step the pipeline results are clean and simple.
+* `p:identity` – An *identity step* does nothing with its input except pass it along. This one has its input given as a literal (XML) fragment in the pipeline. Essentially, because this pipeline has this step, it does not need to load or rely on any inputs, because its inputs are given here. The input is a single line of XML.
+* `p:namespace-delete` – A *namespace-delete* step is used to strip an XML namespace definition from the document coming back (resulting from) the prior identity step. When nothing else is specifically designated as such, the input of any step is assumed to be the last step's results. In this case, our XML inherits namespaces from the pipeline itself (where it is embedded), but it has no elements or attributes that use it, so the namespace is unneeded and its declaration comes through as noise. With this step the pipeline results are clean and simple.
 
 When you run this pipeline, the `CONGRATULATIONS` document given in line will be echoed to the console, where designated outputs will appear if not otherwise directed.
 
@@ -95,40 +92,40 @@ Like the [TEST-XPROC3 pipeline](../../../smoketest/TEST-XPROC3.xpl) this pipelin
 
 If your pipeline execution can't process the XSLT (perhaps Saxon is not installed, or the XSLT itself has a problem) you will get an error saying so.
 
-Errors in XProc are reported by the Morgana engine using XML syntax. Among other things, this means they can be captured and processed in pipelines.
+Errors in XProc are reported by the XProc engine, typically using XML syntax. (The exact format of errors depends on the processor, and they are very much worth comparing.) Among other things, this means that XML results (for example showing errors trapped in try/catch) can be captured and processed in pipelines.
 
 ### [TEST-SCHEMATRON](../../../smoketest/TEST-SCHEMATRON.xpl)
 
-Schematron is a language used to specify rules to apply to XML documents. In this case a small Schematron is applied to a small XML.
+Schematron is a language used to specify rules to apply to XML documents. In this case a small Schematron is applied to a small XML. This flexible technology enables easy testing of XML against rule sets defined either for particular cases in particular workflows, or for entire classes or sets of documents whose rules are defined for standards and across systems.
 
 * `p:output` – An output port is designated for the results with the same settings.
-* `p:validate-with-schematron` – This is an XProc step specifically for evaluating an XML document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT` pipelines, this one presents its own input, given as a literal XML document given in the pipeline document (using `p:inline`). A setting on this step provides for it to throw an error if the document does not conform to the rules. The Schematron file provided as input to this step, [src/doing-well.sch](../../../smoketest/src/doing-well.sch), gives the rules. This flexible technology enables easy testing of XML against rule sets defined either for particular cases in particular workflows, or for entire classes or sets of documents.
-* `p:namespace-delete` – This step is used here as in the other tests for final cleanup of the information produced.
+* `p:validate-with-schematron` – This is an XProc step specifically for evaluating an XML document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT` pipelines, this one presents its own input, given as a literal XML document given in the pipeline document (using `p:inline`). A setting on this step provides for it to throw an error if the document does not conform to the rules. The Schematron file provided as input to this step, [src/doing-well.sch](../../../smoketest/src/doing-well.sch), gives the rules.
+* `p:namespace-delete` – This step is used here as in the other tests for final cleanup of the information set produced (as a namespace-qualified XML document).
 
 ### [TEST-XSPEC](../../../smoketest/TEST-XSPEC.xpl)
 
 [XSpec](https://github.com/xspec/xspec) is a testing framework for XSLT, XQuery and Schematron. It takes the form of a vocabulary and a process (inevitably implemented in XSLT and XQuery) for executing queries, transformations, and validations, by running them over known inputs, comparing the results to expected results, and reporting the results of this comparison. XProc, built to orchestrate manipulations of XML contents, is well suited for running XSpec.
 
-An XSpec instance (or &ldquo;document&rdquo;) defines a set of tests for a transformation or query module using the XSpec vocabulary. An XSpec implementation executes the tests and delivers the results. Since XSpec, like Schematron, reports its findings in XML, XProc can be useful both to manage the inputs and outputs, and to process the XSpec reports.
+An XSpec instance (as a document in itself) defines a set of tests for a transformation or query module using the XSpec vocabulary. An XSpec implementation executes the tests and delivers the results. Since XSpec, like Schematron, reports its findings in XML, XProc can be useful both to manage the inputs and outputs, and to process the XSpec reports.
 
 * `p:import` – calls to an external XProc file to make its step definitions available.
 * `p:input` – works as it does elsewhere, to declare inputs for the pipeline. In this case, the inputs must be XSpec documents using the XSpec vocabulary. You can expect errors when they are not. This testing pipeline offers three different XSpecs to be run, one each for XSLT, XQuery and Schematron.
 * `p:for-each` – defines a step or sequence of steps to be applied to each input, separately.
-* `p:identity` – simply passes through the previous step's result. While this is a &ldquo;no-op&rdquo; in the XProc itself, it provides an occasion for a message to help trace the XProc execution.
+* `p:sink` – Having performed the validations, we are done. While this step is optional here and a &ldquo;no-op&rdquo; in the XProc itself, it provides an occasion for a message to help trace the XProc execution.
 
 [The next lesson](walkthrough_102.md) offers more detail about this pipeline.
 
 ## A not-so-simple pipeline
 
-**tl/dr** - examine the Markdown file presenting an [XProc                Element directory](../../sequence/element-directory.md). It is generated by [a             pipeline](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl). Examine that pipeline to see XProc with real-world complexity.
+Examine the Markdown file presenting an [XProc Element                directory](../../sequence/element-directory.md). It is generated by [a pipeline](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl). Examine that pipeline to see XProc with real-world complexity.
 
 The simple pipelines examined so far show how useful things can be done simply, while the pipeline architecture allows for great flexibility.
 
 Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be managed and deployed just like a simple one, with its internal complexities masked by a simple and predictable interface.
 
-Next, take a look at a more complex example, the prototype pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl). Like the setup and smoke-test pipelines, this is a standalone pipeline (requiring no runtime bindings or settings): when this plan (&ldquo;step&rdquo; or pipeline) is executed, the processor will acquires inputs, produce results and write those results to the file system. The output it generates is stored as [element-directory.md](../../sequence/element-directory.md), a Markdown file (find the `p:store` step).
+Next, take a look at a more complex example, the prototype pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLIST.xpl). Like the setup and smoke-test pipelines, this is a standalone pipeline (requiring no runtime bindings or settings): when this plan (&ldquo;step&rdquo; or pipeline) is executed, the processor acquires inputs, produces results for its operations, and write those results to the file system. In this case the output it generates is stored as [element-directory.md](../../sequence/element-directory.md), a Markdown file (find the `p:store` step).
 
-The result is a reference resource encoded in Markdown: an index of XProc elements used in pipelines in this repository. As Markdown, this result can be reposted back into the repository or viewed with any Markdown viewing application. The index lists XProc elements, that is the core of the XProc vocabulary: for any XProc element used anywhere among the projects listed, the listing shows the pipelines where it appears. Following the index, the resource also shows a list of (repository) project folders in a prescribed order, with their XProc files and whatever XProc elements appear *first* (within the entire sequence up to to point) within that file. Among other uses this is helpful for assessing coverage of tutorial lessons as it offers a (semi) *ordered* survey of the elements.
+The result is a reference resource encoded in Markdown: an index of XProc elements used in pipelines in this repository. As Markdown, once reposted back into the repository, it can be viewed with any Markdown viewing application. The index lists XProc elements, i.e., the core of the XProc vocabulary: for any XProc element used anywhere among the projects listed, the listing shows the pipelines where it appears. Following the index, the resource also shows a list of (repository) project folders in a prescribed order, with their XProc files and whatever XProc elements appear *first* (within the entire sequence up to to point) within that file. Among other uses this is helpful for assessing coverage of tutorial lessons as it offers a (semi) *ordered* survey of their use of XProc (and other) elements.
 
 For example, looking up `p:store` you can see all the pipelines that contain this common step. Or looking at the `oscal-convert` listing you can see the XProc steps appearing first in that project folder.
 
@@ -145,11 +142,11 @@ The pipeline [PRODUCE-PROJECTS-ELEMENTLIST.xpl](../../PRODUCE-PROJECTS-ELEMENTLI
 There are some significant differences between this pipeline and the small ones we have looked at so far.
 
 * Of course, it is longer and more complex, reflecting the complexity of the operations it performs.
-* Part of the complexity is due to a two-step process here. First, the file system is surveyed in locations named in an input configuration. Then all those resources (which happen to be XML using the XProc vocabulary) are indexed against the files in which they occur. The two listings are both produced in this second analytical phase, showing how once the files are surveyed, more than one analysis is possible.
-* In particular, the index to &ldquo;first use&rdquo; is not simple. A great deal of the complexity of detailed operations has been off-loaded into XSLT transformation code, which in this pipeline can be seen embedded in the XProc, indeed occupying the greater part of the XML in the file. (About two thirds of the element count: you can usually recognize XSLT by the conventional `xsl:` element prefix.) This pipeline also has an XSLT called from an external file (toward the end). XProc can provide XSLT either way, and each has its advantages.
+* Part of the complexity is due to a two-step process here. First, the file system is surveyed in locations named in an input configuration. Then all those resources (which happen to be XML using the XProc vocabulary) are indexed again, this time showing only first occurrences of elements within files given in the stipulated order. Both indexes are written into the results, showing how a single survey can support more than one analysis.
+* In particular, the index to &ldquo;first use&rdquo; is not simple. A great deal of the complexity of detailed operations has been off-loaded into XSLT transformation code, which in this pipeline can be seen embedded in the XProc, indeed occupying the greater part of the XML in the file. (About two thirds of the element count: you can usually recognize XSLT by the conventional `xsl:` element prefix.) This pipeline also has an XSLT called from an external file (toward the end). XProc can provide XSLT either way, and each has its advantages. In this case, XSLT is left in place as literal embedded code, partly to show a borderline case. (It helps to use an editor or viewer with code folding.)
 * One good thing about seeing the XSLT here is you can get a good sense of what it looks like, whether embedded or kept externally. XSLT is [not                      essential to XProc](walkthrough_401.md), but it very much expands its practical capabilities.
 
-## XML syntax, XPath and XProc
+## Respecting XML syntax, XPath and XProc
 
 Newcomers to XML may feel they are in the deep water with XML syntax.
 
@@ -162,7 +159,7 @@ In the context of XProc, this is actually not as hard as it looks:
 <!-- comment goes here --> 
 ```
 
-* XML vocabularies are typically qualified with **namespaces** to show, and to disambiguate, which XML application or language they belong to. The namespaces are indicated by name *prefixes*. So in this repository (and conventionally for XProc), any element prefixed `p:` is an XProc element, and another prefix or none indicates an extension or another vocabulary, such as appears in XML being processed.
+* XML vocabularies are typically qualified with **namespaces** to show, and to disambiguate, which XML application or language they belong to. The namespaces are indicated by name *prefixes*. So in this repository (and conventionally for XProc), any element prefixed `p:` is an XProc element, and another prefix or none indicates an extension or another vocabulary, such as may appear in XML being processed.
 
 ```
 <p:output port="result" serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
@@ -184,4 +181,4 @@ Also, see the official [XProc.org dashboard page](https://xproc.org).
 
 Also, check out indexing logic offered in the [xproc-doc                project folder](../../../projects/xproc-doc/readme.md). It has pipelines producing useful indexes to XProc in this repository and in general, including one producing an [index to XProc                simple steps](../../../projects/xproc-doc/XPROC-STEP-INDEX-HTML.xpl) in HTML, with code snips.
 
-There is [a book, Erik Siegel's XProc 3.0                   Programmer's Reference](https://xmlpress.net/publications/xproc-3-0/) (2020) and an [excellent                reference site](https://xprocref.org/index.html) by the same author.
+There is [a book, Erik Siegel's XProc 3.0                   Programmer's Reference](https://xmlpress.net/publications/xproc-3-0/) (2020) and an [excellent                reference site](https://xprocref.org/index.html) by the same author. Like this resource, it is generated using XProc.

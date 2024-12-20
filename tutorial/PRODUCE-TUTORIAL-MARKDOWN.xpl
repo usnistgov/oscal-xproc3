@@ -19,43 +19,25 @@
 
       <p:directory-list  path="source/{ $lesson_key }" max-depth="unbounded" include-filter="(_src\.html|png)$"/>
 
-      <!-- is there a better way to annotate a directory list with full paths?
-        or: make a step out of this and import it XXXX -->
+      <!-- currently in lieu of p:make-absolute-uris -->
       <p:label-elements name="directory"
          match="c:file" attribute="path" label="ancestor-or-self::*/@xml:base => string-join('')"/>
       
-      <!--<p:xslt name="directory">
-         <p:with-input port="stylesheet">
-            <p:inline expand-text="false">
-               <xsl:stylesheet version="3.0">
-                  <xsl:mode on-no-match="shallow-copy"/>
-                  <xsl:template match="c:file">
-                     <xsl:copy>
-                        <xsl:copy-of select="@*"/>
-                        <xsl:attribute name="path"
-                           select="('source/' || string-join(ancestor-or-self::c:*/@name,'/')) => resolve-uri()"/>
-                     </xsl:copy>
-                  </xsl:template>
-               </xsl:stylesheet>
-            </p:inline>
-         </p:with-input>
-      </p:xslt>-->
-
-      
+            
       <p:for-each name="files">
          <p:with-input select="descendant::c:file[ends-with(@path,'_src.html')]"/>
          <!-- Remember that each input node is a root for its own tree - hence XPath context -->
-         <p:variable name="path" select="/*/@path => resolve-uri()"/>
-         <p:variable name="project-uri" select="resolve-uri('.')"/>
+         <p:variable name="path" select="/*/@path => resolve-uri() => p:urify()"/>
+         <p:variable name="project-uri" select="resolve-uri('.') => p:urify()"/>
          
          <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>-->
          <p:load href="{$path}" message="[PRODUCE-TUTORIAL-MARKDOWN] Loading {$path} "/>
 
+         <!-- for debugging: <p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] $path is ......: { $path }"/>
+         <p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] $project-uri is: { $project-uri }"/>-->
+         
          <p:variable name="result-md-filename"
             select="base-uri() => replace('.*/','') => replace('_src\.html$','.md')"/>
-         <!--<p:identity message="$path is { $path }"/>-->
-         <!--<p:identity message="$project-uri is { $project-uri }"/>-->
-         
          <p:variable name="result-md-path" select="('sequence',('Lesson' || $lesson-no), $result-md-filename) => string-join('/') => resolve-uri()"/>
 
          <!-- binding html namespace here so it can be unprefixed - less clutter -->
@@ -63,7 +45,7 @@
             <p:with-input port="insertion">
                <p:inline>
                <blockquote>
-                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../..{substring-after($path,$project-uri)}">{substring-after($path,$project-uri)}</a>.</p>
+                  <p><i>Warning:</i> this Markdown file will be rewritten under continuous deployment (CD): edit the source in <a href="../../../{substring-after($path,$project-uri)}">../../../{ substring-after($path,$project-uri)}</a>.</p>
                   <p>Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).</p>
                </blockquote>
                </p:inline>

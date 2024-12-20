@@ -399,9 +399,8 @@ XProc 3.0 aims to be platform- and application-independent, so one use of this p
 
 With the authors of incorporated tooling, the many contributors to the XProc and XML stacks underlying this functionality are owed thanks and acknowledgement. These include
 
-- [Henry Thompson](https://www.xml.com/pub/a/ws/2001/02/21/devcon1.html) and other pioneers of XML pipelining on a standards basis
-- Norman Walsh, exemplar of graceful persistence
-- Norm's fellow committee members and developers of XProc versions 1.0 and 3.0
+- [Henry Thompson](https://www.xml.com/pub/a/ws/2001/02/21/devcon1.html) and other pioneers of structured data pipelining on a standards basis
+- Committee members and developers of XProc versions 1.0 and 3.0, especially Norm Walsh, chair and exemplar of graceful persistence
 - Developers of embedded commodity parsers and processers such as Java Xerces, Trang, and Apache FOP (to mention only three)
 - All developers of XML, XSLT, and XQuery technologies and applications, especially unencumbered and open-source
  

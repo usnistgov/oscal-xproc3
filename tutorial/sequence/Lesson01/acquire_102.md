@@ -1,6 +1,6 @@
 
 
-> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [](../../..).
+> *Warning:* this Markdown file will be rewritten under continuous deployment (CD): edit the source in [../../../source/acquire/acquire_102_src.html](../../../source/acquire/acquire_102_src.html).
 > 
 > Save this file elsewhere to create a persistent copy (for example, for purposes of annotation).
 
@@ -9,7 +9,7 @@
 ## Goals
 
 * Look at some pipeline organization and syntax on the inside
-* Success and failure invoking XProc pipelines: making friends with tracebacks.
+* Success and failure invoking XProc pipelines: making friends with tracebacks
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Please complete the repository setup and smoke tests as described in the [101 le
 
 This discussion assumes basic knowledge of coding, the Internet (including retrieving resources via `file` and `http` protocols), and web-based technologies including HTML.
 
-XML knowledge is also assumed. In particular, XProc uses [XPath                3.1](https://www.w3.org/TR/xpath-31/), the query language for XML. This latest version of XPath builds on XPath 1.0, so any XPath experience will help. In general, any XSLT or XQuery experience will be invaluable.
+XML knowledge is *not* assumed. This poses a special challenge since in addition to its XML-based syntax, XProc uses the [XML Data Model (XDM)](https://www.w3.org/TR/xpath-datamodel/) along with [XPath 3.1](https://www.w3.org/TR/xpath-31/), the query language for XML: together, a deep topic. We make the assumption that if you already know XML, XPath, XSLT or XQuery, much will be familiar, but you will be tolerant of some restatement for the sake of those who do not. (As we all start somewhere, why not here.)
 
 You will also need a programmer's plain text editor, XML/XSLT editor or IDE (integrated development environment) for more interactive testing of the code.
 
@@ -29,11 +29,13 @@ Same as [Setup 101](acquire_101.md).
 
 The two groupings of pipelines used in setup and testing can be considered separately.
 
-The key to understanding both groups is to know that once the initial [Setup                script](../../../setup.sh) is run, Morgana can be invoked directly, as paths and scripts are already in place. In doing so – before extension libraries are in place – it can use only basic XProc steps, but those are enough to start with.
+The key to understanding both groups is to know that once the initial [Setup                script](../../../setup.sh) is run, your processor or &ldquo;engine&rdquo; (such as Morgana) can be invoked directly, as paths and scripts are already in place. In doing so – before extension libraries are in place – it can use only basic XProc steps, but those are enough to start with.
 
 Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 
 Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) directory has a single purpose, namely (together and separately) to download software to augment Morgana's feature set.
+
+If not using the open-source Morgana distribution, you can skip to smoke tests below, and see how far you get.
 
 * [lib/GRAB-SAXON.xpl](../../../lib/GRAB-SAXON.xpl)
 * [lib/GRAB-SCHXSLT.xpl](../../../lib/GRAB-SCHXSLT.xpl)
@@ -41,10 +43,10 @@ Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) 
 
 Pipelines in a second group work similarly in that each one exercises and tests capabilities provided by software downloaded by a member of the first group.
 
-* [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl) tests MorganaXProc-III
+* [smoketest/TEST-XPROC3.xpl](../../../smoketest/TEST-XPROC3.xpl) tests the execution runtime (MorganaXProc-III or other engine)
 * [smoketest/TEST-XSLT.xpl](../../../smoketest/TEST-XSLT.xpl) tests Saxon
-* [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT
-* [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec
+* [smoketest/TEST-SCHEMATRON.xpl](../../../smoketest/TEST-SCHEMATRON.xpl) tests SchXSLT (using `p:validate-with-schematron` step)
+* [smoketest/TEST-XSPEC.xpl](../../../smoketest/TEST-XSPEC.xpl) tests XSpec (using locally defined steps)
 
 Take a look at these files. It may be helpful (for those getting used to it) to envision the XML syntax as a set of nested frames with labels and connectors.
 
@@ -74,6 +76,8 @@ Key to this question is not only whether attractive and capable user interfaces 
 
 This larger fitting of solutions to problems is a responsibility for both SMEs (subject matter experts) and software developers together, who must define problems to be solved before approaches to them can be found.
 
-The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions come up in an OSCAL context or any context where XML is demonstrably capable.
+The open questions are: who can use XProc pipelines; and how can they be made more useful? The questions come up in an OSCAL context or any context where XML is demonstrably capable, or indeed anywhere we find the necessity of handling data with digital tools has become inescapable.
+
+In order to help answer this question, actual experience will be invaluable – part of our motive here. Unless we can make the demonstration pipelines in this repository accessible, they cannot be reasoned about. That accessibility requires not only open publication, but also use cases and user bases ready to take advantage.
 
 Having completed and tested the setup you are ready for work with XProc: proceed to the next lesson.
