@@ -109,21 +109,24 @@
             </ul>
             <p>This pipeline exploits one other important feature of XProc: so far at least, it is all XML. Even short
                of dynamically generating and executing XProc (a feature the language <a
-                  href="https://spec.xproc.org/lastcall-2024-08/head/run/">provides for</a>), the common ground of XML
-               format means that with XProc working XML tools, XML and its related ecosystem (most significantly but not
-               only XPath) is always available as an instrumental force magnifier or power tool, something we can put to
-               work again and again. In XProc, errors are reported in XML. So we can capture, aggregate and index error
-               messages in XProc. In XProc, a directory file listing is provided in XML. So we have a ready way to
-               present views of file systems – the XML shows all the names and structures – as well as analyze them and
-               access the files in them. Etc.</p>
+                  href="https://spec.xproc.org/lastcall-2024-08/head/run/">provides for</a>), XML and its related
+               ecosystem (most significantly but not only XPath) is always available, providing an instrumental <q>force
+                  magnifier</q> or power tool that we can put to work again and again. In XProc, errors are reported in
+               XML. So we can capture, aggregate and index error messages in XProc. In XProc, a directory file listing
+               is provided in XML. So we have a ready way to present views of file systems – the XML shows all the names
+               and structures – as well as analyze them and access the files in them. Etc.</p>
          </section>
       </section>
       <section>
          <h2>Messing around</h2>
          <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
             it behaves.</p>
-         <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
-            modify the copy. Modifying any of the pipelines presented so far, see what happens when:</p>
+         <p>As an exercise, make some changes in copies of the test pipelines. An easy way to do this without perturbing
+            the working code in the repository is to copy a pipeline and modify the copy.</p>
+         <p>Make at least one change that produces outputs (such as echoing a document to the console) that are visibly
+            different from the results of the original pipeline. Also try breaking the pipeline to see how it handles
+            errors.</p>
+         <p>You might see what happens when:</p>
          <ul>
             <li>An <code>@href</code> points to a location on the system where there is no file</li>
             <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
@@ -137,21 +140,37 @@
             problem or the source of the reported problem must be repaired.</p>
          <p>And sometimes a process will run successfully, despite an <q>error</q>. Whether it is in error then depends
             on how well it conforms to its requirements. Does it deliver the results we want and expect?</p>
-         <p>As an exercise, make some changes in copies of the test pipelines. Make at least one change that produces
-            outputs (such as echoing a document to the console) that are visibly different from the results of the
-            original pipeline.</p>
          <section>
             <h3>Disabling your code</h3>
-            <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
-               syntax:</p>
-            <pre>&lt;tagged>Text&lt;/tagged></pre>
-            <p>becomes:</p>
-            <pre>&lt;!--  &lt;tagged>Text&lt;/tagged> --></pre>
-            <p>A code editor that supports XML might let you do this with a keystroke, for example <code>ctrl-,</code>
-               (Control key plus comma), after selecting the text you wish to include in the comment.</p>
-            <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful
-               technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks
-               of code.</p>
+            <p>When debugging, being able to switch operations on and off easily to compare results is often
+               essential.</p>
+            <section>
+               <h4>XML comment syntax</h4>
+               <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
+                  syntax:</p>
+               <pre>&lt;tagged>Text&lt;/tagged></pre>
+               <p>becomes:</p>
+               <pre>&lt;!--  &lt;tagged>Text&lt;/tagged> --></pre>
+               <p>A code editor that supports XML might let you do this with a keystroke, for example
+                     <code>ctrl-,</code> (Control key plus comma), after selecting the text you wish to include in the
+                  comment.</p>
+               <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very
+                  useful technique for rapidly and interactively testing your pipelines, by deactivating and
+                  reactivating blocks of code.</p>
+            </section>
+            <section>
+               <h4>Native XProc</h4>
+               <p>XProc also offers other ways to switch code on and off, including XProc conditionals (<a
+                     href="https://spec.xproc.org/3.0/xproc/#p.if"><code>p:if</code></a> and <a
+                     href="https://spec.xproc.org/3.0/xproc/#p.choose"><code>p:choose</code></a>) and a <a
+                     href="https://spec.xproc.org/3.0/xproc/#use-when"><code>use-when</code></a> attribute on steps to
+                  provide for runtime contingency. These can be used when more permanent solutions or more capabilities
+                  are needed than a simple comment (placeholder) can offer.</p>
+               <p>So a step like <code>&lt;p:namespace-delete prefixes="ox" use-when="false()"/></code> will never run
+                  because XPath <code>false()</code> is never true. And <code>&lt;p:namespace-delete prefixes="ox"
+                     use-when="$cleaning-up"/></code> will run only if the variable <code>$cleaning-up</code> evalues to
+                  XPath <code>true()</code>.</p>
+            </section>
          </section>
       </section>
       <section>
@@ -177,9 +196,9 @@
          <section>
             <h3>Syntax tips</h3>
             <p>In XPath syntax, <code>$foo</code> (a name with a <code>$</code> prefixed) indicates a <b>variable
-                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i>
-                  (either<i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such
-               as <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
+                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i> (either
+                  <i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such as
+                  <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
                   write] to the URI given by <code>$some-xml-uri</code></q>.</p>
             <p>An XProc developer always knows where <code>href</code> is used in a pipeline, and how to test for and
                update its use. As always with syntax, the easiest way to learn it is to try making changes and observing
