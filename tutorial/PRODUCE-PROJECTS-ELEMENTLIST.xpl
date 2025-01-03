@@ -5,10 +5,12 @@
    xmlns:html="http://www.w3.org/1999/xhtml"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-PROJECTS-ELEMENTLIST" name="PRODUCE-PROJECTS-ELEMENTLIST">
 
-   <!-- PRODUCE-TUTORIAL-ELEMENTLIST produces an XML file
+   <!-- PRODUCE-PROJECTS-ELEMENTLIST produces a Markdown file
 
      Listing directories in sequence, with the XProc elements first used in pipelines in that directory
      Along with an index to XProc elements in all directories
+     
+     HTML is used as an intermediate format.
      
    -->
 
@@ -165,7 +167,5 @@
    <!-- Saving that -->
    <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
       message="[PRODUCE-PROJECTS-ELEMENTLIST] Storing { $result-md-path }"/>
-   
-   <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
-   
+
 </p:declare-step>

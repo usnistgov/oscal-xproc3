@@ -19,7 +19,7 @@
    <p:variable name="zip-name"  select="$archive-basename || '-xproc.zip'"/>
    <p:variable name="whither" select="resolve-uri($archive-basename, static-base-uri())"/>
 
-   <p:variable name="prefix" select="'[' || 'GRAB-SCHXSLT' || ']'"/>
+   <p:variable name="prefix" select="'[GRAB-SCHXSLT]'"/>
    
    <!-- It beginneth -->
 

@@ -44,12 +44,13 @@
       </section>
       <section>
          <h2>Details details!</h2>
-         <p>XProc pipelines described in <a href="walkthrough_101_src.html" class="LessonUnit">the previous lesson unit</a>
-            contain a few noteworthy features.</p>
+         <p>XProc pipelines described in <a href="walkthrough_101_src.html" class="LessonUnit">the previous lesson
+               unit</a> contain a few noteworthy features. In this section we take a closer look at the internals of a
+            couple of these examples.</p>
          <p> To edit these files, use any XML-capable plain text editor (that is, with care, any editor at all that
             saves text files as UTF-8).</p>
          <section>
-            <h3>TEST-XSPEC</h3>
+            <h3><a href="../../../smoketest/TEST-XSPEC.xpl">TEST-XSPEC</a></h3>
             <ul>
                <li>Where XSpec documents are bound to the input port <code>source</code>, they have
                      <code>content-type='application/xml'</code> given. This is because with the unconventional file
@@ -62,22 +63,23 @@
                <li>Within the <code>p:for-each</code>, the step <code>ox:execute-xspec</code> is named in the
                      <code>ox</code> namespace, which resolves to the string
                      <code>http://csrc.nist.gov/ns/oscal-xproc3</code>, a value assigned for this project. This step is
-                  defined in the <a href="../../../xspec/xspec-execute.xpl">imported pipeline</a>. XProc is indefinitely
-                  extensible: the namespace feature allows us to create new steps without fear of name clashes with old
-                  steps – or steps that are still uninvented and unnamed. We can develop and name steps in our own
-                  namespace, while also acquiring and using steps in other namespaces.</li>
-               <li>The <code>p:identity</code> step is used twice in this pipeline for one purpose only: to indicate
-                  messages the XProc engine should deliver. In the normal configuration, you should see these messages
-                  in the console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
+                  defined in the <a href="../../../xspec/xspec-execute.xpl">imported pipeline</a>. By requiring that a
+                  (non-XProc) namespace be used for new steps, XProc enables arbitrary and unplanned (uncoordinated)
+                  extensibility, since we can create new steps without fear of name clashes with other steps, whether
+                  they be already defined and in scope, or still uninvented and unnamed. We can develop and name steps
+                  in our own namespace, while also acquiring and using steps in other namespaces.</li>
+               <li>The <code>p:identity</code> step is used in this pipeline for one purpose only: to indicate messages
+                  the XProc engine should deliver. In the normal configuration, you should see these messages in the
+                  console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
                <li>The repository observes a couple of conventions with regard to steps and messages. For example: any
                      <code>p:load</code> or <code>p:save</code> step should have a message; and messages should always
                   be prefixed with a bracketed indicator of the pipeline that issues them, for example the
                      <code>[TEST-XSPEC]</code> messages that are emitted here, once for each input and again once when
                   the pipeline finishes.</li>
                <li>Yes, those conventions are enforced in the repository by <a
-                     href="../../../testing/xproc3-house-rules.sch">a Schematron</a> that can be applied to any
+                     href="../../../testing/xproc3-house-rules.sch">a Schematron rule set</a> that can be applied to any
                   pipeline, both in development and when it is committed to the repository under <a
-                     href="walkthrough_301_src.html" class="LessonUnit">CI/CD (continuous integration / continous
+                     href="walkthrough_301_src.html" class="LessonUnit">CI/CD (continuous integration / continuous
                      development)</a>. Assuming we take care to run our tests and validations, this does most of the
                   difficult work maintaining consistency, namely detecting the inconsistency. The result, assuming we do
                   things correctly, is a more-than-human level of consistency in error checking and correction. This is
@@ -94,19 +96,19 @@
             </ul>
          </section>
          <section>
-            <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
+            <h3><a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a></h3>
             <p>The pipeline <a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> has
                   <q>real-world complexity</q>. Reviewing its steps can give a sense of how XProc combines simple
                capabilities into complex operations. Notwithstanding the title of this section, it is not important to
                understand every detail – knowing they are there is enough.</p>
             <ul>
-               <li>The prologue here contains a single <code>p:input</code> configuration. This one gives the input in
-                  line, as an XML document. Within this XML, all the project folders to be covered by the index are
+               <li>The prologue here contains a single <code>p:input</code> configuration. This one gives its input
+                  inline, as an XML document. Within this XML, all the project folders to be covered by the index are
                   listed. Their order also matters since one of the two indexes built works incrementally, prior
                   elements affecting what happens with later elements.</li>
             </ul>
             <p>This pipeline exploits one other important feature of XProc: so far at least, it is all XML. Even short
-               of of dynamically generating and executing XProc (a feature the language  <a
+               of dynamically generating and executing XProc (a feature the language <a
                   href="https://spec.xproc.org/lastcall-2024-08/head/run/">provides for</a>), the common ground of XML
                format means that with XProc working XML tools, XML and its related ecosystem (most significantly but not
                only XPath) is always available as an instrumental force magnifier or power tool, something we can put to

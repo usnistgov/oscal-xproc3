@@ -59,7 +59,7 @@ If for any reason you can't run XProc or Java, post us an Issue and the dev team
 
 ### Observer Track
 
-For everyone including the "hands off" researchers including subject experts, managers and programmers who want to see how XProc works and understand its capabilities, without planning to develop XProc pipelines or write code.
+This track is for everyone but most especially for researchers including subject experts, managers and developers who want to see how XProc works and understand its capabilities, but who do not plan to build XProc pipelines or write code. Maybe you need to understand it so you can help develop and test against requirements.
 
 In this track you will inspect pipelines, run pipelines, and inspect their inputs and outputs.
 
@@ -71,9 +71,9 @@ The idea is that with a foundation in running pipelines and witnessing their cap
 
 The coverage here parallels the Observer track, but provides exposition appropriate to newcomers to XProc who wish to accelerate learning by means of trial and experiment.
 
-The biggest challenge to developers coming to XProc will often be in how much XML, XPath, XQuery, or XSLT do you know. Even developers who have no prior exposure to the XML stack should be able to use the Maker track to test and develop skills. Those who do have prior experience will, it is hoped, find it to be an accelerant, while XProc itself is a launchpad. It should be possible to start from zero.
+XProc is intimately tied to XML (syntax), XDM (data model), XPath (for queries and pattern-matching) and a host of related 'X' technologies developed over decades at W3C and elsewhere. Those who have prior experience with XML and XSLT will find much that is familiar along with what is new, but even developers who are not XML specialists should be able to use the Maker track to test and develop skills. If XML is the rocket, your data is the fuel and XProc is the launchpad. It should be possible to start from zero, and with a model rocket.
 
-The expectation is that unlike Observers, Makers will be interested in tracebacks and error messages - and will wish sometimes to produce them deliberately - if only out of curiosity and need-to-know. As a Maker, you are confident that you can put things back well enough or that any damage is well contained.
+The expectation is that unlike Observers, Makers will be interested in tracebacks and error messages, and will wish sometimes to produce them deliberately if only to see what happens. As a Maker, you are confident that you can put things back well enough or that any damage is well contained.
 
 Makers can also expect the gratification of making things work in new ways.
 
@@ -101,12 +101,12 @@ OSCAL data will especially be of interest, especially OSCAL catalogs and profile
 
 The lessons are published in Markdown, which invites you to create and edit copies.
 
-When you do so, however, please should take care:
+When you do so, however, please take care:
 
 - To see to it that your edits or annotations are easily distinguishable
-- To save your edited copy out, lest it be deleted inadvertantly as a temporary artifact (see next section) 
+- To save your edited copy out, lest it be deleted inadvertently as a temporary artifact (see next section) 
 
-All [work product here in in the Public Domain](../LICENSE.md), so no worries there. Of course this means you can't claim copyright either: *caveat scriptor*.
+All [work product here is in the Public Domain](../LICENSE.md), so no worries there. Of course this means you can't claim copyright either: *caveat scriptor*.
 
 # Production
 

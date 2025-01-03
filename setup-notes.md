@@ -18,7 +18,7 @@ Morgana can be downloaded from  https://sourceforge.net/projects/morganaxproc-ii
 
 The utility pipeline [lib/GRAB-SAXON.xpl](lib/GRAB-SAXON.xpl) is provided to download and extract Saxon-HE for Morgana.
 
-Or, by hand - download Saxon-HE 12.3 at https://www.saxonica.com/download/SaxonHE12-3J.zip
+Or, by hand - for version 12.3 (or adjusted for a version 12.x), download Saxon-HE 12.3 at https://www.saxonica.com/download/SaxonHE12-3J.zip
 
   - Unzip and copy `saxon-he-12.3.jar` into the new `MorganaXProc-IIIse-{version}/MorganaXProc-IIIse_lib`
   - Take care no other versions of Saxon are present (which might conflict)
@@ -26,9 +26,9 @@ Or, by hand - download Saxon-HE 12.3 at https://www.saxonica.com/download/SaxonH
 
 ### Note on Saxon versions
 
-We have successfully run with Saxon-HE 12.3 and the runtime flag ` -xslt-connector=saxon12-3` when invoking Morgana.
+We have successfully run with versions Saxon-HE 12.3 and 12.5, with the runtime flag ` -xslt-connector=saxon12-3` when invoking Morgana. ([As noted on the Morgana web site](https://www.xml-project.com/manual/ch02.html#configuration_s1_1_s2_2) this configuration should be forward compatible).
 
-Developers who have success with later versions and reasons to need a Saxon upgrade should [please make an Issue](https://github.com/usnistgov/oscal-xproc3/issues) or (better) [a PR](https://github.com/usnistgov/oscal-xproc3/pulls).
+We are also doing our best to track versions of Saxon -- as you may see if GRAB-SAXON actually grabs a later version -- be that as may be, developers who have success with later versions and reasons to need a Saxon upgrade should [please make an Issue](https://github.com/usnistgov/oscal-xproc3/issues) or (better) [a PR](https://github.com/usnistgov/oscal-xproc3/pulls).
 
 ## Acquire SchXSLT for Schematron support
 
@@ -58,13 +58,13 @@ See [Morgana documentation](https://www.xml-project.com/manual/index.html) for m
 
 ## Run the smoke tests
 
-Because it reduces to (nearly) the most minimal use of XProc, if the [smoke test](./smoketest/smoketest/TEST-XPROC3.xpl) application doesn't work, nothing can be expected to work.
+Because it reduces to (nearly) the most minimal use of XProc, if the [smoke test](./smoketest/TEST-XPROC3.xpl) application doesn't work, nothing can be expected to work.
 
 Likewise, tests are provided that can show that XSLT and Schematron capabilities are correctly provided for (by the Saxon and SchXSLT libraries). See [TESTING.md](TESTING.md) for more information.
 
 - [smoketest/TEST-XSLT.xpl](smoketest/TEST-XSLT.xpl)
 - [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-SCHEMATRON.xpl)
-- [smoketest/TEST-SCHEMATRON.xpl](smoketest/TEST-XSPEC.xpl)
+- [smoketest/TEST-XSPEC.xpl](smoketest/TEST-XSPEC.xpl)
 
 Note that since Schematron and XSpec depend on XSLT and hence invoke Saxon, the Saxon-only smoketest can often be skipped.
 

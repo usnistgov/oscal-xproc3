@@ -30,6 +30,27 @@
       <section><h2>Resources</h2>
          <p>Same as <a href="acquire_101_src.html" class="LessonUnit">Setup 101</a>.</p>
       </section>
+      <section>
+         <h2>Step Zero: XProc steps</h2>
+         <p>An XProc <em>pipeline</em> is composed out of XProc <em>steps</em>. Entire pipelines can then be called as
+            steps in other pipelines. When you look at an XProc pipeline you will see an XML element named
+               <code>p:declare-step</code> (modulo namespace prefix adjustments - it might be
+               <code>xproc3:declare-step</code>), because conceptually, any pipeline is considered as a step in itself.
+            Like a step, a pipeline works with defined inputs (<em>sources</em>) to deliver defined outputs
+               (<em>results</em>). But any pipeline is also built out of steps – many of which are considered
+               <em>atomic</em> or <q>primitive</q>, but some of which you might build yourself (as pipelines).</p>
+         <p>XProc also exploits the idea of <q>pipelining</q> by offering features that allow you to connect steps
+            together in arbitrary ways (pipeline logic can be complex), but also by falling back, when you make no such
+            connections, to an easily-understood <q>chaining</q> model, in which each step consumes the output of its
+            immediate predecessor. This makes it possible for simple pipelines to be very succinct: just put the steps
+            in the order they are to be performed – while noting these are <i>logical</i> dependencies, with processors
+            free to optimize where possible (for example, skipping steps whose results are never used) or as
+            directed.</p>
+         <p>One consequence is that the shorter and simpler a pipeline is, the more important it is to understand that a
+            step can pick up inputs from the last step and pass them to the next, in the order given. As long as the
+            designated default (or <em>implicit</em>) bindings for all required inputs and outputs can be discovered by
+            the rules, everything runs.</p>
+      </section>
       
       <section>
          <h2>Step One: Inspect the pipelines</h2>
@@ -39,9 +60,9 @@
             and scripts are already in place. In doing so – before extension libraries are in place – it can use only
             basic XProc steps, but those are enough to start with.</p>
          <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
-            unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
-            (Morgana) can use to do more.</p>
-            <p>Accordingly, the first group of pipelines (in the <a href="../../../lib/readme.md">lib</a> directory has
+            unarchiving (or in this case unzipping, which combines unarchiving with data decompression). Having been
+            downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.</p>
+            <p>Accordingly, the first group of pipelines (in the <a href="../../../lib/readme.md">lib</a> directory) has
             a single purpose, namely (together and separately) to download software to augment Morgana's feature
             set.</p>
          <p>If not using the open-source Morgana distribution, you can skip to smoke tests below, and see how far you
