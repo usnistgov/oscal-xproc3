@@ -2,7 +2,6 @@
 
 # This script attempts to run XML Calabash 3
 
-
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
 XML_CALABASH_VERSION=3.0.0-alpha9
@@ -32,6 +31,7 @@ elif [ "${1:-}" = '-h' ] || [ "${1:-}" = '--help' ]; then usage
 
 else
 
+  echo Applying XML Calabash version ${XML_CALABASH_VERSION}
   ${XML_CALABASH} $@
 
 fi

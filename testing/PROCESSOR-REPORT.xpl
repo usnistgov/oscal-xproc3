@@ -13,10 +13,9 @@
       serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
    
    
-   <p:output port="plaintext" pipe="@pretty" serialization="map{'method': 'text' }" />
+   <p:output port="plaintext" pipe="@plain" serialization="map{'method': 'text' }" />
    
    <!-- /prologue	-->
-   
    
    <p:group name="basic"  message="[PROCESSOR-REPORT] XPROC 3 Processor Report">
       <p:identity>
@@ -38,21 +37,25 @@
    </p:group>
    
    <p:insert match="/PROCESSOR" position="last-child">
-      <!--Unlike XSLT, we use an absolute XPath, there is no relative context just a tree  -->
+      <!--Unlike XSLT, the context for path expressions is the root of a tree, not an element  -->
       <p:with-input port="insertion">
          <p:inline>
-            <report-time>REPORTING AT { /*/@reporting => format-dateTime('[h01]:[m01] [P] on [FNn] [MNn] [D1o], [Y]') }</report-time>
+            <report-time>REPORTING AT { /PROCESSOR/@reporting => format-dateTime('[h01]:[m01] [P] on [FNn] [MNn] [D1o], [Y]') }</report-time>
          </p:inline>
       </p:with-input>
    </p:insert>
 
+   <p:namespace-delete prefixes="ox"/>
+   
    <!-- making labels explicit in content -->
    <p:string-replace match="/PROCESSOR/*/text()"
       replace="(local-name(parent::*), string(.)) => string-join(': ')"/>
    
    <!-- trimming whitespace back to uniform length directly inside /*
         so as to look nice as plain text -->
-   <p:string-replace name="pretty" match="/PROCESSOR/text()[matches(.,'^\s+$')]"
+   <p:string-replace match="/PROCESSOR/text()[matches(.,'^\s+$')]"
       replace="'&#xA;  '"/>
+
+   <p:string-replace name="plain" match="/PROCESSOR" replace="string(.)"/>
 
 </p:declare-step>

@@ -43,19 +43,7 @@ Or, by hand - find [David Maus's SchXSLT](https://github.com/schxslt/schxslt) on
 
 Use [lib/GRAB-XSPEC.xpl](lib/GRAB-XSPEC.xpl) to pull down XSpec.
 
-## Try XML Calabash
-
-As an alternative to the Morgana processor, in 2025 you can run the newly released *alpha* XProc 3.0 version of XML Calabash. Run the setup script `setup-xmlcalabash.sh`.
-
-This will populate the `lib` directory with the software needed by the runtime scripts `xc3.sh` and `xc3.bat`.
-
-Run these just as you would run the `xp3` scripts and your pipelines will be evaluated and their results captured in much the same way as with Morgana.
-
-(If you update the XML Calabash version be sure and update the `xc3.sh` and `xc3.bat` scripts accordingly.)
-
-Keep in mind this may still be experimental when you try it.... early results suggest XML Calabash may be somewhat slower at least at startup, but has more comprehensive error handling.
-
-## Skip these downloads
+### Skip these downloads
 
 Alternatively, developers who already have these libraries can configure to use available copies rather than downloading them - see the [lib/readme.md](lib/readme.md).
 
@@ -65,11 +53,29 @@ Alternatively, developers who already have these libraries can configure to use 
 
 - for XSpec, edit the top-level [XSpec execution pipeline](xspec/xspec-execute.xpl) or any pipeline that calls into XSpec directly.
 
-## Check your paths
+### Check your paths
 
 The scripts [xp3.sh](xp3.sh) and [xp3.bat](xp3.bat) call scripts in the Morgana distribution. If the path to Morgana changes, or the path to the Morgana configuration file, these scripts must be updated to work.
 
 See [Morgana documentation](https://www.xml-project.com/manual/index.html) for more support on running Morgana and XProc, including [Saxon configuration](https://www.xml-project.com/manual/ch02.html#configuration_s1_1_s2_2).
+
+## Try XML Calabash
+
+As an alternative to the Morgana processor, in 2025 you can run the newly released *alpha* XProc 3.0 version of [XML Calabash](https://github.com/xmlcalabash/xmlcalabash3). Run the setup script `setup-xmlcalabash.sh`.
+
+This will populate the `lib` directory with the software needed by the runtime scripts `xc3.sh` and `xc3.bat`.
+
+Run either of these just as you would run an `xp3` script, and your pipeline will be evaluated and its results captured and handled in much the same way as with Morgana.
+
+(If you update the XML Calabash version be sure and update the `xc3.sh` and `xc3.bat` scripts accordingly.)
+
+Keep in mind this may still be experimental when you try it. We have only early impressions on how these two processors compare or even how to test to ensure robust runtimes across processors (conformance testing). In particular, there may be undocumented platform requirements for either processor, for us to discover and reconcile. Strange tracebacks are possible!
+
+## Try your own XProc engine
+
+If you already have either Morgana XProc IIIse or XML Calabash 3.0, fire away!
+
+XProc is a standard so we are interested in any findings of variances between processors thought to be conformant.
 
 ## Run the smoke tests
 
@@ -87,9 +93,9 @@ Note that since Schematron and XSpec depend on XSLT and hence invoke Saxon, the 
 
 If the smoke tests work, but a pipeline does not function correctly, any problem is most likely not with installation or configuration, but with the pipeline itself, or in a resource that it reads or requires.
 
-Morgana returns information about errors and warnings in XML format. While this compromises their legibility on the screen, generally speaking the messages embedded are fairly helpful. And this XML is very useful for other purposes, as it can be trapped and processed further.
+XProc being XML-centric, you will typically see information about errors and warnings in XML format. While this arguably compromises their legibility on the screen, generally speaking the messages embedded are fairly helpful. And this XML is very useful for other purposes, as it can be captured and processed.
 
-Any problems with any pipelines on this site (or any pipelines not otherwise called out in documentation or comments) should be [reported](https://github.com/usnistgov/oscal-xproc3/issues), as it is not our aim to distribute broken software. Of course, if your aim is to learn XProc and XSLT, we also hope you are looking at useful error messages very soon - signposts on your journey.
+Any problems with any pipelines on this site (or any pipelines not otherwise called out in documentation or comments) should be [reported](https://github.com/usnistgov/oscal-xproc3/issues), as it is not our aim to distribute broken software. Of course, if your aim is to learn XProc and related tech, we also hope you are looking at useful error messages very soon - signposts on your journey.
 
 ---
 

@@ -11,6 +11,7 @@ pushd lib > /dev/null
 VERSION=3.0.0-alpha9
 RELEASES=https://github.com/xmlcalabash/xmlcalabash3/releases/download
 
+# Acquiring, for example, https://github.com/xmlcalabash/xmlcalabash3/releases/download/3.0.0-alpha9/xmlcalabash-3.0.0-alpha5.zip
 
 if [ ! -f "xmlcalabash-${VERSION}.zip" ]; then
     echo "Downloading XML Calabash 3 (may take a few seconds) ..."
@@ -26,4 +27,3 @@ echo "Smoke testing xmlcalabash-$VERSION:"
 java -jar xmlcalabash-$VERSION/xmlcalabash-app-$VERSION.jar version
 
 popd > /dev/null
-
