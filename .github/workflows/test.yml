@@ -40,7 +40,7 @@ jobs:
           ./xp3.sh smoketest/TEST-SCHEMATRON.xpl -silent
           ./xp3.sh smoketest/TEST-XSPEC.xpl      -silent
         id: exec_smoketests
-      - name: Run tests
+      - name: Run QA checks and unit tests
         run: |
           ./xp3.sh testing/REPO-FILESET-CHECK.xpl          -silent
           ./xp3.sh testing/HARDFAIL-XPROC3-HOUSE-RULES.xpl -silent
