@@ -2,10 +2,13 @@
 
 With Java and `bash`, run `./setup.sh` to set up. `curl` and `unzip` must be available on your command line.
 
-See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for licensing information on these products and open-source initiatives.
-Or, by hand ...
+Alternatively (as described below) `./setup-xmlcalabash.sh` sets up XML Calabash, not Morgana XProc IIIse. This is a simpler installation but not yet as well tested (in this repository).
 
-## Set up Morgana XProc IIIse
+See [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md) for licensing information on these products and open-source initiatives.
+
+Or, by hand
+
+## Install Morgana XProc IIIse
 
 Morgana can be downloaded from  https://sourceforge.net/projects/morganaxproc-iiise/files
 
@@ -14,7 +17,7 @@ Morgana can be downloaded from  https://sourceforge.net/projects/morganaxproc-ii
     - Create the directory if necessary
     - Take care to place in the repository `lib`, not in a project folder's `lib`.
 
-## Drop in Saxon-HE
+### Drop in Saxon-HE
 
 The utility pipeline [lib/GRAB-SAXON.xpl](lib/GRAB-SAXON.xpl) is provided to download and extract Saxon-HE for Morgana.
 
@@ -24,21 +27,33 @@ Or, by hand - for version 12.3 (or adjusted for a version 12.x), download Saxon-
   - Take care no other versions of Saxon are present (which might conflict)
   - Discard the rest if unwanted - keeping the zip file intact for the license information etc.
 
-### Note on Saxon versions
+#### Note on Saxon versions
 
 We have successfully run with versions Saxon-HE 12.3 and 12.5, with the runtime flag ` -xslt-connector=saxon12-3` when invoking Morgana. ([As noted on the Morgana web site](https://www.xml-project.com/manual/ch02.html#configuration_s1_1_s2_2) this configuration should be forward compatible).
 
 We are also doing our best to track versions of Saxon -- as you may see if GRAB-SAXON actually grabs a later version -- be that as may be, developers who have success with later versions and reasons to need a Saxon upgrade should [please make an Issue](https://github.com/usnistgov/oscal-xproc3/issues) or (better) [a PR](https://github.com/usnistgov/oscal-xproc3/pulls).
 
-## Acquire SchXSLT for Schematron support
+### Acquire SchXSLT for Schematron support
 
 Use [lib/GRAB-SCHXSLT.xpl](lib/GRAB-SCHXSLT.xpl) to pull down SchXSLT.
 
 Or, by hand - find [David Maus's SchXSLT](https://github.com/schxslt/schxslt) on Github. The [distribution you want](https://github.com/schxslt/schxslt/releases/download/v1.9.5/schxslt-1.9.5-xproc.zip) provides XProc support.
 
-## Acquire XSpec for XSpec support
+### Acquire XSpec for XSpec support
 
 Use [lib/GRAB-XSPEC.xpl](lib/GRAB-XSPEC.xpl) to pull down XSpec.
+
+## Try XML Calabash
+
+As an alternative to the Morgana processor, in 2025 you can run the newly released *alpha* XProc 3.0 version of XML Calabash. Run the setup script `setup-xmlcalabash.sh`.
+
+This will populate the `lib` directory with the software needed by the runtime scripts `xc3.sh` and `xc3.bat`.
+
+Run these just as you would run the `xp3` scripts and your pipelines will be evaluated and their results captured in much the same way as with Morgana.
+
+(If you update the XML Calabash version be sure and update the `xc3.sh` and `xc3.bat` scripts accordingly.)
+
+Keep in mind this may still be experimental when you try it.... early results suggest XML Calabash may be somewhat slower at least at startup, but has more comprehensive error handling.
 
 ## Skip these downloads
 

@@ -6,7 +6,6 @@
 
 mkdir -p lib
 
-
 pushd lib > /dev/null
 
 VERSION=3.0.0-alpha9
@@ -16,16 +15,14 @@ RELEASES=https://github.com/xmlcalabash/xmlcalabash3/releases/download
 if [ ! -f "xmlcalabash-${VERSION}.zip" ]; then
     echo "Downloading XML Calabash 3 (may take a few seconds) ..."
     curl -s -L -o xmlcalabash-$VERSION.zip $RELEASES/$VERSION/xmlcalabash-$VERSION.zip
-
-    # unzip -qo "${morgana}.zip" -x __MACOSX/**
-    # chmod +x "${morgana}/Morgana.sh"
 else
-    echo "You have XML Calabash ${VERSION} in directory lib"
+    echo "You have the XML Calabash ${VERSION} distribution (zip file) - delete it and run again for a fresh download"
 fi
 
-unzip -q xmlcalabash-$VERSION.zip
+echo "Unzipping ${VERSION} ..."
+unzip -q -o xmlcalabash-$VERSION.zip
 
-echo "Smoke test:"
+echo "Smoke testing xmlcalabash-$VERSION:"
 java -jar xmlcalabash-$VERSION/xmlcalabash-app-$VERSION.jar version
 
 popd > /dev/null
