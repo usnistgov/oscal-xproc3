@@ -4,15 +4,20 @@
    type="ox:PROCESSOR-REPORT"
    name="PROCESSOR-REPORT">
       
-   <!--  This XProc delivers plain text as produced by the last step -->
-   <!-- If XML is wanted:
-      <p:output port="result-xml" pipe="" />
-   -->
+   <!--
+      
+     This XProc produces two results:
+     
+     'result' is an XML summary of findings from system-property function calls
+     
+     'summary' is plain text provided with labels and an English-language time stamp
+     
+   -->  
    
-   <p:output port="basic" pipe="@basic" 
+   <p:output port="result" pipe="@basic" primary="true" 
       serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />  
    
-   <p:output port="plaintext" pipe="@labeled" serialization="map{'method': 'text' }" />
+   <p:output port="summary" pipe="@labeled" serialization="map{'method': 'text' }" />
    
    <!-- /prologue	-->
    
@@ -34,6 +39,7 @@
             </PROCESSOR>
          </p:with-input>
       </p:identity>
+      
       <p:namespace-delete prefixes="ox"/>
    </p:group>
    
@@ -47,9 +53,14 @@
             </p:inline>
          </p:with-input>
       </p:insert>
-      <p:namespace-delete prefixes="ox"/>
+      
       <p:string-replace match="/PROCESSOR/*/text()" replace="(local-name(parent::*), string(.)) => string-join(': ')"/>
+      
       <p:string-replace match="/PROCESSOR/text()[matches(.,'^\s+$')]" replace="'&#xA;  '"/>
+      
+      <p:string-replace match="/PROCESSOR/text()[last()]" replace="'&#xA;'"/>
+      
+      <p:namespace-delete prefixes="ox"/>
    </p:group>
    
 </p:declare-step>
