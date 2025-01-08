@@ -8,7 +8,7 @@ mkdir -p lib
 
 pushd lib > /dev/null
 
-VERSION=3.0.0-alpha9
+VERSION=3.0.0-alpha14
 RELEASES=https://github.com/xmlcalabash/xmlcalabash3/releases/download
 
 # Acquiring, for example, https://github.com/xmlcalabash/xmlcalabash3/releases/download/3.0.0-alpha9/xmlcalabash-3.0.0-alpha5.zip
@@ -17,7 +17,7 @@ if [ ! -f "xmlcalabash-${VERSION}.zip" ]; then
     echo "Downloading XML Calabash 3 (may take a few seconds) ..."
     curl -s -L -o xmlcalabash-$VERSION.zip $RELEASES/$VERSION/xmlcalabash-$VERSION.zip
 else
-    echo "You have the XML Calabash ${VERSION} distribution (zip file) - delete it and run again for a fresh download"
+    echo "You have the XML Calabash ${VERSION} distribution (zip file) - remove it and run again for a fresh download"
 fi
 
 echo "Unzipping ${VERSION} ..."

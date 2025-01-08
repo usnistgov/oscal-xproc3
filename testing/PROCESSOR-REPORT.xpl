@@ -10,12 +10,13 @@
    -->
    
    <p:output port="basic" pipe="@basic" 
-      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />
+      serialization="map{'indent' : true(), 'omit-xml-declaration': true() }" />  
    
-   
-   <p:output port="plaintext" pipe="@plain" serialization="map{'method': 'text' }" />
+   <p:output port="plaintext" pipe="@labeled" serialization="map{'method': 'text' }" />
    
    <!-- /prologue	-->
+   
+   <p:variable name="timestamp-format" select="'[h01]:[m01] [P] on [FNn] [MNn] [D1o], [Y]'"/>
    
    <p:group name="basic"  message="[PROCESSOR-REPORT] XPROC 3 Processor Report">
       <p:identity>
@@ -23,39 +24,32 @@
          <!-- Also note the whitespace in the XProc file comes with the XML tagging -->
          <p:with-input>
             <PROCESSOR reporting="{ current-dateTime() }">
-               <product-name>{ p:system-property('p:product-name') }</product-name>
+               <product-name>{    p:system-property('p:product-name') }</product-name>
                <product-version>{ p:system-property('p:product-version') }</product-version>
-               <vendor>{ p:system-property('p:vendor') }</vendor>
-               <vendor-uri>{ p:system-property('p:vendor-uri') }</vendor-uri>
-               <version>{ p:system-property('p:version') }</version>
-               <xpath-version>{ p:system-property('p:xpath-version') }</xpath-version>
-               <psvi-supported>{ p:system-property('p:psvi-supported') }</psvi-supported>
+               <vendor>{          p:system-property('p:vendor') }</vendor>
+               <vendor-uri>{      p:system-property('p:vendor-uri') }</vendor-uri>
+               <version>{         p:system-property('p:version') }</version>
+               <xpath-version>{   p:system-property('p:xpath-version') }</xpath-version>
+               <psvi-supported>{  p:system-property('p:psvi-supported') }</psvi-supported>
             </PROCESSOR>
          </p:with-input>
       </p:identity>
       <p:namespace-delete prefixes="ox"/>
    </p:group>
    
-   <p:insert match="/PROCESSOR" position="last-child">
-      <!--Unlike XSLT, the context for path expressions is the root of a tree, not an element  -->
-      <p:with-input port="insertion">
-         <p:inline>
-            <report-time>REPORTING AT { /PROCESSOR/@reporting => format-dateTime('[h01]:[m01] [P] on [FNn] [MNn] [D1o], [Y]') }</report-time>
-         </p:inline>
-      </p:with-input>
-   </p:insert>
-
-   <p:namespace-delete prefixes="ox"/>
+   <p:group name="labeled">
+      <p:insert match="/PROCESSOR" position="last-child">
+         <!--Unlike XSLT, the context for path expressions is the root of a tree, not an element  -->
+         <p:with-input port="insertion">
+            <p:inline>
+               <report-time>REPORTING AT {
+                  /PROCESSOR/@reporting => format-dateTime($timestamp-format) }</report-time>
+            </p:inline>
+         </p:with-input>
+      </p:insert>
+      <p:namespace-delete prefixes="ox"/>
+      <p:string-replace match="/PROCESSOR/*/text()" replace="(local-name(parent::*), string(.)) => string-join(': ')"/>
+      <p:string-replace match="/PROCESSOR/text()[matches(.,'^\s+$')]" replace="'&#xA;  '"/>
+   </p:group>
    
-   <!-- making labels explicit in content -->
-   <p:string-replace match="/PROCESSOR/*/text()"
-      replace="(local-name(parent::*), string(.)) => string-join(': ')"/>
-   
-   <!-- trimming whitespace back to uniform length directly inside /*
-        so as to look nice as plain text -->
-   <p:string-replace match="/PROCESSOR/text()[matches(.,'^\s+$')]"
-      replace="'&#xA;  '"/>
-
-   <p:string-replace name="plain" match="/PROCESSOR" replace="string(.)"/>
-
 </p:declare-step>

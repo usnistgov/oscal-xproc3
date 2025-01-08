@@ -1,6 +1,6 @@
 @echo off
 
-set XML_CALABASH_VERSION=3.0.0-alpha5
+set XML_CALABASH_VERSION=3.0.0-alpha14
 set XML_CALABASH_JAR=%~P0\lib\xmlcalabash-%XML_CALABASH_VERSION%\xmlcalabash-app-%XML_CALABASH_VERSION%.jar
 set XML_CALABASH=java -jar %XML_CALABASH_JAR%
 

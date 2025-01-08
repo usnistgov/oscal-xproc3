@@ -4,7 +4,7 @@
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
-XML_CALABASH_VERSION=3.0.0-alpha9
+XML_CALABASH_VERSION=3.0.0-alpha14
 XML_CALABASH_JAR="${SCRIPT_DIR}/lib/xmlcalabash-${XML_CALABASH_VERSION}/xmlcalabash-app-${XML_CALABASH_VERSION}.jar"
 XML_CALABASH="java -jar ${XML_CALABASH_JAR}"
 
