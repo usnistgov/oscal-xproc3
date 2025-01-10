@@ -43,11 +43,11 @@
    <p:declare-step name="report-status" type="ox:report-status">
       <p:input port="source"/>
       <p:output port="result"/>
-      <p:identity message="[STATUS REPORT] SEEING '{ p:document-property(.,'content-type') }' AT { p:document-property(.,'base-uri') }"/>
+      <p:identity message="[CONTENT-TYPE_worksheet] [STATUS REPORT] SEEING '{ p:document-property(.,'content-type') }' AT { p:document-property(.,'base-uri') }"/>
    </p:declare-step>
    
    <!-- Check out how we can query the map -->
-   <p:identity message="STARDATE { .?stardate }"/>
+   <p:identity message="[CONTENT-TYPE_worksheet] STARDATE { .?stardate }"/>
    
    <ox:report-status/>
    
