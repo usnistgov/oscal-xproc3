@@ -24,35 +24,49 @@
        
        <!-- This option lets you put JSON in line - the @content-type forces a parse into an XDM map
             in this case the document's base URI is given as the base URI of the pipeline -->
-        <!-- with expand-text='true' TVT (text value template) syntax is ON
-        so regular { must be doubled -->
-       <p:inline  content-type="application/json" expand-text="true">{{
+        
+      <!-- with expand-text='true' TVT (text value template) syntax is ON  for function evaluation
+           so regular { must be doubled as {{ -->
+       <p:inline content-type="application/json" expand-text="true">{{
           "message": "Hello!",
           "TO": "World",
-          "stardate": "{ (current-dateTime() - xs:dateTime('2024-11-12T07:44:05.207527900-05:00'))
+          "stardate": "{ (current-dateTime() - xs:dateTime('1970-01-01T00:00:00-00:00'))
                          div xs:dayTimeDuration('PT1S') }"
           }}</p:inline>
-      <!--<p:inline content-type="application/json">"a string"</p:inline>-->
-      <!-- we have to see to it the string is JSON, or breakage -->
-      <!--<p:inline content-type="application/json">{  }</p:inline>-->
+      
    </p:input>
    
    <p:output port="result" serialization="map{ 'indent': true() }" sequence="true"/>
 
    <!-- /end prologue -->
    
-   <p:variable name="ox:document-info" as="function(*)"  
-      select="function($d as item()) as xs:string { p:document-property($d,'content-type') || ' at ' || p:document-property($d,'base-uri') }"/>
+   <p:declare-step name="report-status" type="ox:report-status">
+      <p:input port="source"/>
+      <p:output port="result"/>
+      <p:identity message="[STATUS REPORT] SEEING '{ p:document-property(.,'content-type') }' AT { p:document-property(.,'base-uri') }"/>
+   </p:declare-step>
    
-   <p:identity message="[CONTENT-TYPE_worksheet] Seeing { $ox:document-info(.) }"/>
+   <!-- Check out how we can query the map -->
+   <p:identity message="STARDATE { .?stardate }"/>
+   
+   <ox:report-status/>
    
    <!-- An XDM map object is cast into an XPath map (vocabulary) -->
    <p:cast-content-type content-type="application/xml"/>
-   
-   <p:identity message="[CONTENT-TYPE_worksheet] Seeing { $ox:document-info(.) }"/>
       
-   <!--Interesting when we convert JSON to plain text, we get JSON syntax, i.e. serialized,
-       while now the output serialization setting has no effect (since it's text) -->
-   <!--<p:cast-content-type content-type="text/plain"/>-->
+   <ox:report-status/>
+      <!--To provide for tagging to be stripped in content conversion, we set the serializatioin property-->
+   
+   <!-- Stripping tagging? https://xprocref.org/3.0/p.cast-content-type.html
+     <p:set-properties properties="map{'serialization': map{ 'method': 'text', 'omit-xml-declaration': true() } }"/>
+     <p:cast-content-type content-type="text/plain"/>
+   -->
+   
+   <!-- As an alternative to the preceding, this will cast the content type implicitly, b/c the tree is no longer a rooted node -->
+   <p:string-replace match="/*" replace="string(.)"/>
+   
+   <!--<p:set-properties properties="map{'base-uri': resolve-uri('test.txt') }"/>-->
+   
+   <ox:report-status/>
    
 </p:declare-step>

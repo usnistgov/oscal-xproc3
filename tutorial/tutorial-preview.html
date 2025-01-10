@@ -33,7 +33,7 @@ span.wordcount.over { color: darkred }
    </head>
    <body>
       <h1>XProc in Action: an Immersive Introduction</h1>
-      <h3>version 1.0_draft PREVIEW December 20 2024</h3>
+      <h3>version 1.0_draft PREVIEW January 10 2025</h3>
       <div class="toc">
          <div class="lesson"
               id="toc-acquire"
@@ -41,7 +41,7 @@ span.wordcount.over { color: darkred }
             <div class="unit observer"
                  id="toc-acquire_101"
                  data-track="observer">
-               <h1>101: Project setup and installation<span class="wordcount okay"> (~1714)</span>
+               <h1>101: Project setup and installation<span class="wordcount okay"> (~1760)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -71,7 +71,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-acquire_102"
                  data-track="maker">
-               <h1>102: Examining the setup<span class="wordcount okay"> (~885)</span>
+               <h1>102: Examining the setup<span class="wordcount okay"> (~1160)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -81,6 +81,9 @@ span.wordcount.over { color: darkred }
                </div>
                <div>
                   <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Step Zero: XProc steps</h2>
                </div>
                <div>
                   <h2>Step One: Inspect the pipelines</h2>
@@ -95,7 +98,7 @@ span.wordcount.over { color: darkred }
             <div class="unit learner"
                  id="toc-acquire_599"
                  data-track="learner">
-               <h1>599: Meeting XProc<span class="wordcount okay"> (~698)</span>
+               <h1>599: Meeting XProc<span class="wordcount okay"> (~720)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -120,7 +123,7 @@ span.wordcount.over { color: darkred }
             <div class="unit observer"
                  id="toc-walkthrough_101"
                  data-track="observer">
-               <h1>101: Unpacking XProc 3.0<span class="wordcount over"> (~2752)</span>
+               <h1>101: Unpacking XProc 3.0<span class="wordcount over"> (~2722)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -176,7 +179,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-walkthrough_102"
                  data-track="maker">
-               <h1>102: XProc fundamentals<span class="wordcount okay"> (~1526)</span>
+               <h1>102: XProc fundamentals<span class="wordcount okay"> (~1651)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -193,16 +196,26 @@ span.wordcount.over { color: darkred }
                <div>
                   <h2>Details details!</h2>
                   <div>
-                     <h3>TEST-XSPEC</h3>
+                     <h3>
+                        <a href="../smoketest/TEST-XSPEC.xpl">TEST-XSPEC</a>
+                     </h3>
                   </div>
                   <div>
-                     <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
+                     <h3>
+                        <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
+                     </h3>
                   </div>
                </div>
                <div>
                   <h2>Messing around</h2>
                   <div>
                      <h3>Disabling your code</h3>
+                     <div>
+                        <h4>XML comment syntax</h4>
+                     </div>
+                     <div>
+                        <h4>Native XProc</h4>
+                     </div>
                   </div>
                </div>
                <div>
@@ -563,13 +576,16 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-oscal-convert_401"
                  data-track="maker">
-               <h1>401: XProc, XML, JSON and content types<span class="wordcount okay"> (~274)</span>
+               <h1>401: XProc, XML, JSON and content types<span class="wordcount okay"> (~700)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
                </div>
                <div>
                   <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Content types and document properties</h2>
                </div>
                <div>
                   <h2>Exercise some options</h2>
@@ -765,28 +781,30 @@ span.wordcount.over { color: darkred }
             <section>
                <h2>Comments / review</h2>
                <p>Within this project as a whole, and within its subprojects, everything is done with XProc 3.0. The aim is to
-            make it possible to do anything needed with XProc, regarded as a general-purpose 'scripting' solution for
-            the choreography of arbitrarily complex jobs, tasks and workflows. To support arbitrary complexity and
+            make it possible to do anything needed with XProc, regarded as a general-purpose <q>scripting</q> solution
+            for the choreography of arbitrarily complex jobs, tasks and workflows. To support arbitrary complexity and
             scalability together, it must be very simple. This simplicity, with the composability that goes with it, is
             at the center of the argument for XProc.</p>
                <p>You will see this simplicity at the level of <q>top-level</q>
                   <em>invocation</em> XProc pipelines designed to serve as entry points. If things are done right, these will
-            be fairly simple, well encapsulated <q>subroutines</q> in potentially elegant arrangements. They in turn may
-            call on libraries of XProc pipelines for well-defined tasks.</p>
-               <p>Effectively (and much more could be said about the processing stack, dependency management and so forth)
-            what this means is that XProc promises the user and the developer (in either or both roles) with focused and
-            concentrated points of control or points of adjustment. In the field – where software is deployed and used –
-            things almost never just <q>drop in</q>. User interfaces, APIs, dependencies and platform quirks: all these
-            constrain what users can do, and even developers are rarely as free as they would like to experiment and
-            explore.</p>
-               <p>What is offered here is therefore <i>both</i> an example of a deployment of a demonstration solution set
-            using an open-source tool (an XProc engine capable of running the pipelines we offer), doing things that are
-            actually or potential useful (with OSCAL data), <i>and</i> a set of pipelines that should in principle work
-            as well in any other tool or software deployment supporting XProc 3.0.</p>
-               <p>But to the extent this imposes a requirement for both abstract and testable conformance (or at any rate for
-            interoperability as a proxy for that), this project only works if things are actually simple enough to pick
-            up, use, learn and adapt. <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at making a simple
-            deployment, easy to emulate but better yet, improve.</p>
+            be found on inspection to contain fairly simple and well encapsulated <q>subroutines</q> in potentially
+            elegant arrangements. They in turn may call on libraries of XProc pipelines for well-defined tasks.</p>
+               <p>More can be said about what this means for the processing stack and why it matters in this context, namely
+            that of a technology that aspires to be both standard (to support platform independence and data security)
+            and extensible (to support future needs). Yet leaving aside all the higher-order requirements, the system
+            must be usable, something we can determine and demonstrate only in the using of it. If XProc can be not only
+            capable but useful, there must be a simple and approachable way to use it. Both easy to run, and to
+            adapt.</p>
+               <p>In the field – where software is deployed and used – things almost never just <q>drop in</q>. User
+            interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even
+            developers are rarely as free as they would like to experiment and explore. In order to facilitate learning
+            by doing, what is offered here is therefore <i>both</i> an example deployment of a demonstration solution
+            set using an open-source tool (an XProc engine capable of running the pipelines we offer), doing things that
+            are actually or potentially useful (with OSCAL data), <i>and</i> a set of pipelines that should in principle
+            work as well in any other tool or software deployment supporting XProc 3.0.</p>
+               <p>Yet as stated – like XProc itself – this project only works if things are actually simple enough to pick up,
+            use, learn and adapt. <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at making a simple
+            deployment, easy to emulate but better yet, to improve.</p>
                <p>Each of these scripts (on its execution platform) enables a user to run, without further configuration, the
                <a href="../">Morgana XProcIIIse</a> processor on any
             XProc 3.0 pipeline, assuming the appropriate platform for each (<code>bash</code> in the case of the shell
@@ -823,7 +841,7 @@ span.wordcount.over { color: darkred }
                like XProc, obscure, cryptic and intimidating if not forbidding.</p>
                   <p>This is a pity because (among other reasons) the kind of layered system we will see and build here is not
                endless or infinitely complex. Begin by making yourself comfortable at the command line. See how the
-               pieces fit together by working them.</p>
+               pieces fit together by trying things out.</p>
                   <p>Then too, if you have something better, by all means use it. XProc-based systems, when integrated into
                tools or developer editors and environments, can look much nicer than tracebacks in a console window. The
                elegance and power we are trying to cultivate are at a deeper level. First and last, the focus must be on
@@ -864,6 +882,27 @@ span.wordcount.over { color: darkred }
                      class="LessonUnit">Setup 101</a>.</p>
             </section>
             <section>
+               <h2>Step Zero: XProc steps</h2>
+               <p>An XProc <em>pipeline</em> is composed out of XProc <em>steps</em>. Entire pipelines can then be called as
+            steps in other pipelines. When you look at an XProc pipeline you will see an XML element named
+               <code>p:declare-step</code> (modulo namespace prefix adjustments - it might be
+               <code>xproc3:declare-step</code>), because conceptually, any pipeline is considered as a step in itself.
+            Like a step, a pipeline works with defined inputs (<em>sources</em>) to deliver defined outputs
+               (<em>results</em>). But any pipeline is also built out of steps – many of which are considered
+               <em>atomic</em> or <q>primitive</q>, but some of which you might build yourself (as pipelines).</p>
+               <p>XProc also exploits the idea of <q>pipelining</q> by offering features that allow you to connect steps
+            together in arbitrary ways (pipeline logic can be complex), but also by falling back, when you make no such
+            connections, to an easily-understood <q>chaining</q> model, in which each step consumes the output of its
+            immediate predecessor. This makes it possible for simple pipelines to be very succinct: just put the steps
+            in the order they are to be performed – while noting these are <i>logical</i> dependencies, with processors
+            free to optimize where possible (for example, skipping steps whose results are never used) or as
+            directed.</p>
+               <p>One consequence is that the shorter and simpler a pipeline is, the more important it is to understand that a
+            step can pick up inputs from the last step and pass them to the next, in the order given. As long as the
+            designated default (or <em>implicit</em>) bindings for all required inputs and outputs can be discovered by
+            the rules, everything runs.</p>
+            </section>
+            <section>
                <h2>Step One: Inspect the pipelines</h2>
                <p>The two groupings of pipelines used in setup and testing can be considered separately.</p>
                <p>The key to understanding both groups is to know that once the initial <a href="../setup.sh">Setup
@@ -871,9 +910,9 @@ span.wordcount.over { color: darkred }
             and scripts are already in place. In doing so – before extension libraries are in place – it can use only
             basic XProc steps, but those are enough to start with.</p>
                <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
-            unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
-            (Morgana) can use to do more.</p>
-               <p>Accordingly, the first group of pipelines (in the <a href="../lib/readme.md">lib</a> directory has
+            unarchiving (or in this case unzipping, which combines unarchiving with data decompression). Having been
+            downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.</p>
+               <p>Accordingly, the first group of pipelines (in the <a href="../lib/readme.md">lib</a> directory) has
             a single purpose, namely (together and separately) to download software to augment Morgana's feature
             set.</p>
                <p>If not using the open-source Morgana distribution, you can skip to smoke tests below, and see how far you
@@ -965,13 +1004,15 @@ span.wordcount.over { color: darkred }
                <h2>Resources</h2>
                <p>
                   <a href="../">A Declarative Markup Bibliography</a> is
-            available on line for future reference on this interesting topic.</p>
+            available online for future reference on this interesting topic.</p>
             </section>
             <section>
                <h2>Some observations</h2>
-               <p>Because it is now centered on <em>pipelines</em> built out of combining capabilities of <em>steps</em>
-            (which may be black boxes), as much as on files and software packages, dependency management when using
-            XProc is different from other technologies including Java and NodeJS – how so?</p>
+               <p>Dependency management when using XProc is different from other technologies including Java and
+            Javascript/NodeJS – how so? Because it is now centered on <em>pipelines</em> built out of combining
+            capabilities of <em>steps</em> (which may be black boxes), as much as on files and software packages.
+            Arguably, XProc blurs the distinction between code you write, and libraries you use, in a useful way – while
+            presenting its own challenges.</p>
                <p>MorganaXProc-III is implemented in Scala, and Saxon is built in Java, but otherwise distributions including
             the SchXSLT and XSpec distributions consist mainly of XSLT. This is either very good (with development and
             maintenance requirements in view), or not good at all.</p>
@@ -1100,11 +1141,11 @@ span.wordcount.over { color: darkred }
                   <code>jar</code> (Java library) file, which it places in the Morgana library directory</li>
                   <li>
                      <a href="../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a> downloads a zip file from Github and
-               unzips it into a directory where Morgana can find it.</li>
+               unzips it into a directory where Morgana can find it. (XProc uses an <code>p:unarchive</code> step to
+               support archive-and-compression schemes such as <code>zip</code> format.)</li>
                   <li>
-                     <a href="../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and <q>unarchives</q> a zip
-               file resource, this time a copy of <a href="../">an XSpec
-               distribution</a>.</li>
+                     <a href="../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and unzips a zip file
+               resource, this time a copy of <a href="../">an XSpec distribution</a>.</li>
                </ul>
                <p>Essentially, these all replicate and capture the work a developer must do to identify and acquire libraries.
             Maintaining our dependencies this way – not quite, but almost <q>by hand</q> – appears to have benefits for
@@ -1135,7 +1176,7 @@ span.wordcount.over { color: darkred }
                <p>Any and each of these can be used as a <q>black box</q> by any competent operator, even without
             understanding the internals. But this simplicity masks and manages complexity. XProc is XProc but never just
             that, since its capabilities are also extended by XSLT, XQuery, Schematron, XSpec and others, an open-ended
-            set of compatible and complimentary technologies that are even more powerful together than they are in
+            set of compatible and complementary technologies that are even more powerful together than they are in
             particular.</p>
                <p>At the same time, common foundations make it possible to learn these technologies together and in
             tandem.</p>
@@ -1209,15 +1250,16 @@ span.wordcount.over { color: darkred }
                      <a href="../smoketest/TEST-SCHEMATRON.xpl">TEST-SCHEMATRON</a>
                   </h3>
                   <p>Schematron is a language used to specify rules to apply to XML documents. In this case a small Schematron
-               is applied to a small XML. This flexible technology enables easy testing of XML against rule sets defined
-               either for particular cases in particular workflows, or for entire classes or sets of documents whose
-               rules are defined for standards and across systems.</p>
+               rule set (colloquially called a <q>Schematron</q> for lack of a better name) is applied to a small XML.
+               This flexible technology enables easy testing of XML against rule sets defined either for particular
+               cases in particular workflows, or for entire classes or sets of documents whose rules are defined for
+               standards and across systems.</p>
                   <ul>
                      <li>
                         <code>p:output</code> – An output port is designated for the results with the same settings.</li>
                      <li>
                         <code>p:validate-with-schematron</code> – This is an XProc step specifically for evaluating an XML
-                  document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT` pipelines, this
+                  document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT pipelines, this
                   one presents its own input, given as a literal XML document given in the pipeline document (using
                      <code>p:inline</code>). A setting on this step provides for it to throw an error if the document
                   does not conform to the rules. The Schematron file provided as input to this step, <a href="../smoketest/src/doing-well.sch">src/doing-well.sch</a>, gives the rules.</li>
@@ -1264,36 +1306,34 @@ span.wordcount.over { color: darkred }
             </section>
             <section>
                <h2>A not-so-simple pipeline</h2>
-               <p>Examine the Markdown file presenting an <a href="../tutorial/sequence/element-directory.md">XProc Element
-               directory</a>. It is generated by <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">a pipeline</a>.
-            Examine that pipeline to see XProc with real-world complexity.</p>
                <p>The simple pipelines examined so far show how useful things can be done simply, while the pipeline
             architecture allows for great flexibility.</p>
                <p>Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be
             managed and deployed just like a simple one, with its internal complexities masked by a simple and
             predictable interface.</p>
-               <p>Next, take a look at a more complex example, the prototype pipeline <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a>. Like the setup and
-            smoke-test pipelines, this is a standalone pipeline (requiring no runtime bindings or settings): when this
-            plan (<q>step</q> or pipeline) is executed, the processor acquires inputs, produces results for its
+               <p>Examine the Markdown file presenting an <a href="../tutorial/sequence/element-directory.md">XProc Element
+               directory</a>. It is generated by <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">a pipeline</a>
+            (described in more detail below) that shows some XProc with real-world complexity.</p>
+               <p>Like the setup and smoke-test pipelines, this is a standalone pipeline (requiring no runtime bindings or
+            settings): when the pipeline is executed, the processor acquires inputs, produces results for its
             operations, and write those results to the file system. In this case the output it generates is stored as <a href="../tutorial/sequence/element-directory.md">element-directory.md</a>, a Markdown file (find the
                <code>p:store</code> step).</p>
                <p>The result is a reference resource encoded in Markdown: an index of XProc elements used in pipelines in this
             repository. As Markdown, once reposted back into the repository, it can be viewed with any Markdown viewing
-            application. The index lists XProc elements, i.e., the core of the XProc vocabulary: for any XProc element
-            used anywhere among the projects listed, the listing shows the pipelines where it appears. Following the
-            index, the resource also shows a list of (repository) project folders in a prescribed order, with their
-            XProc files and whatever XProc elements appear <i>first</i> (within the entire sequence up to to point)
-            within that file. Among other uses this is helpful for assessing coverage of tutorial lessons as it offers a
-            (semi) <i>ordered</i> survey of their use of XProc (and other) elements.</p>
-               <p>For example, looking up <code>p:store</code> you can see all the pipelines that contain this common step. Or
-            looking at the <code>oscal-convert</code> listing you can see the XProc steps appearing first in that
-            project folder.</p>
+            application. The index lists XProc files within a list of (repository) project folders in a prescribed
+            order, with whatever XProc elements appear <i>first</i> (within the entire sequence up to to point) within
+            that file. (Among other uses, this is helpful for assessing coverage of tutorial lessons.) Following this
+            listing is a second index listing XProc elements with all the pipelines (within the given folders) where it
+            appears.</p>
+               <p>For example, looking at the <code>oscal-convert</code> listing you can see the XProc steps appearing first
+            in that project folder. Or looking up <code>p:store</code> you can see all the pipelines that contain this
+            common step.</p>
                <p>To confirm proper functioning, run the pipeline again after deleting or renaming the Markdown result
             file.</p>
                <p>Consider also what other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines
             to the project folders, consider running this pipeline again to update the indexes.</p>
-               <p>Open the file and inspect it to get a sense of how it works. The XML syntax is verbose, but not really all
-            that frightening. Practice helps! The pipeline is also considered in the <a href="../tutorial/source/walkthrough/walkthrough_102_src.html"
+               <p>The XML syntax here is verbose, but not really all that frightening. Practice helps! The pipeline is also
+            considered in the <a href="../tutorial/source/walkthrough/walkthrough_102_src.html"
                      class="LessonUnit">102 Lesson unit</a> segment.</p>
                <section>
                   <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
@@ -1306,18 +1346,18 @@ span.wordcount.over { color: darkred }
                      <li>Of course, it is longer and more complex, reflecting the complexity of the operations it
                   performs.</li>
                      <li>Part of the complexity is due to a two-step process here. First, the file system is surveyed in
-                  locations named in an input configuration. Then all those resources (which happen to be XML using the
-                  XProc vocabulary) are indexed again, this time showing only first occurrences of elements within files
-                  given in the stipulated order. Both indexes are written into the results, showing how a single survey
-                  can support more than one analysis.</li>
-                     <li>In particular, the index to <q>first use</q> is not simple. A great deal of the complexity of
-                  detailed operations has been off-loaded into XSLT transformation code, which in this pipeline can be
-                  seen embedded in the XProc, indeed occupying the greater part of the XML in the file. (About two
-                  thirds of the element count: you can usually recognize XSLT by the conventional <code>xsl:</code>
-                  element prefix.) This pipeline also has an XSLT called from an external file (toward the end). XProc
-                  can provide XSLT either way, and each has its advantages. In this case, XSLT is left in place as
-                  literal embedded code, partly to show a borderline case. (It helps to use an editor or viewer with
-                  code folding.)</li>
+                  locations named in an input configuration. The information collected (conveniently represented in XML)
+                  is then processed again, this time to show only first occurrences of elements within files given in
+                  the stipulated order. Both indexes are written into the results, showing how a single survey can
+                  support more than one analysis.</li>
+                     <li>In particular, the index to <q>first use</q> is not simple. Much of its complexity has been
+                  off-loaded into XSLT transformation code, which in this pipeline can be seen embedded in the XProc,
+                  occupying the greater part of the XML in the file. (About two thirds of the element count is actually
+                  XSLT, which you can recognize by the conventional <code>xsl:</code> element name prefix.) In this
+                  XProc, this code has been left in place, as a borderline case showing how to embed XSLT in XProc – to
+                  read this, it helps to use an editor or viewer with code folding. Toward the end, this pipeline also
+                  shows how XSLT can be called from an external file, which is more normal and usually easier to
+                  read.</li>
                      <li>One good thing about seeing the XSLT here is you can get a good sense of what it looks like, whether
                   embedded or kept externally. XSLT is <a href="../tutorial/source/walkthrough/walkthrough_401_src.html"
                            class="LessonUnit">not
@@ -1416,12 +1456,15 @@ span.wordcount.over { color: darkred }
             <section>
                <h2>Details details!</h2>
                <p>XProc pipelines described in <a href="../tutorial/source/walkthrough/walkthrough_101_src.html"
-                     class="LessonUnit">the previous lesson unit</a>
-            contain a few noteworthy features.</p>
+                     class="LessonUnit">the previous lesson
+               unit</a> contain a few noteworthy features. In this section we take a closer look at the internals of a
+            couple of these examples.</p>
                <p> To edit these files, use any XML-capable plain text editor (that is, with care, any editor at all that
             saves text files as UTF-8).</p>
                <section>
-                  <h3>TEST-XSPEC</h3>
+                  <h3>
+                     <a href="../smoketest/TEST-XSPEC.xpl">TEST-XSPEC</a>
+                  </h3>
                   <ul>
                      <li>Where XSpec documents are bound to the input port <code>source</code>, they have
                      <code>content-type='application/xml'</code> given. This is because with the unconventional file
@@ -1434,21 +1477,22 @@ span.wordcount.over { color: darkred }
                      <li>Within the <code>p:for-each</code>, the step <code>ox:execute-xspec</code> is named in the
                      <code>ox</code> namespace, which resolves to the string
                      <code>http://csrc.nist.gov/ns/oscal-xproc3</code>, a value assigned for this project. This step is
-                  defined in the <a href="../xspec/xspec-execute.xpl">imported pipeline</a>. XProc is indefinitely
-                  extensible: the namespace feature allows us to create new steps without fear of name clashes with old
-                  steps – or steps that are still uninvented and unnamed. We can develop and name steps in our own
-                  namespace, while also acquiring and using steps in other namespaces.</li>
-                     <li>The <code>p:identity</code> step is used twice in this pipeline for one purpose only: to indicate
-                  messages the XProc engine should deliver. In the normal configuration, you should see these messages
-                  in the console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
+                  defined in the <a href="../xspec/xspec-execute.xpl">imported pipeline</a>. By requiring that a
+                  (non-XProc) namespace be used for new steps, XProc enables arbitrary and unplanned (uncoordinated)
+                  extensibility, since we can create new steps without fear of name clashes with other steps, whether
+                  they be already defined and in scope, or still uninvented and unnamed. We can develop and name steps
+                  in our own namespace, while also acquiring and using steps in other namespaces.</li>
+                     <li>The <code>p:identity</code> step is used in this pipeline for one purpose only: to indicate messages
+                  the XProc engine should deliver. In the normal configuration, you should see these messages in the
+                  console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
                      <li>The repository observes a couple of conventions with regard to steps and messages. For example: any
                      <code>p:load</code> or <code>p:save</code> step should have a message; and messages should always
                   be prefixed with a bracketed indicator of the pipeline that issues them, for example the
                      <code>[TEST-XSPEC]</code> messages that are emitted here, once for each input and again once when
                   the pipeline finishes.</li>
-                     <li>Yes, those conventions are enforced in the repository by <a href="../testing/xproc3-house-rules.sch">a Schematron</a> that can be applied to any
+                     <li>Yes, those conventions are enforced in the repository by <a href="../testing/xproc3-house-rules.sch">a Schematron rule set</a> that can be applied to any
                   pipeline, both in development and when it is committed to the repository under <a href="../tutorial/source/walkthrough/walkthrough_301_src.html"
-                           class="LessonUnit">CI/CD (continuous integration / continous
+                           class="LessonUnit">CI/CD (continuous integration / continuous
                      development)</a>. Assuming we take care to run our tests and validations, this does most of the
                   difficult work maintaining consistency, namely detecting the inconsistency. The result, assuming we do
                   things correctly, is a more-than-human level of consistency in error checking and correction. This is
@@ -1466,33 +1510,38 @@ span.wordcount.over { color: darkred }
                   </ul>
                </section>
                <section>
-                  <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
+                  <h3>
+                     <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
+                  </h3>
                   <p>The pipeline <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> has
                   <q>real-world complexity</q>. Reviewing its steps can give a sense of how XProc combines simple
                capabilities into complex operations. Notwithstanding the title of this section, it is not important to
                understand every detail – knowing they are there is enough.</p>
                   <ul>
-                     <li>The prologue here contains a single <code>p:input</code> configuration. This one gives the input in
-                  line, as an XML document. Within this XML, all the project folders to be covered by the index are
+                     <li>The prologue here contains a single <code>p:input</code> configuration. This one gives its input
+                  inline, as an XML document. Within this XML, all the project folders to be covered by the index are
                   listed. Their order also matters since one of the two indexes built works incrementally, prior
                   elements affecting what happens with later elements.</li>
                   </ul>
                   <p>This pipeline exploits one other important feature of XProc: so far at least, it is all XML. Even short
-               of of dynamically generating and executing XProc (a feature the language  <a href="../">provides for</a>), the common ground of XML
-               format means that with XProc working XML tools, XML and its related ecosystem (most significantly but not
-               only XPath) is always available as an instrumental force magnifier or power tool, something we can put to
-               work again and again. In XProc, errors are reported in XML. So we can capture, aggregate and index error
-               messages in XProc. In XProc, a directory file listing is provided in XML. So we have a ready way to
-               present views of file systems – the XML shows all the names and structures – as well as analyze them and
-               access the files in them. Etc.</p>
+               of dynamically generating and executing XProc (a feature the language <a href="../">provides for</a>), XML and its related
+               ecosystem (most significantly but not only XPath) is always available, providing an instrumental <q>force
+                  magnifier</q> or power tool that we can put to work again and again. In XProc, errors are reported in
+               XML. So we can capture, aggregate and index error messages in XProc. In XProc, a directory file listing
+               is provided in XML. So we have a ready way to present views of file systems – the XML shows all the names
+               and structures – as well as analyze them and access the files in them. Etc.</p>
                </section>
             </section>
             <section>
                <h2>Messing around</h2>
                <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
             it behaves.</p>
-               <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
-            modify the copy. Modifying any of the pipelines presented so far, see what happens when:</p>
+               <p>As an exercise, make some changes in copies of the test pipelines. An easy way to do this without perturbing
+            the working code in the repository is to copy a pipeline and modify the copy.</p>
+               <p>Make at least one change that produces outputs (such as echoing a document to the console) that are visibly
+            different from the results of the original pipeline. Also try breaking the pipeline to see how it handles
+            errors.</p>
+               <p>You might see what happens when:</p>
                <ul>
                   <li>An <code>@href</code> points to a location on the system where there is no file</li>
                   <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
@@ -1506,21 +1555,40 @@ span.wordcount.over { color: darkred }
             problem or the source of the reported problem must be repaired.</p>
                <p>And sometimes a process will run successfully, despite an <q>error</q>. Whether it is in error then depends
             on how well it conforms to its requirements. Does it deliver the results we want and expect?</p>
-               <p>As an exercise, make some changes in copies of the test pipelines. Make at least one change that produces
-            outputs (such as echoing a document to the console) that are visibly different from the results of the
-            original pipeline.</p>
                <section>
                   <h3>Disabling your code</h3>
-                  <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
-               syntax:</p>
-                  <pre>&lt;tagged&gt;Text&lt;/tagged&gt;</pre>
-                  <p>becomes:</p>
-                  <pre>&lt;!--  &lt;tagged&gt;Text&lt;/tagged&gt; --&gt;</pre>
-                  <p>A code editor that supports XML might let you do this with a keystroke, for example <code>ctrl-,</code>
-               (Control key plus comma), after selecting the text you wish to include in the comment.</p>
-                  <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful
-               technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks
-               of code.</p>
+                  <p>When debugging, being able to switch operations on and off easily to compare results is often
+               essential.</p>
+                  <section>
+                     <h4>XML comment syntax</h4>
+                     <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
+                  syntax:</p>
+                     <pre>&lt;tagged&gt;Text&lt;/tagged&gt;</pre>
+                     <p>becomes:</p>
+                     <pre>&lt;!--  &lt;tagged&gt;Text&lt;/tagged&gt; --&gt;</pre>
+                     <p>A code editor that supports XML might let you do this with a keystroke, for example
+                     <code>ctrl-,</code> (Control key plus comma), after selecting the text you wish to include in the
+                  comment.</p>
+                     <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very
+                  useful technique for rapidly and interactively testing your pipelines, by deactivating and
+                  reactivating blocks of code.</p>
+                  </section>
+                  <section>
+                     <h4>Native XProc</h4>
+                     <p>XProc also offers other ways to switch code on and off, including XProc conditionals (<a href="../">
+                           <code>p:if</code>
+                        </a> and <a href="../">
+                           <code>p:choose</code>
+                        </a>) and a <a href="../">
+                           <code>use-when</code>
+                        </a> attribute on steps to
+                  provide for runtime contingency. These can be used when more permanent solutions or more capabilities
+                  are needed than a simple comment (placeholder) can offer.</p>
+                     <p>So a step like <code>&lt;p:namespace-delete prefixes="ox" use-when="false()"/&gt;</code> will never run
+                  because XPath <code>false()</code> is never true. And <code>&lt;p:namespace-delete prefixes="ox"
+                     use-when="$cleaning-up"/&gt;</code> will run only if the variable <code>$cleaning-up</code> evalues to
+                  XPath <code>true()</code>.</p>
+                  </section>
                </section>
             </section>
             <section>
@@ -1546,9 +1614,9 @@ span.wordcount.over { color: darkred }
                <section>
                   <h3>Syntax tips</h3>
                   <p>In XPath syntax, <code>$foo</code> (a name with a <code>$</code> prefixed) indicates a <b>variable
-                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i>
-                  (either<i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such
-               as <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
+                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i> (either
+                  <i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such as
+                  <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
                   write] to the URI given by <code>$some-xml-uri</code>
                      </q>.</p>
                   <p>An XProc developer always knows where <code>href</code> is used in a pipeline, and how to test for and
@@ -3784,6 +3852,36 @@ span.wordcount.over { color: darkred }
             trying out content-type options on XProc inputs and outputs.</p>
                <p>The pipeline <a href="../tutorial/worksheets/READ-JSON-TESTING.xpl">READ-JSON-TESTING.xpl</a> provides an
             experimental surface for working functionality specifically related to JSON and XDM map objects.</p>
+            </section>
+            <section>
+               <h2>Content types and document properties</h2>
+               <p>XProc considers its <em>documents</em> to be objects, with properties. One of these properties is the
+            nominal <code>content-type</code>. We say <q>nominal</q> here because it is always possible to misname
+            something. Whether a document is actually the content type described, or can be made into it according to a
+            well defined and unambiguous rendering, is another problem. Fortunately for XProc users, this is a problem
+            for their engines to solve, since XProc provides rules regarding when and how such errors can be detected –
+            or how they can be defined such that instead of errors, we get sensible fallback behaviors that we can treat
+            as rules or at least rules of thumb.</p>
+               <p>Partly this is a problem since of course a content type is actually a feature or property of a binary object
+            of some kind, which is to say in the XProc view, a <em>resource</em> – something it can read or write.
+            Documents are and have <em>representations</em> of this binary data - when one is easily obtainable (via a
+            standard parse). A tree of nodes, for example is what XProc sees in an XML or HTML document, not a file
+            containing text with tags.</p>
+               <p>Accordingly, along with XProc's idea of a <em>content type</em> is its idea of a <em>serialization
+               specification</em>. Indeed, decoupling these two properties offers tremendous flexibility to users of
+            pipelines, since some serialization formats <q>belong</q> (implicitly) to certain document or content types,
+            while this is also a one-to-many relation. For example, many different XML-based formats can all be treated
+            with the same content-type and the same choice of serialization options for XML.</p>
+               <p>Both these properties are given on documents throughout a pipeline, but they can change along the way,
+            either because they are reset explicitly (a <code>p:set-properties</code> step is offered for this) or
+            because an operation or step has changed the document such that one or both of these settings have also been
+            changed. Consequently their handling can, for the most part, be left to processors, trusting that errors
+            will be returned if a processor is asked to do things that exceed capabilities.</p>
+               <p>Among other things, this permits specific steps and embedded pipelines to declare content types for inputs
+            and outputs, and throw errors when contracts (as declared in step definitions) are violated. Not only does
+            this make it possible to define and build better, more robust pipeline steps with better exception handling;
+            but also it means that content types and serialization options can be explicitly stated and controlled when
+            necessary, without the details of syntax ever becoming a focus.</p>
             </section>
             <section>
                <h2>Exercise some options</h2>
