@@ -8,7 +8,7 @@ See the repository [README](../README.md) along with [repository guidelines](../
 
 Convert a small, readily-available (public) document (on the web) into OSCAL, to show a rudimentary OSCAL "up-conversion" (value-add conversion, 'qualification' or semantic enhancement).
 
-Serve as a "mini" with the same architecture as other data enhancement, qualification or rectification pipelines in this repo and elsewhere.
+Provide a working model in miniature of the same architecture as other XProc-based data enhancement, qualification or rectification pipelines in this repo and elsewhere.
 
 ## Who might find this useful
 
@@ -18,19 +18,21 @@ Student of OSCAL learning its semantics and mappings.
 
 ## What is provided
 
-### Pipeline [PULL-USDS-PLAYBOOK.xpl](PULL-USDS-PLAYBOOK.xpl)
+### Pipeline [GRAB-PLAYBOOK.xpl](GRAB-PLAYBOOK.xpl)
 
-- Pulls copy of the Digital Services Playbook from the Internet or from local cache
-- Maps HTML into OSCAL XML using XSLT
-- Saves OSCAL XML version in 'archive' folder
+- Pulls a copy of the Digital Services Playbook from the Internet (an HTML resource)
+- Saves it locally in 'archive' folder
 
-See [the archive folder](archive/) for copies of data sources and saved results of earlier runs.
+### Pipeline [OSCAL-PLAYBOOK.xpl](OSCAL-PLAYBOOK.xpl)
+
+- Reads file cached in the last operation (with errors when it is missing)
+- Converts and saves as an OSCAL catalog, with fresh timestamp and UUID
 
 ## How to use it
 
-Run the pipeline with an XProc 3 engine and examine contents of `archive`.
+Run the pipelines with an XProc 3 engine and examine contents of `archive`.
 
-Rename this folder to produce a fresh archive by running the pipeline again.
+Rename 'archive' to produce a fresh archive by running the pipeline again, in 'archive'.
 
 ## Credits for contributors
 
