@@ -3,12 +3,9 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:OSCAL-PLAYBOOK" name="OSCAL-PLAYBOOK">
 
 
-   <!-- This pipeline delivers an error if the file designated in $source-html-file is not found -
-        Run the pipeline GRAB-PLAYBOOK.xpl to restore it. -->
-   
-   <!-- Set an output port to see outputs in the console or to redirect them -->
-   <!--<p:output port="result" sequence="true"  serialization="map{ 'indent': true() }"
-   pipe="@snapshot"/>-->
+   <!-- This pipeline delivers errors if either of the files designated as
+        $source-html-file or $schema-file is not found -
+        Run pipelines GRAB-RESOURCES.xpl and GRAB-PLAYBOOK.xpl to restore them. -->
    
    <!-- subpipeline starts here -->
    
