@@ -4,7 +4,7 @@ The pipeline tests itself by:
 
 - Erroring when resources are not found
 - Validating intermediate results against a [minimalistic schema](src/playbook.rnc)
-- Validating final results against OSCAL XSD
+- Validating final results against the OSCAL Catalog XSD
 
 ## Possible TBD
 

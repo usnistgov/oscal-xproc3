@@ -33,7 +33,7 @@ span.wordcount.over { color: darkred }
    </head>
    <body>
       <h1>XProc in Action: an Immersive Introduction</h1>
-      <h3>version 1.0_draft PREVIEW January 10 2025</h3>
+      <h3>version 1.0_draft PREVIEW January 14 2025</h3>
       <div class="toc">
          <div class="lesson"
               id="toc-acquire"
@@ -513,7 +513,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-oscal-convert_350"
                  data-track="maker">
-               <h1>350: Namespaces in XML and XProc<span class="wordcount okay"> (~724)</span>
+               <h1>350: Namespaces in XML and XProc<span class="wordcount okay"> (~905)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -532,6 +532,15 @@ span.wordcount.over { color: darkred }
                </div>
                <div>
                   <h2>Namespace tips and tricks</h2>
+                  <div>
+                     <h3>Steps for namespaces</h3>
+                     <div>
+                        <h4>Namespace prefixes</h4>
+                     </div>
+                     <div>
+                        <h4>Greedy renaming</h4>
+                     </div>
+                  </div>
                   <div>
                      <h3>Coining new namespaces</h3>
                   </div>
@@ -3606,6 +3615,35 @@ span.wordcount.over { color: darkred }
                <h2>Namespace tips and tricks</h2>
                <p>A few small points to make namespace handling easier.</p>
                <section>
+                  <h3>Steps for namespaces</h3>
+                  <p>In addition to the built-in namespace fixup, two XProc steps are invaluable for managing namespaces:</p>
+                  <ul>
+                     <li>
+                        <a href="../">p:namespace-delete</a>
+                     </li>
+                     <li>
+                        <a href="../">p:namespace-rename</a>
+                     </li>
+                  </ul>
+                  <p>A couple of things to note about these:</p>
+                  <section>
+                     <h4>Namespace prefixes</h4>
+                     <p>XProc typically uses the namespace prefixes declared in the XProc XML file, in order to address
+                  namespaces. So <code>p:namespace-delete prefixes="ox"</code> will delete whatever namespace is bound
+                  by the XProc itself to the prefix <code>ox</code> – it is a feature, not a bug, that this namespace
+                  (it would be <code>http://csrc.nist.gov/ns/oscal-xproc3</code> in this repository) might be prefixed
+                  differently in out-of-line XML.</p>
+                  </section>
+                  <section>
+                     <h4>Greedy renaming</h4>
+                     <p>When using <code>p:namespace-rename</code> you need to be careful to rename (by changing their
+                  namespaces) only the nodes you want! Typically this means you will need
+                     <code>apply-to="elements"</code> to prevent attributes as well as XML elements from being assigned
+                  to the namespace. This is a subtle difference, but it can affect both XPath matching and schema
+                  validation – and resulting problems can be hard to debug.</p>
+                  </section>
+               </section>
+               <section>
                   <h3>Coining new namespaces</h3>
                   <p>Do not be misled by the fact that namespaces are defined by means of URIs. The URIs point to pages that
                often do not exist. Making new namespaces to provide a rational scope for a new set of elements or
@@ -3619,7 +3657,11 @@ span.wordcount.over { color: darkred }
                   <p>When doing so, or when deploying any namespace declarations (the HTML namespace
                   <code>http://www.w3.org/1999/xhtml</code> is a frequent offender), the associated <code>xmlns:</code>
                attribute does <i>not</i> have to be placed only at the document root. Pipelines in the repository
-               sometimes show namespaces declared internally, especially when their scope of application is limited.</p>
+               sometimes show namespaces declared internally, since it can be convenient to limit their scope of
+               application.</p>
+                  <p>
+                     <b>Tip:</b> try using <code>p:group</code> as a handy way of managing scoping of XML namespaces as well
+               as XProc variables.</p>
                </section>
                <section>
                   <h3>Overloading prefixes</h3>
@@ -3636,9 +3678,9 @@ span.wordcount.over { color: darkred }
                identify the same elements as <code>ox:div</code> and <code>ox:p</code>. None of these elements are the
                familiar HTML <code>div</code> and <code>p</code> since the namespace is wrong – for HTML we would expect
                the HTML namespace, or none.</p>
-                  <p>This pipeline might wish to scrub its namespaces with a <a href="../">p:namespace-delete</a> XProc step.
-               Declarations are provided for the XSLT and XSD namespaces, which will accordingly appear (and be
-               propagated) into literal elements given in the pipeline and hence, pipeline results.</p>
+                  <p>This pipeline might wish to scrub its namespaces with a <a href="../">p:namespace-delete</a> XProc step. Without
+               such cleanup, since declarations are provided for the XSLT and XSD namespaces, these will accordingly
+               appear (and be propagated) into literal elements given in the pipeline and hence, pipeline results.</p>
                </section>
                <section>
                   <h3>Matching with namespace wildcard</h3>

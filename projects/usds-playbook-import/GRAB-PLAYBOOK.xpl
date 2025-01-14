@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:GRAB-RESOURCES"
-   name="GRAB-RESOURCES">
+   type="ox:GRAB-PLAYBOOK"
+   name="GRAB-PLAYBOOK">
 
    <!-- A $prefix is used to tag messages, expected to match the process type -->
    <p:input port="source">

@@ -42,6 +42,23 @@ While namespace fixup will help, it cannot optimize for your case. The step `p:d
 
 A few small points to make namespace handling easier.
 
+### Steps for namespaces
+
+In addition to the built-in namespace fixup, two XProc steps are invaluable for managing namespaces:
+
+* [p:namespace-delete](https://spec.xproc.org/3.0/steps/#c.namespace-delete)
+* [p:namespace-rename](https://spec.xproc.org/3.0/steps/#c.namespace-rename)
+
+A couple of things to note about these:
+
+#### Namespace prefixes
+
+XProc typically uses the namespace prefixes declared in the XProc XML file, in order to address namespaces. So `p:namespace-delete prefixes="ox"` will delete whatever namespace is bound by the XProc itself to the prefix `ox` – it is a feature, not a bug, that this namespace (it would be `http://csrc.nist.gov/ns/oscal-xproc3` in this repository) might be prefixed differently in out-of-line XML.
+
+#### Greedy renaming
+
+When using `p:namespace-rename` you need to be careful to rename (by changing their namespaces) only the nodes you want! Typically this means you will need `apply-to="elements"` to prevent attributes as well as XML elements from being assigned to the namespace. This is a subtle difference, but it can affect both XPath matching and schema validation – and resulting problems can be hard to debug.
+
 ### Coining new namespaces
 
 Do not be misled by the fact that namespaces are defined by means of URIs. The URIs point to pages that often do not exist. Making new namespaces to provide a rational scope for a new set of elements or functions is normal, and nothing needs to appear at that URI.
@@ -50,7 +67,9 @@ Developers may have non-technical reasons for using or avoiding certain URIs whe
 
 ### On-the-fly namespace declarations
 
-When doing so, or when deploying any namespace declarations (the HTML namespace `http://www.w3.org/1999/xhtml` is a frequent offender), the associated `xmlns:` attribute does *not* have to be placed only at the document root. Pipelines in the repository sometimes show namespaces declared internally, especially when their scope of application is limited.
+When doing so, or when deploying any namespace declarations (the HTML namespace `http://www.w3.org/1999/xhtml` is a frequent offender), the associated `xmlns:` attribute does *not* have to be placed only at the document root. Pipelines in the repository sometimes show namespaces declared internally, since it can be convenient to limit their scope of application.
+
+**Tip:** try using `p:group` as a handy way of managing scoping of XML namespaces as well as XProc variables.
 
 ### Overloading prefixes
 
@@ -69,7 +88,7 @@ Consider this XML start tag for an XProc pipeline:
 
 Within the scope of this element, both unprefixed names such as `div` or `p` will identify the same elements as `ox:div` and `ox:p`. None of these elements are the familiar HTML `div` and `p` since the namespace is wrong – for HTML we would expect the HTML namespace, or none.
 
-This pipeline might wish to scrub its namespaces with a [p:namespace-delete](https://spec.xproc.org/3.0/steps/#c.namespace-delete) XProc step. Declarations are provided for the XSLT and XSD namespaces, which will accordingly appear (and be propagated) into literal elements given in the pipeline and hence, pipeline results.
+This pipeline might wish to scrub its namespaces with a [p:namespace-delete](https://spec.xproc.org/3.0/steps/#c.namespace-delete) XProc step. Without such cleanup, since declarations are provided for the XSLT and XSD namespaces, these will accordingly appear (and be propagated) into literal elements given in the pipeline and hence, pipeline results.
 
 ### Matching with namespace wildcard
 

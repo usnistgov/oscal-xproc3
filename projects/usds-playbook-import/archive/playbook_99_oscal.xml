@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog uuid="074e946a-15b6-4df9-bd12-bbd0e65b0d16"
+<catalog uuid="a9f2845a-029f-46a7-aa95-7811747678a8"
          xmlns="http://csrc.nist.gov/ns/oscal/1.0">
    <metadata>
       <title>US Digital Service Playbook (OSCAL rendition)</title>
-      <last-modified>2025-01-14T13:04:11.66-05:00</last-modified>
+      <last-modified>2025-01-14T16:45:09.93-05:00</last-modified>
       <version>0.1</version>
       <oscal-version>1.1.2</oscal-version>
       <link rel="source"

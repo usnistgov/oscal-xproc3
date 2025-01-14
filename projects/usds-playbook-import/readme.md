@@ -18,9 +18,9 @@ Students of OSCAL learning its semantics and (XML) tagging.
 
 ## What is provided
 
-The pipeline produces OSCAL in two steps, for transparency. The first step acquires and saves a local copy of source; the second produces OSCAL from it.
+Three pipelines share the load, mainly for transparency. A pipeline acquires and saves a local copy of source data; a second pipeline fings a schema; the third performs a conversion of the source data into a schema-valid form, and validates it.
 
-An integrated pipeline would be easy to do but harder to diagnose when the source data moves or disappears.
+A single integrated pipeline would be straightforward -- and could avoid all local caching -- but harder to diagnose when the source data moves or disappears.
 
 ### Pipeline [GRAB-PLAYBOOK.xpl](GRAB-PLAYBOOK.xpl)
 
@@ -29,12 +29,20 @@ An integrated pipeline would be easy to do but harder to diagnose when the sourc
 
 This can be adapted to cache any page from the Internet.
 
+### Pipeline [GRAB-RESOURCES.xpl](GRAB-RESOURCES.xpl)
+
+- Pulls a copy of the OSCAL XSD Schema
+- Stores it locally in `lib`
+
+You can skip this step if you wire [the next pipeline](OSCAL-PLAYBOOK.xpl) to find a schema at a different location, or skip OSCAL validation.
+
 ### Pipeline [OSCAL-PLAYBOOK.xpl](OSCAL-PLAYBOOK.xpl)
 
 - Reads file cached in the last operation (with errors when it is missing)
 - Converts into clean semantic tagging (ad hoc)
 - Validates this against [a schema](src/playbook.rnc) that codifies expectations
 - Converts into an OSCAL catalog, with fresh timestamp and UUID
+- Validates as an OSCAL Catalog against the OSCAL XSD schema
 - Saves on the file system
 
 This pipeline should fail with errors when results are not as expected.

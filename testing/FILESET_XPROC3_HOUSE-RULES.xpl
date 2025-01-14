@@ -81,6 +81,10 @@
       
       <p:document href="../projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl"/>
       
+      <p:document href="../projects/usds-playbook-import/GRAB-PLAYBOOK.xpl"/>
+      <p:document href="../projects/usds-playbook-import/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/usds-playbook-import/OSCAL-PLAYBOOK.xpl"/>
+      
       <p:document href="../projects/oscal-validate/GRAB-OSCAL.xpl"/>
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>
       <p:document href="../projects/oscal-validate/XSD-VALIDATE-EXAMPLE.xpl"/>
