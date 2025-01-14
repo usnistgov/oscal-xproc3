@@ -5,10 +5,12 @@
    <!-- This pipeline delivers an error if the file designated in $source-html-file is not found -
         Run the pipeline GRAB-PLAYBOOK.xpl to restore it. -->
    
+   <!-- Set an output port to see outputs in the console or to redirect them -->
    <!--<p:output port="result" sequence="true"  serialization="map{ 'indent': true() }"/>-->
    
-   <!-- start here -->
+   <!-- subpipeline starts here -->
    
+   <!-- Cached copy -->
    <p:variable name="source-html-file" select="resolve-uri('archive/playbook-source.html')"/>
   
    <!--starting -   - - -->
@@ -31,16 +33,21 @@
       <p:filter select="/descendant::*[@id='plays']"/>
 
       <p:cast-content-type content-type="application/xml"/>
-
+      
       <p:store href="archive/playbook_01_extract.xhtml"/>
 
       <p:namespace-delete prefixes="html" xmlns:html="http://www.w3.org/1999/xhtml"/>
 
-      <p:xslt>
+      <p:xslt name="cast-html">
          <p:with-input port="stylesheet" href="src/usds-html-to-oscal.xsl"/>
       </p:xslt>
-
-      <p:store href="archive/playbook_02_rendered.xml"/>
+      
+      <!-- Validate to presumed model -->
+      <p:validate-with-relax-ng assert-valid="true">
+         <p:with-input port="schema" href="src/playbook.rnc"/>
+      </p:validate-with-relax-ng>
+   
+      <p:store href="archive/playbook_02_rendered.xml" serialization="map{ 'indent': true() }"/>
    </p:group>
    
    <p:group name="map-to-oscal">
@@ -68,9 +75,19 @@
       
       <p:namespace-rename to="http://csrc.nist.gov/ns/oscal/1.0"/>
 
-      <!-- Validate OSCAL -->
-      
       <p:store href="archive/playbook_99_oscal.xml" serialization="map{ 'indent': true() }"/>
+      
+      <!-- Validate OSCAL - REQUIRES SAXON EE for XML Calabash -->
+      <!-- Also failing in Morgana, but why? -->
+      <!---->   
    </p:group>
    
+   <!-- Not working in Morgana on pipeline results - p:group semantics? -->
+   <!--<p:validate-with-xml-schema name="oscal-catalog-validation"
+      assert-valid="true" version="1.0">
+      <p:with-input port="source" href="archive/playbook_99_oscal.xml"/>
+      <p:with-input port="schema" href="lib/oscal_catalog_schema.xsd"/>
+   </p:validate-with-xml-schema>-->
+   
+
 </p:declare-step>

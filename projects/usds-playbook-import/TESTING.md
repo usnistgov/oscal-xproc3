@@ -1,12 +1,15 @@
-# TESTING template
+# TESTING USDS HTML to OSCAL
 
-What testing is provided by, for, and in the project may be documented here.
+The pipeline tests itself by:
 
-XProc pipelines may execute (harness) tests.
+- Erroring when resources are not found
+- Validating intermediate results against a [minimalistic schema](src/playbook.rnc)
+- Validating final results against OSCAL XSD
 
-Tests may include XSpec testing over XSLTs or Schematrons.
+## Possible TBD
 
-XML documents (of any flavor) may be tested by means of validation, Schematron or other analysis.
+Some XSpec for the XSLT step.
 
-There may be ad-hoc testing or interactive testing to be documented.
+Since this is a small-and-simple pipeline, think about unit testing its own conversion steps or at any rate inputs/outputs?
 
+Prototype this with p:run?
