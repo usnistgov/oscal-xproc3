@@ -1,0 +1,26 @@
+default namespace = ""
+
+# Schema represents an ad hoc semantic reduction describing ../archive/playbook_02_rendered.xml
+# RNC generated using Trang, no mods
+
+start =
+  element catalog {
+    element control {
+      attribute id { xsd:NCName },
+      title,
+      element part {
+        attribute name { xsd:NCName }?,
+        title?,
+        (element ol { li+ }
+         | element ul { li+ }
+         | element p { (text | a)+ }+)
+      }+
+    }+
+  }
+title = element title { text }
+a =
+  element a {
+    attribute href { xsd:anyURI },
+    text
+  }
+li = element li { (text | a)+ }

@@ -3,20 +3,19 @@
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:OSCAL-PLAYBOOK" name="OSCAL-PLAYBOOK">
 
 
-   <!-- This pipeline delivers errors if either of the files designated as
+   <!-- This pipeline delivers errors if either 
         $source-html-file or $schema-file is not found -
         Run pipelines GRAB-RESOURCES.xpl and GRAB-PLAYBOOK.xpl to restore them. -->
    
    <!-- subpipeline starts here -->
    
-   <!-- Cached copy -->
+   <!-- Cached copies -->
    <p:variable name="schema-file" select="resolve-uri('lib/oscal_catalog_schema.xsd')"/>
    <p:variable name="source-html-file" select="resolve-uri('archive/playbook-source.html')"/>
    
    <!--starting -   - - -->
 
    <p:choose name="acquire-catalog-schema">
-      <!-- We can't use doc-available since the HTML is not XML (grr) -->
       <p:when test="doc-available($schema-file)">
          <p:load href="{ $schema-file }" message="[OSCAL-PLAYBOOK] Loading schema { $schema-file }"/>
       </p:when>
@@ -53,7 +52,8 @@
 
       <p:cast-content-type content-type="application/xml"/>
       
-      <p:store href="archive/playbook_01_extract.xhtml" message="[OSCAL-PLAYBOOK] p:store: archive/playbook_01_extract.xhtml ..."/>
+      <p:store href="archive/playbook_01_extract.xhtml"
+         message="[OSCAL-PLAYBOOK] p:store: archive/playbook_01_extract.xhtml ..."/>
 
       <p:namespace-delete prefixes="html" xmlns:html="http://www.w3.org/1999/xhtml"/>
 
@@ -62,13 +62,15 @@
       </p:xslt>
       
       <!-- Validate to presumed model -->
-      <p:validate-with-relax-ng assert-valid="true" message="[OSCAL-PLAYBOOK] Validating extract against contract -">
+      <p:validate-with-relax-ng assert-valid="true"
+         message="[OSCAL-PLAYBOOK] Validating extract against contract -">
          <p:with-input port="schema" href="src/playbook.rnc"/>
       </p:validate-with-relax-ng>
    
       <p:identity message="[OSCAL-PLAYBOOK] ... things looking good ..."/>
       
-      <p:store href="archive/playbook_02_rendered.xml" serialization="map{ 'indent': true() }" message="[OSCAL-PLAYBOOK] p:store: archive/playbook_02_rendered.xml ..."/>
+      <p:store href="archive/playbook_02_rendered.xml" serialization="map{ 'indent': true() }"
+         message="[OSCAL-PLAYBOOK] p:store: archive/playbook_02_rendered.xml ..."/>
    </p:group>
    
    <p:group name="map-to-oscal">
@@ -77,35 +79,38 @@
 
       <p:insert match="/*" position="first-child">
          <p:with-input port="insertion">
-            <p:inline>
-               <metadata>
-                  <title>US Digital Service Playbook (OSCAL rendition)</title>
-                  <last-modified>{ current-dateTime() }</last-modified>
-                  <version>0.1</version>
-                  <oscal-version>1.1.2</oscal-version>
-                  <link rel="source" href="https://playbook.usds.gov/"/>
-               </metadata>
-            </p:inline>
+            <metadata>
+               <title>US Digital Service Playbook (OSCAL rendition)</title>
+               <last-modified>{ current-dateTime() }</last-modified>
+               <version>0.1</version>
+               <oscal-version>1.1.2</oscal-version>
+               <link rel="source" href="https://playbook.usds.gov/"/>
+            </metadata>
          </p:with-input>
       </p:insert>
 
-      <p:add-attribute match="/catalog" attribute-name="uuid"
-         attribute-value="00000000-0000-0000-0000-000000000000"/>
+      <p:add-attribute match="/catalog" attribute-name="uuid" attribute-value="00000000-0000-0000-0000-000000000000"/>
       <p:uuid match="/catalog/@uuid"/>
-      
+
       <p:namespace-delete prefixes="c ox"/>
-      
+
       <!-- apply-to="elements" is essential to avoid hiding attributes in XSD validation -->
       <p:namespace-rename apply-to="elements" to="http://csrc.nist.gov/ns/oscal/1.0"
-      message="[OSCAL-PLAYBOOK] Casting to OSCAL"/>
+         message="[OSCAL-PLAYBOOK] Casting to OSCAL"/>
 
       <!-- Validate OSCAL - REQUIRES SAXON EE for XML Calabash -->
-      <p:validate-with-xml-schema name="oscal-catalog-validation"
-         message="[OSCAL-PLAYBOOK] Validating OSCAL catalog -"
-         assert-valid="true" version="1.0">   
-         <p:with-input port="schema" pipe="@acquire-catalog-schema"/>
-      </p:validate-with-xml-schema>
-      
+      <p:choose>
+         <p:when test="p:step-available('p:validate-with-xml-schema')">
+            <p:validate-with-xml-schema name="oscal-catalog-validation" assert-valid="true" version="1.0"
+               message="[OSCAL-PLAYBOOK] Validating OSCAL catalog -">
+               <p:with-input port="schema" pipe="@acquire-catalog-schema"/>
+            </p:validate-with-xml-schema>
+         </p:when>
+         <p:otherwise>
+            <p:identity message="[OSCAL-PLAYBOOK] Skipped schema validation (not supported in the installed { p:system-property('p:product-name') })"/>
+         </p:otherwise>
+      </p:choose>
+
       <p:store href="archive/playbook_99_oscal.xml" serialization="map{ 'indent': true() }"
          message="[OSCAL-PLAYBOOK] p:store: archive/playbook_99_oscal.xml ..."/>
    </p:group>
