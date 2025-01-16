@@ -10,7 +10,7 @@
      
      'result' is an XML summary of findings from system-property function calls
      
-     'summary' is plain text provided with labels and an English-language time stamp
+     'summary' comes as plain text provided with labels and an English-language time stamp
      
    -->  
    
