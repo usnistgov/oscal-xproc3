@@ -15,6 +15,7 @@
    <p:xslt>
       <p:with-input port="stylesheet" href="src/filter-directory.xsl"/>
    </p:xslt>
+   
    <p:xslt>
       <p:with-input port="stylesheet" href="src/expand-steps.xsl"/>
    </p:xslt>

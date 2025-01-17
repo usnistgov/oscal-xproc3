@@ -18,17 +18,6 @@
    
    <!--<p:output serialization="map { 'indent': true() }" pipe="@compound-step-links" sequence="true"/>-->
    
-   
-<!-- Before we splice in foreign contents, we rewrite a little - adding a/@target enabling links
-     open in a target window ... we could do this with XSLT but the XProc step is easier. -->
-   <p:add-attribute name="links-rewritten"  match="a" xmlns="http://www.w3.org/1999/xhtml"
-      attribute-name="target" attribute-value="specs">
-      <p:with-input pipe="spec-doc@XPROC-STEP-INDEX-HTML"/>
-   </p:add-attribute> 
-   
-   <!-- nb  the sink is optional but clarifies the pipeline - the next step picks up its own inputs -->
-   <p:sink/>
-   
    <p:group name="compound-step-links" xmlns:db="http://docbook.org/ns/docbook">
       <p:output port="result"/>
       <p:for-each>
@@ -52,7 +41,14 @@
       <p:cast-content-type content-type="application/xhtml+xml"/>
    </p:group>
    
-   <p:sink/>
+   <!-- p:sink is implicit here b/c next step starts with new primary source -->
+   
+   <!-- Before we splice in foreign contents, we rewrite a little - adding a/@target enabling links
+     open in a target window ... we could do this with XSLT but the XProc step is easier. -->
+   <p:add-attribute name="links-rewritten"  match="a" xmlns="http://www.w3.org/1999/xhtml"
+      attribute-name="target" attribute-value="specs">
+      <p:with-input pipe="spec-doc@XPROC-STEP-INDEX-HTML"/>
+   </p:add-attribute> 
    
    <!-- Next: XSLT to produce HTML for the step digest, with links back to the Recs
         and XSpec for this XSLT -->
@@ -62,12 +58,13 @@
    </p:xslt>
    
    <!-- Grabbing the list of links to optional step definitions straight from the page on line -  -->
-   <p:insert match="div[@id='specification-links']" 
-      xmlns="http://www.w3.org/1999/xhtml"
+   <!-- Assigning HTML namespace to unprefixed names -->
+   <p:insert match="div[@id='specification-links']" xmlns="http://www.w3.org/1999/xhtml"
       position="last-child" message="[XPROC-STEP-INDEX-HTML] Inserting reference links">
       <p:with-input port="insertion" select="/descendant::ul[5]" pipe="@links-rewritten"/>
    </p:insert>
    
+   <!-- Reaching back to insert the toc links from above -->
    <p:insert match="section[@class='introduction']" xmlns="http://www.w3.org/1999/xhtml"
       position="after" message="[XPROC-STEP-INDEX-HTML] Inserting compound step links">
       <p:with-input port="insertion" select="/*" pipe="result@compound-step-links"/>
@@ -75,6 +72,5 @@
    
    <p:store href="out/xproc-step-list.html" message="[XPROC-STEP-INDEX-HTML] Storing xproc-step-list.html"/>
    
-   <p:sink/>
    
 </p:declare-step>
