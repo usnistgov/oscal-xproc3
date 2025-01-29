@@ -78,12 +78,14 @@
       <p:document href="../projects/FM6-22-import/GRAB-NISO_STS-RNG.xpl"/>
       <p:document href="../projects/FM6-22-import/src/validation-summarize.xpl"/>
       <p:document href="../projects/FM6-22-import/src/validation-summaries.xpl"/>
+      <p:document href="../projects/FM6-22-import/OSCAL-WEBPUB_FM_6-22.xpl"/>
       
       <p:document href="../projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl"/>
       
       <p:document href="../projects/usds-playbook-import/GRAB-PLAYBOOK.xpl"/>
       <p:document href="../projects/usds-playbook-import/GRAB-RESOURCES.xpl"/>
       <p:document href="../projects/usds-playbook-import/OSCAL-PLAYBOOK.xpl"/>
+      <p:document href="../projects/usds-playbook-import/OSCAL-PLAYBOOK-SIMPLE.xpl"/>
       
       <p:document href="../projects/oscal-validate/GRAB-OSCAL.xpl"/>
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>

@@ -33,7 +33,10 @@ body[data-track=maker]    { background-color: seashell }
 body[data-track=learner]  { background-color: aliceblue }
 
 
-section { margin: 0.4em; padding: 0.3em; outline: thin solid black }
+section { margin: 0.4em; padding: 0.3em; outline: thin solid black;
+  -oxy-foldable:true;
+    -oxy-not-foldable-child: h2, h3, h4, h5, h6;
+}
 
 h1 { color: #003311 }
 h2 { color: #006622 }
@@ -49,7 +52,7 @@ h4:before,
 h5:before,
 h6:before {
   float: left; clear: both; font-family: sans-serif; outline: thin solid blue;
-  color: steelblue; margin-right: 0.2rem; padding: 0.3em; font-size: 40%;
+  color: steelblue; margin-right: 0.2rem; margin-left: 0.2rem; padding: 0.3em; font-size: 40%;
    vertical-align: text-top;
 content: oxy_name() }
 

@@ -25,6 +25,8 @@ You will also need a programmer's plain text editor, XML/XSLT editor or IDE (int
 
 Same as [Setup 101](acquire_101.md).
 
+Also see [the set of XProc worksheets](../../worksheets/) collected so far for this tutorial.
+
 ## Step Zero: XProc steps
 
 An XProc *pipeline* is composed out of XProc *steps*. Entire pipelines can then be called as steps in other pipelines. When you look at an XProc pipeline you will see an XML element named `p:declare-step` (modulo namespace prefix adjustments - it might be `xproc3:declare-step`), because conceptually, any pipeline is considered as a step in itself. Like a step, a pipeline works with defined inputs (*sources*) to deliver defined outputs (*results*). But any pipeline is also built out of steps – many of which are considered *atomic* or &ldquo;primitive&rdquo;, but some of which you might build yourself (as pipelines).
@@ -75,6 +77,16 @@ Even if not: be sure to break the pipelines given – or copies under new names 
 * Try to retrieve something from a broken link
 
 Having introduced an error, reverse the damage. Make sure your pipelines are back in working order when this exercise is complete.
+
+## Peruse the worksheets
+
+In [a directory](../../worksheets/) along with the tutorial materials is a growing set of XProc &ldquo;worksheet&rdquo; files.
+
+These are simple, standalone XProc pipelines meant to make it easier to try out syntax and features of XProc and XPath in isolation from other processes.
+
+They are not listed here since the set grows over time, and each should be self-explanatory to an XProc practitioner. On occasion one of the worksheets may also be presented or described in a lesson unit.
+
+The pipeline [PROCESSOR-REPORT.xpl](../../../testing/PROCESSOR-REPORT.xpl) in the test directory is also worth inspecting and running, as it presents a process (and shows code) that could be more generally useful.
 
 ## For consideration
 

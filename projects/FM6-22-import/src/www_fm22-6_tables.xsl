@@ -4,7 +4,7 @@
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
    
-   <xsl:import href="www_fm22-6_simple.xsl"/>
+   <xsl:import href="www_fm22-6_fulltext.xsl"/>
    
    <xsl:template match="oscal:catalog">
       <body class="catalog">
@@ -28,9 +28,11 @@
       <style type="text/css">
          <xsl:text disable-output-escaping="yes"  xml:space="preserve">
 
+main details.control { background-color: lightsteelblue  }
+
 .requirements.group .group { display: inline-block; width: 24em; vertical-align: top;
-   margin-top: 1em; margin-bottom: 0em;
-   padding: 0.4em; border: thin solid black }
+   margin-top: 1em; margin-bottom: 0em; padding: 0.4em;
+   border: thin solid black }
 
 .requirements-group-title { margin-top: 0em }
 
@@ -38,7 +40,6 @@ details.control { background-color: whitesmoke; color: black; padding: 0.42em; b
 
 details[open] { width: max-content; padding-right: 2em; position: sticky; z-index: 2;
   border: medium inset black}
-
 </xsl:text>
      </style>
    </xsl:template>

@@ -26,28 +26,33 @@
             <li>Everything else you have seen relating to XProc</li>
             <li>Your own problems</li>
             <li>Your own examples</li>
+            <li>Tutorial production pipelines as described below</li>
          </ul>
       </section>
       <section>
          <h2>Tutorial production pipelines</h2>
-         <p>The source files for these tutorials are all stored in the repository in a source directory, and maintained
-            in HTML format. The expectation is that all files will be represented as valid and complete HTML 5 in XML
-            syntax, i.e. XHTML to be treated as an HTML document type. However, not all files in this subdirectory are
-            used as source materials; this is only where they are stored and maintained.</p>
+         <p>The source files for these tutorials are all stored in the repository in <a href="../">a directory named
+                  <code>source</code></a>, and maintained in HTML format. The expectation is that all files will be
+            represented as valid and complete HTML 5 in XML syntax, i.e. XHTML to be treated as an HTML document type.
+            When composing the tutorial lessons, the author uses XML-based tools this rule (and others). However, not
+            all files in this subdirectory are used as source materials; this is only where they are stored and
+            maintained. Draft materials might appear here as well.</p>
          <p>At the top of the tutorial structure, a file <a href="../../lesson-plan.xml">lesson-plan.xml</a> is used as
-            a publication driver or configuration file, when read as a sequence of links back to folders. Each folder
-            named as a <code>Lesson/@key</code> is read, with all HTML files surnamed <code>_src.html</code> from that
-            folder considered to be tutorial source materials, in nominally alphabetic order. The tutorial as a whole is
-            built by reading each of these files, converting it to Markdown (with adjustments), and producing indexes to
-            the entire set, all done by writing files into the <a href="sequence/">sequence directory</a>. Such a
-            Markdown file set can be read and edited in Github in the usual way, or refreshed by running a production
-            pipeline again.</p>
+            a publication driver or configuration file, when read (by means of XProc) as a sequence of links back to
+            folders. Production is achieved by running pipelines that traverse the links, reading files and working
+            appropriately. Each folder named as a <code>Lesson/@key</code> is read, with all HTML files surnamed
+               <code>_src.html</code> from that folder considered to be tutorial source materials, in nominally
+            alphabetic order. The tutorial as a whole is built by reading each of these files, converting it to Markdown
+            (with adjustments), and producing indexes to the entire set, all done by writing files into the <a
+               href="sequence/">sequence directory</a>. Such a Markdown file set can be read and edited in Github in the
+            usual way, or refreshed by running a production pipeline again.</p>
          <p>The authoring model and its design rationales as well as its tooling support, including automated proof
             checking under CI/CD, is described in a <a href="courseware_219_src.html" class="LessonUnit">subsequent
                lesson unit</a>. Authoring in HTML rather than Markdown provides all kinds of leverage for ad-hoc
                <q>tutorial semantics</q> especially with the help of a structured (tagless) editor.</p>
-         <p>Each of the pipelines at the top performs a specific task with respect to tutorial production.</p>
-         <p>As always, pipelines should be provided with explanatory comments.</p>
+         <p>Each of the pipelines described here performs a specific task with respect to tutorial production, except
+            for one, a convenience or utility pipeline that runs all the others with a single invocation.</p>
+         <p>As always, pipelines should be provided internally with explanatory comments.</p>
          <p>When reading and writing files to file systems, the usual security considerations apply.</p>
          <section>
             <h3><a href="../../PRODUCE-TUTORIAL-PREVIEW.xpl">PRODUCE-TUTORIAL-PREVIEW</a></h3>
@@ -66,6 +71,10 @@
             <h3><a href="../../PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a></h3>
             <p>Generates an index of XProc elements used in projects in the repository, stored as<a
                   href="../../sequence/element-directory.md">element-directory.md</a>.</p>
+         </section>
+         <section>
+            <h3><a href="../../PRODUCE-EVERYTHING.xpl">PRODUCE-EVERYTHING</a></h3>
+            <p>Runs all the pipelines described above, as a set, together.</p>
          </section>
       </section>
    </body>

@@ -3,10 +3,8 @@
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns="http://www.w3.org/1999/xhtml"
    xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0">
-
-   <xsl:variable name="alpha-upper">ABCDEFGHIJKLMNOPQRSTUVWXYZ</xsl:variable>
-
-   <xsl:variable name="alpha-lower">abcdefghijklmnopqrstuvwxyz</xsl:variable>
+  
+  <xsl:output method="html"/>
    
   <xsl:template match="/">
      <html>
@@ -67,27 +65,26 @@
    </xsl:template>
    
    <xsl:template match="oscal:group">
-     <section class="group { @class }">
-        <xsl:copy-of select="@id"/>
-      <xsl:apply-templates/>
-    </section>
-  </xsl:template>
-
-  <xsl:key name="by-id" match="*[@id]" use="@id"/>
-
-   <xsl:template match="oscal:control">
-      <xsl:variable name="lower-title" select="translate(oscal:title,$alpha-upper,$alpha-lower)"/>
-      <xsl:variable name="requirements-table" select="key('requirement-by-title',$lower-title)"/>
-      <!--<xsl:variable name="requirements-table" select="//oscal:control[@class='requirement'][oscal:title = current()/oscal:title]"/>-->
-      <section class="control { @class }">
+      <section class="group { @class }">
          <xsl:copy-of select="@id"/>
          <xsl:apply-templates/>
-         <xsl:apply-templates select="$requirements-table"/>
       </section>
    </xsl:template>
    
-   <xsl:key name="requirement-by-title" match="oscal:control[@class='requirement']" use="normalize-space(translate(oscal:title,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'))"/>
+   <xsl:key name="by-id" match="*[@id]" use="@id"/>
+
+   <xsl:template match="oscal:control">
+      <section class="control { @class }">
+         <xsl:copy-of select="@id"/>
+         <xsl:apply-templates/>
+         
+         <!-- Related table -->
+         <xsl:apply-templates select="key('requirement-crossref',oscal:part/oscal:link[@rel='related']/@href)"/>
+      </section>
+   </xsl:template>
    
+   <xsl:key name="requirement-crossref" match="oscal:control[@class='requirement']" use="concat('#',@id)"/>
+
    <xsl:template match="oscal:control[@class='requirement']" priority="1">
       <details class="control { @class }"
          onfocus="window.getElementById('{@id}').open = true;">
@@ -270,7 +267,7 @@
 
    <xsl:template match="oscal:link">
       <p class="link">
-         <a class="xref exernal">
+         <a class="xref external">
             <xsl:copy-of select="@href"/>
             <xsl:apply-templates/>
          </a>
@@ -429,7 +426,14 @@
    
   <xsl:template name="css-style">
      <style type="text/css" xml:space="preserve">
-body { font-family: sans-serif; padding-left: 1em; background-color: #454545  }
+body { font-family: sans-serif; padding-left: 1em; background-color: #454545 }
+
+
+@media screen and (max-device-width: 512px) {
+  body {
+    font-size: 160%;
+  }
+}
 
 p, li { font-family: serif }
 
@@ -438,7 +442,7 @@ header { max-width: 54rem; text-align: center; color: white; padding: 0rem 6vw }
 #full-text { max-width: 54rem; background-color: white; padding: 0rem 6vw;
   margin-bottom: 2rem; border: thin inset black }
 
-.requirements.group { background-color: whitesmoke; padding: 0.8rem }
+.requirements.group { background-color: whitesmoke; padding: 0.8em; padding-right: 20em }
 
 h4, h6 { font-style: italic }
 

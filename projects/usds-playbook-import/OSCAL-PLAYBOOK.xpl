@@ -24,6 +24,7 @@
    
    <!--starting -   - - -->
 
+   <!-- First, entirely aside from the task, we require some diagnostic information -->
    <!-- Inline XSLT requires fancy footwork with expand-text to correctly scope evaluation context for function calls -->
    <p:xslt name="introspect-xslt" template-name="report">
       <p:with-input port="source"><p:empty/></p:with-input>

@@ -171,8 +171,7 @@
             name="no-rng">
             <p:with-input>
                <p:inline>
-                  <ox:message>Schema { $sts-rng } not found - try running pipeline
-                     GRAB-NISO_STS-RNG.xpl</ox:message>
+                  <ox:message>Schema { $sts-rng } not found - try running pipeline GRAB-NISO_STS-RNG.xpl</ox:message>
                </p:inline>
             </p:with-input>
          </p:identity>
@@ -237,7 +236,7 @@
    <p:if test="$writing-all">
       <p:insert match="/*" position="before">
          <p:with-input port="insertion">
-            <p:inline><?xml-stylesheet type="text/xsl" href="src/www_fm22-6_simple.xsl"?>&#xA;</p:inline>
+            <p:inline><?xml-stylesheet type="text/xsl" href="src/www_fm22-6_fulltext.xsl"?>&#xA;</p:inline>
          </p:with-input>
       </p:insert>
       <p:store name="oscal-working" href="FM_6-22-OSCAL-working.xml"

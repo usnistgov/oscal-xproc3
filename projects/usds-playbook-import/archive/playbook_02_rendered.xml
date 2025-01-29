@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog uuid="88c43ce1-8290-42bf-9a4e-7dcade6eb0c0"
-         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-   <metadata>
-      <title>US Digital Service Playbook (OSCAL rendition)</title>
-      <last-modified>2025-01-27T15:37:01.31-05:00</last-modified>
-      <version>0.1</version>
-      <oscal-version>1.1.2</oscal-version>
-      <link rel="source"
-            href="https://playbook.usds.gov/"/>
-   </metadata>
+<catalog>
    <control id="play1">
       <title>Understand what people need</title>
       <part name="statement">
          <p>We must begin digital projects by exploring and pinpointing the needs of the people who will use the service, and the ways the service will fit into their lives. Whether the users are members of the public or government employees, policy makers must include real people in their design process from the beginning. The needs of people — not constraints of government structures or silos — should inform technical and design decisions. We need to continually test the products we build with real people to keep us honest about what is important.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Early in the project, spend time with current and prospective users of the service</li>
@@ -26,7 +17,7 @@
             <li>As the digital service is being built, regularly test it with potential users to ensure it meets people’s needs</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>Who are your primary users?</li>
@@ -45,7 +36,7 @@
       <part name="statement">
          <p>We need to understand the different ways people will interact with our services, including the actions they take online, through a mobile application, on a phone, or in person. Every encounter — whether it’s online or offline — should move the user closer towards their goal.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Understand the different points at which people will interact with the service – both online and in person</li>
@@ -54,7 +45,7 @@
             <li>Develop metrics that will measure how well the service is meeting user needs at each step of the service</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>What are the different ways (both online and offline) that people currently accomplish the task the digital service is designed to help with?</li>
@@ -69,7 +60,7 @@
       <part name="statement">
          <p>Using a government service shouldn’t be stressful, confusing, or daunting. It’s our job to build services that are simple and intuitive enough that users succeed the first time, unaided.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Use a simple and flexible design style guide for the service. Use the <a href="https://playbook.cio.gov/designstandards">U.S. Web Design System</a> as a default</li>
@@ -81,7 +72,7 @@
             <li>Use language and design consistently throughout the service, including online and offline touch points</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>What primary tasks are the user trying to accomplish?</li>
@@ -97,7 +88,7 @@
       <part name="statement">
          <p>We should use an incremental, fast-paced style of software development to reduce the risk of failure. We want to get working software into users’ hands as early as possible to give the design and development team opportunities to adjust based on user feedback about the service. A critical capability is being able to automatically test and deploy the service so that new features can be added often and be put into production easily.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Ship a functioning “minimum viable product” (MVP) that solves a core user need as soon as possible, no longer than three months from the beginning of the project, using a “beta” or “test” period if needed</li>
@@ -111,7 +102,7 @@
             <li>Use code reviews to ensure quality</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>How long did it take to ship the MVP? If it hasn’t shipped yet, when will it?</li>
@@ -133,7 +124,7 @@
          <p>
             <a href="https://techfarhub.cio.gov/handbook/">The TechFAR Handbook</a> provides a detailed explanation of the flexibilities in the Federal Acquisition Regulation (FAR) that can help agencies implement this play.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Budget includes research, discovery, and prototyping activities</li>
@@ -147,7 +138,7 @@
             <li>Contract includes a transition of services period and transition-out plan</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>What is the scope of the project? What are the key deliverables?</li>
@@ -161,7 +152,7 @@
       <part name="statement">
          <p>There must be a single product owner who has the authority and responsibility to assign tasks and work elements; make business, product, and technical decisions; and be accountable for the success or failure of the overall service. This product owner is ultimately responsible for how well the service meets the needs of its users, which is how a service should be evaluated. The product owner is responsible for ensuring that features are built and managing the feature and bug backlogs.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>A product owner has been identified</li>
@@ -171,7 +162,7 @@
             <li>The product owner has a strong relationship with the contracting officer</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>Who is the product owner?</li>
@@ -185,7 +176,7 @@
       <part name="statement">
          <p>We need talented people working in government who have experience creating modern digital services. This includes bringing in seasoned product managers, engineers, and designers. When outside help is needed, our teams should work with contracting officers who understand how to evaluate third-party technical competency so our teams can be paired with contractors who are good at both building and delivering effective digital services. The makeup and experience requirements of the team will vary depending on the scope of the project.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Member(s) of the team have experience building popular, high-traffic digital services</li>
@@ -204,7 +195,7 @@
       <part name="statement">
          <p>The technology decisions we make need to enable development teams to work efficiently and enable services to scale easily and cost-effectively. Our choices for hosting infrastructure, databases, software frameworks, programming languages and the rest of the technology stack should seek to avoid vendor lock-in and match what successful modern consumer and enterprise software companies would choose today. In particular, digital services teams should consider using open source, cloud-based, and commodity solutions across the technology stack, because of their widespread adoption and support by successful consumer and enterprise technology companies in the private sector.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Choose software frameworks that are commonly used by private-sector companies creating similar services</li>
@@ -214,7 +205,7 @@
                <a href="https://www.obamawhitehouse.gov/sites/default/files/omb/assets/egov_docs/memotociostechnologyneutrality.pdf">Consider open source software solutions</a> at every layer of the stack</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>What is your development stack and why did you choose it?</li>
@@ -228,7 +219,7 @@
       <part name="statement">
          <p>Our services should be deployed on flexible infrastructure, where resources can be provisioned in real-time to meet spikes in traffic and user demand. Our digital services are crippled when we host them in data centers that market themselves as “cloud hosting” but require us to manage and maintain hardware directly. This outdated practice wastes time, weakens our disaster recovery plans, and results in significantly higher costs.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Resources are provisioned on demand</li>
@@ -240,7 +231,7 @@
             <li>Application is hosted on commodity hardware</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>Where is your service hosted?</li>
@@ -264,7 +255,7 @@
       <part name="statement">
          <p>Today, developers write automated scripts that can verify thousands of scenarios in minutes and then deploy updated code into production environments multiple times a day. They use automated performance tests which simulate surges in traffic to identify performance bottlenecks. While manual tests and quality assurance are still necessary, automated tests provide consistent and reliable protection against unintentional regressions, and make it possible for developers to confidently release frequent updates to the service.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Create automated tests that verify all user-facing functionality</li>
@@ -274,7 +265,7 @@
             <li>Conduct load and performance tests at regular intervals, including before public launch</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>What percentage of the code base is covered by automated tests?</li>
@@ -296,7 +287,7 @@
          <p>Our digital services have to protect sensitive information and keep systems secure. This is typically a process of continuous review and improvement which should be built into the development and maintenance of the service. At the start of designing a new service or feature, the team lead should engage the appropriate privacy, security, and legal officer(s) to discuss the type of information collected, how it should be secured, how long it is kept, and how it may be used and shared. The sustained engagement of a privacy specialist helps ensure that personal data is properly managed. In addition, a key process to building a secure service is comprehensively testing and certifying the components in each layer of the technology stack for security vulnerabilities, and then to re-use these same pre-certified components for multiple services.</p>
          <p>The following checklist provides a starting point, but teams should work closely with their privacy specialist and security engineer to meet the needs of the specific service.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Contact the appropriate privacy or legal officer of the department or agency to determine whether a System of Records Notice (SORN), Privacy Impact Assessment, or other review should be conducted</li>
@@ -307,7 +298,7 @@
             <li>Use deployment scripts to ensure configuration of production environment remains consistent and controllable</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>Does the service collect personal information from the user?  How is the user notified of this collection?</li>
@@ -324,7 +315,7 @@
       <part name="statement">
          <p>At every stage of a project, we should measure how well our service is working for our users. This includes measuring how well a system performs and how people are interacting with it in real-time. Our teams and agency leadership should carefully watch these metrics to find issues and identify which bug fixes and improvements should be prioritized. Along with monitoring tools, a feedback mechanism should be in place for people to report issues directly.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Monitor system-level resource utilization in real time</li>
@@ -337,7 +328,7 @@
             <li>Use an experimentation tool that supports multivariate testing in production</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>What are the key metrics for the service?</li>
@@ -361,7 +352,7 @@
       <part name="statement">
          <p>When we collaborate in the open and publish our data publicly, we can improve Government together. By building services more openly and publishing open data, we simplify the public’s access to government services and information, allow the public to contribute easily, and enable reuse by entrepreneurs, nonprofits, other agencies, and the public.</p>
       </part>
-      <part name="checklist">
+      <part>
          <title>Checklist</title>
          <ol>
             <li>Offer users a mechanism to report bugs and issues, and be responsive to these reports</li>
@@ -375,7 +366,7 @@
             <li>When appropriate, share your development process and progress publicly</li>
          </ol>
       </part>
-      <part name="questions">
+      <part>
          <title>Key Questions</title>
          <ul>
             <li>How are you collecting user feedback for bugs and issues?</li>

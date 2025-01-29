@@ -9,7 +9,6 @@
       <p:document href="https://playbook.usds.gov/"/>
    </p:input>
    
-   
    <p:variable name="filename" select="'playbook-source.html'"/>   
    
    <p:store message="[GRAB-PLAYBOOK] ... saving { $filename }" href="archive/{ $filename }"/>

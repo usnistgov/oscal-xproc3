@@ -33,7 +33,7 @@ span.wordcount.over { color: darkred }
    </head>
    <body>
       <h1>XProc in Action: an Immersive Introduction</h1>
-      <h3>version 1.0_draft PREVIEW January 14 2025</h3>
+      <h3>version 1.0_draft PREVIEW January 29 2025</h3>
       <div class="toc">
          <div class="lesson"
               id="toc-acquire"
@@ -71,7 +71,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-acquire_102"
                  data-track="maker">
-               <h1>102: Examining the setup<span class="wordcount okay"> (~1160)</span>
+               <h1>102: Examining the setup<span class="wordcount okay"> (~1281)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -90,6 +90,9 @@ span.wordcount.over { color: darkred }
                </div>
                <div>
                   <h2>Step Two: Modify the pipelines</h2>
+               </div>
+               <div>
+                  <h2>Peruse the worksheets</h2>
                </div>
                <div>
                   <h2>For consideration</h2>
@@ -607,7 +610,7 @@ span.wordcount.over { color: darkred }
             <div class="unit observer"
                  id="toc-courseware_101"
                  data-track="observer">
-               <h1>Courseware 101: Producing this tutorial<span class="wordcount okay"> (~433)</span>
+               <h1>Courseware 101: Producing this tutorial<span class="wordcount okay"> (~508)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -638,6 +641,11 @@ span.wordcount.over { color: darkred }
                   <div>
                      <h3>
                         <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
+                     </h3>
+                  </div>
+                  <div>
+                     <h3>
+                        <a href="../tutorial/PRODUCE-EVERYTHING.xpl">PRODUCE-EVERYTHING</a>
                      </h3>
                   </div>
                </div>
@@ -889,6 +897,7 @@ span.wordcount.over { color: darkred }
                <h2>Resources</h2>
                <p>Same as <a href="../tutorial/source/acquire/acquire_101_src.html"
                      class="LessonUnit">Setup 101</a>.</p>
+               <p>Also see <a href="../tutorial/worksheets/">the set of XProc worksheets</a> collected so far for this tutorial.</p>
             </section>
             <section>
                <h2>Step Zero: XProc steps</h2>
@@ -974,6 +983,18 @@ span.wordcount.over { color: darkred }
                </ul>
                <p>Having introduced an error, reverse the damage. Make sure your pipelines are back in working order when this
             exercise is complete.</p>
+            </section>
+            <section>
+               <h2>Peruse the worksheets</h2>
+               <p>In <a href="../tutorial/worksheets/">a directory</a> along with the tutorial materials is a growing set of XProc
+               <q>worksheet</q> files.</p>
+               <p>These are simple, standalone XProc pipelines meant to make it easier to try out syntax and features of XProc
+            and XPath in isolation from other processes.</p>
+               <p>They are not listed here since the set grows over time, and each should be self-explanatory to an XProc
+            practitioner. On occasion one of the worksheets may also be presented or described in a lesson unit.</p>
+               <p>The pipeline <a href="../testing/PROCESSOR-REPORT.xpl">PROCESSOR-REPORT.xpl</a> in the test directory
+            is also worth inspecting and running, as it presents a process (and shows code) that could be more generally
+            useful.</p>
             </section>
             <section>
                <h2>For consideration</h2>
@@ -3980,29 +4001,34 @@ span.wordcount.over { color: darkred }
                   <li>Everything else you have seen relating to XProc</li>
                   <li>Your own problems</li>
                   <li>Your own examples</li>
+                  <li>Tutorial production pipelines as described below</li>
                </ul>
             </section>
             <section>
                <h2>Tutorial production pipelines</h2>
-               <p>The source files for these tutorials are all stored in the repository in a source directory, and maintained
-            in HTML format. The expectation is that all files will be represented as valid and complete HTML 5 in XML
-            syntax, i.e. XHTML to be treated as an HTML document type. However, not all files in this subdirectory are
-            used as source materials; this is only where they are stored and maintained.</p>
+               <p>The source files for these tutorials are all stored in the repository in <a href="../tutorial/source/">a directory named
+                  <code>source</code>
+                  </a>, and maintained in HTML format. The expectation is that all files will be
+            represented as valid and complete HTML 5 in XML syntax, i.e. XHTML to be treated as an HTML document type.
+            When composing the tutorial lessons, the author uses XML-based tools this rule (and others). However, not
+            all files in this subdirectory are used as source materials; this is only where they are stored and
+            maintained. Draft materials might appear here as well.</p>
                <p>At the top of the tutorial structure, a file <a href="../tutorial/lesson-plan.xml">lesson-plan.xml</a> is used as
-            a publication driver or configuration file, when read as a sequence of links back to folders. Each folder
-            named as a <code>Lesson/@key</code> is read, with all HTML files surnamed <code>_src.html</code> from that
-            folder considered to be tutorial source materials, in nominally alphabetic order. The tutorial as a whole is
-            built by reading each of these files, converting it to Markdown (with adjustments), and producing indexes to
-            the entire set, all done by writing files into the <a href="../tutorial/source/courseware/sequence/">sequence directory</a>. Such a
-            Markdown file set can be read and edited in Github in the usual way, or refreshed by running a production
-            pipeline again.</p>
+            a publication driver or configuration file, when read (by means of XProc) as a sequence of links back to
+            folders. Production is achieved by running pipelines that traverse the links, reading files and working
+            appropriately. Each folder named as a <code>Lesson/@key</code> is read, with all HTML files surnamed
+               <code>_src.html</code> from that folder considered to be tutorial source materials, in nominally
+            alphabetic order. The tutorial as a whole is built by reading each of these files, converting it to Markdown
+            (with adjustments), and producing indexes to the entire set, all done by writing files into the <a href="../tutorial/source/courseware/sequence/">sequence directory</a>. Such a Markdown file set can be read and edited in Github in the
+            usual way, or refreshed by running a production pipeline again.</p>
                <p>The authoring model and its design rationales as well as its tooling support, including automated proof
             checking under CI/CD, is described in a <a href="../tutorial/source/courseware/courseware_219_src.html"
                      class="LessonUnit">subsequent
                lesson unit</a>. Authoring in HTML rather than Markdown provides all kinds of leverage for ad-hoc
                <q>tutorial semantics</q> especially with the help of a structured (tagless) editor.</p>
-               <p>Each of the pipelines at the top performs a specific task with respect to tutorial production.</p>
-               <p>As always, pipelines should be provided with explanatory comments.</p>
+               <p>Each of the pipelines described here performs a specific task with respect to tutorial production, except
+            for one, a convenience or utility pipeline that runs all the others with a single invocation.</p>
+               <p>As always, pipelines should be provided internally with explanatory comments.</p>
                <p>When reading and writing files to file systems, the usual security considerations apply.</p>
                <section>
                   <h3>
@@ -4027,6 +4053,12 @@ span.wordcount.over { color: darkred }
                      <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
                   </h3>
                   <p>Generates an index of XProc elements used in projects in the repository, stored as<a href="../tutorial/sequence/element-directory.md">element-directory.md</a>.</p>
+               </section>
+               <section>
+                  <h3>
+                     <a href="../tutorial/PRODUCE-EVERYTHING.xpl">PRODUCE-EVERYTHING</a>
+                  </h3>
+                  <p>Runs all the pipelines described above, as a set, together.</p>
                </section>
             </section>
          </section>
