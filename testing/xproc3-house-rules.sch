@@ -4,7 +4,6 @@
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
    xmlns:p="http://www.w3.org/ns/xproc">
-
    <!-- Purpose:: Schematron rule set for XProc 3 authors to provide write-time support for pesky rules
         including help with local rules -->
 
@@ -70,13 +69,8 @@
 
    -->
    
-   <sch:let name="fileset-doc" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')"/>
+   <sch:let name="fileset-doc" value="document('cicd-fileset_XProc3_HouseRules.xpl')"/>
    <sch:let name="listed-uris" value="$fileset-doc/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
-   
-   <!--file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3
-   testing/FILESET_XPROC3_HOUSE-RULES.xpl
-   ../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl
-   -->
    
    <sch:let name="resource-baseURI"  value="base-uri(/*)"/>
    <sch:let name="fileset-path"      value="base-uri($fileset-doc)"/>

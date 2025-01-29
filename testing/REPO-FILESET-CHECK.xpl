@@ -27,7 +27,7 @@
    <!-- INCIPIT  -->
    
    <p:group name="house-rules-check-fileset">
-      <p:load href="FILESET_XPROC3_HOUSE-RULES.xpl" message="[REPO-FILESET-CHECK] SEEING XProc3 House Rules file set at FILESET_XPROC3_HOUSE-RULES.xpl"/>
+      <p:load href="cicd-fileset_XProc3_HouseRules.xpl" message="[REPO-FILESET-CHECK] SEEING XProc3 House Rules file set at cicd-fileset_XProc3_HouseRules.xpl"/>
       <p:make-absolute-uris match="@href"/>
    </p:group>
 
@@ -37,7 +37,7 @@
    <!-- -->
    
    <p:group name="xspec-fileset">
-      <p:load href="FILESET_XSPEC.xpl" message="[REPO-FILESET-CHECK] SEEING XSpec execution file set at FILESET_XSPEC.xpl"/>
+      <p:load href="cicd-fileset_XSpec.xpl" message="[REPO-FILESET-CHECK] SEEING XSpec execution file set at cicd-fileset_XSpec.xpl"/>
       <p:make-absolute-uris match="@href"/>
    </p:group>
    

@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:FILESET_XSPEC"
-   name="FILESET_XSPEC">
+   type="ox:cicd-fileset_XSpec"
+   name="cicd-fileset_XSpec">
 
    <!-- Pipeline to be called as subpipeline, delivering a sequence of XSpec files, parsed as XML -->
 

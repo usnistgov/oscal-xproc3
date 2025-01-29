@@ -20,8 +20,8 @@ name="VALIDATION-FILESET-READYCHECK">
         diagnosis of one of the most common reasons for failure in the next step -->
    
    <p:input port="source" sequence="true">
-      <p:document href="./FILESET_XPROC3_HOUSE-RULES.xpl"/>   
-      <p:document href="./FILESET_XSPEC.xpl"/>   
+      <p:document href="./cicd-fileset_XProc3_HouseRules.xpl"/>   
+      <p:document href="./cicd-fileset_XSpec.xpl"/>   
    </p:input>
    
    <p:output serialization="map{ 'method': 'text', 'indent': true() }"/>

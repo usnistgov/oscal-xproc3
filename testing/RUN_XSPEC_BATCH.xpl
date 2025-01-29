@@ -8,7 +8,7 @@
 
    <!-- Executes available XSpecs -->
    
-   <p:import href="FILESET_XSPEC.xpl"/>
+   <p:import href="cicd-fileset_XSpec.xpl"/>
    
    <p:import href="../xspec/xspec-execute.xpl"/>
    
@@ -16,7 +16,7 @@
    
    <p:variable name="outdir" select="'xspec-reports' => resolve-uri(static-base-uri())"/>
    
-   <ox:FILESET_XSPEC name="test-set"/>
+   <ox:cicd-fileset_XSpec name="test-set"/>
    
    <p:for-each>
       <p:with-input pipe="xspec-files@test-set"/>
