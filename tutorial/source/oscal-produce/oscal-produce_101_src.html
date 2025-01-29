@@ -99,21 +99,21 @@
             <h3>USDS Playbook</h3>
             <p>Three pipelines can be found in this project folder:</p>
             <ul>
-               <li><a href="../../../projects/usds-playbook-import/GRAB-PLAYBOOK.xpl">GRAB-PLAYBOOK</a> copies an HTML
+               <li><a href="../../../projects/oscal-import/USDS-2024_Playbook/GRAB-PLAYBOOK.xpl">GRAB-PLAYBOOK</a> copies an HTML
                   file from the Internet (USDS web site) and saves it locally in an <code>archive</code> folder as <a
-                     href="../../../projects/usds-playbook-import/archive/playbook-source.html"
+                     href="../../../projects/oscal-import/USDS-2024_Playbook/archive/playbook-source.html"
                   >playbook-source.html</a></li>
-               <li><a href="../../../projects/usds-playbook-import/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a> acquires a
+               <li><a href="../../../projects/oscal-import/USDS-2024_Playbook/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a> acquires a
                   copy of the OSCAL Catalog XSD schema, for validating outputs</li>
-               <li><a href="../../../projects/usds-playbook-import/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> runs a
+               <li><a href="../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> runs a
                   pipeline converting the saved HTML file into an OSCAL file, validating it, and saving it as file <a
-                     href="../../../projects/usds-playbook-import/archive/playbook_99_oscal.xml"
+                     href="../../../projects/oscal-import/USDS-2024_Playbook/archive/playbook_99_oscal.xml"
                      >playbook_99_oscal.xml</a></li>
             </ul>
             <p>If pipelines have been run, there will also be files in the <a
-                  href="../../../projects/usds-playbook-import/lib/">lib</a> and <a
-                  href="../../../projects/usds-playbook-import/archive/">archive</a> directories. The <a
-                  href="../../../projects/usds-playbook-import/src/">src</a> directory contains other files used by the
+                  href="../../../projects/oscal-import/USDS-2024_Playbook/lib/">lib</a> and <a
+                  href="../../../projects/oscal-import/USDS-2024_Playbook/archive/">archive</a> directories. The <a
+                  href="../../../projects/oscal-import/USDS-2024_Playbook/src/">src</a> directory contains other files used by the
                XProc.</p>
             <p>As a general rule of good practice, XProc pipelines in this pipeline always emit messages to the console
                when saving copies of files it downloads.</p>
@@ -121,9 +121,9 @@
          <section>
             <h3>NIST CPRT SP 800-171</h3>
             <p>The JSON source data for this demonstration has been downloaded and saved in its<a
-                  href="../../../projects/CPRT-import/data/cprt/cprt_SP_800_171_3_0_0_11-12-2024.json">data/cprt</a>
+                  href="../../../projects/oscal-import/NIST-CPRT/data/cprt/cprt_SP_800_171_3_0_0_11-12-2024.json">data/cprt</a>
                directory. This file file is bound to the <code>source</code> port of the single pipeline in this
-               project: <a href="../../../projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl"
+               project: <a href="../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl"
                   >PRODUCE_SP800-171-OSCAL.xpl</a>.</p>
             <p>The <a href="../../../projects/CPRT-import/src/">src</a> directory in this project folder contains a
                number of resources required by the pipeline, including both XSLT transformations and rule sets (using
@@ -132,20 +132,20 @@
          </section>
          <section>
             <h3>US Army FM 6-22, chapter 4</h3>
-            <p>The pipeline <a href="../../../projects/FM6-22-import/PRODUCE_FM6-22-chapter4.xpl"
+            <p>The pipeline <a href="../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl"
                   >PRODUCE_FM6-22-chapter4.xpl</a> starts by reading an HTML data file created by using utility software
                to produce a <q>web page export</q> of the document in its original PDF format, as published by the US
                Army and placed into the public domain. This prior step must be accomplished by hand, and is sensitive to
                the software used. Consequently, for this pipeline to be reproducible as a demonstration, the HTML input
                needs to be fixed. This HTML has been saved as file <a
-                  href="../../../projects/FM6-22-import/source/export/fm6_22.html">fm6_22.html</a>. An additional copy
+                  href="../../../projects/oscal-import/USArmy_FM6-22/source/export/fm6_22.html">fm6_22.html</a>. An additional copy
                with whitespace added for legibility is placed alongside it.</p>
             <p>Additionally, the pipeline requires other resources to be stored in <code>lib</code>, again acquired by
-               running pipelines: <a href="../../../projects/FM6-22-import/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a>
-               for a local copy of the OSCAL schema and <a href="../../../projects/FM6-22-import/GRAB-NISO_STS-RNG.xpl"
+               running pipelines: <a href="../../../projects/oscal-import/USArmy_FM6-22/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a>
+               for a local copy of the OSCAL schema and <a href="../../../projects/oscal-import/USArmy_FM6-22/GRAB-NISO_STS-RNG.xpl"
                   >GRAB-NISO_STS-RNG.xpl</a> to acquire a RelaxNG schema for NISO STS format.</p>
             <p>This last resource is needed by the pipeline because it produces, in addition to OSCAL, <a
-                  href="../../../projects/FM6-22-import/temp/t06_sts-enhanced.xml">a version of the Field Manual encoded
+                  href="../../../projects/oscal-import/USArmy_FM6-22/temp/t06_sts-enhanced.xml">a version of the Field Manual encoded
                   in STS XML</a> as a waypoint format before creating OSCAL. This XML is of interest in its own right,
                as it is valid STS XML - try an <a href="https://pages.nist.gov/xslt-blender/sts-viewer/">STS Viewer</a>
                to see the code rendered.</p>
@@ -160,17 +160,17 @@
          <section>
             <h3>USDS Playbook</h3>
             <p>As noted, and once all preliminaries are in place, the pipeline <a
-                  href="../../../projects/usds-playbook-import/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> will read the
+                  href="../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> will read the
                HTML source file and translate it into OSCAL.</p>
             <p>Assuming all resources are in place, this pipeline should produce several files in an
                   <code>archive</code> directory. In particular, look for a <q>terminal file</q> in OSCAL format, for
                example, named <code>playbook_99_oscal.xml</code>.</p>
             <p>For this pipeline to work, other pipelines may have to be run first, to acquire resources: see the
-               project <a href="../../../projects/usds-playbook-import/readme.md">readme.md</a> document.</p>
+               project <a href="../../../projects/oscal-import/USDS-2024_Playbook/readme.md">readme.md</a> document.</p>
          </section>
          <section>
             <h3>NIST CPRT SP 800-171</h3>
-            <p>Running <a href="../../../projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl">this pipeline </a> creates
+            <p>Running <a href="../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">this pipeline </a> creates
                interim results in a <code>temp</code> directory, for tracing and debugging, overwriting copies of these
                files already present. A <i>fresh</i> output file with a new (distinct) name including an ID segment (the
                first block of its top-level UUID) is also produced in the project folder.</p>
@@ -183,7 +183,7 @@
          <section>
             <h3>US Army FM 6-22, chapter 4</h3>
             <p>As noted above, this pipeline starts by loading <a
-                  href="../../../projects/FM6-22-import/source/export/fm6_22.html">source/export/fm6_22.html</a>.</p>
+                  href="../../../projects/oscal-import/USArmy_FM6-22/source/export/fm6_22.html">source/export/fm6_22.html</a>.</p>
             <p>This pipeline produces temporary results along with its final result file, a valid OSCAL catalog.</p>
             <section>
                <h4>Pipeline results</h4>
@@ -194,7 +194,7 @@
             </section>
             <section>
                <h4>OSCAL output</h4>
-               <p>Additionally, a file <a href="../../../projects/FM6-22-import/FM_6-22-OSCAL-working.xml"
+               <p>Additionally, a file <a href="../../../projects/oscal-import/USArmy_FM6-22/FM_6-22-OSCAL-working.xml"
                      >FM_6-22-OSCAL-working.xml</a> presents a copy of the OSCAL version (also saved in
                      <code>temp</code>) with an XML stylesheet processing instruction attached. This binding makes it
                   possible to view this file with formatting, when served by a web server. (See the next lesson unit for
@@ -221,7 +221,7 @@
                into this pipeline will fail.</p>
             <p>All this takes the form of extra complexity using elements such as <code>p:choose</code> (for
                conditional, switch-statement-like branching) along with validation steps.</p>
-            <p><a href="../../../projects/usds-playbook-import/OSCAL-PLAYBOOK-SIMPLE.xpl">A simpler version of this
+            <p><a href="../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK-SIMPLE.xpl">A simpler version of this
                   pipeline</a>without the defensive logic is saved next to it – compare (and run) this pipeline for
                comparison.</p>
          </section>
