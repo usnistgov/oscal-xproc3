@@ -35,6 +35,7 @@
             <xsl:apply-templates mode="md"/>
           </md>
        </xsl:variable>
+       <!--<xsl:copy-of select="$lines"/>-->
        <xsl:apply-templates mode="render" select="$lines"/>
     </xsl:template>
    
@@ -93,6 +94,11 @@
       </line>
    </xsl:template>
 
+   <xsl:template mode="md" match="div">
+      <line/>
+      <xsl:apply-templates mode="#current"/>
+   </xsl:template>
+   
     <xsl:template mode="md" match="p">
         <xsl:call-template name="conditional-lf"/>
         <line>

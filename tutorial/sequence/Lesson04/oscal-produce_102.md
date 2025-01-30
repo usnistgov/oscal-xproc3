@@ -102,6 +102,7 @@ All three pipelines produce outputs on the file system using `p:store`. Addition
 When an output port is configured (in a step or compound step) without an explicit port binding (via `@pipe` or `p:pipe`), it will bind implicitly to the primary output port of the last step in the pipeline (typically `result`, but often unstated).
 
 ### Steps
+
 All three pipelines:
 
 *  [NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl](../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl) 
@@ -122,7 +123,9 @@ This step passes documents on the `source` (implicit primary) port through, unch
 ####  `p:validate-with-relax-ng` 
 
 ####  `p:xslt` 
+
 In two of the three pipelines:
+
 
 *  [USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl](../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl) 
 *  [USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl](../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl) 
@@ -132,6 +135,7 @@ In two of the three pipelines:
 ####  `p:load` 
 
 ####  `p:validate-with-xml-schema` 
+
 
 *  [NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl](../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl) 
 *  [USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl](../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl) 
@@ -145,6 +149,7 @@ A compound step, for providing logical grouping to other steps. Without a `p:out
 ####  `p:namespace-delete` 
 
 ####  `p:namespace-rename` 
+
 
 *  [NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl](../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl) 
 *  [USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl](../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl) 
@@ -164,6 +169,7 @@ This step operates on plain text documents, not XML or HTML. One of its uses is 
 This step tests a document in process (i.e., the document in the state where this step is used) against a given Schematron, designated on the `schema` secondary input port.
 
 The step emits a secondary result port named `report` containing the results of running the Schematron. This report may contain messages considered to indicate validation errors – XProc lets us decide.
+
 Used in [USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl](../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl) only:
 
 ####  `p:add-attribute` 
@@ -185,6 +191,7 @@ This step is somewhat similar to `p:add-attribute`, but a little more flexible i
 ####  `p:uuid` 
 
 A step for generating random or workably-random UUID values (v4 UUIDs). Another pipeline in the repository uses XSLT logic for this purpose, in a more complex use case. For a simple case the XProc step works well.
+
 In [NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl](../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl) only:
 
 ####  `p:delete` 
@@ -204,11 +211,13 @@ XProc supports defining appropriate error handling and error trapping. This has 
 ####  `p:viewport` 
 
 A compound step somewhat analogous in operation to an XSLT template, this step works like `p:replace`, except the replacement for matched elements is not provided on a port, but instead built by executing an entire subpipeline (step sequence).
+
 In [USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl](../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl) only:
 
 ####  `p:wrap-sequence` 
 
 This step aggregates a sequence of documents on its `source` port and collects them into a single XML document, whose name is given as `@wrapper`.
+
 An extension step:
 
 ####  `ox:validation-summarize`
@@ -218,6 +227,7 @@ This step produces a plain-text summary of validation findings bound to the `sou
 *  [USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl](../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl) 
 
 ### Connectors and plumbing
+
 Defining a variable:
 
 ####  `p:variable` 
@@ -227,6 +237,7 @@ This element may appear anywhere after the prologue, at the same level as a step
 *  [NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl](../../../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl) 
 *  [USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl](../../../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl) 
 *  [USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl](../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl) 
+
 Configuring a step …
 
 ####  `p:with-input` 
@@ -244,6 +255,7 @@ You will see `p:with-input` any time a step either starts with a new input, or n
 Sets an option for a step, as defined by the step. Since options can also be set using attribute syntax, this is a relatively rare element in XProc.
 
 *  [USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl](../../../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl) 
+
 Bindings to connections – appearing inside `p:input`, `p:with-input`, or (in the case of `p:pipe`) `p:output`:
 
 ####  `p:document` 

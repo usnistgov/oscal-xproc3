@@ -3,11 +3,13 @@
 
 # XProc in Action: an Immersive Introduction
 
+
 ### Lesson set 01 - acquire
 
 * [101: Project setup and installation](Lesson01/acquire_101.md) (OBSERVER)
 * [102: Examining the setup](Lesson01/acquire_102.md) (MAKER)
 * [599: Meeting XProc](Lesson01/acquire_599.md) (LEARNER)
+
 
 ### Lesson set 02 - walkthrough
 
@@ -16,6 +18,7 @@
 * [219: XProc, XML and XDM  (the XML Data Model)](Lesson02/walkthrough_219.md) (LEARNER)
 * [301: Automated XProc](Lesson02/walkthrough_301.md) (OBSERVER)
 * [401: The XSLT Factor](Lesson02/walkthrough_401.md) (LEARNER)
+
 
 ### Lesson set 03 - oscal-convert
 
@@ -26,10 +29,12 @@
 * [400: Documents in XProc](Lesson03/oscal-convert_400.md) (LEARNER)
 * [401: XProc, XML, JSON and content types](Lesson03/oscal-convert_401.md) (MAKER)
 
+
 ### Lesson set 04 - oscal-produce
 
 * [101: Producing OSCAL from a publication format](Lesson04/oscal-produce_101.md) (OBSERVER)
 * [102: Producing OSCAL from unrefined inputs](Lesson04/oscal-produce_102.md) (MAKER)
+
 
 ### Lesson set 05 - courseware
 
