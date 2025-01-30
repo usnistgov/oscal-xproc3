@@ -38,6 +38,9 @@ section { margin: 0.4em; padding: 0.3em; outline: thin solid black;
     -oxy-not-foldable-child: h2, h3, h4, h5, h6;
 }
 
+div { margin: 0.4em; padding: 0.3em; outline: medium dotted grey }
+
+
 h1 { color: #003311 }
 h2 { color: #006622 }
 h3 { color: #009933 }

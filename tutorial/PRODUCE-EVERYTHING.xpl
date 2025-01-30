@@ -33,10 +33,11 @@
             <project dir="../lib"/>
             <project dir="../smoketest"/>
             <project dir="../projects/oscal-convert/"/>
-            <project dir="../projects/usds-playbook-import/"/>
-            <project dir="../projects/CPRT-import/"/>
-            <project dir="../projects/FM6-22-import/"/>
             <project dir="../projects/oscal-validate/"/>
+            <project dir="../projects/oscal-import/NIST-CPRT/"/>
+            <project dir="../projects/oscal-import/USArmy_FM6-22/"/>
+            <project dir="../projects/oscal-import/USDS-2024_Playbook/"/>
+            
             <project dir="../projects/oscal-publish/"/>
             <project dir="../projects/profile-resolution/"/>
             <project dir="../projects/xproc-doc/"/>

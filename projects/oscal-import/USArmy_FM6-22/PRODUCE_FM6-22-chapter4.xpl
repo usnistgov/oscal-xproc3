@@ -178,9 +178,10 @@
       </p:otherwise>
    </p:choose>
 
-   <ox:validation-summarize name="summarize-sts-validation">
-      <p:with-option name="doc-name" select="'the STS result'"/>
-      <p:with-option name="schema-name" select="$sts-rng"/>
+   <ox:validation-summarize name="summarize-sts-validation"
+      doc-name="'the STS result'" schema-name="$sts-rng">
+      <!--<p:with-option name="doc-name" select="'the STS result'"/>
+      <p:with-option name="schema-name" select="$sts-rng"/>-->
    </ox:validation-summarize>
 
    <!-- Now we have STS and have checked it, we can produce OSCAL -->

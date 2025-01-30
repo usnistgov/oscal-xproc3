@@ -20,8 +20,8 @@
       <!-- However many documents are bound, the @select is evaluated with each bound document as context
            so we get that many iterations over $drivers -->
       <p:with-input select="$drivers">
-         <doc/>
-         <doc/>
+         <p:inline/>
+         <!-- this could be <doc/> i.e. a dummy document -->
       </p:with-input>
       <p:identity message="identity: '{ . }' position { p:iteration-position() } / { p:iteration-size() }"/>
       

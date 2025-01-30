@@ -33,7 +33,7 @@ span.wordcount.over { color: darkred }
    </head>
    <body>
       <h1>XProc in Action: an Immersive Introduction</h1>
-      <h3>version 1.0_draft PREVIEW January 29 2025</h3>
+      <h3>version 1.0_draft PREVIEW January 30 2025</h3>
       <div class="toc">
          <div class="lesson"
               id="toc-acquire"
@@ -601,6 +601,337 @@ span.wordcount.over { color: darkred }
                </div>
                <div>
                   <h2>Exercise some options</h2>
+               </div>
+            </div>
+         </div>
+         <div class="lesson"
+              id="toc-oscal-produce"
+              name="oscal-produce">
+            <div class="unit observer"
+                 id="toc-oscal-produce_101"
+                 data-track="observer">
+               <h1>101: Producing OSCAL from a publication format<span class="wordcount over"> (~2456)</span>
+               </h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Step one: review projects</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step two: Examine pipelines and inputs</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step three: Run pipelines, inspect results</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                     <div>
+                        <h4>Pipeline results</h4>
+                     </div>
+                     <div>
+                        <h4>OSCAL output</h4>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step four: Inspect again in diagnostic mode</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>What these pipelines have in common</h2>
+               </div>
+               <div>
+                  <h2>Some differences</h2>
+               </div>
+            </div>
+            <div class="unit maker"
+                 id="toc-oscal-produce_102"
+                 data-track="maker">
+               <h1>102: Producing OSCAL from unrefined inputs<span class="wordcount okay"> (~1911)</span>
+               </h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Interactive debugging in XProc</h2>
+               </div>
+               <div>
+                  <h2>Testing, both results and processes</h2>
+               </div>
+               <div>
+                  <h2>XProc so far: a survey</h2>
+                  <div>
+                     <h3>Top-level, imports and prologue</h3>
+                     <div>
+                        <h4>
+                           <code>p:declare-step</code>
+                        </h4>
+                        <h4>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:import</code>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:option</code>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:input</code>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:output</code>
+                        </h4>
+                     </div>
+                  </div>
+                  <div>
+                     <h3>Steps</h3>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:identity</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:insert</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:store</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:validate-with-relax-ng</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:xslt</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <div>
+                              <h4>
+                                 <code>p:choose</code>, <code>p:when</code>, <code>p:otherwise</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:load</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:validate-with-xml-schema</code>
+                              </h4>
+                           </div>
+                        </div>
+                        <div>
+                           <div>
+                              <h4>
+                                 <code>p:group</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:cast-content-type</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:namespace-delete</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:namespace-rename</code>
+                              </h4>
+                           </div>
+                        </div>
+                        <div>
+                           <div>
+                              <h4>
+                                 <code>p:if</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:string-replace</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:validate-with-schematron</code>
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:add-attribute</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:error</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:filter</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:label-elements</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:uuid</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:delete</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:replace</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:try</code>, <code>p:catch</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:viewport</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:wrap-sequence</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>ox:validation-summarize</code>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <h3>Connectors and plumbing</h3>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:variable</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:with-input</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:with-option</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:document</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:inline</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:empty</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:pipe</code>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <h2>TBD: for discussion</h2>
                </div>
             </div>
          </div>
@@ -3970,6 +4301,848 @@ span.wordcount.over { color: darkred }
                   <a href="../tutorial/worksheets/READ-JSON-TESTING.xpl">READ-JSON-TESTING.xpl</a> is a sandbox for playing with
             JSON objects as XDM maps. The <a href="../tutorial/worksheets/CONTENT-TYPE_worksheet.xpl">content-types
                worksheet</a> is set up for trying content-type options on inputs and outputs.</p>
+            </section>
+         </section>
+      </section>
+      <section class="lesson"
+               id="oscal-produce"
+               name="oscal-produce">
+         <section class="unit observer"
+                  id="oscal-produce_101"
+                  data-track="observer">
+            <h1>101: Producing OSCAL from a publication format</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn how high-quality XML can be produced from uncontrolled source data, with several examples.</p>
+               <p>Observe how a deterministic data processing framework can be tuned or programmed to resolve anomalies in bad
+            inputs, producing a well-formatted, cleanly encoded edition at a higher level of quality and capability,
+            using a traceable and verifiable process.</p>
+               <p>Along the way, learn something about XProc; XSLT transformations; XML; NISO STS format (a standard encoding
+            for supporting publication in electronic formats); OSCAL; the NIST Cybersecurity and Privacy Reference Tool
+            (CPRT); the US Digital Service, US Army field manuals and documentation; and the focus of FM 6-22:
+            Leadership and leadership development.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+               <p>You have some understanding of OSCAL if not familiarity with it, possibly having seen or used public OSCAL
+            examples such as NIST Special Publication (SP) 800-53 encoded as an OSCAL catalog.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Several projects in the repository (at time of writing) produce OSCAL data from inputs that are not OSCAL.
+            They each produce the same kind of result: an OSCAL catalog (XML document). Beyond this they represent a
+            range of cases in both complexity and goals:</p>
+               <ul>
+                  <li>USDS Playbook – 13 OSCAL controls (high level) from a simple web page produced by the US Digital
+               Service: Guidance for the design and implementation of online (digital) services </li>
+                  <li>NIST SP 800-171 from NIST Computer Cybersecurity and Privacy Reference Tool (CPRT) JSON - control
+               catalog </li>
+                  <li>US Army Field Manual 6-22 - via HTML from PDF source, with NISO STS format as an additional result -
+               Chapter 4 on Leadership Development</li>
+               </ul>
+               <p>
+                  <i>Caution: all produced versions of these public documents are non-normative, unauthorized (lawful within
+               terms of reuse in the public domain) and not for publication, being intended only for demonstration of
+               tools and capabilities.</i>
+               </p>
+            </section>
+            <section>
+               <h2>Step one: review projects</h2>
+               <p>These projects follow the general pattern in this repository. It is designed to be operated on its own, and
+            comes with pipelines to be run to acquire resources from the Internet, typically placing these in the
+            project lib directory . Such resources may include data sources or other dependencies for steps in the
+            pipeline. It is always a good idea to look at pipelines before you run them, in case such requirements must
+            be addressed first.</p>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>This is the simplest and smallest of the OSCAL production demonstrations. It reads a web page and
+               converts its contents into a simple but complete <a href="../">OSCAL catalog</a>.</p>
+                  <p>The web source for this transformation has been archived and committed to this repository to ensure the
+               demonstration works even if the upstream data source changes or becomes unavailable. Naturally, change
+               management in the face of such potentials is an important issue. Fortunately, XProc gives us ways of both
+               detecting and adapting to changes in the operating context or environment, as demonstrated (in a simple
+               way) on these projects.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>The data set source for this OSCAL is JSON available through a public portal, the <a href="../">Cybersecurity and Privacy Reference Tool</a> maintained by
+               the National Institute of Standards and Technology (NIST).</p>
+                  <p>Again producing an OSCAL catalog, this project has real-world complexity. <i>Note that neither this
+                  production nor its OSCAL representation are canonical or authoritative</i>, and should not be used for
+               security operations, being untested in that context. (Instead, use XProc to build and maintain your own
+               feeds from the source.)</p>
+                  <p>The pipeline that produces this OSCAL also demonstrates how a pipeline can include validations of its
+               own, supporting quality checking by means of schemas and queries over data as it passes through the
+               system.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>This example is somewhat fanciful or artificial, as the source data was not produced with OSCAL in mind.
+               Given this mismatch, that it works at all might be considered noteworthy, much less how well it
+               works.</p>
+                  <p>
+                     <a href="../">US Army Field
+                  Manual 6-22</a> on <b>Developing Leaders</b> has a distinguished history and distills hard-won
+               knowledge, with many dedicated contributors over many revisions, and is noteworthy for this reason alone.
+               As a structured data set, Chapter 4 of this document serves as a startling demonstration of how OSCAL can
+               support <q>semantic description</q> of written (and typeset) information that shows OSCAL-like
+               regularities, even when it has not been created with OSCAL in mind. As a machine-readable, structured,
+               validable data instance, FM 6-22 and its contents may be useful in multiple ways beyond (simple)
+               publication in print and PDF – while those capabilities have not been abandoned. At the same time the
+               OSCAL-encoded version is suggestive of entirely new functionalities.</p>
+                  <p>Greater accessibility is the goal, considered broadly. A standard such as OSCAL encoding is useful
+               insofar as it serves that goal.</p>
+                  <p>Of the three demonstrations, this is the most complex, requiring not only generic transformation logic,
+               but also ad-hoc analysis with patches, in order to rectify encoding problems in the source. XProc
+               provides tools and methods for this careful work that are efficient, comprehensive, manageable and
+               testable.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Step two: Examine pipelines and inputs</h2>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>Three pipelines can be found in this project folder:</p>
+                  <ul>
+                     <li>
+                        <a href="../projects/oscal-import/USDS-2024_Playbook/GRAB-PLAYBOOK.xpl">GRAB-PLAYBOOK</a> copies an HTML
+                  file from the Internet (USDS web site) and saves it locally in an <code>archive</code> folder as <a href="../projects/oscal-import/USDS-2024_Playbook/archive/playbook-source.html">playbook-source.html</a>
+                     </li>
+                     <li>
+                        <a href="../projects/oscal-import/USDS-2024_Playbook/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a> acquires a
+                  copy of the OSCAL Catalog XSD schema, for validating outputs</li>
+                     <li>
+                        <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> runs a
+                  pipeline converting the saved HTML file into an OSCAL file, validating it, and saving it as file <a href="../projects/oscal-import/USDS-2024_Playbook/archive/playbook_99_oscal.xml">playbook_99_oscal.xml</a>
+                     </li>
+                  </ul>
+                  <p>If pipelines have been run, there will also be files in the <a href="../projects/oscal-import/USDS-2024_Playbook/lib/">lib</a> and <a href="../projects/oscal-import/USDS-2024_Playbook/archive/">archive</a> directories. The <a href="../projects/oscal-import/USDS-2024_Playbook/src/">src</a> directory contains other files used by the
+               XProc.</p>
+                  <p>As a general rule of good practice, XProc pipelines in this pipeline always emit messages to the console
+               when saving copies of files it downloads.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>The JSON source data for this demonstration has been downloaded and saved in its<a href="../projects/oscal-import/NIST-CPRT/data/cprt/cprt_SP_800_171_3_0_0_11-12-2024.json">data/cprt</a>
+               directory. This file file is bound to the <code>source</code> port of the single pipeline in this
+               project: <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">PRODUCE_SP800-171-OSCAL.xpl</a>.</p>
+                  <p>The <a href="../projects/CPRT-import/src/">src</a> directory in this project folder contains a
+               number of resources required by the pipeline, including both XSLT transformations and rule sets (using
+               Schematron and RelaxNG) to be used as part of pipeline execution, ensuring predictability, conformance
+               and correctness.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>The pipeline <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">PRODUCE_FM6-22-chapter4.xpl</a> starts by reading an HTML data file created by using utility software
+               to produce a <q>web page export</q> of the document in its original PDF format, as published by the US
+               Army and placed into the public domain. This prior step must be accomplished by hand, and is sensitive to
+               the software used. Consequently, for this pipeline to be reproducible as a demonstration, the HTML input
+               needs to be fixed. This HTML has been saved as file <a href="../projects/oscal-import/USArmy_FM6-22/source/export/fm6_22.html">fm6_22.html</a>. An additional copy
+               with whitespace added for legibility is placed alongside it.</p>
+                  <p>Additionally, the pipeline requires other resources to be stored in <code>lib</code>, again acquired by
+               running pipelines: <a href="../projects/oscal-import/USArmy_FM6-22/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a>
+               for a local copy of the OSCAL schema and <a href="../projects/oscal-import/USArmy_FM6-22/GRAB-NISO_STS-RNG.xpl">GRAB-NISO_STS-RNG.xpl</a> to acquire a RelaxNG schema for NISO STS format.</p>
+                  <p>This last resource is needed by the pipeline because it produces, in addition to OSCAL, <a href="../projects/oscal-import/USArmy_FM6-22/temp/t06_sts-enhanced.xml">a version of the Field Manual encoded
+                  in STS XML</a> as a waypoint format before creating OSCAL. This XML is of interest in its own right,
+               as it is valid STS XML - try an <a href="../">STS Viewer</a>
+               to see the code rendered.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Step three: Run pipelines, inspect results</h2>
+               <p>Interim or final result files produced by these pipelines may have been committed to the repository, in
+            which case they can be inspected without running the pipeline.</p>
+               <p>However, running each pipeline guarantee for the operator that you are seeing what you think you are
+            seeing.</p>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>As noted, and once all preliminaries are in place, the pipeline <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> will read the
+               HTML source file and translate it into OSCAL.</p>
+                  <p>Assuming all resources are in place, this pipeline should produce several files in an
+                  <code>archive</code> directory. In particular, look for a <q>terminal file</q> in OSCAL format, for
+               example, named <code>playbook_99_oscal.xml</code>.</p>
+                  <p>For this pipeline to work, other pipelines may have to be run first, to acquire resources: see the
+               project <a href="../projects/oscal-import/USDS-2024_Playbook/readme.md">readme.md</a> document.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>Running <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">this pipeline </a> creates
+               interim results in a <code>temp</code> directory, for tracing and debugging, overwriting copies of these
+               files already present. A <i>fresh</i> output file with a new (distinct) name including an ID segment (the
+               first block of its top-level UUID) is also produced in the project folder.</p>
+                  <p>In operation, a user would delete files produced by <q>practice runs</q>: feel free to do this as
+               well.</p>
+                  <p>Note that OSCAL files produced by this pipeline in separate runtimes will not be identical, if only
+               because each one has its own timestamp with its creation date. Otherwise, the same sources should produce
+               the same results – and this can be tested.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>As noted above, this pipeline starts by loading <a href="../projects/oscal-import/USArmy_FM6-22/source/export/fm6_22.html">source/export/fm6_22.html</a>.</p>
+                  <p>This pipeline produces temporary results along with its final result file, a valid OSCAL catalog.</p>
+                  <section>
+                     <h4>Pipeline results</h4>
+                     <p>A directory named <code>temp</code> will contain results of this pipeline.</p>
+                     <p>These include both interim results and nominally <q>final</q> outputs of the pipeline, including both
+                  OSCAL and NISO STS XML outputs: that is, the same data in two different forms. These are interesting
+                  for the comparison they provide – and the STS version is potentially useful in itself.</p>
+                  </section>
+                  <section>
+                     <h4>OSCAL output</h4>
+                     <p>Additionally, a file <a href="../projects/oscal-import/USArmy_FM6-22/FM_6-22-OSCAL-working.xml">FM_6-22-OSCAL-working.xml</a> presents a copy of the OSCAL version (also saved in
+                     <code>temp</code>) with an XML stylesheet processing instruction attached. This binding makes it
+                  possible to view this file with formatting, when served by a web server. (See the next lesson unit for
+                  more details.)</p>
+                     <p>OSCAL (Open Security Controls Assessment Language) is able to factor out a rich <q>semantic</q> view
+                  of this information set, presenting the full text of Chapter 4, but this time along with externalized
+                  control sets derived from their tables. These represent 25 <b>attributes</b> and 50
+                     <b>competencies</b>, as described in Field Manual 6-22 and its related documents such as ADP 6-22
+                  (describing the <b>US Army Leadership Requirements Model</b>).</p>
+                  </section>
+               </section>
+            </section>
+            <section>
+               <h2>Step four: Inspect again in diagnostic mode</h2>
+               <p>Having run these pipelines and seen their sources and results, inspect them one more time to appreciate some
+            of their features.</p>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>This XProc is a little unusual in that while its conversion requirements are fairly simple, it has been
+               built defensively, with fallback logic to handle cases of missing or broken inputs. If inputs are missing
+               – either the source data, or the OSCAL schema to which it is expected to validate – the pipeline does not
+               error out, but instead delivers a more helpful response including instructions on acquiring them.
+               Similarly, if the transformation process itself changes without notice, some defensive validation built
+               into this pipeline will fail.</p>
+                  <p>All this takes the form of extra complexity using elements such as <code>p:choose</code> (for
+               conditional, switch-statement-like branching) along with validation steps.</p>
+                  <p>
+                     <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK-SIMPLE.xpl">A simpler version of this
+                  pipeline</a>without the defensive logic is saved next to it – compare (and run) this pipeline for
+               comparison.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>The pipeline that produces this OSCAL is somewhat more complex because its source data, in JSON format,
+               is noisier and rougher, and requires somewhat more aggressive normalization and regularization.
+               Accordingly, the pipeline does some work based on values provided to match the expectations of the
+               source. Those values are provided to the XProc process as options, which can be set at runtime. While
+               they are not expected to be any different from the set values for this data set, exposing them as options
+               makes it easier to find and change them if this pipeline is ever adjusted to handle inputs that are
+               nearly the same, but not exactly the same, as the source data here.</p>
+                  <p>Internally, this pipeline does some fairly extensive string processing to render information that is
+               given implicitly by means of a bespoke (one-off) syntax. Unless your XPath is strong you may wish to
+               compare inputs and outputs of specific steps directly, in order to understand better what they do.</p>
+                  <p>The steps in this pipeline are also organized into two large groups (using <code>p:group</code>) in order
+               to separate them functionally. First, the data is ingested into a declarative, semantic-descriptive
+               XML-based format. Then it is cast to OSCAL. Each of these processes requires several steps.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>As noted above, both OSCAL and STS XML outputs may be considered valuable resources. In this case, STS is
+               used as the <q>pivot</q>, while the OSCAL output is richer and information-denser (about 80% the size in
+               kilobytes). Either may be suitable for producing formatted results.</p>
+                  <p>Additionally, this pipeline has a <b>pipeline option</b> declared named <code>writing-all</code>. When
+               set to <code>true()</code>, the processor will be instructed to save intermediate results of pipeline
+               processing in the <code>temp</code> directory. These are numbered in sequence. A <code>diff</code> tool
+               (especially an XML-aware diff) between successive forms will reveal exactly what changes between these
+               forms.</p>
+                  <p>Set this option by hard-coding in the pipeline or by using your processor's option syntax:</p>
+                  <ul>
+                     <li>
+                        <a href="../">Morgana XProc IIIse</a>
+                  supports syntax in the form <code>-option:OPTIONNAME=optionvalue</code> from the command line</li>
+                     <li>
+                        <a href="../">XML Calabash 3</a>
+                  supports syntax in the form <code>OPTIONNAME=optionvalue</code>
+                        <i>after</i> the pipeline name in the command</li>
+                  </ul>
+               </section>
+            </section>
+            <section>
+               <h2>What these pipelines have in common</h2>
+               <p>See the  <a href="../tutorial/source/oscal-produce/oscal-produce_102_src.html"
+                     class="LessonUnit">next lesson unit</a> for remarks on the
+            patterns that can be observed in these pipelines.</p>
+               <ul>
+                  <li>Entropy-removing upconversion to semantic target, followed by downhill conversion - declarative encoding
+               as 'potential energy' magnified by the degree to which consumers have prior knowledge of new formats</li>
+                  <li>Mix of generic and ad-hoc processes (tailored per pipeline)</li>
+                  <li>XProc or XSLT? (Or XQuery?) XSLT, in line or out of line?</li>
+                  <li>Transparency and traceability of deterministic, well-defined and specified processes</li>
+                  <li>Scaling and scalability: complexity, throughput (quantity), variability, time horizons - testing one-off
+               cases vs production pipelines</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Some differences</h2>
+               <p>Pipelines will vary in how much error handling or implicit <q>hand holding</q> they offer. The USDS Playbook
+            example shows a case that may arguably be over-engineered, in the sense that it provides more complex
+            fallback logic than the (comparatively simple) problem may warrant. For example, instead of declaring
+            expected inputs (which can be checked when the pipeline is loaded), it loads them dynamically, giving a
+            custom error message when they are missing (with a hint on how they can be acquired). A simpler pipeline
+            might trust the processor's own error message to do the job of communicating the problem. The benefit is
+            that this shows how XProc pipelines can be made to be more forgiving (of predictable errors) as well as
+            presumably easier for the user, at the cost of some logical complexity in its internals.</p>
+               <p>Nevertheless even a pipeline designed to be robust will not when required inputs are not available. An
+            engine drives a cart, but we move the cart for the sake of its cargo: this is what is means to be
+               <q>required</q>.</p>
+            </section>
+         </section>
+         <section class="unit maker"
+                  id="oscal-produce_102"
+                  data-track="maker">
+            <h1>102: Producing OSCAL from unrefined inputs</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn about the internals of XML-based data extraction and mapping processes, what we call an <q>uphill</q>
+            data conversion, data refinement or enhancement.</p>
+               <p>Get a chance to see how XSLT and other steps together give XProc ways to address conversion problems at
+            appropriate levels of scale and abstraction, both for general and for specific or narrow cases.</p>
+               <p>See examples of how XProc pipelines can integrate validation processes to provide runtime quality assurance
+            and regression testing.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You are familiar with the idea and probably the practice of running XProc pipelines, as described in earlier
+            lessons.</p>
+               <p>You have understood from <a href="../tutorial/source/oscal-produce/oscal-produce_101_src.html"
+                     class="LessonUnit">preceding lesson unit</a>
+            its explanations of the examples discussed here, in greater depth.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Like the preceding lesson unit, this one relies on XProc examples in this repository:</p>
+               <ul>
+                  <li>USDS Playbook – 13 OSCAL controls (high level) derived from a simple web page produced by the US Digital
+               Service (downloaded January 2025).</li>
+                  <li>NIST SP 800-171 from NIST Computer Cybersecurity and Privacy Reference Tool (CPRT) JSON (acquired
+               December 2024)</li>
+                  <li>US Army Field Manual 6-22 - via HTML from PDF source, with NISO STS format as an additional result
+               (acquired December 2024)</li>
+               </ul>
+               <p>
+                  <i>Caution: all produced versions of these public documents are non-normative, unauthorized (lawful within
+               terms of reuse in the public domain) and not for publication, being produced only for demonstration of
+               tools and capabilities.</i>
+               </p>
+            </section>
+            <section>
+               <h2>Interactive debugging in XProc</h2>
+               <p>Mentioned before, potentially worth mentioning again:</p>
+               <ul>
+                  <li>
+                     <code>p:store</code> can be used anywhere to save the document in the pipeline as it is at that point.
+               Use it to save both interim and final results.</li>
+                  <li>
+                     <code>@message</code> (a <code>message</code> attribute) can be used on most any XProc step, including
+                  <code>p:identity</code>, to report on XProc at any point in a pipeline's execution.</li>
+                  <li>
+                     <code>@use-when</code> with a value returning a Boolean (true or false) can be used to switch steps on
+               or off, in support of debugging or normal operations.</li>
+                  <li>XML comments can always be used to hide code from the XProc processor.</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Testing, both results and processes</h2>
+               <p>Both automated (replicable) and non-automated (effortful or irreplicable) test methodologies can be
+            applied.</p>
+               <p>In the non-automated category we include simple inspections of results.</p>
+               <p>We testing processes, in contrast, by actively intervening, making adjustments, and comparing results.</p>
+               <p>We can automate testing of processes by deploying schema or Schematron validation. These work similarly in
+            that they provide sets of rules, more or less comprehensive, governing use of element structures within XML.
+            Using either a standard schema (which can be stipulated as a benchmark or reference point for assessment),
+            or a custom schema made for the case (and similarly subject to its own functional requirements), with XProc
+            we can defend against regression by throwing errors if inputs start varying from expectations.</p>
+               <p>Schema validation also helps warrant results for fitness for exchange with partners using the same standards
+            and XML vocabularies.</p>
+            </section>
+            <section>
+               <h2>XProc so far: a survey</h2>
+               <p>A <a href="../tutorial/worksheets/XProc-POLL_worksheet.xpl">worksheet XProc</a> is provided with an XSLT
+            transformation that polls a set of XProc documents to produce a list of XProc elements appearing, with their
+            files. This list was then edited by hand and spliced into this page, reorganized and enhanced with comments.
+            Keep in mind this listing is likely to be out of date if the pipelines have changed.</p>
+               <p>For more links:</p>
+               <ul>
+                  <li>
+                     <a href="../projects/xproc-doc/out/xproc-step-list.html">XProc step list</a> generated using
+               XProc</li>
+                  <li>Erik Siegel's <a href="../">XProcRef</a> reference resource</li>
+               </ul>
+               <section>
+                  <h3>Top-level, imports and prologue</h3>
+                  <section>
+                     <h4>
+                        <code>p:declare-step</code>
+                     </h4>
+                     <p>The top-level (document) element for an XProc step declaration – either the document element of the
+                  XProc file, or (in none of these cases) directly contained inside <code>/p:library</code> (a step
+                  defined for import with a library) or <code>/p:declare-step</code> (for a step defined for local use
+                  in this pipeline only).</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                     <h4>
+                     </h4>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:import</code>
+                     </h4>
+                     <p>Importing a step from another XProc XML file makes that step available as an extensions step in a
+                  pipeline. The named <em>type</em> of the step (given as <code>p:declare-step/@type</code> is provided
+                  as its invocation. This is typically a namespace-qualified name such as
+                     <code>ox:validation-summarize</code>, for the step defined in the imported pipeline <a href="../projects/oscal-import/USArmy_FM6-22/src/validation-summarize.xpl">validation-summarize.xpl</a>.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:option</code>
+                     </h4>
+                     <p>An XProc <em>option</em> permits a named value to be defined, like a variable, except exposed such
+                  that it can be set by the processor at runtime, overriding a default value. (XSLT practitioners will
+                  be reminded of <code>xsl:param</code> at the top level declaring a stylesheet parameter: this is
+                  XProc's equivalent.</p>
+                     <p>In one pipeline here an option is made available in the XProc pipeline to turn on a tracing feature.
+                  In the other, options are used to set values that might be reset for a different use case.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a> – set the <code>writing-all</code> to
+                        <code>select="false()"</code> to turn off diagnostics (in the form of <q>snapshots</q> of
+                     interim document states, saved in a <code>temp</code> directory)</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:input</code>
+                     </h4>
+                     <p>A top-level binding for inputs to the pipeline. One pipeline among these examples binds its source
+                  using this top-level configuration. The other examples load their inputs dynamically using
+                     <code>p:load</code>.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:output</code>
+                     </h4>
+                     <p>All three pipelines produce outputs on the file system using <code>p:store</code>. Additionally, one
+                  is configured with an output port, where it exposes the aggregated results of several validation
+                  checks over process results.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                     <p>When an output port is configured (in a step or compound step) without an explicit port binding (via
+                     <code>@pipe</code> or <code>p:pipe</code>), it will bind implicitly to the primary output port of
+                  the last step in the pipeline (typically <code>result</code>, but often unstated).</p>
+                  </section>
+               </section>
+               <section>
+                  <h3>Steps</h3>
+                  <div>
+                     <p>All three pipelines:</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                     <section>
+                        <h4>
+                           <code>p:identity</code>
+                        </h4>
+                        <p>This step passes documents on the <code>source</code> (implicit primary) port through, unchanged.
+                     This element is commonly used:</p>
+                        <ul>
+                           <li>To provide messages to the user at runtime.</li>
+                           <li>To provide a stable reference for an output port binding, as a discrete step, which can be
+                        positioned or moved among other steps.</li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:insert</code>
+                        </h4>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:store</code>
+                        </h4>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:validate-with-relax-ng</code>
+                        </h4>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:xslt</code>
+                        </h4>
+                     </section>
+                  </div>
+                  <div>
+                     <p>In two of the three pipelines:</p>
+                     <div>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                        <section>
+                           <h4>
+                              <code>p:choose</code>, <code>p:when</code>, <code>p:otherwise</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:load</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:validate-with-xml-schema</code>
+                           </h4>
+                        </section>
+                     </div>
+                     <div>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                        </ul>
+                        <section>
+                           <h4>
+                              <code>p:group</code>
+                           </h4>
+                           <p>A compound step, for providing logical grouping to other steps. Without a <code>p:output</code>
+                        defined, a group has an implicit primary output bound to the result of its last contained step.
+                        Alternatively, one or more output ports defined on a group can be bound to results of steps run
+                        inside the group.</p>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:cast-content-type</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:namespace-delete</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:namespace-rename</code>
+                           </h4>
+                        </section>
+                     </div>
+                     <div>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                        <section>
+                           <h4>
+                              <code>p:if</code>
+                           </h4>
+                           <p>Reassuringly, this element contains a subpipeline (step sequence) to be executed only if the
+                        given test evaluates as <code>true()</code>.</p>
+                           <p>Compare this to the use of <code>@use-when</code> on a step - only statically known values can
+                        be used in <code>@use-when</code>, that is, values that can be determined by the pipeline
+                        processor from examining the pipeline, without executing it. Any expression can be given on
+                           <code>p:if/@test</code>, to be evaluated dynamically.</p>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:string-replace</code>
+                           </h4>
+                           <p>This step operates on plain text documents, not XML or HTML. One of its uses is cleanup tasks
+                        especially whitespace cleanup (rewriting cosmetic whitespace).</p>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:validate-with-schematron</code>
+                           </h4>
+                           <p>This step tests a document in process (i.e., the document in the state where this step is used)
+                        against a given Schematron, designated on the <code>schema</code> secondary input port.</p>
+                           <p>The step emits a secondary result port named <code>report</code> containing the results of
+                        running the Schematron. This report may contain messages considered to indicate validation
+                        errors – XProc lets us decide.</p>
+                        </section>
+                     </div>
+                  </div>
+                  <div>
+                     <p>Used in <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a> only:</p>
+                     <section>
+                        <h4>
+                           <code>p:add-attribute</code>
+                        </h4>
+                        <p>If an attribute value can be determined statically for a matching element, this step can be used to
+                     add it. The value of the <code>attribute-value</code> should be a string (perhaps including
+                     attribute value templating), not an XPath that should result in a string – for that, use
+                        <code>p:label-elements</code>.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:error</code>
+                        </h4>
+                        <p>Producing a runtime error is a reasonable way to end a process gone wrong for any reason.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:filter</code>
+                        </h4>
+                        <p>A utility step for removing all but a matching set of elements within the document sequence.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:label-elements</code>
+                        </h4>
+                        <p>This step is somewhat similar to <code>p:add-attribute</code>, but a little more flexible in that
+                     it can label elements with results of XPath expressions evaluated in their own (document)
+                     context.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:uuid</code>
+                        </h4>
+                        <p>A step for generating random or workably-random UUID values (v4 UUIDs). Another pipeline in the
+                     repository uses XSLT logic for this purpose, in a more complex use case. For a simple case the
+                     XProc step works well.</p>
+                     </section>
+                  </div>
+                  <div>
+                     <p>In <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a> only:</p>
+                     <section>
+                        <h4>
+                           <code>p:delete</code>
+                        </h4>
+                        <p>The mirror image of <code>p:filter</code>, this step indicates that elements should be removed.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:replace</code>
+                        </h4>
+                        <p>This step matches branches of XML and replaces them with XML given on the <code>replacement</code>
+                     port.</p>
+                        <p>In the production of SP 800-171 in OSCAL, this step is put to work to promote structured plain text
+                     syntax into an  XML element structure, via a rewrite-and-parse strategy.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:try</code>, <code>p:catch</code>
+                        </h4>
+                        <p>XProc supports defining appropriate error handling and error trapping. This has a wide range of
+                     applications in XProc, for example for dynamically testing inputs against contracts on the fly, or
+                     for accounting for differences in XProc support between different processors.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:viewport</code>
+                        </h4>
+                        <p>A compound step somewhat analogous in operation to an XSLT template, this step works like
+                        <code>p:replace</code>, except the replacement for matched elements is not provided on a port,
+                     but instead built by executing an entire subpipeline (step sequence).</p>
+                     </section>
+                  </div>
+                  <div>
+                     <p>In <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a> only:</p>
+                     <section>
+                        <h4>
+                           <code>p:wrap-sequence</code>
+                        </h4>
+                        <p>This step aggregates a sequence of documents on its <code>source</code> port and collects them into
+                     a single XML document, whose name is given as <code>@wrapper</code>.</p>
+                     </section>
+                  </div>
+                  <div>
+                     <p>An extension step:</p>
+                     <section>
+                        <h4>
+                           <code>ox:validation-summarize</code>
+                        </h4>
+                        <p>This step produces a plain-text summary of validation findings bound to the <code>source</code>
+                     input port. The validation findings can be in XML dialects (SVRL, XVRL etc.) delivered by commodity
+                     tools, negotiated internally and unified by the step.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+               </section>
+               <section>
+                  <h3>Connectors and plumbing</h3>
+                  <div>
+                     <p>Defining a variable:</p>
+                     <section>
+                        <h4>
+                           <code>p:variable</code>
+                        </h4>
+                        <p>This element may appear anywhere after the prologue, at the same level as a step. It defines a
+                     variable and binds a value to it for later use.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+                  <div>
+                     <p>Configuring a step …</p>
+                     <section>
+                        <h4>
+                           <code>p:with-input</code>
+                        </h4>
+                        <p>Most steps do not have an explicit <code>p:with-input</code> since the primary input is set
+                     implicitly to the primary output of the preceding step.</p>
+                        <p>You will see <code>p:with-input</code> any time a step either starts with a new input, or needs
+                     some input in addition to its primary input. The <code>@port</code> given on
+                        <code>p:with-input</code>, if any, designates how the input relates to the step - when no
+                        <code>@port</code> is named, the primary input is assumed, usually named
+                     <code>source</code>.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:with-option</code>
+                        </h4>
+                        <p>Sets an option for a step, as defined by the step. Since options can also be set using attribute
+                     syntax, this is a relatively rare element in XProc.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+                  <div>
+                     <p>Bindings to connections – appearing inside <code>p:input</code>, <code>p:with-input</code>, or (in the
+                  case of <code>p:pipe</code>) <code>p:output</code>:</p>
+                     <section>
+                        <h4>
+                           <code>p:document</code>
+                        </h4>
+                        <p>Binds a document to a port, retrieved using <code>@href</code>. URIs using the <code>file:</code>
+                     and <code>http/s:</code> schemes are both supported by XProc engines for resource retrieval.
+                     Relative paths work fine.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:inline</code>
+                        </h4>
+                        <p>Presents a literal document to be bound to the input. Take note, as whitespace inside this element
+                     is taken to be part of the contents bound to the port. More info available in the
+                     Specification.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:empty</code>
+                        </h4>
+                        <p>Makes explicit that a port is bound to an empty sequence of documents – this is permissible, and
+                     sometimes useful, on ports set with <code>sequence="true()".</code>
+                        </p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:pipe</code>
+                        </h4>
+                        <p>Makes an explicit connection to an output port on another step, as indicated. A shorthand for this
+                     element is a <code>@pipe</code> attribute on its parent <code>p:with-input</code> or
+                        <code>p:output</code>.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+               </section>
+            </section>
+            <section>
+               <h2>TBD: for discussion</h2>
+               <ul>
+                  <li>Entropy-removing upconversion to semantic target, followed by downhill conversion - declarative encoding
+               as 'potential energy' magnified by the degree to which consumers have prior knowledge of new formats</li>
+                  <li>Mix of generic and ad-hoc processes (tailored per pipeline)</li>
+                  <li>XProc or XSLT? (Or XQuery?) XSLT, in line or out of line?</li>
+                  <li>Transparency and traceability of deterministic, well-defined and specified processes</li>
+                  <li>Scaling and scalability: complexity, throughput (quantity), variability, time horizons - testing one-off
+               cases vs production pipelines</li>
+               </ul>
             </section>
          </section>
       </section>

@@ -26,7 +26,12 @@
 * [400: Documents in XProc](Lesson03/oscal-convert_400.md) (LEARNER)
 * [401: XProc, XML, JSON and content types](Lesson03/oscal-convert_401.md) (MAKER)
 
-### Lesson set 04 - courseware
+### Lesson set 04 - oscal-produce
 
-* [Courseware 101: Producing this tutorial](Lesson04/courseware_101.md) (OBSERVER)
-* [Courseware 219: Learn by Teaching](Lesson04/courseware_219.md) (MAKER)
+* [101: Producing OSCAL from a publication format](Lesson04/oscal-produce_101.md) (OBSERVER)
+* [102: Producing OSCAL from unrefined inputs](Lesson04/oscal-produce_102.md) (MAKER)
+
+### Lesson set 05 - courseware
+
+* [Courseware 101: Producing this tutorial](Lesson05/courseware_101.md) (OBSERVER)
+* [Courseware 219: Learn by Teaching](Lesson05/courseware_219.md) (MAKER)
