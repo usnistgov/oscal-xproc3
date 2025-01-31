@@ -2,8 +2,8 @@
 <p:declare-step xmlns:p="http://www.w3.org/ns/xproc"
    xmlns:c="http://www.w3.org/ns/xproc-step" version="3.0"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3"
-   type="ox:FILESET_XPROC3_HOUSE-RULES"
-   name="FILESET_XPROC3_HOUSE-RULES"
+   type="ox:cicd-fileset_XProc3_HouseRules"
+   name="cicd-fileset_XProc3_HouseRules"
    >
 
    <!-- Pipeline to be called as subpipeline, delivering a list of XProcs -->
@@ -15,15 +15,16 @@
       <p:document href="../lib/GRAB-SCHXSLT.xpl"/>
       <p:document href="../lib/GRAB-XSPEC.xpl"/>
       
+      <p:document href="cicd-fileset_XProc3_HouseRules.xpl"/>
+      <p:document href="cicd-fileset_XSpec.xpl"/>
       <p:document href="RUN_XSPEC_BATCH.xpl"/>
       <p:document href="RUN_XSPEC-JUNIT_BATCH.xpl"/>
       <p:document href="RUN_XPROC3-HOUSE-RULES_BATCH.xpl"/>
       <p:document href="HARDFAIL-XPROC3-HOUSE-RULES.xpl"/>
       <p:document href="REPO-XPROC3-HOUSE-RULES.xpl"/>
-      <p:document href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
-      <p:document href="FILESET_XSPEC.xpl"/>
       <p:document href="REPO-FILESET-CHECK.xpl"/>
       <p:document href="VALIDATION-FILESET-READYCHECK.xpl"/>
+      <p:document href="PROCESSOR-REPORT.xpl"/>
 
       <p:document href="../project-template/GRAB-RESOURCES.xpl"/>
       <p:document href="../project-template/MINIMAL.xpl"/>
@@ -72,14 +73,20 @@
       <p:document href="../projects/oscal-convert/src/single_json-to-xml.xpl"/>
       <p:document href="../projects/oscal-convert/src/single_xml-to-json.xpl"/>
       
-      <p:document href="../projects/FM6-22-import/PRODUCE_FM6-22-chapter4.xpl"/>
-      <p:document href="../projects/FM6-22-import/GRAB-RESOURCES.xpl"/>
-      <p:document href="../projects/FM6-22-import/GRAB-FM6-22.xpl"/>
-      <p:document href="../projects/FM6-22-import/GRAB-NISO_STS-RNG.xpl"/>
-      <p:document href="../projects/FM6-22-import/src/validation-summarize.xpl"/>
-      <p:document href="../projects/FM6-22-import/src/validation-summaries.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/GRAB-FM6-22.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/GRAB-NISO_STS-RNG.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/src/validation-summarize.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/src/validation-summaries.xpl"/>
+      <p:document href="../projects/oscal-import/USArmy_FM6-22/OSCAL-WEBPUB_FM_6-22.xpl"/>
       
-      <p:document href="../projects/CPRT-import/PRODUCE_SP800-171-OSCAL.xpl"/>
+      <p:document href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl"/>
+      
+      <p:document href="../projects/oscal-import/USDS-2024_Playbook/GRAB-PLAYBOOK.xpl"/>
+      <p:document href="../projects/oscal-import/USDS-2024_Playbook/GRAB-RESOURCES.xpl"/>
+      <p:document href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl"/>
+      <p:document href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK-SIMPLE.xpl"/>
       
       <p:document href="../projects/oscal-validate/GRAB-OSCAL.xpl"/>
       <p:document href="../projects/oscal-validate/xsd-validate-catalog.xpl"/>

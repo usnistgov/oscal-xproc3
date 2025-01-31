@@ -168,8 +168,8 @@
             <ox:execute-xquery-xspec name="xquery-xspec-execution"/>
          </p:when>
          <p:otherwise>
-            <p:output port="xspec-html-report" primary="true"/>
-            <p:output port="xspec-junit-report" primary="false"/>
+            <p:output port="xspec-html-report" primary="true"><p:empty/></p:output>
+            <p:output port="xspec-junit-report" primary="false"><p:empty/></p:output>
             <p:sink/>
          </p:otherwise>
       </p:choose>

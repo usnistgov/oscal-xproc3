@@ -25,15 +25,25 @@ You will also need a programmer's plain text editor, XML/XSLT editor or IDE (int
 
 Same as [Setup 101](acquire_101.md).
 
+Also see [the set of XProc worksheets](../../worksheets/) collected so far for this tutorial.
+
+## Step Zero: XProc steps
+
+An XProc *pipeline* is composed out of XProc *steps*. Entire pipelines can then be called as steps in other pipelines. When you look at an XProc pipeline you will see an XML element named `p:declare-step` (modulo namespace prefix adjustments - it might be `xproc3:declare-step`), because conceptually, any pipeline is considered as a step in itself. Like a step, a pipeline works with defined inputs (*sources*) to deliver defined outputs (*results*). But any pipeline is also built out of steps – many of which are considered *atomic* or &ldquo;primitive&rdquo;, but some of which you might build yourself (as pipelines).
+
+XProc also exploits the idea of &ldquo;pipelining&rdquo; by offering features that allow you to connect steps together in arbitrary ways (pipeline logic can be complex), but also by falling back, when you make no such connections, to an easily-understood &ldquo;chaining&rdquo; model, in which each step consumes the output of its immediate predecessor. This makes it possible for simple pipelines to be very succinct: just put the steps in the order they are to be performed – while noting these are *logical* dependencies, with processors free to optimize where possible (for example, skipping steps whose results are never used) or as directed.
+
+One consequence is that the shorter and simpler a pipeline is, the more important it is to understand that a step can pick up inputs from the last step and pass them to the next, in the order given. As long as the designated default (or *implicit*) bindings for all required inputs and outputs can be discovered by the rules, everything runs.
+
 ## Step One: Inspect the pipelines
 
 The two groupings of pipelines used in setup and testing can be considered separately.
 
 The key to understanding both groups is to know that once the initial [Setup                script](../../../setup.sh) is run, your processor or &ldquo;engine&rdquo; (such as Morgana) can be invoked directly, as paths and scripts are already in place. In doing so – before extension libraries are in place – it can use only basic XProc steps, but those are enough to start with.
 
-Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
+Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform unarchiving (or in this case unzipping, which combines unarchiving with data decompression). Having been downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.
 
-Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) directory has a single purpose, namely (together and separately) to download software to augment Morgana's feature set.
+Accordingly, the first group of pipelines (in the [lib](../../../lib/readme.md) directory) has a single purpose, namely (together and separately) to download software to augment Morgana's feature set.
 
 If not using the open-source Morgana distribution, you can skip to smoke tests below, and see how far you get.
 
@@ -67,6 +77,16 @@ Even if not: be sure to break the pipelines given – or copies under new names 
 * Try to retrieve something from a broken link
 
 Having introduced an error, reverse the damage. Make sure your pipelines are back in working order when this exercise is complete.
+
+## Peruse the worksheets
+
+In [a directory](../../worksheets/) along with the tutorial materials is a growing set of XProc &ldquo;worksheet&rdquo; files.
+
+These are simple, standalone XProc pipelines meant to make it easier to try out syntax and features of XProc and XPath in isolation from other processes.
+
+They are not listed here since the set grows over time, and each should be self-explanatory to an XProc practitioner. On occasion one of the worksheets may also be presented or described in a lesson unit.
+
+The pipeline [PROCESSOR-REPORT.xpl](../../../testing/PROCESSOR-REPORT.xpl) in the test directory is also worth inspecting and running, as it presents a process (and shows code) that could be more generally useful.
 
 ## For consideration
 

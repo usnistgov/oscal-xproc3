@@ -33,7 +33,7 @@ span.wordcount.over { color: darkred }
    </head>
    <body>
       <h1>XProc in Action: an Immersive Introduction</h1>
-      <h3>version 1.0_draft PREVIEW December 20 2024</h3>
+      <h3>version 1.0_draft PREVIEW January 31 2025</h3>
       <div class="toc">
          <div class="lesson"
               id="toc-acquire"
@@ -41,7 +41,7 @@ span.wordcount.over { color: darkred }
             <div class="unit observer"
                  id="toc-acquire_101"
                  data-track="observer">
-               <h1>101: Project setup and installation<span class="wordcount okay"> (~1714)</span>
+               <h1>101: Project setup and installation<span class="wordcount okay"> (~1760)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -71,7 +71,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-acquire_102"
                  data-track="maker">
-               <h1>102: Examining the setup<span class="wordcount okay"> (~885)</span>
+               <h1>102: Examining the setup<span class="wordcount okay"> (~1281)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -83,10 +83,16 @@ span.wordcount.over { color: darkred }
                   <h2>Resources</h2>
                </div>
                <div>
+                  <h2>Step Zero: XProc steps</h2>
+               </div>
+               <div>
                   <h2>Step One: Inspect the pipelines</h2>
                </div>
                <div>
                   <h2>Step Two: Modify the pipelines</h2>
+               </div>
+               <div>
+                  <h2>Peruse the worksheets</h2>
                </div>
                <div>
                   <h2>For consideration</h2>
@@ -95,7 +101,7 @@ span.wordcount.over { color: darkred }
             <div class="unit learner"
                  id="toc-acquire_599"
                  data-track="learner">
-               <h1>599: Meeting XProc<span class="wordcount okay"> (~698)</span>
+               <h1>599: Meeting XProc<span class="wordcount okay"> (~720)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -120,7 +126,7 @@ span.wordcount.over { color: darkred }
             <div class="unit observer"
                  id="toc-walkthrough_101"
                  data-track="observer">
-               <h1>101: Unpacking XProc 3.0<span class="wordcount over"> (~2752)</span>
+               <h1>101: Unpacking XProc 3.0<span class="wordcount over"> (~2722)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -176,7 +182,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-walkthrough_102"
                  data-track="maker">
-               <h1>102: XProc fundamentals<span class="wordcount okay"> (~1526)</span>
+               <h1>102: XProc fundamentals<span class="wordcount okay"> (~1651)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -193,16 +199,26 @@ span.wordcount.over { color: darkred }
                <div>
                   <h2>Details details!</h2>
                   <div>
-                     <h3>TEST-XSPEC</h3>
+                     <h3>
+                        <a href="../smoketest/TEST-XSPEC.xpl">TEST-XSPEC</a>
+                     </h3>
                   </div>
                   <div>
-                     <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
+                     <h3>
+                        <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
+                     </h3>
                   </div>
                </div>
                <div>
                   <h2>Messing around</h2>
                   <div>
                      <h3>Disabling your code</h3>
+                     <div>
+                        <h4>XML comment syntax</h4>
+                     </div>
+                     <div>
+                        <h4>Native XProc</h4>
+                     </div>
                   </div>
                </div>
                <div>
@@ -500,7 +516,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-oscal-convert_350"
                  data-track="maker">
-               <h1>350: Namespaces in XML and XProc<span class="wordcount okay"> (~724)</span>
+               <h1>350: Namespaces in XML and XProc<span class="wordcount okay"> (~905)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -519,6 +535,15 @@ span.wordcount.over { color: darkred }
                </div>
                <div>
                   <h2>Namespace tips and tricks</h2>
+                  <div>
+                     <h3>Steps for namespaces</h3>
+                     <div>
+                        <h4>Namespace prefixes</h4>
+                     </div>
+                     <div>
+                        <h4>Greedy renaming</h4>
+                     </div>
+                  </div>
                   <div>
                      <h3>Coining new namespaces</h3>
                   </div>
@@ -563,7 +588,7 @@ span.wordcount.over { color: darkred }
             <div class="unit maker"
                  id="toc-oscal-convert_401"
                  data-track="maker">
-               <h1>401: XProc, XML, JSON and content types<span class="wordcount okay"> (~274)</span>
+               <h1>401: XProc, XML, JSON and content types<span class="wordcount okay"> (~700)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -572,7 +597,341 @@ span.wordcount.over { color: darkred }
                   <h2>Resources</h2>
                </div>
                <div>
+                  <h2>Content types and document properties</h2>
+               </div>
+               <div>
                   <h2>Exercise some options</h2>
+               </div>
+            </div>
+         </div>
+         <div class="lesson"
+              id="toc-oscal-produce"
+              name="oscal-produce">
+            <div class="unit observer"
+                 id="toc-oscal-produce_101"
+                 data-track="observer">
+               <h1>101: Producing OSCAL from a publication format<span class="wordcount over"> (~2456)</span>
+               </h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Step one: review projects</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step two: Examine pipelines and inputs</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step three: Run pipelines, inspect results</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                     <div>
+                        <h4>Pipeline results</h4>
+                     </div>
+                     <div>
+                        <h4>OSCAL output</h4>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <h2>Step four: Inspect again in diagnostic mode</h2>
+                  <div>
+                     <h3>USDS Playbook</h3>
+                  </div>
+                  <div>
+                     <h3>NIST CPRT SP 800-171</h3>
+                  </div>
+                  <div>
+                     <h3>US Army FM 6-22, chapter 4</h3>
+                  </div>
+               </div>
+               <div>
+                  <h2>What these pipelines have in common</h2>
+               </div>
+               <div>
+                  <h2>Some differences</h2>
+               </div>
+            </div>
+            <div class="unit maker"
+                 id="toc-oscal-produce_102"
+                 data-track="maker">
+               <h1>102: Producing OSCAL from unrefined inputs<span class="wordcount okay"> (~1911)</span>
+               </h1>
+               <div>
+                  <h2>Goals</h2>
+               </div>
+               <div>
+                  <h2>Prerequisites</h2>
+               </div>
+               <div>
+                  <h2>Resources</h2>
+               </div>
+               <div>
+                  <h2>Interactive debugging in XProc</h2>
+               </div>
+               <div>
+                  <h2>Testing, both results and processes</h2>
+               </div>
+               <div>
+                  <h2>XProc so far: a survey</h2>
+                  <div>
+                     <h3>Top-level, imports and prologue</h3>
+                     <div>
+                        <h4>
+                           <code>p:declare-step</code>
+                        </h4>
+                        <h4>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:import</code>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:option</code>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:input</code>
+                        </h4>
+                     </div>
+                     <div>
+                        <h4>
+                           <code>p:output</code>
+                        </h4>
+                     </div>
+                  </div>
+                  <div>
+                     <h3>Steps</h3>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:identity</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:insert</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:store</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:validate-with-relax-ng</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:xslt</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <div>
+                              <h4>
+                                 <code>p:choose</code>, <code>p:when</code>, <code>p:otherwise</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:load</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:validate-with-xml-schema</code>
+                              </h4>
+                           </div>
+                        </div>
+                        <div>
+                           <div>
+                              <h4>
+                                 <code>p:group</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:cast-content-type</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:namespace-delete</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:namespace-rename</code>
+                              </h4>
+                           </div>
+                        </div>
+                        <div>
+                           <div>
+                              <h4>
+                                 <code>p:if</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:string-replace</code>
+                              </h4>
+                           </div>
+                           <div>
+                              <h4>
+                                 <code>p:validate-with-schematron</code>
+                              </h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:add-attribute</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:error</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:filter</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:label-elements</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:uuid</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:delete</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:replace</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:try</code>, <code>p:catch</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:viewport</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:wrap-sequence</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>ox:validation-summarize</code>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+                  <div>
+                     <h3>Connectors and plumbing</h3>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:variable</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:with-input</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:with-option</code>
+                           </h4>
+                        </div>
+                     </div>
+                     <div>
+                        <div>
+                           <h4>
+                              <code>p:document</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:inline</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:empty</code>
+                           </h4>
+                        </div>
+                        <div>
+                           <h4>
+                              <code>p:pipe</code>
+                           </h4>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div>
+                  <h2>TBD: for discussion</h2>
                </div>
             </div>
          </div>
@@ -582,7 +941,7 @@ span.wordcount.over { color: darkred }
             <div class="unit observer"
                  id="toc-courseware_101"
                  data-track="observer">
-               <h1>Courseware 101: Producing this tutorial<span class="wordcount okay"> (~433)</span>
+               <h1>Courseware 101: Producing this tutorial<span class="wordcount okay"> (~508)</span>
                </h1>
                <div>
                   <h2>Goals</h2>
@@ -613,6 +972,11 @@ span.wordcount.over { color: darkred }
                   <div>
                      <h3>
                         <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
+                     </h3>
+                  </div>
+                  <div>
+                     <h3>
+                        <a href="../tutorial/PRODUCE-EVERYTHING.xpl">PRODUCE-EVERYTHING</a>
                      </h3>
                   </div>
                </div>
@@ -765,28 +1129,30 @@ span.wordcount.over { color: darkred }
             <section>
                <h2>Comments / review</h2>
                <p>Within this project as a whole, and within its subprojects, everything is done with XProc 3.0. The aim is to
-            make it possible to do anything needed with XProc, regarded as a general-purpose 'scripting' solution for
-            the choreography of arbitrarily complex jobs, tasks and workflows. To support arbitrary complexity and
+            make it possible to do anything needed with XProc, regarded as a general-purpose <q>scripting</q> solution
+            for the choreography of arbitrarily complex jobs, tasks and workflows. To support arbitrary complexity and
             scalability together, it must be very simple. This simplicity, with the composability that goes with it, is
             at the center of the argument for XProc.</p>
                <p>You will see this simplicity at the level of <q>top-level</q>
                   <em>invocation</em> XProc pipelines designed to serve as entry points. If things are done right, these will
-            be fairly simple, well encapsulated <q>subroutines</q> in potentially elegant arrangements. They in turn may
-            call on libraries of XProc pipelines for well-defined tasks.</p>
-               <p>Effectively (and much more could be said about the processing stack, dependency management and so forth)
-            what this means is that XProc promises the user and the developer (in either or both roles) with focused and
-            concentrated points of control or points of adjustment. In the field – where software is deployed and used –
-            things almost never just <q>drop in</q>. User interfaces, APIs, dependencies and platform quirks: all these
-            constrain what users can do, and even developers are rarely as free as they would like to experiment and
-            explore.</p>
-               <p>What is offered here is therefore <i>both</i> an example of a deployment of a demonstration solution set
-            using an open-source tool (an XProc engine capable of running the pipelines we offer), doing things that are
-            actually or potential useful (with OSCAL data), <i>and</i> a set of pipelines that should in principle work
-            as well in any other tool or software deployment supporting XProc 3.0.</p>
-               <p>But to the extent this imposes a requirement for both abstract and testable conformance (or at any rate for
-            interoperability as a proxy for that), this project only works if things are actually simple enough to pick
-            up, use, learn and adapt. <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at making a simple
-            deployment, easy to emulate but better yet, improve.</p>
+            be found on inspection to contain fairly simple and well encapsulated <q>subroutines</q> in potentially
+            elegant arrangements. They in turn may call on libraries of XProc pipelines for well-defined tasks.</p>
+               <p>More can be said about what this means for the processing stack and why it matters in this context, namely
+            that of a technology that aspires to be both standard (to support platform independence and data security)
+            and extensible (to support future needs). Yet leaving aside all the higher-order requirements, the system
+            must be usable, something we can determine and demonstrate only in the using of it. If XProc can be not only
+            capable but useful, there must be a simple and approachable way to use it. Both easy to run, and to
+            adapt.</p>
+               <p>In the field – where software is deployed and used – things almost never just <q>drop in</q>. User
+            interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even
+            developers are rarely as free as they would like to experiment and explore. In order to facilitate learning
+            by doing, what is offered here is therefore <i>both</i> an example deployment of a demonstration solution
+            set using an open-source tool (an XProc engine capable of running the pipelines we offer), doing things that
+            are actually or potentially useful (with OSCAL data), <i>and</i> a set of pipelines that should in principle
+            work as well in any other tool or software deployment supporting XProc 3.0.</p>
+               <p>Yet as stated – like XProc itself – this project only works if things are actually simple enough to pick up,
+            use, learn and adapt. <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at making a simple
+            deployment, easy to emulate but better yet, to improve.</p>
                <p>Each of these scripts (on its execution platform) enables a user to run, without further configuration, the
                <a href="../">Morgana XProcIIIse</a> processor on any
             XProc 3.0 pipeline, assuming the appropriate platform for each (<code>bash</code> in the case of the shell
@@ -823,7 +1189,7 @@ span.wordcount.over { color: darkred }
                like XProc, obscure, cryptic and intimidating if not forbidding.</p>
                   <p>This is a pity because (among other reasons) the kind of layered system we will see and build here is not
                endless or infinitely complex. Begin by making yourself comfortable at the command line. See how the
-               pieces fit together by working them.</p>
+               pieces fit together by trying things out.</p>
                   <p>Then too, if you have something better, by all means use it. XProc-based systems, when integrated into
                tools or developer editors and environments, can look much nicer than tracebacks in a console window. The
                elegance and power we are trying to cultivate are at a deeper level. First and last, the focus must be on
@@ -862,6 +1228,28 @@ span.wordcount.over { color: darkred }
                <h2>Resources</h2>
                <p>Same as <a href="../tutorial/source/acquire/acquire_101_src.html"
                      class="LessonUnit">Setup 101</a>.</p>
+               <p>Also see <a href="../tutorial/worksheets/">the set of XProc worksheets</a> collected so far for this tutorial.</p>
+            </section>
+            <section>
+               <h2>Step Zero: XProc steps</h2>
+               <p>An XProc <em>pipeline</em> is composed out of XProc <em>steps</em>. Entire pipelines can then be called as
+            steps in other pipelines. When you look at an XProc pipeline you will see an XML element named
+               <code>p:declare-step</code> (modulo namespace prefix adjustments - it might be
+               <code>xproc3:declare-step</code>), because conceptually, any pipeline is considered as a step in itself.
+            Like a step, a pipeline works with defined inputs (<em>sources</em>) to deliver defined outputs
+               (<em>results</em>). But any pipeline is also built out of steps – many of which are considered
+               <em>atomic</em> or <q>primitive</q>, but some of which you might build yourself (as pipelines).</p>
+               <p>XProc also exploits the idea of <q>pipelining</q> by offering features that allow you to connect steps
+            together in arbitrary ways (pipeline logic can be complex), but also by falling back, when you make no such
+            connections, to an easily-understood <q>chaining</q> model, in which each step consumes the output of its
+            immediate predecessor. This makes it possible for simple pipelines to be very succinct: just put the steps
+            in the order they are to be performed – while noting these are <i>logical</i> dependencies, with processors
+            free to optimize where possible (for example, skipping steps whose results are never used) or as
+            directed.</p>
+               <p>One consequence is that the shorter and simpler a pipeline is, the more important it is to understand that a
+            step can pick up inputs from the last step and pass them to the next, in the order given. As long as the
+            designated default (or <em>implicit</em>) bindings for all required inputs and outputs can be discovered by
+            the rules, everything runs.</p>
             </section>
             <section>
                <h2>Step One: Inspect the pipelines</h2>
@@ -871,9 +1259,9 @@ span.wordcount.over { color: darkred }
             and scripts are already in place. In doing so – before extension libraries are in place – it can use only
             basic XProc steps, but those are enough to start with.</p>
                <p>Specifically, the pipelines can acquire resources from the Internet, save them locally, and perform
-            unarchiving (unzipping). Having been downloaded, each library provides software that the pipeline engine
-            (Morgana) can use to do more.</p>
-               <p>Accordingly, the first group of pipelines (in the <a href="../lib/readme.md">lib</a> directory has
+            unarchiving (or in this case unzipping, which combines unarchiving with data decompression). Having been
+            downloaded, each library provides software that the pipeline engine (Morgana) can use to do more.</p>
+               <p>Accordingly, the first group of pipelines (in the <a href="../lib/readme.md">lib</a> directory) has
             a single purpose, namely (together and separately) to download software to augment Morgana's feature
             set.</p>
                <p>If not using the open-source Morgana distribution, you can skip to smoke tests below, and see how far you
@@ -928,6 +1316,18 @@ span.wordcount.over { color: darkred }
             exercise is complete.</p>
             </section>
             <section>
+               <h2>Peruse the worksheets</h2>
+               <p>In <a href="../tutorial/worksheets/">a directory</a> along with the tutorial materials is a growing set of XProc
+               <q>worksheet</q> files.</p>
+               <p>These are simple, standalone XProc pipelines meant to make it easier to try out syntax and features of XProc
+            and XPath in isolation from other processes.</p>
+               <p>They are not listed here since the set grows over time, and each should be self-explanatory to an XProc
+            practitioner. On occasion one of the worksheets may also be presented or described in a lesson unit.</p>
+               <p>The pipeline <a href="../testing/PROCESSOR-REPORT.xpl">PROCESSOR-REPORT.xpl</a> in the test directory
+            is also worth inspecting and running, as it presents a process (and shows code) that could be more generally
+            useful.</p>
+            </section>
+            <section>
                <h2>For consideration</h2>
                <p>Developers coming to this technology need to consider who would use it, and whether it is useful mainly at
             the back end, or also <q>on the shop floor</q>, directly in the hands of professionals who must work with
@@ -965,13 +1365,15 @@ span.wordcount.over { color: darkred }
                <h2>Resources</h2>
                <p>
                   <a href="../">A Declarative Markup Bibliography</a> is
-            available on line for future reference on this interesting topic.</p>
+            available online for future reference on this interesting topic.</p>
             </section>
             <section>
                <h2>Some observations</h2>
-               <p>Because it is now centered on <em>pipelines</em> built out of combining capabilities of <em>steps</em>
-            (which may be black boxes), as much as on files and software packages, dependency management when using
-            XProc is different from other technologies including Java and NodeJS – how so?</p>
+               <p>Dependency management when using XProc is different from other technologies including Java and
+            Javascript/NodeJS – how so? Because it is now centered on <em>pipelines</em> built out of combining
+            capabilities of <em>steps</em> (which may be black boxes), as much as on files and software packages.
+            Arguably, XProc blurs the distinction between code you write, and libraries you use, in a useful way – while
+            presenting its own challenges.</p>
                <p>MorganaXProc-III is implemented in Scala, and Saxon is built in Java, but otherwise distributions including
             the SchXSLT and XSpec distributions consist mainly of XSLT. This is either very good (with development and
             maintenance requirements in view), or not good at all.</p>
@@ -1100,11 +1502,11 @@ span.wordcount.over { color: darkred }
                   <code>jar</code> (Java library) file, which it places in the Morgana library directory</li>
                   <li>
                      <a href="../lib/GRAB-SCHXSLT.xpl">lib/GRAB-SCHXSLT.xpl</a> downloads a zip file from Github and
-               unzips it into a directory where Morgana can find it.</li>
+               unzips it into a directory where Morgana can find it. (XProc uses an <code>p:unarchive</code> step to
+               support archive-and-compression schemes such as <code>zip</code> format.)</li>
                   <li>
-                     <a href="../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and <q>unarchives</q> a zip
-               file resource, this time a copy of <a href="../">an XSpec
-               distribution</a>.</li>
+                     <a href="../lib/GRAB-XSPEC.xpl">lib/GRAB-XSPEC.xpl</a> also downloads and unzips a zip file
+               resource, this time a copy of <a href="../">an XSpec distribution</a>.</li>
                </ul>
                <p>Essentially, these all replicate and capture the work a developer must do to identify and acquire libraries.
             Maintaining our dependencies this way – not quite, but almost <q>by hand</q> – appears to have benefits for
@@ -1135,7 +1537,7 @@ span.wordcount.over { color: darkred }
                <p>Any and each of these can be used as a <q>black box</q> by any competent operator, even without
             understanding the internals. But this simplicity masks and manages complexity. XProc is XProc but never just
             that, since its capabilities are also extended by XSLT, XQuery, Schematron, XSpec and others, an open-ended
-            set of compatible and complimentary technologies that are even more powerful together than they are in
+            set of compatible and complementary technologies that are even more powerful together than they are in
             particular.</p>
                <p>At the same time, common foundations make it possible to learn these technologies together and in
             tandem.</p>
@@ -1209,15 +1611,16 @@ span.wordcount.over { color: darkred }
                      <a href="../smoketest/TEST-SCHEMATRON.xpl">TEST-SCHEMATRON</a>
                   </h3>
                   <p>Schematron is a language used to specify rules to apply to XML documents. In this case a small Schematron
-               is applied to a small XML. This flexible technology enables easy testing of XML against rule sets defined
-               either for particular cases in particular workflows, or for entire classes or sets of documents whose
-               rules are defined for standards and across systems.</p>
+               rule set (colloquially called a <q>Schematron</q> for lack of a better name) is applied to a small XML.
+               This flexible technology enables easy testing of XML against rule sets defined either for particular
+               cases in particular workflows, or for entire classes or sets of documents whose rules are defined for
+               standards and across systems.</p>
                   <ul>
                      <li>
                         <code>p:output</code> – An output port is designated for the results with the same settings.</li>
                      <li>
                         <code>p:validate-with-schematron</code> – This is an XProc step specifically for evaluating an XML
-                  document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT` pipelines, this
+                  document against the rules of a given Schematron. Like the TEST-XPROC3 and TEST-XSLT pipelines, this
                   one presents its own input, given as a literal XML document given in the pipeline document (using
                      <code>p:inline</code>). A setting on this step provides for it to throw an error if the document
                   does not conform to the rules. The Schematron file provided as input to this step, <a href="../smoketest/src/doing-well.sch">src/doing-well.sch</a>, gives the rules.</li>
@@ -1264,36 +1667,34 @@ span.wordcount.over { color: darkred }
             </section>
             <section>
                <h2>A not-so-simple pipeline</h2>
-               <p>Examine the Markdown file presenting an <a href="../tutorial/sequence/element-directory.md">XProc Element
-               directory</a>. It is generated by <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">a pipeline</a>.
-            Examine that pipeline to see XProc with real-world complexity.</p>
                <p>The simple pipelines examined so far show how useful things can be done simply, while the pipeline
             architecture allows for great flexibility.</p>
                <p>Simplicity and flexibility together enable complexity. Once it is factored out, a complex operation can be
             managed and deployed just like a simple one, with its internal complexities masked by a simple and
             predictable interface.</p>
-               <p>Next, take a look at a more complex example, the prototype pipeline <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a>. Like the setup and
-            smoke-test pipelines, this is a standalone pipeline (requiring no runtime bindings or settings): when this
-            plan (<q>step</q> or pipeline) is executed, the processor acquires inputs, produces results for its
+               <p>Examine the Markdown file presenting an <a href="../tutorial/sequence/element-directory.md">XProc Element
+               directory</a>. It is generated by <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">a pipeline</a>
+            (described in more detail below) that shows some XProc with real-world complexity.</p>
+               <p>Like the setup and smoke-test pipelines, this is a standalone pipeline (requiring no runtime bindings or
+            settings): when the pipeline is executed, the processor acquires inputs, produces results for its
             operations, and write those results to the file system. In this case the output it generates is stored as <a href="../tutorial/sequence/element-directory.md">element-directory.md</a>, a Markdown file (find the
                <code>p:store</code> step).</p>
                <p>The result is a reference resource encoded in Markdown: an index of XProc elements used in pipelines in this
             repository. As Markdown, once reposted back into the repository, it can be viewed with any Markdown viewing
-            application. The index lists XProc elements, i.e., the core of the XProc vocabulary: for any XProc element
-            used anywhere among the projects listed, the listing shows the pipelines where it appears. Following the
-            index, the resource also shows a list of (repository) project folders in a prescribed order, with their
-            XProc files and whatever XProc elements appear <i>first</i> (within the entire sequence up to to point)
-            within that file. Among other uses this is helpful for assessing coverage of tutorial lessons as it offers a
-            (semi) <i>ordered</i> survey of their use of XProc (and other) elements.</p>
-               <p>For example, looking up <code>p:store</code> you can see all the pipelines that contain this common step. Or
-            looking at the <code>oscal-convert</code> listing you can see the XProc steps appearing first in that
-            project folder.</p>
+            application. The index lists XProc files within a list of (repository) project folders in a prescribed
+            order, with whatever XProc elements appear <i>first</i> (within the entire sequence up to to point) within
+            that file. (Among other uses, this is helpful for assessing coverage of tutorial lessons.) Following this
+            listing is a second index listing XProc elements with all the pipelines (within the given folders) where it
+            appears.</p>
+               <p>For example, looking at the <code>oscal-convert</code> listing you can see the XProc steps appearing first
+            in that project folder. Or looking up <code>p:store</code> you can see all the pipelines that contain this
+            common step.</p>
                <p>To confirm proper functioning, run the pipeline again after deleting or renaming the Markdown result
             file.</p>
                <p>Consider also what other kinds of indexing might be useful. When you modify XProc or add new XProc pipelines
             to the project folders, consider running this pipeline again to update the indexes.</p>
-               <p>Open the file and inspect it to get a sense of how it works. The XML syntax is verbose, but not really all
-            that frightening. Practice helps! The pipeline is also considered in the <a href="../tutorial/source/walkthrough/walkthrough_102_src.html"
+               <p>The XML syntax here is verbose, but not really all that frightening. Practice helps! The pipeline is also
+            considered in the <a href="../tutorial/source/walkthrough/walkthrough_102_src.html"
                      class="LessonUnit">102 Lesson unit</a> segment.</p>
                <section>
                   <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
@@ -1306,18 +1707,18 @@ span.wordcount.over { color: darkred }
                      <li>Of course, it is longer and more complex, reflecting the complexity of the operations it
                   performs.</li>
                      <li>Part of the complexity is due to a two-step process here. First, the file system is surveyed in
-                  locations named in an input configuration. Then all those resources (which happen to be XML using the
-                  XProc vocabulary) are indexed again, this time showing only first occurrences of elements within files
-                  given in the stipulated order. Both indexes are written into the results, showing how a single survey
-                  can support more than one analysis.</li>
-                     <li>In particular, the index to <q>first use</q> is not simple. A great deal of the complexity of
-                  detailed operations has been off-loaded into XSLT transformation code, which in this pipeline can be
-                  seen embedded in the XProc, indeed occupying the greater part of the XML in the file. (About two
-                  thirds of the element count: you can usually recognize XSLT by the conventional <code>xsl:</code>
-                  element prefix.) This pipeline also has an XSLT called from an external file (toward the end). XProc
-                  can provide XSLT either way, and each has its advantages. In this case, XSLT is left in place as
-                  literal embedded code, partly to show a borderline case. (It helps to use an editor or viewer with
-                  code folding.)</li>
+                  locations named in an input configuration. The information collected (conveniently represented in XML)
+                  is then processed again, this time to show only first occurrences of elements within files given in
+                  the stipulated order. Both indexes are written into the results, showing how a single survey can
+                  support more than one analysis.</li>
+                     <li>In particular, the index to <q>first use</q> is not simple. Much of its complexity has been
+                  off-loaded into XSLT transformation code, which in this pipeline can be seen embedded in the XProc,
+                  occupying the greater part of the XML in the file. (About two thirds of the element count is actually
+                  XSLT, which you can recognize by the conventional <code>xsl:</code> element name prefix.) In this
+                  XProc, this code has been left in place, as a borderline case showing how to embed XSLT in XProc – to
+                  read this, it helps to use an editor or viewer with code folding. Toward the end, this pipeline also
+                  shows how XSLT can be called from an external file, which is more normal and usually easier to
+                  read.</li>
                      <li>One good thing about seeing the XSLT here is you can get a good sense of what it looks like, whether
                   embedded or kept externally. XSLT is <a href="../tutorial/source/walkthrough/walkthrough_401_src.html"
                            class="LessonUnit">not
@@ -1416,12 +1817,15 @@ span.wordcount.over { color: darkred }
             <section>
                <h2>Details details!</h2>
                <p>XProc pipelines described in <a href="../tutorial/source/walkthrough/walkthrough_101_src.html"
-                     class="LessonUnit">the previous lesson unit</a>
-            contain a few noteworthy features.</p>
+                     class="LessonUnit">the previous lesson
+               unit</a> contain a few noteworthy features. In this section we take a closer look at the internals of a
+            couple of these examples.</p>
                <p> To edit these files, use any XML-capable plain text editor (that is, with care, any editor at all that
             saves text files as UTF-8).</p>
                <section>
-                  <h3>TEST-XSPEC</h3>
+                  <h3>
+                     <a href="../smoketest/TEST-XSPEC.xpl">TEST-XSPEC</a>
+                  </h3>
                   <ul>
                      <li>Where XSpec documents are bound to the input port <code>source</code>, they have
                      <code>content-type='application/xml'</code> given. This is because with the unconventional file
@@ -1434,21 +1838,22 @@ span.wordcount.over { color: darkred }
                      <li>Within the <code>p:for-each</code>, the step <code>ox:execute-xspec</code> is named in the
                      <code>ox</code> namespace, which resolves to the string
                      <code>http://csrc.nist.gov/ns/oscal-xproc3</code>, a value assigned for this project. This step is
-                  defined in the <a href="../xspec/xspec-execute.xpl">imported pipeline</a>. XProc is indefinitely
-                  extensible: the namespace feature allows us to create new steps without fear of name clashes with old
-                  steps – or steps that are still uninvented and unnamed. We can develop and name steps in our own
-                  namespace, while also acquiring and using steps in other namespaces.</li>
-                     <li>The <code>p:identity</code> step is used twice in this pipeline for one purpose only: to indicate
-                  messages the XProc engine should deliver. In the normal configuration, you should see these messages
-                  in the console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
+                  defined in the <a href="../xspec/xspec-execute.xpl">imported pipeline</a>. By requiring that a
+                  (non-XProc) namespace be used for new steps, XProc enables arbitrary and unplanned (uncoordinated)
+                  extensibility, since we can create new steps without fear of name clashes with other steps, whether
+                  they be already defined and in scope, or still uninvented and unnamed. We can develop and name steps
+                  in our own namespace, while also acquiring and using steps in other namespaces.</li>
+                     <li>The <code>p:identity</code> step is used in this pipeline for one purpose only: to indicate messages
+                  the XProc engine should deliver. In the normal configuration, you should see these messages in the
+                  console when the pipeline runs. This is a common use for <code>p:identity</code>.</li>
                      <li>The repository observes a couple of conventions with regard to steps and messages. For example: any
                      <code>p:load</code> or <code>p:save</code> step should have a message; and messages should always
                   be prefixed with a bracketed indicator of the pipeline that issues them, for example the
                      <code>[TEST-XSPEC]</code> messages that are emitted here, once for each input and again once when
                   the pipeline finishes.</li>
-                     <li>Yes, those conventions are enforced in the repository by <a href="../testing/xproc3-house-rules.sch">a Schematron</a> that can be applied to any
+                     <li>Yes, those conventions are enforced in the repository by <a href="../testing/xproc3-house-rules.sch">a Schematron rule set</a> that can be applied to any
                   pipeline, both in development and when it is committed to the repository under <a href="../tutorial/source/walkthrough/walkthrough_301_src.html"
-                           class="LessonUnit">CI/CD (continuous integration / continous
+                           class="LessonUnit">CI/CD (continuous integration / continuous
                      development)</a>. Assuming we take care to run our tests and validations, this does most of the
                   difficult work maintaining consistency, namely detecting the inconsistency. The result, assuming we do
                   things correctly, is a more-than-human level of consistency in error checking and correction. This is
@@ -1466,33 +1871,38 @@ span.wordcount.over { color: darkred }
                   </ul>
                </section>
                <section>
-                  <h3>PRODUCE-PROJECTS-ELEMENTLIST</h3>
+                  <h3>
+                     <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
+                  </h3>
                   <p>The pipeline <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST.xpl</a> has
                   <q>real-world complexity</q>. Reviewing its steps can give a sense of how XProc combines simple
                capabilities into complex operations. Notwithstanding the title of this section, it is not important to
                understand every detail – knowing they are there is enough.</p>
                   <ul>
-                     <li>The prologue here contains a single <code>p:input</code> configuration. This one gives the input in
-                  line, as an XML document. Within this XML, all the project folders to be covered by the index are
+                     <li>The prologue here contains a single <code>p:input</code> configuration. This one gives its input
+                  inline, as an XML document. Within this XML, all the project folders to be covered by the index are
                   listed. Their order also matters since one of the two indexes built works incrementally, prior
                   elements affecting what happens with later elements.</li>
                   </ul>
                   <p>This pipeline exploits one other important feature of XProc: so far at least, it is all XML. Even short
-               of of dynamically generating and executing XProc (a feature the language  <a href="../">provides for</a>), the common ground of XML
-               format means that with XProc working XML tools, XML and its related ecosystem (most significantly but not
-               only XPath) is always available as an instrumental force magnifier or power tool, something we can put to
-               work again and again. In XProc, errors are reported in XML. So we can capture, aggregate and index error
-               messages in XProc. In XProc, a directory file listing is provided in XML. So we have a ready way to
-               present views of file systems – the XML shows all the names and structures – as well as analyze them and
-               access the files in them. Etc.</p>
+               of dynamically generating and executing XProc (a feature the language <a href="../">provides for</a>), XML and its related
+               ecosystem (most significantly but not only XPath) is always available, providing an instrumental <q>force
+                  magnifier</q> or power tool that we can put to work again and again. In XProc, errors are reported in
+               XML. So we can capture, aggregate and index error messages in XProc. In XProc, a directory file listing
+               is provided in XML. So we have a ready way to present views of file systems – the XML shows all the names
+               and structures – as well as analyze them and access the files in them. Etc.</p>
                </section>
             </section>
             <section>
                <h2>Messing around</h2>
                <p>Taking some time to make and test small adjustments to working code is a great way to develop a sense of how
             it behaves.</p>
-               <p>An easy way to do this without perturbing the working code in the repository is to copy a pipeline and
-            modify the copy. Modifying any of the pipelines presented so far, see what happens when:</p>
+               <p>As an exercise, make some changes in copies of the test pipelines. An easy way to do this without perturbing
+            the working code in the repository is to copy a pipeline and modify the copy.</p>
+               <p>Make at least one change that produces outputs (such as echoing a document to the console) that are visibly
+            different from the results of the original pipeline. Also try breaking the pipeline to see how it handles
+            errors.</p>
+               <p>You might see what happens when:</p>
                <ul>
                   <li>An <code>@href</code> points to a location on the system where there is no file</li>
                   <li>A file is there, but it is not what is expected (for example: XML is expected but the file is not well
@@ -1506,21 +1916,40 @@ span.wordcount.over { color: darkred }
             problem or the source of the reported problem must be repaired.</p>
                <p>And sometimes a process will run successfully, despite an <q>error</q>. Whether it is in error then depends
             on how well it conforms to its requirements. Does it deliver the results we want and expect?</p>
-               <p>As an exercise, make some changes in copies of the test pipelines. Make at least one change that produces
-            outputs (such as echoing a document to the console) that are visibly different from the results of the
-            original pipeline.</p>
                <section>
                   <h3>Disabling your code</h3>
-                  <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
-               syntax:</p>
-                  <pre>&lt;tagged&gt;Text&lt;/tagged&gt;</pre>
-                  <p>becomes:</p>
-                  <pre>&lt;!--  &lt;tagged&gt;Text&lt;/tagged&gt; --&gt;</pre>
-                  <p>A code editor that supports XML might let you do this with a keystroke, for example <code>ctrl-,</code>
-               (Control key plus comma), after selecting the text you wish to include in the comment.</p>
-                  <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very useful
-               technique for rapidly and interactively testing your pipelines, by deactivating and reactivating blocks
-               of code.</p>
+                  <p>When debugging, being able to switch operations on and off easily to compare results is often
+               essential.</p>
+                  <section>
+                     <h4>XML comment syntax</h4>
+                     <p>For newcomers to XML coding – you can <q>comment out</q> code in any XML by wrapping it in comment
+                  syntax:</p>
+                     <pre>&lt;tagged&gt;Text&lt;/tagged&gt;</pre>
+                     <p>becomes:</p>
+                     <pre>&lt;!--  &lt;tagged&gt;Text&lt;/tagged&gt; --&gt;</pre>
+                     <p>A code editor that supports XML might let you do this with a keystroke, for example
+                     <code>ctrl-,</code> (Control key plus comma), after selecting the text you wish to include in the
+                  comment.</p>
+                     <p>Take care when doing this that the XML is still intact with all the tags balanced. This is a very
+                  useful technique for rapidly and interactively testing your pipelines, by deactivating and
+                  reactivating blocks of code.</p>
+                  </section>
+                  <section>
+                     <h4>Native XProc</h4>
+                     <p>XProc also offers other ways to switch code on and off, including XProc conditionals (<a href="../">
+                           <code>p:if</code>
+                        </a> and <a href="../">
+                           <code>p:choose</code>
+                        </a>) and a <a href="../">
+                           <code>use-when</code>
+                        </a> attribute on steps to
+                  provide for runtime contingency. These can be used when more permanent solutions or more capabilities
+                  are needed than a simple comment (placeholder) can offer.</p>
+                     <p>So a step like <code>&lt;p:namespace-delete prefixes="ox" use-when="false()"/&gt;</code> will never run
+                  because XPath <code>false()</code> is never true. And <code>&lt;p:namespace-delete prefixes="ox"
+                     use-when="$cleaning-up"/&gt;</code> will run only if the variable <code>$cleaning-up</code> evalues to
+                  XPath <code>true()</code>.</p>
+                  </section>
                </section>
             </section>
             <section>
@@ -1546,9 +1975,9 @@ span.wordcount.over { color: darkred }
                <section>
                   <h3>Syntax tips</h3>
                   <p>In XPath syntax, <code>$foo</code> (a name with a <code>$</code> prefixed) indicates a <b>variable
-                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i>
-                  (either<i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such
-               as <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
+                  reference</b> named (in this case) <q>foo</q>. XProc also uses a <i>value expansion syntax</i> (either
+                  <i>text value syntax</i> or <i>attribute value syntax</i>) using curly braces - so syntax such as
+                  <code>href="{$some-xml-uri}"</code> is not uncommon. Depending on use, this would mean <q>read [or
                   write] to the URI given by <code>$some-xml-uri</code>
                      </q>.</p>
                   <p>An XProc developer always knows where <code>href</code> is used in a pipeline, and how to test for and
@@ -3538,6 +3967,35 @@ span.wordcount.over { color: darkred }
                <h2>Namespace tips and tricks</h2>
                <p>A few small points to make namespace handling easier.</p>
                <section>
+                  <h3>Steps for namespaces</h3>
+                  <p>In addition to the built-in namespace fixup, two XProc steps are invaluable for managing namespaces:</p>
+                  <ul>
+                     <li>
+                        <a href="../">p:namespace-delete</a>
+                     </li>
+                     <li>
+                        <a href="../">p:namespace-rename</a>
+                     </li>
+                  </ul>
+                  <p>A couple of things to note about these:</p>
+                  <section>
+                     <h4>Namespace prefixes</h4>
+                     <p>XProc typically uses the namespace prefixes declared in the XProc XML file, in order to address
+                  namespaces. So <code>p:namespace-delete prefixes="ox"</code> will delete whatever namespace is bound
+                  by the XProc itself to the prefix <code>ox</code> – it is a feature, not a bug, that this namespace
+                  (it would be <code>http://csrc.nist.gov/ns/oscal-xproc3</code> in this repository) might be prefixed
+                  differently in out-of-line XML.</p>
+                  </section>
+                  <section>
+                     <h4>Greedy renaming</h4>
+                     <p>When using <code>p:namespace-rename</code> you need to be careful to rename (by changing their
+                  namespaces) only the nodes you want! Typically this means you will need
+                     <code>apply-to="elements"</code> to prevent attributes as well as XML elements from being assigned
+                  to the namespace. This is a subtle difference, but it can affect both XPath matching and schema
+                  validation – and resulting problems can be hard to debug.</p>
+                  </section>
+               </section>
+               <section>
                   <h3>Coining new namespaces</h3>
                   <p>Do not be misled by the fact that namespaces are defined by means of URIs. The URIs point to pages that
                often do not exist. Making new namespaces to provide a rational scope for a new set of elements or
@@ -3551,7 +4009,11 @@ span.wordcount.over { color: darkred }
                   <p>When doing so, or when deploying any namespace declarations (the HTML namespace
                   <code>http://www.w3.org/1999/xhtml</code> is a frequent offender), the associated <code>xmlns:</code>
                attribute does <i>not</i> have to be placed only at the document root. Pipelines in the repository
-               sometimes show namespaces declared internally, especially when their scope of application is limited.</p>
+               sometimes show namespaces declared internally, since it can be convenient to limit their scope of
+               application.</p>
+                  <p>
+                     <b>Tip:</b> try using <code>p:group</code> as a handy way of managing scoping of XML namespaces as well
+               as XProc variables.</p>
                </section>
                <section>
                   <h3>Overloading prefixes</h3>
@@ -3568,9 +4030,9 @@ span.wordcount.over { color: darkred }
                identify the same elements as <code>ox:div</code> and <code>ox:p</code>. None of these elements are the
                familiar HTML <code>div</code> and <code>p</code> since the namespace is wrong – for HTML we would expect
                the HTML namespace, or none.</p>
-                  <p>This pipeline might wish to scrub its namespaces with a <a href="../">p:namespace-delete</a> XProc step.
-               Declarations are provided for the XSLT and XSD namespaces, which will accordingly appear (and be
-               propagated) into literal elements given in the pipeline and hence, pipeline results.</p>
+                  <p>This pipeline might wish to scrub its namespaces with a <a href="../">p:namespace-delete</a> XProc step. Without
+               such cleanup, since declarations are provided for the XSLT and XSD namespaces, these will accordingly
+               appear (and be propagated) into literal elements given in the pipeline and hence, pipeline results.</p>
                </section>
                <section>
                   <h3>Matching with namespace wildcard</h3>
@@ -3786,6 +4248,36 @@ span.wordcount.over { color: darkred }
             experimental surface for working functionality specifically related to JSON and XDM map objects.</p>
             </section>
             <section>
+               <h2>Content types and document properties</h2>
+               <p>XProc considers its <em>documents</em> to be objects, with properties. One of these properties is the
+            nominal <code>content-type</code>. We say <q>nominal</q> here because it is always possible to misname
+            something. Whether a document is actually the content type described, or can be made into it according to a
+            well defined and unambiguous rendering, is another problem. Fortunately for XProc users, this is a problem
+            for their engines to solve, since XProc provides rules regarding when and how such errors can be detected –
+            or how they can be defined such that instead of errors, we get sensible fallback behaviors that we can treat
+            as rules or at least rules of thumb.</p>
+               <p>Partly this is a problem since of course a content type is actually a feature or property of a binary object
+            of some kind, which is to say in the XProc view, a <em>resource</em> – something it can read or write.
+            Documents are and have <em>representations</em> of this binary data - when one is easily obtainable (via a
+            standard parse). A tree of nodes, for example is what XProc sees in an XML or HTML document, not a file
+            containing text with tags.</p>
+               <p>Accordingly, along with XProc's idea of a <em>content type</em> is its idea of a <em>serialization
+               specification</em>. Indeed, decoupling these two properties offers tremendous flexibility to users of
+            pipelines, since some serialization formats <q>belong</q> (implicitly) to certain document or content types,
+            while this is also a one-to-many relation. For example, many different XML-based formats can all be treated
+            with the same content-type and the same choice of serialization options for XML.</p>
+               <p>Both these properties are given on documents throughout a pipeline, but they can change along the way,
+            either because they are reset explicitly (a <code>p:set-properties</code> step is offered for this) or
+            because an operation or step has changed the document such that one or both of these settings have also been
+            changed. Consequently their handling can, for the most part, be left to processors, trusting that errors
+            will be returned if a processor is asked to do things that exceed capabilities.</p>
+               <p>Among other things, this permits specific steps and embedded pipelines to declare content types for inputs
+            and outputs, and throw errors when contracts (as declared in step definitions) are violated. Not only does
+            this make it possible to define and build better, more robust pipeline steps with better exception handling;
+            but also it means that content types and serialization options can be explicitly stated and controlled when
+            necessary, without the details of syntax ever becoming a focus.</p>
+            </section>
+            <section>
                <h2>Exercise some options</h2>
                <p>The worksheets just cited provide an opportunity to try out <code>content-type</code> configuration options.
             Note how you can specify a content type that will serve as a constraint on inputs and outputs, analogous in
@@ -3809,6 +4301,848 @@ span.wordcount.over { color: darkred }
                   <a href="../tutorial/worksheets/READ-JSON-TESTING.xpl">READ-JSON-TESTING.xpl</a> is a sandbox for playing with
             JSON objects as XDM maps. The <a href="../tutorial/worksheets/CONTENT-TYPE_worksheet.xpl">content-types
                worksheet</a> is set up for trying content-type options on inputs and outputs.</p>
+            </section>
+         </section>
+      </section>
+      <section class="lesson"
+               id="oscal-produce"
+               name="oscal-produce">
+         <section class="unit observer"
+                  id="oscal-produce_101"
+                  data-track="observer">
+            <h1>101: Producing OSCAL from a publication format</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn how high-quality XML can be produced from uncontrolled source data, with several examples.</p>
+               <p>Observe how a deterministic data processing framework can be tuned or programmed to resolve anomalies in bad
+            inputs, producing a well-formatted, cleanly encoded edition at a higher level of quality and capability,
+            using a traceable and verifiable process.</p>
+               <p>Along the way, learn something about XProc; XSLT transformations; XML; NISO STS format (a standard encoding
+            for supporting publication in electronic formats); OSCAL; the NIST Cybersecurity and Privacy Reference Tool
+            (CPRT); the US Digital Service, US Army field manuals and documentation; and the focus of FM 6-22:
+            Leadership and leadership development.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You have succeeded in prior exercises, including tools installation and setup.</p>
+               <p>You have some understanding of OSCAL if not familiarity with it, possibly having seen or used public OSCAL
+            examples such as NIST Special Publication (SP) 800-53 encoded as an OSCAL catalog.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Several projects in the repository (at time of writing) produce OSCAL data from inputs that are not OSCAL.
+            They each produce the same kind of result: an OSCAL catalog (XML document). Beyond this they represent a
+            range of cases in both complexity and goals:</p>
+               <ul>
+                  <li>USDS Playbook – 13 OSCAL controls (high level) from a simple web page produced by the US Digital
+               Service: Guidance for the design and implementation of online (digital) services </li>
+                  <li>NIST SP 800-171 from NIST Computer Cybersecurity and Privacy Reference Tool (CPRT) JSON - control
+               catalog </li>
+                  <li>US Army Field Manual 6-22 - via HTML from PDF source, with NISO STS format as an additional result -
+               Chapter 4 on Leadership Development</li>
+               </ul>
+               <p>
+                  <i>Caution: all produced versions of these public documents are non-normative, unauthorized (lawful within
+               terms of reuse in the public domain) and not for publication, being intended only for demonstration of
+               tools and capabilities.</i>
+               </p>
+            </section>
+            <section>
+               <h2>Step one: review projects</h2>
+               <p>These projects follow the general pattern in this repository. It is designed to be operated on its own, and
+            comes with pipelines to be run to acquire resources from the Internet, typically placing these in the
+            project lib directory . Such resources may include data sources or other dependencies for steps in the
+            pipeline. It is always a good idea to look at pipelines before you run them, in case such requirements must
+            be addressed first.</p>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>This is the simplest and smallest of the OSCAL production demonstrations. It reads a web page and
+               converts its contents into a simple but complete <a href="../">OSCAL catalog</a>.</p>
+                  <p>The web source for this transformation has been archived and committed to this repository to ensure the
+               demonstration works even if the upstream data source changes or becomes unavailable. Naturally, change
+               management in the face of such potentials is an important issue. Fortunately, XProc gives us ways of both
+               detecting and adapting to changes in the operating context or environment, as demonstrated (in a simple
+               way) on these projects.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>The data set source for this OSCAL is JSON available through a public portal, the <a href="../">Cybersecurity and Privacy Reference Tool</a> maintained by
+               the National Institute of Standards and Technology (NIST).</p>
+                  <p>Again producing an OSCAL catalog, this project has real-world complexity. <i>Note that neither this
+                  production nor its OSCAL representation are canonical or authoritative</i>, and should not be used for
+               security operations, being untested in that context. (Instead, use XProc to build and maintain your own
+               feeds from the source.)</p>
+                  <p>The pipeline that produces this OSCAL also demonstrates how a pipeline can include validations of its
+               own, supporting quality checking by means of schemas and queries over data as it passes through the
+               system.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>This example is somewhat fanciful or artificial, as the source data was not produced with OSCAL in mind.
+               Given this mismatch, that it works at all might be considered noteworthy, much less how well it
+               works.</p>
+                  <p>
+                     <a href="../">US Army Field
+                  Manual 6-22</a> on <b>Developing Leaders</b> has a distinguished history and distills hard-won
+               knowledge, with many dedicated contributors over many revisions, and is noteworthy for this reason alone.
+               As a structured data set, Chapter 4 of this document serves as a startling demonstration of how OSCAL can
+               support <q>semantic description</q> of written (and typeset) information that shows OSCAL-like
+               regularities, even when it has not been created with OSCAL in mind. As a machine-readable, structured,
+               validable data instance, FM 6-22 and its contents may be useful in multiple ways beyond (simple)
+               publication in print and PDF – while those capabilities have not been abandoned. At the same time the
+               OSCAL-encoded version is suggestive of entirely new functionalities.</p>
+                  <p>Greater accessibility is the goal, considered broadly. A standard such as OSCAL encoding is useful
+               insofar as it serves that goal.</p>
+                  <p>Of the three demonstrations, this is the most complex, requiring not only generic transformation logic,
+               but also ad-hoc analysis with patches, in order to rectify encoding problems in the source. XProc
+               provides tools and methods for this careful work that are efficient, comprehensive, manageable and
+               testable.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Step two: Examine pipelines and inputs</h2>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>Three pipelines can be found in this project folder:</p>
+                  <ul>
+                     <li>
+                        <a href="../projects/oscal-import/USDS-2024_Playbook/GRAB-PLAYBOOK.xpl">GRAB-PLAYBOOK</a> copies an HTML
+                  file from the Internet (USDS web site) and saves it locally in an <code>archive</code> folder as <a href="../projects/oscal-import/USDS-2024_Playbook/archive/playbook-source.html">playbook-source.html</a>
+                     </li>
+                     <li>
+                        <a href="../projects/oscal-import/USDS-2024_Playbook/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a> acquires a
+                  copy of the OSCAL Catalog XSD schema, for validating outputs</li>
+                     <li>
+                        <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> runs a
+                  pipeline converting the saved HTML file into an OSCAL file, validating it, and saving it as file <a href="../projects/oscal-import/USDS-2024_Playbook/archive/playbook_99_oscal.xml">playbook_99_oscal.xml</a>
+                     </li>
+                  </ul>
+                  <p>If pipelines have been run, there will also be files in the <a href="../projects/oscal-import/USDS-2024_Playbook/lib/">lib</a> and <a href="../projects/oscal-import/USDS-2024_Playbook/archive/">archive</a> directories. The <a href="../projects/oscal-import/USDS-2024_Playbook/src/">src</a> directory contains other files used by the
+               XProc.</p>
+                  <p>As a general rule of good practice, XProc pipelines in this pipeline always emit messages to the console
+               when saving copies of files it downloads.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>The JSON source data for this demonstration has been downloaded and saved in its<a href="../projects/oscal-import/NIST-CPRT/data/cprt/cprt_SP_800_171_3_0_0_11-12-2024.json">data/cprt</a>
+               directory. This file file is bound to the <code>source</code> port of the single pipeline in this
+               project: <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">PRODUCE_SP800-171-OSCAL.xpl</a>.</p>
+                  <p>The <a href="../projects/CPRT-import/src/">src</a> directory in this project folder contains a
+               number of resources required by the pipeline, including both XSLT transformations and rule sets (using
+               Schematron and RelaxNG) to be used as part of pipeline execution, ensuring predictability, conformance
+               and correctness.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>The pipeline <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">PRODUCE_FM6-22-chapter4.xpl</a> starts by reading an HTML data file created by using utility software
+               to produce a <q>web page export</q> of the document in its original PDF format, as published by the US
+               Army and placed into the public domain. This prior step must be accomplished by hand, and is sensitive to
+               the software used. Consequently, for this pipeline to be reproducible as a demonstration, the HTML input
+               needs to be fixed. This HTML has been saved as file <a href="../projects/oscal-import/USArmy_FM6-22/source/export/fm6_22.html">fm6_22.html</a>. An additional copy
+               with whitespace added for legibility is placed alongside it.</p>
+                  <p>Additionally, the pipeline requires other resources to be stored in <code>lib</code>, again acquired by
+               running pipelines: <a href="../projects/oscal-import/USArmy_FM6-22/GRAB-RESOURCES.xpl">GRAB-RESOURCES.xpl</a>
+               for a local copy of the OSCAL schema and <a href="../projects/oscal-import/USArmy_FM6-22/GRAB-NISO_STS-RNG.xpl">GRAB-NISO_STS-RNG.xpl</a> to acquire a RelaxNG schema for NISO STS format.</p>
+                  <p>This last resource is needed by the pipeline because it produces, in addition to OSCAL, <a href="../projects/oscal-import/USArmy_FM6-22/temp/t06_sts-enhanced.xml">a version of the Field Manual encoded
+                  in STS XML</a> as a waypoint format before creating OSCAL. This XML is of interest in its own right,
+               as it is valid STS XML - try an <a href="../">STS Viewer</a>
+               to see the code rendered.</p>
+               </section>
+            </section>
+            <section>
+               <h2>Step three: Run pipelines, inspect results</h2>
+               <p>Interim or final result files produced by these pipelines may have been committed to the repository, in
+            which case they can be inspected without running the pipeline.</p>
+               <p>However, running each pipeline guarantee for the operator that you are seeing what you think you are
+            seeing.</p>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>As noted, and once all preliminaries are in place, the pipeline <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">OSCAL-PLAYBOOK.xpl</a> will read the
+               HTML source file and translate it into OSCAL.</p>
+                  <p>Assuming all resources are in place, this pipeline should produce several files in an
+                  <code>archive</code> directory. In particular, look for a <q>terminal file</q> in OSCAL format, for
+               example, named <code>playbook_99_oscal.xml</code>.</p>
+                  <p>For this pipeline to work, other pipelines may have to be run first, to acquire resources: see the
+               project <a href="../projects/oscal-import/USDS-2024_Playbook/readme.md">readme.md</a> document.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>Running <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">this pipeline </a> creates
+               interim results in a <code>temp</code> directory, for tracing and debugging, overwriting copies of these
+               files already present. A <i>fresh</i> output file with a new (distinct) name including an ID segment (the
+               first block of its top-level UUID) is also produced in the project folder.</p>
+                  <p>In operation, a user would delete files produced by <q>practice runs</q>: feel free to do this as
+               well.</p>
+                  <p>Note that OSCAL files produced by this pipeline in separate runtimes will not be identical, if only
+               because each one has its own timestamp with its creation date. Otherwise, the same sources should produce
+               the same results – and this can be tested.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>As noted above, this pipeline starts by loading <a href="../projects/oscal-import/USArmy_FM6-22/source/export/fm6_22.html">source/export/fm6_22.html</a>.</p>
+                  <p>This pipeline produces temporary results along with its final result file, a valid OSCAL catalog.</p>
+                  <section>
+                     <h4>Pipeline results</h4>
+                     <p>A directory named <code>temp</code> will contain results of this pipeline.</p>
+                     <p>These include both interim results and nominally <q>final</q> outputs of the pipeline, including both
+                  OSCAL and NISO STS XML outputs: that is, the same data in two different forms. These are interesting
+                  for the comparison they provide – and the STS version is potentially useful in itself.</p>
+                  </section>
+                  <section>
+                     <h4>OSCAL output</h4>
+                     <p>Additionally, a file <a href="../projects/oscal-import/USArmy_FM6-22/FM_6-22-OSCAL-working.xml">FM_6-22-OSCAL-working.xml</a> presents a copy of the OSCAL version (also saved in
+                     <code>temp</code>) with an XML stylesheet processing instruction attached. This binding makes it
+                  possible to view this file with formatting, when served by a web server. (See the next lesson unit for
+                  more details.)</p>
+                     <p>OSCAL (Open Security Controls Assessment Language) is able to factor out a rich <q>semantic</q> view
+                  of this information set, presenting the full text of Chapter 4, but this time along with externalized
+                  control sets derived from their tables. These represent 25 <b>attributes</b> and 50
+                     <b>competencies</b>, as described in Field Manual 6-22 and its related documents such as ADP 6-22
+                  (describing the <b>US Army Leadership Requirements Model</b>).</p>
+                  </section>
+               </section>
+            </section>
+            <section>
+               <h2>Step four: Inspect again in diagnostic mode</h2>
+               <p>Having run these pipelines and seen their sources and results, inspect them one more time to appreciate some
+            of their features.</p>
+               <section>
+                  <h3>USDS Playbook</h3>
+                  <p>This XProc is a little unusual in that while its conversion requirements are fairly simple, it has been
+               built defensively, with fallback logic to handle cases of missing or broken inputs. If inputs are missing
+               – either the source data, or the OSCAL schema to which it is expected to validate – the pipeline does not
+               error out, but instead delivers a more helpful response including instructions on acquiring them.
+               Similarly, if the transformation process itself changes without notice, some defensive validation built
+               into this pipeline will fail.</p>
+                  <p>All this takes the form of extra complexity using elements such as <code>p:choose</code> (for
+               conditional, switch-statement-like branching) along with validation steps.</p>
+                  <p>
+                     <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK-SIMPLE.xpl">A simpler version of this
+                  pipeline</a>without the defensive logic is saved next to it – compare (and run) this pipeline for
+               comparison.</p>
+               </section>
+               <section>
+                  <h3>NIST CPRT SP 800-171</h3>
+                  <p>The pipeline that produces this OSCAL is somewhat more complex because its source data, in JSON format,
+               is noisier and rougher, and requires somewhat more aggressive normalization and regularization.
+               Accordingly, the pipeline does some work based on values provided to match the expectations of the
+               source. Those values are provided to the XProc process as options, which can be set at runtime. While
+               they are not expected to be any different from the set values for this data set, exposing them as options
+               makes it easier to find and change them if this pipeline is ever adjusted to handle inputs that are
+               nearly the same, but not exactly the same, as the source data here.</p>
+                  <p>Internally, this pipeline does some fairly extensive string processing to render information that is
+               given implicitly by means of a bespoke (one-off) syntax. Unless your XPath is strong you may wish to
+               compare inputs and outputs of specific steps directly, in order to understand better what they do.</p>
+                  <p>The steps in this pipeline are also organized into two large groups (using <code>p:group</code>) in order
+               to separate them functionally. First, the data is ingested into a declarative, semantic-descriptive
+               XML-based format. Then it is cast to OSCAL. Each of these processes requires several steps.</p>
+               </section>
+               <section>
+                  <h3>US Army FM 6-22, chapter 4</h3>
+                  <p>As noted above, both OSCAL and STS XML outputs may be considered valuable resources. In this case, STS is
+               used as the <q>pivot</q>, while the OSCAL output is richer and information-denser (about 80% the size in
+               kilobytes). Either may be suitable for producing formatted results.</p>
+                  <p>Additionally, this pipeline has a <b>pipeline option</b> declared named <code>writing-all</code>. When
+               set to <code>true()</code>, the processor will be instructed to save intermediate results of pipeline
+               processing in the <code>temp</code> directory. These are numbered in sequence. A <code>diff</code> tool
+               (especially an XML-aware diff) between successive forms will reveal exactly what changes between these
+               forms.</p>
+                  <p>Set this option by hard-coding in the pipeline or by using your processor's option syntax:</p>
+                  <ul>
+                     <li>
+                        <a href="../">Morgana XProc IIIse</a>
+                  supports syntax in the form <code>-option:OPTIONNAME=optionvalue</code> from the command line</li>
+                     <li>
+                        <a href="../">XML Calabash 3</a>
+                  supports syntax in the form <code>OPTIONNAME=optionvalue</code>
+                        <i>after</i> the pipeline name in the command</li>
+                  </ul>
+               </section>
+            </section>
+            <section>
+               <h2>What these pipelines have in common</h2>
+               <p>See the  <a href="../tutorial/source/oscal-produce/oscal-produce_102_src.html"
+                     class="LessonUnit">next lesson unit</a> for remarks on the
+            patterns that can be observed in these pipelines.</p>
+               <ul>
+                  <li>Entropy-removing upconversion to semantic target, followed by downhill conversion - declarative encoding
+               as 'potential energy' magnified by the degree to which consumers have prior knowledge of new formats</li>
+                  <li>Mix of generic and ad-hoc processes (tailored per pipeline)</li>
+                  <li>XProc or XSLT? (Or XQuery?) XSLT, in line or out of line?</li>
+                  <li>Transparency and traceability of deterministic, well-defined and specified processes</li>
+                  <li>Scaling and scalability: complexity, throughput (quantity), variability, time horizons - testing one-off
+               cases vs production pipelines</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Some differences</h2>
+               <p>Pipelines will vary in how much error handling or implicit <q>hand holding</q> they offer. The USDS Playbook
+            example shows a case that may arguably be over-engineered, in the sense that it provides more complex
+            fallback logic than the (comparatively simple) problem may warrant. For example, instead of declaring
+            expected inputs (which can be checked when the pipeline is loaded), it loads them dynamically, giving a
+            custom error message when they are missing (with a hint on how they can be acquired). A simpler pipeline
+            might trust the processor's own error message to do the job of communicating the problem. The benefit is
+            that this shows how XProc pipelines can be made to be more forgiving (of predictable errors) as well as
+            presumably easier for the user, at the cost of some logical complexity in its internals.</p>
+               <p>Nevertheless even a pipeline designed to be robust will not when required inputs are not available. An
+            engine drives a cart, but we move the cart for the sake of its cargo: this is what is means to be
+               <q>required</q>.</p>
+            </section>
+         </section>
+         <section class="unit maker"
+                  id="oscal-produce_102"
+                  data-track="maker">
+            <h1>102: Producing OSCAL from unrefined inputs</h1>
+            <section>
+               <h2>Goals</h2>
+               <p>Learn about the internals of XML-based data extraction and mapping processes, what we call an <q>uphill</q>
+            data conversion, data refinement or enhancement.</p>
+               <p>Get a chance to see how XSLT and other steps together give XProc ways to address conversion problems at
+            appropriate levels of scale and abstraction, both for general and for specific or narrow cases.</p>
+               <p>See examples of how XProc pipelines can integrate validation processes to provide runtime quality assurance
+            and regression testing.</p>
+            </section>
+            <section>
+               <h2>Prerequisites</h2>
+               <p>You are familiar with the idea and probably the practice of running XProc pipelines, as described in earlier
+            lessons.</p>
+               <p>You have understood from <a href="../tutorial/source/oscal-produce/oscal-produce_101_src.html"
+                     class="LessonUnit">preceding lesson unit</a>
+            its explanations of the examples discussed here, in greater depth.</p>
+            </section>
+            <section>
+               <h2>Resources</h2>
+               <p>Like the preceding lesson unit, this one relies on XProc examples in this repository:</p>
+               <ul>
+                  <li>USDS Playbook – 13 OSCAL controls (high level) derived from a simple web page produced by the US Digital
+               Service (downloaded January 2025).</li>
+                  <li>NIST SP 800-171 from NIST Computer Cybersecurity and Privacy Reference Tool (CPRT) JSON (acquired
+               December 2024)</li>
+                  <li>US Army Field Manual 6-22 - via HTML from PDF source, with NISO STS format as an additional result
+               (acquired December 2024)</li>
+               </ul>
+               <p>
+                  <i>Caution: all produced versions of these public documents are non-normative, unauthorized (lawful within
+               terms of reuse in the public domain) and not for publication, being produced only for demonstration of
+               tools and capabilities.</i>
+               </p>
+            </section>
+            <section>
+               <h2>Interactive debugging in XProc</h2>
+               <p>Mentioned before, potentially worth mentioning again:</p>
+               <ul>
+                  <li>
+                     <code>p:store</code> can be used anywhere to save the document in the pipeline as it is at that point.
+               Use it to save both interim and final results.</li>
+                  <li>
+                     <code>@message</code> (a <code>message</code> attribute) can be used on most any XProc step, including
+                  <code>p:identity</code>, to report on XProc at any point in a pipeline's execution.</li>
+                  <li>
+                     <code>@use-when</code> with a value returning a Boolean (true or false) can be used to switch steps on
+               or off, in support of debugging or normal operations.</li>
+                  <li>XML comments can always be used to hide code from the XProc processor.</li>
+               </ul>
+            </section>
+            <section>
+               <h2>Testing, both results and processes</h2>
+               <p>Both automated (replicable) and non-automated (effortful or irreplicable) test methodologies can be
+            applied.</p>
+               <p>In the non-automated category we include simple inspections of results.</p>
+               <p>We testing processes, in contrast, by actively intervening, making adjustments, and comparing results.</p>
+               <p>We can automate testing of processes by deploying schema or Schematron validation. These work similarly in
+            that they provide sets of rules, more or less comprehensive, governing use of element structures within XML.
+            Using either a standard schema (which can be stipulated as a benchmark or reference point for assessment),
+            or a custom schema made for the case (and similarly subject to its own functional requirements), with XProc
+            we can defend against regression by throwing errors if inputs start varying from expectations.</p>
+               <p>Schema validation also helps warrant results for fitness for exchange with partners using the same standards
+            and XML vocabularies.</p>
+            </section>
+            <section>
+               <h2>XProc so far: a survey</h2>
+               <p>A <a href="../tutorial/worksheets/XProc-POLL_worksheet.xpl">worksheet XProc</a> is provided with an XSLT
+            transformation that polls a set of XProc documents to produce a list of XProc elements appearing, with their
+            files. This list was then edited by hand and spliced into this page, reorganized and enhanced with comments.
+            Keep in mind this listing is likely to be out of date if the pipelines have changed.</p>
+               <p>For more links:</p>
+               <ul>
+                  <li>
+                     <a href="../projects/xproc-doc/out/xproc-step-list.html">XProc step list</a> generated using
+               XProc</li>
+                  <li>Erik Siegel's <a href="../">XProcRef</a> reference resource</li>
+               </ul>
+               <section>
+                  <h3>Top-level, imports and prologue</h3>
+                  <section>
+                     <h4>
+                        <code>p:declare-step</code>
+                     </h4>
+                     <p>The top-level (document) element for an XProc step declaration – either the document element of the
+                  XProc file, or (in none of these cases) directly contained inside <code>/p:library</code> (a step
+                  defined for import with a library) or <code>/p:declare-step</code> (for a step defined for local use
+                  in this pipeline only).</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                     <h4>
+                     </h4>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:import</code>
+                     </h4>
+                     <p>Importing a step from another XProc XML file makes that step available as an extensions step in a
+                  pipeline. The named <em>type</em> of the step (given as <code>p:declare-step/@type</code> is provided
+                  as its invocation. This is typically a namespace-qualified name such as
+                     <code>ox:validation-summarize</code>, for the step defined in the imported pipeline <a href="../projects/oscal-import/USArmy_FM6-22/src/validation-summarize.xpl">validation-summarize.xpl</a>.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:option</code>
+                     </h4>
+                     <p>An XProc <em>option</em> permits a named value to be defined, like a variable, except exposed such
+                  that it can be set by the processor at runtime, overriding a default value. (XSLT practitioners will
+                  be reminded of <code>xsl:param</code> at the top level declaring a stylesheet parameter: this is
+                  XProc's equivalent.</p>
+                     <p>In one pipeline here an option is made available in the XProc pipeline to turn on a tracing feature.
+                  In the other, options are used to set values that might be reset for a different use case.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a> – set the <code>writing-all</code> to
+                        <code>select="false()"</code> to turn off diagnostics (in the form of <q>snapshots</q> of
+                     interim document states, saved in a <code>temp</code> directory)</li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:input</code>
+                     </h4>
+                     <p>A top-level binding for inputs to the pipeline. One pipeline among these examples binds its source
+                  using this top-level configuration. The other examples load their inputs dynamically using
+                     <code>p:load</code>.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                     </ul>
+                  </section>
+                  <section>
+                     <h4>
+                        <code>p:output</code>
+                     </h4>
+                     <p>All three pipelines produce outputs on the file system using <code>p:store</code>. Additionally, one
+                  is configured with an output port, where it exposes the aggregated results of several validation
+                  checks over process results.</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                     <p>When an output port is configured (in a step or compound step) without an explicit port binding (via
+                     <code>@pipe</code> or <code>p:pipe</code>), it will bind implicitly to the primary output port of
+                  the last step in the pipeline (typically <code>result</code>, but often unstated).</p>
+                  </section>
+               </section>
+               <section>
+                  <h3>Steps</h3>
+                  <div>
+                     <p>All three pipelines:</p>
+                     <ul>
+                        <li>
+                           <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                        </li>
+                        <li>
+                           <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                        </li>
+                     </ul>
+                     <section>
+                        <h4>
+                           <code>p:identity</code>
+                        </h4>
+                        <p>This step passes documents on the <code>source</code> (implicit primary) port through, unchanged.
+                     This element is commonly used:</p>
+                        <ul>
+                           <li>To provide messages to the user at runtime.</li>
+                           <li>To provide a stable reference for an output port binding, as a discrete step, which can be
+                        positioned or moved among other steps.</li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:insert</code>
+                        </h4>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:store</code>
+                        </h4>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:validate-with-relax-ng</code>
+                        </h4>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:xslt</code>
+                        </h4>
+                     </section>
+                  </div>
+                  <div>
+                     <p>In two of the three pipelines:</p>
+                     <div>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                        <section>
+                           <h4>
+                              <code>p:choose</code>, <code>p:when</code>, <code>p:otherwise</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:load</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:validate-with-xml-schema</code>
+                           </h4>
+                        </section>
+                     </div>
+                     <div>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                        </ul>
+                        <section>
+                           <h4>
+                              <code>p:group</code>
+                           </h4>
+                           <p>A compound step, for providing logical grouping to other steps. Without a <code>p:output</code>
+                        defined, a group has an implicit primary output bound to the result of its last contained step.
+                        Alternatively, one or more output ports defined on a group can be bound to results of steps run
+                        inside the group.</p>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:cast-content-type</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:namespace-delete</code>
+                           </h4>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:namespace-rename</code>
+                           </h4>
+                        </section>
+                     </div>
+                     <div>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                        <section>
+                           <h4>
+                              <code>p:if</code>
+                           </h4>
+                           <p>Reassuringly, this element contains a subpipeline (step sequence) to be executed only if the
+                        given test evaluates as <code>true()</code>.</p>
+                           <p>Compare this to the use of <code>@use-when</code> on a step - only statically known values can
+                        be used in <code>@use-when</code>, that is, values that can be determined by the pipeline
+                        processor from examining the pipeline, without executing it. Any expression can be given on
+                           <code>p:if/@test</code>, to be evaluated dynamically.</p>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:string-replace</code>
+                           </h4>
+                           <p>This step operates on plain text documents, not XML or HTML. One of its uses is cleanup tasks
+                        especially whitespace cleanup (rewriting cosmetic whitespace).</p>
+                        </section>
+                        <section>
+                           <h4>
+                              <code>p:validate-with-schematron</code>
+                           </h4>
+                           <p>This step tests a document in process (i.e., the document in the state where this step is used)
+                        against a given Schematron, designated on the <code>schema</code> secondary input port.</p>
+                           <p>The step emits a secondary result port named <code>report</code> containing the results of
+                        running the Schematron. This report may contain messages considered to indicate validation
+                        errors – XProc lets us decide.</p>
+                        </section>
+                     </div>
+                  </div>
+                  <div>
+                     <p>Used in <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a> only:</p>
+                     <section>
+                        <h4>
+                           <code>p:add-attribute</code>
+                        </h4>
+                        <p>If an attribute value can be determined statically for a matching element, this step can be used to
+                     add it. The value of the <code>attribute-value</code> should be a string (perhaps including
+                     attribute value templating), not an XPath that should result in a string – for that, use
+                        <code>p:label-elements</code>.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:error</code>
+                        </h4>
+                        <p>Producing a runtime error is a reasonable way to end a process gone wrong for any reason.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:filter</code>
+                        </h4>
+                        <p>A utility step for removing all but a matching set of elements within the document sequence.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:label-elements</code>
+                        </h4>
+                        <p>This step is somewhat similar to <code>p:add-attribute</code>, but a little more flexible in that
+                     it can label elements with results of XPath expressions evaluated in their own (document)
+                     context.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:uuid</code>
+                        </h4>
+                        <p>A step for generating random or workably-random UUID values (v4 UUIDs). Another pipeline in the
+                     repository uses XSLT logic for this purpose, in a more complex use case. For a simple case the
+                     XProc step works well.</p>
+                     </section>
+                  </div>
+                  <div>
+                     <p>In <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a> only:</p>
+                     <section>
+                        <h4>
+                           <code>p:delete</code>
+                        </h4>
+                        <p>The mirror image of <code>p:filter</code>, this step indicates that elements should be removed.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:replace</code>
+                        </h4>
+                        <p>This step matches branches of XML and replaces them with XML given on the <code>replacement</code>
+                     port.</p>
+                        <p>In the production of SP 800-171 in OSCAL, this step is put to work to promote structured plain text
+                     syntax into an  XML element structure, via a rewrite-and-parse strategy.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:try</code>, <code>p:catch</code>
+                        </h4>
+                        <p>XProc supports defining appropriate error handling and error trapping. This has a wide range of
+                     applications in XProc, for example for dynamically testing inputs against contracts on the fly, or
+                     for accounting for differences in XProc support between different processors.</p>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:viewport</code>
+                        </h4>
+                        <p>A compound step somewhat analogous in operation to an XSLT template, this step works like
+                        <code>p:replace</code>, except the replacement for matched elements is not provided on a port,
+                     but instead built by executing an entire subpipeline (step sequence).</p>
+                     </section>
+                  </div>
+                  <div>
+                     <p>In <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a> only:</p>
+                     <section>
+                        <h4>
+                           <code>p:wrap-sequence</code>
+                        </h4>
+                        <p>This step aggregates a sequence of documents on its <code>source</code> port and collects them into
+                     a single XML document, whose name is given as <code>@wrapper</code>.</p>
+                     </section>
+                  </div>
+                  <div>
+                     <p>An extension step:</p>
+                     <section>
+                        <h4>
+                           <code>ox:validation-summarize</code>
+                        </h4>
+                        <p>This step produces a plain-text summary of validation findings bound to the <code>source</code>
+                     input port. The validation findings can be in XML dialects (SVRL, XVRL etc.) delivered by commodity
+                     tools, negotiated internally and unified by the step.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+               </section>
+               <section>
+                  <h3>Connectors and plumbing</h3>
+                  <div>
+                     <p>Defining a variable:</p>
+                     <section>
+                        <h4>
+                           <code>p:variable</code>
+                        </h4>
+                        <p>This element may appear anywhere after the prologue, at the same level as a step. It defines a
+                     variable and binds a value to it for later use.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+                  <div>
+                     <p>Configuring a step …</p>
+                     <section>
+                        <h4>
+                           <code>p:with-input</code>
+                        </h4>
+                        <p>Most steps do not have an explicit <code>p:with-input</code> since the primary input is set
+                     implicitly to the primary output of the preceding step.</p>
+                        <p>You will see <code>p:with-input</code> any time a step either starts with a new input, or needs
+                     some input in addition to its primary input. The <code>@port</code> given on
+                        <code>p:with-input</code>, if any, designates how the input relates to the step - when no
+                        <code>@port</code> is named, the primary input is assumed, usually named
+                     <code>source</code>.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:with-option</code>
+                        </h4>
+                        <p>Sets an option for a step, as defined by the step. Since options can also be set using attribute
+                     syntax, this is a relatively rare element in XProc.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+                  <div>
+                     <p>Bindings to connections – appearing inside <code>p:input</code>, <code>p:with-input</code>, or (in the
+                  case of <code>p:pipe</code>) <code>p:output</code>:</p>
+                     <section>
+                        <h4>
+                           <code>p:document</code>
+                        </h4>
+                        <p>Binds a document to a port, retrieved using <code>@href</code>. URIs using the <code>file:</code>
+                     and <code>http/s:</code> schemes are both supported by XProc engines for resource retrieval.
+                     Relative paths work fine.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:inline</code>
+                        </h4>
+                        <p>Presents a literal document to be bound to the input. Take note, as whitespace inside this element
+                     is taken to be part of the contents bound to the port. More info available in the
+                     Specification.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl">NIST-CPRT/PRODUCE_SP800-171-OSCAL.xpl</a>
+                           </li>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:empty</code>
+                        </h4>
+                        <p>Makes explicit that a port is bound to an empty sequence of documents – this is permissible, and
+                     sometimes useful, on ports set with <code>sequence="true()".</code>
+                        </p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl">USDS-2024_Playbook/OSCAL-PLAYBOOK.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                     <section>
+                        <h4>
+                           <code>p:pipe</code>
+                        </h4>
+                        <p>Makes an explicit connection to an output port on another step, as indicated. A shorthand for this
+                     element is a <code>@pipe</code> attribute on its parent <code>p:with-input</code> or
+                        <code>p:output</code>.</p>
+                        <ul>
+                           <li>
+                              <a href="../projects/oscal-import/USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl">USArmy_FM6-22/PRODUCE_FM6-22-chapter4.xpl</a>
+                           </li>
+                        </ul>
+                     </section>
+                  </div>
+               </section>
+            </section>
+            <section>
+               <h2>TBD: for discussion</h2>
+               <ul>
+                  <li>Entropy-removing upconversion to semantic target, followed by downhill conversion - declarative encoding
+               as 'potential energy' magnified by the degree to which consumers have prior knowledge of new formats</li>
+                  <li>Mix of generic and ad-hoc processes (tailored per pipeline)</li>
+                  <li>XProc or XSLT? (Or XQuery?) XSLT, in line or out of line?</li>
+                  <li>Transparency and traceability of deterministic, well-defined and specified processes</li>
+                  <li>Scaling and scalability: complexity, throughput (quantity), variability, time horizons - testing one-off
+               cases vs production pipelines</li>
+               </ul>
             </section>
          </section>
       </section>
@@ -3840,29 +5174,34 @@ span.wordcount.over { color: darkred }
                   <li>Everything else you have seen relating to XProc</li>
                   <li>Your own problems</li>
                   <li>Your own examples</li>
+                  <li>Tutorial production pipelines as described below</li>
                </ul>
             </section>
             <section>
                <h2>Tutorial production pipelines</h2>
-               <p>The source files for these tutorials are all stored in the repository in a source directory, and maintained
-            in HTML format. The expectation is that all files will be represented as valid and complete HTML 5 in XML
-            syntax, i.e. XHTML to be treated as an HTML document type. However, not all files in this subdirectory are
-            used as source materials; this is only where they are stored and maintained.</p>
+               <p>The source files for these tutorials are all stored in the repository in <a href="../tutorial/source/">a directory named
+                  <code>source</code>
+                  </a>, and maintained in HTML format. The expectation is that all files will be
+            represented as valid and complete HTML 5 in XML syntax, i.e. XHTML to be treated as an HTML document type.
+            When composing the tutorial lessons, the author uses XML-based tools this rule (and others). However, not
+            all files in this subdirectory are used as source materials; this is only where they are stored and
+            maintained. Draft materials might appear here as well.</p>
                <p>At the top of the tutorial structure, a file <a href="../tutorial/lesson-plan.xml">lesson-plan.xml</a> is used as
-            a publication driver or configuration file, when read as a sequence of links back to folders. Each folder
-            named as a <code>Lesson/@key</code> is read, with all HTML files surnamed <code>_src.html</code> from that
-            folder considered to be tutorial source materials, in nominally alphabetic order. The tutorial as a whole is
-            built by reading each of these files, converting it to Markdown (with adjustments), and producing indexes to
-            the entire set, all done by writing files into the <a href="../tutorial/source/courseware/sequence/">sequence directory</a>. Such a
-            Markdown file set can be read and edited in Github in the usual way, or refreshed by running a production
-            pipeline again.</p>
+            a publication driver or configuration file, when read (by means of XProc) as a sequence of links back to
+            folders. Production is achieved by running pipelines that traverse the links, reading files and working
+            appropriately. Each folder named as a <code>Lesson/@key</code> is read, with all HTML files surnamed
+               <code>_src.html</code> from that folder considered to be tutorial source materials, in nominally
+            alphabetic order. The tutorial as a whole is built by reading each of these files, converting it to Markdown
+            (with adjustments), and producing indexes to the entire set, all done by writing files into the <a href="../tutorial/source/courseware/sequence/">sequence directory</a>. Such a Markdown file set can be read and edited in Github in the
+            usual way, or refreshed by running a production pipeline again.</p>
                <p>The authoring model and its design rationales as well as its tooling support, including automated proof
             checking under CI/CD, is described in a <a href="../tutorial/source/courseware/courseware_219_src.html"
                      class="LessonUnit">subsequent
                lesson unit</a>. Authoring in HTML rather than Markdown provides all kinds of leverage for ad-hoc
                <q>tutorial semantics</q> especially with the help of a structured (tagless) editor.</p>
-               <p>Each of the pipelines at the top performs a specific task with respect to tutorial production.</p>
-               <p>As always, pipelines should be provided with explanatory comments.</p>
+               <p>Each of the pipelines described here performs a specific task with respect to tutorial production, except
+            for one, a convenience or utility pipeline that runs all the others with a single invocation.</p>
+               <p>As always, pipelines should be provided internally with explanatory comments.</p>
                <p>When reading and writing files to file systems, the usual security considerations apply.</p>
                <section>
                   <h3>
@@ -3887,6 +5226,12 @@ span.wordcount.over { color: darkred }
                      <a href="../tutorial/PRODUCE-PROJECTS-ELEMENTLIST.xpl">PRODUCE-PROJECTS-ELEMENTLIST</a>
                   </h3>
                   <p>Generates an index of XProc elements used in projects in the repository, stored as<a href="../tutorial/sequence/element-directory.md">element-directory.md</a>.</p>
+               </section>
+               <section>
+                  <h3>
+                     <a href="../tutorial/PRODUCE-EVERYTHING.xpl">PRODUCE-EVERYTHING</a>
+                  </h3>
+                  <p>Runs all the pipelines described above, as a set, together.</p>
                </section>
             </section>
          </section>

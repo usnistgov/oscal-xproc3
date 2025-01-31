@@ -35,7 +35,9 @@ See [the XProc CG Learning page](https://xproc.org/learning.html). Especially th
 
 w3.org operates the [`xproc-dev@w3.org` mailing list](https://lists.w3.org/Archives/Public/xproc-dev/), with archive.
 
-## Morgana XProc III engine
+## Implementations
+
+### Morgana XProc III engine
 
 Achim Berndzen's XProc 3.0 engine MorganaXProc-IIIse, is open source.
 
@@ -44,15 +46,19 @@ Fore more information:
 - [Morgana support page](https://www.xml-project.com/morganaxproc-iiise.html)
 - [Documentation](https://www.xml-project.com/manual/index.html)
 
-## Projects using XProc 3.0
+### XML Calabash 3 engine
+
+Norman Walsh's XProc engine [XML Calabash](https://github.com/xmlcalabash/xmlcalabash3) is now available supporting XProc 3.0/3.1 -- as of writing (Jan 2025), an alpha release.
+
+## An XProc 3 library
 
 From Erik Siegel and Xatapult XML: [XML processing library](https://www.xtpxlib.org/) including especially [Word and Excel Conversions](https://xoffice.xtpxlib.org/) for creating "somewhat more manageable XML formats" from Word (`docx`) and Excel (`xlsx`) documents.
+
+*We will gladly add your XProc 3 project or library to this list: let us know!*
 
 ## XProc historical
 
 XProc 1.0 information is collected in [its archive](https://archive.xproc.org/).
 
-In order to align with XSLT and XPath 3.0, XProc skipped a 2.0 version.
-
-A commodity open-source XProc 1.0 implementation remains [XML Calabash](https://xmlcalabash.com/).
+Partly in order to align with XSLT and XPath 3.0, XProc skipped a 2.0 version.
 

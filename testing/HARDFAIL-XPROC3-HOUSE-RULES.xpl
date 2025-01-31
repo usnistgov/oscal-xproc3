@@ -11,11 +11,11 @@
    
         caution - this includes Schematron WARNING and INFO level messages -->
    
-   <p:import href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
+   <p:import href="cicd-fileset_XProc3_HouseRules.xpl"/>
    
    <p:variable name="schematron-path" select="'xproc3-house-rules.sch'"/>
    
-   <ox:FILESET_XPROC3_HOUSE-RULES  name="test-set"/>
+   <ox:cicd-fileset_XProc3_HouseRules name="test-set"/>
    
    <p:for-each>
       <p:with-input pipe="xproc-files@test-set"/>

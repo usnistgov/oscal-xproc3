@@ -4,7 +4,6 @@
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
    xmlns:p="http://www.w3.org/ns/xproc">
-
    <!-- Purpose:: Schematron rule set for XProc 3 authors to provide write-time support for pesky rules
         including help with local rules -->
 
@@ -70,13 +69,8 @@
 
    -->
    
-   <sch:let name="fileset-doc" value="document('FILESET_XPROC3_HOUSE-RULES.xpl')"/>
+   <sch:let name="fileset-doc" value="document('cicd-fileset_XProc3_HouseRules.xpl')"/>
    <sch:let name="listed-uris" value="$fileset-doc/p:*/p:input[@port='source']/p:document/@href ! resolve-uri(.,base-uri(../..))"/>
-   
-   <!--file:/C:/Users/wap1/Documents/usnistgov/oscal-xproc3
-   testing/FILESET_XPROC3_HOUSE-RULES.xpl
-   ../projects/schema-field-tests/reference-sets/catalog-model/CONVERT-XML-REFERENCE-SET.xpl
-   -->
    
    <sch:let name="resource-baseURI"  value="base-uri(/*)"/>
    <sch:let name="fileset-path"      value="base-uri($fileset-doc)"/>
@@ -126,13 +120,14 @@
 
    <sch:pattern>
       <sch:rule context="p:declare-step">
+         <sch:let name="local" value="exists(ancestor::p:declare-step)"/>
          <sch:let name="type-prefix" value="substring-before(@type, ':')"/>
          <sch:let name="type-uri" value="namespace-uri-for-prefix($type-prefix, .)"/>
          <sch:let name="typename-given" value="@type/tokenize(., ':')[last()]"/>
          
-         <sch:assert sqf:fix="sqf-repair-step-type" test="contains($basename, $typename-given) or contains($typename-given, $basename) or exists(/p:library)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-type" test="$local or contains($basename, $typename-given) or contains($typename-given, $basename) or exists(/p:library)">Unexpected declared type <sch:value-of select="$typename-given"/> for the file named <sch:value-of select="$filename"/></sch:assert>
          <sch:assert sqf:fix="sqf-repair-step-type" test="$type-uri = 'http://csrc.nist.gov/ns/oscal-xproc3'">XProc step @type is not given in namespace 'http://csrc.nist.gov/ns/oscal-xproc3'</sch:assert>
-         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or exists(/p:library)">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
+         <sch:assert sqf:fix="sqf-repair-step-name" test="(@name = $basename) or exists(/p:library) or $local">XProc step @name does not match the file name '<sch:value-of select="$filename"/>'</sch:assert>
       </sch:rule>
       
      <sch:rule context="p:load | p:store">

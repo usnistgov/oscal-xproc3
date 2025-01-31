@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="application/xml; charset=UTF-8">
+      <style type="text/css" xml:space="preserve">
+         body { font-family: sans-serif }
+div { border: medium outset grey; padding: 0.37em; margin-top: 0.4em }
+div.subpipeline { border: medium inset steelblue; background: lightsteelblue }
+div *.compound { background-color: whitesmoke; font-size: 95% }
+*.atomic { background-color: gainsboro } 
+p { margin: 0em }
+.v { font-family: monospace; font-size: 90% }
+div.input, div.output { display: inline-block; max-width: fit-content; vertical-align: text-top }
+.label { white-space: nowrap; overflow: visible }
+      </style>
+   </head>
+   <body>
+      <div class="compound"
+           data-version="3.0"
+           data-type="ox:PRODUCE_FM6-22-chapter4"
+           data-name="PRODUCE_FM6-22-chapter4"
+           style="width: min-content">
+         <p class="label">declare-step</p>
+         <p class="label">
+            <b>version</b>: <span class="v">3.0</span>
+         </p>
+         <p class="label">
+            <b>type</b>: <span class="v">ox:PRODUCE_FM6-22-chapter4</span>
+         </p>
+         <p class="label">
+            <b>name</b>: <span class="v">PRODUCE_FM6-22-chapter4</span>
+         </p>
+         <div class="atomic"
+              data-name="writing-all"
+              data-static="true"
+              data-select="true()">
+            <p class="label">option</p>
+            <p class="label">
+               <b>name</b>: <span class="v">writing-all</span>
+            </p>
+            <p class="label">
+               <b>static</b>: <span class="v">true</span>
+            </p>
+            <p class="label">
+               <b>select</b>: <span class="v">true()</span>
+            </p>
+         </div>
+         <div class="output"
+              data-port="validation-reports"
+              data-sequence="false">
+            <p class="label">
+               <b>port</b>: <span class="v">validation-reports</span>
+            </p>
+            <p class="label">
+               <b>sequence</b>: <span class="v">false</span>
+            </p>
+         </div>
+         <div class="subpipeline"
+              data-PLACES="34"
+              style="display: grid;grid-template-columns: repeat(35,auto); grid-template-rows: repeat(34,auto)">
+            <div class="import atomic"
+                 data-PLACEMENT="1"
+                 data-AMONG="34"
+                 style="grid-area: 1 / 1 / 1 / 3"
+                 data-href="src/validation-summarize.xpl">
+               <p class="label">import</p>
+               <p class="label">
+                  <b>href</b>: <span class="v">src/validation-summarize.xpl</span>
+               </p>
+            </div>
+            <div class="load atomic"
+                 data-PLACEMENT="2"
+                 data-AMONG="34"
+                 style="grid-area: 2 / 2 / 2 / 4"
+                 data-href="source/export/fm6_22.html"
+                 data-message="{$label} Loading HTML export for source FM 6-22">
+               <p class="label">load</p>
+               <p class="label">
+                  <b>href</b>: <span class="v">source/export/fm6_22.html</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="3"
+                 data-AMONG="34"
+                 style="grid-area: 3 / 3 / 3 / 5">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <div class="inline"
+                       data-expand-text="false">
+                     <p class="label">
+                        <b>expand-text</b>: <span class="v">false</span>
+                     </p>
+                     <div class="stylesheet"
+                          data-version="3.0"
+                          data-xpath-default-namespace="http://www.w3.org/1999/xhtml">
+                        <p class="label">
+                           <b>version</b>: <span class="v">3.0</span>
+                        </p>
+                        <p class="label">
+                           <b>xpath-default-namespace</b>: <span class="v">http://www.w3.org/1999/xhtml</span>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="4"
+                 data-AMONG="34"
+                 style="grid-area: 4 / 4 / 4 / 6"
+                 data-use-when="$writing-all"
+                 data-href="temp/t01.html"
+                 data-message="{$label} Saving flattened input">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t01.html</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="5"
+                 data-AMONG="34"
+                 style="grid-area: 5 / 5 / 5 / 7">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <div class="inline"
+                       data-expand-text="false">
+                     <p class="label">
+                        <b>expand-text</b>: <span class="v">false</span>
+                     </p>
+                     <div class="stylesheet"
+                          data-version="3.0"
+                          data-xpath-default-namespace="http://www.w3.org/1999/xhtml"
+                          data-expand-text="true">
+                        <p class="label">
+                           <b>version</b>: <span class="v">3.0</span>
+                        </p>
+                        <p class="label">
+                           <b>xpath-default-namespace</b>: <span class="v">http://www.w3.org/1999/xhtml</span>
+                        </p>
+                        <p class="label">
+                           <b>expand-text</b>: <span class="v">true</span>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="6"
+                 data-AMONG="34"
+                 style="grid-area: 6 / 6 / 6 / 8"
+                 data-use-when="$writing-all"
+                 data-href="temp/t02.xml"
+                 data-message="{$label} Saving extracted chapter 4">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t02.xml</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="7"
+                 data-AMONG="34"
+                 style="grid-area: 7 / 7 / 7 / 9">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6_structure.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6_structure.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="8"
+                 data-AMONG="34"
+                 style="grid-area: 8 / 8 / 8 / 10">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6_restructure.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6_restructure.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="9"
+                 data-AMONG="34"
+                 style="grid-area: 9 / 9 / 9 / 11"
+                 data-use-when="$writing-all"
+                 data-href="temp/t03_structured.xml"
+                 data-message="{$label} Saving chapter 4 re/structured">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t03_structured.xml</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="10"
+                 data-AMONG="34"
+                 style="grid-area: 10 / 10 / 10 / 12">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6-html-to-sts.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6-html-to-sts.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="11"
+                 data-AMONG="34"
+                 style="grid-area: 11 / 11 / 11 / 13"
+                 data-use-when="$writing-all"
+                 data-href="temp/t04_sts-rough.xml"
+                 data-message="{$label} STS conversion - simple mapping">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t04_sts-rough.xml</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="12"
+                 data-AMONG="34"
+                 style="grid-area: 12 / 12 / 12 / 14">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6_sts-enhance1.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6_sts-enhance1.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="13"
+                 data-AMONG="34"
+                 style="grid-area: 13 / 13 / 13 / 15"
+                 data-use-when="$writing-all"
+                 data-href="temp/t05_sts-corrected.xml"
+                 data-message="{$label} STS fixup">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t05_sts-corrected.xml</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="14"
+                 data-AMONG="34"
+                 style="grid-area: 14 / 14 / 14 / 16">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6_sts-enhance2.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6_sts-enhance2.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="15"
+                 data-AMONG="34"
+                 style="grid-area: 15 / 15 / 15 / 17"
+                 data-use-when="$writing-all"
+                 data-href="temp/t06_sts-enhanced.xml"
+                 data-message="{$label} STS cleanup">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t06_sts-enhanced.xml</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="16"
+                 data-AMONG="34"
+                 style="grid-area: 16 / 16 / 16 / 18">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6_sts-enhance3.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6_sts-enhance3.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="17"
+                 data-AMONG="34"
+                 style="grid-area: 17 / 17 / 17 / 19"
+                 data-name="best-sts"
+                 data-message="{$label} SAVING STS best so far - temp/FM_6-22-STS.xml"
+                 data-href="temp/FM_6-22-STS.xml">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">best-sts</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/FM_6-22-STS.xml</span>
+               </p>
+            </div>
+            <div class="choose compound"
+                 data-PLACEMENT="18"
+                 data-AMONG="34"
+                 style="grid-area: 18 / 18 / 18 / 20"
+                 data-name="sts-validation">
+               <p class="label">choose</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">sts-validation</span>
+               </p>
+               <div class="compound"
+                    data-test="doc-available($sts-rng)">
+                  <p class="label">when</p>
+                  <p class="label">
+                     <b>test</b>: <span class="v">doc-available($sts-rng)</span>
+                  </p>
+                  <div class="output"
+                       data-port="report"
+                       data-pipe="report@sts-rng-validation">
+                     <p class="label">
+                        <b>port</b>: <span class="v">report</span>
+                     </p>
+                     <p class="label">
+                        <b>pipe</b>: <span class="v">report@sts-rng-validation</span>
+                     </p>
+                  </div>
+                  <div class="subpipeline"
+                       data-PLACES="1"
+                       style="display: grid;grid-template-columns: repeat(2,auto); grid-template-rows: repeat(1,auto)">
+                     <div class="validate-with-relax-ng atomic"
+                          data-PLACEMENT="1"
+                          data-AMONG="1"
+                          style="grid-area: 1 / 1 / 1 / 2"
+                          data-assert-valid="false"
+                          data-name="sts-rng-validation"
+                          data-message="{$label} Validating STS against RNG schema { $sts-rng }">
+                        <p class="label">validate-with-relax-ng</p>
+                        <p class="label">
+                           <b>assert-valid</b>: <span class="v">false</span>
+                        </p>
+                        <p class="label">
+                           <b>name</b>: <span class="v">sts-rng-validation</span>
+                        </p>
+                        <div class="with-input"
+                             data-port="schema">
+                           <p class="label">
+                              <b>port</b>: <span class="v">schema</span>
+                           </p>
+                           <div class="document"
+                                data-href="{ $sts-rng }">
+                              <p class="label">
+                                 <b>href</b>: <span class="v">{ $sts-rng }</span>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="compound">
+                  <p class="label">otherwise</p>
+                  <div class="output"
+                       data-port="report"
+                       data-pipe="result@no-rng">
+                     <p class="label">
+                        <b>port</b>: <span class="v">report</span>
+                     </p>
+                     <p class="label">
+                        <b>pipe</b>: <span class="v">result@no-rng</span>
+                     </p>
+                  </div>
+                  <div class="subpipeline"
+                       data-PLACES="1"
+                       style="display: grid;grid-template-columns: repeat(2,auto); grid-template-rows: repeat(1,auto)">
+                     <div class="identity atomic"
+                          data-PLACEMENT="1"
+                          data-AMONG="1"
+                          style="grid-area: 1 / 1 / 1 / 2"
+                          data-message="{$label} Not validating STS - no schema found at { $sts-rng } - try running pipeline GRAB-NISO_STS-RNG.xpl"
+                          data-name="no-rng">
+                        <p class="label">identity</p>
+                        <p class="label">
+                           <b>name</b>: <span class="v">no-rng</span>
+                        </p>
+                        <div class="with-input">
+                           <div class="inline">
+                              <div class="message">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="validation-summarize atomic"
+                 data-PLACEMENT="19"
+                 data-AMONG="34"
+                 style="grid-area: 19 / 19 / 19 / 21"
+                 data-name="summarize-sts-validation">
+               <p class="label">validation-summarize</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">summarize-sts-validation</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="20"
+                 data-AMONG="34"
+                 style="grid-area: 20 / 20 / 20 / 22">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="source"
+                    data-pipe="result@best-sts">
+                  <p class="label">
+                     <b>port</b>: <span class="v">source</span>
+                  </p>
+                  <p class="label">
+                     <b>pipe</b>: <span class="v">result@best-sts</span>
+                  </p>
+               </div>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/fm22-6_sts-to-oscal.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/fm22-6_sts-to-oscal.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="21"
+                 data-AMONG="34"
+                 style="grid-area: 21 / 21 / 21 / 23"
+                 data-use-when="$writing-all"
+                 data-name="oscalized-sts"
+                 data-href="temp/t16_oscalized.xml"
+                 data-message="{$label} Saving OSCAL - temp/t16_oscalized.xml">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>use-when</b>: <span class="v">$writing-all</span>
+               </p>
+               <p class="label">
+                  <b>name</b>: <span class="v">oscalized-sts</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/t16_oscalized.xml</span>
+               </p>
+            </div>
+            <div class="string-replace atomic"
+                 data-PLACEMENT="22"
+                 data-AMONG="34"
+                 style="grid-area: 22 / 22 / 22 / 24"
+                 data-match="o:p/text()[1][empty(preceding-sibling::*)]"
+                 data-replace="replace(.,'^\s+','')">
+               <p class="label">string-replace</p>
+               <p class="label">
+                  <b>match</b>: <span class="v">o:p/text()[1][empty(preceding-sibling::*)]</span>
+               </p>
+               <p class="label">
+                  <b>replace</b>: <span class="v">replace(.,'^\s+','')</span>
+               </p>
+            </div>
+            <div class="string-replace atomic"
+                 data-PLACEMENT="23"
+                 data-AMONG="34"
+                 style="grid-area: 23 / 23 / 23 / 25"
+                 data-match="text()"
+                 data-replace="replace(.,'\(starting on page 4-4\)','')">
+               <p class="label">string-replace</p>
+               <p class="label">
+                  <b>match</b>: <span class="v">text()</span>
+               </p>
+               <p class="label">
+                  <b>replace</b>: <span class="v">replace(.,'\(starting on page 4-4\)','')</span>
+               </p>
+            </div>
+            <div class="string-replace atomic"
+                 data-PLACEMENT="24"
+                 data-AMONG="34"
+                 style="grid-area: 24 / 24 / 24 / 26"
+                 data-match="text()"
+                 data-replace="replace(.,' on page 4\-\d\d?','')">
+               <p class="label">string-replace</p>
+               <p class="label">
+                  <b>match</b>: <span class="v">text()</span>
+               </p>
+               <p class="label">
+                  <b>replace</b>: <span class="v">replace(.,' on page 4\-\d\d?','')</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="25"
+                 data-AMONG="34"
+                 style="grid-area: 25 / 25 / 25 / 27"
+                 data-name="oscal-whitespace">
+               <p class="label">xslt</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">oscal-whitespace</span>
+               </p>
+               <div class="with-input"
+                    data-port="stylesheet">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <div class="inline"
+                       data-expand-text="false">
+                     <p class="label">
+                        <b>expand-text</b>: <span class="v">false</span>
+                     </p>
+                     <div class="stylesheet"
+                          data-version="3.0"
+                          data-xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                        <p class="label">
+                           <b>version</b>: <span class="v">3.0</span>
+                        </p>
+                        <p class="label">
+                           <b>xpath-default-namespace</b>: <span class="v">http://csrc.nist.gov/ns/oscal/1.0</span>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="26"
+                 data-AMONG="34"
+                 style="grid-area: 26 / 26 / 26 / 28"
+                 data-name="oscal"
+                 data-href="temp/FM_6-22-OSCAL.xml"
+                 data-message="{$label} SAVING OSCAL - temp/FM_6-22-OSCAL.xml">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">oscal</span>
+               </p>
+               <p class="label">
+                  <b>href</b>: <span class="v">temp/FM_6-22-OSCAL.xml</span>
+               </p>
+            </div>
+            <div class="if compound"
+                 data-PLACEMENT="27"
+                 data-AMONG="34"
+                 style="grid-area: 27 / 27 / 27 / 29"
+                 data-test="$writing-all">
+               <p class="label">if</p>
+               <p class="label">
+                  <b>test</b>: <span class="v">$writing-all</span>
+               </p>
+               <div class="subpipeline"
+                    data-PLACES="2"
+                    style="display: grid;grid-template-columns: repeat(3,auto); grid-template-rows: repeat(2,auto)">
+                  <div class="insert atomic"
+                       data-PLACEMENT="1"
+                       data-AMONG="2"
+                       style="grid-area: 1 / 1 / 1 / 3"
+                       data-match="/*"
+                       data-position="before">
+                     <p class="label">insert</p>
+                     <p class="label">
+                        <b>match</b>: <span class="v">/*</span>
+                     </p>
+                     <p class="label">
+                        <b>position</b>: <span class="v">before</span>
+                     </p>
+                     <div class="with-input"
+                          data-port="insertion">
+                        <p class="label">
+                           <b>port</b>: <span class="v">insertion</span>
+                        </p>
+                        <div class="inline">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="store atomic"
+                       data-PLACEMENT="2"
+                       data-AMONG="2"
+                       style="grid-area: 2 / 2 / 2 / 3"
+                       data-name="oscal-working"
+                       data-href="FM_6-22-OSCAL-working.xml"
+                       data-message="{$label} SAVING OSCAL working file - FM_6-22-OSCAL-working.xml">
+                     <p class="label">store</p>
+                     <p class="label">
+                        <b>name</b>: <span class="v">oscal-working</span>
+                     </p>
+                     <p class="label">
+                        <b>href</b>: <span class="v">FM_6-22-OSCAL-working.xml</span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="insert atomic"
+                 data-PLACEMENT="28"
+                 data-AMONG="34"
+                 style="grid-area: 28 / 28 / 28 / 30"
+                 data-match="ox:message"
+                 data-position="before">
+               <p class="label">insert</p>
+               <p class="label">
+                  <b>match</b>: <span class="v">ox:message</span>
+               </p>
+               <p class="label">
+                  <b>position</b>: <span class="v">before</span>
+               </p>
+               <div class="with-input"
+                    data-port="insertion">
+                  <p class="label">
+                     <b>port</b>: <span class="v">insertion</span>
+                  </p>
+                  <div class="inline">
+                  </div>
+               </div>
+            </div>
+            <div class="choose compound"
+                 data-PLACEMENT="29"
+                 data-AMONG="34"
+                 style="grid-area: 29 / 29 / 29 / 31"
+                 data-name="oscal-validation">
+               <p class="label">choose</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">oscal-validation</span>
+               </p>
+               <div class="compound"
+                    data-test="doc-available($oscal-xsd)">
+                  <p class="label">when</p>
+                  <p class="label">
+                     <b>test</b>: <span class="v">doc-available($oscal-xsd)</span>
+                  </p>
+                  <div class="output"
+                       data-port="report"
+                       data-pipe="report@oscal-xsd-validation">
+                     <p class="label">
+                        <b>port</b>: <span class="v">report</span>
+                     </p>
+                     <p class="label">
+                        <b>pipe</b>: <span class="v">report@oscal-xsd-validation</span>
+                     </p>
+                  </div>
+                  <div class="subpipeline"
+                       data-PLACES="1"
+                       style="display: grid;grid-template-columns: repeat(2,auto); grid-template-rows: repeat(1,auto)">
+                     <div class="validate-with-xml-schema atomic"
+                          data-PLACEMENT="1"
+                          data-AMONG="1"
+                          style="grid-area: 1 / 1 / 1 / 2"
+                          data-assert-valid="false"
+                          data-name="oscal-xsd-validation"
+                          data-message="{$label} Validating OSCAL against XSD { $oscal-xsd }">
+                        <p class="label">validate-with-xml-schema</p>
+                        <p class="label">
+                           <b>assert-valid</b>: <span class="v">false</span>
+                        </p>
+                        <p class="label">
+                           <b>name</b>: <span class="v">oscal-xsd-validation</span>
+                        </p>
+                        <div class="with-input"
+                             data-port="schema">
+                           <p class="label">
+                              <b>port</b>: <span class="v">schema</span>
+                           </p>
+                           <div class="document"
+                                data-href="{ $oscal-xsd }">
+                              <p class="label">
+                                 <b>href</b>: <span class="v">{ $oscal-xsd }</span>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="compound">
+                  <p class="label">otherwise</p>
+                  <div class="output"
+                       data-port="report"
+                       data-pipe="result@no-xsd">
+                     <p class="label">
+                        <b>port</b>: <span class="v">report</span>
+                     </p>
+                     <p class="label">
+                        <b>pipe</b>: <span class="v">result@no-xsd</span>
+                     </p>
+                  </div>
+                  <div class="subpipeline"
+                       data-PLACES="1"
+                       style="display: grid;grid-template-columns: repeat(2,auto); grid-template-rows: repeat(1,auto)">
+                     <div class="identity atomic"
+                          data-PLACEMENT="1"
+                          data-AMONG="1"
+                          style="grid-area: 1 / 1 / 1 / 2"
+                          data-message="{$label} Not validating OSCAL - no schema found at { $oscal-xsd }"
+                          data-name="no-xsd">
+                        <p class="label">identity</p>
+                        <p class="label">
+                           <b>name</b>: <span class="v">no-xsd</span>
+                        </p>
+                        <div class="with-input">
+                           <div class="inline">
+                              <div class="message">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="validation-summarize atomic"
+                 data-PLACEMENT="30"
+                 data-AMONG="34"
+                 style="grid-area: 30 / 30 / 30 / 32"
+                 data-name="summarize-oscal-validation">
+               <p class="label">validation-summarize</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">summarize-oscal-validation</span>
+               </p>
+            </div>
+            <div class="validate-with-schematron atomic"
+                 data-PLACEMENT="31"
+                 data-AMONG="34"
+                 style="grid-area: 31 / 31 / 31 / 33"
+                 data-assert-valid="false"
+                 data-name="schematron-validator"
+                 data-message="{$label} Validating OSCAL against local Schematron src/oscal-check.sch">
+               <p class="label">validate-with-schematron</p>
+               <p class="label">
+                  <b>assert-valid</b>: <span class="v">false</span>
+               </p>
+               <p class="label">
+                  <b>name</b>: <span class="v">schematron-validator</span>
+               </p>
+               <div class="with-input"
+                    data-port="source"
+                    data-pipe="result@oscal">
+                  <p class="label">
+                     <b>port</b>: <span class="v">source</span>
+                  </p>
+                  <p class="label">
+                     <b>pipe</b>: <span class="v">result@oscal</span>
+                  </p>
+               </div>
+               <div class="with-input"
+                    data-port="schema"
+                    data-href="src/oscal-check.sch">
+                  <p class="label">
+                     <b>port</b>: <span class="v">schema</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/oscal-check.sch</span>
+                  </p>
+               </div>
+            </div>
+            <div class="validation-summarize atomic"
+                 data-PLACEMENT="32"
+                 data-AMONG="34"
+                 style="grid-area: 32 / 32 / 32 / 34"
+                 data-name="summarize-oscal-schematron">
+               <p class="label">validation-summarize</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">summarize-oscal-schematron</span>
+               </p>
+               <div class="with-input"
+                    data-port="validation-report"
+                    data-pipe="report@schematron-validator">
+                  <p class="label">
+                     <b>port</b>: <span class="v">validation-report</span>
+                  </p>
+                  <p class="label">
+                     <b>pipe</b>: <span class="v">report@schematron-validator</span>
+                  </p>
+               </div>
+            </div>
+            <div class="wrap-sequence atomic"
+                 data-PLACEMENT="33"
+                 data-AMONG="34"
+                 style="grid-area: 33 / 33 / 33 / 35"
+                 data-wrapper="ox:REPORTS"
+                 data-name="validation-reports">
+               <p class="label">wrap-sequence</p>
+               <p class="label">
+                  <b>wrapper</b>: <span class="v">ox:REPORTS</span>
+               </p>
+               <p class="label">
+                  <b>name</b>: <span class="v">validation-reports</span>
+               </p>
+               <div class="with-input">
+                  <div class="pipe"
+                       data-step="summarize-sts-validation"
+                       data-port="summary">
+                     <p class="label">
+                        <b>step</b>: <span class="v">summarize-sts-validation</span>
+                     </p>
+                     <p class="label">
+                        <b>port</b>: <span class="v">summary</span>
+                     </p>
+                  </div>
+                  <div class="pipe"
+                       data-step="summarize-oscal-validation"
+                       data-port="summary">
+                     <p class="label">
+                        <b>step</b>: <span class="v">summarize-oscal-validation</span>
+                     </p>
+                     <p class="label">
+                        <b>port</b>: <span class="v">summary</span>
+                     </p>
+                  </div>
+                  <div class="pipe"
+                       data-step="summarize-oscal-schematron"
+                       data-port="summary">
+                     <p class="label">
+                        <b>step</b>: <span class="v">summarize-oscal-schematron</span>
+                     </p>
+                     <p class="label">
+                        <b>port</b>: <span class="v">summary</span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="insert atomic"
+                 data-PLACEMENT="34"
+                 data-AMONG="34"
+                 style="grid-area: 34 / 34 / 34 / 35"
+                 data-match="ox:message"
+                 data-position="before">
+               <p class="label">insert</p>
+               <p class="label">
+                  <b>match</b>: <span class="v">ox:message</span>
+               </p>
+               <p class="label">
+                  <b>position</b>: <span class="v">before</span>
+               </p>
+               <div class="with-input"
+                    data-port="insertion">
+                  <p class="label">
+                     <b>port</b>: <span class="v">insertion</span>
+                  </p>
+                  <div class="inline">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

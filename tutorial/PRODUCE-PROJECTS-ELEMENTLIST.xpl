@@ -5,10 +5,12 @@
    xmlns:html="http://www.w3.org/1999/xhtml"
    xmlns:ox="http://csrc.nist.gov/ns/oscal-xproc3" type="ox:PRODUCE-PROJECTS-ELEMENTLIST" name="PRODUCE-PROJECTS-ELEMENTLIST">
 
-   <!-- PRODUCE-TUTORIAL-ELEMENTLIST produces an XML file
+   <!-- PRODUCE-PROJECTS-ELEMENTLIST produces a Markdown file
 
      Listing directories in sequence, with the XProc elements first used in pipelines in that directory
      Along with an index to XProc elements in all directories
+     
+     HTML is used as an intermediate format.
      
    -->
 
@@ -21,9 +23,11 @@
             <project dir="../smoketest"/>
             <project dir="../projects/oscal-convert/"/>
             <project dir="../projects/oscal-validate/"/>
+            <project dir="../projects/oscal-import/NIST-CPRT/"/>
+            <project dir="../projects/oscal-import/USArmy_FM6-22/"/>
+            <project dir="../projects/oscal-import/USDS-2024_Playbook/"/>
+            
             <project dir="../projects/oscal-publish/"/>
-            <project dir="../projects/FM6-22-import/"/>
-            <project dir="../projects/CPRT-import/"/>
             <project dir="../projects/profile-resolution/"/>
             <project dir="../projects/xproc-doc/"/>
          </SEQUENCE>
@@ -165,7 +169,5 @@
    <!-- Saving that -->
    <p:store href="{$result-md-path}" serialization="map{'method': 'text', 'encoding': 'us-ascii'}"
       message="[PRODUCE-PROJECTS-ELEMENTLIST] Storing { $result-md-path }"/>
-   
-   <!--<p:identity message="[PRODUCE-TUTORIAL-MARKDOWN] Storing { $result-md-path }"/>-->
-   
+
 </p:declare-step>

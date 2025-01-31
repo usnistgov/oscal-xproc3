@@ -7,7 +7,7 @@
 
    <!-- Executes available XSpecs writing only JUnit results -->
    
-   <p:import href="FILESET_XSPEC.xpl"/>
+   <p:import href="cicd-fileset_XSpec.xpl"/>
    
    <p:import href="../xspec/xspec-execute.xpl"/>
    
@@ -15,7 +15,7 @@
    
    <p:variable name="outdir" select="'xspec-reports' => resolve-uri(static-base-uri())"/>
    
-   <ox:FILESET_XSPEC name="test-set"/>
+   <ox:cicd-fileset_XSpec name="test-set"/>
    
    <!-- See pipeline RUN_XSPEC_BATCH.xpl for logic capturing HTML also -->
    <p:for-each>

@@ -14,11 +14,11 @@ XProc is not a simple thing, with only one way in. The territory is vast, but it
 
 ## Resources
 
-[A Declarative Markup Bibliography](https://markupdeclaration.org/resources/bibliography) is available on line for future reference on this interesting topic.
+[A Declarative Markup Bibliography](https://markupdeclaration.org/resources/bibliography) is available online for future reference on this interesting topic.
 
 ## Some observations
 
-Because it is now centered on *pipelines* built out of combining capabilities of *steps* (which may be black boxes), as much as on files and software packages, dependency management when using XProc is different from other technologies including Java and NodeJS – how so?
+Dependency management when using XProc is different from other technologies including Java and Javascript/NodeJS – how so? Because it is now centered on *pipelines* built out of combining capabilities of *steps* (which may be black boxes), as much as on files and software packages. Arguably, XProc blurs the distinction between code you write, and libraries you use, in a useful way – while presenting its own challenges.
 
 MorganaXProc-III is implemented in Scala, and Saxon is built in Java, but otherwise distributions including the SchXSLT and XSpec distributions consist mainly of XSLT. This is either very good (with development and maintenance requirements in view), or not good at all.
 

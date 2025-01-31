@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="application/xml; charset=UTF-8">
+      <style type="text/css" xml:space="preserve">
+         body { font-family: sans-serif }
+div { border: medium outset grey; padding: 0.37em; margin-top: 0.4em }
+div.subpipeline { border: medium inset steelblue; background: lightsteelblue }
+div *.compound { background-color: whitesmoke; font-size: 95% }
+*.atomic { background-color: gainsboro } 
+p { margin: 0em }
+.v { font-family: monospace; font-size: 90% }
+div.input, div.output { display: inline-block; max-width: fit-content; vertical-align: text-top }
+.label { white-space: nowrap; overflow: visible }
+      </style>
+   </head>
+   <body>
+      <div class="compound"
+           data-version="3.0"
+           data-type="ox:PROVE-XSD-VALIDATIONS"
+           data-name="PROVE-XSD-VALIDATIONS"
+           style="width: min-content">
+         <p class="label">declare-step</p>
+         <p class="label">
+            <b>version</b>: <span class="v">3.0</span>
+         </p>
+         <p class="label">
+            <b>type</b>: <span class="v">ox:PROVE-XSD-VALIDATIONS</span>
+         </p>
+         <p class="label">
+            <b>name</b>: <span class="v">PROVE-XSD-VALIDATIONS</span>
+         </p>
+         <div class="input"
+              data-port="xml-samples"
+              data-sequence="true">
+            <p class="label">
+               <b>port</b>: <span class="v">xml-samples</span>
+            </p>
+            <p class="label">
+               <b>sequence</b>: <span class="v">true</span>
+            </p>
+            <div class="document"
+                 data-href="reference-sets/catalog-model/xml/fully-valid/minimal.xml">
+               <p class="label">
+                  <b>href</b>: <span class="v">reference-sets/catalog-model/xml/fully-valid/minimal.xml</span>
+               </p>
+            </div>
+            <div class="document"
+                 data-href="reference-sets/catalog-model/xml/fully-valid/okay-catalog.xml">
+               <p class="label">
+                  <b>href</b>: <span class="v">reference-sets/catalog-model/xml/fully-valid/okay-catalog.xml</span>
+               </p>
+            </div>
+            <div class="document"
+                 data-href="reference-sets/catalog-model/xml/fully-valid/some-backmatter.xml">
+               <p class="label">
+                  <b>href</b>: <span class="v">reference-sets/catalog-model/xml/fully-valid/some-backmatter.xml</span>
+               </p>
+            </div>
+            <div class="document"
+                 data-href="reference-sets/catalog-model/xml/fully-valid/some-parameters.xml">
+               <p class="label">
+                  <b>href</b>: <span class="v">reference-sets/catalog-model/xml/fully-valid/some-parameters.xml</span>
+               </p>
+            </div>
+            <div class="document"
+                 data-href="reference-sets/catalog-model/xml/schema-invalid/broken-date.xml">
+               <p class="label">
+                  <b>href</b>: <span class="v">reference-sets/catalog-model/xml/schema-invalid/broken-date.xml</span>
+               </p>
+            </div>
+            <div class="document"
+                 data-href="reference-sets/catalog-model/xml/schema-invalid/control-group-mixing.xml">
+               <p class="label">
+                  <b>href</b>: <span class="v">reference-sets/catalog-model/xml/schema-invalid/control-group-mixing.xml</span>
+               </p>
+            </div>
+         </div>
+         <div class="output"
+              data-port="result">
+            <p class="label">
+               <b>port</b>: <span class="v">result</span>
+            </p>
+         </div>
+         <div class="subpipeline"
+              data-PLACES="7"
+              style="display: grid;grid-template-columns: repeat(8,auto); grid-template-rows: repeat(7,auto)">
+            <div class="for-each compound"
+                 data-PLACEMENT="1"
+                 data-AMONG="7"
+                 style="grid-area: 1 / 1 / 1 / 3">
+               <p class="label">for-each</p>
+               <div class="subpipeline"
+                    data-PLACES="3"
+                    style="display: grid;grid-template-columns: repeat(4,auto); grid-template-rows: repeat(3,auto)">
+                  <div class="try compound"
+                       data-PLACEMENT="1"
+                       data-AMONG="3"
+                       style="grid-area: 1 / 1 / 1 / 3">
+                     <p class="label">try</p>
+                     <div class="subpipeline"
+                          data-PLACES="1"
+                          style="display: grid;grid-template-columns: repeat(2,auto); grid-template-rows: repeat(1,auto)">
+                        <div class="group compound"
+                             data-PLACEMENT="1"
+                             data-AMONG="1"
+                             style="grid-area: 1 / 1 / 1 / 2"
+                             data-name="validation">
+                           <p class="label">group</p>
+                           <p class="label">
+                              <b>name</b>: <span class="v">validation</span>
+                           </p>
+                           <div class="subpipeline"
+                                data-PLACES="3"
+                                style="display: grid;grid-template-columns: repeat(4,auto); grid-template-rows: repeat(3,auto)">
+                              <div class="validate-with-xml-schema atomic"
+                                   data-PLACEMENT="1"
+                                   data-AMONG="3"
+                                   style="grid-area: 1 / 1 / 1 / 3"
+                                   data-assert-valid="true">
+                                 <p class="label">validate-with-xml-schema</p>
+                                 <p class="label">
+                                    <b>assert-valid</b>: <span class="v">true</span>
+                                 </p>
+                                 <div class="with-input"
+                                      data-port="schema"
+                                      data-href="{$schema-path}">
+                                    <p class="label">
+                                       <b>port</b>: <span class="v">schema</span>
+                                    </p>
+                                    <p class="label">
+                                       <b>href</b>: <span class="v">{$schema-path}</span>
+                                    </p>
+                                 </div>
+                              </div>
+                              <div class="add-attribute atomic"
+                                   data-PLACEMENT="2"
+                                   data-AMONG="3"
+                                   style="grid-area: 2 / 2 / 2 / 4"
+                                   data-attribute-name="baseURI"
+                                   data-attribute-value="{$base}">
+                                 <p class="label">add-attribute</p>
+                                 <p class="label">
+                                    <b>attribute-name</b>: <span class="v">baseURI</span>
+                                 </p>
+                                 <p class="label">
+                                    <b>attribute-value</b>: <span class="v">{$base}</span>
+                                 </p>
+                              </div>
+                              <div class="add-attribute atomic"
+                                   data-PLACEMENT="3"
+                                   data-AMONG="3"
+                                   style="grid-area: 3 / 3 / 3 / 4"
+                                   data-attribute-name="SCHEMA-VALIDATION-STATUS"
+                                   data-match="/*"
+                                   data-attribute-value="VALID">
+                                 <p class="label">add-attribute</p>
+                                 <p class="label">
+                                    <b>attribute-name</b>: <span class="v">SCHEMA-VALIDATION-STATUS</span>
+                                 </p>
+                                 <p class="label">
+                                    <b>match</b>: <span class="v">/*</span>
+                                 </p>
+                                 <p class="label">
+                                    <b>attribute-value</b>: <span class="v">VALID</span>
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="compound">
+                        <p class="label">catch</p>
+                        <div class="subpipeline"
+                             data-PLACES="1"
+                             style="display: grid;grid-template-columns: repeat(2,auto); grid-template-rows: repeat(1,auto)">
+                           <div class="add-attribute atomic"
+                                data-PLACEMENT="1"
+                                data-AMONG="1"
+                                style="grid-area: 1 / 1 / 1 / 2"
+                                data-attribute-name="SCHEMA-VALIDATION-STATUS"
+                                data-match="/*"
+                                data-attribute-value="INVALID">
+                              <p class="label">add-attribute</p>
+                              <p class="label">
+                                 <b>attribute-name</b>: <span class="v">SCHEMA-VALIDATION-STATUS</span>
+                              </p>
+                              <p class="label">
+                                 <b>match</b>: <span class="v">/*</span>
+                              </p>
+                              <p class="label">
+                                 <b>attribute-value</b>: <span class="v">INVALID</span>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="add-attribute atomic"
+                       data-PLACEMENT="2"
+                       data-AMONG="3"
+                       style="grid-area: 2 / 2 / 2 / 4"
+                       data-attribute-name="VALIDATION-MODE"
+                       data-match="/*"
+                       data-attribute-value="XSD">
+                     <p class="label">add-attribute</p>
+                     <p class="label">
+                        <b>attribute-name</b>: <span class="v">VALIDATION-MODE</span>
+                     </p>
+                     <p class="label">
+                        <b>match</b>: <span class="v">/*</span>
+                     </p>
+                     <p class="label">
+                        <b>attribute-value</b>: <span class="v">XSD</span>
+                     </p>
+                  </div>
+                  <div class="add-attribute atomic"
+                       data-PLACEMENT="3"
+                       data-AMONG="3"
+                       style="grid-area: 3 / 3 / 3 / 4"
+                       data-attribute-name="SCHEMA"
+                       data-attribute-value="{ $schema-path =&gt; resolve-uri() }">
+                     <p class="label">add-attribute</p>
+                     <p class="label">
+                        <b>attribute-name</b>: <span class="v">SCHEMA</span>
+                     </p>
+                     <p class="label">
+                        <b>attribute-value</b>: <span class="v">{ $schema-path =&gt; resolve-uri() }</span>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="wrap-sequence atomic"
+                 data-PLACEMENT="2"
+                 data-AMONG="7"
+                 style="grid-area: 2 / 2 / 2 / 4"
+                 data-name="wrapup"
+                 data-wrapper="ALL-REPORTS">
+               <p class="label">wrap-sequence</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">wrapup</span>
+               </p>
+               <p class="label">
+                  <b>wrapper</b>: <span class="v">ALL-REPORTS</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="3"
+                 data-AMONG="7"
+                 style="grid-area: 3 / 3 / 3 / 5"
+                 data-name="assessment"
+                 data-message="[PROVE-XSD-VALIDATIONS] Assessing ...">
+               <p class="label">xslt</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">assessment</span>
+               </p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/validation-screener.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/validation-screener.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="4"
+                 data-AMONG="7"
+                 style="grid-area: 4 / 4 / 4 / 6"
+                 data-name="summary"
+                 data-message="[PROVE-XSD-VALIDATIONS] Summarizing ...">
+               <p class="label">xslt</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">summary</span>
+               </p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/validation-summarizer.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/validation-summarizer.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="5"
+                 data-AMONG="7"
+                 style="grid-area: 5 / 5 / 5 / 7"
+                 data-name="plaintext">
+               <p class="label">xslt</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">plaintext</span>
+               </p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/summary-plaintext.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/summary-plaintext.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="cast-content-type atomic"
+                 data-PLACEMENT="6"
+                 data-AMONG="7"
+                 style="grid-area: 6 / 6 / 6 / 8"
+                 data-content-type="text/plain">
+               <p class="label">cast-content-type</p>
+               <p class="label">
+                  <b>content-type</b>: <span class="v">text/plain</span>
+               </p>
+            </div>
+            <div class="identity atomic"
+                 data-PLACEMENT="7"
+                 data-AMONG="7"
+                 style="grid-area: 7 / 7 / 7 / 8"
+                 data-name="final">
+               <p class="label">identity</p>
+               <p class="label">
+                  <b>name</b>: <span class="v">final</span>
+               </p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

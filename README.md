@@ -56,8 +56,8 @@ See the [Projects folder](./projects/) for current projects. Projects now planne
     - Find and demonstrate modeling or conformance issues in schemas or processors
     - Conversely, demonstrate conformance of validators and design of models
     - Showcase differences between valid and invalid documents, especially edge cases
-  - [`cprt-import`](projects/cprt-import/) - produce OSCAL from a raw JSON feed (not OSCAL) - demonstrating conversion of NIST CPRT [NIST SP 800-171](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_171_3_0_0/home) into OSCAL
-  - [`FM6-22-import`](projects/FM6-22-import/) - produce OSCAL from PDF via HTML and NIST STS formats - a demonstration showing conversion of a 'high-touch' document into OSCAL, namely US Army Field Manual 6-22 Chapter 4 "Developing Leadership", mapping its structures into STS and OSCAL formats
+  - [`oscal-import/NIST-CPRT`](projects/oscal-import/NIST-CPRT/) - produce OSCAL from a raw JSON feed (not OSCAL) - demonstrating conversion of NIST CPRT [NIST SP 800-171](https://csrc.nist.gov/projects/cprt/catalog#/cprt/framework/version/SP_800_171_3_0_0/home) into OSCAL
+  - [`oscal-import/USArmy_FM6-22`](projects/oscal-import/USArmy_FM6-22/) - produce OSCAL from PDF via HTML and NIST STS formats - a demonstration showing conversion of a 'high-touch' document into OSCAL, namely US Army Field Manual 6-22 Chapter 4 "Developing Leadership", mapping its structures into STS and OSCAL formats
   - `batch-validate` validate OSCAL in batches against schemas and schema emulators
   - `index-oscal` - produce indexes to information encoded in OSCAL  
 
@@ -299,7 +299,7 @@ Or jump to these projects:
 - [XProc Tutorial](tutorial/readme.md) provides step-by-step instructions and play-by-play commentary. 
 - [Schema Field Tests](./schema-field-tests) - Testing whether OSCAL schemas correctly enforce rules over data (with surprises)
 - [OSCAL Profile Resolution](./profile-resolution) - converting an OSCAL profile (representing a baseline or overlay) into its catalog of controls
-- Produce OSCAL from other data formats: from raw JSON source in [CPRT import](projects/CPRT-import/); or from PDF source via HTML and XML conversions[FM6-22 import](projects/FM6-22-import)
+- [Produce OSCAL from other data formats](projects/oscal-import/) including JSON, HTML and PDF (via HTML)
 
 Any XProc3 pipeline can be executed using the script `xp3.sh` (`bash`) or `xp3.bat` (Windows CMD). For example:
 

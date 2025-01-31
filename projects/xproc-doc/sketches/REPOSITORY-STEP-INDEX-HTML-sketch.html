@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="application/xml; charset=UTF-8">
+      <style type="text/css" xml:space="preserve">
+         body { font-family: sans-serif }
+div { border: medium outset grey; padding: 0.37em; margin-top: 0.4em }
+div.subpipeline { border: medium inset steelblue; background: lightsteelblue }
+div *.compound { background-color: whitesmoke; font-size: 95% }
+*.atomic { background-color: gainsboro } 
+p { margin: 0em }
+.v { font-family: monospace; font-size: 90% }
+div.input, div.output { display: inline-block; max-width: fit-content; vertical-align: text-top }
+.label { white-space: nowrap; overflow: visible }
+      </style>
+   </head>
+   <body>
+      <div class="compound"
+           data-version="3.0"
+           data-type="ox:REPOSITORY-STEP-INDEX-HTML"
+           data-name="REPOSITORY-STEP-INDEX-HTML"
+           style="width: min-content">
+         <p class="label">declare-step</p>
+         <p class="label">
+            <b>version</b>: <span class="v">3.0</span>
+         </p>
+         <p class="label">
+            <b>type</b>: <span class="v">ox:REPOSITORY-STEP-INDEX-HTML</span>
+         </p>
+         <p class="label">
+            <b>name</b>: <span class="v">REPOSITORY-STEP-INDEX-HTML</span>
+         </p>
+         <div class="subpipeline"
+              data-PLACES="6"
+              style="display: grid;grid-template-columns: repeat(7,auto); grid-template-rows: repeat(6,auto)">
+            <div class="directory-list atomic"
+                 data-PLACEMENT="1"
+                 data-AMONG="6"
+                 style="grid-area: 1 / 1 / 1 / 3"
+                 data-path=".."
+                 data-max-depth="unbounded"
+                 data-include-filter="\.xpl$"
+                 data-exclude-filter=".*no[-_]test.*">
+               <p class="label">directory-list</p>
+               <p class="label">
+                  <b>path</b>: <span class="v">..</span>
+               </p>
+               <p class="label">
+                  <b>max-depth</b>: <span class="v">unbounded</span>
+               </p>
+               <p class="label">
+                  <b>include-filter</b>: <span class="v">\.xpl$</span>
+               </p>
+               <p class="label">
+                  <b>exclude-filter</b>: <span class="v">.*no[-_]test.*</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="2"
+                 data-AMONG="6"
+                 style="grid-area: 2 / 2 / 2 / 4">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/filter-directory.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/filter-directory.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="3"
+                 data-AMONG="6"
+                 style="grid-area: 3 / 3 / 3 / 5">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/expand-steps.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/expand-steps.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="namespace-delete atomic"
+                 data-PLACEMENT="4"
+                 data-AMONG="6"
+                 style="grid-area: 4 / 4 / 4 / 6"
+                 data-prefixes="p xsl ox xs">
+               <p class="label">namespace-delete</p>
+               <p class="label">
+                  <b>prefixes</b>: <span class="v">p xsl ox xs</span>
+               </p>
+            </div>
+            <div class="xslt atomic"
+                 data-PLACEMENT="5"
+                 data-AMONG="6"
+                 style="grid-area: 5 / 5 / 5 / 7"
+                 data-message="[REPOSITORY-STEP-INDEX-HTML] Producing HTML from XML step definitions">
+               <p class="label">xslt</p>
+               <div class="with-input"
+                    data-port="stylesheet"
+                    data-href="src/repository-survey.xsl">
+                  <p class="label">
+                     <b>port</b>: <span class="v">stylesheet</span>
+                  </p>
+                  <p class="label">
+                     <b>href</b>: <span class="v">src/repository-survey.xsl</span>
+                  </p>
+               </div>
+            </div>
+            <div class="store atomic"
+                 data-PLACEMENT="6"
+                 data-AMONG="6"
+                 style="grid-area: 6 / 6 / 6 / 7"
+                 data-href="out/repository-step-list.html"
+                 data-message="[REPOSITORY-STEP-INDEX-HTML] Storing repository-step-list.html">
+               <p class="label">store</p>
+               <p class="label">
+                  <b>href</b>: <span class="v">out/repository-step-list.html</span>
+               </p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

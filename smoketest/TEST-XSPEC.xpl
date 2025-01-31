@@ -14,7 +14,7 @@
    <!-- /prologue -->
 
    <p:for-each>
-      <p:identity message="[TEST-XSPEC] Testing XSpec by running { base-uri(/) }"/>
+      <p:identity message="[TEST-XSPEC] Testing XSpec by running { base-uri(/) }&#xA;"/>
       <ox:execute-xspec name="execute-xspec"/>
    </p:for-each>
 

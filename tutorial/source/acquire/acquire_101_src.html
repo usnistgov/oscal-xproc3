@@ -106,28 +106,30 @@
       <section>
          <h2>Comments / review</h2>
          <p>Within this project as a whole, and within its subprojects, everything is done with XProc 3.0. The aim is to
-            make it possible to do anything needed with XProc, regarded as a general-purpose 'scripting' solution for
-            the choreography of arbitrarily complex jobs, tasks and workflows. To support arbitrary complexity and
+            make it possible to do anything needed with XProc, regarded as a general-purpose <q>scripting</q> solution
+            for the choreography of arbitrarily complex jobs, tasks and workflows. To support arbitrary complexity and
             scalability together, it must be very simple. This simplicity, with the composability that goes with it, is
             at the center of the argument for XProc.</p>
          <p>You will see this simplicity at the level of <q>top-level</q>
             <em>invocation</em> XProc pipelines designed to serve as entry points. If things are done right, these will
-            be fairly simple, well encapsulated <q>subroutines</q> in potentially elegant arrangements. They in turn may
-            call on libraries of XProc pipelines for well-defined tasks.</p>
-         <p>Effectively (and much more could be said about the processing stack, dependency management and so forth)
-            what this means is that XProc promises the user and the developer (in either or both roles) with focused and
-            concentrated points of control or points of adjustment. In the field – where software is deployed and used –
-            things almost never just <q>drop in</q>. User interfaces, APIs, dependencies and platform quirks: all these
-            constrain what users can do, and even developers are rarely as free as they would like to experiment and
-            explore.</p>
-         <p>What is offered here is therefore <i>both</i> an example of a deployment of a demonstration solution set
-            using an open-source tool (an XProc engine capable of running the pipelines we offer), doing things that are
-            actually or potential useful (with OSCAL data), <i>and</i> a set of pipelines that should in principle work
-            as well in any other tool or software deployment supporting XProc 3.0.</p>
-         <p>But to the extent this imposes a requirement for both abstract and testable conformance (or at any rate for
-            interoperability as a proxy for that), this project only works if things are actually simple enough to pick
-            up, use, learn and adapt. <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at making a simple
-            deployment, easy to emulate but better yet, improve.</p>
+            be found on inspection to contain fairly simple and well encapsulated <q>subroutines</q> in potentially
+            elegant arrangements. They in turn may call on libraries of XProc pipelines for well-defined tasks.</p>
+         <p>More can be said about what this means for the processing stack and why it matters in this context, namely
+            that of a technology that aspires to be both standard (to support platform independence and data security)
+            and extensible (to support future needs). Yet leaving aside all the higher-order requirements, the system
+            must be usable, something we can determine and demonstrate only in the using of it. If XProc can be not only
+            capable but useful, there must be a simple and approachable way to use it. Both easy to run, and to
+            adapt.</p>
+         <p>In the field – where software is deployed and used – things almost never just <q>drop in</q>. User
+            interfaces, APIs, dependencies and platform quirks: all these constrain what users can do, and even
+            developers are rarely as free as they would like to experiment and explore. In order to facilitate learning
+            by doing, what is offered here is therefore <i>both</i> an example deployment of a demonstration solution
+            set using an open-source tool (an XProc engine capable of running the pipelines we offer), doing things that
+            are actually or potentially useful (with OSCAL data), <i>and</i> a set of pipelines that should in principle
+            work as well in any other tool or software deployment supporting XProc 3.0.</p>
+         <p>Yet as stated – like XProc itself – this project only works if things are actually simple enough to pick up,
+            use, learn and adapt. <code>xp3.sh</code> and <code>xp3.bat</code> represent attempts at making a simple
+            deployment, easy to emulate but better yet, to improve.</p>
          <p>Each of these scripts (on its execution platform) enables a user to run, without further configuration, the
                <a href="https://www.xml-project.com/morganaxproc-iiise.html">Morgana XProcIIIse</a> processor on any
             XProc 3.0 pipeline, assuming the appropriate platform for each (<code>bash</code> in the case of the shell
@@ -166,7 +168,7 @@
                like XProc, obscure, cryptic and intimidating if not forbidding.</p>
             <p>This is a pity because (among other reasons) the kind of layered system we will see and build here is not
                endless or infinitely complex. Begin by making yourself comfortable at the command line. See how the
-               pieces fit together by working them.</p>
+               pieces fit together by trying things out.</p>
             <p>Then too, if you have something better, by all means use it. XProc-based systems, when integrated into
                tools or developer editors and environments, can look much nicer than tracebacks in a console window. The
                elegance and power we are trying to cultivate are at a deeper level. First and last, the focus must be on

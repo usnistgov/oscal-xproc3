@@ -9,15 +9,6 @@
 
    <p:input port="source" primary="true">
       <p:document href="lesson-plan.xml"/>
-      <!--<p:inline>
-      <LESSON_PLAN>
-         <Lesson key="setup"/>
-         <Lesson key="unpack"/>            
-         <Lesson key="oscal-convert"/>
-         <Lesson key="oscal-validate"/>
-         <Lesson key="oscal-publish"/>
-      </LESSON_PLAN>
-      </p:inline>-->
    </p:input>
    
    <!--<p:output port="tutorial-singlepage" pipe="@full-body" serialization="map{'indent': true() }" sequence="true"/>-->

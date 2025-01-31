@@ -9,13 +9,13 @@
    <!-- Note: this doesn't run without an available copy of SchXSLT -
         to be set up in ../lib -->
    
-   <p:import href="FILESET_XPROC3_HOUSE-RULES.xpl"/>
+   <p:import href="cicd-fileset_XProc3_HouseRules.xpl"/>
    
    <p:output port="result" serialization="map{'indent' : true()}"/>
    
    <p:variable name="schematron-path" select="'xproc3-house-rules.sch'"/>
    
-   <ox:FILESET_XPROC3_HOUSE-RULES name="test-set"/>
+   <ox:cicd-fileset_XProc3_HouseRules name="test-set"/>
    
    <p:for-each>
       <p:with-input pipe="xproc-files@test-set"/>

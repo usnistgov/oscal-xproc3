@@ -5,19 +5,24 @@
    type="ox:GRAB-SAXON"
    name="GRAB-SAXON">
 
+   <!-- start prologue -->
+   
+      <!-- Pipeline runs standalone without external bindings or options. -->
+   
    <!-- /end prologue -->
+   
    <!-- start subpipeline -->
    
    <p:variable name="download-path" select="'https://www.saxonica.com/download'"/>
-   <!--<p:variable name="download-path" select="'.'"/>-->
-   <p:variable name="archive-basename"  select="''"/>
+   
    <p:variable name="jarfile" select="'saxon-he-12.5.jar'"/>
    
    <p:variable name="zip-name"  select="'SaxonHE12-5J.zip'"/>
    
+   <!-- => is the XPath 'arrow operator' https://www.w3.org/TR/xpath-31/#id-arrow-operator -->
    <p:variable name="target-dir" select="'MorganaXProc-IIIse-1.4/MorganaXProc-IIIse_lib' => resolve-uri()"/>
    
-   <p:variable name="prefix" select="'[' || 'GRAB-SAXON' || ']'"/>
+   <p:variable name="prefix" select="'[GRAB-SAXON]'"/>
    
    <!-- It beginneth -->
 

@@ -23,7 +23,7 @@
    
    <p:variable name="libdir" select="resolve-uri('../lib', static-base-uri())"/>
 
-   <p:variable name="prefix" select="'[' || 'GRAB-XSPEC' || ']'"/>
+   <p:variable name="prefix" select="'[GRAB-XSPEC]'"/>
    
    <!-- It beginneth -->
 

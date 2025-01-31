@@ -62,7 +62,7 @@
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6"/>
       <sch:rule context="html:b | html:i | html:code | html:a | html:q | html:em"/>
       <sch:rule context="html:table | html:thead | html:tbody | html:tr | html:th | html:td"/>
-      <sch:rule context="html:body/html:img | html:section/html:img"/>
+      <sch:rule context="html:body/html:img | html:section/html:img | html:div"/>
       <sch:rule context="*">
          <sch:report test="true()">Element <sch:name/> is not expected in this HTML profile.</sch:report>
       </sch:rule>
@@ -85,14 +85,14 @@
    
    <sch:pattern>
       <sch:rule context="html:section/* | html:body/*">
-         <sch:assert test="exists(self::html:section) or empty(preceding-sibling::html:section)">Element not expected following a section</sch:assert>
+         <sch:assert test="exists(self::html:section|self::html:div) or empty(preceding-sibling::html:section)">Element not expected following a section</sch:assert>
          <sch:report test="preceding-sibling::node()[1]/self::text()[matches(.,'\S')] => exists()" role="warning">Look there ...</sch:report>
       </sch:rule>
    </sch:pattern>
    
    <sch:pattern>
-      <sch:rule context="html:section | html:body">
-         <sch:assert test="exists(parent::html:html|parent::html:body|parent::html:section)"><sch:name/> found out of place</sch:assert>
+      <sch:rule context="html:section">
+         <sch:assert test="exists(parent::html:body|parent::html:section|parent::html:div)"><sch:name/> found out of place</sch:assert>
       </sch:rule>
       <sch:rule context="html:h1 | html:h2 | html:h3 | html:h4 | html:h5 | html:h6">
          <sch:let name="deep" value="count(ancestor::html:body | ancestor::html:section)"/>
@@ -115,7 +115,7 @@
    
    <sch:pattern>
       <sch:rule context="html:p">
-         <sch:assert test="matches(.,'[!?\.:\)]$')">Paragraph should be punctuated</sch:assert>
+         <sch:assert test="matches(.,'[!?\.:\)…]$')">Paragraph should be punctuated</sch:assert>
       </sch:rule>
       
       <sch:rule context="html:a">        

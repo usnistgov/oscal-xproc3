@@ -10,6 +10,8 @@ The underlying processors, [Morgana XProc IIIse](https://www.xml-project.com/mor
 
 XProc conformance testing is [documented for Morgana on its site](https://test-suite.xproc.org/implementation.html), using the [public XProc 3.0 test suite](https://test-suite.xproc.org/).
 
+XML Calabash also [publishes its test results](https://xmlcalabash.com/test-report/current/) against the public test suite as well as its own.
+
 ## Testing the runtime
 
 Java is a requirement. For setup instructions, see the [README.md](README.md), the [more detailed setup notes](setup-notes.md), or try the bash script, `./setup.sh`.
@@ -54,12 +56,13 @@ In time there may be Schematrons or other tests for XSpecs and other work.
 
 ## Testing under CI/CD
 
-Currently we run no tests under CI/CD but this is also due to change.
+See the [GitHub Actions configuration](.github/workflows/test.yml) to see which pipelines including testing pipelines are run.
+
+Some unit tests are now run under CI/CD, but minimally.
+
+Files to be tested using Schematron or XSpec executable are listed in the FILESET pipelines:
+
+- [XProc 'house rules' Schematron](testing/cicd-fileset_XProc3_HouseRules.xpl)
+- [XSpec unit testing for XSLT or Schematron](testing/cicd-fileset_XSpec.xpl)
 
 Candidate tests include the smoke test and XSpec unit tests just described. The smoke test itself need not be run under CI/CD - until we start running XSpec or other automation under XProc 3.
-
-Additional ideas:
-
-- Schematron the XSpecs for style/usage
-  - confirm that @name and @type correspond to the file name   
-
