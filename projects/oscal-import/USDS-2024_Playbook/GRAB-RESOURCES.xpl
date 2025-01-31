@@ -8,24 +8,14 @@
 
    <!-- Purpose: update local copies of some OSCAL resources from its release repository -->
    
-   <p:variable name="download-path" select="'https://github.com/usnistgov/OSCAL/releases/download/v1.1.2'"/>
-   
-   <!-- A $prefix is used to tag messages, expected to match the process type -->
-   <p:variable name="prefix" select="'[' || 'GRAB-RESOURCES' || ']'"/>
-   
-   <p:for-each message="{$prefix} Saving resources in ./lib ...">
+   <p:for-each message="[GRAB-RESOURCES] Saving resources in ./lib ...">
       <!-- iterating over each 'resource' as a discrete document node -->
       <p:with-input>
          <p:document href="{$download-path}/oscal_catalog_schema.xsd"/>
       </p:with-input>
       <p:variable name="filename" select="p:document-property(.,'base-uri') ! replace(.,'.*/','')"/>
       
-      <!-- No exception handling since a failed load often produces a result
-           making it difficult to anticipate what a failure looks like - -->
-      <!-- NB - A Schematron error comes back as soon as this is out of line with /*/@type i.e. the file name
-           - starting the @message with { $prefix } silences the error, but please reset $prefix -->
-      
-      <p:store message="{$prefix} ... saving { $filename }" href="lib/{ $filename }"/>
+      <p:store message="[GRAB-RESOURCES] ... saving { $filename }" href="lib/{ $filename }"/>
    </p:for-each>
    
 </p:declare-step>

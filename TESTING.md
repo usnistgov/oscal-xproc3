@@ -62,7 +62,7 @@ Some unit tests are now run under CI/CD, but minimally.
 
 Files to be tested using Schematron or XSpec executable are listed in the FILESET pipelines:
 
-- [XProc 'house rules' Schematron](testing/FILESET_XPROC3_HOUSE-RULES.xpl)
-- [XSpec unit testing for XSLT or Schematron](testing/FILESET_XSPEC.xpl)
+- [XProc 'house rules' Schematron](testing/cicd-fileset_XProc3_HouseRules.xpl)
+- [XSpec unit testing for XSLT or Schematron](testing/cicd-fileset_XSpec.xpl)
 
 Candidate tests include the smoke test and XSpec unit tests just described. The smoke test itself need not be run under CI/CD - until we start running XSpec or other automation under XProc 3.
